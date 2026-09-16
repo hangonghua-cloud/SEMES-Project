@@ -1,0 +1,19 @@
+﻿{
+  "name": "Siemens.SimaticIT.MaterialApp.ProductDispatch",
+  "type": "standard",
+  "title": "Siemens.SimaticIT.MaterialApp.ProductDispatch.Title",
+  "header": "",
+  "icon": "fa-folder",
+  "functionalBlock": "Siemens.SimaticIT.MaterialApp",
+  "dependencies": [],
+  "states": [
+    {
+      "id": "home.Siemens_SimaticIT_MaterialApp_ProductDispatch_ProductDispatch",
+      "title": "Siemens.SimaticIT.MaterialApp.ProductDispatch.Title",
+      "header": "",
+      "securable": true,
+      "roles": []
+    }
+  ],
+  "manifestVersion": "01.01.00"
+}

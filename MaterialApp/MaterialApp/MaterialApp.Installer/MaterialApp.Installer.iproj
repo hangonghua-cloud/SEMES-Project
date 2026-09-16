@@ -1,0 +1,91 @@
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>193caf6c-aa30-4f0e-afa5-ad68e5b3a0a1</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Siemens.SimaticIT.MaterialApp.Installer</RootNamespace>
+    <AssemblyName>Siemens.SimaticIT.MaterialApp.Installer</AssemblyName>
+    <Name>MaterialApp.Installer</Name>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FunctionalBlockType>Project</FunctionalBlockType>
+    <FunctionalBlockVersion>01.00.00</FunctionalBlockVersion>
+    <FunctionalBlockName>MaterialApp</FunctionalBlockName>
+    <FunctionalBlockPrefix>Siemens.SimaticIT</FunctionalBlockPrefix>
+    <FunctionalBlockModels>Siemens.SimaticIT.MaterialApp.MaterialApp.MRPOMModel</FunctionalBlockModels>
+    <FunctionalBlockDescription>
+    </FunctionalBlockDescription>
+    <SitPlatformVersion>4.1</SitPlatformVersion>
+    <AutoDeployPackage>True</AutoDeployPackage>
+    <CanBeExtended>False</CanBeExtended>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU'  ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Release\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <AppName>MaterialApp</AppName>
+    <CertificateName />
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="Config" />
+    <Folder Include="ExternalDependencies" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Config\Siemens.SimaticIT.MaterialApp.Dbinit.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Config\Siemens.SimaticIT.MaterialApp.References.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Config\Siemens.SimaticIT.MaterialApp.ApplicationLog.en-US.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MaterialApp.CommandHandler\MaterialApp.CommandHandler.csproj">
+      <Name>MaterialApp.CommandHandler</Name>
+      <Project>{a97771f1-bf5f-4589-89c1-5e747cd90566}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\MaterialApp.EventHandler\MaterialApp.EventHandler.csproj">
+      <Name>MaterialApp.EventHandler</Name>
+      <Project>{ccbcba49-e23a-4ee4-9ce2-80d8e54868dc}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\MaterialApp.MRPOMModel\MaterialApp.MRPOMModel.pmproj">
+      <Name>MaterialApp.MRPOMModel</Name>
+      <Project>{adac3399-b683-495a-a6ee-f30acdd4b6d7}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\MaterialApp.ReadingFunctionHandler\MaterialApp.ReadingFunctionHandler.csproj">
+      <Name>MaterialApp.ReadingFunctionHandler</Name>
+      <Project>{b241053d-48c2-465f-9c2d-8223b418509f}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\MaterialApp.UserInterface\MaterialApp.UserInterface.csproj">
+      <Name>MaterialApp.UserInterface</Name>
+      <Project>{8dae7329-9ab0-4a29-baaa-5d0eb51eed3c}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(SITUnifiedVSToolingPlatformBin)\Siemens.SimaticIt.Build.Installer.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

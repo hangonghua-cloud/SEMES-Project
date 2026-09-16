@@ -1,0 +1,19 @@
+﻿{
+  "name": "Siemens.SimaticIT.ProductionApp.PMOperationPalletNum",
+  "type": "standard",
+  "title": "Siemens.SimaticIT.ProductionApp.PMOperationPalletNum.Title",
+  "header": "",
+  "icon": "fa-folder",
+  "functionalBlock": "Siemens.SimaticIT.ProductionApp",
+  "dependencies": [],
+  "states": [
+    {
+      "id": "home.Siemens_SimaticIT_ProductionApp_PMOperationPalletNum_PMOperationPalletNum",
+      "title": "Siemens.SimaticIT.ProductionApp.PMOperationPalletNum.Title",
+      "header": "",
+      "securable": true,
+      "roles": []
+    }
+  ],
+  "manifestVersion": "01.01.00"
+}

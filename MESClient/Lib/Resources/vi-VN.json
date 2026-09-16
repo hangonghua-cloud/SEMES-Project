@@ -1,0 +1,681 @@
+﻿{
+  //Ổ chung
+  "Common": {
+    "Error": "Thao tác thất bại, lỗi máy chủ !",
+    "ErrorWithOther": "Thao tác thất bại，{0}",
+    "Success": "Thao tác thành công",
+    "SuccessWithOther": "Thao tác thành công，{0}Số đơn hàng{1}Mã{2}Vật liệu",
+    "SelectAll": "", //Chọn tất cả
+    "DropDownAll": "-Hãy lựa chọn-",
+    "IsDelete": "Xác nhận xóa ?",
+    "DeleteTip": "Gợi ý xóa",
+    "LoginLeftMsg": "Người đăng nhập：{0}  Thời gian đăng nhập：{1}",
+    "TipMsg": "Thông tin gợi ý",
+    "WarningMsg": "Thông tin cảnh báo",
+    "ErrorMsg": "Chi tiết lỗi",
+    "Confirm": "Xác nhận"
+  },
+  //所在地
+  "Location": {
+    "CN": "Nhà máy Trung Quốc(中)",
+    "VN": "Nhà máy Việt Nam(越)",
+    "TH": "Nhà máy Thái Lan(泰)"
+  },
+  //Cửa sổ chính
+  "Frm_Main": {
+    "Title": "HUALI MES - Hệ thống khách hàng",
+    "Menu": {
+      "tsm_BaseDataManage": "Dữ liệu cơ sở",
+      "tsm_PTeam": "Tổ sản xuất",
+      "tsm_ProductionManage": "Quản lý sản xuất",
+      "tsm_SystemManage": "Quản lý hệ thống"
+    }
+  },
+  //Trang đăng nhập
+  "Frm_Login": {
+    "Title": "MES - Hệ thống khách hàng",
+    "Button": {
+      "btn_exit": "Thoát ra",
+      "btn_ok": "Đăng nhập"
+    },
+    "Label": {
+      "label3": "HUALI MES - Hệ thống khách hàng",
+      "label1": "Tài khoản người dùng：",
+      "label2": "Mật khẩu：",
+      "lbl_Location": "Nhà máy："
+    }
+  },
+  //Phân trang người dùng
+  "PagerControl": {
+    "Title": "",
+    "FirstTip": "Trang đầu",
+    "LastTip": "Trang cuối",
+    "GoError": "Hãy điền chính xác số trang !",
+    "Button": {
+      "btnFirst": "Trang đầu",
+      "btnPre": "Trang trước",
+      "btnNext": "Trang sau",
+      "btnLast": "Trang cuối"
+    },
+    "Label": {
+      "label1": "Số dòng mỗi trang",
+      "lblInfo": "Tổng {0} Số dòng  Tổng {1} Trang  Hiện tại ở {2} Trang"
+    }
+  },
+  //Giao diện thay đổi mật khẩu
+  "Frm_UpdatePassword": {
+    "Title": "Thay đổi mật khẩu",
+    "Button": {
+      "btnSave": "Lưu"
+    },
+    "Label": {
+      "label1": "Mật khẩu cũ",
+      "label2": "Mật khẩu mới",
+      "label3": "Xác nhận mật khẩu mởi"
+    },
+    "Table": {},
+    "Other": {}
+  },
+  //In thẻ lưu trình
+  "Frm_TransferCard": {
+    "Title": "In thẻ lưu trình",
+    "MessageTips_1": "Hãy chọn công đơn phát hành !",
+    "MessageTips_2": "Thẻ lưu trình【{0}】không in được !",
+    "MessageTips_3": "Hãy chọn một thẻ lưu trình !",
+    "MessageTips_4": "Hãy chọn thẻ lưu trình cần in !",
+    "MessageTips_5": "Thẻ lưu trình không tồn tại !",
+    "MessageTips_6": "Không có thẻ lưu trình để in !",
+    "MessageTips_7": "Hãy chọn xưởng !",
+    "Button": {
+      "btnSearch": "Tìm kiếm",
+      "btnNew": "Thẻ lưu trình mới",
+      "btnPrint": "In thẻ lưu trình"
+    },
+    "Label": {
+      "label1": "Xưởng",
+      "label6": "Số đơn hàng",
+      "label3": "Số PO",
+      "label4": "Loại công đơn",
+      "label5": "Trạng thái sản xuất",
+      "label2": "Kiểu màng hoa văn",
+      "label8": "Thông số kỹ thuật",
+      "label7": "Số Container",
+      "label10": "Công đơn",
+      "label9": "Quét thẻ lưu trình"
+    },
+    "Table": {
+      "dgvm": {
+        "Id": "Id",
+        "FactoryCode": "Mã xưởng",
+        "FactoryName": "Xưởng",
+        "Column12": "Đơn hàng sản xuất",
+        "ExeWorkOrderType": "Mã công đơn phát hành",
+        "ExeWorkOrderTypeName": "Loại công đơn",
+        "ExeWorkOrder": "Phát hành công đơn",
+        "ProductOrder": "Số đơn hàng",
+        "CustomerPO": "Số PO",
+        "Status": "Mã trạng thái",
+        "StatusName": "Trạng thái sản xuất",
+        "MaterialName": "Kiểu màng hoa văn",
+        "MMCJ": "Nhà sản xuất màng hoa văn",
+        "Spec": "Thông số kỹ thuật",
+        "BWXH": "Dập nổi",
+        "PiecesQty": "Tổng số tấm",
+        "ContainerNO": "Số Container",
+        "UV": "UV",
+        "KCKX": "Loại khóa",
+        "SmallClass": "Quy cách",
+        "PrintedPalletQty": "Đã in số pallet",
+        "PSheetsQty": "Sản xuất số lượng lớn",
+        "CreateTime": "Thời gian xuống đơn",
+        "FinishTime": "Thời gian hoàn thành"
+      },
+      "dgvd": {
+        "Column1": "Id",
+        "Column8": "Mã loại thẻ lưu trình",
+        "Column2": "Loại thẻ lưu trình",
+        "CardCode": "Mã thẻ lưu trình",
+        "Column4": "Tên thẻ lưu trình",
+        "SheetQty1": "Số tấm quy định trên 1 pallet",
+        "Column9": "Mã trạng thái thẻ lưu trình",
+        "Column6": "Trạng thái thẻ lưu trình",
+        "PrintStatus2": "Mã trạng thái in",
+        "Column7": "Trạng thái in",
+        "ProcessName1": "Đang trong công đoạn",
+        "StockQty1": "Số lượng tồn kho",
+        "BusinessTypeName1": "Loại nghiệp vụ",
+        "RePrint": "In lại"
+      }
+    },
+    "Other": {
+      "groupBox3": "Phát hành công đơn",
+      "groupBox2": "Thông tin thẻ lưu trình"
+    }
+  },
+  //Giao diện thẻ lưu trình mới
+  "Frm_TransferCardAdd": {
+    "Title": "Thẻ lưu trình mới",
+    "MessageTips_1": "Tạo mới thành công",
+    "MessageTips_2": "Tạo mới thất bại",
+    "MessageTips_3": "Hãy chọn loại hình thẻ lưu trình",
+    "MessageTips_4": "Hãy chọn một loại mới",
+    "MessageTips_5": "Hãy điền số lượng thẻ mới",
+    "MessageTips_6": "Số lượng không chính xác",
+    "MessageTips_7": "Hãy chọn thẻ lưu trình",
+    "MessageTips_8": "Hãy điền số tấm trên 1 pallet",
+    "MessageTips_9": "Số tấm trên 1 pallet không chính xác",
+    "Button": {
+      "btnSave": "Xác nhận tạo mới"
+    },
+    "Label": {
+      "label19": "Số đơn hàng",
+      "label20": "Số công đơn",
+      "label1": "Phát hành số công đơn",
+      "label7": "Mô hình khách hàng",
+      "label8": "Kiểu màng hoa văn",
+      "label3": "Số Container",
+      "label9": "Dập nổi",
+      "label5": "Thông số kỹ thuật",
+      "label14": "Thông số kỹ thuật đùn",
+      "label15": "Loại khóa",
+      "label10": "UV",
+      "label16": "Thêm loại hình",
+      "label11": "Nhà sản xuất màng hoa văn",
+      "label18": "Số tấm tạo mới",
+      "label12": "Loại thẻ lưu trình",
+      "lblPerPalletPieceQty": "Số tấm trên 1 pallet",
+      "label2": "Thẻ lưu trình còn hạn"
+    }
+  },
+  //Giao diện tách thẻ lưu trình
+  "Frm_TransferCardSplit": {
+    "Title": "Thẻ lưu trình mới",
+    "MessageTips_1": "Hãy nhập số pallet cần phân tách",
+    "MessageTips_2": "Cách thức phân tách số pallet không chính xác",
+    "MessageTips_3": "Số pallet phân tách không thể lớn hơn 7",
+    "MessageTips_4": "Không có bản ghi phân tách, không thể lưu",
+    "MessageTips_5": "Phân tách thành công",
+    "MessageTips_6": "Phân tách thất bại",
+    "Button": {
+      "btnSave": "Xác nhận phân tách",
+      "btnAdd": "Thêm",
+      "btnRemove": "Xóa"
+    },
+    "Label": {
+      "label1": "Số đơn hàng",
+      "label3": "Số pallet thẻ lưu trình",
+      "label2": "Số Container",
+      "label4": "Số pallet phân tách"
+    },
+    "Table": {
+      "dgvSplit": {
+        "CardCode": "Mã thẻ lưu trình",
+        "CardName": "Tên thẻ lưu trình"
+      }
+    },
+    "Other": {
+      "groupBox2": "Khu vực thao tác"
+    }
+  },
+  //Phát hành công đơn
+  "Frm_WorkOrderExcute": {
+    "Title": "Thực hiện lệnh công đơn",
+    "Button": {
+      "btnSearch": "Tìm kiếm",
+      "btnUp": "Lô nguyên liệu trên máy",
+      "btnStart": "Bắt đầu đùn",
+      "btnCheck": "Kiểm tra quy trình",
+      "btnBG": "Báo cáo đùn"
+    },
+    "Label": {
+      "label1": "Xưởng",
+      "label2": "Công đoạn",
+      "label3": "Tên máy",
+      "label4": "Trạng thái sản xuất"
+    },
+    "Table": {
+      "dgv1": {
+        "Id": "Id",
+        "ProductOrder": "Đơn hàng sản xuất",
+        "FactoryCode": "Mã xưởng",
+        "FactoryName": "Xưởng",
+        "ProcessCode": "Mã công đoạn",
+        "ProcessName": "Công đoạn",
+        "EquipCode": "Mã máy",
+        "EquipName": "Tên máy",
+        "CreateTime": "Thời gian gửi",
+        "PlanProductTime": "Kế hoạch, thời gian sản xuất",
+        "WorkOrderTypeName": "Loại công đơn",
+        "ExeWorkOrder": "Phát hành công đơn",
+        "SWStatus": "Mã trạng thái sản xuất",
+        "SWStatusName": "Trạng thái sản xuất",
+        "MMXH": "Kiểu màng hoa văn",
+        "MMCJ": "Nhà sản xuất màng hoa văn",
+        "Spec": "Thông số kỹ thuật",
+        "BWXH": "Dập nổi",
+        "PiecesQty": "Tổng số tấm",
+        "ContainerNO": "Số Container",
+        "UV": "UV",
+        "KCKX": "Loại khóa",
+        "SmallClass": "Quy cách",
+        "SheetsQty": "Số tấm sản xuất",
+        "PalletQty": "Số pallet",
+        "BGQty": "Số lượng báo cáo"
+      }
+    },
+    "Other": {
+      "groupBox1": "",
+      "groupBox2": ""
+    }
+  },
+  //Giao diện báo cáo đóng gói
+  "Frm_PackingBG": {
+    "Title": "Quản lý báo cáo đóng gói",
+    "MessageTips_1": "Hãy chọn xưởng !",
+    "MessageTips_2": "Hãy chọn mã nhãn hiệu cần in !",
+    "MessageTips_3": "Hãy chọn thông tin nhãn hiệu cần in !",
+    "MessageTips_4": "Không tìm thấy mẫu in",
+    "Button": {
+      "btnSearch": "Tìm kiếm",
+      "btnMarkCodePrint": "In mã nhãn hiệu",
+      "btnPrint": "In nhãn hiệu"
+    },
+    "Label": {
+      "label1": "Xưởng",
+      "label6": "Số đơn hàng",
+      "label3": "Số PO",
+      "label5": "Trạng thái đóng gói",
+      "label4": "Model khách hàng",
+      "label2": "Kiểu màng hoa văn",
+      "label10": "Thời gian báo cáo",
+      "label11": "Đến",
+      "label8": "Thông số kỹ thuật",
+      "label7": "Số Container",
+      "label9": "Quy cách đóng thùng",
+      "label12": "Báo cáo máy",
+      "label13": "Trạng thái in",
+      "label14": "Thẻ lưu trình"
+    },
+    "Table": {
+      "dgvm": {
+        "Id": "Id",
+        "ProductOrder": "Số đơn hàng",
+        "FactoryCode": "Mã xưởng",
+        "FactoryName": "Xưởng",
+        "WorkOrder": "Số công đơn",
+        "CustomerPO": "Số PO",
+        "ContainerNO": "Số Container",
+        "PackingStatus": "Trạng thái đóng gói",
+        "MaterialCode": "Model khách hàng",
+        "MaterialName": "Kiểu màng hoa văn",
+        "MMXH": "Nguyên vật liệu màng hoa văn",
+        "Spec": "Thông số kỹ thuật",
+        "PaperBox": "Quy cách đóng thùng",
+        "DeliveryPieces": "Xuất hàng - Số tấm",
+        "PerPalletPieceQty": "Số tấm trên 1 pallet",
+        "PerPalletBoxQty": "Số thùng trên 1 pallet",
+        "DeliveryPallet": "Xuất hàng - Số pallet",
+        "DeliveryWholePallet": "Tổng số pallet trên 1 container",
+        "DeliveryStartPallet": "Mã số pallet đầu - cuối trên 1 container",
+        "LoadingDate": "Ngày yêu cầu xếp hàng vào container",
+        "WorkQty": "Đã báo cáo số lượng",
+        "PrintNum": "Đã in số pallet",
+        "AvoidProduce": "Tiêu chí tránh sản xuất"
+      },
+      "dgvd1": {
+        "Id": "Id",
+        "PackingRecordId1": "PackingRecordId",
+        "ProductOrder1": "Số đơn hàng",
+        "ContainerNO1": "Số Container",
+        "CustomerPO1": "Số PO",
+        "CardCode1": "Mã thẻ lưu trình",
+        "CardType1": "Mã loại thẻ lưu trình",
+        "CardTypeName1": "Loại thẻ lưu trình",
+        "CardName1": "Tên thẻ lưu trình",
+        "MachineCode1": "Tên máy",
+        "Qty1": "Số lượng báo cáo",
+        "CreateTime1": "Thời gian báo cáo",
+        "CreatorName1": "Người báo cáo"
+      },
+      "dgvd2": {
+        "Id": "Id",
+        "PackingRecordId2": "PackingRecordId",
+        "ProductOrder2": "Số đơn hàng",
+        "WorkOrder2": "Số công đơn",
+        "CustomerPO2": "Số PO",
+        "Customer2": "Khách hàng",
+        "MaterialCode2": "Model khách hàng",
+        "Spec2": "Thông số kỹ thuật",
+        "Quantity2": "Số lượng",
+        "PackTransferCode2": "Mã nhãn hiệu",
+        "Mark2": "Tên nhãn hiệu",
+        "PrintStatus2": "Mã trạng thái in",
+        "PrintStatusName2": "Trạng thái in"
+      }
+    },
+    "Other": {
+      "groupBox3": "Thông tin công đơn",
+      "tabPage1": "Nhật ký báo cáo đóng gói",
+      "tabPage2": "Thông tin nhãn hiệu"
+    }
+  },
+  //包装打印选择框
+  "FormSelect": {
+    "Title": "Chọn bản mẫu",
+    "Button": {
+      "btnCancel": "Huỷ bỏ",
+      "btnMarkPrint": "In"
+    },
+    "Label": {
+      "label3": "Ngày tháng",
+      "label2": "Lưu trình dán keo",
+      "label1": "In bản mẫu"
+    },
+    "Table": {},
+    "Other": {}
+  },
+  //Giao diện tổ sản xuất
+  "Frm_PTeam": {
+    "Title": "In tổ sản xuất",
+    "MessageTips_1": "Hãy chọn hàng dữ liệu cần in !",
+    "MessageTips_2": "Hãy chọn xưởng !",
+    "Button": {
+      "btnSearch": "Tìm kiếm",
+      "btnPrint": "In"
+    },
+    "Label": {
+      "label3": "Xưởng",
+      "label1": "Mã số tổ",
+      "label2": "Tên tổ"
+    },
+    "Table": {
+      "dgvm": {
+        "FactoryName": "Tên xưởng",
+        "ProcessCode": "Mã công đoạn",
+        "ProcessName": "Tên công đoạn",
+        "PTeamCode": "Mã tổ sản xuất",
+        "PTeamName": "Tên tổ sản xuất"
+      }
+    },
+    "Other": {
+      "groupBox1": "Điều kiện tìm kiếm",
+      "groupBox2": "Danh sách tổ"
+    }
+  },
+  //Báo cáo bán thành phẩm trên máy
+  "RawMaterialBatchUp": {
+    "Title": "Báo cáo bán thành phẩm trên máy",
+    "MessageTips_1": "Tổng cộng số lượng báo cáo",
+    "MessageTips_2": "Vật liệu【{0}】không tồn tại !",
+    "MessageTips_3": "Mã máy không được để trống !",
+    "MessageTips_4": "Phụ kiện quan trọng không thể để trống !",
+    "MessageTips_5": "Mã vật liệu",
+    "MessageTips_6": "Số thẻ lưu trình",
+    "MessageTips_7": "Đã báo cáo số lượng",
+    "MessageTips_8": "Công đoạn không được để trống, hãy quét lại mã máy !",
+    "MessageTips_9": "Hãy chọn hạng mục NG",
+    "MessageTips_10": "Hãy điền số lượng NG",
+    "MessageTips_11": "Số lượng NG không đúng",
+    "MessageTips_12": "Đã tồn tại, không được phép nhập dữ liệu trùng lặp",
+    "MessageTips_13": "Thẻ lưu trình không được để trống",
+    "MessageTips_14": "Thông tin thẻ lưu trình không đồng nhất, hãy quét lại !",
+    "MessageTips_15": "Số cuộn không được để trống",
+    "MessageTips_16": "Mã máy không được để trống !",
+    "MessageTips_17": "Tổ sản xuất không được để trống",
+    "MessageTips_18": "Công đơn hoặc Xưởng không thể để trống, hãy quét lại thẻ lưu trình",
+    "MessageTips_19": "Hãy chọn mục dữ liệu !",
+    "MessageTips_20": "Không tìm thấy mẫu nhãn hiệu",
+    "MessageTips_21": "Tổ nhân viên không được để trống",
+    "MessageTips_22": "Mã nhân viên quét không thể để trống !",
+    "MessageTips_23": "Hãy chọn chức vụ",
+    "MessageTips_24": "Hãy chọn nhân viên cần xóa",
+    "Button": {
+      "btnTeamAdd": "Thêm vào",
+      "btnTeamDelete": "Xóa",
+      "btnSave": "Liên kết",
+      "btnCancelBind": "Xóa liên kết",
+      "btnEdit": "Chỉnh sửa",
+      "btnPrintMark": "In nhãn hiệu",
+      "btnPrint2": "In",
+      "button1": "Báo cáo sản xuất + In mã vạch cuộn đơn",
+      "btnSCBG": "Báo cáo sản xuất",
+      "btnSave2": "Báo cáo sản xuất + In mã vạch cuộn đơn",
+      "btbDelete2": "Xóa",
+      "btnSelectBadItem": "Chọn",
+      "btnAdd2": "Thêm vào"
+    },
+    "Label": {
+      "label21": "Chức vụ",
+      "label20": "Nhân viên",
+      "label19": "Tổ",
+      "label5": "Lô nguyên vật liệu",
+      "label4": "Mã vật liệu",
+      "label3": "Tên vật liệu",
+      "label2": "Phụ kiện chính",
+      "label1": "Máy sản xuất",
+      "lblProcessCode": "ProcessCode",
+      "lblFactoryCode": "FactoryCode",
+      "lblBadItemCode": "BadItemCode",
+      "lblHasBGQty": "0",
+      "lblBatchNo": "BatchNo",
+      "lblSmallClassName": "SmallClassName",
+      "lblSmallClass": "SmallClass",
+      "lblMaterialName": "MaterialName",
+      "lblMaterialCode": "MaterialCode",
+      "lblTransferName": "TransferName",
+      "lblTransferCode": "TransferCode",
+      "lblWorkOrder": "WorkOrder",
+      "lblOwnProductId": "OwnProductId",
+      "lblTotalBGQty": "Tổng cộng số lượng báo cáo：",
+      "label15": "Danh sách thông tin mã vạch cuộn đơn",
+      "label18": "Số cuộn",
+      "label6": "Thẻ lưu trình",
+      "label16": "Nhân viên kiểm tra",
+      "label11": "Số lượng NG",
+      "label17": "Số mét",
+      "label7": "Số lượng báo cáo",
+      "label14": "Số lượng NG",
+      "label13": "Hạng mục NG",
+      "label12": "Thông tin nhân viên",
+      "label8": "Tên máy",
+      "label10": "Thông tin đơn hàng",
+      "label9": "Tổ sản xuất"
+    },
+    "Table": {
+      "dgv2": {
+        "dataGridViewTextBoxColumn17": "Id",
+        "dataGridViewTextBoxColumn18": "Tên chức vụ",
+        "dataGridViewTextBoxColumn19": "Mã nhân viên",
+        "UserName": "Tên nhân viên"
+      },
+      "dgv1": {
+        "Id": "Id",
+        "MaterialName": "Tên vật liệu",
+        "BatchNo": "Số lô"
+      },
+      "dgv4": {
+        "Column4": "Số mã vạch cuộn đơn",
+        "Column5": "Số lượng báo cáo",
+        "Column6": "Đơn vị",
+        "Column7": "Nhân viên sản xuất",
+        "Column8": "Nhân viên kiểm tra",
+        "Column9": "Thời gian sản xuất",
+        "Column10": "Mã vật liệu"
+      },
+      "dgv3": {
+        "BadItemCode": "Mã hạng mục NG",
+        "BadItemName": "Hạng mục NG",
+        "BadQty": "Số lượng NG"
+      }
+    },
+    "Other": {
+      "splitContainer1": "",
+      "groupBox1": "Danh sách nhân viên tổ sản xuất",
+      "panel1": ""
+    }
+  },
+  //Nhật ký in
+  "Frm_PrintLog": {
+    "Title": "Nhật ký in",
+    "MessageTips_1": "Thẻ lưu trình",
+    "MessageTips_2": "Nhãn hiệu",
+    "MessageTips_3": "Hãy chọn xưởng !",
+    "Button": { "btnSearch": "Tìm kiếm" },
+    "Label": {
+      "label5": "Xưởng",
+      "label4": "Người thao tác",
+      "label2": "Mã",
+      "label11": "Đến",
+      "label10": "Thời gian in",
+      "label1": "Loại nhật ký",
+      "label3": ""
+    },
+    "Table": {
+      "dgvm": {
+        "Id": "Id",
+        "Code": "Chi tiết mã",
+        "Creator": "Mã người tạo",
+        "CreateTime": "Thời gian in",
+        "Operator": "Người thao tác"
+      }
+    },
+    "Other": {
+      "groupBox3": "Kết quả tìm kiếm",
+      "groupBox1": "Điều kiện tìm kiếm",
+      "groupBox2": "Mã nhật ký"
+    }
+  },
+  //Giới thiệu về MES - Hệ thống khách hàng
+  "Frm_Version": {
+    "Title": "Giới thiệu về MES - Hệ thống khách hàng",
+    "Button": {},
+    "Label": {
+      "label2": "Lịch sử cập nhật",
+      "lblVersion": "Số phiên bản",
+      "label1": "Phiên bản hiện tại:"
+    },
+    "Table": {},
+    "Other": {}
+  },
+  //Nhân viên in
+  "Frm_People": {
+    "Title": "Nhân viên in",
+    "MessageTips_1": "Hãy chọn hàng dữ liệu cần in !",
+    "MessageTips_2": "Hãy chọn xưởng !",
+    "Button": {
+      "btnPrint": "In",
+      "btnSearch": "Tìm kiếm"
+    },
+    "Label": {
+      "label4": "Xưởng",
+      "label3": "Bộ phận",
+      "label2": "Tên nhân viên",
+      "label1": "Mã nhân viên"
+    },
+    "Table": {
+      "dgvm": {
+        "UserCode": "Mã nhân viên",
+        "UserName": "Tên nhân viên",
+        "Dept": "Bộ phận"
+      }
+    },
+    "Other": {
+      "groupBox2": "Danh sách tổ",
+      "groupBox1": "Điều kiện tìm kiếm"
+    }
+  },
+  //Lô nguyên vật liệu
+  "Frm_MaterialBatch": {
+    "Title": "Lô nguyên vật liệu",
+    "MessageTips_1": "Hãy chọn hàng dữ liệu cần in !",
+    "MessageTips_2": "Hãy chọn xưởng !",
+    "MessageTips_3": "Hãy chọn hàng dữ liệu !",
+    "MessageTips_4": "Hãy nhập số lượng pallet",
+    "MessageTips_5": "Số lượng pallet không chính xác !",
+    "Button": {
+      "btnPrintPallet": "In nhiều pallet",
+      "btnPrint": "In",
+      "btnSearch": "Tìm kiếm"
+    },
+    "Label": {
+      "label5": "Xưởng",
+      "label6": "Số pallet",
+      "label4": "Số đơn hàng",
+      "label3": "Tên kho",
+      "label2": "Tên vật liệu",
+      "label1": "Mã vật liệu"
+    },
+    "Table": {
+      "dgvm": {
+        "Id": "Id",
+        "ProductOrder": "Số đơn hàng",
+        "MaterialCode": "Mã vật liệu",
+        "MaterialName": "Tên vật liệu",
+        "BatchNo": "Số lô",
+        "WhsCode": "Mã kho",
+        "WhsName": "Tên kho",
+        "LocationCode": "Mã vị trí",
+        "LocationName": "Tên vị trí",
+        "Qty": "Số lượng",
+        "Unit": "Đơn vị"
+      }
+    },
+    "Other": {
+      "groupBox2": "Danh sách tổ",
+      "groupBox1": "Điều kiện tìm kiếm"
+    }
+  },
+  //In máy
+  "Frm_Machine": {
+    "Title": "In máy",
+    "MessageTips_1": "Hãy chọn hàng dữ liệu cần in !",
+    "Button": {
+      "btnPrint": "In",
+      "btnSearch": "Tìm kiếm"
+    },
+    "Label": {
+      "label2": "Tên máy",
+      "label1": "Công đoạn",
+      "label3": "Xưởng"
+    },
+    "Table": {
+      "dgvm": {
+        "MachineCode": "Mã máy",
+        "MachineName": "Tên máy",
+        "OperationCode": "Mã công đoạn",
+        "OperationName": "Tên công đoạn"
+      }
+    },
+    "Other": {
+      "groupBox2": "Danh sách",
+      "groupBox1": "Điều kiện tìm kiếm"
+    }
+  },
+  //In vị trí kho
+  "Frm_Location": {
+    "Title": "In vị trí kho",
+    "MessageTips_1": "Hãy chọn hàng dữ liệu cần in !",
+    "MessageTips_2": "Hãy chọn xưởng !",
+    "Button": {
+      "btnPrint": "In",
+      "btnSearch": "Tìm kiếm"
+    },
+    "Label": {
+      "label2": "Vị trí kho",
+      "label1": "Kho",
+      "label3": "Xưởng"
+    },
+    "Table": {
+      "dgvm": {
+        "LocationCode": "Mã vị trí",
+        "MachineName": "Tên vị trí",
+        "WhsCode": "Mã kho",
+        "WhsName": "Tên kho"
+      }
+    },
+    "Other": {
+      "groupBox2": "Danh sách",
+      "groupBox1": "Điều kiện tìm kiếm"
+    }
+  }
+}

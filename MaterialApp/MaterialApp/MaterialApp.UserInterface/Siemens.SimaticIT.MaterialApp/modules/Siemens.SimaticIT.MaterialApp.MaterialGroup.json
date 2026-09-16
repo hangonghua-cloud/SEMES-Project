@@ -1,0 +1,19 @@
+﻿{
+  "name": "Siemens.SimaticIT.MaterialApp.MaterialGroup",
+  "type": "standard",
+  "title": "Siemens.SimaticIT.MaterialApp.MaterialGroup.Title",
+  "header": "",
+  "icon": "fa-folder",
+  "functionalBlock": "Siemens.SimaticIT.MaterialApp",
+  "dependencies": [],
+  "states": [
+    {
+      "id": "home.Siemens_SimaticIT_MaterialApp_MaterialGroup_MaterialGroup",
+      "title": "Siemens.SimaticIT.MaterialApp.MaterialGroup.Title",
+      "header": "",
+      "securable": true,
+      "roles": []
+    }
+  ],
+  "manifestVersion": "01.01.00"
+}

@@ -1,0 +1,19 @@
+﻿{
+  "name": "Siemens.SimaticIT.ProductionApp.PMOwnSemiProductOrder",
+  "type": "standard",
+  "title": "Siemens.SimaticIT.ProductionApp.PMOwnSemiProductOrder.Title",
+  "header": "",
+  "icon": "fa-folder",
+  "functionalBlock": "Siemens.SimaticIT.ProductionApp",
+  "dependencies": [],
+  "states": [
+    {
+      "id": "home.Siemens_SimaticIT_ProductionApp_PMOwnSemiProductOrder_PMOwnSemiProductOrder",
+      "title": "Siemens.SimaticIT.ProductionApp.PMOwnSemiProductOrder.Title",
+      "header": "",
+      "securable": true,
+      "roles": []
+    }
+  ],
+  "manifestVersion": "01.01.00"
+}

@@ -1,0 +1,50 @@
+﻿<style>
+    .row {
+        padding: 5px;
+        margin-top: 10px;
+    }
+</style>
+<div class="command-bar-side-panel">
+    <button ng-click="vm.cancel()"
+            class="btn side-panel-button">
+        {{'Siemens.SimaticIT.FactoryModelApp.ModelLevelExtendFileds.ModelLevelExtendFiledsadd.Tips_1'|translate}}
+    </button>
+    <button ng-click="vm.save()" class="btn side-panel-button"
+            ng-show="vm.validInputs">
+        {{'Siemens.SimaticIT.FactoryModelApp.ModelLevelExtendFileds.ModelLevelExtendFiledsadd.Tips_2'|translate}}
+    </button>
+</div>
+<div class="side-panel-property-area-body">
+    <sit-property-grid sit-id="view_form" sit-layout="Horizontal" sit-type="Fixed" sit-mode="edit" sit-columns="1">
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.FieldCode" width:200
+                      sit-validation="{required: true}" sit-read-only="false">
+            {{'Siemens.SimaticIT.FactoryModelApp.ModelLevelExtendFileds.ModelLevelExtendFiledsadd.Tips_3'|translate}}
+        </sit-property>
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.FieldName" width:200
+                      sit-validation="{required: true}" sit-read-only="false">
+            {{'Siemens.SimaticIT.FactoryModelApp.ModelLevelExtendFileds.ModelLevelExtendFiledsadd.Tips_4'|translate}}
+        </sit-property>
+        <!--sit-property sit-widget="sit-select" sit-options="['string','int','datetime']" sit-to-display="['字符类型','整数类型','日期类型']" sit-value="vm.currentItem.FieldType" width:200
+                      sit-validation="{required: true}"
+                      sit-read-only="false">{{'Siemens.SimaticIT.FactoryModelApp.ModelLevelExtendFileds.ModelLevelExtendFiledsadd.Tips_5'|translate}}</sit-property>
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.IsReserve" width:200
+                      sit-validation="{required: true}"
+                      sit-read-only="false">{{'Siemens.SimaticIT.FactoryModelApp.ModelLevelExtendFileds.ModelLevelExtendFiledsadd.Tips_6'|translate}}</sit-property-->
+        <sit-property sit-widget="sit-select" sit-read-only="false" sit-options="vm.FieldTypeCtrl.options"
+                      sit-validation="{required: true}" sit-to-keep="'TypeKey'" sit-change='vm.shopChagne'
+                      sit-value="vm.FieldTypeCtrl.selectedOption" sit-to-display="'TypeValue'">
+            {{'Siemens.SimaticIT.FactoryModelApp.ModelLevelExtendFileds.ModelLevelExtendFiledsadd.Tips_7'|translate}}
+        </sit-property>
+
+        <sit-property sit-widget="sit-radio" sit-value="vm.currentItem.IsReserve" width:200
+                      sit-validation="{required: false}"
+                      sit-options="vm.typeRadio.options"
+                      sit-read-only="false">
+            {{'Siemens.SimaticIT.FactoryModelApp.ModelLevelExtendFileds.ModelLevelExtendFiledsadd.Tips_8'|translate}}
+        </sit-property>
+
+        <!--<sit-property sit-widget="sit-radio" sit-value="vm.currentItem.EnabledMark" width:200
+                      sit-validation="{required: false}" sit-options="[{label: '是', value: true}, {label: '否', value: false}]"
+                      sit-read-only="false">{{'Siemens.SimaticIT.FactoryModelApp.ModelLevelExtendFileds.ModelLevelExtendFiledsadd.Tips_6'|translate}}</sit-property>-->
+    </sit-property-grid>
+</div>

@@ -1,0 +1,68 @@
+﻿<!--
+    0.代码生成: UA单表一键生成前后端html、JS、API接口代码生成器 Ver 2.13 更新日期：2021-07-12  设计者：刘万军
+    1.功能描述: 设备刀具更换记录
+    2.创建人员: 王坤
+    3.创建日期: 2021-08-05
+    4.修改人员:
+    5.修改日期:
+-->
+<style>
+    .MainCommandActionButton {
+        margin-top: 20px !important;
+    }
+</style>
+<div id="itemlist" class="content-area content-area-relative" style="height: calc(19% - 0px) !important">
+    <!--查询条件与功能按钮-->
+    <div class="col-md-40" style="margin-left: 15px;">
+        <div class="side-panel-property-area-body">
+            <sit-property-grid sit-id="add_form" sit-layout="Horizontal" sit-type="Fixed" sit-mode="edit"
+                               sit-columns="8">
+                <sit-property sit-widget="sit-select" sit-value="vm.typeFactory.value"
+                              sit-options="vm.typeFactory.options" sit-to-display="'ResourceName'" sit-to-keep="'ResourceCode'">
+                    {{'Siemens.SimaticIT.EquipmentApp.EP_EquipmentTool.EP_EquipmentToollist.Tips_1'|translate}}
+                </sit-property>
+                <sit-property sit-widget="sit-text" sit-value="vm.searchParams.EquipmentId" sit-read-only="false"
+                              style="max-width:300px;">{{'Siemens.SimaticIT.EquipmentApp.EP_EquipmentTool.EP_EquipmentToollist.Tips_2'|translate}}</sit-property>
+                <sit-property sit-widget="sit-text" sit-value="vm.searchParams.EquipmentName" sit-read-only="false"
+                              style="max-width:300px;">{{'Siemens.SimaticIT.EquipmentApp.EP_EquipmentTool.EP_EquipmentToollist.Tips_3'|translate}}</sit-property>
+                <sit-property sit-widget="sit-text" sit-value="vm.searchParams.ToolId" sit-read-only="false"
+                              style="max-width:300px;">{{'Siemens.SimaticIT.EquipmentApp.EP_EquipmentTool.EP_EquipmentToollist.Tips_4'|translate}}</sit-property>
+                <sit-property sit-widget="sit-text" sit-value="vm.searchParams.ToolsName" sit-read-only="false"
+                              style="max-width:300px;">{{'Siemens.SimaticIT.EquipmentApp.EP_EquipmentTool.EP_EquipmentToollist.Tips_5'|translate}}</sit-property>
+                <sit-property sit-widget="sit-text" sit-value="vm.searchParams.SpecificationsModels"
+                              sit-read-only="false" style="max-width:300px;">{{'Siemens.SimaticIT.EquipmentApp.EP_EquipmentTool.EP_EquipmentToollist.Tips_6'|translate}}</sit-property>
+                <!--<sit-property sit-widget="sit-text" sit-value="vm.searchParams.Manufacturer" sit-read-only="false" style="max-width:300px;">{{'Siemens.SimaticIT.EquipmentApp.EP_EquipmentTool.EP_EquipmentToollist.Tips_7'|translate}}</sit-property>-->
+                <sit-property sit-widget="sit-datepicker" sit-value="vm.StartDate" style="max-width:300px;"
+                              sit-format="'yyyy-MM-dd'" sit-validation="{required: false}" sit-read-only="false">
+                    {{'Siemens.SimaticIT.EquipmentApp.EP_EquipmentTool.EP_EquipmentToollist.Tips_8'|translate}}
+                </sit-property>
+                <sit-property sit-widget="sit-datepicker" sit-value="vm.EndDate" style="max-width:300px;"
+                              sit-format="'yyyy-MM-dd'" sit-validation="{required: false}" sit-read-only="false">
+
+                </sit-property>
+                <sit-command-bar sit-type="action">
+                    <sit-command sit-icon="fa-search" sit-type="main" sit-name="com.siemens.customcommand.search"
+                                 :sit-tooltip="{{'Siemens.SimaticIT.EquipmentApp.EP_EquipmentTool.EP_EquipmentToollist.Tips_9'|translate}}" ng-click="vm.searchButtonHandler" :sit-label="{{'Siemens.SimaticIT.EquipmentApp.EP_EquipmentTool.EP_EquipmentToollist.Tips_9'|translate}}">
+                    </sit-command>
+                </sit-command-bar>
+            </sit-property-grid>
+        </div>
+    </div>
+    <!--右侧功能按钮-->
+    <sit-command-bar sit-vertical-autofixed="true" sit-type="Tool" :sit-label-align="right" sit-layout="vertical">
+        <!--<sit-command sit-icon="fa-eye" sit-name="com.siemens.customcommand.edit" :sit-tooltip="{{'Siemens.SimaticIT.EquipmentApp.EP_EquipmentTool.EP_EquipmentToollist.Tips_10'|translate}}" ng-click="vm.selectButtonHandler"
+            :sit-label="{{'Siemens.SimaticIT.EquipmentApp.EP_EquipmentTool.EP_EquipmentToollist.Tips_10'|translate}}" ng-show="vm.isButtonVisible"></sit-command>-->
+        <sit-command sit-icon="fa-trash" sit-name="com.siemens.customcommand.delete" :sit-tooltip="{{'Siemens.SimaticIT.EquipmentApp.EP_EquipmentTool.EP_EquipmentToollist.Tips_11'|translate}}"
+                     ng-click="vm.deleteButtonHandler" :sit-label="{{'Siemens.SimaticIT.EquipmentApp.EP_EquipmentTool.EP_EquipmentToollist.Tips_11'|translate}}" ng-show="vm.isButtonVisible"></sit-command>
+        <sit-command sit-icon="fa-edit" sit-name="com.siemens.customcommand.edit" :sit-tooltip="{{'Siemens.SimaticIT.EquipmentApp.EP_EquipmentTool.EP_EquipmentToollist.Tips_12'|translate}}"
+                     ng-click="vm.editButtonHandler" :sit-label="{{'Siemens.SimaticIT.EquipmentApp.EP_EquipmentTool.EP_EquipmentToollist.Tips_12'|translate}}" ng-show="vm.isButtonVisible"></sit-command>
+        <sit-command sit-icon="fa-plus" sit-name="com.siemens.customcommand.add" ng-click="vm.addButtonHandler"
+                     :sit-tooltip="{{'Siemens.SimaticIT.EquipmentApp.EP_EquipmentTool.EP_EquipmentToollist.Tips_13'|translate}}" :sit-label="{{'Siemens.SimaticIT.EquipmentApp.EP_EquipmentTool.EP_EquipmentToollist.Tips_13'|translate}}" sit-type="main"></sit-command>
+    </sit-command-bar>
+    <!-- grid列表 -->
+
+</div>
+<div id="listClass" style="width:100%; height: 80%; padding:0px 16px 0 16px; margin-top: 3px;">
+    <div ui-grid="vm.gridOptions" ui-grid-pinning ui-grid-auto-resize ui-grid-resize-columns ui-grid-selection
+         ui-grid-pagination class="uigrid"></div>
+</div>

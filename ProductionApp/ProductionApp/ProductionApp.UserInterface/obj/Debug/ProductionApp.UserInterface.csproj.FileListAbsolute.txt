@@ -1,0 +1,7 @@
+D:\New folder\ProductionApp\ProductionApp\ProductionApp.UserInterface\bin\Siemens.SimaticIT.ProductionApp.UserInterface.dll.config
+D:\New folder\ProductionApp\ProductionApp\ProductionApp.UserInterface\bin\Siemens.SimaticIT.ProductionApp.UserInterface.dll
+D:\New folder\ProductionApp\ProductionApp\ProductionApp.UserInterface\bin\Siemens.SimaticIT.ProductionApp.UserInterface.pdb
+D:\New folder\ProductionApp\ProductionApp\ProductionApp.UserInterface\obj\Debug\ProductionApp.UserInterface.csproj.CoreCompileInputs.cache
+D:\New folder\ProductionApp\ProductionApp\ProductionApp.UserInterface\obj\Debug\Siemens.SimaticIT.ProductionApp.UserInterface.dll
+D:\New folder\ProductionApp\ProductionApp\ProductionApp.UserInterface\obj\Debug\Siemens.SimaticIT.ProductionApp.UserInterface.pdb
+D:\New folder\ProductionApp\ProductionApp\ProductionApp.UserInterface\obj\Debug\ProductionApp.UserInterface.csprojAssemblyReference.cache

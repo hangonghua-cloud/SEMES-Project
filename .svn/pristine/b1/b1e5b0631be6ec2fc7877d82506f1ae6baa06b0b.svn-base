@@ -1,0 +1,1593 @@
+{
+	"pages": [{
+			"path": "pages/public/login",
+			"style": {
+				"navigationBarTitleText": "启动页",
+				"app-plus": {
+					"titleNView": false
+				}
+			}
+		},
+		{
+			"path": "pages/index/index",
+			"style": {
+				// #ifdef MP 
+				"navigationBarTitleText": "华丽MES",
+				// #endif 
+				"navigationStyle": "custom"
+			}
+		},
+
+		{
+			"path": "pages/set/set",
+			"style": {
+				"navigationBarTitleText": "设置"
+			}
+		},
+		{
+			"path": "pages/set/help",
+			"style": {
+				"navigationBarTitleText": "帮助中心",
+				"navigationBarBackgroundColor": "#4574e8",
+				"navigationBarTextStyle": "white",
+				"enablePullDownRefresh": true,
+				"app-plus": {
+					"titleView": false,
+					"titleNView": {
+						"type": "transparent"
+					}
+				}
+			}
+		},
+
+		{
+			"path": "pages/userinfo/userinfo",
+			"style": {
+				"navigationBarTitleText": "修改资料"
+			}
+		},
+
+		{
+			"path": "pages/public/login",
+			"style": {
+				"navigationBarTitleText": "",
+				"navigationStyle": "custom",
+				"app-plus": {
+					"titleNView": false,
+					"animationType": "slide-in-bottom"
+				}
+			}
+		}, {
+			"path": "pages/public/register",
+			"style": {
+				"navigationBarTitleText": "",
+				"navigationStyle": "custom",
+				"app-plus": {
+					"titleNView": false
+				}
+			}
+		}, {
+			"path": "pages/user/user",
+			"style": {
+				"navigationBarTitleText": "我的",
+				// #ifdef MP
+				"navigationStyle": "custom",
+				// #endif
+				"app-plus": {
+					"bounce": "none",
+					"titleNView": {
+						"type": "transparent"
+						// "buttons": [{
+						// 	"fontSrc": "/static/yticon.ttf",
+						// 	"text": "\ue60f",
+						// 	"fontSize": "24",
+						// 	"color": "#303133",
+						// 	"width": "46px",
+						// 	"background": "rgba(0,0,0,0)"
+						// }]
+					}
+				}
+			}
+		}, {
+			"path": "pages/user/googleSetting",
+			"style": {
+				"navigationBarTitleText": "谷歌验证器设置"
+			}
+		}, {
+			"path": "pages/user/googleBind",
+			"style": {
+				"navigationBarTitleText": "绑定谷歌身份验证器"
+			}
+		}, {
+			"path": "pages/user/safe",
+			"style": {
+				"navigationBarTitleText": "账户与安全"
+			}
+		}, {
+			"path": "pages/user/updateLoginPwd",
+			"style": {
+				"navigationBarTitleText": "修改登录密码"
+			}
+		}, {
+			"path": "pages/user/updateEmail",
+			"style": {
+				"navigationBarTitleText": "修改邮箱"
+			}
+		}, {
+			"path": "pages/user/updateMobile",
+			"style": {
+				"navigationBarTitleText": "修改手机号"
+			}
+		}, {
+			"path": "pages/user/updatePayPwd",
+			"style": {
+				"navigationBarTitleText": "修改支付密码"
+			}
+		}, {
+			"path": "pages/user/updatePayType",
+			"style": {
+				"navigationBarTitleText": ""
+			}
+		}, {
+			"path": "pages/user/updateEncrypAddress",
+			"style": {
+				"navigationBarTitleText": "添加地址"
+			}
+		}, {
+			"path": "pages/user/encrypAddress",
+			"style": {
+				"navigationBarTitleText": "地址本",
+				"app-plus": {
+					"bounce": "none",
+					"titleNView": {
+						"buttons": [{
+							"fontSrc": "/static/font/font_1078604_w4kpxh0rafi.ttf",
+							"text": "\ue60a",
+							"fontSize": "24",
+							"color": "#303133",
+							"width": "40px",
+							"background": "rgba(0,0,0,0)"
+						}, {
+							"fontSrc": "/static/font/font_1078604_w4kpxh0rafi.ttf",
+							"text": "\ue7ce",
+							"fontSize": "24",
+							"color": "#303133",
+							"width": "40px",
+							"background": "rgba(0,0,0,0)"
+						}]
+					}
+				}
+			}
+		},
+		{
+			"path": "pages/notice/notice",
+			"style": {
+				"navigationBarTitleText": "通知"
+			}
+		},
+		{
+			"path": "pages/public/UserModel",
+			"style": {
+				"navigationBarTitleText": "人员选择",
+				//"disableScroll": false, // 禁止滚动, 解决scroll-view在Android小程序卡顿的问题
+				//"enablePullDownRefresh" : false, // 不开启下拉刷新, 默认就是false
+				"app-plus": {
+					//"bounce" : "none", // 取消iOS回弹,避免和下拉刷新冲突 (小程序无法取消)
+					"subNVues": [{
+						"id": "otcFilterDrawer",
+						//"path": "pages/otc/subnvue/drawer",
+						"type": "popup",
+						"style": {
+							"width": "65%",
+							"right": "0px"
+						}
+					}],
+					"softinputNavBar": "none",
+					"softinputMode": "adjustResize"
+				}
+			}
+		},
+		{
+			"path": "pages/public/BadModel",
+			"style": {
+				"navigationBarTitleText": "不良选择",
+				//"disableScroll": false, // 禁止滚动, 解决scroll-view在Android小程序卡顿的问题
+				//"enablePullDownRefresh" : false, // 不开启下拉刷新, 默认就是false
+				"app-plus": {
+					//"bounce" : "none", // 取消iOS回弹,避免和下拉刷新冲突 (小程序无法取消)
+					"subNVues": [{
+						"id": "otcFilterDrawer",
+						//"path": "pages/otc/subnvue/drawer",
+						"type": "popup",
+						"style": {
+							"width": "65%",
+							"right": "0px"
+						}
+					}],
+					"softinputNavBar": "none",
+					"softinputMode": "adjustResize"
+				}
+			}
+		},
+
+		{
+			"path": "pages/public/SpareModel",
+			"style": {
+				"navigationBarTitleText": "备件选择",
+				//"disableScroll": false, // 禁止滚动, 解决scroll-view在Android小程序卡顿的问题
+				//"enablePullDownRefresh" : false, // 不开启下拉刷新, 默认就是false
+				"app-plus": {
+					//"bounce" : "none", // 取消iOS回弹,避免和下拉刷新冲突 (小程序无法取消)
+					"subNVues": [{
+						"id": "otcFilterDrawer",
+						//"path": "pages/otc/subnvue/drawer",
+						"type": "popup",
+						"style": {
+							"width": "65%",
+							"right": "0px"
+						}
+					}],
+					"softinputNavBar": "none",
+					"softinputMode": "adjustResize"
+				}
+			}
+		},
+
+
+		// 生产管理
+		{
+			"path": "pages/ProduceModel/PMStart",
+			"style": {
+				"navigationBarTitleText": "生产开工",
+				//"disableScroll": false, // 禁止滚动, 解决scroll-view在Android小程序卡顿的问题
+				//"enablePullDownRefresh" : false, // 不开启下拉刷新, 默认就是false
+				"app-plus": {
+					//"bounce" : "none", // 取消iOS回弹,避免和下拉刷新冲突 (小程序无法取消)
+					"subNVues": [{
+						"id": "otcFilterDrawer",
+						//"path": "pages/otc/subnvue/drawer",
+						"type": "popup",
+						"style": {
+							"width": "65%",
+							"right": "0px"
+						}
+					}],
+					"softinputNavBar": "none",
+					"softinputMode": "adjustResize"
+				}
+			}
+		},
+		{
+			"path": "pages/ProduceModel/PMRawMBatchUp",
+			"style": {
+				"navigationBarTitleText": "原料批次上机",
+				//"disableScroll": false, // 禁止滚动, 解决scroll-view在Android小程序卡顿的问题
+				//"enablePullDownRefresh" : false, // 不开启下拉刷新, 默认就是false
+				"app-plus": {
+					//"bounce" : "none", // 取消iOS回弹,避免和下拉刷新冲突 (小程序无法取消)
+					"subNVues": [{
+						"id": "otcFilterDrawer",
+						//"path": "pages/otc/subnvue/drawer",
+						"type": "popup",
+						"style": {
+							"width": "65%",
+							"right": "0px"
+						}
+					}],
+					"softinputNavBar": "none",
+					"softinputMode": "adjustResize"
+				}
+			}
+		},
+		{
+			"path": "pages/ProduceModel/PMTransferCardBG",
+			"style": {
+				"navigationBarTitleText": "流转卡报工",
+				//"disableScroll": false, // 禁止滚动, 解决scroll-view在Android小程序卡顿的问题
+				//"enablePullDownRefresh" : false, // 不开启下拉刷新, 默认就是false
+				"app-plus": {
+					//"bounce" : "none", // 取消iOS回弹,避免和下拉刷新冲突 (小程序无法取消)
+					"subNVues": [{
+						"id": "otcFilterDrawer",
+						//"path": "pages/otc/subnvue/drawer",
+						"type": "popup",
+						"style": {
+							"width": "65%",
+							"right": "0px"
+						}
+					}],
+					"softinputNavBar": "none",
+					"softinputMode": "adjustResize"
+				}
+			}
+		},
+		{
+			"path": "pages/ProduceModel/PMOwnProductBG",
+			"style": {
+				"navigationBarTitleText": "自制半成品报工",
+				//"disableScroll": false, // 禁止滚动, 解决scroll-view在Android小程序卡顿的问题
+				//"enablePullDownRefresh" : false, // 不开启下拉刷新, 默认就是false
+				"app-plus": {
+					//"bounce" : "none", // 取消iOS回弹,避免和下拉刷新冲突 (小程序无法取消)
+					"subNVues": [{
+						"id": "otcFilterDrawer",
+						//"path": "pages/otc/subnvue/drawer",
+						"type": "popup",
+						"style": {
+							"width": "65%",
+							"right": "0px"
+						}
+					}],
+					"softinputNavBar": "none",
+					"softinputMode": "adjustResize"
+				}
+			}
+		},
+
+		{
+			"path": "pages/ProduceModel/PMTransferCardScrapRecord",
+			"style": {
+				"navigationBarTitleText": "流转卡报废",
+				//"disableScroll": false, // 禁止滚动, 解决scroll-view在Android小程序卡顿的问题
+				//"enablePullDownRefresh" : false, // 不开启下拉刷新, 默认就是false
+				"app-plus": {
+					//"bounce" : "none", // 取消iOS回弹,避免和下拉刷新冲突 (小程序无法取消)
+					"subNVues": [{
+						"id": "otcFilterDrawer",
+						//"path": "pages/otc/subnvue/drawer",
+						"type": "popup",
+						"style": {
+							"width": "65%",
+							"right": "0px"
+						}
+					}],
+					"softinputNavBar": "none",
+					"softinputMode": "adjustResize"
+				}
+			}
+		},
+
+
+		{
+			"path": "pages/ProduceModel/PMTeamPersonBind",
+			"style": {
+				"navigationBarTitleText": "生产小组人员绑定",
+				//"disableScroll": false, // 禁止滚动, 解决scroll-view在Android小程序卡顿的问题
+				//"enablePullDownRefresh" : false, // 不开启下拉刷新, 默认就是false
+				"app-plus": {
+					//"bounce" : "none", // 取消iOS回弹,避免和下拉刷新冲突 (小程序无法取消)
+					"subNVues": [{
+						"id": "otcFilterDrawer",
+						//"path": "pages/otc/subnvue/drawer",
+						"type": "popup",
+						"style": {
+							"width": "65%",
+							"right": "0px"
+						}
+					}],
+					"softinputNavBar": "none",
+					"softinputMode": "adjustResize"
+				}
+			}
+		},
+		{
+			"path": "pages/ProduceModel/PMQualityConfirm",
+			"style": {
+				"navigationBarTitleText": "质量确认",
+				//"disableScroll": false, // 禁止滚动, 解决scroll-view在Android小程序卡顿的问题
+				//"enablePullDownRefresh" : false, // 不开启下拉刷新, 默认就是false
+				"app-plus": {
+					//"bounce" : "none", // 取消iOS回弹,避免和下拉刷新冲突 (小程序无法取消)
+					"subNVues": [{
+						"id": "otcFilterDrawer",
+						//"path": "pages/otc/subnvue/drawer",
+						"type": "popup",
+						"style": {
+							"width": "65%",
+							"right": "0px"
+						}
+					}],
+					"softinputNavBar": "none",
+					"softinputMode": "adjustResize"
+				}
+			}
+		},
+		{
+			"path": "pages/ProduceModel/PMCreateRework",
+			"style": {
+				"navigationBarTitleText": "质量异常单",
+				//"disableScroll": false, // 禁止滚动, 解决scroll-view在Android小程序卡顿的问题
+				//"enablePullDownRefresh" : false, // 不开启下拉刷新, 默认就是false
+				"app-plus": {
+					//"bounce" : "none", // 取消iOS回弹,避免和下拉刷新冲突 (小程序无法取消)
+					"subNVues": [{
+						"id": "otcFilterDrawer",
+						//"path": "pages/otc/subnvue/drawer",
+						"type": "popup",
+						"style": {
+							"width": "65%",
+							"right": "0px"
+						}
+					}],
+					"softinputNavBar": "none",
+					"softinputMode": "adjustResize"
+				}
+			}
+		},
+		{
+			"path": "pages/ProduceModel/PMRecordSel",
+			"style": {
+				"navigationBarTitleText": "返工任务查询",
+				//"disableScroll": false, // 禁止滚动, 解决scroll-view在Android小程序卡顿的问题
+				//"enablePullDownRefresh" : false, // 不开启下拉刷新, 默认就是false
+				"app-plus": {
+					//"bounce" : "none", // 取消iOS回弹,避免和下拉刷新冲突 (小程序无法取消)
+					"subNVues": [{
+						"id": "otcFilterDrawer",
+						//"path": "pages/otc/subnvue/drawer",
+						"type": "popup",
+						"style": {
+							"width": "65%",
+							"right": "0px"
+						}
+					}],
+					"softinputNavBar": "none",
+					"softinputMode": "adjustResize"
+				}
+			}
+		},
+
+		{
+			"path": "pages/ProduceModel/PMReworktTask",
+			"style": {
+				"navigationBarTitleText": "返工任务",
+				//"disableScroll": false, // 禁止滚动, 解决scroll-view在Android小程序卡顿的问题
+				//"enablePullDownRefresh" : false, // 不开启下拉刷新, 默认就是false
+				"app-plus": {
+					//"bounce" : "none", // 取消iOS回弹,避免和下拉刷新冲突 (小程序无法取消)
+					"subNVues": [{
+						"id": "otcFilterDrawer",
+						//"path": "pages/otc/subnvue/drawer",
+						"type": "popup",
+						"style": {
+							"width": "65%",
+							"right": "0px"
+						}
+					}],
+					"softinputNavBar": "none",
+					"softinputMode": "adjustResize"
+				}
+			}
+		},
+		{
+			"path": "pages/ProduceModel/PMReworkBooking",
+			"style": {
+				"navigationBarTitleText": "返工报工",
+				//"disableScroll": false, // 禁止滚动, 解决scroll-view在Android小程序卡顿的问题
+				//"enablePullDownRefresh" : false, // 不开启下拉刷新, 默认就是false
+				"app-plus": {
+					//"bounce" : "none", // 取消iOS回弹,避免和下拉刷新冲突 (小程序无法取消)
+					"subNVues": [{
+						"id": "otcFilterDrawer",
+						//"path": "pages/otc/subnvue/drawer",
+						"type": "popup",
+						"style": {
+							"width": "65%",
+							"right": "0px"
+						}
+					}],
+					"softinputNavBar": "none",
+					"softinputMode": "adjustResize"
+				}
+			}
+		},
+
+		{
+			"path": "pages/ProduceModel/PMReworkTaskSel",
+			"style": {
+				"navigationBarTitleText": "返工任务明细",
+				//"disableScroll": false, // 禁止滚动, 解决scroll-view在Android小程序卡顿的问题
+				//"enablePullDownRefresh" : false, // 不开启下拉刷新, 默认就是false
+				"app-plus": {
+					//"bounce" : "none", // 取消iOS回弹,避免和下拉刷新冲突 (小程序无法取消)
+					"subNVues": [{
+						"id": "otcFilterDrawer",
+						//"path": "pages/otc/subnvue/drawer",
+						"type": "popup",
+						"style": {
+							"width": "65%",
+							"right": "0px"
+						}
+					}],
+					"softinputNavBar": "none",
+					"softinputMode": "adjustResize"
+				}
+			}
+		},
+
+		{
+			"path": "pages/ProduceModel/PMShopCheckUp",
+			"style": {
+				"navigationBarTitleText": "车间首检",
+				//"disableScroll": false, // 禁止滚动, 解决scroll-view在Android小程序卡顿的问题
+				//"enablePullDownRefresh" : false, // 不开启下拉刷新, 默认就是false
+				"app-plus": {
+					//"bounce" : "none", // 取消iOS回弹,避免和下拉刷新冲突 (小程序无法取消)
+					"subNVues": [{
+						"id": "otcFilterDrawer",
+						//"path": "pages/otc/subnvue/drawer",
+						"type": "popup",
+						"style": {
+							"width": "65%",
+							"right": "0px"
+						}
+					}],
+					"softinputNavBar": "none",
+					"softinputMode": "adjustResize"
+				}
+			}
+		},
+
+		{
+			"path": "pages/ProduceModel/PMShopSel",
+			"style": {
+				"navigationBarTitleText": "记录查询",
+				//"disableScroll": false, // 禁止滚动, 解决scroll-view在Android小程序卡顿的问题
+				//"enablePullDownRefresh" : false, // 不开启下拉刷新, 默认就是false
+				"app-plus": {
+					//"bounce" : "none", // 取消iOS回弹,避免和下拉刷新冲突 (小程序无法取消)
+					"subNVues": [{
+						"id": "otcFilterDrawer",
+						//"path": "pages/otc/subnvue/drawer",
+						"type": "popup",
+						"style": {
+							"width": "65%",
+							"right": "0px"
+						}
+					}],
+					"softinputNavBar": "none",
+					"softinputMode": "adjustResize"
+				}
+			}
+		},
+
+		{
+			"path": "pages/ProduceModel/PMFirstQuality",
+			"style": {
+				"navigationBarTitleText": "质量首检",
+				//"disableScroll": false, // 禁止滚动, 解决scroll-view在Android小程序卡顿的问题
+				//"enablePullDownRefresh" : false, // 不开启下拉刷新, 默认就是false
+				"app-plus": {
+					//"bounce" : "none", // 取消iOS回弹,避免和下拉刷新冲突 (小程序无法取消)
+					"subNVues": [{
+						"id": "otcFilterDrawer",
+						//"path": "pages/otc/subnvue/drawer",
+						"type": "popup",
+						"style": {
+							"width": "65%",
+							"right": "0px"
+						}
+					}],
+					"softinputNavBar": "none",
+					"softinputMode": "adjustResize"
+				}
+			}
+		},
+
+		{
+			"path": "pages/ProduceModel/PMSecondQuality",
+			"style": {
+				"navigationBarTitleText": "质量首检",
+				//"disableScroll": false, // 禁止滚动, 解决scroll-view在Android小程序卡顿的问题
+				//"enablePullDownRefresh" : false, // 不开启下拉刷新, 默认就是false
+				"app-plus": {
+					//"bounce" : "none", // 取消iOS回弹,避免和下拉刷新冲突 (小程序无法取消)
+					"subNVues": [{
+						"id": "otcFilterDrawer",
+						//"path": "pages/otc/subnvue/drawer",
+						"type": "popup",
+						"style": {
+							"width": "65%",
+							"right": "0px"
+						}
+					}],
+					"softinputNavBar": "none",
+					"softinputMode": "adjustResize"
+				}
+			}
+		},
+		{
+			"path": "pages/ProduceModel/PMPackBooking",
+			"style": {
+				"navigationBarTitleText": "包装报工",
+				//"disableScroll": false, // 禁止滚动, 解决scroll-view在Android小程序卡顿的问题
+				//"enablePullDownRefresh" : false, // 不开启下拉刷新, 默认就是false
+				"app-plus": {
+					//"bounce" : "none", // 取消iOS回弹,避免和下拉刷新冲突 (小程序无法取消)
+					"subNVues": [{
+						"id": "otcFilterDrawer",
+						//"path": "pages/otc/subnvue/drawer",
+						"type": "popup",
+						"style": {
+							"width": "65%",
+							"right": "0px"
+						}
+					}],
+					"softinputNavBar": "none",
+					"softinputMode": "adjustResize"
+				}
+			}
+		},
+
+		{
+			"path": "pages/ProduceModel/PMPackingSel",
+			"style": {
+				"navigationBarTitleText": "包装报工记录查询",
+				//"disableScroll": false, // 禁止滚动, 解决scroll-view在Android小程序卡顿的问题
+				//"enablePullDownRefresh" : false, // 不开启下拉刷新, 默认就是false
+				"app-plus": {
+					//"bounce" : "none", // 取消iOS回弹,避免和下拉刷新冲突 (小程序无法取消)
+					"subNVues": [{
+						"id": "otcFilterDrawer",
+						//"path": "pages/otc/subnvue/drawer",
+						"type": "popup",
+						"style": {
+							"width": "65%",
+							"right": "0px"
+						}
+					}],
+					"softinputNavBar": "none",
+					"softinputMode": "adjustResize"
+				}
+			}
+		},
+		{
+			"path": "pages/ProduceModel/PMCodeBarScan",
+			"style": {
+				"navigationBarTitleText": "扫一扫",
+				//"disableScroll": false, // 禁止滚动, 解决scroll-view在Android小程序卡顿的问题
+				//"enablePullDownRefresh" : false, // 不开启下拉刷新, 默认就是false
+				"app-plus": {
+					//"bounce" : "none", // 取消iOS回弹,避免和下拉刷新冲突 (小程序无法取消)
+					"subNVues": [{
+						"id": "otcFilterDrawer",
+						//"path": "pages/otc/subnvue/drawer",
+						"type": "popup",
+						"style": {
+							"width": "65%",
+							"right": "0px"
+						}
+					}],
+					"softinputNavBar": "none",
+					"softinputMode": "adjustResize"
+				}
+			}
+		},
+		{
+			"path": "pages/ProduceModel/PMUserBGRecord",
+			"style": {
+				"navigationBarTitleText": "查一查",
+				//"disableScroll": false, // 禁止滚动, 解决scroll-view在Android小程序卡顿的问题
+				//"enablePullDownRefresh" : false, // 不开启下拉刷新, 默认就是false
+				"app-plus": {
+					//"bounce" : "none", // 取消iOS回弹,避免和下拉刷新冲突 (小程序无法取消)
+					"subNVues": [{
+						"id": "otcFilterDrawer",
+						//"path": "pages/otc/subnvue/drawer",
+						"type": "popup",
+						"style": {
+							"width": "65%",
+							"right": "0px"
+						}
+					}],
+					"softinputNavBar": "none",
+					"softinputMode": "adjustResize"
+				}
+			}
+		},
+		{
+			"path": "pages/ProduceModel/PerPalletStart",
+			"style": {
+				"navigationBarTitleText": "单托开工",
+				//"disableScroll": false, // 禁止滚动, 解决scroll-view在Android小程序卡顿的问题
+				//"enablePullDownRefresh" : false, // 不开启下拉刷新, 默认就是false
+				"app-plus": {
+					//"bounce" : "none", // 取消iOS回弹,避免和下拉刷新冲突 (小程序无法取消)
+					"subNVues": [{
+						"id": "otcFilterDrawer",
+						//"path": "pages/otc/subnvue/drawer",
+						"type": "popup",
+						"style": {
+							"width": "65%",
+							"right": "0px"
+						}
+					}],
+					"softinputNavBar": "none",
+					"softinputMode": "adjustResize"
+				}
+			}
+		},
+		{
+			"path": "pages/ProduceModel/PMSortingBG",
+			"style": {
+				"navigationBarTitleText": "分拣报工",
+				//"disableScroll": false, // 禁止滚动, 解决scroll-view在Android小程序卡顿的问题
+				//"enablePullDownRefresh" : false, // 不开启下拉刷新, 默认就是false
+				"app-plus": {
+					//"bounce" : "none", // 取消iOS回弹,避免和下拉刷新冲突 (小程序无法取消)
+					"subNVues": [{
+						"id": "otcFilterDrawer",
+						//"path": "pages/otc/subnvue/drawer",
+						"type": "popup",
+						"style": {
+							"width": "65%",
+							"right": "0px"
+						}
+					}],
+					"softinputNavBar": "none",
+					"softinputMode": "adjustResize"
+				}
+			}
+		},
+		{
+			"path": "pages/ProduceModel/PMInMachineCard",
+			"style": {
+				"navigationBarTitleText": "在机流转卡",
+				//"disableScroll": false, // 禁止滚动, 解决scroll-view在Android小程序卡顿的问题
+				//"enablePullDownRefresh" : false, // 不开启下拉刷新, 默认就是false
+				"app-plus": {
+					//"bounce" : "none", // 取消iOS回弹,避免和下拉刷新冲突 (小程序无法取消)
+					"subNVues": [{
+						"id": "otcFilterDrawer",
+						//"path": "pages/otc/subnvue/drawer",
+						"type": "popup",
+						"style": {
+							"width": "65%",
+							"right": "0px"
+						}
+					}],
+					"softinputNavBar": "none",
+					"softinputMode": "adjustResize"
+				}
+			}
+		},
+		{
+			"path": "pages/ProduceModel/PMBOMQuery",
+			"style": {
+				"navigationBarTitleText": "BOM查询",
+				//"disableScroll": false, // 禁止滚动, 解决scroll-view在Android小程序卡顿的问题
+				//"enablePullDownRefresh" : false, // 不开启下拉刷新, 默认就是false
+				"app-plus": {
+					//"bounce" : "none", // 取消iOS回弹,避免和下拉刷新冲突 (小程序无法取消)
+					"subNVues": [{
+						"id": "otcFilterDrawer",
+						//"path": "pages/otc/subnvue/drawer",
+						"type": "popup",
+						"style": {
+							"width": "65%",
+							"right": "0px"
+						}
+					}],
+					"softinputNavBar": "none",
+					"softinputMode": "adjustResize"
+				}
+			}
+		},
+
+
+		//物料模块
+		{
+			"path": "pages/WMSModel/WMS_FinishProductStore",
+			"style": {
+				"navigationBarTitleText": "成品入库",
+				//"disableScroll": false, // 禁止滚动, 解决scroll-view在Android小程序卡顿的问题
+				//"enablePullDownRefresh" : false, // 不开启下拉刷新, 默认就是false
+				"app-plus": {
+					"titleNView": { //标题栏增加按钮
+						"buttons": [{
+							"text": "\ue684", //查询按钮
+							"fontSrc": "/static/font/iconfont/iconfont.ttf",
+							"fontSize": "22px"
+						}]
+					},
+					//"bounce" : "none", // 取消iOS回弹,避免和下拉刷新冲突 (小程序无法取消)
+					"subNVues": [{
+						"id": "otcFilterDrawer",
+						//"path": "pages/otc/subnvue/drawer",
+						"type": "popup",
+						"style": {
+							"width": "65%",
+							"right": "0px"
+						}
+					}],
+					"softinputNavBar": "none",
+					"softinputMode": "adjustResize"
+				}
+			}
+		},
+
+		{
+			"path": "pages/WMSModel/WMS_FinishProductVoucher",
+			"style": {
+				"navigationBarTitleText": "待入库清单",
+				//"disableScroll": false, // 禁止滚动, 解决scroll-view在Android小程序卡顿的问题
+				//"enablePullDownRefresh" : false, // 不开启下拉刷新, 默认就是false
+				"app-plus": {
+					//"bounce" : "none", // 取消iOS回弹,避免和下拉刷新冲突 (小程序无法取消)
+					"subNVues": [{
+						"id": "otcFilterDrawer",
+						//"path": "pages/otc/subnvue/drawer",
+						"type": "popup",
+						"style": {
+							"width": "65%",
+							"right": "0px"
+						}
+					}],
+					"softinputNavBar": "none",
+					"softinputMode": "adjustResize"
+				}
+			}
+		},
+
+		{
+			"path": "pages/WMSModel/WMS_FinishProductDelivery",
+			"style": {
+				"navigationBarTitleText": "成品发货",
+				//"disableScroll": false, // 禁止滚动, 解决scroll-view在Android小程序卡顿的问题
+				//"enablePullDownRefresh" : false, // 不开启下拉刷新, 默认就是false
+				"app-plus": {
+					"titleNView": { //标题栏增加按钮
+						"buttons": [{
+							"text": "\ue684", //查询按钮
+							"fontSrc": "/static/font/iconfont/iconfont.ttf",
+							"fontSize": "22px"
+						}]
+					},
+					//"bounce" : "none", // 取消iOS回弹,避免和下拉刷新冲突 (小程序无法取消)
+					"subNVues": [{
+						"id": "otcFilterDrawer",
+						//"path": "pages/otc/subnvue/drawer",
+						"type": "popup",
+						"style": {
+							"width": "65%",
+							"right": "0px"
+						}
+					}],
+					"softinputNavBar": "none",
+					"softinputMode": "adjustResize"
+				}
+			}
+		},
+		{
+			"path": "pages/WMSModel/WMS_FinishProductStoreSel",
+			"style": {
+				"navigationBarTitleText": "成品入库记录查询",
+				//"disableScroll": false, // 禁止滚动, 解决scroll-view在Android小程序卡顿的问题
+				//"enablePullDownRefresh" : false, // 不开启下拉刷新, 默认就是false
+				"app-plus": {
+					//"bounce" : "none", // 取消iOS回弹,避免和下拉刷新冲突 (小程序无法取消)
+					"subNVues": [{
+						"id": "otcFilterDrawer",
+						//"path": "pages/otc/subnvue/drawer",
+						"type": "popup",
+						"style": {
+							"width": "65%",
+							"right": "0px"
+						}
+					}],
+					"softinputNavBar": "none",
+					"softinputMode": "adjustResize"
+				}
+			}
+		},
+
+		{
+			"path": "pages/WMSModel/WMS_FinishProductDeliveryList",
+			"style": {
+				"navigationBarTitleText": "成品发货",
+				//"disableScroll": false, // 禁止滚动, 解决scroll-view在Android小程序卡顿的问题
+				//"enablePullDownRefresh" : false, // 不开启下拉刷新, 默认就是false
+				"app-plus": {
+					"titleNView": { //标题栏增加按钮
+						"buttons": [{
+							"text": "\ue684", //查询按钮
+							"fontSrc": "/static/font/iconfont/iconfont.ttf",
+							"fontSize": "22px"
+						}]
+					},
+
+					//"bounce" : "none", // 取消iOS回弹,避免和下拉刷新冲突 (小程序无法取消)
+					"subNVues": [{
+						"id": "otcFilterDrawer",
+						//"path": "pages/otc/subnvue/drawer",
+						"type": "popup",
+						"style": {
+							"width": "65%",
+							"right": "0px"
+						}
+					}],
+					"softinputNavBar": "none",
+					"softinputMode": "adjustResize"
+				}
+			}
+		},
+
+
+		{
+			"path": "pages/WMSModel/WMS_FinishProductDeliverySel",
+			"style": {
+				"navigationBarTitleText": "成品发货记录查询",
+				//"disableScroll": false, // 禁止滚动, 解决scroll-view在Android小程序卡顿的问题
+				//"enablePullDownRefresh" : false, // 不开启下拉刷新, 默认就是false
+				"app-plus": {
+					//"bounce" : "none", // 取消iOS回弹,避免和下拉刷新冲突 (小程序无法取消)
+					"subNVues": [{
+						"id": "otcFilterDrawer",
+						//"path": "pages/otc/subnvue/drawer",
+						"type": "popup",
+						"style": {
+							"width": "65%",
+							"right": "0px"
+						}
+					}],
+					"softinputNavBar": "none",
+					"softinputMode": "adjustResize"
+				}
+			}
+		},
+
+		{
+			"path": "pages/WMSModel/WMS_SemiFinishProductChange",
+			"style": {
+				"navigationBarTitleText": "半成品移库",
+				//"disableScroll": false, // 禁止滚动, 解决scroll-view在Android小程序卡顿的问题
+				//"enablePullDownRefresh" : false, // 不开启下拉刷新, 默认就是false
+				"app-plus": {
+					"titleNView": { //标题栏增加按钮
+						"buttons": [{
+							"text": "\ue684", //查询按钮
+							"fontSrc": "/static/font/iconfont/iconfont.ttf",
+							"fontSize": "22px"
+						}]
+					},
+
+					//"bounce" : "none", // 取消iOS回弹,避免和下拉刷新冲突 (小程序无法取消)
+					"subNVues": [{
+						"id": "otcFilterDrawer",
+						//"path": "pages/otc/subnvue/drawer",
+						"type": "popup",
+						"style": {
+							"width": "65%",
+							"right": "0px"
+						}
+					}],
+					"softinputNavBar": "none",
+					"softinputMode": "adjustResize"
+				}
+			}
+		},
+
+		{
+			"path": "pages/WMSModel/WMS_SemiFinishProductChangeSel",
+			"style": {
+				"navigationBarTitleText": "半成品移库记录查询",
+				//"disableScroll": false, // 禁止滚动, 解决scroll-view在Android小程序卡顿的问题
+				//"enablePullDownRefresh" : false, // 不开启下拉刷新, 默认就是false
+				"app-plus": {
+					//"bounce" : "none", // 取消iOS回弹,避免和下拉刷新冲突 (小程序无法取消)
+					"subNVues": [{
+						"id": "otcFilterDrawer",
+						//"path": "pages/otc/subnvue/drawer",
+						"type": "popup",
+						"style": {
+							"width": "65%",
+							"right": "0px"
+						}
+					}],
+					"softinputNavBar": "none",
+					"softinputMode": "adjustResize"
+				}
+			}
+		},
+
+
+		{
+			"path": "pages/WMSModel/WMS_FinishProductChange",
+			"style": {
+				"navigationBarTitleText": "成品移库",
+				//"disableScroll": false, // 禁止滚动, 解决scroll-view在Android小程序卡顿的问题
+				//"enablePullDownRefresh" : false, // 不开启下拉刷新, 默认就是false
+				"app-plus": {
+					"titleNView": { //标题栏增加按钮
+						"buttons": [{
+							"text": "\ue684", //查询按钮
+							"fontSrc": "/static/font/iconfont/iconfont.ttf",
+							"fontSize": "22px"
+						}]
+					},
+					//"bounce" : "none", // 取消iOS回弹,避免和下拉刷新冲突 (小程序无法取消)
+					"subNVues": [{
+						"id": "otcFilterDrawer",
+						//"path": "pages/otc/subnvue/drawer",
+						"type": "popup",
+						"style": {
+							"width": "65%",
+							"right": "0px"
+						}
+					}],
+					"softinputNavBar": "none",
+					"softinputMode": "adjustResize"
+				}
+			}
+		},
+
+		{
+			"path": "pages/WMSModel/WMS_FinishProductChangeSel",
+			"style": {
+				"navigationBarTitleText": "成品移库记录查询",
+				//"disableScroll": false, // 禁止滚动, 解决scroll-view在Android小程序卡顿的问题
+				//"enablePullDownRefresh" : false, // 不开启下拉刷新, 默认就是false
+				"app-plus": {
+					//"bounce" : "none", // 取消iOS回弹,避免和下拉刷新冲突 (小程序无法取消)
+					"subNVues": [{
+						"id": "otcFilterDrawer",
+						//"path": "pages/otc/subnvue/drawer",
+						"type": "popup",
+						"style": {
+							"width": "65%",
+							"right": "0px"
+						}
+					}],
+					"softinputNavBar": "none",
+					"softinputMode": "adjustResize"
+				}
+			}
+		},
+		{
+			"path": "pages/WMSModel/WMS_MarksChange",
+			"style": {
+				"navigationBarTitleText": "唛头更换",
+				//"disableScroll": false, // 禁止滚动, 解决scroll-view在Android小程序卡顿的问题
+				//"enablePullDownRefresh" : false, // 不开启下拉刷新, 默认就是false
+				"app-plus": {
+					"titleNView": { //标题栏增加按钮
+						"buttons": [{
+							"text": "\ue684", //查询按钮
+							"fontSrc": "/static/font/iconfont/iconfont.ttf",
+							"fontSize": "22px"
+						}]
+					},
+
+					//"bounce" : "none", // 取消iOS回弹,避免和下拉刷新冲突 (小程序无法取消)
+					"subNVues": [{
+						"id": "otcFilterDrawer",
+						//"path": "pages/otc/subnvue/drawer",
+						"type": "popup",
+						"style": {
+							"width": "65%",
+							"right": "0px"
+						}
+					}],
+					"softinputNavBar": "none",
+					"softinputMode": "adjustResize"
+				}
+			}
+		},
+
+		{
+			"path": "pages/WMSModel/WMS_MarksChangeSel",
+			"style": {
+				"navigationBarTitleText": "唛头更换查询",
+				//"disableScroll": false, // 禁止滚动, 解决scroll-view在Android小程序卡顿的问题
+				//"enablePullDownRefresh" : false, // 不开启下拉刷新, 默认就是false
+				"app-plus": {
+					//"bounce" : "none", // 取消iOS回弹,避免和下拉刷新冲突 (小程序无法取消)
+					"subNVues": [{
+						"id": "otcFilterDrawer",
+						//"path": "pages/otc/subnvue/drawer",
+						"type": "popup",
+						"style": {
+							"width": "65%",
+							"right": "0px"
+						}
+					}],
+					"softinputNavBar": "none",
+					"softinputMode": "adjustResize"
+				}
+			}
+		},
+
+
+		{
+			"path": "pages/WMSModel/WMS_PartiallyProductsWarehousing",
+			"style": {
+				"navigationBarTitleText": "半成品入库",
+				//"disableScroll": false, // 禁止滚动, 解决scroll-view在Android小程序卡顿的问题
+				//"enablePullDownRefresh" : false, // 不开启下拉刷新, 默认就是false
+				"app-plus": {
+					//"bounce" : "none", // 取消iOS回弹,避免和下拉刷新冲突 (小程序无法取消)
+					"subNVues": [{
+						"id": "otcFilterDrawer",
+						//"path": "pages/otc/subnvue/drawer",
+						"type": "popup",
+						"style": {
+							"width": "65%",
+							"right": "0px"
+						}
+					}],
+					"softinputNavBar": "none",
+					"softinputMode": "adjustResize"
+				}
+			}
+		},
+		{
+			"path": "pages/WMSModel/WMS_PartiallyProductsWarehouseOut",
+			"style": {
+				"navigationBarTitleText": "半成品出库",
+				//"disableScroll": false, // 禁止滚动, 解决scroll-view在Android小程序卡顿的问题
+				//"enablePullDownRefresh" : false, // 不开启下拉刷新, 默认就是false
+				"app-plus": {
+					//"bounce" : "none", // 取消iOS回弹,避免和下拉刷新冲突 (小程序无法取消)
+					"subNVues": [{
+						"id": "otcFilterDrawer",
+						//"path": "pages/otc/subnvue/drawer",
+						"type": "popup",
+						"style": {
+							"width": "65%",
+							"right": "0px"
+						}
+					}],
+					"softinputNavBar": "none",
+					"softinputMode": "adjustResize"
+				}
+			}
+		},
+
+		//FuHua设备管理-设备点检
+		{
+			"path": "pages/EquipmentModel/EpPointInspection",
+			"style": {
+				"navigationBarTitleText": "设备点检",
+				//"disableScroll": false, // 禁止滚动, 解决scroll-view在Android小程序卡顿的问题
+				//"enablePullDownRefresh" : false, // 不开启下拉刷新, 默认就是false
+				"app-plus": {
+					//"bounce" : "none", // 取消iOS回弹,避免和下拉刷新冲突 (小程序无法取消)
+					"subNVues": [{
+						"id": "otcFilterDrawer",
+						//"path": "pages/otc/subnvue/drawer",
+						"type": "popup",
+						"style": {
+							"width": "65%",
+							"right": "0px"
+						}
+					}],
+					"softinputNavBar": "none",
+					"softinputMode": "adjustResize"
+				}
+			}
+		},
+		//FuHua设备管理-设备点检查询
+		{
+			"path": "pages/EquipmentModel/EpPointInspectionDetail",
+			"style": {
+				"navigationBarTitleText": "设备点检查询",
+				//"disableScroll": false, // 禁止滚动, 解决scroll-view在Android小程序卡顿的问题
+				//"enablePullDownRefresh" : false, // 不开启下拉刷新, 默认就是false
+				"app-plus": {
+					//"bounce" : "none", // 取消iOS回弹,避免和下拉刷新冲突 (小程序无法取消)
+					"subNVues": [{
+						"id": "otcFilterDrawer",
+						//"path": "pages/otc/subnvue/drawer",
+						"type": "popup",
+						"style": {
+							"width": "65%",
+							"right": "0px"
+						}
+					}],
+					"softinputNavBar": "none",
+					"softinputMode": "adjustResize"
+				}
+			}
+		},
+		//FuHua设备管理-设备故障保修
+		{
+			"path": "pages/EquipmentModel/EqMalfunctionRepair",
+			"style": {
+				"navigationBarTitleText": "设备故障报修",
+				//"disableScroll": false, // 禁止滚动, 解决scroll-view在Android小程序卡顿的问题
+				//"enablePullDownRefresh" : false, // 不开启下拉刷新, 默认就是false
+				"app-plus": {
+					//"bounce" : "none", // 取消iOS回弹,避免和下拉刷新冲突 (小程序无法取消)
+					"subNVues": [{
+						"id": "otcFilterDrawer",
+						//"path": "pages/otc/subnvue/drawer",
+						"type": "popup",
+						"style": {
+							"width": "65%",
+							"right": "0px"
+						}
+					}],
+					"softinputNavBar": "none",
+					"softinputMode": "adjustResize"
+				}
+			}
+		},
+		// FuHua设备管理-设备维修
+		{
+			"path": "pages/EquipmentModel/EpRepairRecord",
+			"style": {
+				"navigationBarTitleText": "设备维修",
+				//"disableScroll": false, // 禁止滚动, 解决scroll-view在Android小程序卡顿的问题
+				//"enablePullDownRefresh" : false, // 不开启下拉刷新, 默认就是false
+				"app-plus": {
+					//"bounce" : "none", // 取消iOS回弹,避免和下拉刷新冲突 (小程序无法取消)
+					"subNVues": [{
+						"id": "otcFilterDrawer",
+						//"path": "pages/otc/subnvue/drawer",
+						"type": "popup",
+						"style": {
+							"width": "65%",
+							"right": "0px"
+						}
+					}],
+					"softinputNavBar": "none",
+					"softinputMode": "adjustResize"
+				}
+			}
+		},
+		// FuHua设备管理-设备保养 by 刘万军 2021-9-24
+		{
+			"path": "pages/EquipmentModel/EP_EquipmentMaintainTask",
+			"style": {
+				"navigationBarTitleText": "设备保养执行",
+				//"disableScroll": false, // 禁止滚动, 解决scroll-view在Android小程序卡顿的问题
+				//"enablePullDownRefresh" : false, // 不开启下拉刷新, 默认就是false
+				"app-plus": {
+					//"bounce" : "none", // 取消iOS回弹,避免和下拉刷新冲突 (小程序无法取消)
+					"subNVues": [{
+						"id": "otcFilterDrawer",
+						//"path": "pages/otc/subnvue/drawer",
+						"type": "popup",
+						"style": {
+							"width": "65%",
+							"right": "0px"
+						}
+					}],
+					"softinputNavBar": "none",
+					"softinputMode": "adjustResize"
+				}
+			}
+		},
+		// FuHua质量管理-过程检验 by 刘万军 2021-9-27
+		{
+			"path": "pages/QualityModel/Quality_QC_FinishedPorductCheck",
+			"style": {
+				"navigationBarTitleText": "质量成品检验",
+				//"disableScroll": false, // 禁止滚动, 解决scroll-view在Android小程序卡顿的问题
+				//"enablePullDownRefresh" : false, // 不开启下拉刷新, 默认就是false
+				"app-plus": {
+					//"bounce" : "none", // 取消iOS回弹,避免和下拉刷新冲突 (小程序无法取消)
+					"subNVues": [{
+						"id": "otcFilterDrawer",
+						//"path": "pages/otc/subnvue/drawer",
+						"type": "popup",
+						"style": {
+							"width": "65%",
+							"right": "0px"
+						}
+					}],
+					"softinputNavBar": "none",
+					"softinputMode": "adjustResize"
+				}
+			}
+		},
+		// FuHua质量管理-过程检验 by 刘万军 2021-9-27
+		{
+			"path": "pages/QualityModel/Quality_QC_IPQCDetail",
+			"style": {
+				"navigationBarTitleText": "生产过程检验",
+				//"disableScroll": false, // 禁止滚动, 解决scroll-view在Android小程序卡顿的问题
+				//"enablePullDownRefresh" : false, // 不开启下拉刷新, 默认就是false
+				"app-plus": {
+					//"bounce" : "none", // 取消iOS回弹,避免和下拉刷新冲突 (小程序无法取消)
+					"subNVues": [{
+						"id": "otcFilterDrawer",
+						//"path": "pages/otc/subnvue/drawer",
+						"type": "popup",
+						"style": {
+							"width": "65%",
+							"right": "0px"
+						}
+					}],
+					"softinputNavBar": "none",
+					"softinputMode": "adjustResize"
+				}
+			}
+		},
+		// FuHua质量管理-巡检检验 by 刘万军 2021-9-27
+		{
+			"path": "pages/QualityModel/Quality_QC_PollingDetail",
+			"style": {
+				"navigationBarTitleText": "质量巡检",
+				//"disableScroll": false, // 禁止滚动, 解决scroll-view在Android小程序卡顿的问题
+				//"enablePullDownRefresh" : false, // 不开启下拉刷新, 默认就是false
+				"app-plus": {
+					//"bounce" : "none", // 取消iOS回弹,避免和下拉刷新冲突 (小程序无法取消)
+					"subNVues": [{
+						"id": "otcFilterDrawer",
+						//"path": "pages/otc/subnvue/drawer",
+						"type": "popup",
+						"style": {
+							"width": "65%",
+							"right": "0px"
+						}
+					}],
+					"softinputNavBar": "none",
+					"softinputMode": "adjustResize"
+				}
+			}
+		},
+		// FuHua质量管理-OQC检验单创建 by 刘万军 2021-10-9
+		{
+			"path": "pages/QualityModel/Quality_QC_OQCRecord",
+			"style": {
+				"navigationBarTitleText": "OQC检验单创建",
+				//"disableScroll": false, // 禁止滚动, 解决scroll-view在Android小程序卡顿的问题
+				//"enablePullDownRefresh" : false, // 不开启下拉刷新, 默认就是false
+				"app-plus": {
+					//"bounce" : "none", // 取消iOS回弹,避免和下拉刷新冲突 (小程序无法取消)
+					"subNVues": [{
+						"id": "otcFilterDrawer",
+						//"path": "pages/otc/subnvue/drawer",
+						"type": "popup",
+						"style": {
+							"width": "65%",
+							"right": "0px"
+						}
+					}],
+					"softinputNavBar": "none",
+					"softinputMode": "adjustResize"
+				}
+			}
+		},
+		// FuHua质量管理-OQC检验单浏览 by 刘万军 2021-10-9
+		{
+			"path": "pages/QualityModel/Quality_QC_OQCRecordList",
+			"style": {
+				"navigationBarTitleText": "OQC检验",
+				//"disableScroll": false, // 禁止滚动, 解决scroll-view在Android小程序卡顿的问题
+				//"enablePullDownRefresh" : false, // 不开启下拉刷新, 默认就是false
+				"app-plus": {
+					//"bounce" : "none", // 取消iOS回弹,避免和下拉刷新冲突 (小程序无法取消)
+					"subNVues": [{
+						"id": "otcFilterDrawer",
+						//"path": "pages/otc/subnvue/drawer",
+						"type": "popup",
+						"style": {
+							"width": "65%",
+							"right": "0px"
+						}
+					}],
+					"softinputNavBar": "none",
+					"softinputMode": "adjustResize"
+				}
+			}
+		},
+		// FuHua质量管理-OQC检验单检验 by 刘万军 2021-10-9
+		{
+			"path": "pages/QualityModel/Quality_QC_OQCCheck",
+			"style": {
+				"navigationBarTitleText": "OQC检验",
+				//"disableScroll": false, // 禁止滚动, 解决scroll-view在Android小程序卡顿的问题
+				//"enablePullDownRefresh" : false, // 不开启下拉刷新, 默认就是false
+				"app-plus": {
+					//"bounce" : "none", // 取消iOS回弹,避免和下拉刷新冲突 (小程序无法取消)
+					"subNVues": [{
+						"id": "otcFilterDrawer",
+						//"path": "pages/otc/subnvue/drawer",
+						"type": "popup",
+						"style": {
+							"width": "65%",
+							"right": "0px"
+						}
+					}],
+					"softinputNavBar": "none",
+					"softinputMode": "adjustResize"
+				}
+			}
+		},
+		// FuHua质量管理-OQC检验单检验 by 刘万军 2021-10-9
+		{
+			"path": "pages/QualityModel/Quality_QC_FinishedPorductCheck",
+			"style": {
+				"navigationBarTitleText": "质量成品检验",
+				//"disableScroll": false, // 禁止滚动, 解决scroll-view在Android小程序卡顿的问题
+				//"enablePullDownRefresh" : false, // 不开启下拉刷新, 默认就是false
+				"app-plus": {
+					//"bounce" : "none", // 取消iOS回弹,避免和下拉刷新冲突 (小程序无法取消)
+					"subNVues": [{
+						"id": "otcFilterDrawer",
+						//"path": "pages/otc/subnvue/drawer",
+						"type": "popup",
+						"style": {
+							"width": "65%",
+							"right": "0px"
+						}
+					}],
+					"softinputNavBar": "none",
+					"softinputMode": "adjustResize"
+				}
+			}
+		},
+		// FuHua成品管理-成品返工 by 刘万军 2021-10-12
+		{
+			"path": "pages/WMSModel/WMS_FinishedPorductReturnManage",
+			"style": {
+				"navigationBarTitleText": "成品异常单",
+				//"disableScroll": false, // 禁止滚动, 解决scroll-view在Android小程序卡顿的问题
+				//"enablePullDownRefresh" : false, // 不开启下拉刷新, 默认就是false
+				"app-plus": {
+					"titleNView": { //标题栏增加按钮
+						"buttons": [{
+							"text": "\ue684", //查询按钮
+							"fontSrc": "/static/font/iconfont/iconfont.ttf",
+							"fontSize": "22px"
+						}]
+					},
+					//"bounce" : "none", // 取消iOS回弹,避免和下拉刷新冲突 (小程序无法取消)
+					"subNVues": [{
+						"id": "otcFilterDrawer",
+						//"path": "pages/otc/subnvue/drawer",
+						"type": "popup",
+						"style": {
+							"width": "65%",
+							"right": "0px"
+						}
+					}],
+					"softinputNavBar": "none",
+					"softinputMode": "adjustResize"
+				}
+			}
+		},
+		// FuHua成品管理-成品返工单创建 by 刘万军 2021-10-11
+		{
+			"path": "pages/WMSModel/WMS_FinishedPorductReturn",
+			"style": {
+				"navigationBarTitleText": "成品返工单",
+				//"disableScroll": false, // 禁止滚动, 解决scroll-view在Android小程序卡顿的问题
+				//"enablePullDownRefresh" : false, // 不开启下拉刷新, 默认就是false
+				"app-plus": {
+					//"bounce" : "none", // 取消iOS回弹,避免和下拉刷新冲突 (小程序无法取消)
+					"subNVues": [{
+						"id": "otcFilterDrawer",
+						//"path": "pages/otc/subnvue/drawer",
+						"type": "popup",
+						"style": {
+							"width": "65%",
+							"right": "0px"
+						}
+					}],
+					"softinputNavBar": "none",
+					"softinputMode": "adjustResize"
+				}
+			}
+		},
+
+		// FuHua成品管理-成品返工 by 刘万军 2021-10-12
+		{
+			"path": "pages/WMSModel/WMS_FinishProductChange",
+			"style": {
+				"navigationBarTitleText": "成品移库",
+				//"disableScroll": false, // 禁止滚动, 解决scroll-view在Android小程序卡顿的问题
+				//"enablePullDownRefresh" : false, // 不开启下拉刷新, 默认就是false
+				"app-plus": {
+					"titleNView": { //标题栏增加按钮
+						"buttons": [{
+							"text": "\ue684", //查询按钮
+							"fontSrc": "/static/font/iconfont/iconfont.ttf",
+							"fontSize": "22px"
+						}]
+					},
+					//"bounce" : "none", // 取消iOS回弹,避免和下拉刷新冲突 (小程序无法取消)
+					"subNVues": [{
+						"id": "otcFilterDrawer",
+						//"path": "pages/otc/subnvue/drawer",
+						"type": "popup",
+						"style": {
+							"width": "65%",
+							"right": "0px"
+						}
+					}],
+					"softinputNavBar": "none",
+					"softinputMode": "adjustResize"
+				}
+			}
+		},
+		// FuHua成品管理-成品返工记录查询 by 刘万军 2021-10-12
+		{
+			"path": "pages/WMSModel/WMS_FinishProductReturnQuery",
+			"style": {
+				"navigationBarTitleText": "成品返工记录查询",
+				//"disableScroll": false, // 禁止滚动, 解决scroll-view在Android小程序卡顿的问题
+				//"enablePullDownRefresh" : false, // 不开启下拉刷新, 默认就是false
+				"app-plus": {
+					//"bounce" : "none", // 取消iOS回弹,避免和下拉刷新冲突 (小程序无法取消)
+					"subNVues": [{
+						"id": "otcFilterDrawer",
+						//"path": "pages/otc/subnvue/drawer",
+						"type": "popup",
+						"style": {
+							"width": "65%",
+							"right": "0px"
+						}
+					}],
+					"softinputNavBar": "none",
+					"softinputMode": "adjustResize"
+				}
+			}
+		},
+
+		{
+			"path": "pages/ALPQc/FinalInspection",
+			"style": {}
+		},
+		{
+			"path" : "pages/WMSModel/RawMaterialTransfer",
+			"style" : 
+			{
+				"navigationBarTitleText" : "原材料调拨",
+				"enablePullDownRefresh" : false
+			}
+		}
+
+
+
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "white",
+		"navigationBarTitleText": "",
+		"navigationBarBackgroundColor": "#138087", //全局标题背景色
+		"backgroundColor": "#f8f8f8"
+	},
+	"tabBar": {
+		"color": "#C0C4CC",
+		"selectedColor": "#138087",
+		"borderStyle": "black",
+		"list": [{
+				"pagePath": "pages/index/index",
+				"iconPath": "static/tabbar/tab-coin.png",
+				"selectedIconPath": "static/tabbar/tab-coin-active.png",
+				"text": "首页"
+			},
+			/* {
+				"pagePath": "pages/news/news",
+				"iconPath": "static/tabbar/tab-news.png",
+				"selectedIconPath": "static/tabbar/tab-news-active.png",
+				"text": "通知"
+			},
+			{
+				"pagePath": "pages/wallet/wallet",
+				"iconPath": "static/tabbar/tab-wallet.png",
+				"selectedIconPath": "static/tabbar/tab-wallet-active.png",
+				"text": "列表"
+			}, */
+			{
+				"pagePath": "pages/user/user",
+				"iconPath": "static/tabbar/tab-my.png",
+				"selectedIconPath": "static/tabbar/tab-my-active.png",
+				"text": "我的"
+			}
+		]
+	},
+	"easycom": {
+		"^u-(.*)": "uview-ui/components/u-$1/u-$1.vue"
+	},
+	"condition": { //模式配置，仅开发期间生效
+		"current": 0, //当前激活的模式(list 的索引项)
+		"list": [{
+			"name": "", //模式名称
+			"path": "pages/index/index", //启动页面，必选
+			"query": "" //启动参数，在页面的onLoad函数里面得到
+		}]
+	}
+}

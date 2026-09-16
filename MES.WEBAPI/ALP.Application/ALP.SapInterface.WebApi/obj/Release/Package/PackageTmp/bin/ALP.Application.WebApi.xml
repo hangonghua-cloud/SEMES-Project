@@ -1,0 +1,673 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ALP.Application.WebApi</name>
+    </assembly>
+    <members>
+        <member name="M:ALP.Application.WebApi.Common.DtoHelper.GetEntity``1(System.Data.DataTable)">
+            <summary>
+            获取单个实体
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="table"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Common.DtoHelper.GetEntities``1(System.Data.DataTable)">
+            <summary>
+            获取实体列表
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="table"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Common.DtoHelper.GetEntity``1(System.Data.IDataReader)">
+            <summary>
+            从IDataReader中获取实体
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="reader"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Common.DtoHelper.GetEntities``1(System.Data.IDataReader)">
+            <summary>
+            从DataReader获取对象列表
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="reader"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Common.DtoHelper.GetPageByIDataReader``1(System.Data.IDataReader,System.Int32,System.Int32)">
+            <summary>
+            从DataReader获取对象列表(分页)
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="dataReader"></param>
+            <param name="pageSize"></param>
+            <param name="pageIndex"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Common.DtoHelper.WriteLogWorkDate(System.String,System.String)">
+            <summary>
+            日志文件写入每天生成一个文件 txt
+            </summary>
+            <param name="fstyle"></param>
+            <param name="messagestr"></param>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.API.ApiBaseController.ConvertValidationResultToErrorResponse(FluentValidation.Results.ValidationResult,System.Net.HttpStatusCode)">
+            <summary>
+            Converts the validation result to error response.
+            </summary>
+            <param name="validationResult">The validation result.</param>
+            <param name="statusCode"> </param>
+            <returns>Error response</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.API.ApiBaseController.ConvertValidationResultToErrorResponse(System.Collections.Generic.List{ALP.Application.WebApi.APIModel.ApiErrors},System.Net.HttpStatusCode)">
+            <summary>
+            Converts the Api Errors to error response.
+            </summary>
+            <param name="validationResult">The Api Errors.</param>
+            <param name="statusCode"> </param>
+            <returns>Error response</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.API.ApiBaseController.ToJson(System.Object)">
+            <summary>
+            返回结果转JSON函数
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.API.ApiBaseController.GetHeaderByKey(ALP.WebApi.Util.RequestHeaderKey)">
+            <summary>
+            根据请求头的key获取请求头数据
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.API.ApiBaseController.getValue(Newtonsoft.Json.Linq.JObject,System.String)">
+            <summary>
+            根据属性名称以字符串格式获取值
+            </summary>
+            <param name="job"></param>
+            <param name="propertyName"></param>
+            <returns></returns>
+        </member>
+        <member name="P:ALP.Application.WebApi.Controllers.API.ApiBaseController.CurrentAccount">
+            <summary>
+            当前访问用户对象
+            </summary>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.API.ApiBaseController.PrintToPDF(System.String,System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+            打印
+            </summary>
+            <param name="fileName"></param>
+            <param name="dic"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ALP.Application.WebApi.Controllers.API.AccountEntity">
+            <summary>
+            当前访问账户对象
+            </summary>
+        </member>
+        <member name="P:ALP.Application.WebApi.Controllers.API.AccountEntity.UserCode">
+            <summary>
+            用户主键Code
+            </summary>
+        </member>
+        <member name="P:ALP.Application.WebApi.Controllers.API.AccountEntity.UserName">
+            <summary>
+            用户名
+            </summary>
+        </member>
+        <member name="P:ALP.Application.WebApi.Controllers.API.AccountEntity.UDID">
+            <summary>
+            当前用户使用的设备标识码
+            </summary>
+        </member>
+        <member name="P:ALP.Application.WebApi.Controllers.API.AccountEntity.TerminalType">
+            <summary>
+            当前用户终端类型
+            </summary>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.SAPManage.Base_MaterialController.SaveSAPBase_Material(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: SAP接口
+            创　　建: jpf
+            创建日期: 2024-3-5 14:07:46
+            任务编号: 物料主数据
+            </summary>
+            <param name="jo">json参数, entity 实体对象数组</param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.SAPManage.Base_MaterialFactoryController.SaveSAPBase_MaterialFactory(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: SAP接口
+            创　　建: jpf
+            创建日期: 2024-3-5 14:07:46
+            任务编号: 物料工厂属性
+            </summary>
+            <param name="jo">json参数, entity 实体对象数组</param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.SAPManage.Base_MaterialFactoryController.DeleteSAPBase_MaterialFacet(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            创建：jpf
+            创建日期：2024-3-5 16:32:21
+            任务名称：sap删除物料工厂属性接口
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.SAPManage.Base_SAPKeyParameterItemController.SaveBase_SAPKeyParameter(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: SAP客户主数据接口
+            创　　建: jpf
+            创建日期: 2024-3-5 14:07:46
+            任务编号: 物料主数据
+            </summary>
+            <param name="jo">json参数, entity 实体对象数组</param>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:ALP.Application.WebApi.Controllers.SAPManage.Base_SAPSupplierManageController.SaveSAPBase_Supplier(Newtonsoft.Json.Linq.JObject)" -->
+        <member name="M:ALP.Application.WebApi.Controllers.SAPManage.BS_OAPeopleController.SaveOABS_People(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            创建：jpf
+            时间：2024-3-19 15:59:40
+            描述：OA人员接口对接
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.SAPManage.BS_SAPBOMController.SaveSAPBS_BOM(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: SAP接口
+            创　　建: jpf
+            创建日期: 2024-3-5 14:07:46
+            任务编号: BOM基础数据
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.SAPManage.BS_SAPProcessController.SaveSAPBS_Process(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: SAP接口
+            创　　建: jpf
+            创建日期: 2024-3-5 14:07:46
+            任务编号: 工艺路线基础数据
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.SAPManage.MM_SAPProductDispatchItemController.SaveSAPMM_ProductDispatchItem(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: SAP接口
+            创　　建: jpf
+            创建日期:2024-3-11 08:50:39
+            任务编号: 发货单接口
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.SAPManage.MM_SAPRawMaterialStockController.SaveSAPMM_RawMaterialStock(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: SAP接口
+            创　　建: jpf
+            创建日期: 2024-3-5 14:07:46
+            任务编号: 原材料库存接口
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:ALP.Application.WebApi.Controllers.SAPManage.MM_SAPReceiptNoticeController.SaveSAPMM_ReceiptNotice(Newtonsoft.Json.Linq.JObject)" -->
+        <member name="M:ALP.Application.WebApi.Controllers.SAPManage.PL_SAPInternalOrderController.SaveSAPPL_InternalOrder(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: SAP接口
+            创　　建: jpf
+            创建日期: 2024-3-5 14:07:46
+            任务编号: 内部订单接口
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.SAPManage.PL_SAPProductionOrderController.UpdateSAP_ProductionOrderSatate(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            创建：jpf
+            时间：2024-3-19 15:59:40
+            描述：SAP工单状态同步
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.SAPManage.PL_SAPProductionOrderController.SaveSAPPL_ProductionOrder(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            创建：jpf
+            时间：2024-3-19 15:59:40
+            描述：SAP销售订单同步
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:ALP.Application.WebApi.Controllers.SAPManage.PL_SAPPurchaseOrderController.SaveSAPPL_PurchaseOrder(Newtonsoft.Json.Linq.JObject)" -->
+        <member name="M:ALP.Application.WebApi.Controllers.SAPManage.ReceiveSAPResultController.SaveSAPresult(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: SAP接口
+            创　　建: jpf
+            创建日期: 2024-3-5 14:07:46
+            任务编号: 物料主数据
+            </summary>
+            <param name="jo">json参数, entity 实体对象数组</param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.SAPManage.ToSAPController.TransferCardBG">
+            <summary>
+            流转卡报工
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.SAPManage.ToSAPController.PackingBG">
+            <summary>
+            包装报工
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.SAPManage.ToSAPController.OwnProductBG">
+            <summary>
+            自制半成品报工
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.SAPManage.ToSAPController.TransferCardBG_MatConsume">
+            <summary>
+            流转卡报工 物料消耗
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.SAPManage.ToSAPController.PackingBG_MatConsume">
+            <summary>
+            包装报工 物料消耗
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.SAPManage.ToSAPController.OwnProductBG_MatConsume">
+            <summary>
+            自制半成品报工 物料消耗
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.SAPManage.ToSAPController.PackingBG_InWhs">
+            <summary>
+            包装报工入库
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.SAPManage.ToSAPController.PackingBG_InWhs2">
+            <summary>
+            包装报工入库
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.SAPManage.ToSAPController.OwnProductBG_InWhs">
+            <summary>
+            自制半成品报工入库
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.SAPManage.ToSAPController.OwnProductBG_InWhs2">
+            <summary>
+            自制半成品报工入库
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.SAPManage.ToSAPController.ProductDispatch">
+            <summary>
+            成品发货
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.SAPManage.ToSAPController.StockQuery">
+            <summary>
+            库存查询
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:ALP.Application.WebApi.Models.Account.DeleteAccountParms">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ALP.Application.WebApi.Models.Account.DeleteAccountParms.ID">
+            <summary>
+            主键ID
+            </summary>
+        </member>
+        <member name="P:ALP.Application.WebApi.Models.Account.GetAccountListParms.FirstName">
+            <summary>
+            名
+            </summary>
+        </member>
+        <member name="P:ALP.Application.WebApi.Models.Account.GetAccountListParms.LastName">
+            <summary>
+            姓
+            </summary>
+        </member>
+        <member name="P:ALP.Application.WebApi.Models.Account.GetAccountListParms.UserEnCode">
+            <summary>
+            工牌
+            </summary>
+        </member>
+        <member name="P:ALP.Application.WebApi.Models.Account.GetAccountListParms.PagingParms">
+            <summary>
+            分页对象
+            </summary>
+        </member>
+        <member name="T:ALP.Application.WebApi.Models.System.GetProcessParms">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ALP.Application.WebApi.Models.System.GetProcessParms.WorkShopCode">
+            <summary>
+            车间码
+            </summary>
+        </member>
+        <member name="T:ALP.Application.WebApi.Models.System.GetStationParms">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ALP.Application.WebApi.Models.System.GetStationParms.WorkShopCode">
+            <summary>
+            车间编码
+            </summary>
+        </member>
+        <member name="P:ALP.Application.WebApi.Models.System.GetStationParms.ProcessCode">
+            <summary>
+            工序编码
+            </summary>
+        </member>
+        <member name="T:ALP.Application.WebApi.Models.System.GetWorkShopParms">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:ALP.Application.WebApi.Util.TimeHelper">
+            <summary>
+            定时任务操作
+            </summary>
+        </member>
+        <member name="M:ALP.Application.WebApi.Util.TimeHelper.Start">
+            <summary>
+            启动定时任务
+            </summary>
+        </member>
+        <member name="M:ALP.Application.WebApi.Util.TimeHelper.TimeOperation(System.Object,System.Timers.ElapsedEventArgs)">
+            <summary>
+            定时操作内容：根据设备点检规则定时生成设备点检计划
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:ALP.Application.WebApi.Util.TimeHelper.GetDays(System.DateTimeOffset,System.String,System.Int32)">
+            <summary>
+            获取保养结束时间
+            </summary>
+            <param name="dtMark"></param>
+            <param name="unitMark"></param>
+            <param name="periodMark"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Util.TimeHelper.CreatePlanFromNow(System.Data.DataTable,System.String,System.DateTimeOffset,System.DateTimeOffset)">
+            <summary>
+            
+            </summary>
+            <param name="dtRuleData"></param>
+            <param name="equipCode"></param>
+            <param name="lastFinishTime"></param>
+            <param name="lastStartTime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Util.TimeHelper.CreatePlanFromNull(System.Data.DataTable,System.String)">
+            <summary>
+            在没有保养计划时创造保养计划
+            </summary>
+            <param name="dt"></param>
+            <param name="equipCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Util.TimeHelper.ToString(System.Object)">
+            <summary>
+             转换为字符串
+            </summary>
+            <param name="o"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Util.TimeHelper.ToDecimal(System.Object)">
+            <summary>
+             转换为decimal
+            </summary>
+            <param name="o"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Util.TimeHelper.ToInt(System.Object)">
+            <summary>
+             转换为int
+            </summary>
+            <param name="o"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Util.TimeHelper.ToBool(System.Object)">
+            <summary>
+             转换为bool
+            </summary>
+            <param name="o"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ALP.WebApi.APIModel.ModelConvertHelper`1">
+            <summary>    
+            实体转换辅助类 DataTable转List、DataTable转成Dto
+            </summary>    
+        </member>
+        <member name="M:ALP.WebApi.APIModel.ModelConvertHelper`1.ConvertToModelDto(System.Data.DataTable)">
+            <summary>
+            DataTable转成Dto
+            </summary>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.WebApi.APIModel.ModelConvertHelper`1.ToDataTable``1(System.Collections.Generic.List{``0})">
+            <summary>
+            将实体集合转换为DataTable
+            </summary>
+            <typeparam name="T">实体类型</typeparam>
+            <param name="entities">实体集合</param>
+        </member>
+        <member name="M:ALP.WebApi.APIModel.ModelConvertHelper`1.CreateTable``1">
+            <summary>
+            创建表
+            </summary>
+        </member>
+        <member name="M:ALP.WebApi.APIModel.ModelConvertHelper`1.FillData``1(System.Data.DataTable,System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            填充数据
+            </summary>
+        </member>
+        <member name="M:ALP.WebApi.APIModel.ModelConvertHelper`1.CreateRow``1(System.Data.DataTable,``0)">
+            <summary>
+            创建行
+            </summary>
+        </member>
+        <member name="T:ALP.WebApi.Common.URLTool">
+            <summary>
+            URL工具类
+            </summary>
+        </member>
+        <member name="F:ALP.WebApi.Common.URLTool._resource_url">
+            <summary>
+            资源地址
+            </summary>
+        </member>
+        <member name="M:ALP.WebApi.Common.URLTool.GetAPPUploadURL(System.String)">
+            <summary>
+            获取完整的app下载地址
+            </summary>
+            <param name="appName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.WebApi.Filter.APIFilterAttribute.OnActionExecuting(System.Web.Http.Controllers.HttpActionContext)">
+            <summary>
+            请求之前
+            </summary>
+            <param name="actionContext"></param>
+        </member>
+        <member name="M:ALP.WebApi.Filter.APIFilterAttribute.OnActionExecuted(System.Web.Http.Filters.HttpActionExecutedContext)">
+            <summary>
+            请求响应
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="T:ALP.WebApi.Filter.AuthAttribute">
+            <summary>
+            接口请求认证授权特性
+            TODO: 实现校验操作用户登录状态，操作权限等
+            </summary>
+        </member>
+        <member name="T:ALP.WebApi.Filter.HttpHeaderFilter">
+            <summary>
+            Swagger接口帮助请求头标注过滤器
+            </summary>
+        </member>
+        <member name="M:ALP.WebApi.Filter.HttpHeaderFilter.Apply(Swashbuckle.Swagger.Operation,Swashbuckle.Swagger.SchemaRegistry,System.Web.Http.Description.ApiDescription)">
+            <summary>
+            
+            </summary>
+            <param name="operation"></param>
+            <param name="schemaRegistry"></param>
+            <param name="apiDescription"></param>
+        </member>
+        <member name="T:ALP.WebApi.Models.Account.LoginRequestParms">
+            <summary>
+            登录接口参数
+            </summary>    
+        </member>
+        <member name="P:ALP.WebApi.Models.Account.LoginRequestParms.UserName">
+            <summary>
+            登录名
+            </summary>
+        </member>
+        <member name="P:ALP.WebApi.Models.Account.LoginRequestParms.Password">
+            <summary>
+            密码
+            </summary>
+        </member>
+        <member name="T:ALP.WebApi.Models.BaseResponseMessage">
+            <summary>
+            默认请求响应结果类
+            </summary>
+        </member>
+        <member name="T:ALP.WebApi.Models.BaseResponseResult`1">
+            <summary>
+            HTTP请求响应结果基类
+            </summary>
+        </member>
+        <member name="P:ALP.WebApi.Models.BaseResponseResult`1.success">
+            <summary>
+            是否成功
+            </summary>
+        </member>
+        <member name="P:ALP.WebApi.Models.BaseResponseResult`1.returnMsg">
+            <summary>
+            响应消息
+            </summary>
+        </member>
+        <member name="P:ALP.WebApi.Models.BaseResponseResult`1.statusCode">
+            <summary>
+            业务状态码
+            </summary>
+        </member>
+        <member name="P:ALP.WebApi.Models.BaseResponseResult`1.resultData">
+            <summary>
+            业务结果集合
+            </summary>
+        </member>
+        <member name="P:ALP.WebApi.Models.BaseResponseResult.success">
+            <summary>
+            是否成功
+            </summary>
+        </member>
+        <member name="P:ALP.WebApi.Models.BaseResponseResult.returnMsg">
+            <summary>
+            响应消息
+            </summary>
+        </member>
+        <member name="P:ALP.WebApi.Models.BaseResponseResult.statusCode">
+            <summary>
+            业务状态码
+            </summary>
+        </member>
+        <member name="P:ALP.WebApi.Models.BaseResponseResult.resultData">
+            <summary>
+            业务结果集合
+            </summary>
+        </member>
+        <member name="T:ALP.WebApi.Models.ResponseResult`1">
+            <summary>
+            接口响应结果通用类
+            </summary>
+        </member>
+        <member name="P:ALP.WebApi.Models.ResponseResult`1.commandString">
+            <summary>
+            请求命令
+            </summary>
+        </member>
+        <member name="T:ALP.WebApi.Models.ResponseResult">
+            <summary>
+            接口响应结果通用类
+            </summary>
+        </member>
+        <member name="T:ALP.WebApi.Util.RequestHeaderKey">
+            <summary>
+            请求头参数键枚举
+            </summary>
+        </member>
+        <member name="F:ALP.WebApi.Util.RequestHeaderKey.UserCode">
+            <summary>
+            用户主键ID
+            </summary>
+        </member>
+        <member name="F:ALP.WebApi.Util.RequestHeaderKey.UserName">
+            <summary>
+            用户名称
+            </summary>
+        </member>
+        <member name="F:ALP.WebApi.Util.RequestHeaderKey.UDID">
+            <summary>
+            设备标识码
+            </summary>
+        </member>
+        <member name="F:ALP.WebApi.Util.RequestHeaderKey.Sign">
+            <summary>
+            签名
+            </summary>
+        </member>
+        <member name="F:ALP.WebApi.Util.RequestHeaderKey.TerminalType">
+            <summary>
+            终端类型
+            </summary>
+        </member>
+        <member name="F:ALP.WebApi.Util.RequestHeaderKey.Language">
+            <summary>
+            语言
+            </summary>
+        </member>
+        <member name="T:SqlSugar.WebApi.SwaggerConfig">
+            <summary>
+            SwaggerConfig
+            </summary>
+        </member>
+        <member name="M:SqlSugar.WebApi.SwaggerConfig.Register">
+            <summary>
+            Register
+            </summary>
+        </member>
+    </members>
+</doc>

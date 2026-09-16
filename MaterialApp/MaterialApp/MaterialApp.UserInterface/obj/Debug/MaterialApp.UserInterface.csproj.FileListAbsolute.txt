@@ -1,0 +1,7 @@
+D:\New folder\MaterialApp\MaterialApp\MaterialApp.UserInterface\bin\Siemens.SimaticIT.MaterialApp.UserInterface.dll.config
+D:\New folder\MaterialApp\MaterialApp\MaterialApp.UserInterface\bin\Siemens.SimaticIT.MaterialApp.UserInterface.dll
+D:\New folder\MaterialApp\MaterialApp\MaterialApp.UserInterface\bin\Siemens.SimaticIT.MaterialApp.UserInterface.pdb
+D:\New folder\MaterialApp\MaterialApp\MaterialApp.UserInterface\obj\Debug\MaterialApp.UserInterface.csproj.CoreCompileInputs.cache
+D:\New folder\MaterialApp\MaterialApp\MaterialApp.UserInterface\obj\Debug\Siemens.SimaticIT.MaterialApp.UserInterface.dll
+D:\New folder\MaterialApp\MaterialApp\MaterialApp.UserInterface\obj\Debug\Siemens.SimaticIT.MaterialApp.UserInterface.pdb
+D:\New folder\MaterialApp\MaterialApp\MaterialApp.UserInterface\obj\Debug\MaterialApp.UserInterface.csprojAssemblyReference.cache

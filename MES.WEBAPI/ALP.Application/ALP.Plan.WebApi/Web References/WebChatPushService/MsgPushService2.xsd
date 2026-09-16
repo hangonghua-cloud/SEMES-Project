@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://10.17.2.32:8084/MsgPushService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/WcfMsgPushService.MesModel" />
+  <xs:import schemaLocation="http://10.17.2.32:8084/MsgPushService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/WcfMsgPushService.MesEntity" />
+  <xs:import schemaLocation="http://10.17.2.32:8084/MsgPushService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/ALP.Application.Entity.WebApp" />
+  <xs:element name="SendMessage">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dataPush" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendMessageResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/WcfMsgPushService.MesModel" minOccurs="0" name="SendMessageResult" nillable="true" type="q1:SendMsgResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDepartmentList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sDeptListNo" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDepartmentListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/WcfMsgPushService.MesEntity" minOccurs="0" name="GetDepartmentListResult" nillable="true" type="q2:WeiXinDepartmentListInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserByDepid">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sDeptID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="sChildValue" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserByDepidResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/WcfMsgPushService.MesEntity" minOccurs="0" name="GetUserByDepidResult" nillable="true" type="q3:WeiXinUserListInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserByUserid">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sUserID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserByUseridResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/WcfMsgPushService.MesEntity" minOccurs="0" name="GetUserByUseridResult" nillable="true" type="q4:WeiXinUserListInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PushFirstPassYieldInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="lineCode" nillable="true" type="xs:string" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/WcfMsgPushService.MesEntity" minOccurs="0" name="passYieldList" nillable="true" type="q5:ArrayOfFirstPassYieldEntity" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PushFirstPassYieldInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/WcfMsgPushService.MesModel" minOccurs="0" name="PushFirstPassYieldInfoResult" nillable="true" type="q6:SendMsgResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PushDefectTopThreeInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="lineCode" nillable="true" type="xs:string" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/WcfMsgPushService.MesEntity" minOccurs="0" name="defectTopList" nillable="true" type="q7:ArrayOfDefectTopThreeEntity" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PushDefectTopThreeInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/WcfMsgPushService.MesModel" minOccurs="0" name="PushDefectTopThreeInfoResult" nillable="true" type="q8:SendMsgResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PushMaterielShortageInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="deliveryNO" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="lineCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="scheduleCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="startHour" nillable="true" type="xs:string" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/WcfMsgPushService.MesEntity" minOccurs="0" name="shortageList" nillable="true" type="q9:ArrayOfGetMesDMaResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PushMaterielShortageInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/WcfMsgPushService.MesModel" minOccurs="0" name="PushMaterielShortageInfoResult" nillable="true" type="q10:SendMsgResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PushMaterielDistSheetInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="deliveryNO" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="lineCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="startHour" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="feeder" nillable="true" type="xs:string" />
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/WcfMsgPushService.MesEntity" minOccurs="0" name="distSheetList" nillable="true" type="q11:ArrayOfDistSheetEntity" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PushMaterielDistSheetInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/WcfMsgPushService.MesModel" minOccurs="0" name="PushMaterielDistSheetInfoResult" nillable="true" type="q12:SendMsgResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PushInWhExceptionFrozenInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="lineCode" nillable="true" type="xs:string" />
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/WcfMsgPushService.MesEntity" minOccurs="0" name="frozenList" nillable="true" type="q13:ArrayOfInWhExceptionFrozenEntity" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PushInWhExceptionFrozenInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/WcfMsgPushService.MesModel" minOccurs="0" name="PushInWhExceptionFrozenInfoResult" nillable="true" type="q14:SendMsgResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PushEquipMouldRepairInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/ALP.Application.Entity.WebApp" minOccurs="0" name="repairInfo" nillable="true" type="q15:EquipMouldRepairEntity" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PushEquipMouldRepairInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/WcfMsgPushService.MesModel" minOccurs="0" name="PushEquipMouldRepairInfoResult" nillable="true" type="q16:SendMsgResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PushEquipMouldMaintainInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/ALP.Application.Entity.WebApp" minOccurs="0" name="maintainInfo" nillable="true" type="q17:EquipMouldMaintainEntity" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PushEquipMouldMaintainInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/WcfMsgPushService.MesModel" minOccurs="0" name="PushEquipMouldMaintainInfoResult" nillable="true" type="q18:SendMsgResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PushEquipSpecialVerifiInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="lineCode" nillable="true" type="xs:string" />
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/WcfMsgPushService.MesEntity" minOccurs="0" name="specialVerifiList" nillable="true" type="q19:ArrayOfEquipSpecialVerifiEntity" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PushEquipSpecialVerifiInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/WcfMsgPushService.MesModel" minOccurs="0" name="PushEquipSpecialVerifiInfoResult" nillable="true" type="q20:SendMsgResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PushChangeMouldInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="lineCode" nillable="true" type="xs:string" />
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/WcfMsgPushService.MesEntity" minOccurs="0" name="changeMouldList" nillable="true" type="q21:ArrayOfChangeMouldEntity" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PushChangeMouldInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/WcfMsgPushService.MesModel" minOccurs="0" name="PushChangeMouldInfoResult" nillable="true" type="q22:SendMsgResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PushSchedulingInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="lineCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="proFactorDescr" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="slotId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="remark" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pushDate" nillable="true" type="xs:string" />
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/WcfMsgPushService.MesEntity" minOccurs="0" name="schedulingList" nillable="true" type="q23:ArrayOfSchedulingEntity" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PushSchedulingInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/WcfMsgPushService.MesModel" minOccurs="0" name="PushSchedulingInfoResult" nillable="true" type="q24:SendMsgResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AutoPushSchedulingInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="linecode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="mouldcode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="slotId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dtNow" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AutoPushSchedulingInfoResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PushProFactorMaterialsInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="lineCode" nillable="true" type="xs:string" />
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/WcfMsgPushService.MesEntity" minOccurs="0" name="factorMaterialsList" nillable="true" type="q25:ArrayOfProFactorMaterialsEntity" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PushProFactorMaterialsInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/WcfMsgPushService.MesModel" minOccurs="0" name="PushProFactorMaterialsInfoResult" nillable="true" type="q26:SendMsgResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PushEquipLineStopInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="lineCode" nillable="true" type="xs:string" />
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/WcfMsgPushService.MesEntity" minOccurs="0" name="lineStopList" nillable="true" type="q27:ArrayOfEquipLineStopEntity" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PushEquipLineStopInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/WcfMsgPushService.MesModel" minOccurs="0" name="PushEquipLineStopInfoResult" nillable="true" type="q28:SendMsgResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PushJobWorkingInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="lineCode" nillable="true" type="xs:string" />
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/WcfMsgPushService.MesEntity" minOccurs="0" name="jobWorkingList" nillable="true" type="q29:ArrayOfJobWorkingResultEntity" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PushJobWorkingInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/WcfMsgPushService.MesModel" minOccurs="0" name="PushJobWorkingInfoResult" nillable="true" type="q30:SendMsgResult" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

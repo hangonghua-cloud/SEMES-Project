@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <ReportErrors />
+  <ReportWarnings />
+  <ReportMessages>
+    <ReportMessage>
+      <Message>Source 'D:\New folder\ProductionApp\ProductionApp\ProductionApp.PLPOMModel\bin\Siemens_SimaticIT_PL_ProductionApp.um'. 
+#########################################################
+##### MODEL BUILD HAS BEEN SKIPPED FOR OPTIMIZATION #####
+#########################################################
+
+</Message>
+    </ReportMessage>
+  </ReportMessages>
+</Report>

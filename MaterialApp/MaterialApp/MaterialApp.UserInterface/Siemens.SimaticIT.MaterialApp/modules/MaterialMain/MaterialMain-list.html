@@ -1,0 +1,78 @@
+﻿<style>
+    .MainCommandActionButton {
+        margin-top: 20px !important;
+    }
+</style>
+<div id="itemlist" class="content-area content-area-relative" style="height: calc(93% - 30px) !important">
+    <!--查询条件与功能按钮-->
+    <div class="col-md-40" style="margin-left: 15px;">
+        <div class="side-panel-property-area-body">
+            <sit-property-grid sit-id="add_form" sit-layout="Horizontal" sit-type="Fixed" sit-mode="edit"
+                               sit-columns="8">
+                <sit-property sit-widget="sit-text" sit-value="vm.searchParams.MaterialCode" sit-read-only="false"
+                              style="max-width:300px;">{{'Siemens.SimaticIT.MaterialApp.MaterialMain.MaterialMainlist.Tips_1'|translate}}</sit-property>
+                <sit-property sit-widget="sit-text" sit-value="vm.searchParams.MaterialName" sit-read-only="false"
+                              style="max-width:300px;">{{'Siemens.SimaticIT.MaterialApp.MaterialMain.MaterialMainlist.Tips_2'|translate}}</sit-property>
+                <sit-property sit-widget="sit-text" sit-value="vm.searchParams.Spec" sit-read-only="false"
+                              style="max-width:300px;">{{'Siemens.SimaticIT.MaterialApp.MaterialMain.MaterialMainlist.Tips_3'|translate}}</sit-property>
+                <sit-property sit-widget="sit-select" sit-value="vm.typeMaterialClass.value"
+                              sit-options="vm.typeMaterialClass.options" sit-to-display="'ItemName'" sit-to-keep="'ItemValue'"
+                              style="max-width:300px;">{{'Siemens.SimaticIT.MaterialApp.MaterialMain.MaterialMainlist.Tips_4'|translate}}</sit-property>
+                <sit-property sit-widget="sit-select" sit-value="vm.typeSmallClass.value"
+                              sit-options="vm.typeSmallClass.options" sit-to-display="'ItemName'" sit-to-keep="'ItemValue'"
+                              style="max-width:300px;">{{'Siemens.SimaticIT.MaterialApp.MaterialMain.MaterialMainlist.Tips_5'|translate}}</sit-property>
+                <!--<sit-property sit-widget="sit-select" sit-value="vm.ProcureType.value" sit-options="vm.ProcureType.options"
+                              sit-to-display="'ItemName'" sit-to-keep="'ItemValue'" style="max-width:300px;">{{'Siemens.SimaticIT.MaterialApp.MaterialMain.MaterialMainlist.Tips_6'|translate}}</sit-property>
+                <sit-property sit-widget="sit-select" sit-value="vm.Warehouse.value" sit-options="vm.Warehouse.options"
+                              sit-to-display="'ResourceName'" sit-to-keep="'ResourceCode'" style="max-width:300px;">{{'Siemens.SimaticIT.MaterialApp.MaterialMain.MaterialMainlist.Tips_7'|translate}}</sit-property>-->
+                <sit-command-bar sit-type="action">
+                    <sit-command sit-icon="fa-search" sit-type="main" sit-name="com.siemens.customcommand.search"
+                                 :sit-tooltip="{{'Siemens.SimaticIT.MaterialApp.MaterialMain.MaterialMainlist.Tips_8'|translate}}" ng-click="vm.searchButtonHandler" :sit-label="{{'Siemens.SimaticIT.MaterialApp.MaterialMain.MaterialMainlist.Tips_8'|translate}}">
+                    </sit-command>
+                </sit-command-bar>
+            </sit-property-grid>
+        </div>
+    </div>
+    <!--右侧功能按钮-->
+    <sit-command-bar sit-vertical-autofixed="true" sit-type="Tool" :sit-label-align="right" sit-layout="vertical">
+
+        <!-- <sit-command sit-icon="fa-edit" sit-name="com.siemens.customcommand.edit" :sit-tooltip="{{'Siemens.SimaticIT.MaterialApp.MaterialMain.MaterialMainlist.Tips_9'|translate}}" ng-click="vm.edit2ButtonHandler"
+                     :sit-label="{{'Siemens.SimaticIT.MaterialApp.MaterialMain.MaterialMainlist.Tips_9'|translate}}" ng-show="vm.isDetailButtonVisible"></sit-command>
+
+        <sit-command sit-icon="fa-plus-square-o" sit-name="com.siemens.customcommand.add" ng-click="vm.add2ButtonHandler" :sit-tooltip="{{'Siemens.SimaticIT.MaterialApp.MaterialMain.MaterialMainlist.Tips_10'|translate}}"
+                     :sit-label="{{'Siemens.SimaticIT.MaterialApp.MaterialMain.MaterialMainlist.Tips_10'|translate}}" ng-show="vm.isButtonVisible" sit-type="main"></sit-command> -->
+
+        <sit-command sit-icon="fa-trash" sit-name="com.siemens.customcommand.delete" :sit-tooltip="{{'Siemens.SimaticIT.MaterialApp.MaterialMain.MaterialMainlist.Tips_11'|translate}}"
+                     ng-click="vm.deleteButtonHandler" :sit-label="{{'Siemens.SimaticIT.MaterialApp.MaterialMain.MaterialMainlist.Tips_11'|translate}}" ng-show="vm.isBaseMaterialDelete"></sit-command>
+        <sit-command sit-icon="fa-pencil" sit-name="com.siemens.customcommand.edit" :sit-tooltip="{{'Siemens.SimaticIT.MaterialApp.MaterialMain.MaterialMainlist.Tips_12'|translate}}"
+                     ng-click="vm.editButtonHandler" :sit-label="{{'Siemens.SimaticIT.MaterialApp.MaterialMain.MaterialMainlist.Tips_12'|translate}}" ng-show="vm.isBaseMaterialEdit"></sit-command>
+        <sit-command sit-icon="fa-plus" sit-name="com.siemens.customcommand.add" ng-click="vm.addButtonHandler"
+                     :sit-tooltip="{{'Siemens.SimaticIT.MaterialApp.MaterialMain.MaterialMainlist.Tips_13'|translate}}" :sit-label="{{'Siemens.SimaticIT.MaterialApp.MaterialMain.MaterialMainlist.Tips_13'|translate}}" sit-type="main" ng-show="vm.isBaseMaterialAdd"></sit-command>
+    </sit-command-bar>
+    <!-- grid列表 -->
+    <div id="listClass" style="width:100%; height: 100%; padding:0px 16px 0 16px; margin-top: 30px;">
+        <div ui-grid="vm.gridOptions" ui-grid-pinning ui-grid-auto-resize ui-grid-resize-columns ui-grid-selection
+             ui-grid-pagination class="uigrid"></div>
+    </div>
+    <!--子明细管理-->
+    <!--查询条件与功能按钮-->
+    <!-- <div class="col-md-40" style="margin-left: 10px;">
+        <div class="side-panel-property-area-body">
+            <sit-property-grid sit-id="add_form" sit-layout="Horizontal" sit-type="Fluid" sit-mode="edit" sit-columns="5">
+                <sit-command-bar sit-type="action">
+                    <sit-command sit-icon="fa-plus" sit-name="com.siemens.customcommand.add" ng-click="vm.add2ButtonHandler" :sit-tooltip="{{'Siemens.SimaticIT.MaterialApp.MaterialMain.MaterialMainlist.Tips_13'|translate}}"
+                                 :sit-label="{{'Siemens.SimaticIT.MaterialApp.MaterialMain.MaterialMainlist.Tips_13'|translate}}" ng-show="vm.isButtonVisible" sit-type="main"></sit-command>
+                    <sit-command sit-icon="fa-edit" sit-name="com.siemens.customcommand.edit" :sit-tooltip="{{'Siemens.SimaticIT.MaterialApp.MaterialMain.MaterialMainlist.Tips_12'|translate}}" ng-click="vm.edit2ButtonHandler"
+                                 :sit-label="{{'Siemens.SimaticIT.MaterialApp.MaterialMain.MaterialMainlist.Tips_12'|translate}}" ng-show="vm.isDetailButtonVisible" sit-type="main"></sit-command>
+                    <sit-command sit-icon="fa-trash" sit-name="com.siemens.customcommand.delete" :sit-tooltip="{{'Siemens.SimaticIT.MaterialApp.MaterialMain.MaterialMainlist.Tips_11'|translate}}" ng-click="vm.delete2ButtonHandler"
+                                 :sit-label="{{'Siemens.SimaticIT.MaterialApp.MaterialMain.MaterialMainlist.Tips_11'|translate}}" ng-show="vm.isDetailButtonVisible" sit-type="main"></sit-command>
+                </sit-command-bar>
+            </sit-property-grid>
+        </div>
+    </div> -->
+    <!-- grid列表 -->
+    <!-- <div id="listClass2" class="col-md-40" style="width:100%; height: 50%; padding:0px 16px 0 16px; margin-top: 3px;">
+        <div ui-grid="vm.gridOptionsDetail" ui-grid-pinning ui-grid-auto-resize ui-grid-resize-columns ui-grid-selection
+            ui-grid-pagination class="uigrid"></div>
+    </div> -->
+</div>

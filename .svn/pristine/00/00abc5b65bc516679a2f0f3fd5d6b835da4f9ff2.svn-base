@@ -1,0 +1,240 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{49534084-0857-4D3E-B33A-511ED14F336F}</ProjectGuid>
+    <ProjectTypeGuids>{D45F378E-08AA-4766-880A-1AF4180CC2F8};{349c5851-65df-11da-9384-00065b846f21};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Siemens.SimaticIT.BaseDataApp.UserInterface</RootNamespace>
+    <AssemblyName>Siemens.SimaticIT.BaseDataApp.UserInterface</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <Name>BaseDataApp.UserInterface</Name>
+    <FunctionalBlockType>Project</FunctionalBlockType>
+    <FunctionalBlockVersion>01.00.00</FunctionalBlockVersion>
+    <FunctionalBlockName>BaseDataApp</FunctionalBlockName>
+    <FunctionalBlockPrefix>Siemens.SimaticIT</FunctionalBlockPrefix>
+    <SitPlatformVersion>4.1</SitPlatformVersion>
+    <Use64BitIISExpress />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Siemens.SimaticIT.BaseDataApp\components\" />
+    <Folder Include="Siemens.SimaticIT.BaseDataApp\config\" />
+    <Folder Include="Siemens.SimaticIT.BaseDataApp\fonts\" />
+    <Folder Include="Siemens.SimaticIT.BaseDataApp\scripts\" />
+    <Folder Include="Siemens.SimaticIT.BaseDataApp\services\" />
+    <Folder Include="Siemens.SimaticIT.BaseDataApp\styles\" />
+    <Folder Include="Siemens.SimaticIT.BaseDataApp\swac\" />
+    <Folder Include="Siemens.SimaticIT.BaseDataApp\widgets\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Siemens.SimaticIT.BaseDataApp\images\AppDown.png" />
+    <Content Include="Siemens.SimaticIT.BaseDataApp\images\Google.png" />
+    <Content Include="Siemens.SimaticIT.BaseDataApp\modules\DataDictionary\DataDictionary-add-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.BaseDataApp\modules\DataDictionary\DataDictionary-add.html" />
+    <Content Include="Siemens.SimaticIT.BaseDataApp\modules\DataDictionary\DataDictionary-edit-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.BaseDataApp\modules\DataDictionary\DataDictionary-edit.html" />
+    <Content Include="Siemens.SimaticIT.BaseDataApp\modules\DataDictionary\DataDictionary-list-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.BaseDataApp\modules\DataDictionary\DataDictionary-list.html" />
+    <Content Include="Siemens.SimaticIT.BaseDataApp\modules\DataDictionary\DataDictionary-select-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.BaseDataApp\modules\DataDictionary\DataDictionary-select.html" />
+    <Content Include="Siemens.SimaticIT.BaseDataApp\modules\DataDictionary\DataDictionary-srv.js" />
+    <Content Include="Siemens.SimaticIT.BaseDataApp\modules\DataDictionary\DataDictionary_editDataItemDetail.html" />
+    <Content Include="Siemens.SimaticIT.BaseDataApp\modules\DataDictionary\DataDictionary_editDataItemDetail.js" />
+    <Content Include="Siemens.SimaticIT.BaseDataApp\modules\DataDictionary\DataItem-add-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.BaseDataApp\modules\DataDictionary\DataItem-add.html" />
+    <Content Include="Siemens.SimaticIT.BaseDataApp\modules\DataDictionary\module.js" />
+    <Content Include="Siemens.SimaticIT.BaseDataApp\modules\KeyParameter\KeyParameter-addDetail.html" />
+    <Content Include="Siemens.SimaticIT.BaseDataApp\modules\KeyParameter\KeyParameter-addDetail-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.BaseDataApp\modules\KeyParameter\KeyParameter-add-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.BaseDataApp\modules\KeyParameter\KeyParameter-add.html" />
+    <Content Include="Siemens.SimaticIT.BaseDataApp\modules\KeyParameter\KeyParameter-editDetail.html" />
+    <Content Include="Siemens.SimaticIT.BaseDataApp\modules\KeyParameter\KeyParameter-editDetail-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.BaseDataApp\modules\KeyParameter\KeyParameter-edit-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.BaseDataApp\modules\KeyParameter\KeyParameter-edit.html" />
+    <Content Include="Siemens.SimaticIT.BaseDataApp\modules\KeyParameter\KeyParameter-list-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.BaseDataApp\modules\KeyParameter\KeyParameter-list.html" />
+    <Content Include="Siemens.SimaticIT.BaseDataApp\modules\KeyParameter\KeyParameter-select-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.BaseDataApp\modules\KeyParameter\KeyParameter-select.html" />
+    <Content Include="Siemens.SimaticIT.BaseDataApp\modules\KeyParameter\KeyParameter-srv.js" />
+    <Content Include="Siemens.SimaticIT.BaseDataApp\modules\KeyParameter\module.js" />
+    <Content Include="Siemens.SimaticIT.BaseDataApp\modules\KnowledgeBase\KnowledgeBase-add-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.BaseDataApp\modules\KnowledgeBase\KnowledgeBase-add.html" />
+    <Content Include="Siemens.SimaticIT.BaseDataApp\modules\KnowledgeBase\KnowledgeBase-edit-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.BaseDataApp\modules\KnowledgeBase\KnowledgeBase-edit.html" />
+    <Content Include="Siemens.SimaticIT.BaseDataApp\modules\KnowledgeBase\KnowledgeBase-list-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.BaseDataApp\modules\KnowledgeBase\KnowledgeBase-list.html" />
+    <Content Include="Siemens.SimaticIT.BaseDataApp\modules\KnowledgeBase\KnowledgeBase-select-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.BaseDataApp\modules\KnowledgeBase\KnowledgeBase-select.html" />
+    <Content Include="Siemens.SimaticIT.BaseDataApp\modules\KnowledgeBase\KnowledgeBase-srv.js" />
+    <Content Include="Siemens.SimaticIT.BaseDataApp\modules\KnowledgeBase\module.js" />
+    <Content Include="Siemens.SimaticIT.BaseDataApp\modules\ReportManage\module.js" />
+    <Content Include="Siemens.SimaticIT.BaseDataApp\modules\ReportManage\ReportGroup-addDetail.html" />
+    <Content Include="Siemens.SimaticIT.BaseDataApp\modules\ReportManage\ReportGroup-addDetail-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.BaseDataApp\modules\ReportManage\ReportGroup-add-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.BaseDataApp\modules\ReportManage\ReportGroup-add.html" />
+    <Content Include="Siemens.SimaticIT.BaseDataApp\modules\ReportManage\ReportGroup-editDetail.html" />
+    <Content Include="Siemens.SimaticIT.BaseDataApp\modules\ReportManage\ReportGroup-editDetail-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.BaseDataApp\modules\ReportManage\ReportGroup-edit-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.BaseDataApp\modules\ReportManage\ReportGroup-edit.html" />
+    <Content Include="Siemens.SimaticIT.BaseDataApp\modules\ReportManage\ReportGroup-list-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.BaseDataApp\modules\ReportManage\ReportGroup-list.html" />
+    <Content Include="Siemens.SimaticIT.BaseDataApp\modules\ReportManage\ReportGroup-select-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.BaseDataApp\modules\ReportManage\ReportGroup-select.html" />
+    <Content Include="Siemens.SimaticIT.BaseDataApp\modules\ReportManage\ReportGroup-srv.js" />
+    <Content Include="Siemens.SimaticIT.BaseDataApp\modules\ReportManage\ReportLayout-addDetail.html" />
+    <Content Include="Siemens.SimaticIT.BaseDataApp\modules\ReportManage\ReportLayout-addDetail-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.BaseDataApp\modules\ReportManage\ReportLayout-add-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.BaseDataApp\modules\ReportManage\ReportLayout-add.html" />
+    <Content Include="Siemens.SimaticIT.BaseDataApp\modules\ReportManage\ReportLayout-editDetail.html" />
+    <Content Include="Siemens.SimaticIT.BaseDataApp\modules\ReportManage\ReportLayout-editDetail-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.BaseDataApp\modules\ReportManage\ReportLayout-edit-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.BaseDataApp\modules\ReportManage\ReportLayout-edit.html" />
+    <Content Include="Siemens.SimaticIT.BaseDataApp\modules\ReportManage\ReportLayout-list-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.BaseDataApp\modules\ReportManage\ReportLayout-list.html" />
+    <Content Include="Siemens.SimaticIT.BaseDataApp\modules\ReportManage\ReportLayout-select-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.BaseDataApp\modules\ReportManage\ReportLayout-select.html" />
+    <Content Include="Siemens.SimaticIT.BaseDataApp\modules\ReportManage\ReportLayout-srv.js" />
+    <Content Include="Siemens.SimaticIT.BaseDataApp\modules\ReportManage\ReportRecord-add-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.BaseDataApp\modules\ReportManage\ReportRecord-add.html" />
+    <Content Include="Siemens.SimaticIT.BaseDataApp\modules\ReportManage\ReportRecord-edit-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.BaseDataApp\modules\ReportManage\ReportRecord-edit.html" />
+    <Content Include="Siemens.SimaticIT.BaseDataApp\modules\ReportManage\ReportRecord-list-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.BaseDataApp\modules\ReportManage\ReportRecord-list.html" />
+    <Content Include="Siemens.SimaticIT.BaseDataApp\modules\ReportManage\ReportRecord-select-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.BaseDataApp\modules\ReportManage\ReportRecord-select.html" />
+    <Content Include="Siemens.SimaticIT.BaseDataApp\modules\ReportManage\ReportRecord-srv.js" />
+    <Content Include="Siemens.SimaticIT.BaseDataApp\modules\UpdateLog\module.js" />
+    <Content Include="Siemens.SimaticIT.BaseDataApp\modules\UpdateLog\UpdateLog-add-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.BaseDataApp\modules\UpdateLog\UpdateLog-add.html" />
+    <Content Include="Siemens.SimaticIT.BaseDataApp\modules\UpdateLog\UpdateLog-edit-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.BaseDataApp\modules\UpdateLog\UpdateLog-edit.html" />
+    <Content Include="Siemens.SimaticIT.BaseDataApp\modules\UpdateLog\UpdateLog-list-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.BaseDataApp\modules\UpdateLog\UpdateLog-list.html" />
+    <Content Include="Siemens.SimaticIT.BaseDataApp\modules\UpdateLog\UpdateLog-select-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.BaseDataApp\modules\UpdateLog\UpdateLog-select.html" />
+    <Content Include="Siemens.SimaticIT.BaseDataApp\modules\UpdateLog\UpdateLog-srv.js" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Siemens.SimaticIT.BaseDataApp\modules\Siemens.SimaticIT.BaseDataApp.DataDictionary.json" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <Content Include="Siemens.SimaticIT.BaseDataApp\modules\Siemens.SimaticIT.BaseDataApp.KeyParameter.json" />
+    <Content Include="Siemens.SimaticIT.BaseDataApp\modules\Siemens.SimaticIT.BaseDataApp.KnowledgeBase.json" />
+    <Content Include="Siemens.SimaticIT.BaseDataApp\modules\Siemens.SimaticIT.BaseDataApp.UpdateLog.json" />
+    <Content Include="Siemens.SimaticIT.BaseDataApp\modules\Siemens.SimaticIT.BaseDataApp.ReportManage.json" />
+    <Content Include="Siemens.SimaticIT.BaseDataApp\resources\resources.json" />
+    <Content Include="Siemens.SimaticIT.BaseDataApp\resources\Siemens.SimaticIT.BaseDataApp.vi-VN.json" />
+    <Content Include="Siemens.SimaticIT.BaseDataApp\resources\Siemens.SimaticIT.BaseDataApp.zh-CN.json" />
+    <Content Include="Siemens.SimaticIT.BaseDataApp\resources\Siemens.SimaticIT.BaseDataApp.th-TH.json" />
+    <Content Include="Siemens.SimaticIT.BaseDataApp\resources\Siemens.SimaticIT.BaseDataApp.en-US.json" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="app.js" />
+    <Content Include="config.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="default.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="default-debug.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Siemens.SimaticIT.BaseDataApp\module.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="scripts\_references.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Siemens.SimaticIT.BaseDataApp\locales\locales.json" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Import Project="$(SITUnifiedVSToolingPlatformBin)\Siemens.SimaticIt.UI.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>59854</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:59854/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeCompile">
+  </Target>
+  <Target Name="AfterCompile">
+  </Target>
+  -->
+</Project>

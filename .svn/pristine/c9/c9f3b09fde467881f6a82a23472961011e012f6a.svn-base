@@ -1,0 +1,531 @@
+﻿{
+  "Siemens.SimaticIT.SystemApp": {
+    "APPRole": {
+      "APPRoleadd": {
+        "Tips_1": "取消",
+        "Tips_2": "保存",
+        "Tips_3": "角色编号:",
+        "Tips_4": "角色名称:",
+        "Tips_5": "是否有效："
+      },
+      "APPRoleedit": {
+        "Tips_1": "取消",
+        "Tips_2": "保存",
+        "Tips_3": "角色编号:",
+        "Tips_4": "角色名称:",
+        "Tips_5": "是否有效："
+      },
+      "APPRolelist": {
+        "Tips_1": "角色编码:",
+        "Tips_2": "角色名称:",
+        "Tips_3": "搜索",
+        "Tips_4": "授权",
+        "Tips_5": "删除",
+        "Tips_6": "编辑",
+        "Tips_7": "新增"
+      },
+      "APPRoleselect": {
+        "Tips_1": "返回",
+        "Tips_2": "保存"
+      },
+      "APPRoleaddctrl": {
+        "Tips_1": "新建角色",
+        "Tips_2": "有效",
+        "Tips_3": "保存成功！",
+        "Tips_4": "操作出错"
+      },
+      "APPRoleeditctrl": {
+        "Tips_1": "修改角色信息",
+        "Tips_2": "有效",
+        "Tips_3": "保存成功！",
+        "Tips_4": "操作出错"
+      },
+      "APPRolelistctrl": {
+        "Tips_1": "序号",
+        "Tips_2": "主键",
+        "Tips_3": "角色编号",
+        "Tips_4": "角色名称",
+        "Tips_5": "创建人",
+        "Tips_6": "创建日期",
+        "Tips_7": "获取数据出错",
+        "Tips_8": "确定要删除编号为",
+        "Tips_9": "的记录吗?",
+        "Tips_10": "删除成功！",
+        "Tips_11": "提示",
+        "Tips_12": "APP角色管理"
+      },
+      "APPRoleselectctrl": {
+        "Tips_1": "角色授权",
+        "Tips_2": "序号",
+        "Tips_3": "模块名称",
+        "Tips_4": "功能代码",
+        "Tips_5": "功能名称",
+        "Tips_6": "角色编码不能为空！",
+        "Tips_7": "请选择功能！",
+        "Tips_8": "获取数据出错",
+        "Tips_9": "保存成功！",
+        "Tips_10": "操作出错"
+      },
+      "Title": "APP角色管理"
+    },
+    "APPRoleFunction": {
+      "APPRoleFunctionadd": {
+        "Tips_1": "取消",
+        "Tips_2": "保存",
+        "Tips_3": "模块名称:",
+        "Tips_4": "功能编号:",
+        "Tips_5": "功能名称:",
+        "Tips_6": "颜色:",
+        "Tips_7": "图标:",
+        "Tips_8": "类别:",
+        "Tips_9": "排序号:",
+        "Tips_10": "是否有效："
+      },
+      "APPRoleFunctionedit": {
+        "Tips_1": "取消",
+        "Tips_2": "保存",
+        "Tips_3": "模块名称:",
+        "Tips_4": "功能编号:",
+        "Tips_5": "功能名称:",
+        "Tips_6": "颜色:",
+        "Tips_7": "图标:",
+        "Tips_8": "类别:",
+        "Tips_9": "排序号:",
+        "Tips_10": "是否有效："
+      },
+      "APPRoleFunctionlist": {
+        "Tips_1": "功能编码:",
+        "Tips_2": "功能名称:",
+        "Tips_3": "搜索",
+        "Tips_4": "授权",
+        "Tips_5": "删除",
+        "Tips_6": "编辑",
+        "Tips_7": "新增"
+      },
+      "APPRoleFunctionaddctrl": {
+        "Tips_1": "新建",
+        "Tips_2": "有效",
+        "Tips_3": "物料模块",
+        "Tips_4": "质量模块",
+        "Tips_5": "设备模块",
+        "Tips_6": "工艺模块",
+        "Tips_7": "请选择",
+        "Tips_8": "页面",
+        "Tips_9": "按钮",
+        "Tips_10": "保存成功！",
+        "Tips_11": "操作出错"
+      },
+      "APPRoleFunctioneditctrl": {
+        "Tips_1": "修改",
+        "Tips_2": "有效",
+        "Tips_3": "物料模块",
+        "Tips_4": "质量模块",
+        "Tips_5": "设备模块",
+        "Tips_6": "工艺模块",
+        "Tips_7": "请选择",
+        "Tips_8": "页面",
+        "Tips_9": "按钮",
+        "Tips_10": "保存成功！",
+        "Tips_11": "操作出错"
+      },
+      "APPRoleFunctionlistctrl": {
+        "Tips_1": "序号",
+        "Tips_2": "主键",
+        "Tips_3": "模块编号",
+        "Tips_4": "排序号",
+        "Tips_5": "模块名称",
+        "Tips_6": "功能编号",
+        "Tips_7": "功能名称",
+        "Tips_8": "创建人",
+        "Tips_9": "创建日期",
+        "Tips_10": "获取数据出错",
+        "Tips_11": "确定要删除编号为",
+        "Tips_12": "的记录吗?",
+        "Tips_13": "删除成功！",
+        "Tips_14": "提示",
+        "Tips_15": "APP角色功能管理"
+      },
+      "Title": "APP功能"
+    },
+    "AppUserInfo": {
+      "AppUserInfoadd": {
+        "Tips_1": "取消",
+        "Tips_2": "保存",
+        "Tips_3": "用户编号:",
+        "Tips_4": "角色:",
+        "Tips_5": "密码:",
+        "Tips_6": "确认密码:"
+      },
+      "AppUserInfoedit": {
+        "Tips_1": "取消",
+        "Tips_2": "保存",
+        "Tips_3": "用户编号:",
+        "Tips_4": "角色:",
+        "Tips_5": "密码:",
+        "Tips_6": "确认密码:"
+      },
+      "AppUserInfolist": {
+        "Tips_1": "用户编码:",
+        "Tips_2": "搜索",
+        "Tips_3": "删除",
+        "Tips_4": "编辑",
+        "Tips_5": "新增"
+      },
+      "AppUserInfoaddctrl": {
+        "Tips_1": "新建用户",
+        "Tips_2": "操作出错",
+        "Tips_3": "两次输入密码不一致，请重新输入",
+        "Tips_4": "保存成功！"
+      },
+      "AppUserInfoeditctrl": {
+        "Tips_1": "修改用户",
+        "Tips_2": "两次输入密码不一致，请重新输入",
+        "Tips_3": "操作出错",
+        "Tips_4": "保存成功！"
+      },
+      "AppUserInfolistctrl": {
+        "Tips_1": "序号",
+        "Tips_2": "主键",
+        "Tips_3": "用户编号",
+        "Tips_4": "APP角色",
+        "Tips_5": "创建人",
+        "Tips_6": "创建日期",
+        "Tips_7": "获取数据出错",
+        "Tips_8": "确定要删除编号为",
+        "Tips_9": "的记录吗?",
+        "Tips_10": "删除成功！",
+        "Tips_11": "提示",
+        "Tips_12": "APP用户管理"
+      },
+      "Title": "APP用户管理"
+    },
+    "Departments": {
+      "Departmentsadd": {
+        "Tips_1": "返回",
+        "Tips_2": "保存",
+        "Tips_3": "工厂:",
+        "Tips_4": "部门编号:",
+        "Tips_5": "部门名称:"
+      },
+      "Departmentsedit": {
+        "Tips_1": "返回",
+        "Tips_2": "保存",
+        "Tips_3": "工厂名称:",
+        "Tips_4": "部门编号:",
+        "Tips_5": "部门名称:"
+      },
+      "Departmentslist": {
+        "Tips_1": "工厂:",
+        "Tips_2": "部门编号:",
+        "Tips_3": "部门名称:",
+        "Tips_4": "搜索",
+        "Tips_5": "同步U9数据",
+        "Tips_6": "删除",
+        "Tips_7": "修改",
+        "Tips_8": "新增"
+      },
+      "Departmentsaddctrl": {
+        "Tips_1": "添加",
+        "Tips_2": "--请选择--",
+        "Tips_3": "保存中，请稍后……",
+        "Tips_4": "操作出错"
+      },
+      "Departmentseditctrl": {
+        "Tips_1": "修改",
+        "Tips_2": "保存中，请稍后……",
+        "Tips_3": "操作出错"
+      },
+      "Departmentslistctrl": {
+        "Tips_1": "--请选择--",
+        "Tips_2": "序号",
+        "Tips_3": "工厂名称",
+        "Tips_4": "部门编号",
+        "Tips_5": "部门名称",
+        "Tips_6": "更新时间",
+        "Tips_7": "请选择工厂！",
+        "Tips_8": "获取数据出错",
+        "Tips_9": "同步成功！",
+        "Tips_10": "请先选择属性",
+        "Tips_11": "删除",
+        "Tips_12": "确定要删除所选的数据么？",
+        "Tips_13": "确定",
+        "Tips_14": "错误提示",
+        "Tips_15": "操作失败 -",
+        "Tips_16": "部门管理"
+      },
+      "Title": "部门管理"
+    },
+    "Persons": {
+      "Personsadd": {
+        "Tips_1": "取消",
+        "Tips_2": "保存",
+        "Tips_3": "员工编号:",
+        "Tips_4": "员工名称:",
+        "Tips_5": "性别:",
+        "Tips_6": "身份证号:",
+        "Tips_7": "电话号码:",
+        "Tips_8": "部门:",
+        "Tips_9": "岗位:",
+        "Tips_10": "所属工厂:",
+        "Tips_11": "工厂:",
+        "Tips_12": "是否有效："
+      },
+      "Personsedit": {
+        "Tips_1": "返回",
+        "Tips_2": "保存",
+        "Tips_3": "员工编号:",
+        "Tips_4": "员工名称:",
+        "Tips_5": "性别:",
+        "Tips_6": "身份证号:",
+        "Tips_7": "电话号码:",
+        "Tips_8": "部门:",
+        "Tips_9": "岗位:",
+        "Tips_10": "所属工厂:",
+        "Tips_11": "是否有效："
+      },
+      "Personslist": {
+        "Tips_1": "员工编号:",
+        "Tips_2": "姓名:",
+        "Tips_3": "部门:",
+        "Tips_4": "岗位:",
+        "Tips_5": "工厂:",
+        "Tips_6": "搜索",
+        "Tips_7": "打印机绑定",
+        "Tips_8": "设定权限",
+        "Tips_9": "同步U9数据",
+        "Tips_10": "删除",
+        "Tips_11": "修改",
+        "Tips_12": "新增"
+      },
+      "PersonsModifyPermissions": {
+        "Tips_1": "设置权限",
+        "Tips_2": "是",
+        "Tips_3": "否",
+        "Tips_4": "(没有查询到打印服务器)",
+        "Tips_5": "确定",
+        "Tips_6": "查询错误",
+        "Tips_7": "保存成功！",
+        "Tips_8": "操作出错"
+      },
+      "Personsaddctrl": {
+        "Tips_1": "添加",
+        "Tips_2": "有效",
+        "Tips_3": "男",
+        "Tips_4": "女",
+        "Tips_5": "--请选择--",
+        "Tips_6": "(没有查询到部门列表)",
+        "Tips_7": "确定",
+        "Tips_8": "查询错误",
+        "Tips_9": "保存成功！",
+        "Tips_10": "操作出错"
+      },
+      "Personseditctrl": {
+        "Tips_1": "修改",
+        "Tips_2": "有效",
+        "Tips_3": "男",
+        "Tips_4": "女",
+        "Tips_5": "--请选择--",
+        "Tips_6": "(没有查询到部门列表)",
+        "Tips_7": "确定",
+        "Tips_8": "查询错误",
+        "Tips_9": "保存成功！",
+        "Tips_10": "操作出错"
+      },
+      "Personslistctrl": {
+        "Tips_1": "--请选择--",
+        "Tips_2": "(没有查询到部门列表)",
+        "Tips_3": "确定",
+        "Tips_4": "查询错误",
+        "Tips_5": "序号",
+        "Tips_6": "员工编号",
+        "Tips_7": "姓名",
+        "Tips_8": "性别",
+        "Tips_9": "部门",
+        "Tips_10": "职务",
+        "Tips_11": "岗位",
+        "Tips_12": "电话",
+        "Tips_13": "所属工厂",
+        "Tips_14": "身份证号",
+        "Tips_15": "是否有效",
+        "Tips_16": "创建时间",
+        "Tips_17": "获取数据出错",
+        "Tips_18": "同步成功！",
+        "Tips_19": "请选择一行数据",
+        "Tips_20": "请先选择属性",
+        "Tips_21": "删除",
+        "Tips_22": "确定要删除所选的数据么？",
+        "Tips_23": "错误提示",
+        "Tips_24": "操作失败 -",
+        "Tips_25": "人员管理"
+      },
+      "Title": "人员管理"
+    },
+    "PrintServer": {
+      "PrintServeradd": {
+        "Tips_1": "取消",
+        "Tips_2": "保存",
+        "Tips_3": "打印服务器名称:",
+        "Tips_4": "IP地址:",
+        "Tips_5": "备注:"
+      },
+      "PrintServeredit": {
+        "Tips_1": "取消",
+        "Tips_2": "保存",
+        "Tips_3": "打印服务器名称:",
+        "Tips_4": "IP地址:",
+        "Tips_5": "备注:"
+      },
+      "PrintServerlist": {
+        "Tips_1": "打印服务器名称:",
+        "Tips_2": "IP地址:",
+        "Tips_3": "搜索",
+        "Tips_4": "删除",
+        "Tips_5": "编辑",
+        "Tips_6": "新增"
+      },
+      "PrintServeraddctrl": {
+        "Tips_1": "新建",
+        "Tips_2": "输入的IP地址不正确，请重新输入",
+        "Tips_3": "保存成功！",
+        "Tips_4": "操作出错"
+      },
+      "PrintServereditctrl": {
+        "Tips_1": "修改",
+        "Tips_2": "输入的IP地址不正确，请重新输入",
+        "Tips_3": "保存成功！",
+        "Tips_4": "操作出错"
+      },
+      "PrintServerlistctrl": {
+        "Tips_1": "序号",
+        "Tips_2": "主键",
+        "Tips_3": "打印服务器",
+        "Tips_4": "IP地址",
+        "Tips_5": "备注",
+        "Tips_6": "获取数据出错",
+        "Tips_7": "确定要删除IP地址为",
+        "Tips_8": "的记录吗?",
+        "Tips_9": "删除成功！",
+        "Tips_10": "提示",
+        "Tips_11": "打印服务"
+      },
+      "Title": "打印服务器"
+    },
+    "Sys_DataSegregateGroup": {
+      "Sys_DataSegregateGroupadd": {
+        "Tips_1": "返回",
+        "Tips_2": "保存",
+        "Tips_3": "隔离组编码:",
+        "Tips_4": "隔离组名称",
+        "Tips_5": "隔离组标签:",
+        "Tips_6": "备注:"
+      },
+      "Sys_DataSegregateGroupedit": {
+        "Tips_1": "返回",
+        "Tips_2": "保存",
+        "Tips_3": "隔离组编码:",
+        "Tips_4": "隔离组名称",
+        "Tips_5": "隔离组标签:",
+        "Tips_6": "备注:"
+      },
+      "Sys_DataSegregateGrouplable": {
+        "Tips_1": "关闭",
+        "Tips_2": "未指定",
+        "Tips_3": "已指定"
+      },
+      "Sys_DataSegregateGrouplist": {
+        "Tips_1": "隔离组编号:",
+        "Tips_2": "隔离组名称:",
+        "Tips_3": "搜索",
+        "Tips_4": "指定标签",
+        "Tips_5": "指派人员",
+        "Tips_6": "删除组",
+        "Tips_7": "编辑",
+        "Tips_8": "新增",
+        "Tips_9": "组指定隔离标签",
+        "Tips_10": "组所属人员"
+      },
+      "Sys_DataSegregateGroupperson": {
+        "Tips_1": "返回",
+        "Tips_2": "部门:",
+        "Tips_3": "人员编号",
+        "Tips_4": "搜索"
+      },
+      "Sys_DataSegregateGroupaddctrl": {
+        "Tips_1": "新建隔离组"
+      },
+      "Sys_DataSegregateGroupeditctrl": {
+        "Tips_1": "修改数据隔离组"
+      },
+      "Sys_DataSegregateGrouplablectrl": {
+        "Tips_1": "指定标签",
+        "Tips_2": "标签名称",
+        "Tips_3": "标签颜色",
+        "Tips_4": "备注",
+        "Tips_5": "没有查询到未分配数据",
+        "Tips_6": "获取数据出错",
+        "Tips_7": "没有查询到已分配数据",
+        "Tips_8": "请选择要操作的数据",
+        "Tips_9": "提示",
+        "Tips_10": "操作完成"
+      },
+      "Sys_DataSegregateGrouplistctrl": {
+        "Tips_1": "序号",
+        "Tips_2": "隔离组编号",
+        "Tips_3": "隔离组名称",
+        "Tips_4": "隔离组标签值",
+        "Tips_5": "创建人",
+        "Tips_6": "创建日期",
+        "Tips_7": "修改人",
+        "Tips_8": "修改日期",
+        "Tips_9": "标签值",
+        "Tips_10": "标签颜色",
+        "Tips_11": "成员编号",
+        "Tips_12": "成员姓名",
+        "Tips_13": "获取数据出错",
+        "Tips_14": "要删除隔离组编号为",
+        "Tips_15": "的记录吗?",
+        "Tips_16": "删除数据出错",
+        "Tips_17": "该条记录已经删除，不需要再次进行删除操作",
+        "Tips_18": "提示",
+        "Tips_19": "数据隔离组"
+      },
+      "Sys_DataSegregateGrouppersonctrl": {
+        "Tips_1": "指派人员",
+        "Tips_2": "成员编码",
+        "Tips_3": "成员姓名",
+        "Tips_4": "主键",
+        "Tips_5": "获取数据出错",
+        "Tips_6": "没有查询到已分配数据",
+        "Tips_7": "查询错误",
+        "Tips_8": "分配完成",
+        "Tips_9": "取消分配完成"
+      },
+      "Title": "数据隔离分组"
+    },
+    "Sys_DataSegregateLabel": {
+      "Sys_DataSegregateLabellist": {
+        "Tips_1": "删除"
+      },
+      "Sys_DataSegregateLabellistctrl": {
+        "Tips_1": "序号",
+        "Tips_2": "标签名称",
+        "Tips_3": "标签颜色",
+        "Tips_4": "隔离标签值",
+        "Tips_5": "创建人",
+        "Tips_6": "创建日期",
+        "Tips_7": "修改人",
+        "Tips_8": "修改日期",
+        "Tips_9": "备注",
+        "Tips_10": "获取数据出错",
+        "Tips_11": "确定要删除",
+        "Tips_12": "删除成功！",
+        "Tips_13": "提示",
+        "Tips_14": "数据隔离标签"
+      },
+      "Title": "数据隔离标签"
+    },
+    "UIModule1": {
+      "Title": "UIModule1"
+    }
+  }
+}

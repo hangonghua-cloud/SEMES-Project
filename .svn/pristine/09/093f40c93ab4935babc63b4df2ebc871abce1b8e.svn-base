@@ -1,0 +1,86 @@
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>fbad4b1f-2154-4164-93f0-c973b3d0547f</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Siemens.SimaticIT.BaseDataApp.Installer</RootNamespace>
+    <AssemblyName>Siemens.SimaticIT.BaseDataApp.Installer</AssemblyName>
+    <Name>BaseDataApp.Installer</Name>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FunctionalBlockType>Project</FunctionalBlockType>
+    <FunctionalBlockVersion>01.00.00</FunctionalBlockVersion>
+    <FunctionalBlockName>BaseDataApp</FunctionalBlockName>
+    <FunctionalBlockPrefix>Siemens.SimaticIT</FunctionalBlockPrefix>
+    <FunctionalBlockModels>Siemens.SimaticIT.BaseDataApp.BaseDataApp.BDPOMModel</FunctionalBlockModels>
+    <FunctionalBlockDescription>Base Data Manage App</FunctionalBlockDescription>
+    <SitPlatformVersion>4.1</SitPlatformVersion>
+    <AutoDeployPackage>True</AutoDeployPackage>
+    <CanBeExtended>True</CanBeExtended>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU'  ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Release\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="Config" />
+    <Folder Include="ExternalDependencies" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Config\Siemens.SimaticIT.BaseDataApp.Dbinit.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Config\Siemens.SimaticIT.BaseDataApp.References.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Config\Siemens.SimaticIT.BaseDataApp.ApplicationLog.en-US.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BaseDataApp.BDPOMModel\BaseDataApp.BDPOMModel.pmproj">
+      <Name>BaseDataApp.BDPOMModel</Name>
+      <Project>{7631caa3-a20c-46f3-a7e0-3548de32d757}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\BaseDataApp.CommandHandler\BaseDataApp.CommandHandler.csproj">
+      <Name>BaseDataApp.CommandHandler</Name>
+      <Project>{1255b745-cb2f-4bfa-9246-cc082bee9a03}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\BaseDataApp.EventHandler\BaseDataApp.EventHandler.csproj">
+      <Name>BaseDataApp.EventHandler</Name>
+      <Project>{e8452c74-3329-45f1-a4ac-e2baae7637b9}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\BaseDataApp.ReadingFunctionHandler\BaseDataApp.ReadingFunctionHandler.csproj">
+      <Name>BaseDataApp.ReadingFunctionHandler</Name>
+      <Project>{38c28d44-d4c4-4c6e-81a9-1efef475a308}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\BaseDataApp.UserInterface\BaseDataApp.UserInterface.csproj">
+      <Name>BaseDataApp.UserInterface</Name>
+      <Project>{49534084-0857-4d3e-b33a-511ed14f336f}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(SITUnifiedVSToolingPlatformBin)\Siemens.SimaticIt.Build.Installer.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

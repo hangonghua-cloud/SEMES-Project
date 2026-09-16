@@ -1,0 +1,40 @@
+﻿<div class="command-bar-side-panel">
+    <button ng-click="vm.cancel()" class="btn side-panel-button">{{'Siemens.SimaticIT.BaseDataApp.KeyParameter.KeyParametereditDetail.Tips_1'|translate}}</button>
+    <button ng-click="vm.save()" class="btn side-panel-button" ng-show="vm.validInputs">{{'Siemens.SimaticIT.BaseDataApp.KeyParameter.KeyParametereditDetail.Tips_2'|translate}}</button>
+</div>
+<div class="side-panel-property-area-body">
+    <sit-property-grid sit-id="edit_form"
+                       sit-layout="Horizontal"
+                       sit-type="Fixed"
+                       sit-mode="edit"
+                       sit-columns="2">
+        <!-- TODO: Put here the properties of the entity managed by the service -->
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.EnCode" sit-validation="{required: false}"
+                      sit-read-only="false">EnCode:</sit-property>
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.ItemCode" sit-validation="{required: true}"
+                      sit-read-only="false">{{'Siemens.SimaticIT.BaseDataApp.KeyParameter.KeyParametereditDetail.Tips_3'|translate}}</sit-property>
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.ItemName" sit-validation="{required: true}"
+                      sit-read-only="false">{{'Siemens.SimaticIT.BaseDataApp.KeyParameter.KeyParametereditDetail.Tips_4'|translate}}</sit-property>
+        <sit-property sit-widget="sit-numeric" sit-value="vm.currentItem.SortCode" sit-validation="{required: true, min: 0}"
+                      sit-read-only="false">{{'Siemens.SimaticIT.BaseDataApp.KeyParameter.KeyParametereditDetail.Tips_5'|translate}}</sit-property>
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.ItemValue" sit-validation="{required: false}"
+                      sit-read-only="false">{{'Siemens.SimaticIT.BaseDataApp.KeyParameter.KeyParametereditDetail.Tips_6'|translate}}</sit-property>
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.Col1" sit-validation="{required: false}"
+                      sit-read-only="false">{{'Siemens.SimaticIT.BaseDataApp.KeyParameter.KeyParametereditDetail.Tips_7'|translate}}</sit-property>
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.Col2" sit-validation="{required: false}"
+                      sit-read-only="false">{{'Siemens.SimaticIT.BaseDataApp.KeyParameter.KeyParametereditDetail.Tips_8'|translate}}</sit-property>
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.Col3" sit-validation="{required: false}"
+                      sit-read-only="false">{{'Siemens.SimaticIT.BaseDataApp.KeyParameter.KeyParametereditDetail.Tips_9'|translate}}</sit-property>
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.Remark1" sit-validation="{required: false}"
+                      sit-read-only="false">{{'Siemens.SimaticIT.BaseDataApp.KeyParameter.KeyParametereditDetail.Tips_10'|translate}}</sit-property>
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.Remark2" sit-validation="{required: false}"
+                      sit-read-only="false">{{'Siemens.SimaticIT.BaseDataApp.KeyParameter.KeyParametereditDetail.Tips_11'|translate}}</sit-property>
+
+        <sit-property sit-widget="sit-checkbox"
+                      sit-value="vm.IsEnabled"
+                      sit-validation="{required: false}"
+                      ng-show="true">
+            {{'Siemens.SimaticIT.BaseDataApp.KeyParameter.KeyParametereditDetail.Tips_12'|translate}}
+        </sit-property>
+    </sit-property-grid>
+</div>

@@ -1,0 +1,19 @@
+﻿{
+  "name": "Siemens.SimaticIT.PlanApp.WorkOrderManage",
+  "type": "standard",
+  "title": "Siemens.SimaticIT.PlanApp.WorkOrderManage.Title",
+  "header": "",
+  "icon": "fa-folder",
+  "functionalBlock": "Siemens.SimaticIT.PlanApp",
+  "dependencies": [],
+  "states": [
+    {
+      "id": "home.Siemens_SimaticIT_PlanApp_WorkOrderManage_WorkOrder",
+      "title": "Siemens.SimaticIT.PlanApp.WorkOrderManage.Title",
+      "header": "",
+      "securable": true,
+      "roles": []
+    }
+  ],
+  "manifestVersion": "01.01.00"
+}

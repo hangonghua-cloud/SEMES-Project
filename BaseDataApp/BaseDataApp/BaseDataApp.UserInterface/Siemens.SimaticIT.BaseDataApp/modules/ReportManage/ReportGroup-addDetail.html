@@ -1,0 +1,23 @@
+﻿<div class="command-bar-side-panel">
+    <button ng-click="vm.cancel()" class="btn side-panel-button">{{'Siemens.SimaticIT.BaseDataApp.ReportManage.ReportGroupaddDetail.Tips_1'|translate}}</button>
+    <button ng-click="vm.save()" class="btn side-panel-button">{{'Siemens.SimaticIT.BaseDataApp.ReportManage.ReportGroupaddDetail.Tips_2'|translate}}</button>
+</div>
+<div class="side-panel-property-area-body">
+    <div class="row" style="height:500px;">
+
+        <div class="col-xs-40 col-md-40">
+            <div style="margin: 16px 0px 15px 10px;
+            border: 1px solid #cccccc; background-color: #f6f6f6;
+            width:calc(100%-10px); height: 100%; padding:1px 10px 0 10px;overflow: auto;">
+
+                <js-tree tree-plugins="types,checkbox"
+                         tree-types="typesConfig"
+                         tree-data="scope"
+                         tree-model="treeModel"
+                         tree-core="treeCore"
+                         tree-events="changed:changedCB;"></js-tree>
+            </div>
+            <div id="test"></div>
+        </div>
+    </div>
+</div>

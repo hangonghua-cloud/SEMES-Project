@@ -1,0 +1,66 @@
+﻿<!--
+    0.代码生成: UA主子表一键生成前后端html、JS、API接口代码生成器 Ver 1.11 更新日期：2021-07-14  设计者：刘万军
+    1.功能描述: 派工执行工单
+    2.创建人员: admin
+    3.创建日期: 2021-08-05
+    4.修改人员:
+    5.修改日期:
+-->
+<style>
+    .row {
+        padding: 5px;
+        margin-top: 10px;
+    }
+</style>
+<div class="command-bar-side-panel">
+    <button ng-click="vm.cancel()" class="btn side-panel-button">{{'customCommon.Button.Cancel'|translate}}</button>
+    <button ng-click="vm.save()" class="btn side-panel-button">{{'customCommon.Button.Save'|translate}}</button>
+</div>
+<div class="side-panel-property-area-body">
+    <sit-property-grid sit-id="view_form" sit-layout="Horizontal" sit-type="Fixed" sit-mode="edit" sit-columns="2" style="margin-left: 4px;">
+        <sit-property sit-widget="sit-select" sit-value="vm.typeFactory.value" sit-validation="{required: true}" sit-options="vm.typeFactory.options"
+                      sit-to-display="'ResourceName'" sit-to-keep="'ResourceCode'" sit-read-only="false" sit-change="vm.typeFactoryChange">{{'Siemens.SimaticIT.ProductionApp.TeamPerson.Factory'|translate}}</sit-property>
+        <sit-property sit-widget="sit-select" sit-value="vm.typeProcess.value" sit-validation="{required: true}" sit-options="vm.typeProcess.options"
+                      sit-to-display="'ResourceName'" sit-to-keep="'ResourceCode'" sit-read-only="false">{{'Siemens.SimaticIT.ProductionApp.TeamPerson.Process'|translate}}</sit-property>
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.PTeamCode" sit-validation="{required: true}"
+                      sit-read-only="false">{{'Siemens.SimaticIT.ProductionApp.TeamPerson.PTeamCode'|translate}}</sit-property>
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.PTeamName" sit-validation="{required: true}"
+                      sit-read-only="false">{{'Siemens.SimaticIT.ProductionApp.TeamPerson.PTeamName'|translate}}</sit-property>
+
+    </sit-property-grid>
+    <!-- </sit-property-grid> -->
+    <!-- <hr />
+    <h3>人员列表</h3>
+    <sit-property-grid sit-id="add_form"
+                       sit-layout="Vertical"
+                       sit-type="Fluid"
+                       sit-mode="edit"
+                       sit-columns="1">
+        <sit-property-grid sit-id="view_form" sit-layout="Horizontal" sit-type="Fixed" sit-mode="edit" sit-columns="6" style="margin-left: 4px;">
+            <sit-property sit-widget="sit-select" sit-value="vm.Post.value" sit-validation="{required: false}" sit-options="vm.Post.options"
+                          sit-to-display="'Col2'" sit-to-keep="'Col1'" sit-read-only="false">岗位:</sit-property>
+
+            <sit-property sit-widget="sit-entity-picker" sit-id="vm.UserConfig.id"
+                          sit-datasource="vm.UserConfig.datasource"
+                          sit-limit="vm.UserConfig.limit"
+                          sit-placeholder="vm.UserConfig.placeholder"
+                          sit-selected-attribute-to-display="vm.UserConfig.attributetodisplay"
+                          sit-selected-object="vm.UserConfig.selectedObject"
+                          sit-wait-ms="vm.UserConfig.waitTime"
+                          sit-editable="vm.UserConfig.editable"
+                          sit-validation="vm.UserConfig.validation"
+                          sit-change="vm.UserConfig.changeEvent"
+                          ng-disabled="vm.UserConfig.disableEP"
+                          ng-readonly="vm.UserConfig.readOnly"
+                          sit-required="vm.UserConfig.required">人员:</sit-property>
+            <sit-command-bar sit-type="action">
+                <sit-command sit-icon="fa-plus" sit-type="main" sit-name="com.siemens.customcommand.add" sit-tooltip="添加" ng-click="vm.add2ButtonHandler" sit-label="添加"></sit-command>
+                <sit-command sit-icon="fa-trash" sit-type="main" sit-name="com.siemens.customcommand.delete" sit-tooltip="删除" ng-click="vm.delete2ButtonHandler" sit-label="删除"></sit-command>
+            </sit-command-bar>
+        </sit-property-grid>
+
+    </sit-property-grid> -->
+    <!-- <div id="listClassAdd" class="col-md-40" style="width:100%; height: 60%; padding:0px 16px 0px 0px; margin-top: 10px;">
+        <div ui-grid="vm.gridOptionsDetailAdd" ui-grid-pinning ui-grid-auto-resize ui-grid-resize-columns ui-grid-selection ui-grid-pagination class="uigrid"></div>
+    </div> -->
+</div>

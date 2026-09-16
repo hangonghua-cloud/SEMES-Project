@@ -1,0 +1,11 @@
+D:\New folder\MES.WEBAPI\ALP.Data.Redis\bin\Debug\RedisHelp.dll
+D:\New folder\MES.WEBAPI\ALP.Data.Redis\bin\Debug\RedisHelp.pdb
+D:\New folder\MES.WEBAPI\ALP.Data.Redis\bin\Debug\Newtonsoft.Json.dll
+D:\New folder\MES.WEBAPI\ALP.Data.Redis\bin\Debug\StackExchange.Redis.dll
+D:\New folder\MES.WEBAPI\ALP.Data.Redis\bin\Debug\Newtonsoft.Json.xml
+D:\New folder\MES.WEBAPI\ALP.Data.Redis\bin\Debug\StackExchange.Redis.xml
+D:\New folder\MES.WEBAPI\ALP.Data.Redis\obj\Debug\RedisHelp.csprojAssemblyReference.cache
+D:\New folder\MES.WEBAPI\ALP.Data.Redis\obj\Debug\RedisHelp.csproj.CoreCompileInputs.cache
+D:\New folder\MES.WEBAPI\ALP.Data.Redis\obj\Debug\RedisHelp.csproj.CopyComplete
+D:\New folder\MES.WEBAPI\ALP.Data.Redis\obj\Debug\RedisHelp.dll
+D:\New folder\MES.WEBAPI\ALP.Data.Redis\obj\Debug\RedisHelp.pdb

@@ -1,0 +1,19 @@
+﻿{
+  "name": "Siemens.SimaticIT.MaterialApp.BOM",
+  "type": "standard",
+  "title": "Siemens.SimaticIT.MaterialApp.BOM.Title",
+  "header": "",
+  "icon": "fa-folder",
+  "functionalBlock": "Siemens.SimaticIT.MaterialApp",
+  "dependencies": [],
+  "states": [
+    {
+      "id": "home.Siemens_SimaticIT_MaterialApp_BOM_BOM",
+      "title": "Siemens.SimaticIT.MaterialApp.BOM.Title",
+      "header": "",
+      "securable": true,
+      "roles": []
+    }
+  ],
+  "manifestVersion": "01.01.00"
+}

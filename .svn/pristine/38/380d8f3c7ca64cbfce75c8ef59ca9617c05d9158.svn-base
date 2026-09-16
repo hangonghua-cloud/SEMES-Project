@@ -1,0 +1,17 @@
+﻿<div class="command-bar-side-panel">
+    <button ng-click="vm.cancel()" class="btn side-panel-button">{{'Siemens.SimaticIT.SystemApp.Departments.Departmentsadd.Tips_1'|translate}}</button>
+    <button ng-click="vm.save()" class="btn side-panel-button" ng-show="vm.validInputs">{{'Siemens.SimaticIT.SystemApp.Departments.Departmentsadd.Tips_2'|translate}}</button>
+</div>
+<div class="side-panel-property-area-body">
+    <sit-property-grid sit-id="add_form" sit-layout="Horizontal" sit-type="Fixed" sit-mode="edit" sit-columns="1">
+        <!-- TODO: Put here the properties of the entity managed by the service -->
+        <sit-property sit-widget="sit-select" sit-value="vm.typeFactory.value" sit-validation="{required: true}"
+                      sit-options="vm.typeFactory.options" sit-to-display="'ResourceName'" sit-to-keep="'ResourceCode'"
+                      sit-read-only="false">{{'Siemens.SimaticIT.SystemApp.Departments.Departmentsadd.Tips_3'|translate}}</sit-property>
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.Code" width:200 sit-validation="{required: true}"
+                      sit-read-only="false">{{'Siemens.SimaticIT.SystemApp.Departments.Departmentsadd.Tips_4'|translate}}</sit-property>
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.Name" width:200 sit-validation="{required: true}"
+                      sit-read-only="false">{{'Siemens.SimaticIT.SystemApp.Departments.Departmentsadd.Tips_5'|translate}}</sit-property>
+
+    </sit-property-grid>
+</div>

@@ -1,0 +1,235 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Items>
+  <DataModelAssembly Id="1f1bd55f-613b-4179-9e16-99786cbcc075">
+    <AssemblyName>Siemens.SimaticIT.SystemData.SITUASys.SDModel.ReadingModel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DataModelAssembly>
+  <DataModelAssembly Id="c5a358b7-1831-4028-91b4-a1334ff1da48">
+    <AssemblyName>Siemens.SimaticIT.SystemData.SITUASys.SDModel.Types.ReadingModel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DataModelAssembly>
+  <DataModelAssembly Id="334f06a6-eb69-4000-b73f-aed8afdb2ba0">
+    <AssemblyName>Siemens.SimaticIT.System.System.SAPOMModel.Types.ReadingModel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DataModelAssembly>
+  <DataModelAssembly Id="299e5466-7cc4-4afc-8fbc-07d407ffb843">
+    <AssemblyName>Siemens.SimaticIT.SystemData.SITUASys.SDModel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DataModelAssembly>
+  <DataModelAssembly Id="ef835dd1-dba6-4f40-b62e-cd2dfa04eb67">
+    <AssemblyName>Siemens.SimaticIT.SystemData.SITUASys.SDModel.Types, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DataModelAssembly>
+  <DataModelAssembly Id="e683fdfc-8095-4e09-abb3-f330fe449a1e">
+    <AssemblyName>Siemens.SimaticIT.System.System.SAPOMModel.Types, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DataModelAssembly>
+  <DataModelAssembly Id="a1f6c13a-300b-44a9-8cf7-f0e228332e09">
+    <AssemblyName>Siemens.SimaticIT.System.System.SAPOMModel.PublicModel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DataModelAssembly>
+  <DataModelAssembly Id="e094127a-68d0-4c51-8ff1-71cd3dc19715">
+    <AssemblyName>Siemens.SimaticIT.BaseDataApp.BaseDataApp.BDPOMModel.PublicModel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DataModelAssembly>
+  <DataModelAssembly Id="56bb56e6-2a94-4c14-8fea-08b4e13f4af7">
+    <AssemblyName>Siemens.SimaticIT.UAMES.ThirdPartyDBFBLib.UMModel.ReadingModel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DataModelAssembly>
+  <DataModelAssembly Id="8f441aaa-cd2d-4d32-9cfd-e40efe4a740c">
+    <AssemblyName>Siemens.SimaticIT.BasicDataManageFBApp.BasicDataManageFBApp.BAPOMModel.PublicModel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DataModelAssembly>
+  <DataModelAssembly Id="28fc3324-3758-40bb-85cb-5b9bf9c57a25">
+    <AssemblyName>Siemens.SimaticIT.UAMES.ThirdPartyDBFBLib.UMModel.Types.ReadingModel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DataModelAssembly>
+  <DataModelAssembly Id="cf98bd89-75d9-496e-b8af-9f529eafc622">
+    <AssemblyName>Siemens.SimaticIT.MasterData.EQU_MS.MSModel.ReadingModel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DataModelAssembly>
+  <DataModelAssembly Id="e321fc31-b03e-452f-bd01-b2fb45f67488">
+    <AssemblyName>Siemens.SimaticIT.MasterData.EQU_MS.MSModel.Types.ReadingModel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DataModelAssembly>
+  <DataModelAssembly Id="db5caa9c-ab66-43fe-88b7-fc59b3ad6a7e">
+    <AssemblyName>Siemens.SimaticIT.MasterData.BasicDataManageFBLib.MSModel.ReadingModel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DataModelAssembly>
+  <DataModelAssembly Id="03a3807a-5bd2-443f-ac4d-a8881a8ba29a">
+    <AssemblyName>Siemens.SimaticIT.MasterData.BasicDataManageFBLib.MSModel.Types.ReadingModel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DataModelAssembly>
+  <DataModelAssembly Id="be2ecf99-db3a-4daf-b6b1-0c7b62c879da">
+    <AssemblyName>Siemens.SimaticIT.OperationalData.EQU_OP.OPModel.ReadingModel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DataModelAssembly>
+  <DataModelAssembly Id="907757fa-6149-4589-a7e4-e5124b40c59c">
+    <AssemblyName>Siemens.SimaticIT.OperationalData.EQU_OP.OPModel.Types.ReadingModel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DataModelAssembly>
+  <DataModelAssembly Id="0fbceed6-4d8e-4df9-95ff-5d74debbc658">
+    <AssemblyName>Siemens.SimaticIT.ReferenceData.UDM_RF.RFModel.ReadingModel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DataModelAssembly>
+  <DataModelAssembly Id="08443db0-af67-4c68-878d-bd6eabe49a8b">
+    <AssemblyName>Siemens.SimaticIT.ReferenceData.UDM_RF.RFModel.Types.ReadingModel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DataModelAssembly>
+  <DataModelAssembly Id="75bed475-1e20-453d-905e-53de9b6a6338">
+    <AssemblyName>Siemens.SimaticIT.UAMES.ThirdPartyDBFBLib.UMModel.Types, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DataModelAssembly>
+  <DataModelAssembly Id="00ffbfbd-58d8-4d15-8d45-033c2359eec1">
+    <AssemblyName>Siemens.SimaticIT.MasterData.EQU_MS.MSModel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DataModelAssembly>
+  <DataModelAssembly Id="cd3af342-4e48-4ccf-b5ad-e4363ff5e06f">
+    <AssemblyName>Siemens.SimaticIT.MasterData.EQU_MS.MSModel.Types, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DataModelAssembly>
+  <DataModelAssembly Id="919eadc9-6fc2-4cb1-9bed-cba7e5f80c5c">
+    <AssemblyName>Siemens.SimaticIT.MasterData.BasicDataManageFBLib.MSModel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DataModelAssembly>
+  <DataModelAssembly Id="5301b0d2-c73c-43d0-befd-d03ac5ad2c4b">
+    <AssemblyName>Siemens.SimaticIT.MasterData.BasicDataManageFBLib.MSModel.Types, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DataModelAssembly>
+  <DataModelAssembly Id="7088fe33-f2a5-45d1-8b3c-5ef8dfcee0a4">
+    <AssemblyName>Siemens.SimaticIT.OperationalData.EQU_OP.OPModel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DataModelAssembly>
+  <DataModelAssembly Id="479f1f7f-9fbd-4501-9ea5-6ebabe48104c">
+    <AssemblyName>Siemens.SimaticIT.OperationalData.EQU_OP.OPModel.Types, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DataModelAssembly>
+  <DataModelAssembly Id="01cd6291-7339-4290-8a28-070ed3911e28">
+    <AssemblyName>Siemens.SimaticIT.ReferenceData.UDM_RF.RFModel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DataModelAssembly>
+  <DataModelAssembly Id="e29b372b-d8c5-44ae-9e1d-2d38184fae30">
+    <AssemblyName>Siemens.SimaticIT.ReferenceData.UDM_RF.RFModel.Types, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DataModelAssembly>
+  <DataModelAssembly Id="ef8424ba-27e6-43e1-a656-cfd3a827e73d">
+    <AssemblyName>CCS.CommonApp.CommonApp.APPOMModel.PublicModel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DataModelAssembly>
+  <DataModelAssembly Id="919b7f9e-5338-415c-82ba-831c78d6883c">
+    <AssemblyName>Siemens.SimaticIT.EquipmentApp.EquipmentApp.EPPOMModel.PublicModel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DataModelAssembly>
+  <DataModelAssembly Id="ed940616-78bd-4698-8e1a-be55047b2182">
+    <AssemblyName>Siemens.SimaticIT.FactoryModelApp.FactoryModelApp.FMPOMModel.PublicModel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DataModelAssembly>
+  <DataModelAssembly Id="8f171945-1c96-448d-ad98-44c081c0211e">
+    <AssemblyName>Siemens.SimaticIT.MaterialApp.MaterialApp.MRPOMModel.PublicModel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DataModelAssembly>
+  <DataModelAssembly Id="1bf92fca-ddc0-4d73-ac05-12eaafe55dd9">
+    <AssemblyName>Siemens.SimaticIT.Personnel.Personnel.PRPOMModel.PublicModel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DataModelAssembly>
+  <DataModelAssembly Id="6bbf58da-d0b5-4d20-b823-d19f7505de33">
+    <AssemblyName>Siemens.SimaticIT.Personnel.Personnel.PRPOMModel.Types.ReadingModel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DataModelAssembly>
+  <DataModelAssembly Id="9894eb80-a226-4006-a988-45bff736118b">
+    <AssemblyName>Siemens.SimaticIT.MasterData.PRM_MS.MSModel.ReadingModel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DataModelAssembly>
+  <DataModelAssembly Id="1aa08a4a-fee5-401c-964b-505e2632d161">
+    <AssemblyName>Siemens.SimaticIT.MasterData.PRM_MS.MSModel.Types.ReadingModel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DataModelAssembly>
+  <DataModelAssembly Id="d809663b-901e-4099-9396-74e5f6d2ccc0">
+    <AssemblyName>Siemens.SimaticIT.SystemData.DSG_SD.SDModel.ReadingModel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DataModelAssembly>
+  <DataModelAssembly Id="f8021de0-dddd-4e4d-a548-cbb637caed9f">
+    <AssemblyName>Siemens.SimaticIT.SystemData.DSG_SD.SDModel.Types.ReadingModel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DataModelAssembly>
+  <DataModelAssembly Id="ffdd4cdf-b98e-48ce-b1ff-cb614ece9daa">
+    <AssemblyName>Siemens.SimaticIT.Personnel.Personnel.PRPOMModel.Types, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DataModelAssembly>
+  <DataModelAssembly Id="c5eb78d6-52f4-4bb5-b4f5-585a95e99cc9">
+    <AssemblyName>Siemens.SimaticIT.MasterData.PRM_MS.MSModel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DataModelAssembly>
+  <DataModelAssembly Id="89c52bce-1baa-436c-8a57-e6f569a588cd">
+    <AssemblyName>Siemens.SimaticIT.MasterData.PRM_MS.MSModel.Types, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DataModelAssembly>
+  <DataModelAssembly Id="cd54eb75-8a0b-4541-8c5c-d32ac6e42472">
+    <AssemblyName>Siemens.SimaticIT.SystemData.DSG_SD.SDModel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DataModelAssembly>
+  <DataModelAssembly Id="799d08d3-ffa4-483b-9571-ad59ef9e615b">
+    <AssemblyName>Siemens.SimaticIT.SystemData.DSG_SD.SDModel.Types, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DataModelAssembly>
+  <DataModelAssembly Id="b5100fcf-8c06-4348-87a3-f58e5e54f345">
+    <AssemblyName>Siemens.SimaticIT.PlanApp.PlanApp.PLPOMModel.PublicModel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DataModelAssembly>
+  <DataModelAssembly Id="d8ea7bb2-607e-4ac7-b2ce-3328cb7e59ea">
+    <AssemblyName>Siemens.SimaticIT.ProductionApp.ProductionApp.PLPOMModel.PublicModel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DataModelAssembly>
+  <DataModelAssembly Id="317fde6d-04e0-4ea3-aa06-886b8f9d0d70">
+    <AssemblyName>Siemens.SimaticIT.QualityApp.QualityApp.QLPOMModel.PublicModel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DataModelAssembly>
+  <DataModelAssembly Id="431d2bdd-37af-4d24-aa99-ac29f78ccbe4">
+    <AssemblyName>Siemens.SimaticIT.SystemApp.SystemApp.STPOMModel.PublicModel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DataModelAssembly>
+  <DataModelAssembly Id="cabd6415-f383-41ca-a078-6fb47efe4afa">
+    <AssemblyName>Siemens.SimaticIT.ButtonAuthFBApp.ButtonAuthFBApp.BAPOMModel.PublicModel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DataModelAssembly>
+  <DataModelAssembly Id="341958b5-aa25-43b0-b7b4-4cfa98622685">
+    <AssemblyName>Siemens.SimaticIT.ButtonAuthFBApp.ButtonAuthFBApp.BAPOMModel.Types.ReadingModel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DataModelAssembly>
+  <DataModelAssembly Id="64953153-c65a-4ce1-b99d-fbf4779b76e6">
+    <AssemblyName>Siemens.SimaticIT.MasterData.ButtonAuthFBLib.MSModel.ReadingModel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DataModelAssembly>
+  <DataModelAssembly Id="00ec265b-de50-4765-bb82-33e7d646299e">
+    <AssemblyName>Siemens.SimaticIT.MasterData.ButtonAuthFBLib.MSModel.Types.ReadingModel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DataModelAssembly>
+  <DataModelAssembly Id="a304c0a7-3fb2-4cc5-ab53-b23580e4e21d">
+    <AssemblyName>Siemens.SimaticIT.ButtonAuthFBApp.ButtonAuthFBApp.BAPOMModel.Types, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DataModelAssembly>
+  <DataModelAssembly Id="02206dca-c06e-4c70-92eb-d13bf2cb6d6e">
+    <AssemblyName>Siemens.SimaticIT.MasterData.ButtonAuthFBLib.MSModel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DataModelAssembly>
+  <DataModelAssembly Id="149f82be-7b3f-4702-8a8f-33b9a8eb3176">
+    <AssemblyName>Siemens.SimaticIT.MasterData.ButtonAuthFBLib.MSModel.Types, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DataModelAssembly>
+  <DataModelAssembly Id="8eb5c666-230f-4a1c-95ea-f8f7069b306a">
+    <AssemblyName>Siemens.SimaticIT.SystemData.Foundation.ReadingModel, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DataModelAssembly>
+  <DataModelAssembly Id="f5c2b933-560f-42fc-b1bd-68f4111ecd59">
+    <AssemblyName>Siemens.SimaticIT.SystemData.Foundation.Types.ReadingModel, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DataModelAssembly>
+  <DataModelAssembly Id="164998f6-3395-4b82-9c6a-8fec3e282b24">
+    <AssemblyName>Siemens.SimaticIT.SystemData.Foundation, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DataModelAssembly>
+  <DataModelAssembly Id="8d465434-6e41-452d-91e9-f329707f8570">
+    <AssemblyName>Siemens.SimaticIT.SystemData.Foundation.Types, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DataModelAssembly>
+</Items>

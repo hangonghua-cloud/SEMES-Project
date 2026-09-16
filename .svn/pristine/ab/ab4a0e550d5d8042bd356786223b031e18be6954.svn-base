@@ -1,0 +1,21 @@
+﻿<div class="command-bar-side-panel">
+    <button ng-click="vm.cancel()" class="btn side-panel-button">取消</button>
+    <button ng-click="vm.save()" class="btn side-panel-button" ng-show="vm.validInputs">保存</button>
+</div>
+<div class="side-panel-property-area-body">
+    <sit-property-grid sit-id="add_form" sit-layout="Vertical" sit-type="Fluid" sit-mode="edit" sit-columns="1">
+        <!-- TODO: Put here the properties of the entity managed by the service -->
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.CategoryCode" sit-validation="{required: true}"
+                      sit-read-only="true">类别编号:</sit-property>
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.ItemCode"
+                      sit-read-only="false">编号(如不填写则自动生成):</sit-property>
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.ItemName" sit-validation="{required: true}"
+                      sit-read-only="false">名称:</sit-property>
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.ItemValue" 
+                      sit-read-only="false">值:</sit-property>
+        <sit-property sit-widget="sit-numeric" sit-value="vm.currentItem.SortNum"  sit-validation="{ required: false, max: 9999999, min: 0 }"
+                      sit-read-only="false">排序值(如不填写则自增生成):</sit-property>
+        <sit-property sit-widget="sit-checkbox" sit-value="vm.IsValid" sit-validation="{required: false}"
+                      sit-read-only="false">是否启用:</sit-property>
+    </sit-property-grid>
+</div>

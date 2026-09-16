@@ -1,0 +1,80 @@
+发货单数据SaveSAPMM_ProductDispatchItem接口调用时间: 2025/3/2 12:35:27,参数{
+  "Entity": [
+    {
+      "ProductDispatchItem": {
+        "FactoryCode": "TH01",
+        "FactoryName": "Estival (Thailand) Factory",
+        "DocType": "10",
+        "DocNum": "7000000132",
+        "ProductOrder": "TH25-N002#",
+        "ContainerNO": "6",
+        "CustomerPO": "10338",
+        "DeliveryType": "1",
+        "Status": "A",
+        "InvoiceNO": "6410307440",
+        "LoadingBill": "OETSHA25020087",
+        "CusdeclarationDate": "2025/02/25",
+        "CusdeclarationNum": "A0251680201537",
+        "Creator": "CN000005",
+        "CreateTime": "2025-02-25 17:39:00",
+        "Harbor": "990",
+        "DeliveryDate": "2025/02/25",
+        "BoxNum": "80",
+        "GrossWeight": "21800.000",
+        "Volume": "26.620",
+        "IsDeleted": false
+      },
+      "DispatchDetails": [
+        {
+          "MaterialCode": "33000001",
+          "PalletQty": "20",
+          "DetailGrossWeight": "21800.000",
+          "DetailVolume": "26.620",
+          "MaterialQty": "21200.000",
+          "LineNum": "10",
+          "ProductLine": "60"
+        }
+      ]
+    }
+  ]
+};
+发货单数据SaveSAPMM_ProductDispatchItem接口调用时间: 2025/3/2 12:36:43,参数{
+  "Entity": [
+    {
+      "ProductDispatchItem": {
+        "FactoryCode": "TH01",
+        "FactoryName": "Estival (Thailand) Factory",
+        "DocType": "10",
+        "DocNum": "7000000132",
+        "ProductOrder": "TH25-N002#",
+        "ContainerNO": "6",
+        "CustomerPO": "10338",
+        "DeliveryType": "1",
+        "Status": "A",
+        "InvoiceNO": "6410307440",
+        "LoadingBill": "OETSHA25020087",
+        "CusdeclarationDate": "2025/02/25",
+        "CusdeclarationNum": "A0251680201537",
+        "Creator": "CN000005",
+        "CreateTime": "2025-02-25 17:39:00",
+        "Harbor": "990",
+        "DeliveryDate": "2025/02/25",
+        "BoxNum": "80",
+        "GrossWeight": "21800.000",
+        "Volume": "26.620",
+        "IsDeleted": false
+      },
+      "DispatchDetails": [
+        {
+          "MaterialCode": "33000001",
+          "PalletQty": "20",
+          "DetailGrossWeight": "21800.000",
+          "DetailVolume": "26.620",
+          "MaterialQty": "21200.000",
+          "LineNum": "10",
+          "ProductLine": "60"
+        }
+      ]
+    }
+  ]
+};

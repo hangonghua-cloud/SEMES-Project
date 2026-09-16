@@ -1,0 +1,79 @@
+﻿<style>
+    .canvas .property-area-container div.command-bar-side-panel {
+        padding-bottom: 40px;
+    }
+
+    .canvas .property-area-container > div.content .side-panel-property-area-body {
+        overflow: visible;
+        flex: none;
+    }
+</style>
+<div class="command-bar-side-panel">
+    <button ng-click="vm.save()" class="btn side-panel-button">
+        {{'Siemens.SimaticIT.MaterialApp.MMRawMaterialDispatch.MMRawMaterialDispatchdelivery.Tips_1'|translate}}
+    </button>
+    <button ng-click="vm.cancel()" class="btn side-panel-button">
+        {{'Siemens.SimaticIT.MaterialApp.MMRawMaterialDispatch.MMRawMaterialDispatchdelivery.Tips_2'|translate}}
+    </button>
+</div>
+<div class="side-panel-property-area-body" style="height: calc(25% - 0px) !important">
+    <sit-property-grid sit-id="add_form1" sit-layout="Horizontal" sit-type="Fixed" sit-mode="edit" sit-columns="5">
+
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItemMain.InvoiceNO" sit-validation="{required: false}"
+                      sit-read-only="false">发票号</sit-property>
+
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItemMain.LoadingBill"
+                      sit-validation="{required: false}" sit-read-only="false">提单号</sit-property>
+
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItemMain.Volume" sit-validation="{required: false}"
+                      sit-read-only="false">体积</sit-property>
+
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItemMain.ContainerID"
+                      sit-validation="{required: false}" sit-read-only="false">集装箱ID</sit-property>
+
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItemMain.CarNumber" sit-validation="{required: false}"
+                      sit-read-only="false">车牌号</sit-property>
+
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItemMain.ForkliftWorker"
+                      sit-validation="{required: false}" sit-read-only="false">叉车工</sit-property>
+
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItemMain.WoodWorker" sit-validation="{required: false}"
+                      sit-read-only="false">木工</sit-property>
+
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItemMain.SealingNo" sit-validation="{required: false}"
+                      sit-read-only="false">封箱号</sit-property>
+
+        <sit-property sit-widget="sit-datepicker" sit-value="vm.PostDate" sit-format="'yyyy-MM-dd'"
+                      sit-read-only="false">过账日期</sit-property>
+
+    </sit-property-grid>
+
+    <sit-property-grid sit-id="add_form1" sit-layout="Horizontal" sit-type="Fixed" sit-mode="edit" sit-columns="5">
+
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.Qty" sit-validation="{required: false}"
+                      sit-read-only="true">
+            {{'Siemens.SimaticIT.MaterialApp.MMRawMaterialDispatch.MMRawMaterialDispatchdelivery.Tips_3'|translate}}
+        </sit-property>
+
+        <sit-property sit-widget="sit-numeric" sit-value="vm.currentItem.DeliveryQty" sit-validation="{required: false}"
+                      sit-read-only="false">
+            {{'Siemens.SimaticIT.MaterialApp.MMRawMaterialDispatch.MMRawMaterialDispatchdelivery.Tips_4'|translate}}
+        </sit-property>
+
+        <sit-command-bar sit-type="action">
+            <sit-command sit-icon="fa-plus" sit-type="main" sit-name="com.siemens.customcommand.add"
+                         ::sit-tooltip="{{'Siemens.SimaticIT.MaterialApp.MMRawMaterialDispatch.MMRawMaterialDispatchdelivery.Tips_5'|translate}}"
+                         ng-click="vm.addForm"
+                         ::sit-label="{{'Siemens.SimaticIT.MaterialApp.MMRawMaterialDispatch.MMRawMaterialDispatchdelivery.Tips_5'|translate}}"
+                         ng-show="vm.validInputs"></sit-command>
+
+            <!-- <sit-command sit-icon="fa-trash" sit-type="main" sit-name="com.siemens.customcommand.delete"
+                ::sit-tooltip="{{'Siemens.SimaticIT.MaterialApp.MMRawMaterialDispatch.MMRawMaterialDispatchdelivery.Tips_6'|translate}}" ng-click="vm.deleteForm" ::sit-label="{{'Siemens.SimaticIT.MaterialApp.MMRawMaterialDispatch.MMRawMaterialDispatchdelivery.Tips_6'|translate}}">
+            </sit-command> -->
+        </sit-command-bar>
+    </sit-property-grid>
+</div>
+<div id="itemlist2" style="width:calc(100% - 2px); height: 60%;margin-top: 30px;">
+    <div ui-grid="vm.gridOptionsItem" ui-grid-selection ui-grid-resize-columns ui-grid-auto-resize
+         class="uigrid  gridItem"></div>
+</div>

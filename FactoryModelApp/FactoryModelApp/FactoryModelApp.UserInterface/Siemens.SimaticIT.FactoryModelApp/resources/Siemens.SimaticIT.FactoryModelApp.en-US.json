@@ -1,0 +1,287 @@
+﻿{
+  "Siemens.SimaticIT.FactoryModelApp": {
+    "ModelLevel": {
+      "ModelLeveladd": {
+        "Tips_1": "Back",
+        "Tips_2": "Save",
+        "Tips_3": "Level Code:",
+        "Tips_4": "Level Name:",
+        "Tips_5": "Description:",
+        "Tips_6": "Level:"
+      },
+      "ModelLeveledit": {
+        "Tips_1": "Cancel",
+        "Tips_2": "Save",
+        "Tips_3": "Level Code:",
+        "Tips_4": "Level Name:",
+        "Tips_5": "Description:",
+        "Tips_6": "Level:"
+      },
+      "ModelLevellist": {
+        "Tips_1": "Search",
+        "Tips_2": "Delete Level",
+        "Tips_3": "Edit Level",
+        "Tips_4": "Add Level"
+      },
+      "ModelLeveladdctrl": {
+        "Tips_1": "Add New Level",
+        "Tips_2": "Level attribute value should be an integer",
+        "Tips_3": "Level attribute value must be greater than 0",
+        "Tips_4": "Level code cannot be empty",
+        "Tips_5": "Level name cannot be empty",
+        "Tips_6": "Operation Error",
+        "Tips_7": "Factory Model Level Addition"
+      },
+      "ModelLeveleditctrl": {
+        "Tips_1": "Edit Level",
+        "Tips_2": "Level attribute value should be an integer",
+        "Tips_3": "Level attribute value must be greater than 0",
+        "Tips_4": "Level code cannot be empty",
+        "Tips_5": "Level name cannot be empty",
+        "Tips_6": "Operation Error",
+        "Tips_7": "Factory Model Level Modification"
+      },
+      "ModelLevellistctrl": {
+        "Tips_1": "Serial Number",
+        "Tips_2": "Level Code",
+        "Tips_3": "Level Name",
+        "Tips_4": "Level",
+        "Tips_5": "Description",
+        "Tips_6": "Creator",
+        "Tips_7": "Creation Date",
+        "Tips_8": "Modifier",
+        "Tips_9": "Modification Date",
+        "Tips_10": "Error Fetching Data",
+        "Tips_11": "Error occurred while fetching data,",
+        "Tips_12": "Please select a level",
+        "Tips_13": "Delete",
+        "Tips_14": "Are you sure you want to delete the level with code【",
+        "Tips_15": "】?",
+        "Tips_16": "--All--",
+        "Tips_17": "Factory Level"
+      },
+      "Title": "Factory Level"
+    },
+    "ModelLevelExtendFileds": {
+      "ModelLevelExtendFiledsadd": {
+        "Tips_1": "Back",
+        "Tips_2": "Save",
+        "Tips_3": "Attribute Code:",
+        "Tips_4": "Attribute Name:",
+        "Tips_5": "Field Type:",
+        "Tips_6": "Is Valid:",
+        "Tips_7": "Attribute Type:",
+        "Tips_8": "Is Built-in:"
+      },
+      "ModelLevelExtendFiledsedit": {
+        "Tips_1": "Back",
+        "Tips_2": "Save",
+        "Tips_3": "Attribute Code:",
+        "Tips_4": "Attribute Name:",
+        "Tips_5": "Field Type:",
+        "Tips_6": "Is Valid:",
+        "Tips_7": "Attribute Type:",
+        "Tips_8": "Is Built-in:"
+      },
+      "ModelLevelExtendFiledslist": {
+        "Tips_1": "Delete Extension",
+        "Tips_2": "Edit Extension",
+        "Tips_3": "Add Extension",
+        "Tips_4": "Model Level -"
+      },
+      "ModelLevelExtendFiledsaddctrl": {
+        "Tips_1": "Add New Attribute",
+        "Tips_2": "Character Type",
+        "Tips_3": "Number Type",
+        "Tips_4": "DateTime Type",
+        "Tips_5": "Attribute code cannot be empty",
+        "Tips_6": "Attribute name cannot be empty",
+        "Tips_7": "Attribute cannot be empty",
+        "Tips_8": "Operation Error",
+        "Tips_9": "Yes",
+        "Tips_10": "No"
+      },
+      "ModelLevelExtendFiledseditctrl": {
+        "Tips_1": "Edit Attribute",
+        "Tips_2": "Character Type",
+        "Tips_3": "Number Type",
+        "Tips_4": "Date Type",
+        "Tips_5": "Attribute code cannot be empty",
+        "Tips_6": "Attribute name cannot be empty",
+        "Tips_7": "Attribute cannot be empty",
+        "Tips_8": "Operation Error",
+        "Tips_9": "Yes",
+        "Tips_10": "No"
+      },
+      "ModelLevelExtendFiledslistctrl": {
+        "Tips_1": "No Category Selected",
+        "Tips_2": "Serial Number",
+        "Tips_3": "Level Code",
+        "Tips_4": "Attribute Code",
+        "Tips_5": "Attribute Name",
+        "Tips_6": "Attribute Type",
+        "Tips_7": "Is Valid",
+        "Tips_8": "Creator",
+        "Tips_9": "Creation Date",
+        "Tips_10": "Modifier",
+        "Tips_11": "Modification Date",
+        "Tips_12": "Confirm",
+        "Tips_13": "Error Message",
+        "Tips_14": "Please select a level first",
+        "Tips_15": "Please select an attribute first",
+        "Tips_16": "Delete",
+        "Tips_17": "Are you sure you want to delete the selected attribute【",
+        "Tips_18": "】?",
+        "Tips_19": "Operation Failed -",
+        "Tips_20": "Factory Level Template"
+      },
+      "Title": "Factory Level Template"
+    },
+    "ModelManage": {
+      "ModelManageadd": {
+        "Tips_1": "Back",
+        "Tips_2": "Save",
+        "Tips_3": "Level Code:",
+        "Tips_4": "Level Name:",
+        "Tips_5": "Description:",
+        "Tips_6": "Level:",
+        "Tips_7": "Is Valid:",
+        "Tips_8": "Creator:",
+        "Tips_9": "Creation Date:",
+        "Tips_10": "Modifier:",
+        "Tips_11": "Modification Date:"
+      },
+      "ModelManageedit": {
+        "Tips_1": "Back",
+        "Tips_2": "Save",
+        "Tips_3": "Level Code:",
+        "Tips_4": "Level Name:",
+        "Tips_5": "Description:",
+        "Tips_6": "Level:",
+        "Tips_7": "Is Valid:",
+        "Tips_8": "Creator:",
+        "Tips_9": "Creation Date:",
+        "Tips_10": "Modifier:",
+        "Tips_11": "Modification Date:"
+      },
+      "ModelManagelist": {
+        "Tips_1": "Factory Information"
+      },
+      "ModelManagelistctrl": {
+        "Tips_1": "No Category Selected",
+        "Tips_2": "Serial Number",
+        "Tips_3": "Attribute Name",
+        "Tips_4": "Value",
+        "Tips_5": "Confirm",
+        "Tips_6": "Error Message",
+        "Tips_7": "Factory Modeling"
+      },
+      "Title": "Factory Modeling"
+    },
+    "ModelResource": {
+      "ModelResourceadd": {
+        "Tips_1": "Back",
+        "Tips_2": "Save",
+        "Tips_3": "Parent Level:",
+        "Tips_4": "Parent Resource:",
+        "Tips_5": "Resource Code:",
+        "Tips_6": "Resource Name:",
+        "Tips_7": "Description:",
+        "Tips_8": "Order:"
+      },
+      "ModelResourceaddDetail": {
+        "Tips_1": "Back",
+        "Tips_2": "Save",
+        "Tips_3": "Resource Code:",
+        "Tips_4": "Attribute Code:",
+        "Tips_5": "Attribute Value:",
+        "Tips_6": "Is Valid:",
+        "Tips_7": "Description:",
+        "Tips_8": "Creator:",
+        "Tips_9": "Creation Date:",
+        "Tips_10": "Modifier:",
+        "Tips_11": "Modification Date:"
+      },
+      "ModelResourceedit": {
+        "Tips_1": "Back",
+        "Tips_2": "Save",
+        "Tips_3": "Parent Level:",
+        "Tips_4": "Parent Resource:",
+        "Tips_5": "Resource Code:",
+        "Tips_6": "Resource Name:",
+        "Tips_7": "Description:",
+        "Tips_8": "Order:"
+      },
+      "ModelResourceeditDetail": {
+        "Tips_1": "Back",
+        "Tips_2": "Save"
+      },
+      "ModelResourcelist": {
+        "Tips_1": "Delete Field",
+        "Tips_2": "Edit Attribute",
+        "Tips_3": "Delete Item",
+        "Tips_4": "Edit Item",
+        "Tips_5": "Add Item",
+        "Tips_6": "Resource Code:",
+        "Tips_7": "Search",
+        "Tips_8": "Model Resource -"
+      },
+      "ModelResourceaddctrl": {
+        "Tips_1": "Add New Resource",
+        "Tips_2": "Description",
+        "Tips_3": "Top Level",
+        "Tips_4": "Confirm",
+        "Tips_5": "Error Message",
+        "Tips_6": "None",
+        "Tips_7": "No Parent Resource Selected",
+        "Tips_8": "Operation Error"
+      },
+      "ModelResourceeditctrl": {
+        "Tips_1": "Edit Resource",
+        "Tips_2": "Description",
+        "Tips_3": "Top Level",
+        "Tips_4": "Confirm",
+        "Tips_5": "Error Message",
+        "Tips_6": "None",
+        "Tips_7": "No Parent Resource Selected",
+        "Tips_8": "Operation Error"
+      },
+      "ModelResourceeditDetailctrl": {
+        "Tips_1": "Set Attribute Value",
+        "Tips_2": "Confirm",
+        "Tips_3": "Error Message",
+        "Tips_4": "Edit Attribute"
+      },
+      "ModelResourcelistctrl": {
+        "Tips_1": "No Category Selected",
+        "Tips_2": "Serial Number",
+        "Tips_3": "Resource Code",
+        "Tips_4": "Resource Name",
+        "Tips_5": "Model Level",
+        "Tips_6": "Parent Resource",
+        "Tips_7": "Order",
+        "Tips_8": "Description",
+        "Tips_9": "Creator",
+        "Tips_10": "Creation Date",
+        "Tips_11": "Modifier",
+        "Tips_12": "Modification Date",
+        "Tips_13": "Workshop Code",
+        "Tips_14": "Resource Code",
+        "Tips_15": "Attribute Code",
+        "Tips_16": "Attribute Name",
+        "Tips_17": "Attribute Type",
+        "Tips_18": "Attribute Value",
+        "Tips_19": "Confirm",
+        "Tips_20": "Error Message",
+        "Tips_21": "Please select a level first",
+        "Tips_22": "Please select a resource first",
+        "Tips_23": "Please select a resource attribute first",
+        "Tips_24": "Delete",
+        "Tips_25": "Are you sure you want to delete the selected resource with code【",
+        "Tips_26": "】?",
+        "Tips_27": "Factory Definition"
+      },
+      "Title": "Factory Definition"
+    }
+  }
+}

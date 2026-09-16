@@ -1,0 +1,19 @@
+﻿{
+  "name": "Siemens.SimaticIT.ProductionApp.PMProductPrice",
+  "type": "standard",
+  "title": "Siemens.SimaticIT.ProductionApp.PMProductPrice.Title",
+  "header": "",
+  "icon": "fa-folder",
+  "functionalBlock": "Siemens.SimaticIT.ProductionApp",
+  "dependencies": [],
+  "states": [
+    {
+      "id": "home.Siemens_SimaticIT_ProductionApp_PMProductPrice_PMProductPrice",
+      "title": "Siemens.SimaticIT.ProductionApp.PMProductPrice.Title",
+      "header": "",
+      "securable": true,
+      "roles": []
+    }
+  ],
+  "manifestVersion": "01.01.00"
+}

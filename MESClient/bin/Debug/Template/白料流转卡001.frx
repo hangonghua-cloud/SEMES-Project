@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="01/12/2023 09:24:38" ReportInfo.Modified="01/23/2024 17:49:36" ReportInfo.CreatorVersion="2014.4.8.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+    
+//    private void Form1_Load(object sender, EventArgs e)
+//    {
+//      Report.SetParameterValue(&quot;RollCode&quot;,&quot;Z2304220050-08&quot;);
+//      Report.SetParameterValue(&quot;ZZHM&quot;,&quot;2014-01-23&quot;);
+//    }
+   
+  } 
+}
+</ScriptText>
+  <Dictionary>
+    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlqxfki+t8jnSxof6qn6ng9vZXyxJ29Vo8PhbFaOrHhCHgROOaG/q4zpcoYQe61tsOxaKWTscH6Ad1rABTy1kAs9dLOkZCIFkSPgtS3xo+Qd2I1vweO+bh9fU/O4XMGzx8XtIFJb67TJ4BRKzzmozO5USMnTU+BVsfcVYRfleWN7PgHb2pv83dp1wwngJCwNsyB/b2CtbyRDHVAryGrqTY7hQ==">
+      <TableDataSource Name="Table" DataType="System.Int32" Enabled="true" SelectCommand="exec [dbo].[Pro_PrintBLRollCode] @RollCode">
+        <Column Name="PM" DataType="System.String"/>
+        <Column Name="LB" DataType="System.String"/>
+        <Column Name="YW" DataType="System.String"/>
+        <Column Name="SH" DataType="System.String"/>
+        <Column Name="RollCode" DataType="System.String"/>
+        <Column Name="ZZHM" DataType="System.String"/>
+        <Column Name="HD" DataType="System.String"/>
+        <Column Name="KD" DataType="System.String"/>
+        <Column Name="BGWeight" DataType="System.Decimal"/>
+        <Column Name="Inspector" DataType="System.String"/>
+        <Column Name="Meters" DataType="System.Decimal"/>
+        <CommandParameter Name="RollCode" DataType="22" Size="10000" Expression="[RollCode]"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+    <Parameter Name="RollCode" DataType="System.String"/>
+    <Parameter Name="ZZHM" DataType="System.String"/>
+  </Dictionary>
+  <ReportPage Name="Page1" Landscape="true" PaperWidth="130" PaperHeight="100" LeftMargin="0" TopMargin="0" RightMargin="0" BottomMargin="0" FirstPageSource="1" OtherPagesSource="1">
+    <GroupHeaderBand Name="GroupHeader1" Width="491.4" Condition="[Table.RollCode]">
+      <DataBand Name="Data1" Top="4" Width="491.4" Height="360.96" DataSource="Table">
+        <TableObject Name="Table1" Left="9.45" Top="85.05" Width="463.26" Height="275.85" Border.Lines="All">
+          <TableColumn Name="Column1" Width="106.51"/>
+          <TableColumn Name="Column2" Width="59.26"/>
+          <TableColumn Name="Column3" Width="59.25"/>
+          <TableColumn Name="Column4" Width="78.15"/>
+          <TableColumn Name="Column6" Width="81.94"/>
+          <TableColumn Name="Column5" Width="78.15"/>
+          <TableRow Name="Row1" Height="66.6">
+            <TableCell Name="Cell1" Border.Lines="Right, Bottom" Text="品名" HorzAlign="Center" VertAlign="Center" Font="黑体, 16pt, style=Bold"/>
+            <TableCell Name="Cell2" Border.Lines="Right, Bottom" Text="类别" HorzAlign="Center" VertAlign="Center" Font="黑体, 16pt, style=Bold" ColSpan="2"/>
+            <TableCell Name="Cell3" Font="黑体, 16pt"/>
+            <TableCell Name="Cell4" Border.Lines="Right, Bottom" Text="压纹" HorzAlign="Center" VertAlign="Center" Font="黑体, 16pt, style=Bold"/>
+            <TableCell Name="Cell21" Border.Lines="Right, Bottom" Text="色号" HorzAlign="Center" VertAlign="Center" Font="黑体, 16pt, style=Bold"/>
+            <TableCell Name="Cell5" Border.Lines="Bottom" Text="支号" HorzAlign="Center" VertAlign="Center" Font="黑体, 16pt, style=Bold"/>
+          </TableRow>
+          <TableRow Name="Row2" Height="66.6">
+            <TableCell Name="Cell6" Border.Lines="Right, Bottom" Text="地板中料" HorzAlign="Center" VertAlign="Center" Font="黑体, 14pt"/>
+            <TableCell Name="Cell7" Border.Lines="Right, Bottom" Text="印刷内侧" HorzAlign="Center" VertAlign="Center" Font="黑体, 14pt" ColSpan="2"/>
+            <TableCell Name="Cell8" Font="黑体, 14pt"/>
+            <TableCell Name="Cell9" Border.Lines="Right, Bottom" Text="463" HorzAlign="Center" VertAlign="Center" Font="黑体, 14pt"/>
+            <TableCell Name="Cell22" Border.Lines="Right, Bottom" Text="[Table.SH]" HorzAlign="Center" VertAlign="Center" Font="黑体, 14pt"/>
+            <TableCell Name="Cell10" Border.Lines="Right, Bottom" Text="[Table.RollCode]" HorzAlign="Center" VertAlign="Center" Font="黑体, 14pt"/>
+          </TableRow>
+          <TableRow Name="Row3" Height="76.05">
+            <TableCell Name="Cell11" Border.Lines="Right, Bottom" Text="制作号码" HorzAlign="Center" VertAlign="Center" Font="黑体, 16pt, style=Bold"/>
+            <TableCell Name="Cell12" Border.Lines="Right, Bottom" Text="厚度" HorzAlign="Center" VertAlign="Center" Font="黑体, 16pt, style=Bold"/>
+            <TableCell Name="Cell13" Border.Lines="Right, Bottom" Text="宽度" HorzAlign="Center" VertAlign="Center" Font="黑体, 16pt, style=Bold"/>
+            <TableCell Name="Cell14" Border.Lines="Right, Bottom" Text="长度" HorzAlign="Center" VertAlign="Center" Font="黑体, 16pt, style=Bold"/>
+            <TableCell Name="Cell23" Border.Lines="Right, Bottom" Text="重量" HorzAlign="Center" VertAlign="Center" Font="黑体, 16pt, style=Bold"/>
+            <TableCell Name="Cell15" Border.Lines="Bottom" Text="检查" HorzAlign="Center" VertAlign="Center" Font="黑体, 16pt, style=Bold"/>
+          </TableRow>
+          <TableRow Name="Row4" Height="66.6">
+            <TableCell Name="Cell16" Border.Lines="Right, Bottom" Text="[ZZHM]" HorzAlign="Center" VertAlign="Center" Font="黑体, 14pt"/>
+            <TableCell Name="Cell17" Border.Lines="Right" Text="[Table.HD]" HorzAlign="Center" VertAlign="Center" Font="黑体, 16pt">
+              <TextObject Name="Text1" Left="9.45" Top="47.25" Width="47.25" Height="18.9" Text="mm" HorzAlign="Right" VertAlign="Center" Font="宋体, 14pt"/>
+            </TableCell>
+            <TableCell Name="Cell18" Border.Lines="Right" Text="[Table.KD]" HorzAlign="Center" VertAlign="Center" Font="黑体, 16pt">
+              <TextObject Name="Text2" Left="18.9" Top="47.25" Width="37.8" Height="18.9" Text="mm" HorzAlign="Right" VertAlign="Center" Font="宋体, 14pt"/>
+            </TableCell>
+            <TableCell Name="Cell19" Border.Lines="Right" Text="[Table.Meters]" HorzAlign="Center" VertAlign="Center" Font="黑体, 16pt">
+              <TextObject Name="Text3" Left="37.8" Top="47.25" Width="37.8" Height="18.9" Text="m" HorzAlign="Right" VertAlign="Center" Font="宋体, 14pt"/>
+            </TableCell>
+            <TableCell Name="Cell24" Border.Lines="Right" Text="[Table.BGWeight]" HorzAlign="Center" VertAlign="Center" Font="黑体, 16pt">
+              <TextObject Name="Text4" Left="37.8" Top="47.25" Width="47.25" Height="18.9" Text="kg" HorzAlign="Right" VertAlign="Center" Font="宋体, 14pt"/>
+            </TableCell>
+            <TableCell Name="Cell20" Border.Lines="Right" Text="[Table.Inspector]" HorzAlign="Center" VertAlign="Center" Font="黑体, 16pt"/>
+          </TableRow>
+        </TableObject>
+        <RichObject Name="Rich1" Left="9.45" Width="472.5" Height="85.05" Text="{\rtf1\ansi\ansicpg936\deff0\nouicompat\deflang1033\deflangfe2052{\fonttbl{\f0\fnil\fcharset134 \'c1\'a5\'ca\'e9;}{\f1\fnil\fcharset134 \'cb\'ce\'cc\'e5;}{\f2\fnil\fcharset134 \'ce\'a2\'c8\'ed\'d1\'c5\'ba\'da;}{\f3\fnil Tahoma;}}&#13;&#10;{\*\generator Riched20 10.0.22621}\viewkind4\uc1 &#13;&#10;\pard\qc\b\f0\fs52\lang2052\'cc\'a9\'d6\'dd\'ca\'d0\'bb\'aa\'c0\'f6\'d0\'c2\'b2\'c4\'c1\'cf\'d3\'d0\'cf\'de\'b9\'ab\'cb\'be\f1\fs28\par&#13;&#10;\b0\f2\fs32\lang1033 PVC   \lang2052\'d3\'b2  \'d6\'ca  \'bd\'ba  \'b2\'bc\f3\fs17\par&#13;&#10;}&#13;&#10;"/>
+      </DataBand>
+      <GroupFooterBand Name="GroupFooter1" Top="368.96" Width="491.4"/>
+    </GroupHeaderBand>
+  </ReportPage>
+</Report>

@@ -1,0 +1,11 @@
+﻿{
+  "name": "Siemens.SimaticIT.SystemApp.UIModule1",
+  "type": "standard",
+  "title": "Siemens.SimaticIT.SystemApp.UIModule1.Title",
+  "header":  "",
+  "icon": "fa-folder",
+  "functionalBlock": "Siemens.SimaticIT.SystemApp",
+  "dependencies": [ ],
+  "states": [ ],
+  "manifestVersion": "01.01.00"
+}

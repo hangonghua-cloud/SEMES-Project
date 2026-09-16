@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<BuildInfo xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <ModelTimestamp>20250306102512430</ModelTimestamp>
+  <GeneratedAssemblies>
+    <Assembly>
+      <Name>Siemens.SimaticIT.MaterialApp.MaterialApp.MRPOMModel.Types.ReadingModel.dll</Name>
+    </Assembly>
+    <Assembly>
+      <Name>Siemens.SimaticIT.MaterialApp.MaterialApp.MRPOMModel.Types.PlainModel.dll</Name>
+    </Assembly>
+    <Assembly>
+      <Name>Siemens.SimaticIT.MaterialApp.MaterialApp.MRPOMModel.Types.dll</Name>
+    </Assembly>
+    <Assembly>
+      <Name>Siemens.SimaticIT.MaterialApp.MaterialApp.MRPOMModel.Types.ProjectionModel.dll</Name>
+    </Assembly>
+    <Assembly>
+      <Name>Siemens.SimaticIT.MaterialApp.MaterialApp.MRPOMModel.Types.ProjectionModel.Internal.dll</Name>
+    </Assembly>
+    <Assembly>
+      <Name>Siemens.SimaticIT.MaterialApp.MaterialApp.MRPOMModel.Types.Internal.dll</Name>
+    </Assembly>
+    <Assembly>
+      <Name>Siemens.SimaticIT.MaterialApp.MaterialApp.MRPOMModel.Types.ReadingModel.Internal.dll</Name>
+    </Assembly>
+    <Assembly>
+      <Name>Siemens.SimaticIT.MaterialApp.MaterialApp.MRPOMModel.PublicModel.dll</Name>
+    </Assembly>
+    <Assembly>
+      <Name>Siemens.SimaticIT.MaterialApp.MaterialApp.MRPOMModel.PublicModel.Internal.dll</Name>
+    </Assembly>
+  </GeneratedAssemblies>
+  <References />
+  <AssemblyInfoHash>6L+WrVXf4XMbZ37kzLfUdA==</AssemblyInfoHash>
+</BuildInfo>

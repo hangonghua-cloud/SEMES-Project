@@ -1,0 +1,19 @@
+﻿{
+   "name": "Siemens.SimaticIT.MaterialApp.PL_MarkUpload",
+   "type": "standard",
+   "title": "Siemens.SimaticIT.MaterialApp.PL_MarkUpload.Title",
+   "header": "",
+   "icon": "svg typeActionLongTerm48",
+   "functionalBlock": "Siemens.SimaticIT.MaterialApp",
+   "dependencies": [],
+   "states": [
+     {
+       "id": "home.Siemens_SimaticIT_MaterialApp_PL_MarkUpload_PL_MarkUpload",
+       "title": "Siemens.SimaticIT.MaterialApp.PL_MarkUpload.Title",
+       "header": "",
+       "securable": true,
+       "roles": []
+     }
+   ],
+   "manifestVersion": "01.01.00"
+}

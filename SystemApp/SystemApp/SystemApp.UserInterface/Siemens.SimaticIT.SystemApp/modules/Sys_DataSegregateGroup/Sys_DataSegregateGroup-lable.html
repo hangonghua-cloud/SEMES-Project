@@ -1,0 +1,31 @@
+﻿<style>
+    .colorLabel {
+        border: 2px solid #379082;
+        border-radius: 20px;
+        width: 30px;
+        height: 30px;
+        margin-left: 10px;
+    }
+</style>
+<div class="command-bar-side-panel">
+    <button ng-click="vm.cancel()" class="btn side-panel-button">{{'Siemens.SimaticIT.SystemApp.Sys_DataSegregateGroup.Sys_DataSegregateGrouplable.Tips_1'|translate}}</button>
+
+</div>
+<div class="side-panel-property-area-body">
+    <div class="row">
+        <div class="col-md-19">
+            <label> {{'Siemens.SimaticIT.SystemApp.Sys_DataSegregateGroup.Sys_DataSegregateGrouplable.Tips_2'|translate}}</label>
+            <div ui-grid="vm.gridOptionsAll" ui-grid-selection style="height:20px"></div>
+        </div>
+        <div class="col-md-2" style="padding-top: 100px;">
+            <button ng-click="vm.save()" class="btn" style="width: 40px; margin-bottom: 15px; font-weight: bold; font-size: 17px;">
+                 >> </button>
+            <button ng-click="vm.disSave()" class="btn" style="width: 40px; margin-bottom: 15px; font-weight: bold; font-size: 17px;">
+                << </button>
+        </div>
+        <div class="col-md-19">
+            <label> {{'Siemens.SimaticIT.SystemApp.Sys_DataSegregateGroup.Sys_DataSegregateGrouplable.Tips_3'|translate}}</label>
+            <div ui-grid="vm.gridOptionsDistribution" ui-grid-selection style="height:20px"></div>
+        </div>
+    </div>
+</div>

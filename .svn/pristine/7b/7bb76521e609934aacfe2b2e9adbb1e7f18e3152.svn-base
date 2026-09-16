@@ -1,0 +1,14 @@
+
+<DSL Version="1.13">
+    <Project>
+        <Name>MaterialApp.MRPOMModel</Name>
+        <Version>01.00.00</Version>
+        <Prefix>Siemens.SimaticIT</Prefix>
+        <Domain>MaterialApp</Domain>
+        <DomainAcronym>MR</DomainAcronym>
+        <Guid>adac3399-b683-495a-a6ee-f30acdd4b6d7</Guid>
+		<ProjectKind>Pom</ProjectKind>
+    </Project>
+    <References>
+    </References>
+</DSL>

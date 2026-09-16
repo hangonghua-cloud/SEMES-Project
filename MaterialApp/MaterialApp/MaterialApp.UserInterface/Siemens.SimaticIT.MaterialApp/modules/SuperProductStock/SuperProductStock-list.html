@@ -1,0 +1,52 @@
+﻿<!--
+    0.代码生成: UA单表一键生成前后端html、JS、API接口代码生成器 Ver 2.13 更新日期：2021-07-12  设计者：刘万军
+    1.功能描述: 超产品库存
+    2.创建人员: admin
+    3.创建日期: 2021-09-08
+    4.修改人员:
+    5.修改日期:
+-->
+<style>
+    .MainCommandActionButton {
+        margin-top: 20px !important;
+    }
+</style>
+<div id="itemlist" class="content-area content-area-relative" style="height: calc(93% - 30px) !important">
+    <!--查询条件与功能按钮-->
+    <div class="col-md-40" style="margin-left: 15px;">
+        <div class="side-panel-property-area-body">
+            <sit-property-grid sit-id="add_form" sit-layout="Horizontal" sit-type="Fixed" sit-mode="edit" sit-columns="8">
+                <sit-property sit-widget="sit-select" sit-value="vm.Factory.value" sit-validation="{required: false}" sit-options="vm.Factory.options"
+                              sit-to-display="'ResourceName'" sit-to-keep="'ResourceCode'" sit-read-only="false" sit-change="vm.FactoryChange">{{'Siemens.SimaticIT.MaterialApp.SuperProductStock.SuperProductStocklist.Tips_1'|translate}}</sit-property>
+                <sit-property sit-widget="sit-select" sit-value="vm.Process.value" sit-validation="{required: false}" sit-options="vm.Process.options"
+                              sit-to-display="'ResourceName'" sit-to-keep="'ResourceCode'" sit-read-only="false" sit-change="vm.ProcessChange">{{'Siemens.SimaticIT.MaterialApp.SuperProductStock.SuperProductStocklist.Tips_2'|translate}}</sit-property>
+                <sit-property sit-widget="sit-text" sit-value="vm.searchParams.MaterialCode" sit-read-only="false" style="max-width:300px;">{{'Siemens.SimaticIT.MaterialApp.SuperProductStock.SuperProductStocklist.Tips_3'|translate}}</sit-property>
+                <sit-property sit-widget="sit-text" sit-value="vm.searchParams.MMXH" sit-read-only="false" style="max-width:300px;">{{'Siemens.SimaticIT.MaterialApp.SuperProductStock.SuperProductStocklist.Tips_4'|translate}}</sit-property>
+                <sit-property sit-widget="sit-text" sit-value="vm.searchParams.Spec" sit-read-only="false" style="max-width:300px;">{{'Siemens.SimaticIT.MaterialApp.SuperProductStock.SuperProductStocklist.Tips_5'|translate}}</sit-property>
+                <!--<sit-property sit-widget="sit-select" sit-value="vm.Warehouse.value" sit-validation="{required: false}" sit-options="vm.Warehouse.options"
+                              sit-to-display="'ResourceName'" sit-to-keep="'ResourceCode'" sit-read-only="false">{{'Siemens.SimaticIT.MaterialApp.SuperProductStock.SuperProductStocklist.Tips_6'|translate}}</sit-property>-->
+                <sit-command-bar sit-type="action">
+                    <sit-command sit-icon="fa-search" sit-type="main" sit-name="com.siemens.customcommand.search" :sit-tooltip="{{'Siemens.SimaticIT.MaterialApp.SuperProductStock.SuperProductStocklist.Tips_7'|translate}}" ng-click="vm.searchButtonHandler" :sit-label="{{'Siemens.SimaticIT.MaterialApp.SuperProductStock.SuperProductStocklist.Tips_7'|translate}}">
+                    </sit-command>
+                </sit-command-bar>
+            </sit-property-grid>
+        </div>
+    </div>
+    <!--右侧功能按钮-->
+    <sit-command-bar sit-vertical-autofixed="true" sit-type="Tool" :sit-label-align="right" sit-layout="vertical">
+
+        <!--<sit-command sit-icon="fa-sign-out" sit-name="com.siemens.customcommand.sign-out" :sit-tooltip="{{'Siemens.SimaticIT.MaterialApp.SuperProductStock.SuperProductStocklist.Tips_8'|translate}}" ng-click="vm.editButtonHandler"
+                     :sit-label="{{'Siemens.SimaticIT.MaterialApp.SuperProductStock.SuperProductStocklist.Tips_8'|translate}}" ng-show="vm.isButtonVisible"></sit-command>
+        <sit-command sit-icon="fa-sign-in" sit-name="com.siemens.customcommand.sign-in" ng-click="vm.addButtonHandler" :sit-tooltip="{{'Siemens.SimaticIT.MaterialApp.SuperProductStock.SuperProductStocklist.Tips_9'|translate}}"
+                     :sit-label="{{'Siemens.SimaticIT.MaterialApp.SuperProductStock.SuperProductStocklist.Tips_9'|translate}}" sit-type="main"></sit-command>-->
+    </sit-command-bar>
+    <!-- grid列表 -->
+    <div id="listClass" style="width:100%; height: 50%; padding:0px 16px 0 16px; margin-top: 30px;">
+        <div ui-grid="vm.gridOptions" ui-grid-pinning ui-grid-auto-resize ui-grid-resize-columns ui-grid-selection ui-grid-pagination class="uigrid"></div>
+    </div>
+
+    <!-- grid明细列表 -->
+    <div id="listClass2" class="col-md-40" style="width:100%; height: 50%; padding:0px 16px 0 16px; margin-top: 3px;">
+        <div ui-grid="vm.gridOptionsDetail" ui-grid-pinning ui-grid-auto-resize ui-grid-resize-columns ui-grid-selection ui-grid-pagination class="uigrid"></div>
+    </div>
+</div>

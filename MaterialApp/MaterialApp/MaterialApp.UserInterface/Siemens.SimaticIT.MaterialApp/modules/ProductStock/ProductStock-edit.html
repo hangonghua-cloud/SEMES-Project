@@ -1,0 +1,78 @@
+﻿<!--
+    0.代码生成: UA单表一键生成前后端html、JS、API接口代码生成器 Ver 2.13 更新日期：2021-07-12  设计者：刘万军
+    1.功能描述: 磨粉料工单报工记录
+    2.创建人员: admin
+    3.创建日期: 2021-08-31
+    4.修改人员:
+    5.修改日期:
+-->
+<style>
+    .row {
+        padding: 5px;
+        margin-top: 10px;
+    }
+</style>
+<div class="command-bar-side-panel">
+    <button ng-click="vm.cancel()"
+            class="btn side-panel-button">
+        {{'Siemens.SimaticIT.MaterialApp.ProductStock.ProductStockedit.Tips_1'|translate}}
+    </button>
+    <button ng-click="vm.save()" class="btn side-panel-button"
+            ng-show="vm.validInputs">
+        {{'Siemens.SimaticIT.MaterialApp.ProductStock.ProductStockedit.Tips_2'|translate}}
+    </button>
+</div>
+<div class="side-panel-property-area-body">
+    <sit-property-grid sit-id="edit_form" sit-layout="Horizontal" sit-type="Fixed" sit-mode="edit" sit-columns="2"
+                       style="margin-left: 4px;">
+
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.ProductOrder" sit-validation="{required: true}"
+                      sit-read-only="true">
+            {{'Siemens.SimaticIT.MaterialApp.ProductStock.ProductStockedit.Tips_3'|translate}}
+        </sit-property>
+
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.ContainerNO" sit-validation="{required: true}"
+                      sit-read-only="true">
+            {{'Siemens.SimaticIT.MaterialApp.ProductStock.ProductStockedit.Tips_4'|translate}}
+        </sit-property>
+
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.MaterialCode" sit-validation="{required: true}"
+                      sit-read-only="true">
+            {{'Siemens.SimaticIT.MaterialApp.ProductStock.ProductStockedit.Tips_5'|translate}}
+        </sit-property>
+
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.WhsName" sit-validation="{required: true}"
+                      sit-read-only="true">
+            {{'Siemens.SimaticIT.MaterialApp.ProductStock.ProductStockedit.Tips_6'|translate}}
+        </sit-property>
+
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.LocationName" sit-validation="{required: true}"
+                      sit-read-only="true">
+            {{'Siemens.SimaticIT.MaterialApp.ProductStock.ProductStockedit.Tips_7'|translate}}
+        </sit-property>
+
+        <!-- <sit-property sit-widget="sit-numeric" sit-value="vm.currentItem.PalletQty"
+            sit-validation="{required: true, min: 0}" sit-read-only="true">
+            {{'Siemens.SimaticIT.MaterialApp.ProductStock.ProductStockedit.Tips_8'|translate}}</sit-property> -->
+
+        <sit-property sit-widget="sit-numeric" sit-value="vm.currentItem.PieceQty"
+                      sit-validation="{required: true, min: 0}" sit-read-only="true">
+            库存片数
+        </sit-property>
+
+        <sit-property sit-widget="sit-alp-text-picker" sit-value="vm.currentItem.TargetLocationName"
+                      sit-validation="{required: true}" sit-read-only="false" ng-click="vm.selectClick()">
+            目标{{'Siemens.SimaticIT.MaterialApp.ProductStock.ProductStockedit.Tips_7'|translate}}
+        </sit-property>
+
+        <!-- <sit-property sit-widget="sit-numeric" sit-value="vm.currentItem.TargetPalletQty"
+            sit-validation="{required: true, min: 0}" sit-read-only="false">
+            {{'Siemens.SimaticIT.MaterialApp.ProductStock.ProductStockedit.Tips_10'|translate}}</sit-property> -->
+
+        <sit-property sit-widget="sit-numeric" sit-value="vm.currentItem.TargetPieceQty"
+                      sit-validation="{required: true, min: 0}" sit-read-only="false">
+            移库片数
+        </sit-property>
+
+    </sit-property-grid>
+</div>

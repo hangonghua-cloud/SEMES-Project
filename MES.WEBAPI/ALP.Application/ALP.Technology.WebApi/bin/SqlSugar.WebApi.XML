@@ -1,0 +1,1304 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ALP.Application.WebApi</name>
+    </assembly>
+    <members>
+        <member name="M:ALP.Application.WebApi.Controllers.API.ApiBaseController.ConvertValidationResultToErrorResponse(FluentValidation.Results.ValidationResult,System.Net.HttpStatusCode)">
+            <summary>
+            Converts the validation result to error response.
+            </summary>
+            <param name="validationResult">The validation result.</param>
+            <param name="statusCode"> </param>
+            <returns>Error response</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.API.ApiBaseController.ConvertValidationResultToErrorResponse(System.Collections.Generic.List{ALP.Application.WebApi.APIModel.ApiErrors},System.Net.HttpStatusCode)">
+            <summary>
+            Converts the Api Errors to error response.
+            </summary>
+            <param name="validationResult">The Api Errors.</param>
+            <param name="statusCode"> </param>
+            <returns>Error response</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.API.ApiBaseController.ToJson(System.Object)">
+            <summary>
+            返回结果转JSON函数
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.API.ApiBaseController.GetHeaderByKey(ALP.WebApi.Util.RequestHeaderKey)">
+            <summary>
+            根据请求头的key获取请求头数据
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.API.ApiBaseController.getValue(Newtonsoft.Json.Linq.JObject,System.String)">
+            <summary>
+            根据属性名称以字符串格式获取值
+            </summary>
+            <param name="job"></param>
+            <param name="propertyName"></param>
+            <returns></returns>
+        </member>
+        <member name="P:ALP.Application.WebApi.Controllers.API.ApiBaseController.CurrentAccount">
+            <summary>
+            当前访问用户对象
+            </summary>
+        </member>
+        <member name="T:ALP.Application.WebApi.Controllers.API.AccountEntity">
+            <summary>
+            当前访问账户对象
+            </summary>
+        </member>
+        <member name="P:ALP.Application.WebApi.Controllers.API.AccountEntity.UserCode">
+            <summary>
+            用户主键Code
+            </summary>
+        </member>
+        <member name="P:ALP.Application.WebApi.Controllers.API.AccountEntity.UserName">
+            <summary>
+            用户名
+            </summary>
+        </member>
+        <member name="P:ALP.Application.WebApi.Controllers.API.AccountEntity.UDID">
+            <summary>
+            当前用户使用的设备标识码
+            </summary>
+        </member>
+        <member name="P:ALP.Application.WebApi.Controllers.API.AccountEntity.TerminalType">
+            <summary>
+            当前用户终端类型
+            </summary>
+        </member>
+        <member name="T:ALP.Application.WebApi.Controllers.BaseManage.AccountController">
+            <summary>
+            操作工账号管理控制器
+            </summary>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.BaseManage.AccountController.GetAccountList(ALP.Application.WebApi.Models.Account.GetAccountListParms)">
+            <summary>
+            分页获取操作工账号集合接口
+            </summary>
+            <param name="parms"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.BaseManage.AccountController.SaveAccount(ALP.Application.Entity.BaseManage.MESBaseAccountEntity)">
+            <summary>
+            保存操作工账号接口
+            </summary>
+            <param name="parms"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.BaseManage.AccountController.Delete(ALP.Application.WebApi.Models.Account.DeleteAccountParms)">
+            <summary>
+            
+            </summary>
+            <param name="ID"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ALP.Application.WebApi.Controllers.BaseManage.BaseDataController">
+            <summary>
+            基础数据类查询接口控制器
+            </summary>
+        </member>
+        <member name="T:ALP.Application.WebApi.Controllers.BaseManage.BsModelLevelController">
+            <summary>
+            版 本
+            Copyright (c) 
+            创建人：ALP
+            日 期：2020.12.17 16:19
+            描 述：工厂模型层级
+            </summary>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.BaseManage.BsModelLevelController.GetListJson(System.String)">
+            <summary>
+            层级列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.BaseManage.BsModelLevelController.GetPageListJsoon(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            层级列表
+            </summary>
+            <param name="pagination">分页</param>
+            <param name="queryJson">查询参数</param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.BaseManage.BsModelLevelController.GetFormJson(System.String)">
+            <summary>
+            层级实体
+            </summary>
+            <param name="keyValue">主键值</param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.BaseManage.BsModelLevelController.Delete(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            删除层级
+            </summary>
+            <param name="keyValue">主键</param>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.BaseManage.BsModelLevelController.SaveForm(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            保存层级表单（新增、修改）
+            </summary>
+            <param name="keyValue">主键值</param>
+            <param name="entity">层级实体</param>
+            <returns></returns>
+        </member>
+        <member name="T:ALP.Application.WebApi.Models.Account.DeleteAccountParms">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ALP.Application.WebApi.Models.Account.DeleteAccountParms.ID">
+            <summary>
+            主键ID
+            </summary>
+        </member>
+        <member name="P:ALP.Application.WebApi.Models.Account.GetAccountListParms.FirstName">
+            <summary>
+            名
+            </summary>
+        </member>
+        <member name="P:ALP.Application.WebApi.Models.Account.GetAccountListParms.LastName">
+            <summary>
+            姓
+            </summary>
+        </member>
+        <member name="P:ALP.Application.WebApi.Models.Account.GetAccountListParms.UserEnCode">
+            <summary>
+            工牌
+            </summary>
+        </member>
+        <member name="P:ALP.Application.WebApi.Models.Account.GetAccountListParms.PagingParms">
+            <summary>
+            分页对象
+            </summary>
+        </member>
+        <member name="T:ALP.Application.WebApi.Models.System.GetProcessParms">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ALP.Application.WebApi.Models.System.GetProcessParms.WorkShopCode">
+            <summary>
+            车间码
+            </summary>
+        </member>
+        <member name="T:ALP.Application.WebApi.Models.System.GetStationParms">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ALP.Application.WebApi.Models.System.GetStationParms.WorkShopCode">
+            <summary>
+            车间编码
+            </summary>
+        </member>
+        <member name="P:ALP.Application.WebApi.Models.System.GetStationParms.ProcessCode">
+            <summary>
+            工序编码
+            </summary>
+        </member>
+        <member name="T:ALP.Application.WebApi.Models.System.GetWorkShopParms">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:ALP.Application.WebApi.Util.TimeHelper">
+            <summary>
+            定时任务操作
+            </summary>
+        </member>
+        <member name="M:ALP.Application.WebApi.Util.TimeHelper.Start">
+            <summary>
+            启动定时任务
+            </summary>
+        </member>
+        <member name="M:ALP.Application.WebApi.Util.TimeHelper.TimeOperation(System.Object,System.Timers.ElapsedEventArgs)">
+            <summary>
+            定时操作内容：根据设备点检规则定时生成设备点检计划
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:ALP.Application.WebApi.Util.TimeHelper.GetDays(System.DateTimeOffset,System.String,System.Int32)">
+            <summary>
+            获取保养结束时间
+            </summary>
+            <param name="dtMark"></param>
+            <param name="unitMark"></param>
+            <param name="periodMark"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Util.TimeHelper.CreatePlanFromNow(System.Data.DataTable,System.String,System.DateTimeOffset,System.DateTimeOffset)">
+            <summary>
+            
+            </summary>
+            <param name="dtRuleData"></param>
+            <param name="equipCode"></param>
+            <param name="lastFinishTime"></param>
+            <param name="lastStartTime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Util.TimeHelper.CreatePlanFromNull(System.Data.DataTable,System.String)">
+            <summary>
+            在没有保养计划时创造保养计划
+            </summary>
+            <param name="dt"></param>
+            <param name="equipCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Util.TimeHelper.ToString(System.Object)">
+            <summary>
+             转换为字符串
+            </summary>
+            <param name="o"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Util.TimeHelper.ToDecimal(System.Object)">
+            <summary>
+             转换为decimal
+            </summary>
+            <param name="o"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Util.TimeHelper.ToInt(System.Object)">
+            <summary>
+             转换为int
+            </summary>
+            <param name="o"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Util.TimeHelper.ToBool(System.Object)">
+            <summary>
+             转换为bool
+            </summary>
+            <param name="o"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ALP.WebApi.APIModel.ModelConvertHelper`1">
+            <summary>    
+            实体转换辅助类 DataTable转List、DataTable转成Dto
+            </summary>    
+        </member>
+        <member name="M:ALP.WebApi.APIModel.ModelConvertHelper`1.ConvertToModelDto(System.Data.DataTable)">
+            <summary>
+            DataTable转成Dto
+            </summary>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.WebApi.APIModel.ModelConvertHelper`1.ToDataTable``1(System.Collections.Generic.List{``0})">
+            <summary>
+            将实体集合转换为DataTable
+            </summary>
+            <typeparam name="T">实体类型</typeparam>
+            <param name="entities">实体集合</param>
+        </member>
+        <member name="M:ALP.WebApi.APIModel.ModelConvertHelper`1.CreateTable``1">
+            <summary>
+            创建表
+            </summary>
+        </member>
+        <member name="M:ALP.WebApi.APIModel.ModelConvertHelper`1.FillData``1(System.Data.DataTable,System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            填充数据
+            </summary>
+        </member>
+        <member name="M:ALP.WebApi.APIModel.ModelConvertHelper`1.CreateRow``1(System.Data.DataTable,``0)">
+            <summary>
+            创建行
+            </summary>
+        </member>
+        <member name="T:ALP.WebApi.Common.URLTool">
+            <summary>
+            URL工具类
+            </summary>
+        </member>
+        <member name="F:ALP.WebApi.Common.URLTool._resource_url">
+            <summary>
+            资源地址
+            </summary>
+        </member>
+        <member name="M:ALP.WebApi.Common.URLTool.GetAPPUploadURL(System.String)">
+            <summary>
+            获取完整的app下载地址
+            </summary>
+            <param name="appName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.WebApi.Controllers.BaseManage.BaseShiftController.GetListJson(System.String)">
+            <summary>
+            获取列表
+            </summary>
+            <param name="queryJson">查询参数</param>
+            <returns>返回列表Json</returns>
+        </member>
+        <member name="M:ALP.WebApi.Controllers.BaseManage.BaseShiftController.GetPageListJson(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            获取列表(分页)
+            </summary>
+            <param name="pagination">分页参数</param>
+            <param name="queryJson">查询参数</param>
+            <returns>返回分页列表Json</returns>
+        </member>
+        <member name="M:ALP.WebApi.Controllers.BaseManage.BaseShiftController.GetFormJson(System.Guid)">
+            <summary>
+            获取实体 
+            </summary>
+            <param name="keyValue">主键值</param>
+            <returns>返回对象Json</returns>
+        </member>
+        <member name="M:ALP.WebApi.Controllers.BaseManage.BaseShiftController.Delete(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            删除数据
+            </summary>
+            <param name="jo">json参数</param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.WebApi.Controllers.BaseManage.BaseShiftController.Save(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            保存表单（新增、修改）
+            </summary>
+            <param name="jo">json参数</param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.WebApi.Controllers.DemoManage.UIGridDemoController.GetPageListJson(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            获取列表(分页)
+            </summary>
+            <param name="pagination">分页参数</param>
+            <param name="queryJson">查询参数</param>
+            <returns>返回分页列表Json</returns>
+        </member>
+        <member name="M:ALP.WebApi.Controllers.DemoManage.UIGridDemoController.GetFormJson(System.String)">
+            <summary>
+            获取实体 
+            </summary>
+            <param name="keyValue">主键值</param>
+            <returns>返回对象Json</returns>
+        </member>
+        <member name="M:ALP.WebApi.Controllers.DemoManage.UIGridDemoController.Delete(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            删除分类
+            </summary>
+            <param name="keyValue">主键值</param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.WebApi.Controllers.DemoManage.UIGridDemoController.Save(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            保存分类表单（新增、修改）
+            </summary>
+            <param name="keyValue">主键值</param>
+            <param name="dataItemEntity">分类实体</param>
+            <returns></returns>
+        </member>
+        <member name="T:ALP.WebApi.Filter.AuthAttribute">
+            <summary>
+            接口请求认证授权特性
+            TODO: 实现校验操作用户登录状态，操作权限等
+            </summary>
+        </member>
+        <member name="T:ALP.WebApi.Filter.HttpHeaderFilter">
+            <summary>
+            Swagger接口帮助请求头标注过滤器
+            </summary>
+        </member>
+        <member name="M:ALP.WebApi.Filter.HttpHeaderFilter.Apply(Swashbuckle.Swagger.Operation,Swashbuckle.Swagger.SchemaRegistry,System.Web.Http.Description.ApiDescription)">
+            <summary>
+            
+            </summary>
+            <param name="operation"></param>
+            <param name="schemaRegistry"></param>
+            <param name="apiDescription"></param>
+        </member>
+        <member name="T:ALP.WebApi.Models.Account.LoginRequestParms">
+            <summary>
+            登录接口参数
+            </summary>    
+        </member>
+        <member name="P:ALP.WebApi.Models.Account.LoginRequestParms.UserName">
+            <summary>
+            登录名
+            </summary>
+        </member>
+        <member name="P:ALP.WebApi.Models.Account.LoginRequestParms.Password">
+            <summary>
+            密码
+            </summary>
+        </member>
+        <member name="T:ALP.WebApi.Models.BaseResponseMessage">
+            <summary>
+            默认请求响应结果类
+            </summary>
+        </member>
+        <member name="T:ALP.WebApi.Models.BaseResponseResult`1">
+            <summary>
+            HTTP请求响应结果基类
+            </summary>
+        </member>
+        <member name="P:ALP.WebApi.Models.BaseResponseResult`1.success">
+            <summary>
+            是否成功
+            </summary>
+        </member>
+        <member name="P:ALP.WebApi.Models.BaseResponseResult`1.returnMsg">
+            <summary>
+            响应消息
+            </summary>
+        </member>
+        <member name="P:ALP.WebApi.Models.BaseResponseResult`1.statusCode">
+            <summary>
+            业务状态码
+            </summary>
+        </member>
+        <member name="P:ALP.WebApi.Models.BaseResponseResult`1.resultData">
+            <summary>
+            业务结果集合
+            </summary>
+        </member>
+        <member name="P:ALP.WebApi.Models.BaseResponseResult.success">
+            <summary>
+            是否成功
+            </summary>
+        </member>
+        <member name="P:ALP.WebApi.Models.BaseResponseResult.returnMsg">
+            <summary>
+            响应消息
+            </summary>
+        </member>
+        <member name="P:ALP.WebApi.Models.BaseResponseResult.statusCode">
+            <summary>
+            业务状态码
+            </summary>
+        </member>
+        <member name="P:ALP.WebApi.Models.BaseResponseResult.resultData">
+            <summary>
+            业务结果集合
+            </summary>
+        </member>
+        <member name="T:ALP.WebApi.Models.ResponseResult`1">
+            <summary>
+            接口响应结果通用类
+            </summary>
+        </member>
+        <member name="P:ALP.WebApi.Models.ResponseResult`1.commandString">
+            <summary>
+            请求命令
+            </summary>
+        </member>
+        <member name="T:ALP.WebApi.Models.ResponseResult">
+            <summary>
+            接口响应结果通用类
+            </summary>
+        </member>
+        <member name="T:ALP.WebApi.Util.RequestHeaderKey">
+            <summary>
+            请求头参数键枚举
+            </summary>
+        </member>
+        <member name="F:ALP.WebApi.Util.RequestHeaderKey.UserCode">
+            <summary>
+            用户主键ID
+            </summary>
+        </member>
+        <member name="F:ALP.WebApi.Util.RequestHeaderKey.UserName">
+            <summary>
+            用户名称
+            </summary>
+        </member>
+        <member name="F:ALP.WebApi.Util.RequestHeaderKey.UDID">
+            <summary>
+            设备标识码
+            </summary>
+        </member>
+        <member name="F:ALP.WebApi.Util.RequestHeaderKey.Sign">
+            <summary>
+            签名
+            </summary>
+        </member>
+        <member name="F:ALP.WebApi.Util.RequestHeaderKey.TerminalType">
+            <summary>
+            终端类型
+            </summary>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.MsgPushService">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.#ctor">
+            <remarks/>
+        </member>
+        <member name="E:ALP.WebApi.WebChatPushService.MsgPushService.SendMessageCompleted">
+            <remarks/>
+        </member>
+        <member name="E:ALP.WebApi.WebChatPushService.MsgPushService.GetDepartmentListCompleted">
+            <remarks/>
+        </member>
+        <member name="E:ALP.WebApi.WebChatPushService.MsgPushService.GetUserByDepidCompleted">
+            <remarks/>
+        </member>
+        <member name="E:ALP.WebApi.WebChatPushService.MsgPushService.GetUserByUseridCompleted">
+            <remarks/>
+        </member>
+        <member name="E:ALP.WebApi.WebChatPushService.MsgPushService.PushFirstPassYieldInfoCompleted">
+            <remarks/>
+        </member>
+        <member name="E:ALP.WebApi.WebChatPushService.MsgPushService.PushDefectTopThreeInfoCompleted">
+            <remarks/>
+        </member>
+        <member name="E:ALP.WebApi.WebChatPushService.MsgPushService.PushMaterielShortageInfoCompleted">
+            <remarks/>
+        </member>
+        <member name="E:ALP.WebApi.WebChatPushService.MsgPushService.PushMaterielDistSheetInfoCompleted">
+            <remarks/>
+        </member>
+        <member name="E:ALP.WebApi.WebChatPushService.MsgPushService.PushInWhExceptionFrozenInfoCompleted">
+            <remarks/>
+        </member>
+        <member name="E:ALP.WebApi.WebChatPushService.MsgPushService.PushEquipMouldRepairInfoCompleted">
+            <remarks/>
+        </member>
+        <member name="E:ALP.WebApi.WebChatPushService.MsgPushService.PushEquipMouldMaintainInfoCompleted">
+            <remarks/>
+        </member>
+        <member name="E:ALP.WebApi.WebChatPushService.MsgPushService.PushEquipSpecialVerifiInfoCompleted">
+            <remarks/>
+        </member>
+        <member name="E:ALP.WebApi.WebChatPushService.MsgPushService.PushChangeMouldInfoCompleted">
+            <remarks/>
+        </member>
+        <member name="E:ALP.WebApi.WebChatPushService.MsgPushService.PushSchedulingInfoCompleted">
+            <remarks/>
+        </member>
+        <member name="E:ALP.WebApi.WebChatPushService.MsgPushService.AutoPushSchedulingInfoCompleted">
+            <remarks/>
+        </member>
+        <member name="E:ALP.WebApi.WebChatPushService.MsgPushService.PushProFactorMaterialsInfoCompleted">
+            <remarks/>
+        </member>
+        <member name="E:ALP.WebApi.WebChatPushService.MsgPushService.PushEquipLineStopInfoCompleted">
+            <remarks/>
+        </member>
+        <member name="E:ALP.WebApi.WebChatPushService.MsgPushService.PushJobWorkingInfoCompleted">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.SendMessage(System.String)">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.SendMessageAsync(System.String)">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.SendMessageAsync(System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.GetDepartmentList(System.String)">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.GetDepartmentListAsync(System.String)">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.GetDepartmentListAsync(System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.GetUserByDepid(System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.GetUserByDepidAsync(System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.GetUserByDepidAsync(System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.GetUserByUserid(System.String)">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.GetUserByUseridAsync(System.String)">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.GetUserByUseridAsync(System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushFirstPassYieldInfo(System.String,ALP.WebApi.WebChatPushService.FirstPassYieldEntity[])">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushFirstPassYieldInfoAsync(System.String,ALP.WebApi.WebChatPushService.FirstPassYieldEntity[])">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushFirstPassYieldInfoAsync(System.String,ALP.WebApi.WebChatPushService.FirstPassYieldEntity[],System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushDefectTopThreeInfo(System.String,ALP.WebApi.WebChatPushService.DefectTopThreeEntity[])">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushDefectTopThreeInfoAsync(System.String,ALP.WebApi.WebChatPushService.DefectTopThreeEntity[])">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushDefectTopThreeInfoAsync(System.String,ALP.WebApi.WebChatPushService.DefectTopThreeEntity[],System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushMaterielShortageInfo(System.String,System.String,System.String,System.String,ALP.WebApi.WebChatPushService.GetMesDMaResponse[])">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushMaterielShortageInfoAsync(System.String,System.String,System.String,System.String,ALP.WebApi.WebChatPushService.GetMesDMaResponse[])">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushMaterielShortageInfoAsync(System.String,System.String,System.String,System.String,ALP.WebApi.WebChatPushService.GetMesDMaResponse[],System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushMaterielDistSheetInfo(System.String,System.String,System.String,System.String,ALP.WebApi.WebChatPushService.DistSheetEntity[])">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushMaterielDistSheetInfoAsync(System.String,System.String,System.String,System.String,ALP.WebApi.WebChatPushService.DistSheetEntity[])">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushMaterielDistSheetInfoAsync(System.String,System.String,System.String,System.String,ALP.WebApi.WebChatPushService.DistSheetEntity[],System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushInWhExceptionFrozenInfo(System.String,ALP.WebApi.WebChatPushService.InWhExceptionFrozenEntity[])">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushInWhExceptionFrozenInfoAsync(System.String,ALP.WebApi.WebChatPushService.InWhExceptionFrozenEntity[])">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushInWhExceptionFrozenInfoAsync(System.String,ALP.WebApi.WebChatPushService.InWhExceptionFrozenEntity[],System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushEquipMouldRepairInfo(ALP.WebApi.WebChatPushService.EquipMouldRepairEntity)">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushEquipMouldRepairInfoAsync(ALP.WebApi.WebChatPushService.EquipMouldRepairEntity)">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushEquipMouldRepairInfoAsync(ALP.WebApi.WebChatPushService.EquipMouldRepairEntity,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushEquipMouldMaintainInfo(ALP.WebApi.WebChatPushService.EquipMouldMaintainEntity)">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushEquipMouldMaintainInfoAsync(ALP.WebApi.WebChatPushService.EquipMouldMaintainEntity)">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushEquipMouldMaintainInfoAsync(ALP.WebApi.WebChatPushService.EquipMouldMaintainEntity,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushEquipSpecialVerifiInfo(System.String,ALP.WebApi.WebChatPushService.EquipSpecialVerifiEntity[])">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushEquipSpecialVerifiInfoAsync(System.String,ALP.WebApi.WebChatPushService.EquipSpecialVerifiEntity[])">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushEquipSpecialVerifiInfoAsync(System.String,ALP.WebApi.WebChatPushService.EquipSpecialVerifiEntity[],System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushChangeMouldInfo(System.String,ALP.WebApi.WebChatPushService.ChangeMouldEntity[])">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushChangeMouldInfoAsync(System.String,ALP.WebApi.WebChatPushService.ChangeMouldEntity[])">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushChangeMouldInfoAsync(System.String,ALP.WebApi.WebChatPushService.ChangeMouldEntity[],System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushSchedulingInfo(System.String,System.String,System.String,System.String,System.String,ALP.WebApi.WebChatPushService.SchedulingEntity[])">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushSchedulingInfoAsync(System.String,System.String,System.String,System.String,System.String,ALP.WebApi.WebChatPushService.SchedulingEntity[])">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushSchedulingInfoAsync(System.String,System.String,System.String,System.String,System.String,ALP.WebApi.WebChatPushService.SchedulingEntity[],System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.AutoPushSchedulingInfo(System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.AutoPushSchedulingInfoAsync(System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.AutoPushSchedulingInfoAsync(System.String,System.String,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushProFactorMaterialsInfo(System.String,ALP.WebApi.WebChatPushService.ProFactorMaterialsEntity[])">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushProFactorMaterialsInfoAsync(System.String,ALP.WebApi.WebChatPushService.ProFactorMaterialsEntity[])">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushProFactorMaterialsInfoAsync(System.String,ALP.WebApi.WebChatPushService.ProFactorMaterialsEntity[],System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushEquipLineStopInfo(System.String,ALP.WebApi.WebChatPushService.EquipLineStopEntity[])">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushEquipLineStopInfoAsync(System.String,ALP.WebApi.WebChatPushService.EquipLineStopEntity[])">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushEquipLineStopInfoAsync(System.String,ALP.WebApi.WebChatPushService.EquipLineStopEntity[],System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushJobWorkingInfo(System.String,ALP.WebApi.WebChatPushService.JobWorkingResultEntity[])">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushJobWorkingInfoAsync(System.String,ALP.WebApi.WebChatPushService.JobWorkingResultEntity[])">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushJobWorkingInfoAsync(System.String,ALP.WebApi.WebChatPushService.JobWorkingResultEntity[],System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.CancelAsync(System.Object)">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.SendMsgResult">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.SendMsgResult.errcode">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.SendMsgResult.errcodeSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.SendMsgResult.errmsg">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.SendMsgResult.invalidparty">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.SendMsgResult.invalidtag">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.SendMsgResult.invaliduser">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.JobWorkingResultEntity">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.JobWorkingResultEntity.Note">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.JobWorkingResultEntity.PrdOrderCode">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.JobWorkingResultEntity.ReportResult">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.JobWorkingResultEntity.ReportTime">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.JobWorkingResultEntity.ScheduleCode">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.JobWorkingResultEntity.Status">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.EquipLineStopEntity">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.EquipLineStopEntity.ClassName">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.EquipLineStopEntity.Downtime">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.EquipLineStopEntity.LineName">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.EquipLineStopEntity.LineSpotMark">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.EquipLineStopEntity.NowTime">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.EquipLineStopEntity.StopDate">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.ProFactorMaterialsEntity">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.ProFactorMaterialsEntity.MaterialCode">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.ProFactorMaterialsEntity.MaterialName">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.SchedulingEntity">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.SchedulingEntity.BC">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.SchedulingEntity.ChangeStatus">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.SchedulingEntity.IsMrPost">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.SchedulingEntity.IsWindUp">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.SchedulingEntity.MaterialName">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.SchedulingEntity.MesStatus">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.SchedulingEntity.PlanEndDate">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.SchedulingEntity.PlanQty">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.SchedulingEntity.PlanStartDate">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.SchedulingEntity.PrdorderCode">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.SchedulingEntity.ScheduleCode">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.SchedulingEntity.ScheduleOrder">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.ChangeMouldEntity">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.ChangeMouldEntity.ClipId">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.ChangeMouldEntity.EndDate">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.ChangeMouldEntity.LineCode">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.ChangeMouldEntity.NewMould">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.ChangeMouldEntity.NewProFactorDescr">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.ChangeMouldEntity.NewSlotId">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.ChangeMouldEntity.OldMould">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.ChangeMouldEntity.OldProFactorDescr">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.ChangeMouldEntity.Remark">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.ChangeMouldEntity.StartDate">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.EquipSpecialVerifiEntity">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.EquipSpecialVerifiEntity.EquipCode">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.EquipSpecialVerifiEntity.EquipName">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.EquipSpecialVerifiEntity.LineCode">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.EquipSpecialVerifiEntity.PlanDate">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.EquipMouldMaintainEntity">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.EquipMouldMaintainEntity.EquipMouldCode">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.EquipMouldMaintainEntity.EquipMouldName">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.EquipMouldMaintainEntity.EquipPartName">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.EquipMouldMaintainEntity.LineCode">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.EquipMouldMaintainEntity.PlanDate">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.EquipMouldRepairEntity">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.EquipMouldRepairEntity.Applicant">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.EquipMouldRepairEntity.ApplyDate">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.EquipMouldRepairEntity.EquipMouldCode">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.EquipMouldRepairEntity.EquipMouldName">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.EquipMouldRepairEntity.FailureDesc">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.EquipMouldRepairEntity.FailureSymptomName">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.EquipMouldRepairEntity.LineCode">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.EquipMouldRepairEntity.Symptom">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.InWhExceptionFrozenEntity">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.InWhExceptionFrozenEntity.BarCode">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.InWhExceptionFrozenEntity.FrozenReason">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.InWhExceptionFrozenEntity.HappenTime">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.InWhExceptionFrozenEntity.LineCode">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.InWhExceptionFrozenEntity.MaterialName">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.InWhExceptionFrozenEntity.PrdOrderCode">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.InWhExceptionFrozenEntity.ScheduleCode">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.DistSheetEntity">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.DistSheetEntity.DeliveryNum">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.DistSheetEntity.MRId">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.DistSheetEntity.MRName">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.GetMesDMaResponse">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.GetMesDMaResponse.MaResNum">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.GetMesDMaResponse.errMsg">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.GetMesDMaResponse.factory">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.GetMesDMaResponse.flag">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.GetMesDMaResponse.flagSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.GetMesDMaResponse.maCode">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.GetMesDMaResponse.mesNum">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.GetMesDMaResponse.missNum">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.GetMesDMaResponse.orderNo">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.GetMesDMaResponse.pOrder">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.GetMesDMaResponse.sNumber">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.GetMesDMaResponse.supplyCode">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.GetMesDMaResponse.supplyDescr">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.DefectTopThreeEntity">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.DefectTopThreeEntity.AcqPositionName">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.DefectTopThreeEntity.Top1">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.DefectTopThreeEntity.Top2">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.DefectTopThreeEntity.Top3">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.FirstPassYieldEntity">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.FirstPassYieldEntity.AcqCount">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.FirstPassYieldEntity.JudgeResult">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.FirstPassYieldEntity.PassYieldRate">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.FirstPassYieldEntity.PassYieldType">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.FirstPassYieldEntity.QCNGAcqCount">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.FirstPassYieldEntity.StandardPassYieldRate">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.Userlist">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.Userlist.department">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.Userlist.name">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.Userlist.userid">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.WeiXinUserListInfo">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.WeiXinUserListInfo.errcode">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.WeiXinUserListInfo.errcodeSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.WeiXinUserListInfo.errmsg">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.WeiXinUserListInfo.userlist">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.Department">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.Department.id">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.Department.idSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.Department.name">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.Department.order">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.Department.orderSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.Department.parentid">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.Department.parentidSpecified">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.WeiXinDepartmentListInfo">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.WeiXinDepartmentListInfo.department">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.WeiXinDepartmentListInfo.errcode">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.WeiXinDepartmentListInfo.errcodeSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.WeiXinDepartmentListInfo.errmsg">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.SendMessageCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.SendMessageCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.SendMessageCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.GetDepartmentListCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.GetDepartmentListCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.GetDepartmentListCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.GetUserByDepidCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.GetUserByDepidCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.GetUserByDepidCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.GetUserByUseridCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.GetUserByUseridCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.GetUserByUseridCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.PushFirstPassYieldInfoCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.PushFirstPassYieldInfoCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.PushFirstPassYieldInfoCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.PushDefectTopThreeInfoCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.PushDefectTopThreeInfoCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.PushDefectTopThreeInfoCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.PushMaterielShortageInfoCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.PushMaterielShortageInfoCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.PushMaterielShortageInfoCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.PushMaterielDistSheetInfoCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.PushMaterielDistSheetInfoCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.PushMaterielDistSheetInfoCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.PushInWhExceptionFrozenInfoCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.PushInWhExceptionFrozenInfoCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.PushInWhExceptionFrozenInfoCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.PushEquipMouldRepairInfoCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.PushEquipMouldRepairInfoCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.PushEquipMouldRepairInfoCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.PushEquipMouldMaintainInfoCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.PushEquipMouldMaintainInfoCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.PushEquipMouldMaintainInfoCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.PushEquipSpecialVerifiInfoCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.PushEquipSpecialVerifiInfoCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.PushEquipSpecialVerifiInfoCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.PushChangeMouldInfoCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.PushChangeMouldInfoCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.PushChangeMouldInfoCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.PushSchedulingInfoCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.PushSchedulingInfoCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.PushSchedulingInfoCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.AutoPushSchedulingInfoCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.PushProFactorMaterialsInfoCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.PushProFactorMaterialsInfoCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.PushProFactorMaterialsInfoCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.PushEquipLineStopInfoCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.PushEquipLineStopInfoCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.PushEquipLineStopInfoCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.PushJobWorkingInfoCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.PushJobWorkingInfoCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.PushJobWorkingInfoCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:SqlSugar.WebApi.SwaggerConfig">
+            <summary>
+            SwaggerConfig
+            </summary>
+        </member>
+        <member name="M:SqlSugar.WebApi.SwaggerConfig.Register">
+            <summary>
+            Register
+            </summary>
+        </member>
+    </members>
+</doc>

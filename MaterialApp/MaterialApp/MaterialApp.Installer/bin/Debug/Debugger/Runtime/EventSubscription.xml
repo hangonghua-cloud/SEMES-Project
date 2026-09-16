@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Items>
+  <EventSubscription Id="c28650b5-6b52-ec11-9663-c14b9740f55b">
+    <EventHandler>078650b5-6b52-ec11-9663-c14b9740f55b</EventHandler>
+    <App>15695648-cccc-445c-8523-6ed51954acd7</App>
+    <SubscribedEvent>c48550b5-6b52-ec11-9663-c14b9740f55b</SubscribedEvent>
+    <SubscriptionFilter>c48650b5-6b52-ec11-9663-c14b9740f55b</SubscriptionFilter>
+    <Name>Siemens.SimaticIT.System.System.SAPOMModel.Events.MaintenanceCleaningSubscription</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </EventSubscription>
+  <EventSubscription Id="ce8650b5-6b52-ec11-9663-c14b9740f55b">
+    <EventHandler>018650b5-6b52-ec11-9663-c14b9740f55b</EventHandler>
+    <App>15695648-cccc-445c-8523-6ed51954acd7</App>
+    <SubscribedEvent>c48550b5-6b52-ec11-9663-c14b9740f55b</SubscribedEvent>
+    <SubscriptionFilter>d08650b5-6b52-ec11-9663-c14b9740f55b</SubscriptionFilter>
+    <Name>Siemens.SimaticIT.System.System.SAPOMModel.Events.MaintenanceArchivingSubscription</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </EventSubscription>
+  <EventSubscription Id="da8650b5-6b52-ec11-9663-c14b9740f55b">
+    <EventHandler>ef8550b5-6b52-ec11-9663-c14b9740f55b</EventHandler>
+    <App>15695648-cccc-445c-8523-6ed51954acd7</App>
+    <SubscribedEvent>d58550b5-6b52-ec11-9663-c14b9740f55b</SubscribedEvent>
+    <Name>Siemens.SimaticIT.System.System.SAPOMModel.Events.PerformExport_PerformExportEvtHandler</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </EventSubscription>
+  <EventSubscription Id="e28650b5-6b52-ec11-9663-c14b9740f55b">
+    <EventHandler>e98550b5-6b52-ec11-9663-c14b9740f55b</EventHandler>
+    <App>15695648-cccc-445c-8523-6ed51954acd7</App>
+    <SubscribedEvent>d08550b5-6b52-ec11-9663-c14b9740f55b</SubscribedEvent>
+    <Name>Siemens.SimaticIT.System.System.SAPOMModel.Events.KeepOperationAlive_KeepOperationAliveEvtHandler</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </EventSubscription>
+  <EventSubscription Id="ea8650b5-6b52-ec11-9663-c14b9740f55b">
+    <EventHandler>f58550b5-6b52-ec11-9663-c14b9740f55b</EventHandler>
+    <App>15695648-cccc-445c-8523-6ed51954acd7</App>
+    <SubscribedEvent>da8550b5-6b52-ec11-9663-c14b9740f55b</SubscribedEvent>
+    <Name>Siemens.SimaticIT.System.System.SAPOMModel.Events.PerformImport_PerformImportEvtHandler</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </EventSubscription>
+  <EventSubscription Id="a47a5fdf-6b52-ec11-9663-c14b9740f55b">
+    <EventHandler>6c795fdf-6b52-ec11-9663-c14b9740f55b</EventHandler>
+    <App>463b1385-f0e4-4626-b592-ebf6a5438a66</App>
+    <SubscribedEvent>ac8550b5-6b52-ec11-9663-c14b9740f55b</SubscribedEvent>
+    <Name>Siemens.SimaticIT.Personnel.Personnel.PRPOMModel.Events.SessionCreated_PopulateSession</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </EventSubscription>
+  <EventSubscription Id="ac7a5fdf-6b52-ec11-9663-c14b9740f55b">
+    <EventHandler>5a795fdf-6b52-ec11-9663-c14b9740f55b</EventHandler>
+    <App>463b1385-f0e4-4626-b592-ebf6a5438a66</App>
+    <SubscribedEvent>29795fdf-6b52-ec11-9663-c14b9740f55b</SubscribedEvent>
+    <Name>Siemens.SimaticIT.Personnel.Personnel.PRPOMModel.Events.StartUserImport_StartUserImport_EventHandler</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </EventSubscription>
+  <EventSubscription Id="b47a5fdf-6b52-ec11-9663-c14b9740f55b">
+    <EventHandler>66795fdf-6b52-ec11-9663-c14b9740f55b</EventHandler>
+    <App>463b1385-f0e4-4626-b592-ebf6a5438a66</App>
+    <SubscribedEvent>1a795fdf-6b52-ec11-9663-c14b9740f55b</SubscribedEvent>
+    <Name>Siemens.SimaticIT.Personnel.Personnel.PRPOMModel.Events.SegregationTagDeleted_RemoveSegregationTagFromPersons</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </EventSubscription>
+  <EventSubscription Id="bc7a5fdf-6b52-ec11-9663-c14b9740f55b">
+    <EventHandler>60795fdf-6b52-ec11-9663-c14b9740f55b</EventHandler>
+    <App>463b1385-f0e4-4626-b592-ebf6a5438a66</App>
+    <SubscribedEvent>1a795fdf-6b52-ec11-9663-c14b9740f55b</SubscribedEvent>
+    <Name>Siemens.SimaticIT.Personnel.Personnel.PRPOMModel.Events.SegregationTagDeleted_RemoveSegregationTagFromPersonGroups</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </EventSubscription>
+</Items>

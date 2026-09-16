@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="11/16/2021 15:36:29" ReportInfo.Modified="11/16/2021 16:44:03" ReportInfo.CreatorVersion="2014.4.8.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+   
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlqxfki+t8jnSxof6qn6ng9vZXyxJ29Vo8PhbFaOrHhCHgROOaG/q4zpcoYQe61tsOxaKWTscH6Ad1rABTy1kAs9dLOkZCIFkSPgtS3xo+Qd2I1vweO+bh9fU/O4XMGzx8XtIFJb67TJ4BRKzzmozO5UQpb9tCUGPeow9BQ0MTIwDeJ/j9L8W5nwyb3RVts9gSKurTa5Wr522iFRuHWCnb0wA==">
+      <TableDataSource Name="Table1" Alias="Own" DataType="System.Int32" Enabled="true" SelectCommand="EXEC dbo.Pro_PrintOwnProductCard @CardCode">
+        <Column Name="TransferCode" DataType="System.String"/>
+        <Column Name="TransferName" DataType="System.String"/>
+        <Column Name="CreateTime" DataType="System.DateTime"/>
+        <Column Name="UserNames" DataType="System.String"/>
+        <Column Name="MaterialName" DataType="System.String"/>
+        <Column Name="MaterialCode" DataType="System.String"/>
+        <CommandParameter Name="CardCode" DataType="22" Size="10000" Expression="[CardCode]"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+    <Parameter Name="CardCode" DataType="System.String"/>
+  </Dictionary>
+  <ReportPage Name="Page1" PaperWidth="100" PaperHeight="130" LeftMargin="0" TopMargin="0" RightMargin="0" BottomMargin="0" FirstPageSource="256" OtherPagesSource="256">
+    <GroupHeaderBand Name="GroupHeader1" Width="378" Condition="[Own.TransferCode]">
+      <DataBand Name="Data1" Top="4" Width="378" Height="463.05" Guides="0" DataSource="Table1">
+        <BarcodeObject Name="Barcode1" Left="66.15" Width="229.4" Height="219.05" AutoSize="false" DataColumn="Own.TransferCode" ShowText="false" Barcode="QR Code" Barcode.ErrorCorrection="L" Barcode.Encoding="UTF8" Barcode.QuietZone="true"/>
+        <TextObject Name="Text1" Left="18.9" Top="226.8" Width="340.2" Height="18.9" Text="[Own.TransferCode]" HorzAlign="Center" Font="等线, 10.5pt"/>
+        <TextObject Name="Text2" Left="18.9" Top="255.15" Width="340.2" Height="56.7" Text="[Own.CreateTime]" Format="Date" Format.Format="d" HorzAlign="Center" Font="等线, 36pt, style=Bold"/>
+        <TextObject Name="Text3" Left="18.9" Top="321.3" Width="340.2" Height="28.35" Text="[Own.MaterialName]" HorzAlign="Center" Font="等线, 18pt, style=Bold"/>
+        <TextObject Name="Text4" Left="18.9" Top="359.1" Width="340.2" Height="18.9" Text="[Own.MaterialCode]" HorzAlign="Center" Font="等线, 10.5pt"/>
+        <TextObject Name="Text5" Left="18.9" Top="387.45" Width="340.2" Height="18.9" Text="[Own.UserNames]" HorzAlign="Center" Font="等线, 10.5pt"/>
+      </DataBand>
+      <GroupFooterBand Name="GroupFooter1" Top="471.05" Width="378"/>
+    </GroupHeaderBand>
+  </ReportPage>
+</Report>

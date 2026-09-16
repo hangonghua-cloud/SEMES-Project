@@ -1,0 +1,26 @@
+﻿<style>
+    .row {
+        padding: 5px;
+        margin-top: 10px;
+    }
+</style>
+<div class="command-bar-side-panel">
+    <button ng-click="vm.cancel()" class="btn side-panel-button">{{'Siemens.SimaticIT.FactoryModelApp.ModelResource.ModelResourceadd.Tips_1'|translate}}</button>
+    <button ng-click="vm.save()" class="btn side-panel-button" ng-show="vm.validInputs">{{'Siemens.SimaticIT.FactoryModelApp.ModelResource.ModelResourceadd.Tips_2'|translate}}</button>
+</div>
+<div class="side-panel-property-area-body">
+    <sit-property-grid sit-id="view_form" sit-layout="Horizontal" sit-type="Fixed" sit-mode="edit" sit-columns="1">
+
+        <sit-property sit-widget="sit-select" sit-value="vm.currentItem.ModelLeve" sit-validation="{required: true}" sit-options="vm.LevelCtrl"
+                      sit-to-display="'LevelName'" sit-change="vm.LevelChangeHandler" , sit-to-keep="'Level'">{{'Siemens.SimaticIT.FactoryModelApp.ModelResource.ModelResourceadd.Tips_3'|translate}}</sit-property>
+        <sit-property sit-widget="sit-select" sit-options="vm.ParentResourceCtrl" sit-validation="{required: true}" sit-to-keep="'ResourceCode'"
+                      sit-value="vm.currentItem.ParentResourceCode" sit-to-display="'ResourceName'" width:200 sit-read-only="false">{{'Siemens.SimaticIT.FactoryModelApp.ModelResource.ModelResourceadd.Tips_4'|translate}}</sit-property>
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.MainResourceCode" width:200 sit-validation="{required: true}"
+                      sit-read-only="false">{{'Siemens.SimaticIT.FactoryModelApp.ModelResource.ModelResourceadd.Tips_5'|translate}}</sit-property>
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.MainResourceName" width:200 sit-validation="{required: true}"
+                      sit-read-only="false">{{'Siemens.SimaticIT.FactoryModelApp.ModelResource.ModelResourceadd.Tips_6'|translate}}</sit-property>
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.Describe" width:200 sit-validation="{required: false}" sit-read-only="false">{{'Siemens.SimaticIT.FactoryModelApp.ModelResource.ModelResourceadd.Tips_7'|translate}}</sit-property>
+        <sit-property sit-widget="sit-numeric" sit-value="vm.currentItem.SortCode" sit-validation="{required: true, min: 0}"
+                      sit-read-only="false">{{'Siemens.SimaticIT.FactoryModelApp.ModelResource.ModelResourceadd.Tips_8'|translate}}</sit-property>
+    </sit-property-grid>
+</div>

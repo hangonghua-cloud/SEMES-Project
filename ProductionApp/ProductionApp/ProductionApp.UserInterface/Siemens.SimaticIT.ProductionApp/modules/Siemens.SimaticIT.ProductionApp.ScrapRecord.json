@@ -1,0 +1,19 @@
+﻿{
+  "name": "Siemens.SimaticIT.ProductionApp.ScrapRecord",
+  "type": "standard",
+  "title": "Siemens.SimaticIT.ProductionApp.ScrapRecord.Title",
+  "header": "",
+  "icon": "fa-folder",
+  "functionalBlock": "Siemens.SimaticIT.ProductionApp",
+  "dependencies": [],
+  "states": [
+    {
+      "id": "home.Siemens_SimaticIT_ProductionApp_ScrapRecord_ScrapRecord",
+      "title": "Siemens.SimaticIT.ProductionApp.ScrapRecord.Title",
+      "header": "",
+      "securable": true,
+      "roles": []
+    }
+  ],
+  "manifestVersion": "01.01.00"
+}

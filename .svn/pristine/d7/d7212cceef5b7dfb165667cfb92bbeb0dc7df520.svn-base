@@ -1,0 +1,33 @@
+﻿<div style="height: calc(100% - 30px) !important;">
+<div class="sit-uagrid" style="float: left;width: 15%;height: calc(100% - 30px) !important;">
+    <div id="itemlist" class="content-area content-area-relative">
+        <sit-command-bar sit-type="action">
+            <sit-command sit-icon="fa-trash" sit-name="com.siemens.customcommand.deleteParent" sit-tooltip="删除" ng-click="vm.deleteParentButtonHandler"
+                ng-show="vm.isParentButtonVisible" sit-label="删除">
+            </sit-command>
+            <sit-command sit-icon="fa-edit" sit-name="com.siemens.customcommand.editParent" sit-tooltip="编辑" ng-click="vm.editParentButtonHandler"
+                ng-show="vm.isParentButtonVisible" sit-label="编辑">
+            </sit-command>
+            <sit-command sit-icon="fa-plus" sit-name="com.siemens.customcommand.addParent" ng-click="vm.addParentButtonHandler" ng-show="vm.isParentButtonVisible"
+                sit-tooltip="添加" sit-label="添加"></sit-command>
+        </sit-command-bar>
+    </div>
+    <sit-tree sit-options="vm.treeOptions"></sit-tree>
+</div>
+
+<div class="sit-uagrid" style="float: left;width: 81%;margin-left: 0.5%;">
+    <div id="itemlist" class="content-area content-area-relative">
+        <sit-command-bar sit-vertical-autofixed="true" sit-type="Tool" sit-label-align="right" sit-layout="vertical">
+            <sit-command sit-icon="fa-trash" sit-name="com.siemens.customcommand.delete" sit-tooltip="删除" ng-click="vm.deleteButtonHandler"
+                sit-label="删除" ng-show="vm.isButtonVisible"></sit-command>
+            <sit-command sit-icon="fa-edit" sit-name="com.siemens.customcommand.edit" sit-tooltip="编辑" ng-click="vm.editButtonHandler"
+                sit-label="编辑" ng-show="vm.isButtonVisible"></sit-command>
+            <sit-command sit-icon="fa-plus" sit-name="com.siemens.customcommand.add" ng-click="vm.addButtonHandler" sit-tooltip="添加"
+                ng-show="vm.isAddButtonVisible" sit-label="添加"></sit-command>
+        </sit-command-bar>
+    </div>
+    <sit-item-collection-viewer sit-data="vm.viewerData" sit-options="vm.viewerOptions">
+    </sit-item-collection-viewer>
+</div>
+<div style="clear: both;"></div>
+</div>

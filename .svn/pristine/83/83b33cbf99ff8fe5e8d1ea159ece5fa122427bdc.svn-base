@@ -1,0 +1,36 @@
+﻿<!--
+    0.代码生成: UA主子表一键生成前后端html、JS、API接口代码生成器 Ver 1.11 更新日期：2021-07-14  设计者：刘万军
+    1.功能描述: 工单发料表
+    2.创建人员: liyongguo
+    3.创建日期: 2021-08-09
+    4.修改人员:
+    5.修改日期:
+-->
+<style>
+    .row {
+        padding: 5px;
+        margin-top: 10px;
+    }
+</style>
+<div class="command-bar-side-panel">
+    <button ng-click="vm.cancel()" class="btn side-panel-button">{{'Siemens.SimaticIT.MaterialApp.Process.ProcessAttraddDetail.Tips_1'|translate}}</button>
+    <button ng-click="vm.save()" class="btn side-panel-button" ng-show="vm.validInputs">{{'Siemens.SimaticIT.MaterialApp.Process.ProcessAttraddDetail.Tips_2'|translate}}</button>
+</div>
+<div class="side-panel-property-area-body">
+    <sit-property-grid sit-id="add_form"
+                       sit-layout="Horizontal"
+                       sit-type="Fixed"
+                       sit-mode="edit"
+                       sit-columns="1">
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.AttrCode" sit-validation="{required: true}"
+                      sit-read-only="false">{{'Siemens.SimaticIT.MaterialApp.Process.ProcessAttraddDetail.Tips_3'|translate}}</sit-property>
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.AttrName" sit-validation="{required: true}"
+                      sit-read-only="false">{{'Siemens.SimaticIT.MaterialApp.Process.ProcessAttraddDetail.Tips_4'|translate}}</sit-property>
+        <sit-property sit-widget="sit-numeric" sit-value="vm.currentItem.SortCode" sit-validation="{required: false}"
+                      sit-read-only="false">{{'Siemens.SimaticIT.MaterialApp.Process.ProcessAttraddDetail.Tips_5'|translate}}</sit-property>
+        <sit-property sit-widget="sit-select" sit-read-only="false" sit-options="vm.typeAttrTypeSelect.options"
+                      sit-validation="{required: true}" sit-to-keep="'ItemValue'"
+                      sit-value="vm.typeAttrTypeSelect.selectedOption" sit-to-display="'ItemName'">{{'Siemens.SimaticIT.MaterialApp.Process.ProcessAttraddDetail.Tips_6'|translate}}</sit-property>
+
+    </sit-property-grid>
+</div>

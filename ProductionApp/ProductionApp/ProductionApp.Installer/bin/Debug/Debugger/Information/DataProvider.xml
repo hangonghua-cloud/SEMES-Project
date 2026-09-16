@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Items>
+  <DataProvider Id="9742525e-5e44-455e-8bbf-95f3c074974a">
+    <DefaultDatabase>54302333-3e2c-405a-8fff-b684ef538c0d</DefaultDatabase>
+    <InformationRepositories>
+      <Id>ef86ac55-78a4-41de-9228-c44be532169b</Id>
+      <Id>5d219943-ca06-4339-9538-dac5eef6972d</Id>
+      <Id>d9808133-8588-4228-b525-09871d16c0ae</Id>
+    </InformationRepositories>
+    <Type>System</Type>
+    <Name>MOM</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DataProvider>
+  <DataProvider Id="793686ef-17f7-4af5-bc8d-90b80d8b8099">
+    <InformationRepositories>
+      <Id>c1944957-c7a1-450b-a072-2c7ef8e01208</Id>
+    </InformationRepositories>
+    <Type>Pom</Type>
+    <Name>System</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DataProvider>
+  <DataProvider Id="2eed2472-b382-47b4-a9af-f2b8a7d52457">
+    <InformationRepositories>
+      <Id>0b6633ae-5c51-41dd-a7a3-282830c2bd5a</Id>
+    </InformationRepositories>
+    <Type>Pom</Type>
+    <Name>BaseDataApp</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DataProvider>
+  <DataProvider Id="40d8a8cc-79b4-4775-a9b0-1fe8db9f063e">
+    <DefaultDatabase>35776ebd-0e73-439a-a351-03fc50f8efa4</DefaultDatabase>
+    <InformationRepositories>
+      <Id>67a24405-78ea-47dc-ac23-25ab81799fe1</Id>
+    </InformationRepositories>
+    <Type>ThirdParty</Type>
+    <Name>Siemens.SimaticIT.ThirdPartyDBFBLib</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DataProvider>
+  <DataProvider Id="f618a76b-7112-41e4-8853-b87a3bb01f27">
+    <InformationRepositories>
+      <Id>5c17cc02-de8e-48dc-8bdf-a19b08a29195</Id>
+    </InformationRepositories>
+    <Type>Pom</Type>
+    <Name>BasicDataManageFBApp</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DataProvider>
+  <DataProvider Id="9ec6d775-b569-42ed-ad09-832f1eadbd6c">
+    <InformationRepositories>
+      <Id>4e612bd7-be6d-42dd-87ff-18f2b9f84ca8</Id>
+    </InformationRepositories>
+    <Type>Pom</Type>
+    <Name>CommonApp</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DataProvider>
+  <DataProvider Id="b1849d2a-5389-4f6e-ac03-f8903032c0e0">
+    <InformationRepositories>
+      <Id>651713e5-1d80-4467-95a1-ed851c7083ff</Id>
+    </InformationRepositories>
+    <Type>Pom</Type>
+    <Name>EquipmentApp</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DataProvider>
+  <DataProvider Id="e9edbec6-bd35-4884-803e-3b5f599fbb79">
+    <InformationRepositories>
+      <Id>0e9c8e3e-a9d8-4bce-a3eb-9d24d09897d1</Id>
+    </InformationRepositories>
+    <Type>Pom</Type>
+    <Name>FactoryModelApp</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DataProvider>
+  <DataProvider Id="d6059b6a-3702-4195-83b9-80c2d09a5d95">
+    <InformationRepositories>
+      <Id>8aba2764-e68d-439b-be8a-ba6b9fd54ba2</Id>
+    </InformationRepositories>
+    <Type>Pom</Type>
+    <Name>MaterialApp</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DataProvider>
+  <DataProvider Id="6ad65d25-e181-4c3e-90ca-d901e5b90050">
+    <InformationRepositories>
+      <Id>d17ea7c4-5c8d-4ae0-b424-7014b4aa8b6a</Id>
+    </InformationRepositories>
+    <Type>Pom</Type>
+    <Name>Personnel</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DataProvider>
+  <DataProvider Id="68bb6bfb-2eda-4ac0-9694-3ad76b799cf4">
+    <InformationRepositories>
+      <Id>24571859-17fa-4867-9315-1b5321ec5757</Id>
+    </InformationRepositories>
+    <Type>Pom</Type>
+    <Name>PlanApp</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DataProvider>
+  <DataProvider Id="c93519a3-5b8a-4f93-b9be-7d0459f409c6">
+    <InformationRepositories>
+      <Id>393cac55-dd13-4a20-84ad-d4492c54bdf9</Id>
+    </InformationRepositories>
+    <Type>Pom</Type>
+    <Name>ProductionApp</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DataProvider>
+  <DataProvider Id="385ba434-f4ff-41ee-a68b-a75f34a20ad6">
+    <InformationRepositories>
+      <Id>a1c798c4-9a8b-4929-9250-170c031d81a3</Id>
+    </InformationRepositories>
+    <Type>Pom</Type>
+    <Name>QualityApp</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DataProvider>
+  <DataProvider Id="813d4f29-5b6b-47b5-9c20-fe6517efaf35">
+    <InformationRepositories>
+      <Id>5f74934d-4449-4dd2-baea-23b4bafe3d00</Id>
+    </InformationRepositories>
+    <Type>Pom</Type>
+    <Name>SystemApp</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DataProvider>
+  <DataProvider Id="a9e44e48-14f7-4291-b78f-3dd3d47ad0bd">
+    <InformationRepositories>
+      <Id>aec9ce5e-3435-4136-84fa-44b58473022d</Id>
+    </InformationRepositories>
+    <Type>Pom</Type>
+    <Name>ButtonAuthFBApp</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DataProvider>
+</Items>

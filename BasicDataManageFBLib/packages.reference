@@ -1,0 +1,26 @@
+<referenceManager version="2.3">
+  <integrity projectVersion="01.00.00" />
+  <functionalblocks projectVersion="01.00.00">
+    <functionalblock>
+      <name>Siemens.SimaticIT.UDM_RF</name>
+      <version>05.01.00</version>
+      <type>Library</type>
+    </functionalblock>
+    <functionalblock>
+      <name>Siemens.SimaticIT.EQU_MS</name>
+      <version>06.01.00</version>
+      <type>Library</type>
+    </functionalblock>
+    <functionalblock>
+      <name>Siemens.SimaticIT.EQU_OP</name>
+      <version>06.01.00</version>
+      <type>Library</type>
+    </functionalblock>
+    <functionalblock>
+      <name>Siemens.SimaticIT.ThirdPartyDBFBLib</name>
+      <version>01.00.00</version>
+      <type>Library</type>
+    </functionalblock>
+  </functionalblocks>
+  <projects projectVersion="01.00.00" />
+</referenceManager>

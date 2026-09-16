@@ -1,0 +1,95 @@
+﻿<style>
+    .row {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+        .row > [class*='col-'] {
+            display: flex;
+            flex-direction: column;
+        }
+
+    .ng-tree-search {
+        width: 100%;
+        margin-bottom: 1px;
+    }
+
+    .panel-Title {
+        background-color: #fff;
+        color: #333;
+        height: 35px;
+        line-height: 35px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        font-weight: bold;
+        border: 1px solid #ccc;
+        border-bottom-width: 0;
+        padding-left: 0px;
+        width: 100%;
+        box-sizing: content-box;
+    }
+</style>
+
+
+<sit-command-bar sit-vertical-autofixed="true" sit-type="Tool" :sit-label-align="right" sit-layout="vertical">
+
+    <
+    <!--sit-command sit-icon="fa fa-minus-square-o" sit-type="main" sit-name="com.siemens.customcommand.search" :sit-tooltip="{{'Siemens.SimaticIT.FactoryModelApp.ModelResource.ModelResourcelist.Tips_1'|translate}}"
+                ng-click="vm.deleteValueButtonHandler" :sit-label="{{'Siemens.SimaticIT.FactoryModelApp.ModelResource.ModelResourcelist.Tips_1'|translate}}" ng-show="vm.is_deleteValueButtonHandler"></sit-command>-->
+    <sit-command sit-icon="fa fa-plus-square-o " sit-type="main" sit-name="com.siemens.customcommand.add" :sit-tooltip="{{'Siemens.SimaticIT.FactoryModelApp.ModelResource.ModelResourcelist.Tips_2'|translate}}"
+                 ng-click="vm.editValueButtonHandler" :sit-label="{{'Siemens.SimaticIT.FactoryModelApp.ModelResource.ModelResourcelist.Tips_2'|translate}}" ng-show="vm.is_editValueButtonHandler"></sit-command>
+
+    <sit-command sit-icon="fa fa-trash " sit-type="main" sit-name="com.siemens.customcommand.search" :sit-tooltip="{{'Siemens.SimaticIT.FactoryModelApp.ModelResource.ModelResourcelist.Tips_3'|translate}}" ng-click="vm.deleteDataItemDetailButtonHandler"
+                 :sit-label="{{'Siemens.SimaticIT.FactoryModelApp.ModelResource.ModelResourcelist.Tips_3'|translate}}" ng-show="vm.is_deleteDataItemDetailButtonHandler"></sit-command>
+
+    <sit-command sit-icon="fa fa-edit" sit-type="main" sit-name="com.siemens.customcommand.search" :sit-tooltip="{{'Siemens.SimaticIT.FactoryModelApp.ModelResource.ModelResourcelist.Tips_4'|translate}}" ng-click="vm.editDataItemDetailButtonHandler"
+                 :sit-label="{{'Siemens.SimaticIT.FactoryModelApp.ModelResource.ModelResourcelist.Tips_4'|translate}}" ng-show="vm.is_editDataItemDetailButtonHandler"></sit-command>
+
+    <sit-command sit-icon="fa  fa-plus" sit-type="main" sit-name="com.siemens.customcommand.add" :sit-tooltip="{{'Siemens.SimaticIT.FactoryModelApp.ModelResource.ModelResourcelist.Tips_5'|translate}}" ng-click="vm.addDataItemDetailButtonHandler"
+                 :sit-label="{{'Siemens.SimaticIT.FactoryModelApp.ModelResource.ModelResourcelist.Tips_5'|translate}}" ng-show="vm.is_addDataItemDetailButtonHandler"></sit-command>
+</sit-command-bar>
+<div id="itemlistContainer" class="content-area content-area-relative" style="width:100%; height:100%;overflow: hidden">
+    <div class="row" style="height:100%;">
+        
+        <div class="col-xs-8 col-md-8" id="boxTree" style="height: 100%;overflow: hidden;">
+            <div style="margin: 16px 0px 15px 10px; border: 1px solid #cccccc; background-color: #f6f6f6; width:calc(100%-10px); height: 100%; padding:1px 10px 0 10px;overflow: auto;">
+
+                <js-tree tree-plugins="types,search" tree-types="typesConfig" tree-data="scope" tree-model="treeModel" tree-core="treeCore"
+                         tree-events="changed:changedCB;"></js-tree>
+            </div>
+            <div id="test"></div>
+        </div>
+        <div class="col-xs-32 col-md-32">
+            <div>
+                <sit-property-grid sit-id="add_form" sit-layout="Horizontal" sit-type="Fixed" sit-mode="edit" sit-columns="8">   
+                   <sit-property sit-widget="sit-text" sit-value="vm.searchParams.ResourceCode" sit-read-only="false" style="max-width:100px;">{{'Siemens.SimaticIT.FactoryModelApp.ModelResource.ModelResourcelist.Tips_6'|translate}}</sit-property>
+                  <sit-command-bar sit-type="action">
+                  <sit-command sit-icon="fa-search" sit-type="main" sit-name="com.siemens.customcommand.search" :sit-tooltip="{{'Siemens.SimaticIT.FactoryModelApp.ModelResource.ModelResourcelist.Tips_7'|translate}}" ng-click="vm.searchButtonHandler" :sit-label="{{'Siemens.SimaticIT.FactoryModelApp.ModelResource.ModelResourcelist.Tips_7'|translate}}">
+                  </sit-command>
+                          </sit-command-bar>
+                      </sit-property-grid>
+                  </div>
+    
+            <div id="itemlist" style="width:calc(100% - 5px); height: 50%; padding:15px 5px 0 10px">
+
+                <div class="panel-Title">
+                    <div style="margin-left: 10px;">
+                        {{'Siemens.SimaticIT.FactoryModelApp.ModelResource.ModelResourcelist.Tips_8'|translate}}
+                        <span id="titleinfo">{{vm.DataItemClass}}</span>
+                    </div>
+                </div>
+
+              
+                <div id="grid1" ui-grid="vm.gridOptions" ui-grid-pagination ui-grid-selection ui-grid-resize-columns class="uigrid"></div>
+            </div>
+            <br><br>
+            <div id="listClass2" style="width:calc(100% - 5px); height: 50%; padding:15px 5px 0 10px">
+                <div id="grid2" ui-grid="vm.DataItemDetail" ui-grid-pinning ui-grid-auto-resize ui-grid-resize-columns ui-grid-selection ui-grid-pagination class="uigrid"></div>
+            </div>
+        </div>
+    </div>
+</div>

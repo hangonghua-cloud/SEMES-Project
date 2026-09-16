@@ -1,0 +1,2447 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ALP.Application.WebApi</name>
+    </assembly>
+    <members>
+        <member name="T:ALP.Application.WebApi.Common.PubFunction">
+            <summary>
+            深拷贝
+            </summary>
+        </member>
+        <member name="M:ALP.Application.WebApi.Common.PubFunction.RemoveAttribute``1(``0)">
+            <summary>
+            利用反射查出类中所有的NotMapped注解属性，并remove生成新的类的对象实例
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.API.ApiBaseController.ConvertValidationResultToErrorResponse(FluentValidation.Results.ValidationResult,System.Net.HttpStatusCode)">
+            <summary>
+            Converts the validation result to error response.
+            </summary>
+            <param name="validationResult">The validation result.</param>
+            <param name="statusCode"> </param>
+            <returns>Error response</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.API.ApiBaseController.ConvertValidationResultToErrorResponse(System.Collections.Generic.List{ALP.Application.WebApi.APIModel.ApiErrors},System.Net.HttpStatusCode)">
+            <summary>
+            Converts the Api Errors to error response.
+            </summary>
+            <param name="validationResult">The Api Errors.</param>
+            <param name="statusCode"> </param>
+            <returns>Error response</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.API.ApiBaseController.ToJson(System.Object)">
+            <summary>
+            返回结果转JSON函数
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.API.ApiBaseController.GetHeaderByKey(ALP.WebApi.Util.RequestHeaderKey)">
+            <summary>
+            根据请求头的key获取请求头数据
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.API.ApiBaseController.getValue(Newtonsoft.Json.Linq.JObject,System.String)">
+            <summary>
+            根据属性名称以字符串格式获取值
+            </summary>
+            <param name="job"></param>
+            <param name="propertyName"></param>
+            <returns></returns>
+        </member>
+        <member name="P:ALP.Application.WebApi.Controllers.API.ApiBaseController.CurrentAccount">
+            <summary>
+            当前访问用户对象
+            </summary>
+        </member>
+        <member name="T:ALP.Application.WebApi.Controllers.API.AccountEntity">
+            <summary>
+            当前访问账户对象
+            </summary>
+        </member>
+        <member name="P:ALP.Application.WebApi.Controllers.API.AccountEntity.UserCode">
+            <summary>
+            用户主键Code
+            </summary>
+        </member>
+        <member name="P:ALP.Application.WebApi.Controllers.API.AccountEntity.UserName">
+            <summary>
+            用户名
+            </summary>
+        </member>
+        <member name="P:ALP.Application.WebApi.Controllers.API.AccountEntity.UDID">
+            <summary>
+            当前用户使用的设备标识码
+            </summary>
+        </member>
+        <member name="P:ALP.Application.WebApi.Controllers.API.AccountEntity.TerminalType">
+            <summary>
+            当前用户终端类型
+            </summary>
+        </member>
+        <member name="T:ALP.Application.WebApi.Controllers.BaseManage.AccountController">
+            <summary>
+            操作工账号管理控制器
+            </summary>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.BaseManage.AccountController.GetAccountList(ALP.Application.WebApi.Models.Account.GetAccountListParms)">
+            <summary>
+            分页获取操作工账号集合接口
+            </summary>
+            <param name="parms"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.BaseManage.AccountController.SaveAccount(ALP.Application.Entity.BaseManage.MESBaseAccountEntity)">
+            <summary>
+            保存操作工账号接口
+            </summary>
+            <param name="parms"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.BaseManage.AccountController.Delete(ALP.Application.WebApi.Models.Account.DeleteAccountParms)">
+            <summary>
+            
+            </summary>
+            <param name="ID"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ALP.Application.WebApi.Controllers.BaseManage.BaseDataController">
+            <summary>
+            基础数据类查询接口控制器
+            </summary>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.BaseManage.BaseDataController.GetList_DataItem_PDA(System.String)">
+            <summary>
+            获取字典列表-PDA专用
+            </summary>
+            <returns>返回列表Json</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.BaseManage.BaseDataController.GetList_DataItemByFather_PDA(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            获取字典列表子明细-PDA专用
+            </summary>
+            <returns>返回列表Json</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.BaseManage.BaseDataController.GetList_Lines_PDA">
+            <summary>
+            查询产线(产线的'产品类型'不为空)-PDA专用
+            </summary>
+            <returns>返回列表Json</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.BaseManage.BaseDataController.GetList_Suppliers(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            查询供应商
+            </summary>
+            <returns>返回列表Json</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.BaseManage.BaseDataController.GetList_Materials(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            查询物料
+            </summary>
+            <returns>返回列表Json</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.BaseManage.BaseDataController.GetList_Depositories(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            查询仓库
+            </summary>
+            <returns>返回列表Json</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.BaseManage.BaseDataController.GetList_BS_UOMs(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 查询计量单位 pagination 分页json; queryJson 查询JSO
+            创　　建: 刘万军
+            创建日期: 2021-01-29 14:57:18
+            任务编号:
+            </summary>       
+            <returns>返回列表Json</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.BaseManage.BaseDataController.GetReturnReasonPageList(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            获取退库原因分页列表
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.BaseManage.BaseDataController.GetUserList(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            获取用户下拉列表
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.BaseManage.BaseDataController.GetBaseMaterialList(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            模糊查询物料主数据
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.BaseManage.BaseDataController.GetLoginInfo(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            获取登录人信息
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ALP.Application.WebApi.Controllers.BaseManage.BsModelLevelController">
+            <summary>
+            版 本
+            Copyright (c) 
+            创建人：ALP
+            日 期：2020.12.17 16:19
+            描 述：工厂模型层级
+            </summary>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.BaseManage.BsModelLevelController.GetListJson(System.String)">
+            <summary>
+            层级列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.BaseManage.BsModelLevelController.GetPageListJsoon(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            层级列表
+            </summary>
+            <param name="pagination">分页</param>
+            <param name="queryJson">查询参数</param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.BaseManage.BsModelLevelController.GetFormJson(System.String)">
+            <summary>
+            层级实体
+            </summary>
+            <param name="keyValue">主键值</param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.BaseManage.BsModelLevelController.Delete(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            删除层级
+            </summary>
+            <param name="keyValue">主键</param>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.BaseManage.BsModelLevelController.SaveForm(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            保存层级表单（新增、修改）
+            </summary>
+            <param name="keyValue">主键值</param>
+            <param name="entity">层级实体</param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.BaseManage.BsModelLevelController.GetProcessByFactory(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            根据工厂取出工序
+            </summary>
+            <param name="jo">对象</param>
+            <returns>返回树形Json</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.BaseManage.BsModelLevelController.GetListByParentResource(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            根据ParentResource取出列表
+            </summary>
+            <param name="jo">对象</param>
+            <returns>返回树形Json</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.BaseManage.BsModelLevelController.GetListByProductionMachine(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            根据ParentResource取出列表
+            </summary>
+            <param name="jo">对象</param>
+            <returns>返回树形Json</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.BaseManage.BsModelLevelController.GetModelResourceExtendInfoByLevelCode(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            取指定层级下的所有资源 
+            </summary>
+            <param name="jo">对象</param>
+            <returns>返回树形Json</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.BaseManage.BsModelLevelController.GetModelResourceByChild(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            取指定层级下的所有资源 
+            </summary>
+            <param name="jo">对象</param>
+            <returns>返回树形Json</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.BaseManage.BsModelLevelController.GetWarehouseByFactory(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            根据工厂找仓库
+            </summary>
+            <param name="jo">对象</param>
+            <returns>返回树形Json</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.BaseManage.BsModelLevelController.GetWarehouseByFactoryExtendInfo(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            根据工厂、属性找仓库
+            </summary>
+            <param name="jo">对象</param>
+            <returns>返回树形Json</returns>
+        </member>
+        <member name="T:ALP.Application.WebApi.Controllers.EquipmentManage.EP_EquipmentMaintainTaskController">
+            <summary>
+            1.创建日期: 2021-9-25
+            2.创建作者: 刘万军
+            3.功能描述: EP_EquipmentMaintainTaskController 控制器 友情提示: 如果是移动APP接口使用请把[Auth]注释掉
+            4.任务编号: 设备保养项目详情
+            5.最后修改日期: 
+            6.最后修改作者: 
+            </summary>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.EquipmentManage.EP_EquipmentMaintainTaskController.GetEquipmentMaintainTaskByDateAndType(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 根据时间范围和设备类别 获取未保养的任务
+            创　　建: 刘万军
+            创建日期: 2021-9-25 10:09:17
+            任务编号: 设备保养任务
+            </summary>
+            <param name="jo"></param>
+            <returns>返回列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.EquipmentManage.EP_EquipmentMaintainTaskController.SaveEP_EquipmentMaintainTask(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 保存表单（修改）, 保养项目数组\ 备件更换数组
+            创　　建: 刘万军
+            创建日期: 2021-9-27 08:16:09
+            任务编号: 设备保养项目详情
+            </summary>
+            <param name="jo">json参数, 包含keyValue 主键值, entity 实体对象 </param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.EquipmentManage.EP_EquipmentMaintainTaskController.GetEP_EquipmentMaintainDetailList(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 根据保养任务编码查询保养项目
+            创　　建: 刘万军
+            创建日期: 2021-9-25 15:41:31
+            任务编号: 设备保养项目详情
+            </summary>
+            <param name="jo"></param>
+            <returns>返回列表</returns>
+        </member>
+        <member name="T:ALP.Application.WebApi.Controllers.Equipment.EquipmentController">
+            <summary>
+            PDA设备模块
+            </summary>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.Equipment.EquipmentController.GetEquipmentCheckByCode(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            扫描设备编码 查找设备点检任务
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.Equipment.EquipmentController.SaveEquipmentTackResult(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            设备点检任务保存
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.Equipment.EquipmentController.GetDataTableCheckResult(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            设备点检查询
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.Equipment.EquipmentController.GetEquipmentManageByCode(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            设备保修-根据设备编码获取设备信息
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.Equipment.EquipmentController.SaveEquipmentMalfunctionRepair(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            设备故障报修- 设备故障报修保存
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.Equipment.EquipmentController.GetEquipmentMalfunctionRepair(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            设备故障报修- 获取设备报修记录
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.Equipment.EquipmentController.SaveEquipmentRepairRecord(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            设备故障维修- 设备维修记录保存
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.Equipment.EquipmentController.GetEquipmentMaintainTask(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            设备保养-获取设备保养任务
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ALP.Application.WebApi.Controllers.FileManage.UploadFileController">
+            <summary>
+            gzq
+            修改: 刘万军 2021-9-28
+            2020-6-1 19:50
+            文件上传控制器
+            </summary>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.FileManage.UploadFileController.Upload">
+            <summary>
+            文件上传
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.FileManage.UploadFileController.Upload2">
+            <summary>
+            文件上传
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:ALP.Application.WebApi.Controllers.QualityManage.MarkingMain">
+            <summary>
+            功能描述: Marking大类
+            创　　建: 刘万军
+            创建日期: 2021-01-30 08:30:18
+            任务编号: 
+            </summary> 
+        </member>
+        <member name="P:ALP.Application.WebApi.Controllers.QualityManage.MarkingMain.MarKingName">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:ALP.Application.WebApi.Controllers.QualityManage.MarkingMain.MarKingCode">
+            <summary>
+            值
+            </summary>
+        </member>
+        <member name="T:ALP.Application.WebApi.Controllers.QualityManage.QualityController">
+            <summary>
+            质量模块
+            </summary>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QualityController.GetQCTransferCardEntity(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            扫描流转卡获取信息
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QualityController.GetprocessList(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            根据流转卡获取流转履历表数据
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QualityController.GetQCTestMethodList(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            获取检验方法
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QualityController.GetQCTestItemList(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            获取检验项目
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QualityController.SaveQCTestItemForm(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            扫描流转卡获取信息
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QualityController.GetQCTestRecordList(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            检测记录查询
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QualityController.GetQCTestResultRecordList(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            检测记录查询
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QualityController.SavePollingDetailForm(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            巡检质量判定
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QualityController.GetOrderByTransferCode(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            OQC根据唛头号查询订单信息
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QualityController.GetOQCCheckConfigItem(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            OQC根据检验方法获取检验项目
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QualityController.SaveOQCCheckConfigForm(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            OQC保存-检验记录
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QualityController.GetOQCQualityCheckRecord(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            OQC检验记录查询
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QualityController.SaveOQCQualityChecInspectNo(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            OQC成品检验单合批
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QualityController.GetOQCQualityCheckItemRecord(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            OQC成品检验项目记录
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QualityController.SaveOQCQualityCheckResult(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            OQC成品检验质量判定
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ALP.Application.WebApi.Controllers.MaterialManage.MaterialController">
+            <summary>
+            物料业务
+            </summary>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.MaterialManage.MaterialController.ProductInMarkScan(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            成品入库-唛头码扫描
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.MaterialManage.MaterialController.ProductInLocationScan(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            成品入库-库位扫描
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.MaterialManage.MaterialController.ProductInSave(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            成品入库-保存
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.MaterialManage.MaterialController.ProductInQuery(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            成品入库-记录查询
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.MaterialManage.MaterialController.ProductDispatchMarkScan(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            成品发货-唛头码扫描
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.MaterialManage.MaterialController.ProductDispatchDetailShow(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            成品发货-发货详情展示
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.MaterialManage.MaterialController.ProductDispatchSave(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            成品发货-保存
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.MaterialManage.MaterialController.ProductDispatchQuery(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            成品发货-记录查询
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.MaterialManage.MaterialController.ProductDispatchProductOrder(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            成品发货-获取订单号
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.MaterialManage.MaterialController.ProductDispatchContainerNO(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            成品发货-获取柜号
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.MaterialManage.MaterialController.ProductDispatchInfo(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            成品发货-获取发货单详情
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.MaterialManage.MaterialController.ProductDispatchMarkBook(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            成品发货-唛头标记
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.MaterialManage.MaterialController.SemiProductMoveCardScan(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            半成品移库-流转卡扫描
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.MaterialManage.MaterialController.SemiProductMoveLocationScan(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            半成品移库-库位扫描
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.MaterialManage.MaterialController.SemiProductMoveSave(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            半成品移库-保存
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.MaterialManage.MaterialController.SemiProductMoveQuery(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            半成品移库-记录查询
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.MaterialManage.MaterialController.ProductMoveMarkScan(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            成品移库-唛头码扫描
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.MaterialManage.MaterialController.ProductMoveLocationScan(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            成品移库-库位扫描
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.MaterialManage.MaterialController.ProductMoveSave(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            成品移库-保存
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.MaterialManage.MaterialController.ProductMoveQuery(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            成品移库-记录查询
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.MaterialManage.MaterialController.MarkChangeMarkScan(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            唛头更换-唛头码扫描
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.MaterialManage.MaterialController.MarkChangeSave(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            唛头更换-保存
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.MaterialManage.MaterialController.MarkChangeQuery(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            唛头更换-记录查询
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.MaterialManage.MaterialController.ProductReWorkMarkScan(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            创建成品返工单-唛头码扫描
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.MaterialManage.MaterialController.ProductReWorkSave(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            创建成品返工单-保存
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.MaterialManage.MaterialController.ProductReworkBGOrderQuery(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            成品返工报工-返工单查询
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.MaterialManage.MaterialController.ProductReworkBGShow(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            成品返工报工-返工单选择页面跳转后显示
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.MaterialManage.MaterialController.ProductReworkBGPTeamScan(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            成品返工报工-生产小组扫描
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.MaterialManage.MaterialController.ProductReworkBGSave(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            成品返工报工-保存
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.MaterialManage.MaterialController.ProductReworkBGQuery(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            成品返工报工-查询
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.MaterialManage.MaterialController.RawMaterialTransferStockQuery(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            原材料调拨-选择仓库
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.MaterialManage.MaterialController.RawMaterialTransferSave(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            原材料调拨-保存
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ALP.Application.WebApi.Controllers.ProduceManage.ProduceController">
+            <summary>
+            生产业务
+            </summary>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.ProduceManage.ProduceController.GetPMProcessBadItem(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            工序报工不良项目配置
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.ProduceManage.ProduceController.GetProductOrderSelect(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            获取订单号
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.ProduceManage.ProduceController.GetContainerNOSelect(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            获取柜号
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.ProduceManage.ProduceController.GetPMStartInfo(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            生产开工扫描
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.ProduceManage.ProduceController.SavePMStartInfo(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            保存生产开工信息
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.ProduceManage.ProduceController.RawMBatchUpMachineScan(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            原料批次上机-机台扫描获取有效记录
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.ProduceManage.ProduceController.RawMBatchUpCodeBarScan(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            原料批次上机-关键件条码扫描
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.ProduceManage.ProduceController.RawMBatchUpCodeBarSave(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            原料批次上机-保存
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.ProduceManage.ProduceController.RawMBatchUpMachineRemove(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            取消绑定
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.ProduceManage.ProduceController.TransferCardBGMachineScan(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            流转卡报工-生产机台扫描
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.ProduceManage.ProduceController.TransferCardBGCardScan(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            流转卡报工-流转卡扫描
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.ProduceManage.ProduceController.TransferCardBGPTeamScan(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            流转卡报工-生产小组扫描
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.ProduceManage.ProduceController.TransferCardBGSave(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            流转卡报工-保存
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.ProduceManage.ProduceController.OwnProductBGCardScan(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            自制半成品报工-流转卡扫描
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.ProduceManage.ProduceController.GetOwnProductBGList(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            自制半成品报工-获取卷码报工信息（CS端半成品报工使用）
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.ProduceManage.ProduceController.OwnProductBGEditRoallQty(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            自制半成品报工-修改单卷数量（CS端半成品报工使用）
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.ProduceManage.ProduceController.OwnProductBGSave(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            自制半成品-报工
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.ProduceManage.ProduceController.TransferCardScrapScan(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            流转卡报废-流转卡扫描
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.ProduceManage.ProduceController.TransferCardScrapSave(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            流转卡报废-保存
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.ProduceManage.ProduceController.PTeamCodeScan(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            生产小组人员绑定-小组编码扫描
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.ProduceManage.ProduceController.PTeamSave(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            生产小组人员绑定-保存
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.ProduceManage.ProduceController.PTeamPersonDelete(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            生产小组人员删除
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.ProduceManage.ProduceController.ReworkCardScan(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            返工任务-流转卡扫描
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.ProduceManage.ProduceController.ReworkSave(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            返工任务-保存
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.ProduceManage.ProduceController.ReworkQuery(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            返工任务-查询
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.ProduceManage.ProduceController.ReworkBGTaskQuery(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            返工报工-返工任务查询
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.ProduceManage.ProduceController.ReworkBGTaskDetailQuery(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            返工报工-返工任务明细查询
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.ProduceManage.ProduceController.ReworkBGCardScan(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            返工报工-流转卡扫描
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.ProduceManage.ProduceController.ReworkBGPTeamScan(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            返工报工-生产小组扫描
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.ProduceManage.ProduceController.ReworkBGSave(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            返工报工-保存
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.ProduceManage.ProduceController.GetReworkRecordDetail(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            返工报工-质量确认查询返工任务
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.ProduceManage.ProduceController.ReworkRecordQualityConfirmSave(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            返工报工-质量确认保存
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.ProduceManage.ProduceController.FirstInspectionCardScan(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            车间/质量首检-流转卡扫描
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.ProduceManage.ProduceController.FirstInspectionMachineScan(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            车间首检-机台扫描
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.ProduceManage.ProduceController.FirstInspectionSave(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            车间首检-保存
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.ProduceManage.ProduceController.FirstInspectionQuery(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            车间首检-查询
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.ProduceManage.ProduceController.FirstInspectionConfirmQuery(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            质量首检-查询
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.ProduceManage.ProduceController.GetprocessList(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            质量首检-根据流转卡获取流转履历表数据
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.ProduceManage.ProduceController.FirstInspectionConfirmMachieScan(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            质量首检-扫描机台
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.ProduceManage.ProduceController.FirstInspectionConfirmSave(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            质量首检-保存
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.ProduceManage.ProduceController.FirstInspectionQueryResult(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            车间首检-查询检测结果
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.ProduceManage.ProduceController.FirstInspectionLastSave(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            车间首检-最终判定保存
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.ProduceManage.ProduceController.FirstInspectionReCheck(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            生产首检-质量复检（录入界面呈现）
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.ProduceManage.ProduceController.FirstInspectionReCheckSave(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            生产首检-质量复检保存
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.ProduceManage.ProduceController.PackingBGCardScan(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            包装报工-流转卡扫描
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.ProduceManage.ProduceController.PackingBGPTeamScan(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            包装报工-生产小组扫描
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.ProduceManage.ProduceController.PackingBGSave(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            包装报工-保存
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.ProduceManage.ProduceController.PackingBGQuery(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            包装报工-查询
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.ProduceManage.ProduceController.CodeBarScan(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            流转卡/唛头
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.ProduceManage.ProduceController.GetUserBGRecord(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            获取用户报工记录8点到8点
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.ProduceManage.ProduceController.PerPalletStartMachineScan(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            单托开工-机台扫描
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.ProduceManage.ProduceController.PerPalletStartCardScan(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            单托开工-流转卡扫描
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.ProduceManage.ProduceController.PerPalletStartSave(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+             单托开工-保存
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.ProduceManage.ProduceController.SortingBGMachineScan(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            分拣报工-生产机台扫描
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.ProduceManage.ProduceController.SortingBGCardScan(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            分拣报工-流转卡扫描
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.ProduceManage.ProduceController.SortingBGPTeamScan(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            分拣报工-生产小组扫描
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.ProduceManage.ProduceController.SortingBGSave(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            分拣报工-保存
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.ProduceManage.ProduceController.InMachineCardQuery(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            在机流转卡查询
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.ProduceManage.ProduceController.BOMQuery(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            BOM查询
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ALP.Application.WebApi.Controllers.SystemManage.SysController">
+            <summary>
+            PDA系统应用控制器
+            </summary>
+        </member>
+        <member name="T:ALP.Application.WebApi.Controllers.SystemManage.SystemController">
+            <summary>
+            系统基础信息接口控制器
+            </summary>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.SystemManage.SystemController.GetVersion(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            校验系统版本号，返回是否需要更新
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.SystemManage.SystemController.Login(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            系统登录
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.SystemManage.SystemController.UpdateAppPassword(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            修改密码
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="P:ALP.Application.WebApi.Models.Account.AppSystemModel.IsSuccess">
+            <summary>
+            是否成功
+            </summary>
+        </member>
+        <member name="P:ALP.Application.WebApi.Models.Account.AppSystemModel.IsUpdate">
+            <summary>
+            返回App版本是否需要更新
+            </summary>
+        </member>
+        <member name="P:ALP.Application.WebApi.Models.Account.AppSystemModel.NewVersion">
+            <summary>
+            最新版本号
+            </summary>
+        </member>
+        <member name="P:ALP.Application.WebApi.Models.Account.AppSystemModel.msg">
+            <summary>
+            返回消息
+            </summary>
+        </member>
+        <member name="P:ALP.Application.WebApi.Models.Account.AppSystemModel.Msg">
+            <summary>
+            响应消息
+            </summary>
+        </member>
+        <member name="P:ALP.Application.WebApi.Models.Account.AppRetLogindata.ret">
+            <summary>
+            响应消息
+            </summary>
+        </member>
+        <member name="T:ALP.Application.WebApi.Models.Account.DeleteAccountParms">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ALP.Application.WebApi.Models.Account.DeleteAccountParms.ID">
+            <summary>
+            主键ID
+            </summary>
+        </member>
+        <member name="P:ALP.Application.WebApi.Models.Account.GetAccountListParms.FirstName">
+            <summary>
+            名
+            </summary>
+        </member>
+        <member name="P:ALP.Application.WebApi.Models.Account.GetAccountListParms.LastName">
+            <summary>
+            姓
+            </summary>
+        </member>
+        <member name="P:ALP.Application.WebApi.Models.Account.GetAccountListParms.UserEnCode">
+            <summary>
+            工牌
+            </summary>
+        </member>
+        <member name="P:ALP.Application.WebApi.Models.Account.GetAccountListParms.PagingParms">
+            <summary>
+            分页对象
+            </summary>
+        </member>
+        <member name="T:ALP.Application.WebApi.Models.System.GetProcessParms">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ALP.Application.WebApi.Models.System.GetProcessParms.WorkShopCode">
+            <summary>
+            车间码
+            </summary>
+        </member>
+        <member name="T:ALP.Application.WebApi.Models.System.GetStationParms">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ALP.Application.WebApi.Models.System.GetStationParms.WorkShopCode">
+            <summary>
+            车间编码
+            </summary>
+        </member>
+        <member name="P:ALP.Application.WebApi.Models.System.GetStationParms.ProcessCode">
+            <summary>
+            工序编码
+            </summary>
+        </member>
+        <member name="T:ALP.Application.WebApi.Models.System.GetWorkShopParms">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:ALP.Application.WebApi.Util.TimeHelper">
+            <summary>
+            定时任务操作
+            </summary>
+        </member>
+        <member name="M:ALP.Application.WebApi.Util.TimeHelper.Start">
+            <summary>
+            启动定时任务
+            </summary>
+        </member>
+        <member name="M:ALP.Application.WebApi.Util.TimeHelper.TimeOperation(System.Object,System.Timers.ElapsedEventArgs)">
+            <summary>
+            定时操作内容：根据设备点检规则定时生成设备点检计划
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:ALP.Application.WebApi.Util.TimeHelper.GetDays(System.DateTimeOffset,System.String,System.Int32)">
+            <summary>
+            获取保养结束时间
+            </summary>
+            <param name="dtMark"></param>
+            <param name="unitMark"></param>
+            <param name="periodMark"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Util.TimeHelper.CreatePlanFromNow(System.Data.DataTable,System.String,System.DateTimeOffset,System.DateTimeOffset)">
+            <summary>
+            
+            </summary>
+            <param name="dtRuleData"></param>
+            <param name="equipCode"></param>
+            <param name="lastFinishTime"></param>
+            <param name="lastStartTime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Util.TimeHelper.CreatePlanFromNull(System.Data.DataTable,System.String)">
+            <summary>
+            在没有保养计划时创造保养计划
+            </summary>
+            <param name="dt"></param>
+            <param name="equipCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Util.TimeHelper.ToString(System.Object)">
+            <summary>
+             转换为字符串
+            </summary>
+            <param name="o"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Util.TimeHelper.ToDecimal(System.Object)">
+            <summary>
+             转换为decimal
+            </summary>
+            <param name="o"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Util.TimeHelper.ToInt(System.Object)">
+            <summary>
+             转换为int
+            </summary>
+            <param name="o"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Util.TimeHelper.ToBool(System.Object)">
+            <summary>
+             转换为bool
+            </summary>
+            <param name="o"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ALP.WebApi.APIModel.ModelConvertHelper`1">
+            <summary>    
+            实体转换辅助类 DataTable转List、DataTable转成Dto
+            </summary>    
+        </member>
+        <member name="M:ALP.WebApi.APIModel.ModelConvertHelper`1.ConvertToModelDto(System.Data.DataTable)">
+            <summary>
+            DataTable转成Dto
+            </summary>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.WebApi.APIModel.ModelConvertHelper`1.ToDataTable``1(System.Collections.Generic.List{``0})">
+            <summary>
+            将实体集合转换为DataTable
+            </summary>
+            <typeparam name="T">实体类型</typeparam>
+            <param name="entities">实体集合</param>
+        </member>
+        <member name="M:ALP.WebApi.APIModel.ModelConvertHelper`1.CreateTable``1">
+            <summary>
+            创建表
+            </summary>
+        </member>
+        <member name="M:ALP.WebApi.APIModel.ModelConvertHelper`1.FillData``1(System.Data.DataTable,System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            填充数据
+            </summary>
+        </member>
+        <member name="M:ALP.WebApi.APIModel.ModelConvertHelper`1.CreateRow``1(System.Data.DataTable,``0)">
+            <summary>
+            创建行
+            </summary>
+        </member>
+        <member name="T:ALP.WebApi.Common.URLTool">
+            <summary>
+            URL工具类
+            </summary>
+        </member>
+        <member name="F:ALP.WebApi.Common.URLTool._resource_url">
+            <summary>
+            资源地址
+            </summary>
+        </member>
+        <member name="M:ALP.WebApi.Common.URLTool.GetAPPUploadURL(System.String)">
+            <summary>
+            获取完整的app下载地址
+            </summary>
+            <param name="appName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.WebApi.Controllers.BaseManage.BaseShiftController.GetListJson(System.String)">
+            <summary>
+            获取列表
+            </summary>
+            <param name="queryJson">查询参数</param>
+            <returns>返回列表Json</returns>
+        </member>
+        <member name="M:ALP.WebApi.Controllers.BaseManage.BaseShiftController.GetPageListJson(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            获取列表(分页)
+            </summary>
+            <param name="pagination">分页参数</param>
+            <param name="queryJson">查询参数</param>
+            <returns>返回分页列表Json</returns>
+        </member>
+        <member name="M:ALP.WebApi.Controllers.BaseManage.BaseShiftController.GetFormJson(System.Guid)">
+            <summary>
+            获取实体 
+            </summary>
+            <param name="keyValue">主键值</param>
+            <returns>返回对象Json</returns>
+        </member>
+        <member name="M:ALP.WebApi.Controllers.BaseManage.BaseShiftController.Delete(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            删除数据
+            </summary>
+            <param name="jo">json参数</param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.WebApi.Controllers.BaseManage.BaseShiftController.Save(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            保存表单（新增、修改）
+            </summary>
+            <param name="jo">json参数</param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.WebApi.Controllers.DemoManage.UIGridDemoController.GetPageListJson(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            获取列表(分页)
+            </summary>
+            <param name="pagination">分页参数</param>
+            <param name="queryJson">查询参数</param>
+            <returns>返回分页列表Json</returns>
+        </member>
+        <member name="M:ALP.WebApi.Controllers.DemoManage.UIGridDemoController.GetFormJson(System.String)">
+            <summary>
+            获取实体 
+            </summary>
+            <param name="keyValue">主键值</param>
+            <returns>返回对象Json</returns>
+        </member>
+        <member name="M:ALP.WebApi.Controllers.DemoManage.UIGridDemoController.Delete(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            删除分类
+            </summary>
+            <param name="keyValue">主键值</param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.WebApi.Controllers.DemoManage.UIGridDemoController.Save(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            保存分类表单（新增、修改）
+            </summary>
+            <param name="keyValue">主键值</param>
+            <param name="dataItemEntity">分类实体</param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.WebApi.Filter.APIFilterAttribute.OnActionExecuting(System.Web.Http.Controllers.HttpActionContext)">
+            <summary>
+            请求之前
+            </summary>
+            <param name="actionContext"></param>
+        </member>
+        <member name="M:ALP.WebApi.Filter.APIFilterAttribute.OnActionExecuted(System.Web.Http.Filters.HttpActionExecutedContext)">
+            <summary>
+            请求响应
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="T:ALP.WebApi.Filter.AuthAttribute">
+            <summary>
+            接口请求认证授权特性
+            TODO: 实现校验操作用户登录状态，操作权限等
+            </summary>
+        </member>
+        <member name="T:ALP.WebApi.Filter.HttpHeaderFilter">
+            <summary>
+            Swagger接口帮助请求头标注过滤器
+            </summary>
+        </member>
+        <member name="M:ALP.WebApi.Filter.HttpHeaderFilter.Apply(Swashbuckle.Swagger.Operation,Swashbuckle.Swagger.SchemaRegistry,System.Web.Http.Description.ApiDescription)">
+            <summary>
+            
+            </summary>
+            <param name="operation"></param>
+            <param name="schemaRegistry"></param>
+            <param name="apiDescription"></param>
+        </member>
+        <member name="F:ALP.WebApi.Filter.JwtHelp.secret">
+            <summary>
+            获取秘钥
+            </summary>
+        </member>
+        <member name="M:ALP.WebApi.Filter.JwtHelp.SetJwtEncode(System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+            生成JwtToken
+            </summary>
+            <param name="payload">不敏感的用户数据</param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.WebApi.Filter.JwtHelp.GetJwtDecode(System.String)">
+            <summary>
+            根据jwtToken  获取实体
+            </summary>
+            <param name="token">jwtToken</param>
+            <returns></returns>
+        </member>
+        <member name="T:ALP.WebApi.Filter.JwtHelp.TokenInfo">
+            <summary>
+            用户信息
+            </summary>
+        </member>
+        <member name="P:ALP.WebApi.Filter.JwtHelp.TokenInfo.userName">
+            <summary>
+            用户姓名
+            </summary>
+        </member>
+        <member name="P:ALP.WebApi.Filter.JwtHelp.TokenInfo.userCode">
+            <summary>
+            用户账号
+            </summary>
+        </member>
+        <member name="T:ALP.WebApi.Models.Account.LoginRequestParms">
+            <summary>
+            登录接口参数
+            </summary>    
+        </member>
+        <member name="P:ALP.WebApi.Models.Account.LoginRequestParms.UserName">
+            <summary>
+            登录名
+            </summary>
+        </member>
+        <member name="P:ALP.WebApi.Models.Account.LoginRequestParms.Password">
+            <summary>
+            密码
+            </summary>
+        </member>
+        <member name="T:ALP.WebApi.Models.BaseResponseMessage">
+            <summary>
+            默认请求响应结果类
+            </summary>
+        </member>
+        <member name="T:ALP.WebApi.Models.BaseResponseResult`1">
+            <summary>
+            HTTP请求响应结果基类
+            </summary>
+        </member>
+        <member name="P:ALP.WebApi.Models.BaseResponseResult`1.success">
+            <summary>
+            是否成功
+            </summary>
+        </member>
+        <member name="P:ALP.WebApi.Models.BaseResponseResult`1.returnMsg">
+            <summary>
+            响应消息
+            </summary>
+        </member>
+        <member name="P:ALP.WebApi.Models.BaseResponseResult`1.statusCode">
+            <summary>
+            业务状态码
+            </summary>
+        </member>
+        <member name="P:ALP.WebApi.Models.BaseResponseResult`1.resultData">
+            <summary>
+            业务结果集合
+            </summary>
+        </member>
+        <member name="P:ALP.WebApi.Models.BaseResponseResult.success">
+            <summary>
+            是否成功
+            </summary>
+        </member>
+        <member name="P:ALP.WebApi.Models.BaseResponseResult.returnMsg">
+            <summary>
+            响应消息
+            </summary>
+        </member>
+        <member name="P:ALP.WebApi.Models.BaseResponseResult.statusCode">
+            <summary>
+            业务状态码
+            </summary>
+        </member>
+        <member name="P:ALP.WebApi.Models.BaseResponseResult.resultData">
+            <summary>
+            业务结果集合
+            </summary>
+        </member>
+        <member name="T:ALP.WebApi.Models.ResponseResult`1">
+            <summary>
+            接口响应结果通用类
+            </summary>
+        </member>
+        <member name="P:ALP.WebApi.Models.ResponseResult`1.commandString">
+            <summary>
+            请求命令
+            </summary>
+        </member>
+        <member name="T:ALP.WebApi.Models.ResponseResult">
+            <summary>
+            接口响应结果通用类
+            </summary>
+        </member>
+        <member name="T:ALP.WebApi.Util.RequestHeaderKey">
+            <summary>
+            请求头参数键枚举
+            </summary>
+        </member>
+        <member name="F:ALP.WebApi.Util.RequestHeaderKey.UserCode">
+            <summary>
+            用户主键ID
+            </summary>
+        </member>
+        <member name="F:ALP.WebApi.Util.RequestHeaderKey.UserName">
+            <summary>
+            用户名称
+            </summary>
+        </member>
+        <member name="F:ALP.WebApi.Util.RequestHeaderKey.UDID">
+            <summary>
+            设备标识码
+            </summary>
+        </member>
+        <member name="F:ALP.WebApi.Util.RequestHeaderKey.Sign">
+            <summary>
+            签名
+            </summary>
+        </member>
+        <member name="F:ALP.WebApi.Util.RequestHeaderKey.TerminalType">
+            <summary>
+            终端类型
+            </summary>
+        </member>
+        <member name="F:ALP.WebApi.Util.RequestHeaderKey.Language">
+            <summary>
+            语言
+            </summary>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.MsgPushService">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.#ctor">
+            <remarks/>
+        </member>
+        <member name="E:ALP.WebApi.WebChatPushService.MsgPushService.SendMessageCompleted">
+            <remarks/>
+        </member>
+        <member name="E:ALP.WebApi.WebChatPushService.MsgPushService.GetDepartmentListCompleted">
+            <remarks/>
+        </member>
+        <member name="E:ALP.WebApi.WebChatPushService.MsgPushService.GetUserByDepidCompleted">
+            <remarks/>
+        </member>
+        <member name="E:ALP.WebApi.WebChatPushService.MsgPushService.GetUserByUseridCompleted">
+            <remarks/>
+        </member>
+        <member name="E:ALP.WebApi.WebChatPushService.MsgPushService.PushFirstPassYieldInfoCompleted">
+            <remarks/>
+        </member>
+        <member name="E:ALP.WebApi.WebChatPushService.MsgPushService.PushDefectTopThreeInfoCompleted">
+            <remarks/>
+        </member>
+        <member name="E:ALP.WebApi.WebChatPushService.MsgPushService.PushMaterielShortageInfoCompleted">
+            <remarks/>
+        </member>
+        <member name="E:ALP.WebApi.WebChatPushService.MsgPushService.PushMaterielDistSheetInfoCompleted">
+            <remarks/>
+        </member>
+        <member name="E:ALP.WebApi.WebChatPushService.MsgPushService.PushInWhExceptionFrozenInfoCompleted">
+            <remarks/>
+        </member>
+        <member name="E:ALP.WebApi.WebChatPushService.MsgPushService.PushEquipMouldRepairInfoCompleted">
+            <remarks/>
+        </member>
+        <member name="E:ALP.WebApi.WebChatPushService.MsgPushService.PushEquipMouldMaintainInfoCompleted">
+            <remarks/>
+        </member>
+        <member name="E:ALP.WebApi.WebChatPushService.MsgPushService.PushEquipSpecialVerifiInfoCompleted">
+            <remarks/>
+        </member>
+        <member name="E:ALP.WebApi.WebChatPushService.MsgPushService.PushChangeMouldInfoCompleted">
+            <remarks/>
+        </member>
+        <member name="E:ALP.WebApi.WebChatPushService.MsgPushService.PushSchedulingInfoCompleted">
+            <remarks/>
+        </member>
+        <member name="E:ALP.WebApi.WebChatPushService.MsgPushService.AutoPushSchedulingInfoCompleted">
+            <remarks/>
+        </member>
+        <member name="E:ALP.WebApi.WebChatPushService.MsgPushService.PushProFactorMaterialsInfoCompleted">
+            <remarks/>
+        </member>
+        <member name="E:ALP.WebApi.WebChatPushService.MsgPushService.PushEquipLineStopInfoCompleted">
+            <remarks/>
+        </member>
+        <member name="E:ALP.WebApi.WebChatPushService.MsgPushService.PushJobWorkingInfoCompleted">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.SendMessage(System.String)">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.SendMessageAsync(System.String)">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.SendMessageAsync(System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.GetDepartmentList(System.String)">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.GetDepartmentListAsync(System.String)">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.GetDepartmentListAsync(System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.GetUserByDepid(System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.GetUserByDepidAsync(System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.GetUserByDepidAsync(System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.GetUserByUserid(System.String)">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.GetUserByUseridAsync(System.String)">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.GetUserByUseridAsync(System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushFirstPassYieldInfo(System.String,ALP.WebApi.WebChatPushService.FirstPassYieldEntity[])">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushFirstPassYieldInfoAsync(System.String,ALP.WebApi.WebChatPushService.FirstPassYieldEntity[])">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushFirstPassYieldInfoAsync(System.String,ALP.WebApi.WebChatPushService.FirstPassYieldEntity[],System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushDefectTopThreeInfo(System.String,ALP.WebApi.WebChatPushService.DefectTopThreeEntity[])">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushDefectTopThreeInfoAsync(System.String,ALP.WebApi.WebChatPushService.DefectTopThreeEntity[])">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushDefectTopThreeInfoAsync(System.String,ALP.WebApi.WebChatPushService.DefectTopThreeEntity[],System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushMaterielShortageInfo(System.String,System.String,System.String,System.String,ALP.WebApi.WebChatPushService.GetMesDMaResponse[])">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushMaterielShortageInfoAsync(System.String,System.String,System.String,System.String,ALP.WebApi.WebChatPushService.GetMesDMaResponse[])">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushMaterielShortageInfoAsync(System.String,System.String,System.String,System.String,ALP.WebApi.WebChatPushService.GetMesDMaResponse[],System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushMaterielDistSheetInfo(System.String,System.String,System.String,System.String,ALP.WebApi.WebChatPushService.DistSheetEntity[])">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushMaterielDistSheetInfoAsync(System.String,System.String,System.String,System.String,ALP.WebApi.WebChatPushService.DistSheetEntity[])">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushMaterielDistSheetInfoAsync(System.String,System.String,System.String,System.String,ALP.WebApi.WebChatPushService.DistSheetEntity[],System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushInWhExceptionFrozenInfo(System.String,ALP.WebApi.WebChatPushService.InWhExceptionFrozenEntity[])">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushInWhExceptionFrozenInfoAsync(System.String,ALP.WebApi.WebChatPushService.InWhExceptionFrozenEntity[])">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushInWhExceptionFrozenInfoAsync(System.String,ALP.WebApi.WebChatPushService.InWhExceptionFrozenEntity[],System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushEquipMouldRepairInfo(ALP.WebApi.WebChatPushService.EquipMouldRepairEntity)">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushEquipMouldRepairInfoAsync(ALP.WebApi.WebChatPushService.EquipMouldRepairEntity)">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushEquipMouldRepairInfoAsync(ALP.WebApi.WebChatPushService.EquipMouldRepairEntity,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushEquipMouldMaintainInfo(ALP.WebApi.WebChatPushService.EquipMouldMaintainEntity)">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushEquipMouldMaintainInfoAsync(ALP.WebApi.WebChatPushService.EquipMouldMaintainEntity)">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushEquipMouldMaintainInfoAsync(ALP.WebApi.WebChatPushService.EquipMouldMaintainEntity,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushEquipSpecialVerifiInfo(System.String,ALP.WebApi.WebChatPushService.EquipSpecialVerifiEntity[])">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushEquipSpecialVerifiInfoAsync(System.String,ALP.WebApi.WebChatPushService.EquipSpecialVerifiEntity[])">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushEquipSpecialVerifiInfoAsync(System.String,ALP.WebApi.WebChatPushService.EquipSpecialVerifiEntity[],System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushChangeMouldInfo(System.String,ALP.WebApi.WebChatPushService.ChangeMouldEntity[])">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushChangeMouldInfoAsync(System.String,ALP.WebApi.WebChatPushService.ChangeMouldEntity[])">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushChangeMouldInfoAsync(System.String,ALP.WebApi.WebChatPushService.ChangeMouldEntity[],System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushSchedulingInfo(System.String,System.String,System.String,System.String,System.String,ALP.WebApi.WebChatPushService.SchedulingEntity[])">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushSchedulingInfoAsync(System.String,System.String,System.String,System.String,System.String,ALP.WebApi.WebChatPushService.SchedulingEntity[])">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushSchedulingInfoAsync(System.String,System.String,System.String,System.String,System.String,ALP.WebApi.WebChatPushService.SchedulingEntity[],System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.AutoPushSchedulingInfo(System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.AutoPushSchedulingInfoAsync(System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.AutoPushSchedulingInfoAsync(System.String,System.String,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushProFactorMaterialsInfo(System.String,ALP.WebApi.WebChatPushService.ProFactorMaterialsEntity[])">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushProFactorMaterialsInfoAsync(System.String,ALP.WebApi.WebChatPushService.ProFactorMaterialsEntity[])">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushProFactorMaterialsInfoAsync(System.String,ALP.WebApi.WebChatPushService.ProFactorMaterialsEntity[],System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushEquipLineStopInfo(System.String,ALP.WebApi.WebChatPushService.EquipLineStopEntity[])">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushEquipLineStopInfoAsync(System.String,ALP.WebApi.WebChatPushService.EquipLineStopEntity[])">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushEquipLineStopInfoAsync(System.String,ALP.WebApi.WebChatPushService.EquipLineStopEntity[],System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushJobWorkingInfo(System.String,ALP.WebApi.WebChatPushService.JobWorkingResultEntity[])">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushJobWorkingInfoAsync(System.String,ALP.WebApi.WebChatPushService.JobWorkingResultEntity[])">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushJobWorkingInfoAsync(System.String,ALP.WebApi.WebChatPushService.JobWorkingResultEntity[],System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.CancelAsync(System.Object)">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.SendMsgResult">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.SendMsgResult.errcode">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.SendMsgResult.errcodeSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.SendMsgResult.errmsg">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.SendMsgResult.invalidparty">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.SendMsgResult.invalidtag">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.SendMsgResult.invaliduser">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.JobWorkingResultEntity">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.JobWorkingResultEntity.Note">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.JobWorkingResultEntity.PrdOrderCode">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.JobWorkingResultEntity.ReportResult">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.JobWorkingResultEntity.ReportTime">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.JobWorkingResultEntity.ScheduleCode">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.JobWorkingResultEntity.Status">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.EquipLineStopEntity">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.EquipLineStopEntity.ClassName">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.EquipLineStopEntity.Downtime">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.EquipLineStopEntity.LineName">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.EquipLineStopEntity.LineSpotMark">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.EquipLineStopEntity.NowTime">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.EquipLineStopEntity.StopDate">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.ProFactorMaterialsEntity">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.ProFactorMaterialsEntity.MaterialCode">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.ProFactorMaterialsEntity.MaterialName">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.SchedulingEntity">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.SchedulingEntity.BC">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.SchedulingEntity.ChangeStatus">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.SchedulingEntity.IsMrPost">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.SchedulingEntity.IsWindUp">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.SchedulingEntity.MaterialName">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.SchedulingEntity.MesStatus">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.SchedulingEntity.PlanEndDate">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.SchedulingEntity.PlanQty">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.SchedulingEntity.PlanStartDate">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.SchedulingEntity.PrdorderCode">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.SchedulingEntity.ScheduleCode">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.SchedulingEntity.ScheduleOrder">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.ChangeMouldEntity">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.ChangeMouldEntity.ClipId">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.ChangeMouldEntity.EndDate">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.ChangeMouldEntity.LineCode">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.ChangeMouldEntity.NewMould">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.ChangeMouldEntity.NewProFactorDescr">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.ChangeMouldEntity.NewSlotId">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.ChangeMouldEntity.OldMould">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.ChangeMouldEntity.OldProFactorDescr">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.ChangeMouldEntity.Remark">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.ChangeMouldEntity.StartDate">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.EquipSpecialVerifiEntity">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.EquipSpecialVerifiEntity.EquipCode">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.EquipSpecialVerifiEntity.EquipName">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.EquipSpecialVerifiEntity.LineCode">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.EquipSpecialVerifiEntity.PlanDate">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.EquipMouldMaintainEntity">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.EquipMouldMaintainEntity.EquipMouldCode">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.EquipMouldMaintainEntity.EquipMouldName">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.EquipMouldMaintainEntity.EquipPartName">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.EquipMouldMaintainEntity.LineCode">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.EquipMouldMaintainEntity.PlanDate">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.EquipMouldRepairEntity">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.EquipMouldRepairEntity.Applicant">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.EquipMouldRepairEntity.ApplyDate">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.EquipMouldRepairEntity.EquipMouldCode">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.EquipMouldRepairEntity.EquipMouldName">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.EquipMouldRepairEntity.FailureDesc">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.EquipMouldRepairEntity.FailureSymptomName">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.EquipMouldRepairEntity.LineCode">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.EquipMouldRepairEntity.Symptom">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.InWhExceptionFrozenEntity">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.InWhExceptionFrozenEntity.BarCode">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.InWhExceptionFrozenEntity.FrozenReason">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.InWhExceptionFrozenEntity.HappenTime">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.InWhExceptionFrozenEntity.LineCode">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.InWhExceptionFrozenEntity.MaterialName">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.InWhExceptionFrozenEntity.PrdOrderCode">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.InWhExceptionFrozenEntity.ScheduleCode">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.DistSheetEntity">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.DistSheetEntity.DeliveryNum">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.DistSheetEntity.MRId">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.DistSheetEntity.MRName">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.GetMesDMaResponse">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.GetMesDMaResponse.MaResNum">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.GetMesDMaResponse.errMsg">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.GetMesDMaResponse.factory">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.GetMesDMaResponse.flag">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.GetMesDMaResponse.flagSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.GetMesDMaResponse.maCode">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.GetMesDMaResponse.mesNum">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.GetMesDMaResponse.missNum">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.GetMesDMaResponse.orderNo">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.GetMesDMaResponse.pOrder">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.GetMesDMaResponse.sNumber">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.GetMesDMaResponse.supplyCode">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.GetMesDMaResponse.supplyDescr">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.DefectTopThreeEntity">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.DefectTopThreeEntity.AcqPositionName">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.DefectTopThreeEntity.Top1">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.DefectTopThreeEntity.Top2">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.DefectTopThreeEntity.Top3">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.FirstPassYieldEntity">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.FirstPassYieldEntity.AcqCount">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.FirstPassYieldEntity.JudgeResult">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.FirstPassYieldEntity.PassYieldRate">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.FirstPassYieldEntity.PassYieldType">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.FirstPassYieldEntity.QCNGAcqCount">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.FirstPassYieldEntity.StandardPassYieldRate">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.Userlist">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.Userlist.department">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.Userlist.name">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.Userlist.userid">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.WeiXinUserListInfo">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.WeiXinUserListInfo.errcode">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.WeiXinUserListInfo.errcodeSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.WeiXinUserListInfo.errmsg">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.WeiXinUserListInfo.userlist">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.Department">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.Department.id">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.Department.idSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.Department.name">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.Department.order">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.Department.orderSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.Department.parentid">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.Department.parentidSpecified">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.WeiXinDepartmentListInfo">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.WeiXinDepartmentListInfo.department">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.WeiXinDepartmentListInfo.errcode">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.WeiXinDepartmentListInfo.errcodeSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.WeiXinDepartmentListInfo.errmsg">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.SendMessageCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.SendMessageCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.SendMessageCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.GetDepartmentListCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.GetDepartmentListCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.GetDepartmentListCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.GetUserByDepidCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.GetUserByDepidCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.GetUserByDepidCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.GetUserByUseridCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.GetUserByUseridCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.GetUserByUseridCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.PushFirstPassYieldInfoCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.PushFirstPassYieldInfoCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.PushFirstPassYieldInfoCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.PushDefectTopThreeInfoCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.PushDefectTopThreeInfoCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.PushDefectTopThreeInfoCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.PushMaterielShortageInfoCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.PushMaterielShortageInfoCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.PushMaterielShortageInfoCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.PushMaterielDistSheetInfoCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.PushMaterielDistSheetInfoCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.PushMaterielDistSheetInfoCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.PushInWhExceptionFrozenInfoCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.PushInWhExceptionFrozenInfoCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.PushInWhExceptionFrozenInfoCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.PushEquipMouldRepairInfoCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.PushEquipMouldRepairInfoCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.PushEquipMouldRepairInfoCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.PushEquipMouldMaintainInfoCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.PushEquipMouldMaintainInfoCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.PushEquipMouldMaintainInfoCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.PushEquipSpecialVerifiInfoCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.PushEquipSpecialVerifiInfoCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.PushEquipSpecialVerifiInfoCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.PushChangeMouldInfoCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.PushChangeMouldInfoCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.PushChangeMouldInfoCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.PushSchedulingInfoCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.PushSchedulingInfoCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.PushSchedulingInfoCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.AutoPushSchedulingInfoCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.PushProFactorMaterialsInfoCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.PushProFactorMaterialsInfoCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.PushProFactorMaterialsInfoCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.PushEquipLineStopInfoCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.PushEquipLineStopInfoCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.PushEquipLineStopInfoCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.PushJobWorkingInfoCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.PushJobWorkingInfoCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.PushJobWorkingInfoCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:SqlSugar.WebApi.SwaggerConfig">
+            <summary>
+            SwaggerConfig
+            </summary>
+        </member>
+        <member name="M:SqlSugar.WebApi.SwaggerConfig.Register">
+            <summary>
+            Register
+            </summary>
+        </member>
+    </members>
+</doc>

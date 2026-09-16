@@ -1,0 +1,33 @@
+﻿<style>
+    .header-filtered {
+        color: blue;
+    }
+
+    .modal-content {
+        width: 1000px;
+        height: 500px;
+    }
+</style>
+<div class="modal-header">
+    <div class="command-bar-side-panel">
+        <button ng-click="vm.cancel()" class="btn side-panel-button">{{'Siemens.SimaticIT.PlanApp.WorkOrderManage.addprocess.Tips_1'|translate}}</button>
+        <button ng-click="vm.save()" class="btn side-panel-button" ng-show="vm.validInputs">{{'Siemens.SimaticIT.PlanApp.WorkOrderManage.addprocess.Tips_2'|translate}}</button>
+    </div>
+</div>
+
+<div class="modal-body" ui-i18n="{{vm.lang}}">
+    <div class="col-xs-40 col-sm-40 col-md-40 col-lg-40" style="margin-bottom: 10px;padding: 0px;">
+        <sit-property-grid sit-id="add_form"
+                           sit-layout="Horizontal"
+                           sit-type="Fixed"
+                           sit-mode="edit"
+                           sit-columns="1">
+            <div id="itemlist1"
+                 style="width:calc(100% - 2px); height: 400px;margin-top: 3px; padding:5px 16px 0 0px;clear: both; display: block;">
+                <div ui-grid="vm.gridOptions" ui-grid-selection ui-grid-resize-columns ui-grid-auto-resize ui-grid-pagination
+                     class="uigrid  gridItem"></div>
+            </div>
+        </sit-property-grid>
+    </div>
+</div>
+

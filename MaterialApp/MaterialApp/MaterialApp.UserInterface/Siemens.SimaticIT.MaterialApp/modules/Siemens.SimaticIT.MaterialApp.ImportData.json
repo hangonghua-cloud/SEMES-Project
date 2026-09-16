@@ -1,0 +1,19 @@
+﻿{
+  "name": "Siemens.SimaticIT.MaterialApp.ImportData",
+  "type": "standard",
+  "title": "Siemens.SimaticIT.MaterialApp.ImportData.Title",
+  "header": "",
+  "icon": "fa-folder",
+  "functionalBlock": "Siemens.SimaticIT.MaterialApp",
+  "dependencies": [],
+  "states": [
+    {
+      "id": "home.Siemens_SimaticIT_MaterialApp_ImportData_ImportData",
+      "title": "Siemens.SimaticIT.MaterialApp.ImportData.Title",
+      "header": "",
+      "securable": true,
+      "roles": []
+    }
+  ],
+  "manifestVersion": "01.01.00"
+}

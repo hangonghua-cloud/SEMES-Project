@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Items>
+  <EventHandler Id="e98550b5-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.SITUASys.EventHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <FunctionalBlock>b43acd69-f051-42e0-9d45-6b730ce641da</FunctionalBlock>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.SystemData.SITUASys.SDModel.Events.KeepOperationAliveEvtHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </EventHandler>
+  <EventHandler Id="ef8550b5-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.SITUASys.EventHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <FunctionalBlock>b43acd69-f051-42e0-9d45-6b730ce641da</FunctionalBlock>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.SystemData.SITUASys.SDModel.Events.PerformExportEvtHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </EventHandler>
+  <EventHandler Id="f58550b5-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.SITUASys.EventHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <FunctionalBlock>b43acd69-f051-42e0-9d45-6b730ce641da</FunctionalBlock>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.SystemData.SITUASys.SDModel.Events.PerformImportEvtHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </EventHandler>
+  <EventHandler Id="fb8550b5-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.SITUASys.EventHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <FunctionalBlock>b43acd69-f051-42e0-9d45-6b730ce641da</FunctionalBlock>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.SystemData.SITUASys.SDModel.Events.TimerEvent_ExportImportAutomaticRecovery_HandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </EventHandler>
+  <EventHandler Id="018650b5-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.SITUASys.EventHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <FunctionalBlock>b43acd69-f051-42e0-9d45-6b730ce641da</FunctionalBlock>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.SystemData.SITUASys.SDModel.Events.TimerEvent_MaintenanceArchiving_HandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </EventHandler>
+  <EventHandler Id="078650b5-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.SITUASys.EventHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <FunctionalBlock>b43acd69-f051-42e0-9d45-6b730ce641da</FunctionalBlock>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.SystemData.SITUASys.SDModel.Events.TimerEvent_MaintenanceCleaning_HandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </EventHandler>
+  <EventHandler Id="3ca83bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.EQU_OP.EventHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <FunctionalBlock>7fa09628-7f6b-492a-a464-9cfe02f539b0</FunctionalBlock>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.OperationalData.EQU_OP.OPModel.Events.EquipmentCommandsShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </EventHandler>
+  <EventHandler Id="42a83bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.EQU_OP.EventHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <FunctionalBlock>7fa09628-7f6b-492a-a464-9cfe02f539b0</FunctionalBlock>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.OperationalData.EQU_OP.OPModel.Events.OnEquipmentConfigurationGroupUpdatedShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </EventHandler>
+  <EventHandler Id="48a83bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.EQU_OP.EventHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <FunctionalBlock>7fa09628-7f6b-492a-a464-9cfe02f539b0</FunctionalBlock>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.OperationalData.EQU_OP.OPModel.Events.OnEquipmentConfigurationPropertyAttributeUpdatedShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </EventHandler>
+  <EventHandler Id="4ea83bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.EQU_OP.EventHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <FunctionalBlock>7fa09628-7f6b-492a-a464-9cfe02f539b0</FunctionalBlock>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.OperationalData.EQU_OP.OPModel.Events.OnEquipmentConfigurationPropertyUpdatedShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </EventHandler>
+  <EventHandler Id="54a83bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.EQU_OP.EventHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <FunctionalBlock>7fa09628-7f6b-492a-a464-9cfe02f539b0</FunctionalBlock>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.OperationalData.EQU_OP.OPModel.Events.OnEquipmentConfigurationStateMachineUpdatedShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </EventHandler>
+  <EventHandler Id="5aa83bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.EQU_OP.EventHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <FunctionalBlock>7fa09628-7f6b-492a-a464-9cfe02f539b0</FunctionalBlock>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.OperationalData.EQU_OP.OPModel.Events.OnEquipmentConfigurationUpdatedShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </EventHandler>
+  <EventHandler Id="60a83bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.EQU_OP.EventHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <FunctionalBlock>7fa09628-7f6b-492a-a464-9cfe02f539b0</FunctionalBlock>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.OperationalData.EQU_OP.OPModel.Events.OnEquipmentGraphConfigurationUpdatedShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </EventHandler>
+  <EventHandler Id="66a83bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.EQU_OP.EventHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <FunctionalBlock>7fa09628-7f6b-492a-a464-9cfe02f539b0</FunctionalBlock>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.OperationalData.EQU_OP.OPModel.Events.OnEquipmentGraphLinkConfigurationUpdatedShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </EventHandler>
+  <EventHandler Id="6ca83bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.EQU_OP.EventHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <FunctionalBlock>7fa09628-7f6b-492a-a464-9cfe02f539b0</FunctionalBlock>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.OperationalData.EQU_OP.OPModel.Events.OnEquipmentGraphNodeConfigurationUpdatedShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </EventHandler>
+  <EventHandler Id="5a795fdf-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.PRM_MS.EventHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <FunctionalBlock>a5464822-db7a-4485-aa39-6d5472b4f740</FunctionalBlock>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.PRM_MS.MSModel.Events.StartUserImport_EventHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </EventHandler>
+  <EventHandler Id="60795fdf-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.Personnel.EventHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <FunctionalBlock>57c6a774-8416-4fbf-a16b-3f99cfcc4eb8</FunctionalBlock>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.Personnel.Personnel.PRPOMModel.Events.RemoveSegregationTagFromPersonGroupsShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </EventHandler>
+  <EventHandler Id="66795fdf-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.Personnel.EventHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <FunctionalBlock>57c6a774-8416-4fbf-a16b-3f99cfcc4eb8</FunctionalBlock>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.Personnel.Personnel.PRPOMModel.Events.RemoveSegregationTagFromPersonsShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </EventHandler>
+  <EventHandler Id="6c795fdf-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.Personnel.EventHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <FunctionalBlock>57c6a774-8416-4fbf-a16b-3f99cfcc4eb8</FunctionalBlock>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.Personnel.Personnel.PRPOMModel.Events.PopulateSessionShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </EventHandler>
+</Items>

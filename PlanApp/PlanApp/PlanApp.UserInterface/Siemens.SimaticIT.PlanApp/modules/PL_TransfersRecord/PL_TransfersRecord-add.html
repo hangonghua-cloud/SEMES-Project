@@ -1,0 +1,70 @@
+<!--
+    0.代码生成: UADM单表一键生成前后端html、JS、API接口代码生成器 Ver 2.01 发布日期：2021-04-18  设计师：刘万军
+    1.功能描述: 跨工厂调拨
+    2.创建人员: jpf
+    3.创建日期: 2022-11-16
+    4.修改人员: 
+    5.修改日期: 
+-->
+<style>
+    .row {
+        padding: 5px;
+        margin-top: 10px;
+    }
+</style>
+<div class="command-bar-side-panel">
+    <button ng-click="vm.cancel()" class="btn side-panel-button">{{'Siemens.SimaticIT.PlanApp.PL_TransfersRecord.add.Tips_1'|translate}}</button>
+    <button ng-click="vm.save()" class="btn side-panel-button">{{'Siemens.SimaticIT.PlanApp.PL_TransfersRecord.add.Tips_2'|translate}}</button>
+</div>
+<div class="side-panel-property-area-body">
+    <sit-property-grid sit-id="add_form"
+                       sit-layout="Vertical"
+                       sit-type="Fluid"
+                       sit-mode="edit"
+                       sit-columns="1">
+        <sit-property-grid sit-id="view_form" sit-layout="Horizontal" sit-type="Fixed" sit-mode="edit" sit-columns="2" style="margin-left: 4px;">
+            <sit-property sit-widget="sit-text" sit-value="vm.currentItem.SendFactoryCode" sit-validation="{required: true}"
+                          sit-read-only="false">{{'Siemens.SimaticIT.PlanApp.PL_TransfersRecord.add.Tips_3'|translate}}</sit-property>
+            <sit-property sit-widget="sit-text" sit-value="vm.currentItem.SendFactoryName" sit-validation="{required: true}"
+                          sit-read-only="false">{{'Siemens.SimaticIT.PlanApp.PL_TransfersRecord.add.Tips_4'|translate}}</sit-property>
+            <sit-property sit-widget="sit-text" sit-value="vm.currentItem.AcceptFactoryCode" sit-validation="{required: true}"
+                          sit-read-only="false">{{'Siemens.SimaticIT.PlanApp.PL_TransfersRecord.add.Tips_5'|translate}}</sit-property>
+            <sit-property sit-widget="sit-text" sit-value="vm.currentItem.AcceptFactoryName" sit-validation="{required: true}"
+                          sit-read-only="false">{{'Siemens.SimaticIT.PlanApp.PL_TransfersRecord.add.Tips_6'|translate}}</sit-property>
+            <sit-property sit-widget="sit-text" sit-value="vm.currentItem.ProductOrder" sit-validation="{required: true}"
+                          sit-read-only="false">{{'Siemens.SimaticIT.PlanApp.PL_TransfersRecord.add.Tips_7'|translate}}</sit-property>
+            <sit-property sit-widget="sit-text" sit-value="vm.currentItem.WorkOrder" sit-validation="{required: true}"
+                          sit-read-only="false">{{'Siemens.SimaticIT.PlanApp.PL_TransfersRecord.add.Tips_8'|translate}}</sit-property>
+            <sit-property sit-widget="sit-text" sit-value="vm.currentItem.MaterialCode" sit-validation="{required: true}"
+                          sit-read-only="false">{{'Siemens.SimaticIT.PlanApp.PL_TransfersRecord.add.Tips_9'|translate}}</sit-property>
+            <sit-property sit-widget="sit-text" sit-value="vm.currentItem.TransTypeCode" sit-validation="{required: true}"
+                          sit-read-only="false">{{'Siemens.SimaticIT.PlanApp.PL_TransfersRecord.add.Tips_10'|translate}}</sit-property>
+            <sit-property sit-widget="sit-text" sit-value="vm.currentItem.TransTypeName" sit-validation="{required: true}"
+                          sit-read-only="false">{{'Siemens.SimaticIT.PlanApp.PL_TransfersRecord.add.Tips_10'|translate}}</sit-property>
+            <sit-property sit-widget="sit-text" sit-value="vm.currentItem.TransProcessCode" sit-validation="{required: true}"
+                          sit-read-only="false">{{'Siemens.SimaticIT.PlanApp.PL_TransfersRecord.add.Tips_11'|translate}}</sit-property>
+            <sit-property sit-widget="sit-text" sit-value="vm.currentItem.TransProcessName" sit-validation="{required: true}"
+                          sit-read-only="false">{{'Siemens.SimaticIT.PlanApp.PL_TransfersRecord.add.Tips_12'|translate}}</sit-property>
+            <sit-property sit-widget="sit-text" sit-value="vm.currentItem.TransStateCode" sit-validation="{required: true}"
+                          sit-read-only="false">{{'Siemens.SimaticIT.PlanApp.PL_TransfersRecord.add.Tips_13'|translate}}</sit-property>
+            <sit-property sit-widget="sit-text" sit-value="vm.currentItem.TransStateName" sit-validation="{required: true}"
+                          sit-read-only="false">{{'Siemens.SimaticIT.PlanApp.PL_TransfersRecord.add.Tips_13'|translate}}</sit-property>
+            <sit-property sit-widget="sit-textarea" sit-value="vm.currentItem.Remark" sit-validation="{required: false}"
+                          sit-read-only="false">{{'Siemens.SimaticIT.PlanApp.PL_TransfersRecord.add.Tips_14'|translate}}</sit-property>
+            <sit-property sit-widget="sit-numeric" sit-value="vm.currentItem.IsDelete" sit-validation="{required: true, min: 0}"
+                          sit-read-only="false">{{'Siemens.SimaticIT.PlanApp.PL_TransfersRecord.add.Tips_15'|translate}}</sit-property>
+            <sit-property sit-widget="sit-text" sit-value="vm.currentItem.Creator" sit-validation="{required: true}"
+                          sit-read-only="false">{{'Siemens.SimaticIT.PlanApp.PL_TransfersRecord.add.Tips_16'|translate}}</sit-property>
+            <sit-property sit-widget="sit-datepicker" sit-value="vm.currentItem.CreateTime" sit-validation="{required: true}"
+                          sit-widget-attributes="{'sit-format':'yyyy-MM-dd','sit-show-meridian':'false'}" sit-read-only="false">{{'Siemens.SimaticIT.PlanApp.PL_TransfersRecord.add.Tips_17'|translate}}</sit-property>
+            <sit-property sit-widget="sit-text" sit-value="vm.currentItem.CreateName" sit-validation="{required: true}"
+                          sit-read-only="false">{{'Siemens.SimaticIT.PlanApp.PL_TransfersRecord.add.Tips_18'|translate}}</sit-property>
+            <sit-property sit-widget="sit-text" sit-value="vm.currentItem.ModifyBy" sit-validation="{required: true}"
+                          sit-read-only="false">{{'Siemens.SimaticIT.PlanApp.PL_TransfersRecord.add.Tips_19'|translate}}</sit-property>
+            <sit-property sit-widget="sit-datepicker" sit-value="vm.currentItem.ModifyTime" sit-validation="{required: true}"
+                          sit-widget-attributes="{'sit-format':'yyyy-MM-dd','sit-show-meridian':'false'}" sit-read-only="false">{{'Siemens.SimaticIT.PlanApp.PL_TransfersRecord.add.Tips_20'|translate}}</sit-property>
+            <sit-property sit-widget="sit-text" sit-value="vm.currentItem.ModifyName" sit-validation="{required: true}"
+                          sit-read-only="false">{{'Siemens.SimaticIT.PlanApp.PL_TransfersRecord.add.Tips_21'|translate}}</sit-property>
+        </sit-property-grid>
+    </sit-property-grid>
+</div>

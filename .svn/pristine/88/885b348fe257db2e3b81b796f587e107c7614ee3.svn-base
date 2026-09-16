@@ -1,0 +1,19 @@
+﻿<div class="command-bar-side-panel">
+    <button ng-click="vm.cancel()" class="btn side-panel-button">{{'Siemens.SimaticIT.ProductionApp.TransferList.addUser.Tips_1'|translate}}</button>
+    <button ng-click="vm.save()" class="btn side-panel-button" ng-show="vm.validInputs">{{'Siemens.SimaticIT.ProductionApp.TransferList.addUser.Tips_2'|translate}}</button>
+</div>
+<div class="side-panel-property-area-body">
+    <sit-property-grid sit-id="add_form"
+                       sit-layout="Vertical"
+                       sit-type="Fluid"
+                       sit-mode="edit"
+                       sit-columns="1">
+        <!-- TODO: Put here the properties of the entity managed by the service -->
+        <sit-property sit-widget="sit-select" sit-value="vm.PTeam.value" sit-validation="{required: false}" sit-options="vm.PTeam.options"
+                      sit-to-display="'PTeamName'" sit-to-keep="'PTeamCode'" sit-read-only="false" sit-change="vm.PTeamChange">{{'Siemens.SimaticIT.ProductionApp.TransferList.addUser.Tips_3'|translate}}</sit-property>
+        <sit-property sit-widget="sit-select" sit-value="vm.Post.value" sit-validation="{required: false}" sit-options="vm.Post.options"
+                      sit-to-display="'Col2'" sit-to-keep="'Col1'" sit-read-only="false">{{'Siemens.SimaticIT.ProductionApp.TransferList.addUser.Tips_4'|translate}}</sit-property>
+        <sit-property sit-widget="sit-select" sit-value="vm.User.value" sit-validation="{required: false}" sit-options="vm.User.options"
+                      sit-to-display="'UserName'" sit-to-keep="'UserCode'" sit-read-only="false">{{'Siemens.SimaticIT.ProductionApp.TransferList.addUser.Tips_5'|translate}}</sit-property>
+    </sit-property-grid>
+</div>

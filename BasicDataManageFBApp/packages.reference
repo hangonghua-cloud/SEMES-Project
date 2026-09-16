@@ -1,0 +1,27 @@
+<referenceManager version="2.3">
+  <integrity projectVersion="01.00.00">
+    <reference>
+      <name>Siemens.SimaticIT.ThirdPartyDBFBLib</name>
+      <version>01.00.00</version>
+      <type>Library</type>
+    </reference>
+    <reference>
+      <name>Siemens.SimaticIT.BasicDataManageFBLib</name>
+      <version>01.00.00</version>
+      <type>Library</type>
+    </reference>
+  </integrity>
+  <functionalblocks projectVersion="04.00.00">
+    <functionalblock>
+      <name>Siemens.SimaticIT.BasicDataManageFBLib</name>
+      <version>01.00.00</version>
+      <type>Library</type>
+    </functionalblock>
+    <functionalblock>
+      <name>Siemens.SimaticIT.ThirdPartyDBFBLib</name>
+      <version>01.00.00</version>
+      <type>Library</type>
+    </functionalblock>
+  </functionalblocks>
+  <projects projectVersion="04.00.00" />
+</referenceManager>

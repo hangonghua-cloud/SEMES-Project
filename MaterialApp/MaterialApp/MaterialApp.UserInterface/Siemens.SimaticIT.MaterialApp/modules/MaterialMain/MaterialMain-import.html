@@ -1,0 +1,66 @@
+﻿<!--
+    0.代码生成: UA主子表一键生成前后端html、JS、API接口代码生成器 Ver 1.11 更新日期：2021-07-14  设计者：刘万军
+    1.功能描述: 物料主数据
+    2.创建人员: liyongguo
+    3.创建日期: 2021-07-23
+    4.修改人员:
+    5.修改日期:
+-->
+<style>
+    .row {
+        padding: 5px;
+        margin-top: 10px;
+    }
+
+    .ui-grid-cell {
+        overflow: inherit;
+    }
+
+    .multi-advanced-selection .dropdown,
+    .multi-advanced-selection .dropup {
+        min-width: 50px !important;
+    }
+
+    .canvas .property-area-container > div.content .side-panel-property-area-body {
+        overflow-y: visible;
+    }
+</style>
+
+<div class="command-bar-side-panel">
+    <button ng-click="vm.cancel()" class="btn side-panel-button">取消</button>
+    <button ng-click="vm.save()" class="btn side-panel-button" ng-show="vm.validInputs">保存</button>
+</div>
+<div class="side-panel-property-area-body">
+    <sit-property-grid sit-id="add_form"
+                       sit-layout="Horizontal"
+                       sit-type="Fixed"
+                       sit-mode="edit"
+                       sit-columns="4">
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.MaterialCode" sit-validation="{required: true}"
+                      sit-read-only="false">物料编码:</sit-property>
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.MaterialName" sit-validation="{required: true}"
+                      sit-read-only="false">物料名称:</sit-property>
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.Spec" sit-validation="{required: true}"
+                      sit-read-only="false">规格型号:</sit-property>
+        <sit-property sit-widget="sit-select" sit-value="vm.MaterialClass.value" sit-validation="{required: true}" sit-options="vm.MaterialClass.options"
+                      sit-to-display="'ItemName'" sit-to-keep="'ItemValue'">物料分类:</sit-property>
+        <sit-property sit-widget="sit-select" sit-value="vm.SmallClass.value" sit-validation="{required: true}" sit-options="vm.SmallClass.options"
+                      sit-to-display="'ItemName'" sit-to-keep="'ItemValue'">物料小类:</sit-property>
+        <sit-property sit-widget="sit-select" sit-value="vm.typeUnit.value" sit-validation="{required: true}" sit-options="vm.typeUnit.options"
+                      sit-to-display="'ItemName'" sit-to-keep="'ItemValue'">单位:</sit-property>
+        <!--<sit-property sit-widget="sit-select" sit-value="vm.Warehouse.value" sit-validation="{required: true}" sit-options="vm.Warehouse.options"
+                      sit-to-display="'ResourceName'" sit-to-keep="'ResourceCode'">库存地点:</sit-property>
+        <sit-property sit-widget="sit-select" sit-value="vm.ProcureType.value" sit-validation="{required: true}" sit-options="vm.ProcureType.options"
+                      sit-to-display="'ItemName'" sit-to-keep="'ItemValue'">采购类型:</sit-property>
+        <sit-property sit-widget="sit-select" sit-value="vm.ProcessRoute.value" sit-validation="{required: true}" sit-options="vm.ProcessRoute.options"
+                      sit-to-display="'ItemName'" sit-to-keep="'ItemValue'">生产工艺路线:</sit-property>
+        <sit-property sit-widget="sit-select" sit-value="vm.IsEnabled.value" sit-validation="{required: true}" sit-options="vm.IsEnabled.options"
+                      sit-to-display="'ItemName'" sit-to-keep="'ItemValue'">是否启用批次管理:</sit-property>-->
+        <sit-property sit-widget="sit-select" sit-value="vm.Attr.value" sit-validation="{required: false}" sit-options="vm.Attr.options"
+                      sit-to-display="'TempName'" sit-to-keep="'TempCode'" sit-change="vm.AttrChange">属性模板:</sit-property>
+    </sit-property-grid>
+</div>
+<div id="itemlist" style="width:calc(100% - 2px); height: calc(100% - 300px);margin-top: 6px; padding:5px 16px 0 16px;clear: both; display: block;overflow-y: auto;">
+    <div ui-grid="vm.gridOptionsItem" ui-grid-selection ui-grid-resize-columns ui-grid-auto-resize class="uigrid uigrid-edit gridItem"></div>
+</div>
+

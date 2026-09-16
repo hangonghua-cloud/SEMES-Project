@@ -1,0 +1,86 @@
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>d272806b-3a65-46d7-a886-1c201e5249b9</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Siemens.SimaticIT.FactoryModelApp.Installer</RootNamespace>
+    <AssemblyName>Siemens.SimaticIT.FactoryModelApp.Installer</AssemblyName>
+    <Name>FactoryModelApp.Installer</Name>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FunctionalBlockType>Project</FunctionalBlockType>
+    <FunctionalBlockVersion>01.00.00</FunctionalBlockVersion>
+    <FunctionalBlockName>FactoryModelApp</FunctionalBlockName>
+    <FunctionalBlockPrefix>Siemens.SimaticIT</FunctionalBlockPrefix>
+    <FunctionalBlockModels>Siemens.SimaticIT.FactoryModelApp.FactoryModelApp.FMPOMModel</FunctionalBlockModels>
+    <FunctionalBlockDescription>Factory Model Manage</FunctionalBlockDescription>
+    <SitPlatformVersion>4.1</SitPlatformVersion>
+    <AutoDeployPackage>True</AutoDeployPackage>
+    <CanBeExtended>False</CanBeExtended>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU'  ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Release\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="Config" />
+    <Folder Include="ExternalDependencies" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Config\Siemens.SimaticIT.FactoryModelApp.Dbinit.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Config\Siemens.SimaticIT.FactoryModelApp.References.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Config\Siemens.SimaticIT.FactoryModelApp.ApplicationLog.en-US.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FactoryModelApp.CommandHandler\FactoryModelApp.CommandHandler.csproj">
+      <Name>FactoryModelApp.CommandHandler</Name>
+      <Project>{69ad2a6a-d9b8-4008-94f9-49609ca771d7}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\FactoryModelApp.EventHandler\FactoryModelApp.EventHandler.csproj">
+      <Name>FactoryModelApp.EventHandler</Name>
+      <Project>{57935ae0-d226-434d-a652-a9e68d1220d4}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\FactoryModelApp.FMPOMModel\FactoryModelApp.FMPOMModel.pmproj">
+      <Name>FactoryModelApp.FMPOMModel</Name>
+      <Project>{87a99200-1bf6-45be-9980-6d249b6c405d}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\FactoryModelApp.ReadingFunctionHandler\FactoryModelApp.ReadingFunctionHandler.csproj">
+      <Name>FactoryModelApp.ReadingFunctionHandler</Name>
+      <Project>{cc0542db-6f13-4109-9a12-343c1125c951}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\FactoryModelApp.UserInterface\FactoryModelApp.UserInterface.csproj">
+      <Name>FactoryModelApp.UserInterface</Name>
+      <Project>{2468b4ae-8e9a-44e9-901b-e1a0533e4444}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(SITUnifiedVSToolingPlatformBin)\Siemens.SimaticIt.Build.Installer.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

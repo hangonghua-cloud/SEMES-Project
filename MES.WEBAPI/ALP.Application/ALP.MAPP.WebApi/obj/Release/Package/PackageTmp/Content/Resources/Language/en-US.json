@@ -1,0 +1,814 @@
+{
+  // Common
+  "Common": {
+    "Error": "Operation failed, server exception",
+    "ErrorWithOther": "Operation failed, {0}",
+    "Success": "Operation successful",
+    "Success2": "Operation successful:",
+    "SuccessWithOther": "Operation successful, {0}",
+    "ExecutionSuccess": "Execution successful",
+    "ExecutionSuccess2": "Execution successful:",
+    "ExecutionSuccessWithOther": "Execution successful, {0}",
+    "ExecutionError": "Execution failed",
+    "ExecutionError2": "Execution failed:",
+    "ExecutionErrorWithOther": "Execution failed, {0}",
+    "ParamsNotNull": "Parameters cannot be empty",
+    "SearchParamsNotNull": "Search parameters cannot be empty",
+    "Yes": "Yes",
+    "No": "No",
+    "Qua": "Qualified",
+    "UnQua": "Not qualified",
+    "ErrorNone": "Unknown reason",
+    "DeleteSuccess": "Deletion successful",
+    "DeleteSuccess2": "Deletion successful:",
+    "DeleteSuccessWithOther": "Deletion successful: {0}",
+    "DeleteError": "Deletion failed",
+    "DeleteError2": "Deletion failed:",
+    "DeleteErrorWithOther": "Deletion failed: {0}",
+    "SearchSuccess": "Search successful",
+    "SearchSuccess2": "Search successful:",
+    "SearchSuccessWithOther": "Search successful: {0}",
+    "SearchError": "Search failed",
+    "SearchError2": "Search failed:",
+    "SearchErrorWithOther": "Search failed: {0}"
+  },
+  "FileManage": {
+    "UploadFileController": {
+      "Tips_1": "Upload successful",
+      "Tips_2": "Uploaded file [{0}] does not meet the format requirements!",
+      "Tips_3": "Uploaded file [{0}] exceeds the file size limit (100M)!",
+      "Tips_4": "Failed to write the uploaded file: {0}",
+      "Tips_5": "No file selected for upload!"
+    }
+  },
+  "SystemManage": {
+    "SysController": {},
+    "SystemController": {
+      // Check system version number and return if update is needed
+      "GetVersion": {
+        "Tips_1": "Unable to get the current version number!",
+        "Tips_2": "Please update the system!",
+        "Tips_3": "Failed to get version number: {0}"
+      },
+      // System Login
+      "Login": {
+        "Tips_1": "Login successful!",
+        "Tips_2": "Account or password format is incorrect!",
+        "Tips_3": "Login failed: {0}",
+        "Data_1": "nickname--Login account"
+      },
+      // Change password
+      "UpdateAppPassword": {
+        "Tips_1": "Password change successful!",
+        "Tips_2": "Account or password format is incorrect!",
+        "Tips_3": "Login failed: {0}"
+      }
+    }
+  },
+  "ProduceManage": { // Production management
+    "ProduceController": {
+      // Production start scan
+      "GetPMStartInfo": {
+        "Tips_1": "Circulation card code cannot be empty",
+        "Tips_2": "The current circulation card does not exist",
+        "Tips_3": "The current circulation card is scrapped",
+        "Tips_4": "Work order does not exist",
+        "Data_1": "Full cabinet",
+        "Data_2": "Single pallet"
+      },
+      // Save production start information
+      "SavePMStartInfo": {
+        "Tips_1": "Work order does not exist",
+        "Tips_2": "Work order is frozen",
+        "Tips_3": "Work order process-step does not exist",
+        "Tips_4": "Work order process-attribute does not exist",
+        "Tips_5": "Work has already started, duplicate start is not allowed",
+        "Tips_6": "Associated process route maintenance format is incorrect",
+        "Tips_7": "Process route [{0}] does not exist",
+        "Tips_8": "New BOM does not exist",
+        "Tips_9": "Associated process [{0}] does not exist",
+        "Tips_10": "Associated process route attributes not maintained",
+        "Tips_11": "Associated process route maintenance format is incorrect",
+        "Tips_12": "Feature process route [{0}] does not exist",
+        "Tips_13": "Operation process [{0}] is not in the process route!",
+        "Tips_14": "Process [{0}] does not exist",
+        "Tips_15": "Process attribute does not exist",
+        "Tips_16": "Operation process [{0}] does not need to start!",
+        "Tips_17": "Previous process [{0}] has not started",
+        "Tips_18": "Full cabinet circulation needs to select all circulation cards",
+        "Tips_19": "Circulation card [{1}] in the current process [{0}] has not reported!",
+        "Tips_20": "Still in the maintenance period, starting is not allowed",
+        "Tips_21": "Selected circulation cards are not in the same process",
+        "Tips_22": "Selected circulation cards are not of the same business type",
+        "Tips_23": "Circulation cards in the current process [{0}] have not all been reported",
+        "Tips_24": "Process pallet quantity not maintained",
+        "Tips_25": "Operations to the previous process are not allowed",
+        "Tips_26": "Outsourcing operations are not allowed",
+        "Data_1": "Packaging",
+        "Data_2": "Sheet"
+      },
+      // Raw material batch machine scanning - get valid records
+      "RawMBatchUpMachineScan": {
+        "Tips_1": "Machine cannot be empty"
+      },
+      // Raw material batch machine scanning - key part barcode scanning
+      "RawMBatchUpCodeBarScan": {
+        "Tips_1": "Batch cannot be empty",
+        "Tips_2": "Batch does not exist"
+      },
+      // Raw material batch machine scanning - save
+      "RawMBatchUpCodeBarSave": {
+        "Tips_1": "Machine does not exist",
+        "Tips_2": "Process-related warehouse not maintained",
+        "Tips_3": "Process-related warehouse [{0}] has no inventory, cannot be loaded"
+      },
+      // Circulation card reporting - production machine scanning
+      "TransferCardBGMachineScan": {
+        "Tips_1": "Production machine cannot be empty",
+        "Tips_2": "Production machine [{0}] does not exist"
+      },
+      // Circulation card reporting - circulation card scanning
+      "TransferCardBGCardScan": {
+        "Tips_1": "Circulation card code cannot be empty",
+        "Tips_2": "The current circulation card does not exist",
+        "Tips_3": "The current circulation card is scrapped",
+        "Tips_4": "The current circulation card is in rework",
+        "Tips_5": "The current circulation card has not yet started circulation, reporting is not allowed"
+      },
+      // Circulation card reporting - Work Team scanning
+      "TransferCardBGPTeamScan": {
+        "Tips_1": "Work Team cannot be empty",
+        "Tips_2": "The current Work Team does not exist",
+        "Tips_3": "The current Work Team has no assigned personnel"
+      },
+      // Transfer Card Reporting - Save
+      "TransferCardBGSave": {
+        "Tips_1": "Reporting quantity cannot be 0",
+        "Tips_2": "Machine does not exist",
+        "Tips_3": "Execution work order does not exist",
+        "Tips_4": "The current process does not have this Work Team",
+        "Tips_5": "Transfer card has not passed quality inspection, reporting is not allowed",
+        "Tips_6": "Work order [{0}] BOM does not exist",
+        "Tips_7": "Work order [{0}] process route does not exist",
+        "Tips_8": "The current process is not in the process route and reporting is not allowed",
+        "Tips_9": "For packaging, please use the packaging reporting function",
+        "Tips_10": "Please transfer out excess product inventory first",
+        "Tips_11": "Process attribute does not exist",
+        "Tips_12": "The current process is in the process route but reporting is not allowed",
+        "Tips_13": "The current process has not started, reporting is not allowed",
+        "Tips_14": "Previous process [{0}] has not been reported",
+        "Tips_15": "Cross-process operations are not allowed",
+        "Tips_16": "Workshop has not passed initial inspection, reporting is not allowed",
+        "Tips_17": "Workshop initial inspection is not qualified, reporting cannot proceed",
+        "Tips_18": "Workshop director has not confirmed, reporting is not allowed",
+        "Tips_19": "Workshop {0} has not passed initial inspection, reporting is not allowed",
+        "Tips_20": "Workshop {0} initial inspection is not qualified, reporting cannot proceed",
+        "Tips_21": "Workshop director {0} has not confirmed, reporting is not allowed",
+        "Tips_22": "Material [{0}{1}] has no machine loading record",
+        "Tips_23": "Material [{0}{1}],\nBatch [{2}]\nHas no available inventory",
+        "Tips_24": "Material [{0}{1}] has no available inventory",
+        "Tips_25": "Allowed over-transfer card quantity reporting percentage attribute cannot be empty",
+        "Tips_26": "Reporting quantity cannot exceed {0}",
+        "Tips_27": "Current Work Team has no assigned personnel",
+        "Tips_28": "Defective quantity cannot be empty or 0",
+        "Tips_29": "[{0}] Machine batch remaining inventory is insufficient",
+        "Tips_30": "Time factor not maintained",
+        "Tips_31": "Basic quantity attribute not maintained",
+        "Tips_32": "Direct labor attribute not maintained",
+        "Tips_33": "Indirect labor attribute not maintained",
+        "Tips_34": "Fuel and power attribute not maintained",
+        "Tips_35": "Depreciation and amortization attribute not maintained",
+        "Tips_36": "Spare parts attribute not maintained",
+        "Tips_37": "Other expenses attribute not maintained",
+        "Tips_38": "Material [{0}] has no line-side warehouse location",
+        "Data_1": "Package",
+        "Data_2": "Slab",
+        "Data_3": "Plank"
+      },
+      // Own Product Reporting - Transfer Card Scanning
+      "OwnProductBGCardScan": {
+        "Tips_1": "Transfer card cannot be empty!",
+        "Tips_2": "Current transfer card does not exist"
+      },
+      // Own Product Reporting - Get Roll Code Reporting Information (used for CS-side semi-finished product reporting)
+      "GetOwnProductBGList": {
+        "Tips_1": "Transfer card cannot be empty!"
+      },
+      // Own Product Reporting - Edit Roll Quantity (used for CS-side semi-finished product reporting)
+      "OwnProductBGEditRoallQty": {},
+      // Own Product Reporting - Save
+      "OwnProductBGSave": {
+        "Tips_1": "Reporting quantity cannot be 0",
+        "Tips_2": "Current transfer card does not exist",
+        "Tips_3": "The current process does not have this Work Team",
+        "Tips_4": "Work order BOM does not exist",
+        "Tips_5": "Work order process route does not exist",
+        "Tips_6": "Reporting process does not match",
+        "Tips_7": "Reporting location attributes not maintained",
+        "Tips_8": "Material [{0}{1}] has no machine loading record",
+        "Tips_9": "Material [{0}{1}], Batch [{2}] has no available inventory",
+        "Tips_10": "Material [{0}{1}] has no available inventory",
+        "Tips_11": "Reporting quantity cannot exceed {0}",
+        "Tips_12": "Current Work Team has no assigned personnel",
+        "Tips_13": "Roll code [{0}] already exists!",
+        "Tips_14": "Defective quantity cannot be empty or 0",
+        "Tips_15": "[{0}] Machine batch remaining inventory is insufficient,\nReporting quantity cannot exceed {1}{2}"
+      },
+      // Transfer Card Scrap - Transfer Card Scanning
+      "TransferCardScrapScan": {
+        "Tips_1": "Transfer card code cannot be empty",
+        "Tips_2": "Current transfer card does not exist"
+      },
+      // Transfer Card Scrap - Save
+      "TransferCardScrapSave": {
+        "Tips_1": "Current transfer card does not exist",
+        "Tips_2": "Scrap successful"
+      },
+      // Work Team Personnel Binding - Group Code Scanning
+      "PTeamCodeScan": {
+        "Tips_1": "Work Team code cannot be empty",
+        "Tips_2": "Current Work Team does not exist",
+        "Tips_3": "Position information not maintained"
+      },
+      // Work Team Personnel Binding - Save
+      "PTeamSave": {
+        "Tips_1": "Work Team code cannot be empty",
+        "Tips_2": "Personnel list cannot be empty",
+        "Tips_3": "Please maintain position coefficients first",
+        "Tips_4": "Total position coefficient cannot be 0",
+        "Tips_5": "Binding successful"
+      },
+      // Work Team Personnel Deletion
+      "PTeamPersonDelete": {},
+      // Rework Task - Transfer Card Scanning
+      "ReworkCardScan": {
+        "Tips_1": "Transfer card code cannot be empty",
+        "Tips_2": "Current transfer card has been scrapped",
+        "Tips_3": "Cannot find current transfer card process",
+        "Tips_4": "Process route does not exist",
+        "Tips_5": "Current transfer card does not exist",
+        "Data_1": "Not reported",
+        "Data_2": "Reported"
+      },
+      // Rework Task - Save
+      "ReworkSave": {
+        "Tips_1": "Scanned transfer card does not exist",
+        "Tips_2": "Scanned transfer card is in pending rework status",
+        "Tips_3": "Scanned transfer card is in rework status",
+        "Tips_4": "Scanned transfer card has been scrapped",
+        "Tips_5": "Rework process is not in the process route",
+        "Tips_6": "Reworked transfer card is not in the same process",
+        "Tips_7": "Current transfer card does not exist",
+        "Tips_8": "Scanned transfer card is in rework status",
+        "Tips_9": "Scanned transfer card has been scrapped",
+        "Data_1": "Production module"
+      },
+      // Rework Task - Query
+      "ReworkQuery": {},
+      // Rework Reporting - Rework Task Query
+      "ReworkBGTaskQuery": {},
+      // Rework Reporting - Rework Task Detail Query
+      "ReworkBGTaskDetailQuery": {
+        "Tips_1": "id cannot be empty"
+      },
+      // Rework Reporting - Transfer Card Scanning
+      "ReworkBGCardScan": {
+        "Tips_1": "Current transfer card has been scrapped",
+        "Tips_2": "Transfer history does not exist",
+        "Tips_3": "Process route does not exist",
+        "Tips_4": "Process route does not include process [{0}]",
+        "Tips_5": "Next process does not exist",
+        "Tips_6": "Process [{0}] does not allow rework reporting",
+        "Tips_7": "Current transfer card has been scrapped",
+        "Tips_8": "Current transfer card has no rework tasks",
+        "Tips_9": "Current transfer card has no rework tasks",
+        "Tips_10": "Current transfer card does not exist"
+      },
+      // Rework Reporting - Work Team Scanning
+      "ReworkBGPTeamScan": {
+        "Tips_1": "Work Team cannot be empty",
+        "Tips_2": "Current Work Team does not exist",
+        "Tips_3": "Current Work Team has no assigned personnel"
+      },
+      // Rework Reporting - Save
+      "ReworkBGSave": {
+        "Tips_1": "Reporting quantity cannot be 0",
+        "Tips_2": "Transfer history does not exist",
+        "Tips_3": "Process route does not exist",
+        "Tips_4": "The current process does not have this Work Team",
+        "Tips_5": "Current Work Team has no assigned personnel",
+        "Tips_6": "Defective quantity cannot be empty or 0",
+        "Tips_7": "Current rework task does not include this transfer card",
+        "Tips_8": "This Work Team does not exist",
+        "Tips_9": "Current transfer card has not reached the rework node",
+        "Tips_10": "Reporting quantity cannot exceed {0}",
+        "Tips_11": "Defective quantity cannot be empty or 0",
+        "Tips_12": "Current Work Team has no assigned personnel"
+      },
+      // Rework Reporting - Quality Confirmation Query Rework Tasks
+      "GetReworkRecordDetail": {
+        "Tips_1": "Transfer history does not exist",
+        "Tips_2": "Quality has been confirmed",
+        "Tips_3": "Not in the same process",
+        "Tips_4": "Current transfer card has not started",
+        "Tips_5": "No quality exception orders to confirm",
+        "Tips_6": "Transfer card has no rework tasks",
+        "Tips_7": "No quality exception orders to confirm",
+        "Tips_8": "Transfer card has no rework records",
+        "Tips_9": "Current transfer card does not exist"
+      },
+      // Rework Reporting - Quality Confirmation Save
+      "ReworkRecordQualityConfirmSave": {
+        "Tips_1": "Rework not completed, confirmation not allowed",
+        "Tips_2": "Quality already confirmed, second confirmation not allowed",
+        "Tips_3": "Process route does not exist",
+        "Tips_4": "Process [{0}] not in process route"
+      },
+      // Workshop/Quality Initial Inspection - Transfer Card Scanning
+      "FirstInspectionCardScan": {
+        "Tips_1": "Current transfer card does not exist",
+        "Tips_2": "Current transfer card has been scrapped"
+      },
+      // Workshop Initial Inspection - Machine Scanning
+      "FirstInspectionMachineScan": {
+        "Tips_1": "Current transfer card does not exist",
+        "Tips_2": "Current transfer card has been scrapped",
+        "Tips_3": "Query parameters cannot be empty",
+        "Tips_4": "Inspection items are empty, please maintain inspection items"
+      },
+      // Workshop Initial Inspection - Save
+      "FirstInspectionSave": {
+        "Tips_1": "Judgment result cannot be empty",
+        "Tips_2": "Current transfer card does not exist",
+        "Tips_3": "Current transfer card has been scrapped",
+        "Tips_4": "Machine cannot be empty",
+        "Tips_5": "Machine does not exist",
+        "Data_1": "Production module"
+      },
+      // Workshop Initial Inspection - Query
+      "FirstInspectionQuery": {},
+      // Quality Initial Inspection - Query
+      "FirstInspectionConfirmQuery": {},
+      // Quality Initial Inspection - Get Transfer History Data by Transfer Card
+      "GetprocessList": {
+        "Tips_1": "Please scan the transfer card",
+        "Tips_2": "No processes related to this transfer card in the transfer history!"
+      },
+      // Quality Initial Inspection - Machine Scanning
+      "FirstInspectionConfirmMachieScan": {
+        "Tips_1": "Current transfer card not in quality initial inspection task",
+        "Tips_2": "No inspection items found"
+      },
+      // Quality Initial Inspection - Save
+      "FirstInspectionConfirmSave": {
+        "Tips_1": "Current transfer card not in quality initial inspection task",
+        "Tips_2": "No inspection items found",
+        "Data_1": "Production module"
+      },
+      // Workshop Initial Inspection - Query Inspection Results
+      "FirstInspectionQueryResult": {},
+      // Workshop Initial Inspection - Final Judgment Save
+      "FirstInspectionLastSave": {},
+      // Production Initial Inspection - Quality Recheck (Entry Interface)
+      "FirstInspectionReCheck": {},
+      // Production Initial Inspection - Quality Recheck Save
+      "FirstInspectionReCheckSave": {},
+      // Packing Reporting - Transfer Card Scanning
+      "PackingBGCardScan": {
+        "Tips_1": "Transfer card code cannot be empty",
+        "Tips_2": "Current transfer card does not exist",
+        "Tips_3": "Current transfer card has been scrapped",
+        "Tips_4": "Current transfer card is in rework, reporting not allowed",
+        "Tips_5": "Current transfer card is pending rework, reporting not allowed",
+        "Tips_6": "Machine does not exist",
+        "Tips_7": "Please select a machine for packaging process",
+        "Tips_8": "Work order [{0}] process route does not exist",
+        "Tips_9": "Current process not in process route",
+        "Tips_10": "Previous process [{0}] has not been reported",
+        "Tips_11": "Cabinet number does not exist",
+        "Data_1": "Packaging"
+      },
+      // Packing Reporting - Work Team Scanning
+      "PackingBGPTeamScan": {
+        "Tips_1": "Work Team cannot be empty",
+        "Tips_2": "Current Work Team does not exist",
+        "Tips_3": "Current Work Team has no assigned personnel"
+      },
+      // Packing Reporting - Save
+      "PackingBGSave": {
+        "Tips_1": "Cabinet number cannot be empty",
+        "Tips_2": "Reporting quantity cannot be 0",
+        "Tips_3": "Cabinet number does not exist",
+        "Tips_4": "Please transfer out excess product inventory first",
+        "Tips_5": "Current process does not have this Work Team",
+        "Tips_6": "Work order [{0}] BOM does not exist",
+        "Tips_7": "Work order [{0}] process route does not exist",
+        "Tips_8": "Current process not in process route and reporting not allowed",
+        "Tips_9": "Current process is in process route but reporting not allowed",
+        "Tips_10": "Current process has not started, reporting not allowed",
+        "Tips_11": "Transfer card not initial inspected, reporting not allowed",
+        "Tips_12": "Material [{0}{1}] has no machine loading record",
+        "Tips_13": "Material [{0}{1}], Batch [{2}] has no available inventory",
+        "Tips_14": "Material [{0}{1}] has no available inventory",
+        "Tips_15": "Transfer card history not found",
+        "Tips_16": "Allowed over-transfer card quantity reporting percentage attribute cannot be empty",
+        "Tips_17": "Reporting quantity cannot exceed {0}",
+        "Tips_18": "Current Work Team has no assigned personnel",
+        "Tips_19": "Reporting quantity exceeds ordered quantity",
+        "Tips_20": "Defective quantity cannot be empty or 0",
+        "Tips_21": "[{0}] machine batch remaining inventory is insufficient, reporting quantity cannot exceed {1}{2}",
+        "Tips_22": "Product packaging pallet quantity cannot be empty or 0",
+        "Tips_23": "Packaging single box plank quantity has no value",
+        "Tips_24": "Packaging single box quantity has no value",
+        "Tips_25": "Exceeds ordered quantity"
+      },
+      // Packing Reporting - Query
+      "PackingBGQuery": {},
+      // Scan - Transfer Card/Label
+      "CodeBarScan": {
+        "Tips_1": "Barcode cannot be empty",
+        "Tips_2": "Barcode is invalid"
+      },
+      // Check
+      "GetUserBGRecord": {
+        "Tips_1": "User cannot be empty"
+      },
+      // Single Pallet Start - Machine Scanning
+      "PerPalletStartMachineScan": {
+        "Tips_1": "Machine cannot be empty",
+        "Tips_2": "Machine does not exist"
+      },
+      // Single Pallet Start - Transfer Card Scanning
+      "PerPalletStartCardScan": {
+        "Tips_1": "Transfer card code cannot be empty",
+        "Tips_2": "Current transfer card does not exist",
+        "Tips_3": "Current transfer card has been scrapped",
+        "Tips_4": "Work order has been frozen",
+        "Tips_5": "Transfer card process [{0}] has not been reported!",
+        "Tips_6": "Still in curing period, start not allowed",
+        "Tips_7": "Already started, duplicate start not allowed",
+        "Tips_8": "Operation process [{0}] not in process route!",
+        "Tips_9": "Process attribute does not exist",
+        "Tips_10": "Operation process [{0}] does not require start!",
+        "Tips_11": "Operation process [{0}] does not allow single pallet start!",
+        "Tips_12": "Cross-process operations not allowed"
+      },
+      // Single Pallet Start - Save
+      "PerPalletStartSave": {
+        "Tips_1": "Selected transfer card is not in the same process"
+      },
+      // Sorting Reporting - Production Machine Scanning
+      "SortingBGMachineScan": {
+        "Tips_1": "Production machine cannot be empty",
+        "Tips_2": "Production machine [{0}] does not exist"
+      },
+      // Sorting Reporting - Transfer Card Scanning
+      "SortingBGCardScan": {
+        "Tips_1": "Transfer card code cannot be empty",
+        "Tips_2": "Current transfer card does not exist",
+        "Tips_3": "Current transfer card has been scrapped",
+        "Tips_4": "Current transfer card is in rework",
+        "Tips_5": "Current transfer card has not started transfer, reporting not allowed",
+        "Tips_6": "Current transfer card is in process [{0}], reporting not allowed"
+      },
+      // Sorting Reporting - Work Team Scanning
+      "SortingBGPTeamScan": {
+        "Tips_1": "Work Team cannot be empty",
+        "Tips_2": "Current Work Team does not exist",
+        "Tips_3": "Current Work Team has no assigned personnel"
+      },
+      // Sorting Reporting - Save
+      "SortingBGSave": {
+        "Tips_1": "Reporting quantity cannot be 0",
+        "Tips_2": "Machine does not exist",
+        "Tips_3": "Sorting port does not exist!",
+        "Tips_4": "Work order does not exist",
+        "Tips_5": "Current process does not have this Work Team",
+        "Tips_6": "Transfer card not quality initial inspected, reporting not allowed",
+        "Tips_7": "Work order [{0}] BOM does not exist",
+        "Tips_8": "Work order [{0}] process route does not exist",
+        "Tips_9": "Current process not in process route and reporting not allowed",
+        "Tips_10": "Please transfer out excess product inventory first",
+        "Tips_26": "Process attribute does not exist",
+        "Tips_11": "Current process is in process route but reporting not allowed",
+        "Tips_12": "Current process has not started, reporting not allowed",
+        "Tips_13": "Previous process [{0}] not reported",
+        "Tips_14": "Cross-process operations not allowed",
+        "Tips_15": "Workshop not initial inspected, reporting not allowed",
+        "Tips_16": "Workshop initial inspection not qualified, reporting not allowed",
+        "Tips_17": "Workshop manager not confirmed, reporting not allowed",
+        "Tips_18": "Material [{0}{1}] has no machine loading record",
+        "Tips_19": "Material [{0}{1}], Batch [{2}] has no available inventory",
+        "Tips_20": "Material [{0}{1}] has no available inventory",
+        "Tips_21": "Allowed over-transfer card quantity reporting percentage attribute cannot be empty",
+        "Tips_22": "Reporting quantity cannot exceed {0}",
+        "Tips_23": "Current Work Team has no assigned personnel",
+        "Tips_24": "Defective quantity cannot be 0",
+        "Tips_25": "[{0}] machine batch remaining inventory is insufficient, reporting quantity cannot exceed {1}{2}",
+        "Data_1": "Slabs",
+        "Data_2": "Planks"
+      },
+      // In-Machine Transfer Card Query
+      "InMachineCardQuery": {
+        "Tips_1": "Machine cannot be empty",
+        "Tips_2": "Machine does not exist"
+      },
+      // BOM Query
+      "BOMQuery": {
+        "Tips_1": "Barcode cannot be empty",
+        "Tips_2": "BOM does not exist",
+        "Tips_3": "BOM detail does not exist",
+        "Tips_4": "Barcode is invalid"
+      }
+    }
+  },
+  "Equipment": { // Equipment Management
+    "EquipmentController": {
+      // Scan equipment code to find equipment inspection tasks
+      "GetEquipmentCheckByCode": {
+        "Tips_1": "Please scan the equipment",
+        "Tips_2": "No inspection tasks found"
+      },
+      // Save equipment inspection task
+      "SaveEquipmentTackResult": {
+        "Tips_1": "Equipment [{0}] does not exist!"
+      },
+      // Equipment inspection query
+      "GetDataTableCheckResult": {
+        "Tips_1": "Please select query conditions",
+        "Tips_2": "No inspection records found"
+      },
+      // Equipment maintenance - Get equipment information by equipment code
+      "GetEquipmentManageByCode": {
+        "Tips_1": "Please scan the equipment",
+        "Tips_2": "Current equipment not found"
+      },
+      // Equipment malfunction repair - Save equipment malfunction repair
+      "SaveEquipmentMalfunctionRepair": {
+        "Tips_1": "Equipment [{0}] does not exist!",
+        "Tips_2": "Equipment module"
+      },
+      // Equipment malfunction repair - Get equipment repair records
+      "GetEquipmentMalfunctionRepair": {
+        "Tips_1": "Please select query conditions",
+        "Tips_2": "No repair records found"
+      },
+      // Equipment repair - Save equipment repair records
+      "SaveEquipmentRepairRecord": {
+        "Tips_2": "Equipment module"
+      },
+      // Equipment maintenance - Get equipment maintenance tasks
+      "GetEquipmentMaintainTask": {}
+    },
+    "EP_EquipmentMaintainTaskController": {
+      // Get unmaintained tasks by date range and equipment type
+      "GetEquipmentMaintainTaskByDateAndType": {
+        "Tips_1": "Please select query conditions",
+        "Tips_2": "No maintenance task records found"
+      },
+      // Save form (modify), maintenance items array \ spare parts replacement array
+      "SaveEP_EquipmentMaintainTask": {
+        "Tips_1": "Missing Id parameter!",
+        "Tips_2": "Missing maintenance equipment code!",
+        "Tips_3": "Missing maintenance equipment name!",
+        "Tips_4": "Missing maintenance person code!",
+        "Tips_5": "Missing maintenance person name!",
+        "Tips_6": "Missing maintenance task ID!",
+        "Tips_7": "Missing maintenance task name!",
+        "Tips_8": "Missing maintenance item!",
+        "Tips_9": "Missing spare parts replacement!",
+        "Tips_10": "Missing current login person code!",
+        "Tips_11": "Equipment number cannot be empty!",
+        "Tips_12": "Maintenance task number cannot be empty!",
+        "Tips_13": "Maintenance task executed successfully!",
+        "Data_1!": "Maintained"
+      },
+      // Query maintenance items by maintenance task code
+      "GetEP_EquipmentMaintainDetailList": {
+        "Tips_1": "Please select query conditions",
+        "Tips_2": "No maintenance task item records found"
+      }
+    }
+  },
+  "BaseManage": {
+    "AccountController": {
+      // Get a collection of operator accounts with pagination
+      "GetAccountList": {
+        "Tips_1": "Operation failed, please provide request parameters"
+      }
+    },
+    "BaseDataController": {
+      "Tips_1": "Pagination parameter Pagination cannot be empty!",
+      // Get dictionary list - PDA only
+      "GetList_DataItem_PDA": {},
+      // Get dictionary list sub-details - PDA only
+      "GetList_DataItemByFather_PDA": {},
+      // Query production lines (production line 'product type' is not empty) - PDA only
+      "GetList_Lines_PDA": {},
+      // Query suppliers
+      "GetList_Suppliers": {},
+      // Serial number
+      "GetSerialNo": {
+        "Tips_1": "seqCode parameter cannot be empty!"
+      }
+    },
+    "BaseShiftController": {
+      "Tips_1": "Pagination parameter Pagination cannot be empty!",
+      "Tips_2": "Details data obtained successfully",
+      // Delete data
+      "GetSerialNo": {
+        "Tips_1": "Username cannot be empty!"
+      },
+      // Save form (add, modify)
+      "Save": {
+        "Tips_1": "Username cannot be empty!"
+      }
+    },
+    "BsModelLevelController": {}
+  },
+  "MaterialManage": {
+    "MaterialController": {
+      // Finished product warehousing - mark code scan
+      "ProductInMarkScan": {
+        "Tips_1": "Mark code cannot be empty",
+        "Tips_2": "Current mark information does not exist",
+        "Tips_3": "Current mark is not in warehousing status, cannot perform warehousing operation",
+        "Tips_4": "Mark information on the line side warehouse not found"
+      },
+      // Finished product warehousing - mark code scan
+      "ProductInLocationScan": {},
+      // Finished product warehousing - save
+      "ProductInSave": {
+        "Tips_1": "No data to save"
+      },
+      // Finished product warehousing - record query
+      "ProductInQuery": {},
+      // Finished product dispatch - mark code scan
+      "ProductDispatchMarkScan": {
+        "Tips_1": "Mark code cannot be empty",
+        "Tips_2": "Current mark information does not exist",
+        "Tips_3": "Current mark not in warehousing, cannot dispatch",
+        "Tips_4": "Current mark is invalid, cannot dispatch",
+        "Tips_5": "Current mark has no dispatch order",
+        "Tips_6": "Dispatch order cannot be empty",
+        "Tips_7": "Current mark has been dispatched"
+      },
+      // Finished product dispatch - dispatch details display
+      "ProductDispatchDetailShow": {
+        "Tips_1": "Dispatch order cannot be empty",
+        "Tips_2": "Container number cannot be empty"
+      },
+      // Finished product dispatch - save
+      "ProductDispatchSave": {
+        "Tips_1": "Inventory does not exist",
+        "Tips_2": "Customer model [{0}] has no inventory",
+        "Tips_3": "Customer model [{0}] inventory insufficient",
+        "Data_1": "Material module"
+      },
+      // Finished product dispatch - record query
+      "ProductDispatchQuery": {
+        "Tips_1": "Please enter dispatch order number"
+      },
+      // Finished product dispatch - get order number
+      "ProductDispatchProductOrder": {},
+      // Finished product dispatch - get container number
+      "ProductDispatchContainerNO": {},
+      // Finished product dispatch - get dispatch order details
+      "ProductDispatchInfo": {
+        "Tips_1": "Dispatch order does not exist"
+      },
+      // Semi-finished product move - transfer card scan
+      "SemiProductMoveCardScan": {
+        "Tips_1": "Transfer card code cannot be empty",
+        "Tips_2": "Current transfer card does not exist",
+        "Tips_3": "Current transfer card has been scrapped",
+        "Tips_4": "Current transfer card has no inventory"
+      },
+      // Semi-finished product move - location scan
+      "SemiProductMoveLocationScan": {},
+      // Semi-finished product move - save
+      "SemiProductMoveSave": {
+        "Tips_1": "No data to save",
+        "Tips_2": "Source warehouse has multiple locations, cannot move",
+        "Tips_3": "Source warehouse and target warehouse are inconsistent, cannot move"
+      },
+      // Semi-finished product move - record query
+      "SemiProductMoveQuery": {},
+      // Finished product move - mark code scan
+      "ProductMoveMarkScan": {
+        "Tips_1": "Mark code cannot be empty",
+        "Tips_2": "Current mark information does not exist",
+        "Tips_3": "Current mark not in warehousing",
+        "Tips_4": "Current mark is invalid",
+        "Tips_5": "Current mark has no inventory"
+      },
+      // Finished product move - location scan
+      "ProductMoveLocationScan": {},
+      // Finished product move - save
+      "ProductMoveSave": {
+        "Tips_1": "No data to save",
+        "Tips_2": "Source warehouse has multiple locations, cannot move",
+        "Tips_3": "Source warehouse and target warehouse are inconsistent, cannot move"
+      },
+      // Finished product move - record query
+      "ProductMoveQuery": {},
+      // Mark change - mark code scan
+      "MarkChangeMarkScan": {
+        "Tips_1": "Mark code cannot be empty",
+        "Tips_2": "Current mark information does not exist"
+      },
+      // Mark change - save
+      "MarkChangeSave": {
+        "Tips_1": "New mark cannot be empty",
+        "Tips_2": "New and old mark quantities do not match"
+      },
+      // Mark change - record query
+      "MarkChangeQuery": {},
+      // Create finished product rework order - mark code scan
+      "ProductReWorkMarkScan": {
+        "Tips_1": "Mark code cannot be empty",
+        "Tips_2": "Current mark information does not exist"
+      },
+      // Create finished product rework order - save
+      "ProductReWorkSave": {},
+      // Finished product rework reporting - rework order query
+      "ProductReworkBGOrderQuery": {},
+      // Finished product rework reporting - rework order selection page display
+      "ProductReworkBGShow": {
+        "Tips_1": "Rework order number cannot be empty",
+        "Tips_2": "Current rework order does not exist"
+      },
+      // Finished product rework reporting - Work Team scan
+      "ProductReworkBGPTeamScan": {
+        "Tips_1": "Work Team cannot be empty",
+        "Tips_2": "Current Work Team does not exist",
+        "Tips_3": "Current Work Team has no assigned personnel"
+      },
+      // Finished product rework reporting - save
+      "ProductReworkBGSave": {
+        "Tips_1": "This Work Team does not exist"
+      },
+      // Finished product rework reporting - query
+      "ProductReworkBGQuery": {}
+    }
+  },
+  "QualityManage": {
+    "QualityController": {
+      // Scan transfer card to get information
+      "GetQCTransferCardEntity": {
+        "Tips_1": "Please scan the transfer card",
+        "Tips_2": "Transfer card has been scrapped!",
+        "Tips_3": "Material [{0}] has no material group",
+        "Tips_4": "Current transfer card does not exist"
+      },
+      // Get transfer history table data based on transfer card
+      "GetprocessList": {
+        "Tips_1": "Please scan the transfer card",
+        "Tips_2": "No processes related to this transfer card!"
+      },
+      // Get test methods
+      "GetQCTestMethodList": {
+        "Tips_1": "Test method is empty, please maintain test methods"
+      },
+      // Get test items
+      "GetQCTestItemList": {
+        "Tips_1": "Test method is empty, please maintain test methods"
+      },
+      // Scan transfer card to get information
+      "SaveQCTestItemForm": {
+        "Tips_1": "Test method does not exist",
+        "Tips_2": "Machine did not get value, please rescan",
+        "Data_1": "Quality module"
+      },
+      // Test record query
+      "GetQCTestRecordList": {},
+      // Test record query
+      "GetQCTestResultRecordList": {},
+      // Inspection quality determination
+      "SavePollingDetailForm": {
+        "Tips_1": "This test record does not exist"
+      },
+      // OQC query order information by mark number
+      "GetOrderByTransferCode": {
+        "Tips_1": "No relevant mark order information found"
+      },
+      // OQC get test items by test method
+      "GetOQCCheckConfigItem": {
+        "Tips_1": "No test items obtained"
+      },
+      // OQC save - test record
+      "SaveOQCCheckConfigForm": {
+        "Tips_1": "Mark does not exist",
+        "Data_1": "Quality module"
+      },
+      // OQC test record query
+      "GetOQCQualityCheckRecord": {},
+      // OQC finished product inspection order batching
+      "SaveOQCQualityChecInspectNo": {},
+      // OQC finished product inspection item record
+      "GetOQCQualityCheckItemRecord": {},
+      // OQC finished product inspection quality determination
+      "SaveOQCQualityCheckResult": {}
+    }
+  }
+}

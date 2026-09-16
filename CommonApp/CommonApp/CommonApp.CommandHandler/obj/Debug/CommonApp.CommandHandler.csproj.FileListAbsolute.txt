@@ -1,0 +1,6 @@
+D:\New folder\CommonApp\CommonApp\CommonApp.CommandHandler\bin\Debug\CCS.CommonApp.CommandHandler.dll
+D:\New folder\CommonApp\CommonApp\CommonApp.CommandHandler\bin\Debug\CCS.CommonApp.CommandHandler.pdb
+D:\New folder\CommonApp\CommonApp\CommonApp.CommandHandler\obj\Debug\CommonApp.CommandHandler.csprojAssemblyReference.cache
+D:\New folder\CommonApp\CommonApp\CommonApp.CommandHandler\obj\Debug\CommonApp.CommandHandler.csproj.CoreCompileInputs.cache
+D:\New folder\CommonApp\CommonApp\CommonApp.CommandHandler\obj\Debug\CCS.CommonApp.CommandHandler.dll
+D:\New folder\CommonApp\CommonApp\CommonApp.CommandHandler\obj\Debug\CCS.CommonApp.CommandHandler.pdb

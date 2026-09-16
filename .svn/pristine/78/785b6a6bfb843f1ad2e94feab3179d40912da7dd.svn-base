@@ -1,0 +1,59 @@
+﻿<div class="command-bar-side-panel">
+    <button ng-click="vm.cancel()" class="btn side-panel-button">关闭</button>
+</div>
+<div class="side-panel-property-area-body">
+    <sit-property-grid sit-id="edit_form"
+                       sit-layout="Horizontal"
+                       sit-type="Fixed"
+                       sit-mode="edit"
+                       sit-columns="3">
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.ProductOrder" sit-validation="{required: false}"
+                      sit-read-only="true">订单号:</sit-property>
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.CustomerPO" sit-validation="{required: false}"
+                      sit-read-only="true">PO号:</sit-property>
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.MaterialCode" sit-validation="{required: false}"
+                      sit-read-only="true">客户型号:</sit-property>
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.MMXH" sit-validation="{required: false}"
+                      sit-read-only="true">面膜型号:</sit-property>
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.MMCJ" sit-validation="{required: false}"
+                      sit-read-only="true">面膜厂家:</sit-property>
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.Spec" sit-validation="{required: false}"
+                      sit-read-only="true">规格型号:</sit-property>
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.BWXH" sit-validation="{required: false}"
+                      sit-read-only="true">压纹:</sit-property>
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.OrderPieces" sit-validation="{required: false}"
+                      sit-read-only="true">总片数:</sit-property>
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.OrderBox" sit-validation="{required: false}"
+                      sit-read-only="true">盒数:</sit-property>
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.FactoryName" sit-validation="{required: false}"
+                      sit-read-only="true">工厂:</sit-property>
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.OrderStartPallet" sit-validation="{required: false}"
+                      sit-read-only="true">托盘编码:</sit-property>
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.OrderPallet" sit-validation="{required: false}"
+                      sit-read-only="true">托盘数量:</sit-property>
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.ContainerNO" sit-validation="{required: false}"
+                      sit-read-only="true">柜号:</sit-property>
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.UV" sit-validation="{required: false}"
+                      sit-read-only="true">UV:</sit-property>
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.KCKX" sit-validation="{required: false}"
+                      sit-read-only="true">扣型:</sit-property>
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.DeliveryDate" sit-validation="{required: false}"
+                      sit-read-only="true">交货日期:</sit-property>
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.OrderDate" sit-validation="{required: false}"
+                      sit-read-only="true">接单日期:</sit-property>
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.XL" sit-validation="{required: false}"
+                      sit-read-only="true">系列:</sit-property>
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.SmallClassName" sit-validation="{required: false}"
+                      sit-read-only="true">规格:</sit-property>
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.DXZH" sit-validation="{required: false}"
+                      sit-read-only="true">大小张转换:</sit-property>
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.Size" sit-validation="{required: false}"
+                      sit-read-only="true">尺寸:</sit-property>
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.ActualSheets" sit-validation="{required: false}"
+                      sit-read-only="true">生产大张数:</sit-property>
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.JCGG" sit-validation="{required: false}"
+                      sit-read-only="true">挤出规格:</sit-property>
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.TPGG" sit-validation="{required: false}"
+                      sit-read-only="true">包装托盘规格:</sit-property>
+    </sit-property-grid>
+</div>

@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Items>
+  <Solution Id="448450b5-6b52-ec11-9663-c14b9740f55b">
+    <Version></Version>
+    <Build>222</Build>
+    <Name>MES</Name>
+    <IsDataSegregationEnabled>false</IsDataSegregationEnabled>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Solution>
+</Items>

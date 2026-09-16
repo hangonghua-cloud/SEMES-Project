@@ -1,0 +1,40 @@
+﻿<!--
+    0.代码生成: UA主子表一键生成前后端html、JS、API接口代码生成器 Ver 1.11 更新日期：2021-07-14  设计者：刘万军
+    1.功能描述: 报工不良项目配置
+    2.创建人员: admin
+    3.创建日期: 2021-08-10
+    4.修改人员:
+    5.修改日期:
+-->
+<style>
+    .row {
+        padding: 5px;
+        margin-top: 10px;
+    }
+</style>
+<div class="command-bar-side-panel">
+    <button ng-click="vm.cancel()" class="btn side-panel-button">{{'Siemens.SimaticIT.ProductionApp.ProcessBad.add.Tips_1'|translate}}</button>
+    <button ng-click="vm.save()" class="btn side-panel-button">{{'Siemens.SimaticIT.ProductionApp.ProcessBad.add.Tips_2'|translate}}</button>
+</div>
+<div class="side-panel-property-area-body">
+    <sit-property-grid sit-id="add_form"
+                       sit-layout="Vertical"
+                       sit-type="Fluid"
+                       sit-mode="edit"
+                       sit-columns="1">
+        <sit-property-grid sit-id="view_form" sit-layout="Horizontal" sit-type="Fixed" sit-mode="edit" sit-columns="1" style="margin-left: 4px;">
+            <sit-property sit-widget="sit-select" sit-value="vm.Factory.value" sit-validation="{required: true}" sit-options="vm.Factory.options"
+                          sit-to-display="'ResourceName'" sit-to-keep="'ResourceCode'" sit-read-only="false" sit-change="vm.FactoryChange">{{'Siemens.SimaticIT.ProductionApp.ProcessBad.add.Tips_3'|translate}}</sit-property>
+            <sit-property sit-widget="sit-select" sit-value="vm.Process.value" sit-validation="{required: true}" sit-options="vm.Process.options"
+                          sit-to-display="'ResourceName'" sit-to-keep="'ResourceCode'" sit-read-only="false">{{'Siemens.SimaticIT.ProductionApp.ProcessBad.add.Tips_4'|translate}}</sit-property>
+            <!--<sit-property sit-widget="sit-text" sit-value="vm.currentItem.Creator" sit-validation="{required: true}"
+                          sit-read-only="false">{{'Siemens.SimaticIT.ProductionApp.ProcessBad.add.Tips_5'|translate}}</sit-property>
+            <sit-property sit-widget="sit-datepicker" sit-value="vm.currentItem.CreateTime" sit-validation="{required: true}"
+                          sit-widget-attributes="{'sit-format':'yyyy-MM-dd','sit-show-meridian':'false'}" sit-read-only="false">{{'Siemens.SimaticIT.ProductionApp.ProcessBad.add.Tips_6'|translate}}</sit-property>
+            <sit-property sit-widget="sit-text" sit-value="vm.currentItem.ModifyBy" sit-validation="{required: true}"
+                          sit-read-only="false">{{'Siemens.SimaticIT.ProductionApp.ProcessBad.add.Tips_7'|translate}}</sit-property>
+            <sit-property sit-widget="sit-datepicker" sit-value="vm.currentItem.ModifyTime" sit-validation="{required: true}"
+                          sit-widget-attributes="{'sit-format':'yyyy-MM-dd','sit-show-meridian':'false'}" sit-read-only="false">{{'Siemens.SimaticIT.ProductionApp.ProcessBad.add.Tips_8'|translate}}</sit-property>-->
+        </sit-property-grid>
+    </sit-property-grid>
+</div>

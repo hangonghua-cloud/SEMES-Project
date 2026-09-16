@@ -1,0 +1,665 @@
+﻿(function () {
+    'use strict';
+    angular.module('Siemens.SimaticIT.ProductionApp.FormulaManage').config(AddScreenStateConfig);
+
+    AddScreenController.$inject = ['Siemens.SimaticIT.ProductionApp.FormulaManage.FormulaBG.service', '$state', '$stateParams',
+        'common.base', '$filter', '$scope', 'commonService', 'common.services.authentication', 'common.widgets.notificationTile.globalService',
+        'common.widgets.busyIndicator.service', '$uibModal'];
+    function AddScreenController(dataService, $state, $stateParams, common, $filter, $scope, commonService, auth, notificationService, busyIndicatorService, $modal) {
+        var self = this;
+        var sidePanelManager, backendService, propertyGridHandler;
+
+        activate();
+        function activate() {
+            init();
+            initGridDataDetail();
+            initGridData2Detail();
+            initGridData();
+
+            registerEvents();
+
+            sidePanelManager.setTitle(self.currentItem.SmallClassName + commonService.$t('Siemens.SimaticIT.ProductionApp.FormulaBG.addJS.Tips_1'));
+            sidePanelManager.open({
+                mode: "e",
+                size: "wide"
+            });
+        }
+
+        function init() {
+            sidePanelManager = common.services.sidePanel.service;
+            backendService = common.services.runtime.backendService;
+
+            //Initialize Model Data
+            self.currentItem = angular.copy($stateParams.selectedItem);
+            self.FormulaTime = new Date();
+
+            if (self.currentItem.SmallClass == "XLPF") {
+                self.currentItem.ProcessCode = "FHXL"
+            } else {
+                self.currentItem.ProcessCode = "FHWL"
+            }
+
+            self.validInputs = false;
+            self.isDetailButtonVisible = false;
+            self.selectedItemDetail = null;
+            self.isreadonly = true;
+
+            self.validInputs2 = false;
+            self.is2DetailButtonVisible = false;
+            self.selectedItem2Detail = null;
+
+            initDictionary();
+            //Expose Model Methods
+            self.save = save;
+            self.cancel = cancel;
+            self.userGroupChange = userGroupChange;
+            self.add = addForm;
+            self.delete = deleteForm;
+            self.formulachange = formulachange;
+            self.selectClick = selectClick;
+        }
+        function initDictionary() {
+
+            self.typeMachine = {
+                value: { ResourceName: commonService.$t('Siemens.SimaticIT.ProductionApp.FormulaBG.addJS.Tips_2'), ResourceCode: "" },
+                options: [{ ResourceName: commonService.$t('Siemens.SimaticIT.ProductionApp.FormulaBG.addJS.Tips_2'), ResourceCode: "" }]
+            };
+            self.typeUserGroup = {
+                value: { PTeamName: commonService.$t('Siemens.SimaticIT.ProductionApp.FormulaBG.addJS.Tips_2'), PTeamCode: "" },
+                options: [{ PTeamName: commonService.$t('Siemens.SimaticIT.ProductionApp.FormulaBG.addJS.Tips_2'), PTeamCode: "" }]
+            }
+
+            self.typeBatchNo = {
+                value: { ItemName: commonService.$t('Siemens.SimaticIT.ProductionApp.FormulaBG.addJS.Tips_2'), ItemValue: "" },
+                options: [{ ItemName: commonService.$t('Siemens.SimaticIT.ProductionApp.FormulaBG.addJS.Tips_2'), ItemValue: "" }]
+            }
+            // self.typeShift = {
+            //     value: { ItemName: commonService.$t('Siemens.SimaticIT.ProductionApp.FormulaBG.addJS.Tips_2'), ItemValue: "" },
+            //     options: [{ ItemName: commonService.$t('Siemens.SimaticIT.ProductionApp.FormulaBG.addJS.Tips_2'), ItemValue: "" }]
+            // }
+            // commonService.getResourceExtendInfo({ LevelCode: "Factory" }).then(function (res) {
+            //     if (res && res.data.success) {
+            //         self.Factory.options = res.data.resultData;
+            //         self.Factory.options.splice(0, 0, {
+            //             ResourceCode: "",
+            //             ResourceName: commonService.$t('Siemens.SimaticIT.ProductionApp.FormulaBG.addJS.Tips_2')
+            //         });
+            //     }
+            // });
+            // commonService.getDataItemDuatil("Shift").then(function (res) {
+            //     if (res && res.data.success) {
+            //         self.typeShift.options = res.data.resultData;
+            //         self.typeShift.value = self.typeShift.options.find(t => t.ItemValue == self.currentItem.Team);
+            //     }
+            // })
+            //FHWL：喂料， FHXL：小料
+
+            var url2 = commonService.getMesApiAddress("ProduceManage") + "PM_TeamPerson/GetPM_TeamPersonList?ProcessCode=" + self.currentItem.ProcessCode;
+            commonService.callWebApiGet(url2, null).then(function (res) {
+                if (res && res.data.success) {
+                    self.typeUserGroup.options = res.data.resultData;
+                    self.typeUserGroup.options.splice('0', '0', {
+                        PTeamCode: "",
+                        PTeamName: commonService.$t('Siemens.SimaticIT.ProductionApp.FormulaBG.addJS.Tips_2')
+                    });
+                }
+            })
+            let postData = {
+                LevelCode: "Machine",
+                FieldCode: "CXZL",
+                FieldValue: self.currentItem.SmallClass == "XLPF" ? "4" : "5",
+                Describe: self.currentItem.FactoryCode
+            }
+            commonService.get_ResourceExtendByLevelField(postData).then(function (res) {
+                if (res && res.data.success) {
+                    self.typeMachine.options = res.data.resultData;
+                    self.typeMachine.options.splice(0, 0, {
+                        ResourceCode: "",
+                        ResourceName: commonService.$t('Siemens.SimaticIT.ProductionApp.FormulaBG.addJS.Tips_2')
+                    });
+                }
+            });
+        }
+
+        //组管理人员
+        function userGroupChange(oldval, newval) {
+            self.currentItem.UserName = "";
+            if (!!newval && newval.PTeamCode != "") {
+                let queryParmeters = {
+                    queryJson: {
+                        PTeamCode: newval.PTeamCode
+                    }
+                };
+                var url = commonService.getMesApiAddress("ProduceManage") + 'PM_TeamPerson_Items/PM_TeamPerson_ItemsPageDataTableList';
+                commonService.callWebApiPost(url, queryParmeters).then(function (res) {
+                    if ((res) && (res.data.success)) {
+                        var rows = res.data.resultData.rows;
+                        var str = "";
+                        rows.forEach((item, index) => {
+                            str += item.UserName + ","
+                        })
+                        self.currentItem.UserName = str;
+                    } else {
+                        self.currentItem.UserName = "";
+                    }
+                }, function (error) {
+                    backendService.genericError('获取数据出错', commonService.$t('Siemens.SimaticIT.ProductionApp.FormulaBG.addJS.Tips_3'));
+                });
+            }
+        }
+        //选择人员
+        function selectClick() {
+            var modalInstance = commonService.openModel({
+                templateUrl: 'CCS.CommonApp/modules/CommonUI/SelectMaterialModal.html',
+                controller: 'CCS.CommonApp.CommonUI.SelectMaterialModal',
+                controllerAs: 'vm',
+                size: 'lg',
+                resolve: {
+                    data: function () {
+                        return {
+                            url: commonService.getMesApiAddress() + 'Base/GetListUser',
+                            method: "Post",
+                            queryParmeters: {
+                                Name: "",
+                            },
+                            pagination: {
+                                rows: 80,//每页显示条数
+                                page: 1,//页码
+                            },
+                            multiple: true,
+                            sidx: "Code",
+                            sord: "asc",
+                            columnDefs: [
+                                {
+                                    field: 'Code',
+                                    displayName: commonService.$t('Siemens.SimaticIT.ProductionApp.FormulaBG.addJS.Tips_4'),
+                                    width: 200
+                                },
+                                {
+                                    field: 'Name',
+                                    displayName: commonService.$t('Siemens.SimaticIT.ProductionApp.FormulaBG.addJS.Tips_5'),
+                                    width: 200
+                                },
+                                {
+                                    field: 'DeptName',
+                                    displayName: commonService.$t('Siemens.SimaticIT.ProductionApp.FormulaBG.addJS.Tips_6'),
+                                    width: 300
+                                },
+                            ],
+                        };
+                    }
+                }
+            });
+            modalInstance.result.then(function (data) {
+                self.currentItem.UserCode = "";
+                self.currentItem.UserNames = "";
+                data.forEach(item => {
+                    self.currentItem.UserCode += item.Code + ",";
+                    self.currentItem.UserNames += item.Name + ",";
+                })
+                self.currentItem.UserNames = self.currentItem.UserNames.substring(0, self.currentItem.UserNames.length - 1);
+            });
+        }
+
+        function initGridDataDetail() {
+            self.gridOptionsItem1 = {
+                fastWatch: true,
+                rowHeight: 35,
+                minimumColumnSize: 100,
+                enableMultiSelection: false,
+                enableFiltering: false,
+                //基础属性
+                enableSorting: true,//是否支持排序(列)
+                useExternalSorting: false,//是否支持自定义的排序规则
+                enableGridMenu: false,//是否显示表格 菜单
+                showGridFooter: false,//时候显示表格的footer
+                enableHorizontalScrollbar: 1,//表格的水平滚动条
+                enableVerticalScrollbar: 1,//表格的垂直滚动条 (两个都是 1-显示,0-不显示)
+                selectionRowHeaderWidth: 30,
+                enableCellEditOnFocus: false,//default为false,true的时候单击即可打开编辑(cellEdit为true的时候,需要引入'ui.grid.cellNav')
+                //分页属性
+                enablePagination: true, //是否分页,default为true
+                enablePaginationControls: true, //使用默认的底部分页
+                paginationPageSizes: [100, 300, 500, 1000], //每页显示个数选项
+                paginationPageSize: 300, //每页显示个数
+                paginationCurrentPage: 1, //当前的页码  
+                totalItems: 0, // 总数量
+                useExternalPagination: true,//是否使用分页按钮
+                //选中
+                rowTemplate: " <div ng-dblclick =\"grid.appScope.onDblClick(row)\" ng-repeat=\"(colRenderIndex, col) in colContainer.renderedColumns track by col.colDef.name\" class=\"ui-grid-cell\" ng-class=\"{ 'ui-grid-row-header-cell': col.isRowHeader }\" ui-grid-cell></div>",//双击行事件
+                enableFooterTotalSelected: true, // 是否显示选中的总数,default为true,如果显示,showGridFooter 必须为true
+                enableFullRowSelection: true, //是否点击行任意位置后选中,default为false,当为true时,checkbox可以显示但是不可选中
+                enableRowHeaderSelection: true, //是否显示选中checkbox框 ,default为true
+                enableRowSelection: false, // 行选择是否可用,default为true;
+                enableSelectAll: false, // 选择所有checkbox是否可用，default为true; 
+                enableSelectionBatchEvent: true, //default为true
+                modifierKeysToMultiSelect: false,//default为false,为true时只能按ctrl或shift键进行多选,这个时候multiSelect必须为true;
+                multiSelect: false,// 是否可以选择多个,默认为true;
+                noUnselect: false,//default为false,选中后是否可以取消选中
+                appScopeProvider: self,
+                columnDefs: [
+                    {
+                        name: 'rowNum', displayName: commonService.$t('Siemens.SimaticIT.ProductionApp.FormulaBG.addJS.Tips_7'), width: 80, enableSorting: false, cellTemplate:
+                            '<div class="ui-grid-cell-contents">{{grid.renderContainers.body.visibleRowCache.indexOf(row) + 1}}</div>'
+                    },
+
+                    {
+                        field: 'MaterialName',
+                        displayName: commonService.$t('Siemens.SimaticIT.ProductionApp.FormulaBG.addJS.Tips_8'),
+                        width: 160
+                    },
+                    {
+                        field: 'Spec',
+                        displayName: '规格',
+                        width: 160
+                    },
+                    {
+                        field: 'Num',
+                        displayName: commonService.$t('Siemens.SimaticIT.ProductionApp.FormulaBG.addJS.Tips_9'),
+                        width: 160
+                    },
+                    {
+                        field: 'UnitName',
+                        displayName: commonService.$t('Siemens.SimaticIT.ProductionApp.FormulaBG.addJS.Tips_10'),
+                        width: 160
+                    },
+                    {
+                        field: 'TheoryQty',
+                        displayName: commonService.$t('Siemens.SimaticIT.ProductionApp.FormulaBG.addJS.Tips_11'),
+                        width: 160
+                    },
+                    {
+                        field: 'ActQty',
+                        displayName: commonService.$t('Siemens.SimaticIT.ProductionApp.FormulaBG.addJS.Tips_12'),
+                        width: 160
+                    },
+                    // {
+                    //     field: 'IsUsed',
+                    //     displayName: commonService.$t('Siemens.SimaticIT.ProductionApp.FormulaBG.addJS.Tips_13'),
+                    //     width: 160
+                    // },
+
+                ],
+                //---------------api---------------------
+                onRegisterApi: function (gridApi) {
+                    $scope.gridApiDetail = gridApi;
+
+                    //行选中事件
+                    $scope.gridApiDetail.selection.on.rowSelectionChanged($scope, function (row, event) {
+                        if (row) {
+                            if (row.isSelected) {
+                                self.selectedItemDetail = row.entity;
+                                if (row.entity.ActQty)
+                                    self.currentItem.Qty = parseFloat(row.entity.TheoryQty - row.entity.ActQty);
+                                else
+                                    self.currentItem.Qty = parseFloat(row.entity.TheoryQty);
+
+                                self.isDetailButtonVisible = true;
+                                //console.log (self.selectedItemDetail);
+                                //子表明细关联
+                                //initGridDataDetail();
+                                if (!self.currentItem.FormulaNum)
+                                    self.isreadonly = false;
+
+                            } else {
+                                self.selectedItemDetail = null;
+                                self.isDetailButtonVisible = false;
+                                self.isreadonly = true;
+                            }
+                            initBatchNo();
+                        }
+                    });
+                },
+                data: []
+            }
+        }
+
+        function initGridData() {
+            let queryParmeters = {
+                queryJson: {
+                    BOMId: self.currentItem.Id
+                }
+            };
+            var url = commonService.getMesApiAddress("material") + 'BS_BOMItems/BS_BOMItemsPageDataTableList';
+            commonService.callWebApiPost(url, queryParmeters).then(function (res) {
+                if ((res) && (res.data.success)) {
+                    ;
+                    self.gridOptionsItem1.data = res.data.resultData.rows;
+                } else {
+                    self.gridOptionsItem1.data = [];
+                }
+            }, function (error) {
+                backendService.genericError('获取数据出错', commonService.$t('Siemens.SimaticIT.ProductionApp.FormulaBG.addJS.Tips_3'));
+            });
+        }
+        function initGridData2Detail() {
+            self.gridOptionsItem2 = {
+                fastWatch: true,
+                rowHeight: 35,
+                minimumColumnSize: 100,
+                enableMultiSelection: false,
+                enableFiltering: false,
+                //基础属性
+                enableSorting: true,//是否支持排序(列)
+                useExternalSorting: false,//是否支持自定义的排序规则
+                enableGridMenu: false,//是否显示表格 菜单
+                showGridFooter: false,//时候显示表格的footer
+                enableHorizontalScrollbar: 1,//表格的水平滚动条
+                enableVerticalScrollbar: 1,//表格的垂直滚动条 (两个都是 1-显示,0-不显示)
+                selectionRowHeaderWidth: 30,
+                enableCellEditOnFocus: false,//default为false,true的时候单击即可打开编辑(cellEdit为true的时候,需要引入'ui.grid.cellNav')
+                //分页属性
+                enablePagination: true, //是否分页,default为true
+                enablePaginationControls: true, //使用默认的底部分页
+                paginationPageSizes: [100, 300, 500, 1000], //每页显示个数选项
+                paginationPageSize: 300, //每页显示个数
+                paginationCurrentPage: 1, //当前的页码  
+                totalItems: 0, // 总数量
+                useExternalPagination: true,//是否使用分页按钮
+                //选中
+                rowTemplate: " <div ng-dblclick =\"grid.appScope.onDblClick(row)\" ng-repeat=\"(colRenderIndex, col) in colContainer.renderedColumns track by col.colDef.name\" class=\"ui-grid-cell\" ng-class=\"{ 'ui-grid-row-header-cell': col.isRowHeader }\" ui-grid-cell></div>",//双击行事件
+                enableFooterTotalSelected: true, // 是否显示选中的总数,default为true,如果显示,showGridFooter 必须为true
+                enableFullRowSelection: true, //是否点击行任意位置后选中,default为false,当为true时,checkbox可以显示但是不可选中
+                enableRowHeaderSelection: true, //是否显示选中checkbox框 ,default为true
+                enableRowSelection: false, // 行选择是否可用,default为true;
+                enableSelectAll: false, // 选择所有checkbox是否可用，default为true; 
+                enableSelectionBatchEvent: true, //default为true
+                modifierKeysToMultiSelect: false,//default为false,为true时只能按ctrl或shift键进行多选,这个时候multiSelect必须为true;
+                multiSelect: false,// 是否可以选择多个,默认为true;
+                noUnselect: false,//default为false,选中后是否可以取消选中
+                appScopeProvider: self,
+                columnDefs: [
+                    {
+                        name: 'rowNum', displayName: commonService.$t('Siemens.SimaticIT.ProductionApp.FormulaBG.addJS.Tips_7'), width: 80, enableSorting: false, cellTemplate:
+                            '<div class="ui-grid-cell-contents">{{grid.renderContainers.body.visibleRowCache.indexOf(row) + 1}}</div>'
+                    },
+
+                    {
+                        field: 'MaterialName',
+                        displayName: commonService.$t('Siemens.SimaticIT.ProductionApp.FormulaBG.addJS.Tips_8'),
+                        width: 240
+                    },
+
+                    {
+                        field: 'BatchNo',
+                        displayName: commonService.$t('Siemens.SimaticIT.ProductionApp.FormulaBG.addJS.Tips_14'),
+                        width: 240
+                    },
+                    {
+                        field: 'ActQty',
+                        displayName: commonService.$t('Siemens.SimaticIT.ProductionApp.FormulaBG.addJS.Tips_15'),
+                        width: 240
+                    },
+                ],
+                //---------------api---------------------
+                onRegisterApi: function (gridApi) {
+                    $scope.gridApiDetail = gridApi;
+
+                    //行选中事件
+                    $scope.gridApiDetail.selection.on.rowSelectionChanged($scope, function (row, event) {
+                        if (row) {
+                            if (row.isSelected) {
+                                self.selectedItem2Detail = row.entity;
+                                self.is2DetailButtonVisible = true;
+                                //console.log (self.selectedItemDetail);
+                                //子表明细关联
+                                //initGridDataDetail();
+                            } else {
+                                self.selectedItem2Detail = null;
+                                self.is2DetailButtonVisible = false;
+                            }
+                        }
+                    });
+                },
+                data: []
+            }
+        }
+
+        function initBatchNo() {
+
+            self.typeBatchNo = {
+                value: { ItemName: commonService.$t('Siemens.SimaticIT.ProductionApp.FormulaBG.addJS.Tips_2'), ItemValue: "" },
+                options: [{ ItemName: commonService.$t('Siemens.SimaticIT.ProductionApp.FormulaBG.addJS.Tips_2'), ItemValue: "" }]
+            }
+            //获取物料批次
+            if (!!self.selectedItemDetail && self.selectedItemDetail.IsUsed) {
+                let materialCode = self.selectedItemDetail.MaterialCode;
+                let whsCode = self.selectedItemDetail.Warehouse;
+
+                var url = commonService.getMesApiAddress("material") + 'MM_RawMaterialStock/GetWeiLiaoBatchNo?materialCode=' + materialCode + '&whsCode=' + whsCode;
+                commonService.callWebApiGet(url, null).then(function (res) {
+                    if ((res) && (res.data.success)) {
+                        res.data.resultData.forEach(item => {
+                            self.typeBatchNo.options.push({
+                                ItemValue: item.BatchNo,
+                                ItemName: item.BatchNoQty,
+                            });
+                        });
+
+                    } else {
+                        self.typeBatchNo = {
+                            value: { ItemName: commonService.$t('Siemens.SimaticIT.ProductionApp.FormulaBG.addJS.Tips_2'), ItemValue: "" },
+                            options: [{ ItemName: commonService.$t('Siemens.SimaticIT.ProductionApp.FormulaBG.addJS.Tips_2'), ItemValue: "" }]
+                        }
+                    }
+                }, function (error) {
+                    backendService.genericError('获取数据出错', commonService.$t('Siemens.SimaticIT.ProductionApp.FormulaBG.addJS.Tips_3'));
+                });
+
+            } else {
+                self.typeBatchNo = {
+                    value: { ItemName: commonService.$t('Siemens.SimaticIT.ProductionApp.FormulaBG.addJS.Tips_2'), ItemValue: "" },
+                    options: [{ ItemName: commonService.$t('Siemens.SimaticIT.ProductionApp.FormulaBG.addJS.Tips_2'), ItemValue: "" }]
+                }
+            }
+        }
+
+        function formulachange(oldval, newval) {
+            self.gridOptionsItem1.data.forEach(item => {
+                item.TheoryQty = (item.Num * newval).toFixed(2);
+            })
+            if (!isNaN(self.selectedItemDetail.TheoryQty)) {
+                self.currentItem.Qty = parseFloat(parseFloat(self.selectedItemDetail.TheoryQty).toFixed(2));
+            }
+
+        }
+
+        function addForm() {
+
+            if (!self.currentItem.FormulaNum) {
+                backendService.genericError(commonService.$t('Siemens.SimaticIT.ProductionApp.FormulaBG.addJS.Tips_16'), commonService.$t('Siemens.SimaticIT.ProductionApp.FormulaBG.addJS.Tips_17'));
+                return
+            }
+            self.is2DetailButtonVisible = false;
+            self.isreadonly = true;
+            if (!!self.selectedItemDetail) {
+                if (self.selectedItemDetail.IsUsed) {
+                    if (!self.typeBatchNo.value.ItemValue) {
+                        commonService.showWarning("请选择物料批次");
+                        return;
+                    }
+                }
+
+                var data = angular.copy(self.gridOptionsItem2.data);
+                if (self.selectedItemDetail.IsUsed && self.typeBatchNo.value.ItemValue) {
+                    let batchNo = self.typeBatchNo.value.ItemValue;
+                    if (data.find(t => t.MaterialCode == self.selectedItemDetail.MaterialCode && t.BatchNo == batchNo)) {
+                        backendService.genericError(commonService.$t('Siemens.SimaticIT.ProductionApp.FormulaBG.addJS.Tips_18'), commonService.$t('Siemens.SimaticIT.ProductionApp.FormulaBG.addJS.Tips_17'));
+                        return;
+                    }
+                }
+                else {
+                    if (data.find(t => t.MaterialCode == self.selectedItemDetail.MaterialCode) != null) {
+                        backendService.genericError(commonService.$t('Siemens.SimaticIT.ProductionApp.FormulaBG.addJS.Tips_19'), commonService.$t('Siemens.SimaticIT.ProductionApp.FormulaBG.addJS.Tips_17'));
+                        return;
+                    }
+                }
+
+                if (!self.currentItem.Qty) {
+                    commonService.showWarning("批次消耗不能为0");
+                    return;
+                }
+
+                data.push({
+                    FactoryCode: self.selectedItemDetail.FactoryCode,
+                    MaterialCode: self.selectedItemDetail.MaterialCode,
+                    MaterialName: self.selectedItemDetail.MaterialName,
+                    SmallClass: self.selectedItemDetail.SmallClass,
+                    Spec: self.selectedItemDetail.Spec,
+                    WhsCode: self.selectedItemDetail.Warehouse,
+                    TheoryQty: self.selectedItemDetail.TheoryQty,
+                    UnitConsome: self.selectedItemDetail.Num,
+                    Unit: self.selectedItemDetail.UnitName,
+                    ActQty: self.currentItem.Qty,
+                    BatchNo: self.typeBatchNo.value.ItemValue,
+                });
+
+                self.gridOptionsItem2.data = data;
+                SumActQty();
+                self.currentItem.Qty = parseFloat(self.selectedItemDetail.TheoryQty - self.selectedItemDetail.ActQty);
+            } else {
+                backendService.genericError(commonService.$t('Siemens.SimaticIT.ProductionApp.FormulaBG.addJS.Tips_20'), commonService.$t('Siemens.SimaticIT.ProductionApp.FormulaBG.addJS.Tips_17'));
+            }
+        }
+
+        function SumActQty() {
+            var data1 = self.gridOptionsItem1.data;
+            var data2 = self.gridOptionsItem2.data;
+
+            data1.forEach(element => {
+                var sum = 0;
+                data2.forEach(item => {
+                    if (element.MaterialCode == item.MaterialCode) {
+                        sum += item.ActQty
+                    }
+                })
+                if (sum > 0) element.ActQty = sum;
+                else element.ActQty = "";
+            });
+        }
+
+        function deleteForm() {
+            if (!!self.selectedItem2Detail) {
+                self.gridOptionsItem2.data = _.filter(self.gridOptionsItem2.data, function (item) {
+                    return item.BatchNo != self.selectedItem2Detail.BatchNo;
+                })
+                SumActQty();
+            }
+            if (self.selectedItem2Detail.length == 0) {
+                self.isreadonly = false;
+            }
+        }
+
+
+        function save() {
+            busyIndicatorService.show({ message: commonService.$t('Siemens.SimaticIT.ProductionApp.FormulaBG.addJS.Tips_21') });
+            //字典类型 取值参考
+            //self.currentItem.InspectionType = self.InspectionType.value.ItemCode;
+            self.currentItem.FormulaCode = self.currentItem.MaterialCode;
+            self.currentItem.FormulaName = self.currentItem.MaterialName;
+            self.currentItem.FormulaType = self.currentItem.SmallClass;
+            self.currentItem.FormulaMachine = self.typeMachine.value.ResourceCode;
+            self.currentItem.UserGroup = self.typeUserGroup.value.PTeamCode;
+            self.currentItem.BOMId = self.currentItem.Id;
+
+            self.currentItem.FormulaTime = commonService.ConvertToLocalDate(self.FormulaTime);
+
+            var data2 = self.gridOptionsItem2.data;
+            if (data2.length < 1) {
+                backendService.genericError(commonService.$t('Siemens.SimaticIT.ProductionApp.FormulaBG.addJS.Tips_22'), commonService.$t('Siemens.SimaticIT.ProductionApp.FormulaBG.addJS.Tips_17'));
+                busyIndicatorService.hide();
+                return
+            }
+
+            var postData = {
+                KeyValue: '',
+                Entity: self.currentItem,
+                data: data2
+            };
+
+            var url = commonService.getMesApiAddress("ProduceManage") + 'PM_FormulaRecord/SavePM_FormulaRecord';
+            var req = commonService.callWebApiPost(url, postData).then(onSaveSuccess, onSaveError);
+
+        }
+
+        //取消
+        function cancel() {
+            //关闭侧边栏
+            sidePanelManager.close();
+            //返回列表(父页面)
+            $state.go('^');
+        }
+
+        //保存成功事件
+        function onSaveSuccess(data) {
+
+            if (data.data.success) {
+                busyIndicatorService.hide();
+                initGridData();
+                self.currentItem.UserCode = "";
+                self.currentItem.UserNames = "";
+                self.typeMachine.value = { ResourceName: commonService.$t('Siemens.SimaticIT.ProductionApp.FormulaBG.addJS.Tips_2'), ResourceCode: "" };
+                self.typeBatchNo.value = { ItemName: commonService.$t('Siemens.SimaticIT.ProductionApp.FormulaBG.addJS.Tips_2'), ItemValue: "" };
+                self.currentItem.Qty = "";
+                self.currentItem.FormulaNum = "";
+                self.gridOptionsItem2.data = [];
+                self.isreadonly = false;
+
+
+                //关闭侧边栏
+                //sidePanelManager.close();
+                commonService.showInfo(commonService.$t('Siemens.SimaticIT.ProductionApp.FormulaBG.addJS.Tips_23'));
+                //刷新局部
+                //$rootScope.$emit('to-parent', 'parent');
+                //$state.go('^', {}, { reload: true });
+            } else {
+                busyIndicatorService.hide();
+                backendService.genericError(data.data.returnMsg, commonService.$t('Siemens.SimaticIT.ProductionApp.FormulaBG.addJS.Tips_24'));
+            }
+        }
+
+        //保存失败事件
+        function onSaveError(error) {
+            busyIndicatorService.hide();
+            backendService.genericError('[' + error.status + '] - ' + error.statusText, commonService.$t('Siemens.SimaticIT.ProductionApp.FormulaBG.addJS.Tips_24'));
+        }
+
+
+        function registerEvents() {
+            $scope.$on('sit-property-grid.validity-changed', onPropertyGridValidityChange);
+        }
+
+        function onPropertyGridValidityChange(event, params) {
+            if (params.id == "add_form2") {
+                self.validInputs2 = params.validity;
+            } else {
+                self.validInputs = params.validity;
+            }
+        }
+    }
+
+    AddScreenStateConfig.$inject = ['$stateProvider'];
+    function AddScreenStateConfig($stateProvider) {
+        var screenStateName = 'home.Siemens_SimaticIT_ProductionApp_FormulaManage_FormulaBG';
+        var moduleFolder = 'Siemens.SimaticIT.ProductionApp/modules/FormulaManage';
+
+        var state = {
+            name: screenStateName + '.add',
+            url: '/add',
+            views: {
+                'property-area-container@': {
+                    templateUrl: moduleFolder + '/FormulaBG-add.html',
+                    controller: AddScreenController,
+                    controllerAs: 'vm'
+                }
+            },
+            data: {
+                title: 'Siemens.SimaticIT.ProductionApp.FormulaBG.addJS.Tips_25'
+            },
+            params: {
+                selectedItem: null
+            }
+        };
+        $stateProvider.state(state);
+    }
+}());

@@ -1,0 +1,19 @@
+﻿{
+  "name": "Siemens.SimaticIT.EquipmentApp.EP_EquipmentCheckItemMaintenance",
+  "type": "standard",
+  "title": "Siemens.SimaticIT.EquipmentApp.EP_EquipmentCheckItemMaintenance.Title",
+  "header": "",
+  "icon": "fa-folder",
+  "functionalBlock": "Siemens.SimaticIT.EquipmentApp",
+  "dependencies": [],
+  "states": [
+    {
+      "id": "home.Siemens_SimaticIT_EquipmentApp_EP_EquipmentCheckItemMaintenance_EP_EquipmentCheckItemMaintenance",
+      "title": "Siemens.SimaticIT.EquipmentApp.EP_EquipmentCheckItemMaintenance.Title",
+      "header": "",
+      "securable": true,
+      "roles": []
+    }
+  ],
+  "manifestVersion": "01.01.00"
+}

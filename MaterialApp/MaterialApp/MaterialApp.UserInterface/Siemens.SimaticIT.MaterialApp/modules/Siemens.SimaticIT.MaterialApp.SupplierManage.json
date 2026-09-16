@@ -1,0 +1,19 @@
+﻿{
+  "name": "Siemens.SimaticIT.MaterialApp.SupplierManage",
+  "type": "standard",
+  "title": "Siemens.SimaticIT.MaterialApp.SupplierManage.Title",
+  "header": "",
+  "icon": "fa-folder",
+  "functionalBlock": "Siemens.SimaticIT.MaterialApp",
+  "dependencies": [],
+  "states": [
+    {
+      "id": "home.Siemens_SimaticIT_MaterialApp_SupplierManage_SupplierManage",
+      "title": "Siemens.SimaticIT.MaterialApp.SupplierManage.Title",
+      "header": "",
+      "securable": true,
+      "roles": []
+    }
+  ],
+  "manifestVersion": "01.01.00"
+}

@@ -1,0 +1,19 @@
+﻿{
+  "name": "Siemens.SimaticIT.SystemApp.APPRole",
+  "type": "standard",
+  "title": "Siemens.SimaticIT.SystemApp.APPRole.Title",
+  "header": "",
+  "icon": "fa-folder",
+  "functionalBlock": "Siemens.SimaticIT.SystemApp",
+  "dependencies": [],
+  "states": [
+    {
+      "id": "home.Siemens_SimaticIT_SystemApp_APPRole_APPRole",
+      "title": "Siemens.SimaticIT.SystemApp.APPRole.Title",
+      "header": "",
+      "securable": true,
+      "roles": []
+    }
+  ],
+  "manifestVersion": "01.01.00"
+}

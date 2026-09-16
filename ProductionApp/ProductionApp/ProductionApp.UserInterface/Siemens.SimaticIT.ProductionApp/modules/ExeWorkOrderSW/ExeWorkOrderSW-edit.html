@@ -1,0 +1,16 @@
+﻿<div class="command-bar-side-panel">
+    <button ng-click="vm.cancel()" class="btn side-panel-button">{{'Siemens.SimaticIT.ProductionApp.ExeWorkOrderSW.edit.Tips_1'|translate}}</button>
+    <button ng-click="vm.save()" class="btn side-panel-button" ng-show="vm.validInputs">{{'Siemens.SimaticIT.ProductionApp.ExeWorkOrderSW.edit.Tips_2'|translate}}</button>
+</div>
+<div class="side-panel-property-area-body">
+    <sit-property-grid sit-id="edit_form"
+                       sit-layout="Vertical"
+                       sit-type="Fluid"
+                       sit-mode="edit"
+                       sit-columns="1">
+        <sit-property sit-widget="sit-select" sit-value="vm.Machine.value" sit-validation="{required: true}" sit-options="vm.Machine.options"
+                      sit-to-display="'ResourceName'" sit-to-keep="'ResourceCode'" sit-read-only="false">{{'Siemens.SimaticIT.ProductionApp.ExeWorkOrderSW.edit.Tips_3'|translate}}</sit-property>
+        <sit-property sit-widget="sit-datepicker" sit-value="vm.currentItem.PlanProductTime" sit-format="'yyyy-MM-dd'" sit-validation="{required: true}"
+                      sit-read-only="false">{{'Siemens.SimaticIT.ProductionApp.ExeWorkOrderSW.edit.Tips_4'|translate}}</sit-property>
+    </sit-property-grid>
+</div>

@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Items>
+  <ReadingFunction Id="45d3ebcb-389b-4387-8fc6-54997f6be417">
+    <AssemblyName>Siemens.SimaticIT.Engineering.ReadingFunctions, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <Handler>cd47516d-5ac0-463d-b63b-cbbe2c77de78</Handler>
+    <ShortName>GetDatabaseResourceInfo</ShortName>
+    <Name>Siemens.SimaticIT.Engineering.ReadingFunctions.GetDatabaseResourceInfo</Name>
+    <ReadingFunctionType>ENG</ReadingFunctionType>
+    <IsSystemEntity>true</IsSystemEntity>
+  </ReadingFunction>
+  <ReadingFunction Id="a132702c-3c80-4d2f-a10a-e8af6268eb2a">
+    <AssemblyName>Siemens.SimaticIT.Engineering.ReadingFunctions, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <Handler>5dd67c48-4a8e-4cf5-91b3-ae44bfae87b0</Handler>
+    <ShortName>GetRolesSecurableObject</ShortName>
+    <Name>Siemens.SimaticIT.Engineering.ReadingFunctions.GetRolesSecurableObject</Name>
+    <ReadingFunctionType>ENG</ReadingFunctionType>
+    <IsSystemEntity>true</IsSystemEntity>
+  </ReadingFunction>
+  <ReadingFunction Id="1f8650b5-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.System.System.SAPOMModel.ReadingFunctions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <FunctionalBlock>c8775150-e2b7-4aa1-8637-38783b619c8f</FunctionalBlock>
+    <Handler>228650b5-6b52-ec11-9663-c14b9740f55b</Handler>
+    <ShortName>GetUserPreferences</ShortName>
+    <App>15695648-cccc-445c-8523-6ed51954acd7</App>
+    <Name>Siemens.SimaticIT.System.System.SAPOMModel.ReadingFunctions.GetUserPreferences</Name>
+    <ReadingFunctionType>Undefined</ReadingFunctionType>
+    <IsSystemEntity>false</IsSystemEntity>
+  </ReadingFunction>
+  <ReadingFunction Id="298650b5-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.System.System.SAPOMModel.ReadingFunctions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <FunctionalBlock>c8775150-e2b7-4aa1-8637-38783b619c8f</FunctionalBlock>
+    <Handler>2c8650b5-6b52-ec11-9663-c14b9740f55b</Handler>
+    <ShortName>GetExportImportOperations</ShortName>
+    <App>15695648-cccc-445c-8523-6ed51954acd7</App>
+    <Name>Siemens.SimaticIT.System.System.SAPOMModel.ReadingFunctions.GetExportImportOperations</Name>
+    <ReadingFunctionType>Undefined</ReadingFunctionType>
+    <IsSystemEntity>false</IsSystemEntity>
+  </ReadingFunction>
+  <ReadingFunction Id="338650b5-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.System.System.SAPOMModel.ReadingFunctions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <FunctionalBlock>c8775150-e2b7-4aa1-8637-38783b619c8f</FunctionalBlock>
+    <Handler>368650b5-6b52-ec11-9663-c14b9740f55b</Handler>
+    <ShortName>GetExportImportOperationsDetails</ShortName>
+    <App>15695648-cccc-445c-8523-6ed51954acd7</App>
+    <Name>Siemens.SimaticIT.System.System.SAPOMModel.ReadingFunctions.GetExportImportOperationsDetails</Name>
+    <ReadingFunctionType>Undefined</ReadingFunctionType>
+    <IsSystemEntity>false</IsSystemEntity>
+  </ReadingFunction>
+  <ReadingFunction Id="78795fdf-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.Personnel.Personnel.PRPOMModel.ReadingFunctions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <FunctionalBlock>57c6a774-8416-4fbf-a16b-3f99cfcc4eb8</FunctionalBlock>
+    <Handler>7b795fdf-6b52-ec11-9663-c14b9740f55b</Handler>
+    <ShortName>GetPersonImage</ShortName>
+    <App>463b1385-f0e4-4626-b592-ebf6a5438a66</App>
+    <Name>Siemens.SimaticIT.Personnel.Personnel.PRPOMModel.ReadingFunctions.GetPersonImage</Name>
+    <ReadingFunctionType>Undefined</ReadingFunctionType>
+    <IsSystemEntity>false</IsSystemEntity>
+  </ReadingFunction>
+  <ReadingFunction Id="82795fdf-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.Personnel.Personnel.PRPOMModel.ReadingFunctions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <FunctionalBlock>57c6a774-8416-4fbf-a16b-3f99cfcc4eb8</FunctionalBlock>
+    <Handler>85795fdf-6b52-ec11-9663-c14b9740f55b</Handler>
+    <ShortName>GetPersonSegregationTags</ShortName>
+    <App>463b1385-f0e4-4626-b592-ebf6a5438a66</App>
+    <Name>Siemens.SimaticIT.Personnel.Personnel.PRPOMModel.ReadingFunctions.GetPersonSegregationTags</Name>
+    <ReadingFunctionType>Undefined</ReadingFunctionType>
+    <IsSystemEntity>false</IsSystemEntity>
+  </ReadingFunction>
+  <ReadingFunction Id="72a83bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.BasicDataManageFBApp.BasicDataManageFBApp.BAPOMModel.ReadingFunctions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <FunctionalBlock>e2dcd239-4150-4459-b0a5-956383c74fc0</FunctionalBlock>
+    <Handler>0b1885a5-e048-ef11-967b-a395b9e4373f</Handler>
+    <ShortName>GetAppRolesRF</ShortName>
+    <App>d19e82e8-24e3-4ce6-b1e8-78944e5daadc</App>
+    <Name>Siemens.SimaticIT.BasicDataManageFBApp.BasicDataManageFBApp.BAPOMModel.ReadingFunctions.GetAppRolesRF</Name>
+    <ReadingFunctionType>Undefined</ReadingFunctionType>
+    <IsSystemEntity>false</IsSystemEntity>
+  </ReadingFunction>
+</Items>

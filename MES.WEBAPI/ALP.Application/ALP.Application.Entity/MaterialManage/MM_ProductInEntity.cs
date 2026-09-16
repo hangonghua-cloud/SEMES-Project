@@ -1,0 +1,192 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+ 
+namespace ALP.Application.Entity.MaterialManage
+{
+    /// <summary>
+    /// 1.创建日期: 2021-10-11
+    /// 2.创建作者: admin
+    /// 3.功能描述: MM_ProductIn实体
+    /// 4.任务编号: 成品入库记录
+    /// 5.最后修改日期: 
+    /// 6.最后修改作者: 
+    /// </summary>
+    [Serializable]
+    public class MM_ProductInEntity : BaseEntity
+    { 
+        #region 表: MM_ProductIn 实体类: MM_ProductIn 
+ 
+        /// <summary>
+        /// Id
+        /// </summary>
+        public string Id {get; set; } = "";
+ 
+        /// <summary>
+        /// 工厂编码
+        /// </summary>
+        public string FactoryCode {get; set; }
+        /// <summary>
+        /// 工厂名称
+        /// </summary>
+        public string FactoryName { get; set; }
+        /// <summary>
+        /// 唛头码
+        /// </summary>
+        public string MarkCode {get; set; } = "";
+ 
+        /// <summary>
+        /// 订单号
+        /// </summary>
+        public string ProductOrder {get; set; } = "";
+ 
+        /// <summary>
+        /// 订单类型
+        /// </summary>
+        public string OrderType {get; set; } = "";
+ 
+        /// <summary>
+        /// 工单号
+        /// </summary>
+        public string WorkOrder {get; set; } = "";
+ 
+        /// <summary>
+        /// 柜号
+        /// </summary>
+        public string ContainerNO {get; set; } = "";
+ 
+        /// <summary>
+        /// 客户型号
+        /// </summary>
+        public string MaterialCode {get; set; } = "";
+ 
+        /// <summary>
+        /// 客户PO号
+        /// </summary>
+        public string CustomerPO {get; set; } = "";
+ 
+        /// <summary>
+        /// 仓库编码
+        /// </summary>
+        public string WhsCode {get; set; } = "";
+
+        /// <summary>
+        /// 库位编码
+        /// </summary>
+        public string LocationCode { get; set; } = "";
+        /// <summary>
+        /// 入库托数
+        /// </summary>
+        public decimal? PalletQty { get; set; }
+        /// <summary>
+        /// 单托片数
+        /// </summary>
+        public decimal? PerPalletPieceQty { get; set; }
+
+        /// <summary>
+        /// 库存片数
+        /// </summary>
+        public decimal? PieceQty { get; set; }
+        /// <summary>
+        /// 单托盒数
+        /// </summary>
+        public decimal? PerPalletBoxQty { get; set; }
+
+        /// <summary>
+        /// 库存盒数
+        /// </summary>
+        public decimal? BoxQty { get; set; }
+
+
+        /// <summary>
+        /// 备注
+        /// </summary>
+        public string Remark {get; set; } = "";
+ 
+        /// <summary>
+        /// 创建人
+        /// </summary>
+        public string Creator {get; set; } = "";
+ 
+        /// <summary>
+        /// 创建时间
+        /// </summary>
+        public DateTime? CreateTime {get; set; }
+ 
+        /// <summary>
+        /// 最后修改人
+        /// </summary>
+        public string ModifyBy {get; set; } = "";
+ 
+        /// <summary>
+        /// 最后修改时间
+        /// </summary>
+        public DateTime? ModifyTime {get; set; }
+        /// <summary>
+        /// 关联号
+        /// </summary>
+        public string AssociateNo { get; set; }
+        /// <summary>
+        /// 入库类型 1：包装入库 2：移库 3：调柜 4：校准 5：成品入库 6：退货
+        /// </summary>
+        public string InType { get; set; }
+        /// <summary>
+        /// 是否过账 1：已过账
+        /// </summary>
+        public string IsPosted { get; set; }
+        /// <summary>
+        /// 过账消息
+        /// </summary>
+        public string PostedMsg { get; set; }
+        /// <summary>
+        /// 过账时间
+        /// </summary>
+        public DateTime? PostedTime { get; set; }
+        /// <summary>
+        /// 过账人员
+        /// </summary>
+        public string PostedUser { get; set; }
+        /// <summary>
+        /// SAP物料凭证编号
+        /// </summary>
+        public string SAP_MBLNR { get; set; }
+        /// <summary>
+        /// SAP年份
+        /// </summary>
+        public string SAP_MJAHR { get; set; }
+        /// <summary>
+        /// SAP入库类型  1:正常入库 2：跨柜入库 3：超产品入库
+        /// </summary>
+        public string SAPInType { get; set; }
+        /// <summary>
+        /// 行号
+        /// </summary>
+        public string LineNum { get; set; }
+        /// <summary>
+        /// 跨柜原工单
+        /// </summary>
+        public string S_WorkOrder { get; set; }
+
+        #region 扩展操作
+        /// <summary>
+        /// 新增调用
+        /// </summary>
+        public override void Create()
+        {
+            this.Id = Guid.NewGuid().ToString();
+        }
+        /// <summary>
+        /// 编辑调用
+        /// </summary>
+        /// <param name="keyValue"></param>
+        public override void Modify(string keyValue)
+        {
+            this.Id = keyValue;
+        }
+        #endregion
+ 
+        #endregion
+    }
+}

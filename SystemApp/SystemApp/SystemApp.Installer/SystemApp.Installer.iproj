@@ -1,0 +1,86 @@
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>c2195720-0a2d-4921-ae13-c05891f57647</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Siemens.SimaticIT.SystemApp.Installer</RootNamespace>
+    <AssemblyName>Siemens.SimaticIT.SystemApp.Installer</AssemblyName>
+    <Name>SystemApp.Installer</Name>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FunctionalBlockType>Project</FunctionalBlockType>
+    <FunctionalBlockVersion>01.00.00</FunctionalBlockVersion>
+    <FunctionalBlockName>SystemApp</FunctionalBlockName>
+    <FunctionalBlockPrefix>Siemens.SimaticIT</FunctionalBlockPrefix>
+    <FunctionalBlockModels>Siemens.SimaticIT.SystemApp.SystemApp.STPOMModel</FunctionalBlockModels>
+    <FunctionalBlockDescription>System Manage App</FunctionalBlockDescription>
+    <SitPlatformVersion>4.1</SitPlatformVersion>
+    <AutoDeployPackage>True</AutoDeployPackage>
+    <CanBeExtended>False</CanBeExtended>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU'  ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Release\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="Config" />
+    <Folder Include="ExternalDependencies" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Config\Siemens.SimaticIT.SystemApp.Dbinit.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Config\Siemens.SimaticIT.SystemApp.References.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Config\Siemens.SimaticIT.SystemApp.ApplicationLog.en-US.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SystemApp.CommandHandler\SystemApp.CommandHandler.csproj">
+      <Name>SystemApp.CommandHandler</Name>
+      <Project>{ab949e84-4a34-4c21-8d2e-10e0e8678ae7}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\SystemApp.EventHandler\SystemApp.EventHandler.csproj">
+      <Name>SystemApp.EventHandler</Name>
+      <Project>{1a0dfb29-8eb2-4abd-9f58-2fedb27ba469}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\SystemApp.ReadingFunctionHandler\SystemApp.ReadingFunctionHandler.csproj">
+      <Name>SystemApp.ReadingFunctionHandler</Name>
+      <Project>{683a3a7d-87ae-46dc-8ee1-ab192e28d300}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\SystemApp.STPOMModel\SystemApp.STPOMModel.pmproj">
+      <Name>SystemApp.STPOMModel</Name>
+      <Project>{a67fe9d6-0a50-421c-8089-427b5b0c9c68}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\SystemApp.UserInterface\SystemApp.UserInterface.csproj">
+      <Name>SystemApp.UserInterface</Name>
+      <Project>{c8639a63-dea2-4c97-a060-3b3371b19aaf}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(SITUnifiedVSToolingPlatformBin)\Siemens.SimaticIt.Build.Installer.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

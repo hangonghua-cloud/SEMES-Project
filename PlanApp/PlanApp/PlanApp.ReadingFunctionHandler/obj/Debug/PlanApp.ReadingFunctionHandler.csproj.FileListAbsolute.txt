@@ -1,0 +1,6 @@
+D:\New folder\PlanApp\PlanApp\PlanApp.ReadingFunctionHandler\bin\Debug\Siemens.SimaticIT.PlanApp.ReadingFunctionHandler.dll
+D:\New folder\PlanApp\PlanApp\PlanApp.ReadingFunctionHandler\bin\Debug\Siemens.SimaticIT.PlanApp.ReadingFunctionHandler.pdb
+D:\New folder\PlanApp\PlanApp\PlanApp.ReadingFunctionHandler\obj\Debug\PlanApp.ReadingFunctionHandler.csprojAssemblyReference.cache
+D:\New folder\PlanApp\PlanApp\PlanApp.ReadingFunctionHandler\obj\Debug\PlanApp.ReadingFunctionHandler.csproj.CoreCompileInputs.cache
+D:\New folder\PlanApp\PlanApp\PlanApp.ReadingFunctionHandler\obj\Debug\Siemens.SimaticIT.PlanApp.ReadingFunctionHandler.dll
+D:\New folder\PlanApp\PlanApp\PlanApp.ReadingFunctionHandler\obj\Debug\Siemens.SimaticIT.PlanApp.ReadingFunctionHandler.pdb

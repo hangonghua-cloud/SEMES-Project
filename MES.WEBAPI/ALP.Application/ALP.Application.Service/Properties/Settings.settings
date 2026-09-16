@@ -1,0 +1,9 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="ALP.Application.Service.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="ALP_Application_Service_WebReference_MES2SAP" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://10.18.1.145:8002/ServicePackages/SAP/MES2SAP.asmx</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

@@ -1,0 +1,19 @@
+﻿{
+  "name": "Siemens.SimaticIT.MaterialApp.MaterialBindTemp",
+  "type": "standard",
+  "title": "Siemens.SimaticIT.MaterialApp.MaterialBindTemp.Title",
+  "header": "",
+  "icon": "fa-folder",
+  "functionalBlock": "Siemens.SimaticIT.MaterialApp",
+  "dependencies": [],
+  "states": [
+    {
+      "id": "home.Siemens_SimaticIT_MaterialApp_MaterialBindTemp_MaterialBindTemp",
+      "title": "Siemens.SimaticIT.MaterialApp.MaterialBindTemp.Title",
+      "header": "",
+      "securable": true,
+      "roles": []
+    }
+  ],
+  "manifestVersion": "01.01.00"
+}

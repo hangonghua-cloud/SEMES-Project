@@ -1,0 +1,90 @@
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>db081885-c6d3-422c-9bf5-5b9dc5f07058</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Siemens.SimaticIT.BasicDataManageFBApp.Installer</RootNamespace>
+    <AssemblyName>Siemens.SimaticIT.BasicDataManageFBApp.Installer</AssemblyName>
+    <Name>BasicDataManageFBApp.Installer</Name>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FunctionalBlockType>Project</FunctionalBlockType>
+    <FunctionalBlockVersion>04.00.00</FunctionalBlockVersion>
+    <FunctionalBlockName>BasicDataManageFBApp</FunctionalBlockName>
+    <FunctionalBlockPrefix>Siemens.SimaticIT</FunctionalBlockPrefix>
+    <FunctionalBlockModels>Siemens.SimaticIT.BasicDataManageFBApp.BasicDataManageFBApp.BAPOMModel</FunctionalBlockModels>
+    <FunctionalBlockDescription>基础数据管理APP</FunctionalBlockDescription>
+    <SitPlatformVersion>4.1</SitPlatformVersion>
+    <AutoDeployPackage>True</AutoDeployPackage>
+    <CanBeExtended>False</CanBeExtended>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU'  ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Release\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <AppName>BasicDataManageFBApp</AppName>
+    <CertificateName />
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="Config" />
+    <Folder Include="ExternalDependencies" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Config\Siemens.SimaticIT.BasicDataManageFBApp.Dbinit.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Config\Siemens.SimaticIT.BasicDataManageFBApp.References.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Config\Siemens.SimaticIT.BasicDataManageFBApp.ApplicationLog.en-US.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BasicDataManageFBApp.BAPOMModel\BasicDataManageFBApp.BAPOMModel.pmproj">
+      <Name>BasicDataManageFBApp.BAPOMModel</Name>
+      <Project>{abea264c-9a85-4946-97ec-7b72385bcb46}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\BasicDataManageFBApp.CommandHandler\BasicDataManageFBApp.CommandHandler.csproj">
+      <Name>BasicDataManageFBApp.CommandHandler</Name>
+      <Project>{03a025b9-02e3-4db7-940c-b5cda44b12aa}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\BasicDataManageFBApp.EventHandler\BasicDataManageFBApp.EventHandler.csproj">
+      <Name>BasicDataManageFBApp.EventHandler</Name>
+      <Project>{276cbd12-4518-440d-818c-cda7057a6aeb}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\BasicDataManageFBApp.ReadingFunctionHandler\BasicDataManageFBApp.ReadingFunctionHandler.csproj">
+      <Name>BasicDataManageFBApp.ReadingFunctionHandler</Name>
+      <Project>{61c53914-d20b-4909-9ca1-1c49c288f824}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\BasicDataManageFBApp.UserInterface\BasicDataManageFBApp.UserInterface.csproj">
+      <Name>BasicDataManageFBApp.UserInterface</Name>
+      <Project>{99f864a4-41e2-4683-8f1f-1a589b625370}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(SITUnifiedVSToolingPlatformBin)\Siemens.SimaticIt.Build.Installer.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

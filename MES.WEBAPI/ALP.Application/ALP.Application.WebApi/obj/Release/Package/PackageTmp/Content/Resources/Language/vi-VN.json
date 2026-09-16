@@ -1,0 +1,314 @@
+﻿{
+  //Ổ chung
+  "Common": {
+    "Error": "Thao tác thất bại, lỗi máy chủ",
+    "ErrorWithOther": "Thao tác thất bại，{0}",
+    "ErrorWithOther2": "Thao tác thất bại：",
+    "Success": "Thao tác thành công",
+    "Success2": "Thao tác thành công：",
+    "SuccessWithOther": "Thao tác thành công，{0}",
+    "ExecutionSuccess": "Thực thi thành công",
+    "ExecutionSuccess2": "Thực thi thành công：",
+    "ExecutionSuccessWithOther": "Thực thi thành công，{0}",
+    "ExecutionError": "Thực thi thất bại",
+    "ExecutionError2": "Thực thi thất bại：",
+    "ExecutionErrorWithOther": "Thực thi thất bại，{0}",
+
+    "ParamsNotNull": "Tham số không được để trống",
+    "SearchParamsNotNull": "Tham số truy vấn không được để trống",
+    "Yes": "Có",
+    "No": "Không",
+    "Qua": "Hợp lệ",
+    "UnQua": "Không hợp lệ",
+    "ErrorNone": "Không rõ nguyên nhân",
+    "DeleteSuccess": "Xóa thành công",
+    "DeleteSuccess2": "Xóa thành công：",
+    "DeleteSuccessWithOther": "Xóa thành công:{0}",
+    "DeleteError": "Xóa thất bại",
+    "DeleteError2": "Xóa thất bại：",
+    "DeleteErrorWithOther": "Xóa thất bại:{0}",
+    "SearchSuccess": "Truy vấn thành công",
+    "SearchSuccess2": "Truy vấn thành công：",
+    "SearchSuccessWithOther": "Truy vấn thành công:{0}",
+    "SearchError": "Truy vấn thất bại",
+    "SearchError2": "Truy vấn thất bại：",
+    "SearchErrorWithOther": "Truy vấn thất bại:{0}"
+  },
+  "API": {
+    "DemoAPIController": {
+      "Tips_1": "Mở rộng",
+      "Tips_2": "Giải lao",
+      "Tips_3": "Cấp liệu"
+    }
+  },
+  "BaseManage": {
+    "AccountController": {
+      "Tips_1": "Thao tác thất bại， hãy chuyển tham số yêu cầu",
+      "Tips_2": "Account/List接口异常：{0}",
+      "Tips_4": "Account/SaveAccount接口请求参数{0}",
+      "Tips_5": "Account/SaveAccount接口异常：{0}"
+    },
+    "BaseDataController": {
+      "Tips_3": "Tham số phân trang Pagination không được để trống!",
+      "Tips_4": "Tồn tại cùng một mã hoặc tên",
+      "Tips_5": "Tồn tại cùng một tên",
+      "Tips_6": "userId không được để trống!",
+      "Tips_7": "BtnNames không được để trống!"
+    },
+    "BaseReportController": {
+      "Tips_1": "Người dùng không tồn tại",
+      "Tips_2": "Quyền người dùng không tồn tại",
+      "Tips_6": "Một menu hoặc báo cáo có cùng tên tồn tại"
+    },
+    "BaseReportGroupController": {
+      "Tips_3": "Một vai trò có cùng tên đã tồn tại"
+    },
+    "BaseReportRoleController": {
+      "Tips_4": "Nhập lại dữ liệu"
+    },
+    "BaseShiftController": {
+      "Tips_2": "Tham số phân trang Pagination không được để trống!",
+      "Tips_4": "Nhận dữ liệu chi tiết thành công",
+      "Tips_5": "Tên người dùng không được để trống!",
+      "Tips_8": "Thiếu tham số KeyValue!",
+      "Tips_9": "Thiếu tham số Entity!"
+    },
+    "Base_ImagesController": {
+      "Tips_1": "Giao diện kiểm tra API!",
+      "Tips_2": "Kiểm tra thành công",
+      "Tips_5": "Tham số không được để trống!",
+      "Tips_6": "Thiếu tham số KeyValue!",
+      "Tips_9": "Thiếu tham số Entity!",
+      "Tips_10": "Xóa thao tác thành công",
+      "Tips_11": "Xóa thao tác thất bại:",
+      "Tips_12": "Đối tượng không tồn tại",
+      "Tips_13": "Xóa thao tác thất bại",
+      "Tips_14": "Nhận dữ liệu chi tiết thành công"
+    },
+    "Base_KeyParameterController": {
+      "Tips_1": "Giao diện kiểm tra API!",
+      "Tips_2": "Kiểm tra thành công",
+      "Tips_3": "]的数据",
+      "Tips_4": "]的数据失败：",
+      "Tips_7": "Tham số không được để trống!",
+      "Tips_8": "Thiếu tham số KeyValue!",
+      "Tips_9": "Thiếu tham số Entity!",
+      "Tips_10": "Tồn tại cùng một mã hoặc tên",
+      "Tips_11": "Tồn tại cùng một tên",
+      "Tips_14": "Xóa thao tác thành công",
+      "Tips_15": "Xóa thao tác thất bại",
+      "Tips_16": "Nhận dữ liệu chi tiết thành công",
+      "Tips_17": "Thiếu tham số Entity!"
+    },
+    "Base_KeyParameterItemController": {
+      "Tips_1": "Giao diện kiểm tra API!",
+      "Tips_2": "Kiểm tra thành công",
+      "Tips_5": "Tham số không được để trống!",
+      "Tips_7": "Thiếu tham số KeyValue!",
+      "Tips_8": "Thiếu tham số Entity!",
+      "Tips_9": "Tồn tại cùng một mã hoặc tên",
+      "Tips_10": "Tồn tại cùng một tên",
+      "Tips_13": "Thiếu tham số Entity!",
+      "Tips_14": "Đối tượng không tồn tại",
+      "Tips_15": "Xóa thao tác thành công",
+      "Tips_16": "Xóa thao tác thất bại:",
+      "Tips_17": "Xóa thao tác thất bại",
+      "Tips_18": "Nhận dữ liệu chi tiết thành công"
+    },
+    "Base_UpdateLogController": {
+      "Tips_1": "Giao diện kiểm tra API!",
+      "Tips_2": "Kiểm tra thành công",
+      "Tips_5": "Tham số không được để trống!",
+      "Tips_6": "Thiếu tham số KeyValue!",
+      "Tips_7": "Thiếu tham số Entity!",
+      "Tips_8": "Loại nghiệp vụ không được để trống!",
+      "Tips_9": "Phiên bản không được để trống!",
+      "Tips_12": "Thiếu tham số CreatedByCode!",
+      "Tips_13": "Thiếu tham số CreatedByName!",
+      "Tips_14": "Loại nghiệp vụ",
+      "Tips_15": "Phiên bản",
+      "Tips_16": "Cập nhật nội dung",
+      "Tips_17": "Người tạo",
+      "Tips_18": "TG tạo",
+      "Tips_19": "Thiếu tham số Entity!",
+      "Tips_20": "Đối tượng không tồn tại",
+      "Tips_21": "Xóa thao tác thành công",
+      "Tips_22": "Xóa thao tác thất bại:",
+      "Tips_23": "Xóa thao tác thất bại",
+      "Tips_24": "Nhận dữ liệu chi tiết thành công"
+    },
+    "BsModelLevelController": {
+      "Tips_1": "Kiểm tra thành công  0001",
+      "Tips_2": "Tìm kiếm thành công",
+      "Tips_3": "Tham số phân trang Pagination không được để trống!",
+      "Tips_6": "Nhận dữ liệu chi tiết thành công",
+      "Tips_7": "Nhân dữ liệu thành công",
+      "Tips_8": "Mã người dùng không được để trống!",
+      "Tips_11": "Thiếu tham số KeyValue!",
+      "Tips_12": "Thiếu tham số Entity!"
+    },
+    "BS_PeopleController": {
+      "Tips_1": "Giao diện kiểm tra API!",
+      "Tips_2": "Kiểm tra thành công",
+      "Tips_5": "Tham số không được để trống!",
+      "Tips_6": "Thiếu tham số KeyValue!",
+      "Tips_7": "Thiếu tham số Entity!",
+      "Tips_8": "Mã không được để trống!",
+      "Tips_9": "Tên không được để trống!",
+      "Tips_10": "Giới tính không được để trống!",
+      "Tips_11": "CMTND không được để trống!",
+      "Tips_12": "Điện thoại không được để trống!",
+      "Tips_13": "ID bộ phận không được để trống!",
+      "Tips_14": "Vị trí không được để trống!",
+      "Tips_15": "Chức vụ không được để trống!",
+      "Tips_16": "Người tạo không được để trống!",
+      "Tips_17": "Người thay đổi cuối cùng không được để trống!",
+      "Tips_18": "Mã máy không được để trống!",
+      "Tips_19": "Mã tổ SX không được để trống!",
+      "Tips_22": "Thiếu tham số CreatedByCode!",
+      "Tips_23": "Thiếu tham số CreatedByName!",
+      "Tips_24": "Mã",
+      "Tips_25": "Tên",
+      "Tips_26": "Giới tính",
+      "Tips_27": "CMTND",
+      "Tips_28": "Điện thoại",
+      "Tips_29": "ID bộ phận",
+      "Tips_30": "Vị trí",
+      "Tips_31": "Chức vụ",
+      "Tips_32": "Người tạo",
+      "Tips_33": "TG tạo",
+      "Tips_34": "Người thay đổi cuối cùng",
+      "Tips_35": "TG thay đổi cuối cùng",
+      "Tips_36": "Mã máy",
+      "Tips_37": "Mã tổ SX",
+      "Tips_38": "Thiếu tham số Entity!",
+      "Tips_39": "Đối tượng không tồn tại",
+      "Tips_40": "Xóa thao tác thành công",
+      "Tips_41": "Xóa thao tác thất bại:",
+      "Tips_42": "Xóa thao tác thất bại",
+      "Tips_43": "Nhận dữ liệu chi tiết thành công"
+    }
+  },
+  "DemoManage": {
+    "UIGridDemoController": {
+      "Tips_1": "Tham số phân trang Pagination không được để trống!",
+      "Tips_4": "Nhận dữ liệu chi tiết thành công",
+      "Tips_5": "Tên người dùng không được để trống!",
+      "Tips_7": "Thiếu tham số KeyValue!",
+      "Tips_8": "Thiếu tham số RoleEntity!"
+    }
+  },
+  "FileManage": {
+    "UploadFileController": {
+      "Tips_1": "Tải lên thành công",
+      "Tips_2": "Định dạng của tệp đã tải lên [{0}] không đáp ứng yêu cầu!",
+      "Tips_3": "Tệp đã tải lên [{0}] vượt quá kích thước giới hạn!",
+      "Tips_4": "Không thể ghi tệp tải lên：",
+      "Tips_5": "Không có tệp tải lên nào được chọn!"
+    }
+  },
+  "SystemManage": {
+    "BSAppLogUserInfoController": {
+      "Tips_1": "Tham số phân trang Pagination không được để trống!",
+      "Tips_5": "Xóa thất bại，không tìm thấy hồ sơ",
+      "Tips_7": "Thiếu tham số KeyValue!",
+      "Tips_8": "Thiếu tham số Entity!",
+      "Tips_9": "Thêm thành công",
+      "Tips_10": "Sửa thành công",
+      "Tips_11": "Thêm thất bại, trùng lặp mã người dùng. Không thể chèn dữ liệu."
+    },
+    "BSAppRoleController": {
+      "Tips_1": "Tham số phân trang Pagination không được để trống!",
+      "Tips_5": "Xóa thất bại，không tìm thấy hồ sơ",
+      "Tips_7": "Thiếu tham số KeyValue!",
+      "Tips_8": "Thiếu tham số Entity!",
+      "Tips_9": "Thêm thành công",
+      "Tips_10": "Sửa thành công",
+      "Tips_11": "Thêm thất bại, trùng lặp mã vai trò. Không thể chèn dữ liệu.",
+      "Tips_12": "Thêm thất bại, trùng lặp mã quyền. Không thể chèn dữ liệu.",
+      "Tips_13": "Thiếu mã vai trò!",
+      "Tips_14": "Thiếu mã người dùng!",
+      "Tips_15": "Thiếu tham số chức năng!",
+      "Tips_16": "Thêm thất bại, trùng lặp mã người dùng. Không thể chèn dữ liệu."
+    },
+    "BsPeopleByPrintServerController": {
+      "Tips_1": "Tham số phân trang Pagination không được để trống!",
+      "Tips_5": "Xóa thất bại，không tìm thấy hồ sơ",
+      "Tips_7": "Thiếu tham số Jo!",
+      "Tips_8": "Thay đổi thành công!",
+      "Tips_9": "Thay đổi thất bại!",
+      "Tips_10": "Thiếu tham số Entity!",
+      "Tips_11": "Thêm thành công",
+      "Tips_12": "Sửa thành công",
+      "Tips_13": "Cập nhật thành công."
+    },
+    "BsPrintServerController": {
+      "Tips_1": "Tham số phân trang Pagination không được để trống!",
+      "Tips_5": "Xóa thất bại，không tìm thấy hồ sơ",
+      "Tips_7": "Thiếu tham số KeyValue!",
+      "Tips_8": "Thiếu tham số Entity!",
+      "Tips_9": "Thêm thành công",
+      "Tips_10": "Sửa thành công",
+      "Tips_11": "Thêm thất bại, trùng địa chỉ IP. Không thể chèn thêm dữ liệu."
+    },
+    "DataItemController": {
+      "Tips_1": "]的数据",
+      "Tips_2": "]的数据失败：",
+      "Tips_3": "]的数据",
+      "Tips_4": "Nhận dữ liệu chi tiết thành công",
+      "Tips_5": "Tham số phân trang Pagination không được để trống!",
+      "Tips_8": "Tên người dùng không được để trống! Vui lòng liên hệ quản trị viên",
+      "Tips_11": "Thêm mới thành công",
+      "Tips_12": "Sửa thành công",
+      "Tips_13": "Trùng mã từ điển"
+    },
+    "DataItemDetailController": {
+      "Tips_1": "]的数据",
+      "Tips_2": "Không lấy được chi tiết từ điển dữ liệu：",
+      "Tips_3": "]的数据",
+      "Tips_4": "--Hãy lựa chọn--",
+      "Tips_5": "Không tìm thấy dữ liệu liên quan trong cơ sở dữ liệu",
+      "Tips_6": "Nhận dữ liệu thành công",
+      "Tips_7": "Nhận dữ liệu thất bại：",
+      "Tips_8": "Tên người dùng không được để trống! Vui lòng liên hệ quản trị viên",
+      "Tips_11": "Thêm thành công",
+      "Tips_12": "Sửa thành công",
+      "Tips_13": "Thêm thất bại, mã hóa dữ liệu chi tiết từ điển bị lặp lại"
+    },
+    "SystemController": {
+      "Tips_1": "System/GetWorkShop接口异常：{0}",
+      "Tips_3": "System/GetYearMonth接口异常：{0}",
+      "Tips_6": "Tham số không được để trống!",
+      "Tips_7": "Truy vấn thành công!",
+      "Tips_8": "Thực thi thất bại! Code thay đổi không tồn tại!"
+    },
+    "Sys_DataSegregateGroupController": {
+      "Tips_1": "Tham số phân trang Pagination không được để trống!",
+      "Tips_5": "Xóa thất bại，không tìm thấy hồ sơ",
+      "Tips_7": "Thiếu tham số KeyValue!",
+      "Tips_8": "Thiếu tham số Entity!",
+      "Tips_9": "Thêm thành công",
+      "Tips_10": "Sửa thành công",
+      "Tips_11": "Thêm thất bại, nhập lại mã tổ"
+    },
+    "Sys_DataSegregateGroupToLabelController": {
+      "Tips_1": "Tham số phân trang Pagination không được để trống!",
+      "Tips_4": "Không có giá trị nào được chọn",
+      "Tips_5": "GroupCode không được để trống",
+      "Tips_7": "Xóa thất bại，không tìm thấy hồ sơ"
+    },
+    "Sys_DataSegregateGroupToPersonController": {
+      "Tips_1": "Tham số phân trang Pagination không được để trống!",
+      "Tips_5": "Xóa thất bại，không tìm thấy hồ sơ",
+      "Tips_7": "Thêm mới thành công",
+      "Tips_8": "Thêm mới thất bại"
+    },
+    "Sys_DataSegregateLabelController": {
+      "Tips_1": "Kiểm tra thành công  0001",
+      "Tips_2": "Tham số phân trang Pagination không được để trống!",
+      "Tips_5": "Tham số không được để trống!",
+      "Tips_7": "Id không được để trống!",
+      "Tips_8": "userName không được để trống!"
+    }
+  }
+}

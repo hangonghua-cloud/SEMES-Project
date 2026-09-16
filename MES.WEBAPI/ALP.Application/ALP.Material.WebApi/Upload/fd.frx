@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="03/09/2023 14:35:39" ReportInfo.Modified="02/16/2025 11:00:03" ReportInfo.CreatorVersion="2021.1.16.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+
+//    private void btnOk_Click(object sender, EventArgs e)
+//    {
+//       Report.SetParameterValue(&quot;Code&quot;,&quot;M2305090026&quot;);
+//    }
+/*    
+    private void btnOk_Click(object sender, EventArgs e)
+    {
+               Report.SetParameterValue(&quot;Code&quot;,&quot;TH24-0012#Z0001&quot;);
+    }
+    
+*/
+    private void btnOk_Click(object sender, EventArgs e)
+    {
+         //Report.SetParameterValue(&quot;Code&quot;,&quot;TH24-0012#Z0009&quot;);
+    }
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlqxfki+t8jnSxof6qn6ng9veCsklddIJMAeBPeLd3wefkY8szYsxjMSIhG/5AOSilHvE1Sm6A9j1/tbRTnGRII0eZBg3LHi4lmGXXQnB8VxsiDcuvvsXOft6z+rOrXP66J4PL1RkJVDvD4IsUlNgbvWi8BwZRXGgcbOvJXkIZfujg3bseJHe+oE4bwe9+xzakcbJ89AJgUzrjY0QEYgPXrrw==">
+      <TableDataSource Name="Table" DataType="System.Int32" Enabled="true" SelectCommand="EXEC dbo.Pro_PrintHLPrintMarkCode @Code">
+        <Column Name="PackTransferCode" DataType="System.String"/>
+        <Column Name="po" DataType="System.String"/>
+        <Column Name="PLT" DataType="System.String"/>
+        <Column Name="MaterialCode" DataType="System.String"/>
+        <Column Name="BOXS" DataType="System.String"/>
+        <Column Name="Collection" DataType="System.String"/>
+        <Column Name="colorName" DataType="System.String"/>
+        <Column Name="SKU" DataType="System.String"/>
+        <Column Name="Emboss" DataType="System.String"/>
+        <Column Name="Dimensions" DataType="System.String"/>
+        <Column Name="ProductStyle" DataType="System.String"/>
+        <Column Name="ProductName" DataType="System.String"/>
+        <Column Name="DESCRIPTION" DataType="System.String"/>
+        <Column Name="PATTERNNO" DataType="System.String"/>
+        <Column Name="ContainerNO" DataType="System.String"/>
+        <Column Name="shan1No" DataType="System.String"/>
+        <Column Name="ProductOrder" DataType="System.String"/>
+        <Column Name="Customer" DataType="System.String"/>
+        <Column Name="Style No" DataType="System.String"/>
+        <Column Name="Spec" DataType="System.String"/>
+        <Column Name="Lot No" DataType="System.String"/>
+        <Column Name="Run ID" DataType="System.String"/>
+        <Column Name="Quantity" DataType="System.String"/>
+        <Column Name="Nominal1" DataType="System.String"/>
+        <Column Name="Nominal2" DataType="System.String"/>
+        <Column Name="VLN No/ Run No" DataType="System.String"/>
+        <Column Name="ITEM1" DataType="System.String"/>
+        <Column Name="ITEM2" DataType="System.String"/>
+        <Column Name="PallentNo" DataType="System.String"/>
+        <Column Name="shaw4" DataType="System.String"/>
+        <Column Name="ARTICLE NUMBER" DataType="System.String"/>
+        <Column Name="Product Description" DataType="System.String"/>
+        <Column Name="EANCode" DataType="System.String"/>
+        <Column Name="CustomerCode" DataType="System.String"/>
+        <Column Name="CusAddress" DataType="System.String"/>
+        <Column Name="NewCusAddress" DataType="System.String"/>
+        <Column Name="Production date" DataType="System.String"/>
+        <Column Name="HORNBACH1" DataType="System.String"/>
+        <Column Name="LEKTARContainerNO" DataType="System.String"/>
+        <Column Name="shaw1po" DataType="System.String"/>
+        <Column Name="SKU1" DataType="System.String"/>
+        <Column Name="Design" DataType="System.String"/>
+        <Column Name="AttrBOXES" DataType="System.String"/>
+        <Column Name="TarkettContainer" DataType="System.String"/>
+        <Column Name="BatchNo" DataType="System.String"/>
+        <Column Name="TarkettPRODate" DataType="System.String"/>
+        <Column Name="PatternNumberStyle" DataType="System.String"/>
+        <Column Name="PACKING" DataType="System.String"/>
+        <Column Name="DestinatState" DataType="System.String"/>
+        <Column Name="CountryOfOrigin" DataType="System.String"/>
+        <Column Name="PalletQuantity" DataType="System.String"/>
+        <Column Name="PallentNo2" DataType="System.String"/>
+        <Column Name="ItemCode" DataType="System.String"/>
+        <Column Name="OrderAndContainerNo" DataType="System.String"/>
+        <Column Name="PallentNo3" DataType="System.String"/>
+        <Column Name="LOTNO" DataType="System.String"/>
+        <Column Name="MATERIALNUMBER" DataType="System.String"/>
+        <Column Name="CONTANS" DataType="System.String"/>
+        <Column Name="PATTERN" DataType="System.String"/>
+        <Column Name="PRODUCTCODE" DataType="System.String"/>
+        <Column Name="BarCode" DataType="System.String"/>
+        <Column Name="StyleName" DataType="System.String"/>
+        <Column Name="SEATTLE1" DataType="System.String"/>
+        <Column Name="SEATTLE2" DataType="System.String"/>
+        <Column Name="ITEMCOLOR" DataType="System.String"/>
+        <Column Name="BZTPSL" DataType="System.String"/>
+        <Column Name="MTXH" DataType="System.String"/>
+        <Column Name="SKU2" DataType="System.String"/>
+        <Column Name="col1" DataType="System.String"/>
+        <Column Name="col2" DataType="System.String"/>
+        <Column Name="col3" DataType="System.String"/>
+        <Column Name="Remark1" DataType="System.String"/>
+        <Column Name="ltemName" DataType="System.String"/>
+        <Column Name="Size" DataType="System.String"/>
+        <Column Name="yearStr" DataType="System.Int32"/>
+        <Column Name="ProductOrder_Mark" DataType="System.String"/>
+        <Column Name="NewBOXS" DataType="System.String"/>
+        <Column Name="CreateDate" DataType="System.String"/>
+        <Column Name="Harbour" DataType="System.String"/>
+        <Column Name="PallentNo4" DataType="System.String"/>
+        <Column Name="Color" DataType="System.String"/>
+        <Column Name="ColorName2" DataType="System.String"/>
+        <Column Name="Realfeel" DataType="System.String"/>
+        <Column Name="Name" DataType="System.String"/>
+        <Column Name="Stone_Barn_Code" DataType="System.String"/>
+        <Column Name="MTBT" DataType="System.String"/>
+        <Column Name="CustomerName" DataType="System.String"/>
+        <Column Name="LOT_NO" DataType="System.String"/>
+        <Column Name="ItemName" DataType="System.String"/>
+        <Column Name="BZDHSL" DataType="System.String"/>
+        <CommandParameter Name="Code" DataType="22" Size="20000" Expression="[Code]"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+    <Parameter Name="Code" DataType="System.String"/>
+  </Dictionary>
+  <ReportPage Name="Page1" Landscape="true" PaperWidth="297" PaperHeight="210" RawPaperSize="9" LeftMargin="0" TopMargin="0" RightMargin="0" BottomMargin="0" Watermark.Font="宋体, 60pt">
+    <GroupHeaderBand Name="GroupHeader1" Width="1122.66" Condition="[Table.PackTransferCode]">
+      <DataBand Name="Data1" Top="8" Width="1122.66" Height="784.35" DataSource="Table">
+        <TextObject Name="Text1" Left="18.9" Top="151.2" Width="1039.5" Height="56.7" Text="Distributed by:FD Sales,LLC" Font="Arial, 24pt"/>
+        <TextObject Name="Text3" Left="18.9" Top="207.9" Width="1039.5" Height="56.7" Text="PO#[Table.po]" Font="Arial, 24pt"/>
+        <TextObject Name="Text5" Left="18.9" Top="264.6" Width="1039.5" Height="56.7" Text="Destination DC/Store City &amp;State:[Table.Harbour]" Font="Arial, 24pt"/>
+        <TextObject Name="Text6" Left="18.9" Top="321.3" Width="1039.5" Height="56.7" Text="SKU# [Table.MTBT]" Font="Arial, 24pt"/>
+        <TextObject Name="Text8" Left="18.9" Top="491.4" Width="1039.5" Height="56.7" Text="Pallet /Crate# [Table.PallentNo2]" Font="Arial, 24pt"/>
+        <TextObject Name="Text9" Left="18.9" Top="434.7" Width="1039.5" Height="56.7" Text="Country of Origin:THAILAND" Font="Arial, 24pt"/>
+        <TextObject Name="Text11" Left="18.9" Top="548.1" Width="1039.5" Height="47.25" Text="Pallet /Crate Quantity:[Table.BZTPSL]" Font="Arial, 24pt"/>
+        <TextObject Name="Text12" Left="18.9" Top="595.35" Width="1209.6" Height="189" Text="Unit Load Weight [Table.Quantity]" Font="Arial, 54pt"/>
+        <TextObject Name="Text15" Left="18.9" Top="378" Width="1039.5" Height="56.7" Text="Product Name:[Table.MTXH]" Font="Arial, 24pt"/>
+      </DataBand>
+      <GroupFooterBand Name="GroupFooter1" Top="800.35" Width="1122.66"/>
+    </GroupHeaderBand>
+  </ReportPage>
+</Report>

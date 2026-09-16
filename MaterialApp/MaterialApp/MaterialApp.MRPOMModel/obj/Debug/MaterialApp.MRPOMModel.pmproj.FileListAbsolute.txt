@@ -1,0 +1,2 @@
+D:\New folder\MaterialApp\MaterialApp\MaterialApp.MRPOMModel\obj\Debug\MaterialApp.MRPOMModel.pmprojAssemblyReference.cache
+D:\New folder\MaterialApp\MaterialApp\MaterialApp.MRPOMModel\obj\Debug\MaterialApp.MRPOMModel.pmproj.CoreCompileInputs.cache

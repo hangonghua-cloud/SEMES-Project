@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="11/15/2021 19:52:55" ReportInfo.Modified="01/13/2026 09:08:50" ReportInfo.CreatorVersion="2021.1.16.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlqxfki+t8jnSxof6qn6ng9vZXyxJ29Vo8PhbFaOrHhCHgROOaG/q4zpcoYQe61tsOxaKWTscH6Ad1rABTy1kAs9dLOkZCIFkSPgtS3xo+Qd2I1vweO+bh9fU/O4XMGzx8XtIFJb67TJ4BRKzzmozO5UQpb9tCUGPeow9BQ0MTIwDeJ/j9L8W5nwyb3RVts9gSK05SQ6a7AQOgvWdIKEYboSA==">
+      <TableDataSource Name="Table" Alias="Card" DataType="System.Int32" Enabled="true" SelectCommand="EXEC dbo.Pro_TransferCardPrint @CardCode">
+        <Column Name="Id" DataType="System.String"/>
+        <Column Name="ProductOrder" DataType="System.String"/>
+        <Column Name="WorkOrder" DataType="System.String"/>
+        <Column Name="WorkOrderType" DataType="System.String"/>
+        <Column Name="ExeWorkOrder" DataType="System.String"/>
+        <Column Name="CardCode" DataType="System.String"/>
+        <Column Name="CardName" DataType="System.String"/>
+        <Column Name="CardType" DataType="System.String"/>
+        <Column Name="ContainerNO" DataType="System.String"/>
+        <Column Name="BJGY" DataType="System.String"/>
+        <Column Name="WorkOrderRemark" DataType="System.String"/>
+        <Column Name="MaterialCode" DataType="System.String"/>
+        <Column Name="Spec" DataType="System.String"/>
+        <Column Name="MMXH" DataType="System.String"/>
+        <Column Name="JCGG" DataType="System.String"/>
+        <Column Name="BWXH" DataType="System.String"/>
+        <Column Name="SCTPSL" DataType="System.Decimal"/>
+        <Column Name="SCTPSLP" DataType="System.Decimal"/>
+        <Column Name="BZTPSL" DataType="System.Decimal"/>
+        <Column Name="KCKX" DataType="System.String"/>
+        <Column Name="UV" DataType="System.String"/>
+        <Column Name="TotalSheets" DataType="System.Decimal"/>
+        <Column Name="ActualSheets" DataType="System.Decimal"/>
+        <Column Name="OrderPieces" DataType="System.Decimal"/>
+        <Column Name="ProductPieces" DataType="System.Decimal"/>
+        <Column Name="TPGG" DataType="System.String"/>
+        <Column Name="OrderPallet" DataType="System.Decimal"/>
+        <Column Name="PerPallerBox" DataType="System.Decimal"/>
+        <Column Name="BZDHSL" DataType="System.Decimal"/>
+        <Column Name="Description" DataType="System.String"/>
+        <Column Name="PalletNum" DataType="System.String"/>
+        <Column Name="PaperBoxModel" DataType="System.String"/>
+        <Column Name="BoxDate" DataType="System.String"/>
+        <Column Name="CardStatus" DataType="System.String"/>
+        <Column Name="PrintStatus" DataType="System.String"/>
+        <Column Name="Creator" DataType="System.String"/>
+        <Column Name="CreateTime" DataType="System.DateTime"/>
+        <Column Name="ModifyBy" DataType="System.String"/>
+        <Column Name="ModifyTime" DataType="System.DateTime"/>
+        <Column Name="IsEnabled" DataType="System.Boolean" BindableControl="CheckBox"/>
+        <Column Name="PalletQty" DataType="System.Decimal"/>
+        <Column Name="NewType" DataType="System.String"/>
+        <Column Name="StartProcess" DataType="System.String"/>
+        <Column Name="TransferBy" DataType="System.String"/>
+        <Column Name="SerialNumber" DataType="System.String"/>
+        <Column Name="PieceQty" DataType="System.Decimal"/>
+        <Column Name="CardTypeName" DataType="System.String"/>
+        <Column Name="NewCardName" DataType="System.String"/>
+        <Column Name="ShowPalletQty" DataType="System.String"/>
+        <Column Name="MaterialName" DataType="System.String"/>
+        <CommandParameter Name="CardCode" DataType="22" Size="10000" Expression="[CardCode]"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+    <Parameter Name="CardCode" DataType="System.String"/>
+  </Dictionary>
+  <ReportPage Name="Page1" PaperWidth="100" PaperHeight="130" LeftMargin="0" TopMargin="0" RightMargin="0" BottomMargin="0" FirstPageSource="15" OtherPagesSource="15" Guides="9.45" Watermark.Font="宋体, 60pt">
+    <GroupHeaderBand Name="GroupHeader1" Width="378" Condition="[Card.CardName]">
+      <DataBand Name="Data1" Top="2.67" Width="378" Height="472.95" DataSource="Table">
+        <TextObject Name="Text1" Left="198.45" Top="38.25" Width="179.55" Height="47.25" Text="[Card.ProductOrder]" Font="等线, 36pt, style=Bold"/>
+        <TextObject Name="Text2" Left="198.45" Top="94.95" Width="179.55" Height="47.25" Text="[Card.ContainerNO][Card.CardTypeName]" Font="等线, 36pt, style=Bold"/>
+        <TextObject Name="Text3" Left="198.45" Top="151.65" Width="179.55" Height="37.8" Text="[Card.NewCardName] [Card.BJGY]" Font="等线, 26.25pt, style=Bold"/>
+        <TextObject Name="Text5" Left="85.05" Top="189.45" Width="283.5" Height="37.8" Text="[Card.Spec]" Font="等线, 10.5pt"/>
+        <TextObject Name="Text6" Left="9.45" Top="198.9" Width="75.6" Height="28.35" Text="规格：&#13;&#10;ဖော်ပြချက်:&#10;&#10;&#10;&#10;&#10;&#10;&#10;" Font="Microsoft Sans Serif, 6pt"/>
+        <BarcodeObject Name="Barcode1" Left="9.45" Top="9.9" Width="198.45" Height="189" AutoSize="false" DataColumn="Card.CardCode" ShowText="false" Barcode="QR Code" Barcode.ErrorCorrection="L" Barcode.Encoding="UTF8" Barcode.QuietZone="true"/>
+        <TextObject Name="Text7" Left="9.45" Top="227.25" Width="75.6" Height="28.35" Text="面膜&#13;&#10;မျက်နှာဖုံ:" Font="Microsoft Sans Serif, 7pt"/>
+        <TextObject Name="Text8" Left="9.45" Top="255.6" Width="75.6" Height="28.35" Text="挤出规格&#13;&#10;ဖောင်ထုတ်ပါ။:" Font="Microsoft Sans Serif, 7pt"/>
+        <TextObject Name="Text9" Left="9.45" Top="283.95" Width="75.6" Height="28.35" Text="托盘数量&#13;&#10;ထိုးပြားအရေအတွက်:" Font="Microsoft Sans Serif, 7pt, style=Bold"/>
+        <TextObject Name="Text10" Left="9.45" Top="312.3" Width="75.6" Height="28.35" Text="订单数量&#13;&#10;အော်ဒါအရေအတွက်:" Font="Microsoft Sans Serif, 7pt, style=Bold"/>
+        <TextObject Name="Text11" Left="85.05" Top="227.25" Width="283.5" Height="18.9" Text="[Card.MaterialName]" Font="等线, 10.5pt"/>
+        <TextObject Name="Text12" Left="85.05" Top="255.6" Width="283.5" Height="18.9" Text="[Card.JCGG]" Font="等线, 10.5pt"/>
+        <TextObject Name="Text13" Left="85.05" Top="283.95" Width="103.95" Height="18.9" Text="[Card.ShowPalletQty]" Font="等线, 10.5pt, style=Bold"/>
+        <TextObject Name="Text14" Left="189" Top="283.95" Width="94.5" Height="28.35" Text="压纹&#13;&#10;ဖောင်းကြွပုံစံ:" Font="Microsoft Sans Serif, 7pt"/>
+        <TextObject Name="Text15" Left="283.5" Top="283.95" Width="85.05" Height="18.9" Text="[Card.BWXH]" Font="等线, 10.5pt"/>
+        <TextObject Name="Text16" Left="85.05" Top="312.3" Width="103.95" Height="18.9" Text="[Card.TotalSheets]/[Card.OrderPieces]" Font="等线, 10.5pt, style=Bold"/>
+        <TextObject Name="Text17" Left="283.5" Top="312.3" Width="85.05" Height="18.9" Text="[Card.BZTPSL]" Font="等线, 10.5pt"/>
+        <TextObject Name="Text18" Left="189" Top="312.3" Width="94.5" Height="28.35" Text="包装托盘数&#13;&#10;ထုပ်ပိုးမှုဗန်း:" Font="Microsoft Sans Serif, 7pt"/>
+        <TextObject Name="Text19" Left="85.05" Top="340.65" Width="103.95" Height="18.9" Text="[Card.UV]" Font="等线, 10.5pt"/>
+        <TextObject Name="Text20" Left="283.5" Top="340.65" Width="85.05" Height="18.9" Text="[Card.ActualSheets]" Font="等线, 10.5pt, style=Bold"/>
+        <TextObject Name="Text21" Left="189" Top="340.65" Width="94.5" Height="28.35" Text="生产数量&#13;&#10;ထုတ်လုပ်မှုအရေအတွက်&#10;&#10;&#10;&#10;&#10;&#10;&#10;:" Font="Microsoft Sans Serif, 7pt, style=Bold"/>
+        <TextObject Name="Text22" Left="9.45" Top="340.65" Width="75.6" Height="18.9" Text="UV:" Font="等线, 10.5pt"/>
+        <TextObject Name="Text23" Left="66.15" Top="369" Width="122.85" Height="28.35" Text="[Card.KCKX]" Font="等线, 8pt"/>
+        <TextObject Name="Text24" Left="236.25" Top="369" Width="122.85" Height="28.35" Text="[Card.MaterialCode]" Font="等线, 8pt, style=Bold"/>
+        <TextObject Name="Text25" Left="9.45" Top="369" Width="54.7" Height="28.35" Text="扣型&#13;&#10;ခလုတ်:" Font="Microsoft Sans Serif, 7pt"/>
+        <TextObject Name="Text26" Left="189" Top="369" Width="75.6" Height="28.35" Text="纸盒型号&#13;&#10;ကတ်တွန်မော်ဒယ်:" Font="Microsoft Sans Serif, 7pt"/>
+        <TextObject Name="Text27" Left="283.5" Top="397.35" Width="85.05" Height="18.9" Text="[Card.BoxDate]" Font="等线, 10.5pt"/>
+        <TextObject Name="Text28" Left="9.45" Top="397.35" Width="75.6" Height="28.35" Text="托盘编号&#13;&#10;ဗန်းနံပါတ်:" Font="Microsoft Sans Serif, 7pt"/>
+        <TextObject Name="Text29" Left="189" Top="397.35" Width="94.5" Height="28.35" Text="纸盒&#13;&#10;စက္ကူပုံး:" Font="Microsoft Sans Serif, 7pt"/>
+        <TextObject Name="Text30" Left="85.05" Top="397.35" Width="103.95" Height="18.9" Text="[Card.PalletNum]" Font="等线, 10.5pt"/>
+        <TextObject Name="Text31" Left="283.5" Top="425.7" Width="85.05" Height="18.9" Text="[Card.PerPallerBox]/[Card.BZDHSL]" Font="等线, 10.5pt"/>
+        <TextObject Name="Text32" Left="9.45" Top="425.7" Width="75.6" Height="28.35" Text="托盘规格&#13;&#10;Palletသတ်မှတ်ချက်များ:" Font="Microsoft Sans Serif, 7pt"/>
+        <TextObject Name="Text33" Left="189" Top="425.7" Width="94.5" Height="28.35" Text="单托盒/片数&#13;&#10;အကွက်/အရေအတွက်:" Font="Microsoft Sans Serif, 7pt"/>
+        <TextObject Name="Text34" Left="66.15" Top="425.7" Width="103.95" Height="18.9" Text="[Card.TPGG]" Font="等线, 8pt, style=Bold"/>
+        <TextObject Name="Text35" Left="9.45" Top="454.05" Width="103.95" Height="18.9" Text="是否淋膜ရှိမရှိUV:" Font="Microsoft Sans Serif, 7pt"/>
+        <CheckBoxObject Name="CheckBox1" Left="122.85" Top="454.05" Width="18.9" Height="18.9" Border.Lines="All" Checked="false"/>
+        <TextObject Name="Text36" Left="141.75" Top="452.16" Width="236.25" Height="18.9" Text="[Card.WorkOrderRemark]" Font="等线, 8pt, style=Bold"/>
+      </DataBand>
+      <GroupFooterBand Name="GroupFooter1" Top="478.28" Width="378"/>
+    </GroupHeaderBand>
+  </ReportPage>
+</Report>

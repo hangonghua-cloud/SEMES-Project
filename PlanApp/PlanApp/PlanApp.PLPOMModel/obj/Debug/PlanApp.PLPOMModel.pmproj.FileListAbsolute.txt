@@ -1,0 +1,2 @@
+D:\New folder\PlanApp\PlanApp\PlanApp.PLPOMModel\obj\Debug\PlanApp.PLPOMModel.pmprojAssemblyReference.cache
+D:\New folder\PlanApp\PlanApp\PlanApp.PLPOMModel\obj\Debug\PlanApp.PLPOMModel.pmproj.CoreCompileInputs.cache

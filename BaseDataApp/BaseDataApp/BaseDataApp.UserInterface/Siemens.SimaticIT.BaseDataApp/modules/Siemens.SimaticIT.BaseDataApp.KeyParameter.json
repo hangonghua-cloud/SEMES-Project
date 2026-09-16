@@ -1,0 +1,19 @@
+﻿{
+  "name": "Siemens.SimaticIT.BaseDataApp.KeyParameter",
+  "type": "standard",
+  "title": "Siemens.SimaticIT.BaseDataApp.KeyParameter.Title",
+  "header": "",
+  "icon": "fa-folder",
+  "functionalBlock": "Siemens.SimaticIT.BaseDataApp",
+  "dependencies": [],
+  "states": [
+    {
+      "id": "home.Siemens_SimaticIT_BaseDataApp_KeyParameter_KeyParameter",
+      "title": "Siemens.SimaticIT.BaseDataApp.KeyParameter.Title",
+      "header": "",
+      "securable": true,
+      "roles": []
+    }
+  ],
+  "manifestVersion": "01.01.00"
+}

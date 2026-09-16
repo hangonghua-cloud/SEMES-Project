@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+    <metadata>
+        <id>jinqJs</id>
+        <version>1.6.1</version>
+        <title>jinqJs Query Library (javaScript)</title>
+        <authors>Thomas Ford</authors>
+        <owners>Thomas Ford</owners>
+        <projectUrl>http://jinqjs.com/</projectUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>Provides you the ability to query, update and delete javaScript arrays using SQL like syntaxes and LINQ like expressions. Version 1.2+ provides a plug-in architecture to add your own functions. Version 1.2+ now requires the "new" keyword when creating a jinqJs() instance. Version 1.3+ supports Node.js.</description>
+        <summary>Query javaScript arrays using SQL and LINQ like syntaxes with TypeScript support.</summary>
+        <releaseNotes>All releases are always 100% verified against 90+ unit tests using jasmine.</releaseNotes>
+        <tags>linq javascript query SQL array jinqjs</tags>
+    </metadata>
+</package>

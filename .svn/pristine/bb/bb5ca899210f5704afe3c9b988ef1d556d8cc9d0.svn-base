@@ -1,0 +1,14 @@
+
+<DSL Version='1.13'>
+    <Project>
+        <Name>FactoryModelApp.FMPOMModel</Name>
+        <Version>01.00.00</Version>
+        <Prefix>Siemens.SimaticIT</Prefix>
+        <Domain>FactoryModelApp</Domain>
+        <DomainAcronym>FM</DomainAcronym>
+        <Guid>87a99200-1bf6-45be-9980-6d249b6c405d</Guid>
+		<ProjectKind>Pom</ProjectKind>
+    </Project>
+    <References>
+    </References>
+</DSL>

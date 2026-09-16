@@ -1,0 +1,681 @@
+{
+  //公用
+  "Common": {
+    "Error": "操作失败，服务器异常",
+    "ErrorWithOther": "操作失败，{0}",
+    "Success": "操作成功",
+    "SuccessWithOther": "操作成功，{0}订单号{1}编码{2}物料",
+    "SelectAll": "全选",
+    "DropDownAll": "-请选择-",
+    "IsDelete": "确定删除吗?",
+    "DeleteTip": "删除提示",
+    "LoginLeftMsg": "登录人：{0}  登录时间：{1}",
+    "TipMsg": "提示信息",
+    "WarningMsg": "警告信息",
+    "ErrorMsg": "错误信息",
+    "Confirm": "确认"
+  },
+  //所在地
+  "Location": {
+    "CN": "中国工厂",
+    "VN": "越南工厂",
+    "TH": "泰国工厂"
+  },
+  //主窗体
+  "Frm_Main": {
+    "Title": "华丽MES客户端系统",
+    "Menu": {
+      "tsm_BaseDataManage": "基础数据",
+      //"tsm_PTeam": "生产小组",
+      "tsm_ProductionManage": "生产管理",
+      "tsm_SystemManage": "系统管理"
+    }
+  },
+  //登录页面
+  "Frm_Login": {
+    "Title": "MES 客户端系统",
+    "Button": {
+      "btn_exit": "退出",
+      "btn_ok": "登录"
+    },
+    "Label": {
+      "label3": "华丽MES客户端系统",
+      "label1": "用户账户：",
+      "label2": "用户密码：",
+      "lbl_Location": "工厂："
+    }
+  },
+  //分页用户组建
+  "PagerControl": {
+    "Title": "",
+    "FirstTip": "当前已经是首页",
+    "LastTip": "当前已经是末页",
+    "GoError": "请正确填写页码！",
+    "Button": {
+      "btnFirst": "首页",
+      "btnPre": "上一页",
+      "btnNext": "下一页",
+      "btnLast": "末页"
+    },
+    "Label": {
+      "label1": "每页条数",
+      "lblInfo": "共 {0} 条记录  共 {1} 页  当前第 {2} 页"
+    }
+  },
+  //修改密码界面
+  "Frm_UpdatePassword": {
+    "Title": "修改密码",
+    "Button": {
+      "btnSave": "保存"
+    },
+    "Label": {
+      "label1": "原密码",
+      "label2": "新密码",
+      "label3": "确认新密码"
+    },
+    "Table": {},
+    "Other": {}
+  },
+  //流转卡打印
+  "Frm_TransferCard": {
+    "Title": "流转卡打印",
+    "MessageTips_1": "请选择执行工单!",
+    "MessageTips_2": "流转卡【{0}】不可打印！",
+    "MessageTips_3": "请选择一张流转卡!",
+    "MessageTips_4": "请选择要打印的流转卡!",
+    "MessageTips_5": "流转卡不存在!",
+    "MessageTips_6": "没有可打印的流转卡！",
+    "MessageTips_7": "请选择工厂！",
+    "Button": {
+      "btnSearch": "查询",
+      "btnNew": "新建流转卡",
+      "btnPrint": "流转卡打印"
+    },
+    "Label": {
+      "label1": "工厂",
+      "label6": "订单号",
+      "label3": "PO号",
+      "label4": "工单类型",
+      "label5": "生产状态",
+      "label2": "面膜型号",
+      "label8": "规格型号",
+      "label7": "柜号",
+      "label10": "工单",
+      "label9": "扫描流转卡"
+    },
+    "Table": {
+      "dgvm": {
+        "Id": "Id",
+        "FactoryCode": "工厂编码",
+        "FactoryName": "工厂",
+        "Column12": "生产订单",
+        "ExeWorkOrderType": "执行工单类型编码",
+        "ExeWorkOrderTypeName": "工单类型",
+        "ExeWorkOrder": "执行工单",
+        "ProductOrder": "订单号",
+        "CustomerPO": "PO号",
+        "Status": "状态编码",
+        "StatusName": "生产状态",
+        "MaterialName": "面膜型号",
+        "MMCJ": "面膜厂家",
+        "Spec": "规格型号",
+        "BWXH": "压纹",
+        "PiecesQty": "总片数",
+        "ContainerNO": "柜号",
+        "UV": "UV",
+        "KCKX": "扣型",
+        "SmallClass": "规格",
+        "PrintedPalletQty": "已打印托数",
+        "PSheetsQty": "生产大张数",
+        "CreateTime": "下单时间",
+        "FinishTime": "完成时间"
+      },
+      "dgvd": {
+        "Column1": "Id",
+        "Column8": "流转卡类型编码",
+        "Column2": "流转卡类型",
+        "CardCode": "流转卡编码",
+        "Column4": "流转卡名称",
+        "SheetQty1": "单托标准张数",
+        "Column9": "流转卡状态编码",
+        "Column6": "流转卡状态",
+        "PrintStatus2": "打印状态编码",
+        "Column7": "打印状态",
+        "ProcessName1": "所在工序",
+        "StockQty1": "库存数量",
+        "BusinessTypeName1": "业务类型",
+        "RePrint": "补打"
+      }
+    },
+    "Other": {
+      "groupBox3": "执行工单",
+      "groupBox2": "流转卡信息"
+    }
+  },
+  //新建流转卡 界面
+  "Frm_TransferCardAdd": {
+    "Title": "新建流转卡",
+    "MessageTips_1": "新建成功",
+    "MessageTips_2": "新建失败",
+    "MessageTips_3": "请选择流转卡类型",
+    "MessageTips_4": "请选择新建类型",
+    "MessageTips_5": "请填写新建片数",
+    "MessageTips_6": "数量格式不正确",
+    "MessageTips_7": "请选择要继承的流转卡",
+    "MessageTips_8": "请填写单托片数",
+    "MessageTips_9": "单托片数格式不正确",
+    "Button": {
+      "btnSave": "确认生成"
+    },
+    "Label": {
+      "label19": "订单号",
+      "label20": "工单号",
+      "label1": "执行工单号",
+      "label8": "面膜型号",
+      "label3": "柜号",
+      "label7": "客户型号",
+      "label9": "压纹",
+      "label5": "规格型号",
+      "label14": "挤出规格",
+      "label15": "扣型",
+      "label10": "UV",
+      "label16": "新建类型",
+      "label11": "面膜厂家",
+      "label18": "新建片数",
+      "label12": "流转卡类型",
+      "lblPerPalletPieceQty": "单托片数",
+      "label2": "继承流转卡"
+    }
+  },
+  //流转卡拆分 界面
+  "Frm_TransferCardSplit": {
+    "Title": "新建流转卡",
+    "MessageTips_1": "请输入拆分托数",
+    "MessageTips_2": "拆分托数格式不正确",
+    "MessageTips_3": "拆分托数不能大于7",
+    "MessageTips_4": "没有要拆分的记录，无法保存",
+    "MessageTips_5": "拆分成功",
+    "MessageTips_6": "拆分失败",
+    "Button": {
+      "btnSave": "确认拆分",
+      "btnAdd": "新增",
+      "btnRemove": "清除"
+    },
+    "Label": {
+      "label1": "订单号",
+      "label3": "流转卡托号",
+      "label2": "柜号",
+      "label4": "拆分托数"
+    },
+    "Table": {
+      "dgvSplit": {
+        "CardCode": "流转卡编码",
+        "CardName": "流转卡名称"
+      }
+    },
+    "Other": {
+      "groupBox2": "操作区"
+    }
+  },
+  //执行工单
+  "Frm_WorkOrderExcute": {
+    "Title": "派工工单执行",
+    "Button": {
+      "btnSearch": "查询",
+      "btnUp": "原料批次上机",
+      "btnStart": "挤出开工",
+      "btnCheck": "过程检验",
+      "btnBG": "挤出报工"
+    },
+    "Label": {
+      "label1": "工厂",
+      "label2": "工序",
+      "label3": "机台",
+      "label4": "生产状态"
+    },
+    "Table": {
+      "dgv1": {
+        "Id": "Id",
+        "ProductOrder": "生产订单",
+        "FactoryCode": "工厂编码",
+        "FactoryName": "工厂",
+        "ProcessCode": "工序编码",
+        "ProcessName": "工序",
+        "EquipCode": "机台编码",
+        "EquipName": "机台",
+        "CreateTime": "派工时间",
+        "PlanProductTime": "计划生产时间",
+        "WorkOrderTypeName": "工单类型",
+        "ExeWorkOrder": "执行工单",
+        "SWStatus": "生产状态编码",
+        "SWStatusName": "生产状态",
+        "MMXH": "面膜型号",
+        "MMCJ": "面膜厂家",
+        "Spec": "规格型号",
+        "BWXH": "压纹",
+        "PiecesQty": "总片数",
+        "ContainerNO": "柜号",
+        "UV": "UV",
+        "KCKX": "扣型",
+        "SmallClass": "规格",
+        "SheetsQty": "生产张数",
+        "PalletQty": "托数",
+        "BGQty": "报工数量"
+      }
+    },
+    "Other": {
+      "groupBox1": "",
+      "groupBox2": ""
+    }
+  },
+  //包装报工界面
+  "Frm_PackingBG": {
+    "Title": "包装报工管理",
+    "MessageTips_1": "请选择工厂！",
+    "MessageTips_2": "请选择要打印的唛头码！",
+    "MessageTips_3": "请选择要打印的唛头信息!",
+    "MessageTips_4": "未找到打印模板",
+    "Button": {
+      "btnSearch": "查询",
+      "btnMarkCodePrint": "唛头码打印",
+      "btnPrint": "唛头打印"
+    },
+    "Label": {
+      "label1": "工厂",
+      "label6": "订单号",
+      "label3": "PO号",
+      "label5": "包装状态",
+      "label4": "客户型号",
+      "label2": "面膜型号",
+      "label10": "报工时间",
+      "label11": "至",
+      "label8": "规格型号",
+      "label7": "柜号",
+      "label9": "纸盒型号",
+      "label12": "报工机台",
+      "label13": "打印状态",
+      "label14": "流转卡"
+    },
+    "Table": {
+      "dgvm": {
+        "Id": "Id",
+        "ProductOrder": "订单号",
+        "FactoryCode": "工厂编码",
+        "FactoryName": "工厂",
+        "WorkOrder": "工单号",
+        "CustomerPO": "PO号",
+        "ContainerNO": "柜号",
+        "PackingStatus": "包装状态",
+        "MaterialCode": "客户型号",
+        "MaterialName": "面膜型号",
+        "MMXH": "原材料面膜型号",
+        "Spec": "规格型号",
+        "PaperBox": "纸盒规格",
+        "DeliveryPieces": "发货片数",
+        "PerPalletPieceQty": "单托片数",
+        "PerPalletBoxQty": "单托盒数",
+        "DeliveryPallet": "发货托数",
+        "DeliveryWholePallet": "整柜总托数",
+        "DeliveryStartPallet": "起始托号",
+        "LoadingDate": "要求装柜日期",
+        "WorkQty": "已报工数量",
+        "PrintNum": "已打印托数",
+        "AvoidProduce": "免产标志"
+      },
+      "dgvd1": {
+        "Id": "Id",
+        "PackingRecordId1": "PackingRecordId",
+        "ProductOrder1": "订单号",
+        "ContainerNO1": "柜号",
+        "CustomerPO1": "PO号",
+        "CardCode1": "流转卡编码",
+        "CardType1": "流转卡类型编码",
+        "CardTypeName1": "流转卡类型",
+        "CardName1": "流转卡名称",
+        "MachineCode1": "机台",
+        "Qty1": "报工数量",
+        "CreateTime1": "报工时间",
+        "CreatorName1": "报工人"
+      },
+      "dgvd2": {
+        "Id": "Id",
+        "PackingRecordId2": "PackingRecordId",
+        "ProductOrder2": "订单号",
+        "WorkOrder2": "工单号",
+        "CustomerPO2": "PO号",
+        "Customer2": "客户",
+        "MaterialCode2": "客户型号",
+        "Spec2": "规格型号",
+        "Quantity2": "数量",
+        "PackTransferCode2": "唛头编码",
+        "Mark2": "唛头名称",
+        "PrintStatus2": "打印状态编码",
+        "PrintStatusName2": "打印状态"
+      }
+    },
+    "Other": {
+      "groupBox3": "工单信息",
+      "tabPage1": "包装报工记录",
+      "tabPage2": "唛头信息"
+    }
+  },
+  //包装打印选择框
+  "FormSelect": {
+    "Title": "选择模板",
+    "Button": {
+      "btnCancel": "取消",
+      "btnMarkPrint": "打印"
+    },
+    "Label": {
+      "label3": "日期",
+      "label2": "背胶工艺",
+      "label1": "打印模板"
+    },
+    "Table": {},
+    "Other": {}
+  },
+  //生产小组界面
+  "Frm_PTeam": {
+    "Title": "生产小组打印",
+    "MessageTips_1": "请选择要打印的数据行！",
+    "MessageTips_2": "请选择工厂！",
+    "Button": {
+      "btnSearch": "查询",
+      "btnPrint": "打印"
+    },
+    "Label": {
+      "label3": "工厂",
+      "label1": "小组编码",
+      "label2": "小组名称"
+    },
+    "Table": {
+      "dgvm": {
+        "FactoryName": "工厂名称",
+        "ProcessCode": "工序编码",
+        "ProcessName": "工序名称",
+        "PTeamCode": "生产小组编码",
+        "PTeamName": "生产小组名称"
+      }
+    },
+    "Other": {
+      "groupBox1": "查询条件",
+      "groupBox2": "小组列表"
+    }
+  },
+  //半成品上机报工
+  "RawMaterialBatchUp": {
+    "Title": "半成品上机报工",
+    "MessageTips_1": "合计报工数量",
+    "MessageTips_2": "物料【{0}】不存在！",
+    "MessageTips_3": "机台不能为空！",
+    "MessageTips_4": "关键件不能为空！",
+    "MessageTips_5": "物料编码",
+    "MessageTips_6": "流转卡号",
+    "MessageTips_7": "已报工数量",
+    "MessageTips_8": "工序不能为空，请重新扫描机台！",
+    "MessageTips_9": "请选择不良项目",
+    "MessageTips_10": "请填写不良数量",
+    "MessageTips_11": "不良数量格式不对",
+    "MessageTips_12": "已存在，不允许重复录入",
+    "MessageTips_13": "流转卡不能为空",
+    "MessageTips_14": "流转卡信息不一致，请重新扫描",
+    "MessageTips_15": "卷号不能为空",
+    "MessageTips_16": "机台不能为空",
+    "MessageTips_17": "生产小组不能为空",
+    "MessageTips_18": "工单或者工厂不能为空，请重新扫描流转卡",
+    "MessageTips_19": "请选择一条数据！",
+    "MessageTips_20": "未找到唛头模板",
+    "MessageTips_21": "小组人员不能为空",
+    "MessageTips_22": "扫描的人员编码不能为空！",
+    "MessageTips_23": "请选择岗位",
+    "MessageTips_24": "请选择要删除的人员",
+    "Button": {
+      "btnTeamAdd": "添加",
+      "btnTeamDelete": "删除",
+      "btnSave": "关键件绑定",
+      "btnCancelBind": "取消绑定",
+      "btnEdit": "编辑",
+      "btnPrintMark": "唛头打印",
+      "btnPrint2": "打印",
+      "button1": "生产报工+打印单卷条码",
+      "btnSCBG": "生产报工",
+      "btnSave2": "生产报工+打印单卷条码",
+      "btbDelete2": "删除",
+      "btnSelectBadItem": "选择",
+      "btnAdd2": "添加"
+    },
+    "Label": {
+      "label21": "岗位",
+      "label20": "人员",
+      "label19": "小组",
+      "label5": "物料批次",
+      "label4": "物料编码",
+      "label3": "物料名称",
+      "label2": "关键件",
+      "label1": "生产机台",
+      "lblProcessCode": "ProcessCode",
+      "lblFactoryCode": "FactoryCode",
+      "lblBadItemCode": "BadItemCode",
+      "lblHasBGQty": "0",
+      "lblBatchNo": "BatchNo",
+      "lblSmallClassName": "SmallClassName",
+      "lblSmallClass": "SmallClass",
+      "lblMaterialName": "MaterialName",
+      "lblMaterialCode": "MaterialCode",
+      "lblTransferName": "TransferName",
+      "lblTransferCode": "TransferCode",
+      "lblWorkOrder": "WorkOrder",
+      "lblOwnProductId": "OwnProductId",
+      "lblTotalBGQty": "合计报工数量：",
+      "label15": "单卷条码信息列表",
+      "label18": "卷号",
+      "label6": "流转卡",
+      "label16": "检验员",
+      "label11": "不良数量",
+      "label17": "米数",
+      "label7": "报工数量",
+      "label14": "不良数量",
+      "label13": "不良项目",
+      "label12": "人员信息",
+      "label8": "机台",
+      "label10": "订单信息",
+      "label9": "生产小组"
+    },
+    "Table": {
+      "dgv2": {
+        "dataGridViewTextBoxColumn17": "Id",
+        "dataGridViewTextBoxColumn18": "岗位名称",
+        "dataGridViewTextBoxColumn19": "人员编码",
+        "UserName": "人员名称"
+      },
+      "dgv1": {
+        "Id": "Id",
+        "MaterialName": "物料名称",
+        "BatchNo": "批次"
+      },
+      "dgv4": {
+        "Column4": "单卷条码号",
+        "Column5": "报工数量",
+        "Column6": "单位",
+        "Column7": "生产人员",
+        "Column8": "检验员",
+        "Column9": "生产时间",
+        "Column10": "物料编码"
+      },
+      "dgv3": {
+        "BadItemCode": "不良项目编码",
+        "BadItemName": "不良项目",
+        "BadQty": "不良数量"
+      }
+    },
+    "Other": {
+      "splitContainer1": "",
+      "groupBox1": "生产小组人员绑定",
+      "panel1": ""
+    }
+  },
+  //打印日志
+  "Frm_PrintLog": {
+    "Title": "打印日志",
+    "MessageTips_1": "流转卡",
+    "MessageTips_2": "唛头",
+    "MessageTips_3": "请选择工厂！",
+    "Button": { "btnSearch": "查询" },
+    "Label": {
+      "label5": "工厂",
+      "label4": "操作人",
+      "label2": "编码",
+      "label11": "至",
+      "label10": "打印时间",
+      "label1": "日志类型",
+      "label3": ""
+    },
+    "Table": {
+      "dgvm": {
+        "Id": "Id",
+        "Code": "编码明细",
+        "Creator": "创建人编码",
+        "CreateTime": "打印时间",
+        "Operator": "操作人"
+      }
+    },
+    "Other": {
+      "groupBox3": "查询结果",
+      "groupBox1": "查询条件",
+      "groupBox2": "编码记录"
+    }
+  },
+  //关于MES客户端
+  "Frm_Version": {
+    "Title": "关于MES客户端",
+    "Button": {},
+    "Label": {
+      "label2": "更新日志",
+      "lblVersion": "版本号",
+      "label1": "当前版本："
+    },
+    "Table": {},
+    "Other": {}
+  },
+  //人员打印
+  "Frm_People": {
+    "Title": "人员打印",
+    "MessageTips_1": "请选择要打印的数据行!",
+    "MessageTips_2": "请选择工厂!",
+    "Button": {
+      "btnPrint": "打印",
+      "btnSearch": "查询"
+    },
+    "Label": {
+      "label4": "工厂",
+      "label3": "部门名称",
+      "label2": "人员名称",
+      "label1": "人员编码"
+    },
+    "Table": {
+      "dgvm": {
+        "UserCode": "人员编码",
+        "UserName": "人员名称",
+        "Dept": "部门名称"
+      }
+    },
+    "Other": {
+      "groupBox2": "小组列表",
+      "groupBox1": "查询条件"
+    }
+  },
+  //物料批次
+  "Frm_MaterialBatch": {
+    "Title": "物料批次",
+    "MessageTips_1": "请选择要打印的数据行!",
+    "MessageTips_2": "请选择工厂!",
+    "MessageTips_3": "请选择一行数据!",
+    "MessageTips_4": "请输入托数!",
+    "MessageTips_5": "托数的格式不正确!",
+    "Button": {
+      "btnPrintPallet": "打印多托",
+      "btnPrint": "打印",
+      "btnSearch": "查询"
+    },
+    "Label": {
+      "label5": "工厂",
+      "label6": "托数",
+      "label4": "订单号",
+      "label3": "仓库名称",
+      "label2": "物料名称",
+      "label1": "物料编码"
+    },
+    "Table": {
+      "dgvm": {
+        "Id": "Id",
+        "ProductOrder": "订单号",
+        "MaterialCode": "物料编码",
+        "MaterialName": "物料名称",
+        "BatchNo": "批次号",
+        "WhsCode": "仓库编码",
+        "WhsName": "仓库名称",
+        "LocationCode": "库位编码",
+        "LocationName": "库位名称",
+        "Qty": "数量",
+        "Unit": "单位"
+      }
+    },
+    "Other": {
+      "groupBox2": "小组列表",
+      "groupBox1": "查询条件"
+    }
+  },
+  //机台打印
+  "Frm_Machine": {
+    "Title": "机台打印",
+    "MessageTips_1": "请选择要打印的数据行!",
+    "Button": {
+      "btnPrint": "打印",
+      "btnSearch": "查询"
+    },
+    "Label": {
+      "label2": "机台",
+      "label1": "工序",
+      "label3": "工厂"
+    },
+    "Table": {
+      "dgvm": {
+        "MachineCode": "机台编码",
+        "MachineName": "机台名称",
+        "OperationCode": "工序编码",
+        "OperationName": "工序名称"
+      }
+    },
+    "Other": {
+      "groupBox2": "列表",
+      "groupBox1": "查询条件"
+    }
+  },
+  //库位打印
+  "Frm_Location": {
+    "Title": "库位打印",
+    "MessageTips_1": "请选择要打印的数据行!",
+    "MessageTips_2": "请选择工厂!",
+    "Button": {
+      "btnPrint": "打印",
+      "btnSearch": "查询"
+    },
+    "Label": {
+      "label2": "库位",
+      "label1": "仓库",
+      "label3": "工厂"
+    },
+    "Table": {
+      "dgvm": {
+        "LocationCode": "库位编码",
+        "MachineName": "库位名称",
+        "WhsCode": "仓库编码",
+        "WhsName": "仓库名称"
+      }
+    },
+    "Other": {
+      "groupBox2": "列表",
+      "groupBox1": "查询条件"
+    }
+  }
+}

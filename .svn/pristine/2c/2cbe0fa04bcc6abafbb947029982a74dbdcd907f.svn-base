@@ -1,0 +1,54 @@
+﻿<style>
+    .canvas .property-area-container div.command-bar-side-panel {
+        padding-bottom: 40px;
+    }
+
+    .canvas .property-area-container > div.content .side-panel-property-area-body {
+        overflow: visible;
+        flex: none;
+    }
+</style>
+<div class="command-bar-side-panel">
+    <button ng-click="vm.cancel()" class="btn side-panel-button">取消</button>
+    <button ng-click="vm.save()" class="btn side-panel-button" ng-show="vm.validInputs">保存</button>
+</div>
+<div class="side-panel-property-area-body" style="height: calc(22% - 0px) !important;">
+    <sit-property-grid sit-id="add_form" sit-layout="Horizontal" sit-type="Fixed" sit-mode="edit" sit-columns="4">
+        <sit-property sit-widget="sit-select" sit-value="vm.typeFactory.value" sit-validation="{required: true}"
+                      sit-options="vm.typeFactory.options" sit-to-display="'ResourceName'" sit-to-keep="'ResourceCode'"
+                      sit-read-only="false">工厂:</sit-property>
+
+        <sit-property sit-widget="sit-select" sit-value="vm.typeImportType.value" sit-validation="{required: true}"
+                      sit-options="vm.typeImportType.options" sit-to-display="'ItemName'" sit-to-keep="'ItemValue'"
+                      sit-read-only="false">导入类型:</sit-property>
+
+        <sit-property sit-widget="sit-select" sit-value="vm.typeScrapCode.value" sit-validation="{required: false}"
+                      sit-options="vm.typeScrapCode.options" sit-to-display="'ScrapCode'" sit-to-keep="'ScrapCode'"
+                      sit-read-only="false">编码:</sit-property>
+
+        <sit-property sit-widget="sit-datepicker" sit-value="vm.StartTime" sit-validation="{required: true}"
+                      sit-widget-attributes="{'sit-format':'yyyy-MM-dd','sit-show-meridian':'false'}" sit-read-only="false">
+            分摊开始时间:
+        </sit-property>
+        <sit-property sit-widget="sit-datepicker" sit-value="vm.EndTime" sit-validation="{required: true}"
+                      sit-widget-attributes="{'sit-format':'yyyy-MM-dd','sit-show-meridian':'false'}" sit-read-only="false">
+            分摊结束时间:
+        </sit-property>
+        <sit-property sit-id="File" sit-widget="sit-file-uploader" sit-value="vm.file"
+                      sit-validation="{ required: true }" sit-change="vm.changeFile"
+                      sit-widget-attributes="{'accept':'.xls,.xlsx','sit-min-size': '1KB', 'sit-max-size': '10MB'}">
+            (<a href="Siemens.SimaticIT.ProductionApp/resources/生产报废记录导入模板.xls">下载导入模板</a>):
+        </sit-property>
+    </sit-property-grid>
+
+</div>
+<div id="itemlist1"
+     style="width:calc(100% - 2px); height: 78%;margin-top: 3px; padding:5px 16px 0 0px;clear: both; display: block;">
+    <div>
+        <sit-tabset>
+            <sit-tab heading="导入信息">
+                <div id="sittab1" style="overflow: hidden;overflow:auto;white-space: nowrap;height: 330px;"></div>
+            </sit-tab>
+        </sit-tabset>
+    </div>
+</div>

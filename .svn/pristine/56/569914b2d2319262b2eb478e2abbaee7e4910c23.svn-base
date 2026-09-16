@@ -1,0 +1,18 @@
+﻿<style>
+    .canvas .property-area-container div.command-bar-side-panel {
+        padding-bottom: 40px;
+    }
+
+    .canvas .property-area-container > div.content .side-panel-property-area-body {
+        overflow: visible;
+        flex: none;
+    }
+</style>
+<div class="command-bar-side-panel">
+    <button ng-click="vm.cancel()" class="btn side-panel-button">{{'Siemens.SimaticIT.ProductionApp.WorkOrderBatch.select.Tips_1'|translate}}</button>
+</div>
+<div id="itemlist1"
+     style="width:calc(100% - 2px); height: 80%;margin-top: 3px; padding:5px 16px 0 0px;clear: both; display: block;">
+    <div ui-grid="vm.gridOptionsItem1" ui-grid-selection ui-grid-resize-columns ui-grid-auto-resize ui-grid-pagination
+         class="uigrid  gridItem"></div>
+</div>

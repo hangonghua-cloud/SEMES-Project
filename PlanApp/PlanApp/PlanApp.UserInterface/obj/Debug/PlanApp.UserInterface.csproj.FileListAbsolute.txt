@@ -1,0 +1,7 @@
+D:\New folder\PlanApp\PlanApp\PlanApp.UserInterface\bin\Siemens.SimaticIT.PlanApp.UserInterface.dll.config
+D:\New folder\PlanApp\PlanApp\PlanApp.UserInterface\bin\Siemens.SimaticIT.PlanApp.UserInterface.dll
+D:\New folder\PlanApp\PlanApp\PlanApp.UserInterface\bin\Siemens.SimaticIT.PlanApp.UserInterface.pdb
+D:\New folder\PlanApp\PlanApp\PlanApp.UserInterface\obj\Debug\PlanApp.UserInterface.csproj.CoreCompileInputs.cache
+D:\New folder\PlanApp\PlanApp\PlanApp.UserInterface\obj\Debug\Siemens.SimaticIT.PlanApp.UserInterface.dll
+D:\New folder\PlanApp\PlanApp\PlanApp.UserInterface\obj\Debug\Siemens.SimaticIT.PlanApp.UserInterface.pdb
+D:\New folder\PlanApp\PlanApp\PlanApp.UserInterface\obj\Debug\PlanApp.UserInterface.csprojAssemblyReference.cache

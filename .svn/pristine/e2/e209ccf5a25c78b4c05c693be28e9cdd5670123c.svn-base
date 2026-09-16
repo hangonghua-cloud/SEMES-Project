@@ -1,0 +1,20 @@
+﻿{
+  "name": "Siemens.SimaticIT.MaterialApp.TraitProcess",
+  "type": "standard",
+  "title": "Siemens.SimaticIT.MaterialApp.TraitProcessOperation.Title",
+  "header": "",
+  "icon": "fa-folder",
+  "functionalBlock": "Siemens.SimaticIT.MaterialApp",
+  "dependencies": [],
+  "states": [
+   
+    {
+      "id": "home.Siemens_SimaticIT_MaterialApp_TraitProcess_TraitProcessOperation",
+      "title": "Siemens.SimaticIT.MaterialApp.TraitProcessOperation.Title",
+      "header": "",
+      "securable": true,
+      "roles": []
+    }
+  ],
+  "manifestVersion": "01.01.00"
+}

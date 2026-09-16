@@ -1,0 +1,19 @@
+﻿{
+  "name": "Siemens.SimaticIT.ProductionApp.PMPerformanceManage",
+  "type": "standard",
+  "title": "Siemens.SimaticIT.ProductionApp.PMPerformanceManage.Title",
+  "header": "",
+  "icon": "fa-folder",
+  "functionalBlock": "Siemens.SimaticIT.ProductionApp",
+  "dependencies": [],
+  "states": [
+    {
+      "id": "home.Siemens_SimaticIT_ProductionApp_PMPerformanceManage_PMPerformanceManage",
+      "title": "Siemens.SimaticIT.ProductionApp.PMPerformanceManage.Title",
+      "header": "",
+      "securable": true,
+      "roles": []
+    }
+  ],
+  "manifestVersion": "01.01.00"
+}

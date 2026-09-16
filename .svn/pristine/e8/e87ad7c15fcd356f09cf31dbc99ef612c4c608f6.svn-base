@@ -1,0 +1,67 @@
+﻿<style>
+    .canvas .property-area-container div.command-bar-side-panel {
+        padding-bottom: 40px;
+    }
+
+    .canvas .property-area-container > div.content .side-panel-property-area-body {
+        overflow: visible;
+        flex: none;
+    }
+</style>
+<div class="command-bar-side-panel">
+    <button ng-click="vm.cancel()" class="btn side-panel-button">{{'Siemens.SimaticIT.QualityApp.QC_PollingDetail.QC_PollingDetailadd.Tips_1'|translate}}</button>
+    <button ng-click="vm.save()" class="btn side-panel-button">{{'Siemens.SimaticIT.QualityApp.QC_PollingDetail.QC_PollingDetailadd.Tips_2'|translate}}</button>
+</div>
+<div class="side-panel-property-area-body" style="height: calc(8% - 0px) !important;">
+    <sit-property-grid sit-id="add_form" sit-layout="Horizontal" sit-type="Fixed" sit-mode="edit" sit-columns="5">
+
+        <sit-property sit-widget="sit-select" sit-value="vm.typeFactory.value" sit-validation="{required: false}"
+                      sit-options="vm.typeFactory.options" sit-to-display="'ResourceName'" sit-to-keep="'ResourceCode'"
+                      sit-read-only="false" sit-change="vm.typeFactoryChange">{{'Siemens.SimaticIT.QualityApp.QC_PollingDetail.QC_PollingDetailadd.Tips_3'|translate}}</sit-property>
+        <sit-property sit-widget="sit-text" sit-value="vm.searchParams1.ProductOrder" sit-validation="{required: false}"
+                      sit-read-only="false">{{'Siemens.SimaticIT.QualityApp.QC_PollingDetail.QC_PollingDetailadd.Tips_4'|translate}}</sit-property>
+        <sit-property sit-widget="sit-text" sit-value="vm.searchParams1.ContainerNO" sit-validation="{required: false}"
+                      sit-read-only="false">{{'Siemens.SimaticIT.QualityApp.QC_PollingDetail.QC_PollingDetailadd.Tips_5'|translate}}</sit-property>
+        <sit-property sit-widget="sit-text" sit-value="vm.searchParams1.MMXH" sit-validation="{required: false}"
+                      sit-read-only="false">{{'Siemens.SimaticIT.QualityApp.QC_PollingDetail.QC_PollingDetailadd.Tips_6'|translate}}</sit-property>
+
+        <sit-command-bar sit-type="action">
+            <sit-command sit-icon="fa-search" sit-type="main" sit-name="com.siemens.customcommand.search"
+                         :sit-tooltip="{{'Siemens.SimaticIT.QualityApp.QC_PollingDetail.QC_PollingDetailadd.Tips_7'|translate}}" ng-click="vm.search" :sit-label="{{'Siemens.SimaticIT.QualityApp.QC_PollingDetail.QC_PollingDetailadd.Tips_7'|translate}}">
+            </sit-command>
+        </sit-command-bar>
+    </sit-property-grid>
+</div>
+<div id="itemlist1"
+     style="width:calc(100% - 2px); height: 28%;margin-top: 3px; padding:5px 16px 0 0px;clear: both; display: block;">
+    <div ui-grid="vm.gridOptionsItem1" ui-grid-selection ui-grid-resize-columns ui-grid-auto-resize ui-grid-pagination
+         class="uigrid  gridItem"></div>
+</div>
+<div class="side-panel-property-area-body" style="height: calc(8% - 0px) !important">
+    <sit-property-grid sit-id="add_form" sit-layout="Horizontal" sit-type="Fixed" sit-mode="edit" sit-columns="5">
+
+        <sit-property sit-widget="sit-select" sit-value="vm.typeProcess.value" sit-validation="{required: false}"
+                      sit-options="vm.typeProcess.options" sit-to-display="'ResourceName'" sit-to-keep="'ResourceCode'"
+                      sit-read-only="false">{{'Siemens.SimaticIT.QualityApp.QC_PollingDetail.QC_PollingDetailadd.Tips_8'|translate}}</sit-property>
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.Remark" sit-validation="{required: false}"
+                      sit-read-only="false">{{'Siemens.SimaticIT.QualityApp.QC_PollingDetail.QC_PollingDetailadd.Tips_9'|translate}}</sit-property>
+        <sit-command-bar sit-type="action">
+            <sit-command sit-icon="fa-plus" sit-type="main" sit-name="com.siemens.customcommand.add" :sit-tooltip="{{'Siemens.SimaticIT.QualityApp.QC_PollingDetail.QC_PollingDetailadd.Tips_10'|translate}}"
+                         ng-click="vm.add" :sit-label="{{'Siemens.SimaticIT.QualityApp.QC_PollingDetail.QC_PollingDetailadd.Tips_10'|translate}}"></sit-command>
+            <!-- <sit-command sit-icon="fa-trash" sit-type="main" sit-name="com.siemens.customcommand.delete"
+                         :sit-tooltip="{{'Siemens.SimaticIT.QualityApp.QC_PollingDetail.QC_PollingDetailadd.Tips_11'|translate}}" ng-click="vm.deleteForm" :sit-label="{{'Siemens.SimaticIT.QualityApp.QC_PollingDetail.QC_PollingDetailadd.Tips_11'|translate}}"></sit-command> -->
+        </sit-command-bar>
+
+    </sit-property-grid>
+</div>
+<!-- <div id="itemlist2"
+     style="width:calc(100% - 2px); height: 40%;margin-top: 6px; padding:5px 16px 0 0px;clear: both; display: block;">
+    <div ui-grid="vm.gridOptionsItem2" ui-grid-selection ui-grid-resize-columns ui-grid-auto-resize
+         class="uigrid  gridItem uigrid-edit"></div>
+</div> -->
+<div id="itemlist2"
+     style="width:calc(100% - 5px); height: calc(45% - 1px); margin-top:20px;padding-right:20px;overflow: auto;">
+    <div ui-grid="vm.gridOptionsItem2" ui-grid-pagination ui-grid-pinning ui-grid-selection ui-grid-exporter
+         ui-grid-resize-columns ui-grid-auto-resize class="uigrid uigrid-edit"></div>
+
+</div>

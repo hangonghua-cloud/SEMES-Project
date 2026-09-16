@@ -1,0 +1,50 @@
+﻿<!--
+    0.代码生成: UA主子表一键生成前后端html、JS、API接口代码生成器 Ver 1.11 更新日期：2021-07-14  设计者：刘万军
+    1.功能描述: 物料主数据
+    2.创建人员: liyongguo
+    3.创建日期: 2021-07-23
+    4.修改人员:
+    5.修改日期:
+-->
+<style>
+    .row {
+        padding: 5px;
+        margin-top: 10px;
+    }
+
+    .ui-grid-cell {
+        overflow: inherit;
+    }
+
+    .multi-advanced-selection .dropdown,
+    .multi-advanced-selection .dropup {
+        min-width: 50px !important;
+    }
+
+    .canvas .property-area-container > div.content .side-panel-property-area-body {
+        overflow-y: visible;
+    }
+</style>
+
+<div class="command-bar-side-panel">
+    <button ng-click="vm.cancel()" class="btn side-panel-button">{{'Siemens.SimaticIT.MaterialApp.Process.ProcessOperationaddAttr.Tips_1'|translate}}</button>
+    <button ng-click="vm.save()" class="btn side-panel-button" ng-show="vm.validInputs">{{'Siemens.SimaticIT.MaterialApp.Process.ProcessOperationaddAttr.Tips_2'|translate}}</button>
+</div>
+<div class="side-panel-property-area-body">
+    <sit-property-grid sit-id="add_form"
+                       sit-layout="Horizontal"
+                       sit-type="Fixed"
+                       sit-mode="edit"
+                       sit-columns="4">
+        <sit-property sit-widget="sit-select" sit-value="vm.Factory.value" sit-validation="{required: false}" sit-options="vm.Factory.options"
+                      sit-to-display="'ResourceName'" sit-to-keep="'ResourceCode'" sit-read-only="vm.isReadOnly" sit-change="vm.FactoryChange">{{'Siemens.SimaticIT.MaterialApp.Process.ProcessOperationaddAttr.Tips_3'|translate}}</sit-property>
+        <sit-property sit-widget="sit-select" sit-value="vm.Process.value" sit-validation="{required: false}" sit-options="vm.Process.options"
+                      sit-to-display="'ResourceName'" sit-to-keep="'ResourceCode'" sit-read-only="vm.isReadOnly" sit-change="vm.ProcessChange">{{'Siemens.SimaticIT.MaterialApp.Process.ProcessOperationaddAttr.Tips_4'|translate}}</sit-property>
+        <sit-property sit-widget="sit-select" sit-value="vm.Attr.value" sit-validation="{required: false}" sit-options="vm.Attr.options"
+                      sit-to-display="'ItemName'" sit-to-keep="'ItemCode'" sit-change="vm.AttrChange">{{'Siemens.SimaticIT.MaterialApp.Process.ProcessOperationaddAttr.Tips_5'|translate}}</sit-property>
+    </sit-property-grid>
+</div>
+<div id="itemlist" style="width:calc(100% - 2px); height: calc(100% - 100px);margin-top: 6px; padding:5px 16px 0 16px;clear: both; display: block;overflow-y: auto;">
+    <div ui-grid="vm.gridOptionsItem" ui-grid-resize-columns ui-grid-auto-resize class="uigrid uigrid-edit gridItem"></div>
+</div>
+

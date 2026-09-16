@@ -1,0 +1,29 @@
+﻿<style>
+    .row {
+        padding: 5px;
+        margin-top: 10px;
+    }
+
+    .canvas .property-area-container div.command-bar-side-panel {
+        padding-bottom: 40px;
+    }
+
+    .canvas .property-area-container > div.content .side-panel-property-area-body {
+        overflow: visible;
+        flex: none;
+    }
+
+    /* .uigrid-edit .ui-grid-viewport {
+          overflow: auto !important;
+      }
+    */
+</style>
+
+<div class="command-bar-side-panel">
+    <button ng-click="vm.cancel()" class="btn side-panel-button">{{'Siemens.SimaticIT.QualityApp.QC_IPQCDetail.QC_IPQCDetailedit.Tips_1'|translate}}</button>
+    <button ng-click="vm.save()" class="btn side-panel-button">{{'Siemens.SimaticIT.QualityApp.QC_IPQCDetail.QC_IPQCDetailedit.Tips_2'|translate}}</button>
+</div>
+
+<div id="itemlist2" style="width:calc(100% - 2px); height: 32%;margin-top: 6px; padding:5px 16px 0 0px;clear: both; display: block;overflow: auto;">
+    <div ui-grid="vm.gridOptionsItem2" ui-grid-selection ui-grid-resize-columns ui-grid-auto-resize class="uigrid uigrid-edit gridItem"></div>
+</div>

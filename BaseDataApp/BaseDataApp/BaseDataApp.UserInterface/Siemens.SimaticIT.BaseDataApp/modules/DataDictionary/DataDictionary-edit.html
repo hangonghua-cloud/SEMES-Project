@@ -1,0 +1,111 @@
+﻿<div class="command-bar-side-panel">
+    <button ng-click="vm.cancel()" class="btn side-panel-button">{{'Siemens.SimaticIT.BaseDataApp.DataDictionary.DataDictionaryedit.Tips_1'|translate}}</button>
+    <button ng-click="vm.save()" class="btn side-panel-button" ng-show="vm.validInputs">{{'Siemens.SimaticIT.BaseDataApp.DataDictionary.DataDictionaryedit.Tips_2'|translate}}</button>
+</div>
+<style>
+    .selectBox .label-property-grid-control-readonly {
+        display: block;
+    }
+
+    .lbl_text {
+        font-size: 15px;
+        line-height: 30px;
+        padding-left: 2px;
+    }
+
+    .navbar {
+        margin-bottom: 2px;
+        padding: 0 6px 0 6px;
+        /* border: 1px solid transparent; */
+        border: none;
+    }
+
+    .navbar-default {
+        /* background-color: #f8f8f8;*/
+        border-color: #e7e7e7;
+        background-color: transparent;
+        /* border-color: transparent; */
+    }
+
+        .navbar-default .navbar-brand {
+            height: 40px;
+            color: #333;
+            font-size: 16px;
+        }
+
+        .navbar-default .navbar-text {
+            margin-top: 15px;
+            margin-bottom: 10px;
+        }
+
+    a, a:link, a:hover, a:active, a:visited {
+        text-decoration: none;
+    }
+</style>
+<div class="side-panel-property-area-body">
+    <sit-property-grid sit-id="add_form"
+                       sit-layout="Vertical"
+                       sit-type="Fluid"
+                       sit-mode="edit"
+                       sit-columns="1">
+        <!-- TODO: Put here the properties of the entity managed by the service -->
+        <!-- <sit-property sit-widget="sit-text"
+                      sit-value="vm.currentItem.Id"
+                      sit-validation="{required: true}"
+                      sit-read-only="false">ID:</sit-property> -->
+        <sit-property sit-widget="sit-text"
+                      sit-value="vm.currentItem.ItemCode"
+                      sit-validation="{required: true}"
+                      sit-read-only="true">
+            {{'Siemens.SimaticIT.BaseDataApp.DataDictionary.DataDictionaryedit.Tips_3'|translate}}
+        </sit-property>
+        <sit-property sit-widget="sit-text"
+                      sit-value="vm.currentItem.ItemName"
+                      sit-validation="{required: true}"
+                      sit-read-only="false">
+            {{'Siemens.SimaticIT.BaseDataApp.DataDictionary.DataDictionaryedit.Tips_4'|translate}}
+        </sit-property>
+        <sit-property sit-widget="sit-numeric"
+                      sit-value="vm.currentItem.SortCode"
+                      sit-validation="{required: true}"
+                      sit-read-only="false">
+            {{'Siemens.SimaticIT.BaseDataApp.DataDictionary.DataDictionaryedit.Tips_5'|translate}}
+        </sit-property>
+        <sit-property sit-widget="sit-checkbox"
+                      sit-value="vm.IsEnabledMark"
+                      sit-validation="{required: false}"
+                      ng-show="true">
+            {{'Siemens.SimaticIT.BaseDataApp.DataDictionary.DataDictionaryedit.Tips_6'|translate}}
+        </sit-property>
+        <sit-property sit-widget="sit-textarea"
+                      sit-value="vm.currentItem.Description"
+                      sit-validation="{required: false}"
+                      sit-read-only="false">
+            {{'Siemens.SimaticIT.BaseDataApp.DataDictionary.DataDictionaryedit.Tips_7'|translate}}
+        </sit-property>
+    </sit-property-grid>
+    <div style="clear: both;display:block;"></div>
+    <div class="row" style="width:100%;">
+        <div class="col-xs-6">
+            <div class="lbl_text">
+                <span style="font-weight: bold;">{{'Siemens.SimaticIT.BaseDataApp.DataDictionary.DataDictionaryedit.Tips_8'|translate}}</span>
+            </div>
+        </div>
+        <div class="col-xs-10">
+            <div class="" style="width:100%; margin-top: 3px;">
+                <div class='property-grid-input-group selectBox'>
+                    <sit-text sit-value="vm.currentItem.ParentName" sit-read-only="true"></sit-text>
+                    <span class="input-group-addon">
+                        <a href="javascript:void(0);" ng-click="vm.openSelectOrganizeDialog()" ng-attr-title="{{'Siemens.SimaticIT.BaseDataApp.DataDictionary.DataDictionaryedit.Tips_9'|translate}}">
+                            <img src="common/icons/cmdListBox24.svg" heigth="18" width="18" alt="{{'Siemens.SimaticIT.BaseDataApp.DataDictionary.DataDictionaryedit.Tips_10'|translate}}" />{{'Siemens.SimaticIT.BaseDataApp.DataDictionary.DataDictionaryedit.Tips_11'|translate}}
+                        </a>
+                    </span>
+                    <!-- <span class="btn property-grid-addon-icon" ng-click="vm.openSelectOrganizeDialog()" ng-attr-title="{{'Siemens.SimaticIT.BaseDataApp.DataDictionary.DataDictionaryedit.Tips_12'|translate}}">
+                        <i class="fa fa-list-alt"></i>
+                    </span> -->
+                    <sit-text sit-value="vm.currentItem.ParentId" ng-show="false"></sit-text>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,8 @@
+<projectmanifest>
+      <appdatamodels>
+          <appdatamodel>
+              <assembly>Siemens.SimaticIT.ProductionApp.ProductionApp.PLPOMModel.PublicModel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+              <domain>ProductionApp</domain>
+           </appdatamodel>
+      </appdatamodels>
+</projectmanifest>

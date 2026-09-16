@@ -1,0 +1,1397 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Items>
+  <SecurableObject Id="1aa0aa59-885b-e511-827c-0050569f6b31">
+    <ExtendedInfo>19a0aa59-885b-e511-827c-0050569f6b31</ExtendedInfo>
+    <IsRootObject>true</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>0fa0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>command_root</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="1da0aa59-885b-e511-827c-0050569f6b31">
+    <ExtendedInfo>1ca0aa59-885b-e511-827c-0050569f6b31</ExtendedInfo>
+    <IsRootObject>true</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>engineering_command_root</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="403d05e7-b87b-4f47-bd92-6ae745dbf4e8">
+    <ExtendedInfo>7a64e879-c91d-4b26-965e-1c7d384f7a08</ExtendedInfo>
+    <IsRootObject>true</IsRootObject>
+    <IsSystemObject>false</IsSystemObject>
+    <SecurableCategory>eb7fb1b1-bae5-4d54-9319-5eecc8b0705a</SecurableCategory>
+    <Name>administration_command_root</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="20a0aa59-885b-e511-827c-0050569f6b31">
+    <ExtendedInfo>1fa0aa59-885b-e511-827c-0050569f6b31</ExtendedInfo>
+    <IsRootObject>true</IsRootObject>
+    <IsSystemObject>false</IsSystemObject>
+    <SecurableCategory>11a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>business_command_root</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="23a0aa59-885b-e511-827c-0050569f6b31">
+    <ExtendedInfo>22a0aa59-885b-e511-827c-0050569f6b31</ExtendedInfo>
+    <IsRootObject>true</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>12a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>event_root</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="28a0aa59-885b-e511-827c-0050569f6b31">
+    <ExtendedInfo>27a0aa59-885b-e511-827c-0050569f6b31</ExtendedInfo>
+    <IsRootObject>true</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>13a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>engineering_event_root</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="2ba0aa59-885b-e511-827c-0050569f6b31">
+    <ExtendedInfo>2aa0aa59-885b-e511-827c-0050569f6b31</ExtendedInfo>
+    <IsRootObject>true</IsRootObject>
+    <IsSystemObject>false</IsSystemObject>
+    <SecurableCategory>14a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>business_event_root</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="910d51f3-53b1-4a1c-a61e-f3c903910992">
+    <ExtendedInfo>96bcc8ba-b68b-4663-90c3-af72aaea320b</ExtendedInfo>
+    <IsRootObject>true</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>27f737ca-b77c-4c6b-a9a7-0a1d8408d286</SecurableCategory>
+    <Name>reading_function_root</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="7ab22eb9-5a58-4c06-b6a1-594216cd744b">
+    <ExtendedInfo>31454731-e85b-4969-aca6-aa1f097f6793</ExtendedInfo>
+    <IsRootObject>true</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>af1afccf-2254-4248-8698-5fc0b98bf70e</SecurableCategory>
+    <Name>engineering_reading_function_root</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="0e334b65-b439-4949-899d-8c2c2265d3f3">
+    <ExtendedInfo>6155fcbf-da15-4b3c-b8c6-ac6f3c834f8b</ExtendedInfo>
+    <IsRootObject>true</IsRootObject>
+    <IsSystemObject>false</IsSystemObject>
+    <SecurableCategory>c2bafad5-53a1-4329-96cf-539da988f50b</SecurableCategory>
+    <Name>business_reading_function_root</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="40a0aa59-885b-e511-827c-0050569f6b31">
+    <ExtendedInfo>41a0aa59-885b-e511-827c-0050569f6b31</ExtendedInfo>
+    <IsRootObject>true</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>3da0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>signal_root</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="42a0aa59-885b-e511-827c-0050569f6b31">
+    <ExtendedInfo>43a0aa59-885b-e511-827c-0050569f6b31</ExtendedInfo>
+    <IsRootObject>true</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>3ea0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>engineering_signal_root</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="44a0aa59-885b-e511-827c-0050569f6b31">
+    <ExtendedInfo>45a0aa59-885b-e511-827c-0050569f6b31</ExtendedInfo>
+    <IsRootObject>true</IsRootObject>
+    <IsSystemObject>false</IsSystemObject>
+    <SecurableCategory>3fa0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>business_signal_root</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="2ea0aa59-885b-e511-827c-0050569f6b31">
+    <ExtendedInfo>2da0aa59-885b-e511-827c-0050569f6b31</ExtendedInfo>
+    <IsRootObject>true</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>15a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>entity_root</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="33a0aa59-885b-e511-827c-0050569f6b31">
+    <ExtendedInfo>32a0aa59-885b-e511-827c-0050569f6b31</ExtendedInfo>
+    <IsRootObject>true</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>16a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>engineering_entity_root</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="38a0aa59-885b-e511-827c-0050569f6b31">
+    <ExtendedInfo>37a0aa59-885b-e511-827c-0050569f6b31</ExtendedInfo>
+    <IsRootObject>true</IsRootObject>
+    <IsSystemObject>false</IsSystemObject>
+    <SecurableCategory>17a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>business_entity_root</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="64a7513d-9c13-4030-be31-b84c9c1b4e11">
+    <ExtendedInfo>f6b02a10-4cec-4969-8865-c6c540ab42d9</ExtendedInfo>
+    <IsRootObject>true</IsRootObject>
+    <IsSystemObject>false</IsSystemObject>
+    <SecurableCategory>c7d75028-dfed-4bd2-93d1-6d0ee28ab056</SecurableCategory>
+    <Name>administration_entity_root</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="3ba0aa59-885b-e511-827c-0050569f6b31">
+    <ExtendedInfo>3aa0aa59-885b-e511-827c-0050569f6b31</ExtendedInfo>
+    <IsRootObject>true</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>18a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>screen_root</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="e35cd91b-de2f-4269-a1ee-40cbc0d5b3bd">
+    <ExtendedInfo>9adbbc46-34cb-4830-9534-414cf8ad2b22</ExtendedInfo>
+    <IsRootObject>true</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>dd328acc-3e41-4904-972f-c47f4d02f784</SecurableCategory>
+    <Name>webrequest_root</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="406e2ca5-546e-4e3a-a455-f37b8475ca62">
+    <ExtendedInfo>f850b53f-c9b0-4994-b9fe-613c4661d73a</ExtendedInfo>
+    <IsRootObject>true</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>37a93dd3-fd4e-4201-b995-51b24f311476</SecurableCategory>
+    <Name>administration_webrequest_root</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="5f792ed5-a4a3-4d52-886f-6a88d385dc9c">
+    <ExtendedInfo>acb624c0-f831-4f82-b1a3-2c2f67c46bc7</ExtendedInfo>
+    <IsRootObject>true</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>37a93dd3-fd4e-4201-b995-51b24f311476</SecurableCategory>
+    <Name>monitoring</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="3422aa70-543c-48f6-a083-0274d6976d40">
+    <ExtendedInfo>96fa5076-c914-407c-81e0-f3c34a0e6b7d</ExtendedInfo>
+    <IsRootObject>true</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>37a93dd3-fd4e-4201-b995-51b24f311476</SecurableCategory>
+    <Name>automation_notify_root</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="3e18f75e-dd87-4510-adfd-6d5e77cf39db">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>16a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.GovernanceData.Engineering.DataModel.ReadingModel.FunctionalBlockReference</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="693e16da-6a15-4bdf-b8bf-8c3dd3893c4d">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>16a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.GovernanceData.Engineering.DataModel.ReadingModel.CommandDefinition</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="50e10562-2403-4e0a-a2f6-1fea1ae0580b">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>16a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.GovernanceData.Engineering.DataModel.ReadingModel.HandlerDefinition</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="4ab76fca-c8b2-4253-bf36-a76b3f0bc4db">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>16a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.GovernanceData.Engineering.DataModel.ReadingModel.CommandPomDefinition</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="67dbd804-09ce-49f8-8b2e-015a9a72ada1">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>16a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.GovernanceData.Engineering.DataModel.ReadingModel.EventDefinition</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="f812fc0f-ff5c-4065-ad91-c5b2a53013ac">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>16a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.GovernanceData.Engineering.DataModel.ReadingModel.EventHandlerDefinition</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="148248cd-4bc2-4add-99f9-76770a44ece6">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>16a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.GovernanceData.Engineering.DataModel.ReadingModel.EventSubscriptionDefinition</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="c8961f2c-a3ae-40b7-8b8c-45ff4679a3e6">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>16a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.GovernanceData.Engineering.DataModel.ReadingModel.HostRole</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="37b41cf1-175a-4447-8f8f-57890fcff1c9">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>16a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.GovernanceData.Engineering.DataModel.ReadingModel.Package</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="62fbbce9-2109-46bd-887c-1e367988c900">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>16a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.GovernanceData.Engineering.DataModel.ReadingModel.ProjectDefinition</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="ed262c3f-d2e0-4042-92f1-2eb399c63dbb">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>16a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.GovernanceData.Engineering.DataModel.ReadingModel.SignalDefinition</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="af74c65a-349a-4208-982d-15f0fafe4e6a">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>16a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.GovernanceData.Engineering.DataModel.ReadingModel.SolutionDefinition</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="c1a879e5-3f7c-46c1-9470-104c0943c338">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>16a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.GovernanceData.Engineering.DataModel.ReadingModel.SubscriptionFilterDefinition</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="9ec72ae8-d131-4a37-b09f-e16b4b2ee1e3">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>16a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.GovernanceData.Engineering.DataModel.ReadingModel.Tag</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="70615387-6636-4f0f-a807-8081a72be39f">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>16a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.GovernanceData.Engineering.DataModel.ReadingModel.VersionInfo</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="3a2bddec-cdfc-4c50-b5eb-150c80a8f8b1">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>16a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.GovernanceData.Engineering.DataModel.ReadingModel.WorkerDefinition</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="13af79e8-e000-4acb-a96b-8efd580cae9c">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>16a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.GovernanceData.Engineering.DataModel.ReadingModel.WorkerRoleDefinition</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="b8ce5639-91c1-46ad-a2d3-e7c546bef778">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>16a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.GovernanceData.Engineering.DataModel.ReadingModel.DatabaseInfo</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="b987165a-744b-4f16-9b30-a8618e537523">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>16a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.GovernanceData.Engineering.DataModel.ReadingModel.DataModelAssembly</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="85c27fbf-d279-4361-aca0-dd4222d536f2">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>16a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.GovernanceData.Engineering.DataModel.ReadingModel.DataProvider</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="717d557e-2d74-46cb-95ef-3e130f033da2">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>16a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.GovernanceData.Engineering.DataModel.ReadingModel.DomainStorageInfo</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="f35a6c62-d558-44e7-afd4-b4a1e839453b">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>16a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.GovernanceData.Engineering.DataModel.ReadingModel.InformationRepository</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="2f7a2478-7e9a-41a8-bde4-d4ebe98d8c99">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>16a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.GovernanceData.Engineering.DataModel.ReadingModel.EntityDefinition</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="bf7d34f7-bc8e-456b-ab94-68bcc96a7fe4">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>16a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.GovernanceData.Engineering.DataModel.ReadingModel.CertificateRoles</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="47310a83-1150-4b1d-b839-b8c497ede13a">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>16a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.GovernanceData.Engineering.DataModel.ReadingModel.Role</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="31366c4f-7785-4432-a7c9-910548f1642d">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>16a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.GovernanceData.Engineering.DataModel.ReadingModel.Domain</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="c0d24e58-f53c-4acd-a371-4b177db0b423">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>16a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.GovernanceData.Engineering.DataModel.ReadingModel.FilteringTag</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="af14aa4d-5971-4994-8db2-a51951652842">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>16a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.GovernanceData.Engineering.DataModel.ReadingModel.SecurableObject</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="de52aabb-999f-41b2-a771-2a4a06d14df0">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>16a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.GovernanceData.Engineering.DataModel.ReadingModel.SecurableCategory</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="50841102-945e-40ea-a0df-bebcb3eba012">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>16a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.GovernanceData.Engineering.DataModel.ReadingModel.SecurableObjectExtendedInfo</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="a4628f6c-6942-41f8-aba2-9990eb8613c1">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>16a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.GovernanceData.Engineering.DataModel.ReadingModel.Operation</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="515c7b67-adb7-4f35-8963-f71541af4c8d">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>16a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.GovernanceData.Engineering.DataModel.ReadingModel.FunctionRight</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="a85dae35-8f19-4784-9648-9ca55ae85e5f">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>16a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.GovernanceData.Engineering.DataModel.ReadingModel.RoleAssociation</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="851df382-900b-4006-9a53-19bbc23cb724">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>16a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.GovernanceData.Engineering.DataModel.ReadingModel.GroupRoleAssociation</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="ff29c7cb-96a3-4667-b6d3-0452b6434d57">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>16a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.GovernanceData.Engineering.DataModel.ReadingModel.UserRoleAssociation</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="8daf516d-a50b-4378-9363-dc5f2947ad5c">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>16a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.GovernanceData.Engineering.DataModel.ReadingModel.UIApplication</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="675102d8-f961-4dfe-890e-c2595a130bf2">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>16a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.GovernanceData.Engineering.DataModel.ReadingModel.UIModule</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="d6371775-66c1-4ef5-98d9-3d867d82e1a0">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>16a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.GovernanceData.Engineering.DataModel.ReadingModel.UIComponent</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="229a7533-5fc1-49e1-8245-d8acd931de21">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>16a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.GovernanceData.Engineering.DataModel.ReadingModel.SWACComponent</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="73e3a81a-d385-4da0-a9cc-869f8d2af476">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>16a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.GovernanceData.Engineering.DataModel.ReadingModel.UIScreen</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="61fcc2d7-789b-4810-9961-e23e590aa1f3">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>16a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.GovernanceViews.Engineering.DataModel.ReadingModel.PublicRole</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="c3fae3dd-726c-4829-86e6-86a8d57932fe">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>16a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.GovernanceViews.Engineering.DataModel.ReadingModel.PublicUserRoleAssociation</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="27e6f50a-c297-4b04-a27f-864701236331">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>16a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.GovernanceViews.Engineering.DataModel.ReadingModel.PublicGroupRoleAssociation</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="c80fdd1c-615b-425f-8500-1102380814ab">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>16a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Platform.Common.QoS.PublicGroup</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="2005a382-21ad-4c3c-b16d-98767fa1544c">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>16a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Platform.Common.QoS.PublicUser</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="02f3e887-32b5-4931-a623-4875e82cb32e">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>eb7fb1b1-bae5-4d54-9319-5eecc8b0705a</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Administration.Start</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="f9a9a668-219b-47f9-947e-52289fe2673e">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>eb7fb1b1-bae5-4d54-9319-5eecc8b0705a</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Administration.Stop</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="295499db-ad7e-428c-832d-902d5df1a70a">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>eb7fb1b1-bae5-4d54-9319-5eecc8b0705a</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Administration.Enable</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="4ad3952f-aff3-4e7f-8799-35b30291ad37">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>eb7fb1b1-bae5-4d54-9319-5eecc8b0705a</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Administration.Disable</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="96fd62a0-9b5f-4da6-883a-a43c272acd50">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>eb7fb1b1-bae5-4d54-9319-5eecc8b0705a</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Administration.Deploy</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="f78591e3-01ae-4598-bc7a-a8ea9f1ba20a">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>eb7fb1b1-bae5-4d54-9319-5eecc8b0705a</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Administration.ScaffoldDatabase</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="9391b01c-b20f-4b0f-8484-87ae69fd2f2a">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>eb7fb1b1-bae5-4d54-9319-5eecc8b0705a</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Administration.GetCurrentSolutionPackageToDeployInfo</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="761277d7-5d7b-41af-971a-e5016f82f754">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>eb7fb1b1-bae5-4d54-9319-5eecc8b0705a</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Administration.GetSysGovernancePackage</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="55967e18-47b2-4b2a-a8bc-35b2a7906ef5">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>eb7fb1b1-bae5-4d54-9319-5eecc8b0705a</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Administration.GetHostsInfo</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="11ea460c-b182-4ef3-ae30-cf452f5d3ef9">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>eb7fb1b1-bae5-4d54-9319-5eecc8b0705a</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Administration.GetNodeStatus</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="a8cc036f-9333-46ed-98a8-040acccdff88">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>eb7fb1b1-bae5-4d54-9319-5eecc8b0705a</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Administration.CreateHost</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="ea3e2ecd-b57d-43e6-9fad-cea465f553d8">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>eb7fb1b1-bae5-4d54-9319-5eecc8b0705a</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Administration.DeleteHost</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="9139a182-2992-446b-a32b-643dde444940">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>eb7fb1b1-bae5-4d54-9319-5eecc8b0705a</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Administration.UpdateHost</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="c96439b3-8ebf-47d1-a230-bd4f89916af2">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.CreateWorkerRole</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="6b997853-cd24-4c89-a836-00287a460aa5">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.UpdateWorkerRole</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="7f0d72cb-16ff-4260-8990-72bdf5214d96">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.DeleteWorkerRole</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="b87f8edd-cafb-49f2-93a9-859c61f52ade">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.AddCommandToWorkerRole</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="f44ff293-ea5a-4e13-ae1a-f581c534c01e">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.AddCommandsToWorkerRole</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="19e8260c-feb5-4737-b8f6-c918c2e33c9c">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.AddWorkerRoleToHostRole</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="b501a5cb-a722-4906-bb05-bda9ce7fe138">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.RemoveWorkerRoleFromHostRole</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="3e8fe987-71d0-4918-a67d-a22b50c52d52">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.RemoveCommandFromWorkerRole</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="c797a04b-668c-4349-b4ef-f258b5f33b7a">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.RemoveCommandsFromWorkerRole</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="22272300-df36-450f-a8df-fe2cf92923c0">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.ApplyUMAC</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="9f306208-b8aa-4163-8e0c-e501e649a08f">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.PublicApplyUMAC</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="3d12e1fc-12d6-41f4-9cb1-6e2d13dc1f2f">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.AddSubscriptionToWorkerRole</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="33b3bf55-906a-4e5e-b654-5936f448b835">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.RemoveSubscriptionFromWorkerRole</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="6ce24bef-ddae-4544-9115-bba1f3f96e1d">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.CreateEventSubscription</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="93a07234-d4a6-4703-840e-5d048bafae67">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.AddFilterToEventSubscription</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="ce499442-fc1b-40d8-b401-f3a75f679494">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.UpdateFilterInEventSubscription</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="1a73c606-5fa0-43eb-9c35-a2a2665faa07">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.RemoveFilterFromEventSubscription</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="b2ab9e2c-dda9-46d7-96a8-b282100c7cc1">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.UpdateEventSubscription</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="20d5dc36-d9dd-440d-b979-36647489dc39">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.DeleteEventSubscription</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="921c7c05-c4f9-4ce6-bddf-873847dad913">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.RenameEventSubscription</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="652b3876-f210-4747-a3b5-49293f515990">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.CreateRole</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="02c613bb-815c-46ae-9623-1f6c66a57877">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.UpdateRole</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="d02d7688-c175-442d-aca7-d143272217ee">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.DeleteRole</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="d2b22c99-8a7b-4eb5-bc93-6d60d77ba17a">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.CreateDomain</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="802a8cd6-0cf4-4729-8101-3cb28664b07c">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.UpdateDomain</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="ce6ebc98-5ea9-49bb-991c-0017a00df559">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.DeleteDomain</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="2d2e1af3-eb72-4895-960c-04c84e24e8d9">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.CreateUserRoleAssociation</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="c324c675-ca8a-4333-a7ff-a0a47a07d1ba">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.PublicCreateUserRoleAssociation</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="e66bc49c-23ff-4a08-937a-829c25d399d4">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.DeleteUserRoleAssociation</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="b128198e-4364-4f33-bd20-4f7c38353c86">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.PublicDeleteUserRoleAssociation</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="50056d59-ac36-4baa-b54e-7270b402a196">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.CreateGroupRoleAssociation</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="d0b9b05f-3c00-4696-ab4c-a637d2975355">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.PublicCreateGroupRoleAssociation</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="b9a74bc5-5e20-4ed0-850c-4ae5ed940ca3">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.DeleteGroupRoleAssociation</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="40ee3752-9876-4758-96ca-9d42f8e99999">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.PublicDeleteGroupRoleAssociation</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="bc502f98-3fd9-4ff6-acba-bf9b054680bb">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.AddFunctionRightToRole</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="d048ca13-0604-445d-8d06-7650e6f821ca">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.RemoveFunctionRightFromRole</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="f964042f-948d-49eb-ad56-d8ab3e45edf9">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.CreateUIModule</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="4844041a-bfd5-481f-bb2b-20618e21919d">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.DeleteUIModule</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="80a2efad-808a-4fd9-9d97-af8d0656644f">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.UpdateUIModule</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="84f48c16-ee42-4a92-9291-9ac84afe1ea9">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.ReadUIModuleManifest</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="34ad577f-e19c-420d-af24-89978fed0375">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.ReadUIComponentManifest</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="f87cf1fd-7c27-4fd1-8220-68ff0309995b">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.UpdateDataProvider</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="dbe3138c-e417-4f09-80e1-da3319aef060">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.GenerateUIModule</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="9c9da8d7-7fa7-43f8-a9a4-bc7ff06aac59">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.CreateUIApplication</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="a8b35611-38db-4834-9323-7020e19455c2">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.DeleteUIApplication</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="704a3e1d-0be4-42a1-9b2c-1b36c0c0bc45">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.UpdateUIApplication</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="7b05c2cd-2b7e-461c-8dba-a293c60bff70">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.ReadUIApplicationManifest</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="69d3c650-e7e4-4bdd-a5d6-80d750cac927">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.DeployUIApplication</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="d16e1ffc-dd73-471e-ac82-4b2bfc71e2a8">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.RetrieveAppList</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="bfa49926-80c6-4324-9cb7-6a21b285dabe">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.UpdateWorkerRoleToHostRole</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="7e5474ae-84cf-4b07-a475-996c718c2b61">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.GenerateDebugRegistry</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="53190781-8259-4625-aea8-62f3ec6758d4">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.CreateSolution</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="c0705148-d7e5-4f8a-a53e-404db1d369c3">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.UpdateSolution</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="63c27ed2-67da-43c4-8971-cead8a87cb54">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.DeleteSolution</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="ec4c0794-95b5-4c05-8116-e04d2f47fe88">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.AddUIAppToSolutionPackage</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="fd3624fc-8056-4f78-96c9-1a0d11f6b066">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.RemoveUIAppFromSolutionPackage</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="3176791c-a0f9-4c91-9de5-423d54d21456">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.BuildSolutionPackage</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="e4586942-c29a-4c84-bbc9-15e68ae52b3d">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.BackupSolution</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="24d234cf-6c74-4c5d-ac96-59239fe3c493">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.RestoreSolution</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="c95881b3-cb97-4020-9edb-3b3c0fd0b912">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.RetrieveSolutionBackupPackages</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="ac7e4fb7-83dc-4c08-a6da-5e72fe244b40">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.CreateSWACComponent</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="e3e75aa3-8c6e-4d72-bfbc-14126c03c3fa">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.DeleteSWACComponent</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="9ae59888-caa6-486d-bdf6-ca49fadade0c">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.AddSolutionApp</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="b9e9dd34-6c60-4a20-b884-47ad8d00853d">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.UpdateSolutionApp</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="6e658645-a743-43d9-bdec-cf6a53f53acb">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.ReloadSolutionApp</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="f60012bf-ed05-447b-8408-b42629e07e94">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.RemoveSolutionApp</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="d8c38266-99fe-4fe5-8b63-f902399c92ee">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.RemoveFunctionRightsFromRole</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="6aa35367-d5ab-465c-bcce-04c926e08f58">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.AddFunctionRightsToRole</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="c0afa963-a84f-4d22-a053-276dd5638bf3">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.UpdateCommands</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="feb56167-fd1d-42b2-a50a-e6ff42e28073">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.RetrieveSolutionApps</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="f43d5a06-ab5b-4beb-afff-62d76a00c865">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.DeleteEventSubscriptions</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="eb46cb9d-1912-41ad-bb48-42861b1d8f8e">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.UpdateEventSubscriptions</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="1eec8fc3-ed04-4c9c-98e8-28a0217d0419">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.DeployDiagrams</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="a1622fd2-6d2c-4916-b942-8a246c532087">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.CopyRole</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="491df50f-383b-4c3a-b634-18e4ce59c518">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.RefreshAppCatalog</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="36a68776-eb2b-4a0c-b1a6-4519ae3a860e">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.AddAppExtension</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="a5cf3d85-54b9-4aae-891f-e3bf65436b9d">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.UpdateAppExtension</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="37ae4606-ee33-4b60-a09a-375d3a842bd4">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.RemoveAppExtension</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="84fc12ca-bda1-4ea9-a265-f0780e69cfae">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.ReloadAppExtension</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="1c2a6a0c-7f29-494f-8ec7-8e6921f62fc7">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.CreateATConfiguration</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="b4e51231-81f3-4f15-a7f6-e4f36e752d18">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.UpdateATConfiguration</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="30ad8ce5-3039-4665-bf7c-e107338fe524">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.DeleteATConfiguration</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="50ede8b4-d750-4bea-932f-edd48db5d857">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.SetATConfiguration</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="20f89d37-b884-4821-8df9-b21b9c2ffdaa">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.EnableAuditTrail</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="0a175042-b508-4701-940e-71274974b749">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.DisableAuditTrail</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="af3db54e-2619-4828-88db-6cbdcf6228a5">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.ApplyATConfiguration</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="aee8b530-ee5c-461f-a395-c28196dc1ae2">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.ExportATConfiguration</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="9e284d7c-0dd2-4288-b894-c82178a00579">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.ImportATConfiguration</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="e63a1f11-51e7-4751-aafa-9a73c78a3859">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.RetrieveExportedATConfigurationList</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="059f40dc-b345-4f15-a872-e881af37af79">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.CreateMTConfiguration</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="a08ad7ef-245c-4fac-8f46-6e431474d5fa">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.UpdateMTConfiguration</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="2e267f4a-91bc-48d8-889e-1f65ee946f3a">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.DeleteMTConfiguration</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="c3397558-7d18-471e-a58b-48d6b0cb7a6e">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.CreateMTCleaningCondition</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="211194a9-580a-4726-bbc5-4d573afe2b70">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.UpdateMTCleaningCondition</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="df3204ab-af6d-42a7-8cad-eca332b87700">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.DeleteMTCleaningCondition</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="09947ae4-1bad-472e-8455-d0dc6fccbd82">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.CreateMTSchedule</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="4a86592a-ae24-44a5-a06e-5d5be185fdf2">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.UpdateMTSchedule</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="541210e0-bd48-4624-b049-9c18093fcf1a">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.DeleteMTSchedule</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="ff15c824-2904-48a7-8615-8950a4f99f5a">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.CreateMTRule</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="a41bda2e-4ca8-4daf-809d-0e65bdf8fdae">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.SetMTRules</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="a34fcd23-64f4-4864-a5d0-f899eef3a67b">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.DeleteMTRules</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="e32e1f10-c964-4177-a7f3-d0c7fa1adc97">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.EnableMaintenance</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="5ed6f7e4-bb89-457b-9c31-5c8a335f7a79">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.DisableMaintenance</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="1167d9de-24db-42e3-b547-39c872703bcf">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.GetTimeZones</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="3a1d2422-67ff-4724-870e-ca6f0b698d6b">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.UpdateArchiveDatabaseInfo</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="87488fcb-38cd-49d7-a6c7-ebd7f03448a7">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.CreateMTCopySchedule</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="e2e65f37-afc2-46d7-be00-f713a44da08a">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.UpdateMTCopySchedule</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="1abbb332-d9d8-43df-b27b-28fc7123d5a6">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.DeleteMTCopySchedule</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="8aa0a10d-fba0-4e62-9137-b2c60a2c7d16">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.UpdatePreCheckConfiguration</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="31dc4951-cfe8-4d6a-b4b8-3ed3a454edb5">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.SuspendArchiving</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="c85eaf13-345e-4b69-a878-e7c634e6573b">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.ResumeArchiving</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="c5e3cb6b-bd2b-4a36-824c-857dd168c9be">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.Purge</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="d5026962-f0ad-4c17-93f7-817956ad8ba5">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.UpdateCommandActionConfiguration</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="1cd786e0-317d-4524-9848-3b9abb6a2f49">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>10a0aa59-885b-e511-827c-0050569f6b31</SecurableCategory>
+    <Name>Siemens.SimaticIT.Unified.Engineering.ReloadResourcePackages</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="1a3dcb66-5e6c-42e5-b320-f8ad86debd6f">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>af1afccf-2254-4248-8698-5fc0b98bf70e</SecurableCategory>
+    <Name>Siemens.SimaticIT.Engineering.ReadingFunctions.GetDatabaseResourceInfo</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+  <SecurableObject Id="4f389321-ab60-45e5-acab-d71df6393ed4">
+    <IsRootObject>false</IsRootObject>
+    <IsSystemObject>true</IsSystemObject>
+    <SecurableCategory>af1afccf-2254-4248-8698-5fc0b98bf70e</SecurableCategory>
+    <Name>Siemens.SimaticIT.Engineering.ReadingFunctions.GetRolesSecurableObject</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SecurableObject>
+</Items>

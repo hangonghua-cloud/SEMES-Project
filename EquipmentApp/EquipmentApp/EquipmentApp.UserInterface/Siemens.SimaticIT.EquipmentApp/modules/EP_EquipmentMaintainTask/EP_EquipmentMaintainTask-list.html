@@ -1,0 +1,104 @@
+﻿<style>
+    .MainCommandActionButton {
+        margin-top: 20px !important;
+    }
+</style>
+<div id="itemlist" class="content-area content-area-relative" style="height: calc(20% - 10px) !important">
+    <!--查询条件与功能按钮-->
+    <div class="col-md-40" style="margin-left: 15px;">
+        <div class="side-panel-property-area-body">
+            <sit-property-grid sit-id="add_form" sit-layout="Horizontal" sit-type="Fixed" sit-mode="edit"
+                               sit-columns="8">
+                <sit-property sit-widget="sit-select" sit-value="vm.typeFactory.value"
+                              sit-options="vm.typeFactory.options" sit-to-display="'ResourceName'" sit-to-keep="'ResourceCode'">
+                    {{'Siemens.SimaticIT.EquipmentApp.EP_EquipmentMaintainTask.EP_EquipmentMaintainTasklist.Tips_1'|translate}}
+                </sit-property>
+                <!--<sit-property sit-widget="sit-text" sit-value="vm.searchParams.EquipmentIdentifyCode" sit-read-only="false" style="max-width:300px;">{{'Siemens.SimaticIT.EquipmentApp.EP_EquipmentMaintainTask.EP_EquipmentMaintainTasklist.Tips_2'|translate}}</sit-property>-->
+                <sit-property sit-widget="sit-text" sit-value="vm.searchParams.EquipmentId" sit-read-only="false"
+                              style="max-width:300px;">{{'Siemens.SimaticIT.EquipmentApp.EP_EquipmentMaintainTask.EP_EquipmentMaintainTasklist.Tips_3'|translate}}</sit-property>
+                <sit-property sit-widget="sit-text" sit-value="vm.searchParams.EquipmentName" sit-read-only="false"
+                              style="max-width:300px;">{{'Siemens.SimaticIT.EquipmentApp.EP_EquipmentMaintainTask.EP_EquipmentMaintainTasklist.Tips_4'|translate}}</sit-property>
+                <sit-property sit-widget="sit-select" sit-read-only="false" style="max-width:300px;"
+                              sit-options="vm.StatusConfig.options" sit-to-keep="'ItemValue'" sit-validation="{required: false}"
+                              sit-value="vm.StatusConfig.selectedOption" sit-change="vm.selectCodad" sit-to-display="'ItemName'">
+                    {{'Siemens.SimaticIT.EquipmentApp.EP_EquipmentMaintainTask.EP_EquipmentMaintainTasklist.Tips_5'|translate}}
+                </sit-property>
+                <!--<sit-property sit-widget="sit-select"
+                              sit-read-only="false" style="max-width:300px;"
+                              sit-options="vm.TaskConfig.options"
+                              sit-to-keep="'EquipmentTaskId'" sit-validation="{required: false}"
+                              sit-value="vm.TaskConfig.selectedOption"
+                              sit-change="vm.selectCodad"
+                              sit-to-display="'EquipmentTaskName'">
+                    {{'Siemens.SimaticIT.EquipmentApp.EP_EquipmentMaintainTask.EP_EquipmentMaintainTasklist.Tips_6'|translate}}
+                </sit-property>-->
+                <sit-property sit-widget="sit-text" sit-value="vm.searchParams.EquipmentTaskName" sit-read-only="false"
+                              style="max-width:300px;">{{'Siemens.SimaticIT.EquipmentApp.EP_EquipmentMaintainTask.EP_EquipmentMaintainTasklist.Tips_6'|translate}}</sit-property>
+                <sit-property sit-widget="sit-datepicker" sit-value="vm.PlanStartDate" style="max-width:300px;"
+                              sit-format="'yyyy-MM-dd'" sit-validation="{required: false}" sit-read-only="false">
+                    {{'Siemens.SimaticIT.EquipmentApp.EP_EquipmentMaintainTask.EP_EquipmentMaintainTasklist.Tips_7'|translate}}
+                </sit-property>
+                <sit-property sit-widget="sit-datepicker" sit-value="vm.PlanEndDate" style="max-width:300px;"
+                              sit-format="'yyyy-MM-dd'" sit-validation="{required: false}" sit-read-only="false">
+
+                </sit-property>
+                <sit-property sit-widget="sit-datepicker" sit-value="vm.ActiveStartDate" style="max-width:300px;"
+                              sit-format="'yyyy-MM-dd'" sit-validation="{required: false}" sit-read-only="false">
+                    {{'Siemens.SimaticIT.EquipmentApp.EP_EquipmentMaintainTask.EP_EquipmentMaintainTasklist.Tips_8'|translate}}
+                </sit-property>
+                <sit-property sit-widget="sit-datepicker" sit-value="vm.ActiveEndDate" style="max-width:300px;"
+                              sit-format="'yyyy-MM-dd'" sit-validation="{required: false}" sit-read-only="false">
+
+                </sit-property>
+                <sit-command-bar sit-type="action">
+                    <sit-command sit-icon="fa-search" sit-type="main" sit-name="com.siemens.customcommand.search"
+                                 :sit-tooltip="{{'Siemens.SimaticIT.EquipmentApp.EP_EquipmentMaintainTask.EP_EquipmentMaintainTasklist.Tips_9'|translate}}" ng-click="vm.searchButtonHandler" :sit-label="{{'Siemens.SimaticIT.EquipmentApp.EP_EquipmentMaintainTask.EP_EquipmentMaintainTasklist.Tips_9'|translate}}">
+                    </sit-command>
+                </sit-command-bar>
+            </sit-property-grid>
+        </div>
+    </div>
+    <!--右侧功能按钮-->
+    <sit-command-bar sit-vertical-autofixed="true" sit-type="Tool" :sit-label-align="right" sit-layout="vertical">
+        <sit-command sit-icon="fa-trash-o" sit-name="com.siemens.customcommand.edit" :sit-tooltip="{{'Siemens.SimaticIT.EquipmentApp.EP_EquipmentMaintainTask.EP_EquipmentMaintainTasklist.Tips_10'|translate}}"
+                     ng-click="vm.deleteSpareButtonHandler" ng-show="vm.isSpareButtonVisible" :sit-label="{{'Siemens.SimaticIT.EquipmentApp.EP_EquipmentMaintainTask.EP_EquipmentMaintainTasklist.Tips_10'|translate}}"></sit-command>
+        <sit-command sit-icon="fa-plus-square-o" sit-name="com.siemens.customcommand.add"
+                     ng-click="vm.addSpareButtonHandler" :sit-tooltip="{{'Siemens.SimaticIT.EquipmentApp.EP_EquipmentMaintainTask.EP_EquipmentMaintainTasklist.Tips_11'|translate}}" ng-show="vm.isButtonVisible" :sit-label="{{'Siemens.SimaticIT.EquipmentApp.EP_EquipmentMaintainTask.EP_EquipmentMaintainTasklist.Tips_11'|translate}}"
+                     sit-type="main"></sit-command>
+        <sit-command sit-icon="fa-minus-circle" sit-name="com.siemens.customcommand.edit" :sit-tooltip="{{'Siemens.SimaticIT.EquipmentApp.EP_EquipmentMaintainTask.EP_EquipmentMaintainTasklist.Tips_12'|translate}}"
+                     ng-click="vm.deleteResultButtonHandler" ng-show="vm.isResultButtonVisible2" :sit-label="{{'Siemens.SimaticIT.EquipmentApp.EP_EquipmentMaintainTask.EP_EquipmentMaintainTasklist.Tips_12'|translate}}">
+        </sit-command>
+        <sit-command sit-icon="fa-pencil-square-o" sit-name="com.siemens.customcommand.edit" :sit-tooltip="{{'Siemens.SimaticIT.EquipmentApp.EP_EquipmentMaintainTask.EP_EquipmentMaintainTasklist.Tips_13'|translate}}"
+                     ng-click="vm.editResultButtonHandler" ng-show="vm.isResultButtonVisible2" :sit-label="{{'Siemens.SimaticIT.EquipmentApp.EP_EquipmentMaintainTask.EP_EquipmentMaintainTasklist.Tips_13'|translate}}"></sit-command>
+        <sit-command sit-icon="fa-plus-square" sit-name="com.siemens.customcommand.add"
+                     ng-click="vm.addResultButtonHandler" :sit-tooltip="{{'Siemens.SimaticIT.EquipmentApp.EP_EquipmentMaintainTask.EP_EquipmentMaintainTasklist.Tips_14'|translate}}" ng-show="vm.isResultButtonVisible1"
+                     :sit-label="{{'Siemens.SimaticIT.EquipmentApp.EP_EquipmentMaintainTask.EP_EquipmentMaintainTasklist.Tips_14'|translate}}" sit-type="main"></sit-command>
+        <sit-command sit-icon="fa-trash" sit-name="com.siemens.customcommand.edit" :sit-tooltip="{{'Siemens.SimaticIT.EquipmentApp.EP_EquipmentMaintainTask.EP_EquipmentMaintainTasklist.Tips_15'|translate}}"
+                     ng-click="vm.deleteButtonHandler" ng-show="vm.isButtonVisible" :sit-label="{{'Siemens.SimaticIT.EquipmentApp.EP_EquipmentMaintainTask.EP_EquipmentMaintainTasklist.Tips_15'|translate}}"></sit-command>
+        <sit-command sit-icon="fa-pencil" sit-name="com.siemens.customcommand.edit" :sit-tooltip="{{'Siemens.SimaticIT.EquipmentApp.EP_EquipmentMaintainTask.EP_EquipmentMaintainTasklist.Tips_16'|translate}}"
+                     ng-click="vm.editButtonHandler" ng-show="vm.isButtonVisible" :sit-label="{{'Siemens.SimaticIT.EquipmentApp.EP_EquipmentMaintainTask.EP_EquipmentMaintainTasklist.Tips_16'|translate}}"></sit-command>
+        <sit-command sit-icon="fa-plus" sit-name="com.siemens.customcommand.add" ng-click="vm.addButtonHandler"
+                     :sit-tooltip="{{'Siemens.SimaticIT.EquipmentApp.EP_EquipmentMaintainTask.EP_EquipmentMaintainTasklist.Tips_17'|translate}}" :sit-label="{{'Siemens.SimaticIT.EquipmentApp.EP_EquipmentMaintainTask.EP_EquipmentMaintainTasklist.Tips_17'|translate}}" sit-type="main"></sit-command>
+    </sit-command-bar>
+</div>
+<!-- grid列表 -->
+<div id="listClass" style="width:100%; height: 37%; padding:0px 16px 0 16px; margin-top: 3px;">
+    <div ui-grid="vm.gridOptions" ui-grid-pinning ui-grid-auto-resize ui-grid-resize-columns ui-grid-selection
+         ui-grid-pagination class="uigrid"></div>
+</div>
+<!--子明细管理-->
+
+<div id="listClass2" class="col-md-40" style="width:100%; height: 40%; padding:0px 16px 0 16px; margin-top: 3px;">
+    <sit-tabset>
+        <sit-tab heading="{{'Siemens.SimaticIT.EquipmentApp.EP_EquipmentMaintainTask.EP_EquipmentMaintainTasklist.Tips_18'|translate}}" style="background-color: #204d74">
+            <div ui-grid="vm.gridItemOptions" ui-grid-pinning ui-grid-auto-resize ui-grid-selection ui-grid-pagination
+                 class="uigrid" style="height:205px"></div>
+            <!-- <div ui-grid="vm.gridPersonOptions" ui-grid-pinning ui-grid-auto-resize ui-grid-resize-columns ui-grid-selection ui-grid-pagination class="uigrid" style="height:99%"></div> -->
+        </sit-tab>
+        <sit-tab heading="{{'Siemens.SimaticIT.EquipmentApp.EP_EquipmentMaintainTask.EP_EquipmentMaintainTasklist.Tips_19'|translate}}" style="background-color: #204d74">
+            <div ui-grid="vm.gridSpareOptions" ui-grid-pinning ui-grid-auto-resize ui-grid-selection ui-grid-pagination
+                 class="uigrid" style="height:205px;"></div>
+
+        </sit-tab>
+    </sit-tabset>
+</div>

@@ -1,0 +1,56 @@
+﻿<!--
+    0.代码生成: UA单表一键生成前后端html、JS、API接口代码生成器 Ver 2.13 更新日期：2021-07-12  设计者：刘万军
+    1.功能描述: 设备备件使用情况
+    2.创建人员: 王坤
+    3.创建日期: 2021-08-05
+    4.修改人员: 
+    5.修改日期: 
+-->
+<style>
+    .row {
+        padding: 5px;
+        margin-top: 10px;
+    }
+</style>
+<div class="command-bar-side-panel">
+    <button ng-click="vm.cancel()" class="btn side-panel-button">{{'Siemens.SimaticIT.EquipmentApp.EP_EquipmentSpareParts.EP_EquipmentSparePartsadd.Tips_1'|translate}}</button>
+    <button ng-click="vm.save()" class="btn side-panel-button">{{'Siemens.SimaticIT.EquipmentApp.EP_EquipmentSpareParts.EP_EquipmentSparePartsadd.Tips_2'|translate}}</button>
+</div>
+<div class="side-panel-property-area-body">
+    <sit-property-grid sit-id="add_form"
+                       sit-layout="Vertical"
+                       sit-type="Fluid"
+                       sit-mode="edit"
+                       sit-columns="1">
+        <sit-property-grid sit-id="view_form" sit-layout="Horizontal" sit-type="Fixed" sit-mode="edit" sit-columns="2" style="margin-left: 4px;">
+            <sit-property sit-widget="sit-text" sit-value="vm.currentItem.ReplaceType" sit-validation="{required: true}"
+                          sit-read-only="false">{{'Siemens.SimaticIT.EquipmentApp.EP_EquipmentSpareParts.EP_EquipmentSparePartsadd.Tips_3'|translate}}</sit-property>
+            <sit-property sit-widget="sit-text" sit-value="vm.currentItem.EquipmentIdentifyCode" sit-validation="{required: true}"
+                          sit-read-only="false">{{'Siemens.SimaticIT.EquipmentApp.EP_EquipmentSpareParts.EP_EquipmentSparePartsadd.Tips_4'|translate}}</sit-property>
+            <sit-property sit-widget="sit-text" sit-value="vm.currentItem.EquipmentId" sit-validation="{required: true}"
+                          sit-read-only="false">{{'Siemens.SimaticIT.EquipmentApp.EP_EquipmentSpareParts.EP_EquipmentSparePartsadd.Tips_5'|translate}}</sit-property>
+            <sit-property sit-widget="sit-text" sit-value="vm.currentItem.EquipmentName" sit-validation="{required: true}"
+                          sit-read-only="false">{{'Siemens.SimaticIT.EquipmentApp.EP_EquipmentSpareParts.EP_EquipmentSparePartsadd.Tips_6'|translate}}</sit-property>
+            <sit-property sit-widget="sit-text" sit-value="vm.currentItem.SparePartsId" sit-validation="{required: true}"
+                          sit-read-only="false">{{'Siemens.SimaticIT.EquipmentApp.EP_EquipmentSpareParts.EP_EquipmentSparePartsadd.Tips_7'|translate}}</sit-property>
+            <sit-property sit-widget="sit-text" sit-value="vm.currentItem.SparePartsName" sit-validation="{required: true}"
+                          sit-read-only="false">{{'Siemens.SimaticIT.EquipmentApp.EP_EquipmentSpareParts.EP_EquipmentSparePartsadd.Tips_8'|translate}}</sit-property>
+            <sit-property sit-widget="sit-text" sit-value="vm.currentItem.SparePartsType" sit-validation="{required: true}"
+                          sit-read-only="false">{{'Siemens.SimaticIT.EquipmentApp.EP_EquipmentSpareParts.EP_EquipmentSparePartsadd.Tips_9'|translate}}</sit-property>
+            <sit-property sit-widget="sit-text" sit-value="vm.currentItem.SpecificationsModels" sit-validation="{required: true}"
+                          sit-read-only="false">{{'Siemens.SimaticIT.EquipmentApp.EP_EquipmentSpareParts.EP_EquipmentSparePartsadd.Tips_10'|translate}}</sit-property>
+            <!--<sit-property sit-widget="sit-text" sit-value="vm.currentItem.Factory" sit-validation="{required: true}"
+                          sit-read-only="false">{{'Siemens.SimaticIT.EquipmentApp.EP_EquipmentSpareParts.EP_EquipmentSparePartsadd.Tips_11'|translate}}</sit-property>-->
+            <sit-property sit-widget="sit-text" sit-value="vm.currentItem.Unide" sit-validation="{required: true}"
+                          sit-read-only="false">{{'Siemens.SimaticIT.EquipmentApp.EP_EquipmentSpareParts.EP_EquipmentSparePartsadd.Tips_12'|translate}}</sit-property>
+            <sit-property sit-widget="sit-datepicker" sit-value="vm.currentItem.DateOfReplace" sit-validation="{required: true}"
+                          sit-widget-attributes="{'sit-format':'yyyy-MM-dd','sit-show-meridian':'false'}" sit-read-only="false">{{'Siemens.SimaticIT.EquipmentApp.EP_EquipmentSpareParts.EP_EquipmentSparePartsadd.Tips_13'|translate}}</sit-property>
+            <sit-property sit-widget="sit-text" sit-value="vm.currentItem.PersonOfReplace" sit-validation="{required: true}"
+                          sit-read-only="false">{{'Siemens.SimaticIT.EquipmentApp.EP_EquipmentSpareParts.EP_EquipmentSparePartsadd.Tips_14'|translate}}</sit-property>
+            <sit-property sit-widget="sit-text" sit-value="vm.currentItem.ModifyBy" sit-validation="{required: true}"
+                          sit-read-only="false">{{'Siemens.SimaticIT.EquipmentApp.EP_EquipmentSpareParts.EP_EquipmentSparePartsadd.Tips_15'|translate}}</sit-property>
+            <sit-property sit-widget="sit-datepicker" sit-value="vm.currentItem.ModifyTime" sit-validation="{required: true}"
+                          sit-widget-attributes="{'sit-format':'yyyy-MM-dd','sit-show-meridian':'false'}" sit-read-only="false">{{'Siemens.SimaticIT.EquipmentApp.EP_EquipmentSpareParts.EP_EquipmentSparePartsadd.Tips_16'|translate}}</sit-property>
+        </sit-property-grid>
+    </sit-property-grid>
+</div>

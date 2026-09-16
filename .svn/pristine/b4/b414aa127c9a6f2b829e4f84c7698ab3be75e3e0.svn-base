@@ -1,0 +1,58 @@
+﻿<!--
+    0.代码生成: UA主子表一键生成前后端html、JS、API接口代码生成器 Ver 1.11 更新日期：2021-07-14  设计者：刘万军
+    1.功能描述: 供应商管理
+    2.创建人员: liyongguo
+    3.创建日期: 2021-07-24
+    4.修改人员:
+    5.修改日期:
+-->
+<style>
+    .row {
+        padding: 5px;
+        margin-top: 10px;
+    }
+</style>
+<div class="command-bar-side-panel">
+    <button ng-click="vm.cancel()" class="btn side-panel-button">
+        {{'Siemens.SimaticIT.MaterialApp.SupplierManage.SupplierManageadd.Tips_1'|translate}}
+    </button>
+    <button ng-click="vm.save()" class="btn side-panel-button" ng-show="vm.validInputs">
+        {{'Siemens.SimaticIT.MaterialApp.SupplierManage.SupplierManageadd.Tips_2'|translate}}
+    </button>
+</div>
+<div class="side-panel-property-area-body">
+    <sit-property-grid sit-id="add_form" sit-layout="Horizontal" sit-type="Fixed" sit-mode="edit" sit-columns="2">
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.SupplierCode" sit-validation="{required: true}"
+                      sit-read-only="false">
+            {{'Siemens.SimaticIT.MaterialApp.SupplierManage.SupplierManageadd.Tips_3'|translate}}
+        </sit-property>
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.SupplierName" sit-validation="{required: true}"
+                      sit-read-only="false">
+            {{'Siemens.SimaticIT.MaterialApp.SupplierManage.SupplierManageadd.Tips_4'|translate}}
+        </sit-property>
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.Category" sit-validation="{required: true}"
+                      sit-read-only="false">
+            {{'Siemens.SimaticIT.MaterialApp.SupplierManage.SupplierManageadd.Tips_5'|translate}}
+        </sit-property>
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.Abbr" sit-validation="{required: true}"
+                      sit-read-only="false">
+            {{'Siemens.SimaticIT.MaterialApp.SupplierManage.SupplierManageadd.Tips_6'|translate}}
+        </sit-property>
+
+        <sit-property sit-widget="sit-select" sit-value="vm.typeSupplierLevel.value" sit-validation="{required: false}"
+                      sit-options="vm.typeSupplierLevel.options" sit-to-display="'ItemName'" sit-to-keep="'ItemValue'"
+                      sit-read-only="false">
+            {{'Siemens.SimaticIT.MaterialApp.SupplierManage.SupplierManageadd.Tips_8'|translate}}
+        </sit-property>
+
+        <sit-property sit-widget="sit-alp-text-picker" sit-value="vm.currentItem.ParentSupplierName"
+                      sit-validation="{required: false}" sit-read-only="false" ng-click="vm.supplierClick()">
+            {{'Siemens.SimaticIT.MaterialApp.SupplierManage.SupplierManageadd.Tips_9'|translate}}
+        </sit-property>
+
+        <sit-property sit-widget="sit-checkbox" sit-value="vm.IsEnabled" sit-validation="{required: false}"
+                      ng-show="true">
+            {{'Siemens.SimaticIT.MaterialApp.SupplierManage.SupplierManageadd.Tips_7'|translate}}
+        </sit-property>
+    </sit-property-grid>
+</div>

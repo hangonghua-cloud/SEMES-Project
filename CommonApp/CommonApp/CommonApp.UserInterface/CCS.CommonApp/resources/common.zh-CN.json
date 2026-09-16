@@ -1,0 +1,1016 @@
+{
+  "common": {
+    "and": "与",
+    "and-or": "与\/或",
+    "apply": "应用",
+    "busy-message": {
+      "loading": "正在加载...",
+      "please-wait": "请稍候...",
+      "working": "工作中..."
+    },
+    "redirectInProgress": "您即将被重定向至登录页面...",
+    "cancel": "取消",
+    "selectAll": "全选",
+    "configure": "配置",
+    "contains": "包含",
+    "delete": "删除",
+    "description": "描述",
+    "done": "完成",
+    "edit": "编辑",
+    "ends-with": "结尾为",
+    "error": "错误",
+    "error-code-message": "错误代码({{code}})：{{message}}",
+    "error-text-code-message": "{{text}}\n错误代码({{code}})：{{message}}",
+    "field": "字段",
+    "imageUpload": "图像上传",
+    "in": "位于",
+    "invalid-parameter-value": "参数 ({{name}}) 的值无效：{{message}}",
+    "isNull": "为空",
+    "isNotNull": "不为空",
+    "any": "任意",
+    "notany": "不是任何",
+    "load": "加载",
+    "match-case": "区分大小写",
+    "group": "对所选子句分组",
+    "ungroup": "取消对子句分组",
+    "name": "名称",
+    "no": "否",
+    "no-data": "无数据",
+    "none": "无",
+    "ok": "确定",
+    "operator": "操作者",
+    "or": "或",
+    "param-msg-exceed-max-string-length": "值超出了 {{length}} 个字符的最大长度限制。",
+    "param-msg-invalid-format": "值不是 {{format}} 格式。",
+    "remove": "移除",
+    "reset": "重置",
+    "save": "保存",
+    "saveAll": "全部保存",
+    "export-sidepanel": "导出",
+    "selected": "所选内容",
+    "starts-with": "起始为",
+    "success": "成功",
+    "update": "更新",
+    "value": "值",
+    "version": "版本",
+    "yes": "是",
+    "confirmation": "确认",
+    "export": {
+      "exportInProgress": "正在准备导出程序包。就绪后，您可以在“导出导入管理”页面中找到它。",
+      "exportWithDataSegregation": "您将仅导出根据为您分配的数据隔离标记而对您可见的实体和相关实体。",
+      "general": "一般",
+      "exportDescendants": "包括后代",
+      "warningInformation": "警告"
+    },
+    "authentication": {
+      "overlayLogoutErrorTitle": "错误",
+      "overlayLogoutErrorMsg": "注销错误",
+      "overlaySessionExpireWarning": "用户会话即将过期...",
+      "overlaySessionExpireMessage": "您的会话即将过期，剩余时间：",
+      "overlaySesionExpiredMessage": "除非您已在其他标签页中执行了活动，否则您的会话可能已过期。",
+      "renewSession": "续订会话"
+    },
+    "header": {
+      "actions": {
+        "home": "主页",
+        "settings": "设置",
+        "about": "关于",
+        "logout": "退出"
+      },
+      "about": {
+        "title": "关于",
+        "version": "Opcenter Execution Foundation 3.2",
+        "copyright": "© Siemens AG, 2020"
+      }
+    },
+    "helpWindow": {
+      "title": "帮助",
+      "search": "在此处输入搜索词...",
+      "no-items-found": "未找到任何结果。请加大搜索条件。",
+      "search-info": "您搜索了",
+      "document": "文档",
+      "unknown-page": "此页面不存在。",
+      "no-help-code": "无可用帮助页面",
+      "no-documents": "无帮助页面可用于"
+    },
+    "viewbar": {
+      "grid": "网格",
+      "small": "小",
+      "medium": "中",
+      "large": "大"
+    },
+    "gridster": {
+      "dragresize": "拖动并调整大小",
+      "dragresizeTitle": "拖动并调整组件大小"
+    },
+    "unauthorize": {
+      "title": "授权错误",
+      "message": "您没有访问此页的权限。"
+    },
+    "undefinedHome": {
+      "title": "主页状态未定义",
+      "text": "主页状态未配置"
+    },
+    "serviceLayerError": {
+      "title": "服务不可用"
+    },
+    "nerveBox": {
+      "generic": {
+        "title": "许可证检查",
+        "body": "许可证检查未通过。\n请联系系统管理员。"
+      }
+    },
+    "homePageWithSearch": {
+      "placeholder": "在此键入搜索文本...",
+      "searchResults": "搜索结果"
+    }
+  },
+  "datePicker": {
+    "clear": "清除",
+    "close": "关闭",
+    "now": "现在",
+    "today": "今天",
+    "ok": "确定",
+    "setDateAsToday": "日期设为今天",
+    "setTimeAsNow": "时间设为现在"
+  },
+  "dateTimePicker": {
+    "clear": "清除",
+    "close": "关闭",
+    "now": "现在",
+    "today": "今天",
+    "ok": "确定",
+    "setDateAsToday": "日期设为今天",
+    "setTimeAsNow": "时间设为现在"
+  },
+  "dialog": {
+    "close": "关闭",
+    "validator": {
+      "warningTitle": "警告：",
+      "warningMessage": "至少一个字段不满足其验证规则。"
+    }
+  },
+  "entityPicker": {
+    "defaultPlaceHolder": "查找实体",
+    "cancel": "取消",
+    "select": "选择",
+    "selectItem": "选择项"
+  },
+  "fileUploader": {
+    "noFile": "未指定文件。",
+    "error": {
+      "fileType": "文件类型无效。",
+      "fileSize": "文件大小无效。",
+      "readError": "读取文件时出错。"
+    },
+    "tooltip": {
+      "browse": "浏览",
+      "remove": "移除"
+    }
+  },
+  "iconPicker": {
+    "defaultPlaceHolder": "开始键入 fa 或 sit 以查找图标"
+  },
+  "textEditor": {
+    "browse": "浏览",
+    "tabHeading": "从文件系统上传"
+  },
+  "commandBar": {
+    "moreCommandsAvailable": "更多",
+    "lessCommands": "更少",
+    "clearToolTip": "清除",
+    "saveAsToolTip": "另存为",
+    "saveToolTip": "保存",
+    "setDefaultTooltip": "设为默认",
+    "unsetDefaultTooltip": "取消设为默认",
+    "unknownCommandSep": "未知子命令类型：许用值为 'Command' 或 'Sep'",
+    "unknownCommand": "未知子命令类型：许用值为 'Command'、'Group' 或 'Sep'"
+  },
+  "contextInfo": {
+    "title": "上下文信息"
+  },
+  "filter": {
+    "add-new-clause": "添加新子句",
+    "constant": "常数",
+    "field": "字段",
+    "unknownType": "未知类型",
+    "optionalDescription": "在此处键入可选描述"
+  },
+  "filterPanel": {
+    "title": "过滤器",
+    "reset": "重置",
+    "apply": "应用",
+    "save": "保存",
+    "cancel": "取消",
+    "saveFilterAs": "将过滤器另存为",
+    "setDefault": "设为默认",
+    "unSetDefault": "取消设为默认",
+    "name": "名称",
+    "description": "描述",
+    "optionalDescription": "在此处键入可选描述",
+    "nameInfo": "应以字符或数字开头，长度在 3 到 25 个字符内。",
+    "descInfo": "最大长度应为 200 个字符。",
+    "filterName": "过滤器名称",
+    "newFilter": "新过滤器",
+    "openFilter": "打开过滤器",
+    "delete": "删除",
+    "overlay": {
+      "text": "错误：已存在同名的过滤器。",
+      "title": "过滤器已存在",
+      "displayName": "确定"
+    }
+  },
+  "filterBar": {
+    "none": "无",
+    "quick-search": "在此键入以开始搜索",
+    "quickSearchPlaceholder": "搜索条件",
+    "sortby": "排序依据",
+    "userPreferenceTitle": "用户首选项",
+    "filterTitle": "过滤",
+    "groupTitle": "分组依据",
+    "ascending": "升序",
+    "descending": "降序",
+    "ascendingTitle": "升序排序",
+    "descendingTitle": "降序排序",
+    "segregationTagsTitle": "隔离标记",
+    "exportTitle": "导出",
+    "mode": "模式",
+    "table": "表",
+    "list": "列表",
+    "selectAll": "全选",
+    "multiSelection": "多选"
+
+  },
+  "contextual": {
+    "search": "在此处输入搜索词..."
+  },
+  "generic": {
+    "search": "在此处输入搜索词..."
+  },
+  "interactiveAccordion": {
+    "newNode": "新建子节点"
+  },
+  "Graph": {
+    "error": {
+      "graphUndefined": "尚未为此图定义节点和边。",
+      "uniqueNodeId": "节点 ID 必须唯一。",
+      "uniqueEdgeId": "边 ID 必须唯一。",
+      "emptyGraph": "图为空"
+    },
+    "name": "名称",
+    "description": "描述",
+    "autoFit": "自动适合",
+    "panAndZoom": "平移和缩放"
+  },
+  "Notification": {
+    "tileNull": "[Controller.notificationTileShow] tileContent 为 null \n'",
+    "tileContentGt120": "[Controller.notificationTileShow] tileContent 大于 120 个字符 \n",
+    "tileTitleGt120": "[Controller.notificationTileShow] tileTitle 大于 22 个字符 \n",
+    "infoTitle": "信息",
+    "warningTitle": "警告"
+  },
+  "pager": {
+    "page-size": "页面大小",
+    "total-items": "总项数",
+    "filtered-items": "过滤项",
+    "selected-items": "选定项",
+    "page": "页面",
+    "page-first": "第一页",
+    "page-prev": "上一页",
+    "page-next": "下一页",
+    "page-last": "最后一页"
+
+  },
+  "pagination": {
+    "showing": "显示",
+    "to": "到",
+    "of": "\/",
+    "entries": "条目",
+    "selected-items": "选定项"
+  },
+  "settings": {
+    "title": "设置",
+    "subtitle": "语言和区域",
+    "select": "选择语言和区域。",
+    "theme": "主题",
+    "log": "UI 日志记录",
+    "message": "激活调试或详细日志记录可能会影响 UI 总体性能。",
+    "btnReset": "重置为默认值",
+    "btnSave": "保存更改",
+    "notificationTile": {
+      "title": "成功",
+      "saveText": "设置已正确保存。",
+      "restoreText": "设置已正确还原。"
+    }
+  },
+  "ChangeLocation": {
+    "title": "设置",
+    "subtitle": "语言和区域",
+    "select": "选择语言和区域。",
+    "theme": "主题",
+    "log": "UI 日志记录",
+    "message": "激活调试或详细日志记录可能会影响 UI 总体性能。",
+    "btnReset": "重置为默认值",
+    "btnSave": "保存更改",
+    "notificationTile": {
+      "title": "成功",
+      "saveText": "设置已正确保存。",
+      "restoreText": "设置已正确还原。"
+    }
+  },
+  "sidebar": {
+    "title": "边栏",
+    "open": "打开",
+    "back": "返回",
+    "error": {
+      "configMissing": "没有可用的数据。",
+      "homeMissing": "主页尚未配置。",
+      "invalidNavigationButtons": "导航按钮尚未正确配置。",
+      "iconMissing": "图标尚未配置。"
+    }
+  },
+  "sidePanel": {
+    "close": "关闭",
+    "labelErrorMsg": "标签是必需的",
+    "tooltipErrorMsg": "工具提示是必需的",
+    "minimize": "最小化",
+    "maximize": "最大化",
+    "closeConfirmTitle": "确认关闭",
+    "closeConfirmText": "确定要关闭侧面板吗？"
+  },
+  "timePicker": {
+    "clear": "清除",
+    "set": "设置"
+  },
+  "validator": {
+    "errors": {
+      "noLabel": "字段",
+      "required": "{{field}}为必填项。",
+      "pattern": "{{field}}{{ value }}",
+      "min": "{{field}}低于最小值 ({{value}})。",
+      "max": "{{field}}最大值已超过 ({{value}})。",
+      "minlength": "{{field}}低于最小值 ({{value}})。",
+      "maxlength": "{{field}}最大长度已超过 ({{value}})。",
+      "number": "{{field}}必须是数字。",
+      "integer": "{{field}} 必须为整数。",
+      "editable": "{{field}}必须从可用值中选择。",
+      "custom": "{{field}}{{value}}"
+    }
+  },
+  "propertyGrid": {
+    "property": {
+      "addNew": "新添",
+      "remove": "移除",
+      "canNotAdd": "无法添加",
+      "canNotRemove": "无法移除",
+      "addItem": "添加零组件"
+    },
+    "invalidLayout": "未知属性网格类型：许用值为“固定”或“流体”"
+  },
+  "taskContainer": {
+    "taskList": {
+      "name-sort-by": "名称",
+      "default-sort-by": "状态",
+      "created-sort-by": "创建时间",
+      "lastupdated-sort-by": "上次更新时间"
+    },
+    "tile": {
+      "status": "状态",
+      "created": "已创建",
+      "lastUpdated": "已更新",
+      "taskDefinitionId": "定义"
+    },
+    "parameters": {
+      "parameter": "参数",
+      "description": "描述",
+      "direction": "方向",
+      "id": "ID",
+      "isReadOnly": "只读",
+      "name": "名称",
+      "type": "类型",
+      "uom": "度量单位",
+      "value": "值",
+      "noData": "无数据"
+    },
+    "details": {
+      "id": "ID",
+      "name": "名称",
+      "description": "描述",
+      "taskDefinitionNId": "任务定义 ID",
+      "taskDefinitionRevision": "版本",
+      "equipment": "设备",
+      "taskFlow": "任务流",
+      "taskOverview": "任务概述",
+      "taskDetails": "任务详细信息",
+      "properties": "详细信息",
+      "status": "状态"
+    },
+    "context": {
+      "noData": "无数据",
+      "context": "上下文",
+      "contextEntityType": "上下文实体类型",
+      "description": "描述",
+      "direction": "方向",
+      "id": "ID",
+      "isReadOnly": "只读",
+      "name": "名称",
+      "noUserFieldAvailable": "没有可用的用户字段",
+      "type": "类型",
+      "uom": "度量单位",
+      "value": "值"
+    }
+  },
+  "ERRORS": {
+    "404": "未找到请求的资源。",
+    "503": "服务层工程正在进行维护。",
+    "400": "此请求的语法格式不正确或无法满足。",
+    "403": "此请求已禁止。授权也没有用。",
+    "500": "服务器遇到意外情况，使其无法实现请求。",
+    "502": "连接失败。无法检索响应。",
+    "4XX": "服务器未能实现客户端的无效请求。",
+    "5XX": "服务器未能实现明显有效的请求。"
+  },
+  "svcErrors": {
+    "documentation": {
+      "noID": "命令错误：没有 ID 无法执行命令",
+      "noQuery": "命令错误：没有查询无法执行命令",
+      "noNames": "命令错误：没有名称无法执行命令",
+      "noEntityName": "命令错误：没有实体名称无法执行命令"
+
+    },
+    "engineering": {
+      "noConfig": "命令错误：没有配置无法执行命令",
+      "noEntityName": "命令错误：没有实体名称无法执行命令",
+      "generic": "无法连接至工程数据服务",
+      "wrongEntityName": "实体名称错误"
+    },
+    "databaseInfo": {
+      "createNoMsg": "命令错误：没有 (' {{msg}} ') 无法创建数据库信息",
+      "createWrongInput": "命令错误：输入类型错误时无法创建数据库信息",
+      "updateNoMsg": "命令错误：无法更新数据库信息，因为没有 ",
+      "updateWrongInput": "命令错误：输入类型错误时无法更新数据库信息",
+      "deleteNoMsg": "命令错误：无法删除数据库信息，因为没有 ",
+      "deleteWrongInput": "命令错误：输入类型错误时无法删除数据库信息",
+      "associateNoMsg": "命令错误：无法关联数据库信息，因为没有 ",
+      "associateWrongInput": "命令错误：输入类型错误时无法关联数据库信息"
+    },
+    "eventSubscription": {
+      "addNoWRName": "命令错误：没有辅助进程角色名无法添加订阅",
+      "addNoSubscriptionName": "命令错误：没有订阅名称无法添加订阅",
+      "remNoWRName": "命令错误：没有辅助进程角色名无法移除订阅",
+      "remNoSubscriptionName": "命令错误：没有订阅名称无法移除订阅",
+      "createNoSubsEventName": "命令错误：没有订阅的事件名无法创建订阅",
+      "createNoEventHandlerName": "命令错误：没有事件处理程序名称无法创建订阅",
+      "createNoName": "命令错误：没有名称无法创建订阅",
+      "updateNoSubsEventName": "命令错误：没有订阅的事件名无法更新订阅",
+      "updateNoEventHandlerName": "命令错误：没有事件处理程序名称无法更新订阅",
+      "updateNoName": "命令错误：没有名称无法更新订阅",
+      "deleteNoName": "命令错误：没有事件订阅名称无法删除订阅",
+      "renameSameName": "命令错误：使用同一名称无法重命名事件订阅",
+      "renameNoOldName": "命令错误：没有旧名称无法重命名事件订阅",
+      "renameNoNewName": "命令错误：没有新名称无法重命名事件订阅",
+      "addFilterNoName": "命令错误：没有事件订阅名称无法给事件订阅添加过滤器",
+      "updateFilterNoName": "命令错误：没有事件订阅名称无法更新事件订阅中的过滤器",
+      "removeFilterNoName": "命令错误：没有事件订阅名称无法从事件订阅中移除过滤器"
+    },
+    "project": {
+      "loadNoVersion": "命令错误：没有版本无法加载项目",
+      "loadNoName": "命令错误：没有名称无法加载项目",
+      "loadWrongInput": "命令错误：输入类型错误时无法加载项目",
+      "unloadNoName": "命令错误：没有名称无法卸载项目",
+      "unloadWrongInput": "命令错误：输入类型错误时无法卸载项目",
+      "deployNoVersion": "命令错误：没有版本无法加载项目",
+      "deployNoName": "命令错误：没有名称无法加载项目",
+      "deployWrongInput": "命令错误：输入类型错误时无法加载项目"
+    },
+    "systemEvents": {
+      "startupNoMsg": "命令错误：无法启动运行时服务，因为您还没有指定 (' {{msg}} ')",
+      "startupWrongInput": "命令错误：无法启动运行时服务，因为您指定了错误的输入类型",
+      "shutdownNoMsg": "命令错误：无法关闭运行时服务，因为您还没有指定 (' {{msg}} ')",
+      "shutdownWrongInput": "命令错误：无法关闭运行时服务，因为您指定了错误的输入类型"
+    },
+    "workerRole": {
+      "createNoName": "命令错误：没有名称无法创建辅助进程角色",
+      "updateNoName": "命令错误：没有名称无法更新辅助进程角色",
+      "deleteNoName": "命令错误：没有名称无法删除辅助进程角色",
+      "addUndefWR": "命令错误：无法将命令添加给未定义的辅助进程角色名",
+      "addUndefCommands": "命令错误：无法添加一组未定义的命令",
+      "addEmptyCommands": "命令错误：无法添加一组空命令",
+      "remUndefWR": "命令错误：无法从未定义的辅助进程角色名移除命令",
+      "remUndefCommands": "命令错误：无法移除一组未定义的命令",
+      "remEmptyCommands": "命令错误：无法移除一组空命令",
+      "addNoCommandName": "命令错误：没有命令名称无法添加命令",
+      "addNoWRName": "命令错误：没有辅助进程角色名无法添加命令",
+      "remNoCommandName": "命令错误：没有命令名称无法移除命令",
+      "remNoWRName": "命令错误：没有辅助进程角色名无法移除命令",
+      "addWRNoWRName": "命令错误：没有辅助进程角色名无法将辅助进程角色添加至主机角色命令",
+      "addWRNoHRName": "命令错误：没有主机角色名无法将辅助进程角色添加至主机角色命令",
+      "remWRNoWRName": "命令错误：没有辅助进程角色名无法从主机角色命令移除辅助进程角色",
+      "remWRNoHRName": "命令错误：没有主机角色名无法从主机角色命令移除辅助进程角色"
+    },
+    "business": {
+      "noConfig": "命令错误：没有配置无法执行命令",
+      "noEntityName": "命令错误：没有实体名称无法执行命令",
+      "executeNoInput": "命令错误：没有输入无法执行命令",
+      "noFunctionName": "读取错误：未指定要调用的函数",
+      "defaultErrorMessage": "无法检索响应。"
+    },
+    "businessCommand": {
+      "executeInvalidInput": "命令错误：输入无效时无法执行运行时命令",
+      "executeInvalidCommand": "命令错误：命令名称无效时无法执行运行时命令"
+    }
+  },
+  "auditTrail": {
+    "viewer": {
+      "headers": {
+        "RootEntityId": "实体元素",
+        "UpdatedOn": "时间戳",
+        "UserName": "用户",
+        "Action": "操作",
+        "RootEntityType": "实体类型",
+        "RootCommand": "命令",
+        "Environment": "环境",
+        "Domain": "域",
+        "ExecutionInstance": "ExecutionInstance"
+      },
+      "commands": {
+        "refresh": "刷新"
+      }
+    },
+    "messages": {
+      "notEnabled": "追溯审核数据无法显示，因为您必须先安装和部署 Audit Trail 应用程序。"
+    },
+    "summary": {
+      "message": "在 {{timestamp | date:'medium'}}，{{username}} {{'auditTrail.summary.actions.' + action | translate}} {{entity}}（在 {{environment}} 中）。",
+      "actions": {
+        "Added": "已添加",
+        "Modified": "已修改",
+        "Deleted": "已删除",
+        "SignatureApproved": "已批准",
+        "SignatureRejected": "已拒绝"
+      },
+      "viewMore": "查看更多信息"
+    },
+    "properties": {
+      "title": "属性",
+      "old": "旧",
+      "new": "新",
+      "bigdata": "值已更改"
+    },
+    "complex": {
+      "title": "复杂属性",
+      "propName": "属性名",
+      "old": "旧",
+      "new": "新"
+    },
+    "relationships": {
+      "title": "关系",
+      "backwardNavigation": "{{entity}} {{logicalKey}} {{'auditTrail.relationships.actions.' + action | translate}}",
+      "forwardNavigation": {
+        "Added": "{{entity}} {{newLogicalKey}} {{'auditTrail.relationships.actions.' + action | translate}}",
+        "Modified": "{{entity}} {{newLogicalKey}} {{'auditTrail.relationships.actions.' + action | translate}}",
+        "Removed": "{{entity}} {{oldLogicalKey}} {{'auditTrail.relationships.actions.' + action | translate}}"
+      },
+      "actions": {
+        "Added": "已添加",
+        "Modified": "已修改",
+        "Removed": "已移除"
+      }
+    },
+    "composition": {
+      "title": "构成详细信息",
+      "partTitle": "{{entityName}} {{'auditTrail.summary.actions.' + action | translate}}"
+    },
+    "electronicSignature": {
+      "title": "电子签名详细信息"
+    }
+  },
+  "userPrefrences": {
+    "defaultViewModeHeading": "默认视图模式",
+    "table": "表",
+    "list": "列表",
+    "columnConfigurator": {
+      "heading": "表列",
+      "availableSectionHeader": "可用的列",
+      "selectedSectionHeader": "已选列",
+      "addButtonLabel": "添加",
+      "removeButtonLabel": "移除",
+      "addAllButtonLabel": "全部添加",
+      "removeAllButtonLabel": "全部移除",
+      "resetButtonLabel": "重置",
+      "moveUpButtonLabel": "上移",
+      "moveDownButtonLabel": "下移",
+      "columnConfiguration": "列配置"
+    },
+    "tileConfigurator": {
+      "heading": "列表属性",
+      "inputFieldsHeader": "属性",
+      "liveTilePreviewHeader": "预览",
+      "selectSize": "大小",
+      "resetButtonLabel": "重置",
+      "title": "标题",
+      "description": "描述",
+      "property1": "Property1",
+      "property2": "Property2",
+      "property3": "Property3",
+      "property4": "Property4"
+    },
+    "overlayMessage": {
+      "title": "确认重置",
+      "bothText": "这将重置网格和图块的用户首选项用户首选。确定要重置这两者吗？",
+      "text": "这将重置用户首选项。是否确定要重置？",
+      "tileText": "这将重置用户首选项。是否确定要重置？"
+    },
+    "title": {
+      "tile": "定制列表属性",
+      "grid": "定制表列",
+      "tileGrid": "定制 {{moduleName}} 视图模式"
+    }
+  },
+  "tagsManager": {
+    "title": "标记管理",
+    "assignedTags": "指派的标记",
+    "availableTags": "可用标记",
+    "totalItems": "总项数",
+    "warning": "警告",
+    "canModifyWarning": "由于实体继承限制，对标记的修改可能未生效。",
+    "inputPlaceholderText": "在此处输入搜索词...",
+    "sidePanel": {
+      "closeToolTip": "关闭"
+    },
+    "cantAssignTagToFrozen": "隔离标记无法指派给{{EntityType}} {{EntityId}}，因为它已冻结",
+    "cantAssignTagToLocked": "隔离标记无法指派给{{EntityType}} {{EntityId}}，因为它已锁定",
+    "cantAssignTagToMarkedForCleaning": "隔离标记无法指派给{{EntityType}} {{EntityId}}，因为它已标记为清理"
+  },
+  "characteristicRepr": {
+    "valueinside": "插入的值必须位于以下项中：",
+    "and": "和",
+    "CanBeSkipped": "可跳过",
+    "NId": "规格 NId",
+    "Id": "字符重现 ID",
+    "Revision": "规格版本",
+    "samplesaved": "样本已保存",
+    "sampleupdated": "样本已更新",
+    "Description": "描述",
+    "Criticality": "严重性",
+    "Name": "名称",
+    "NominalValue": "标称值",
+    "UoM": "度量单位",
+    "UpperTolerance": "公差上限",
+    "LowerTolerance": "公差下限",
+    "PotentialFailures": "故障",
+    "SpecifictionName": "规格名称",
+    "SpecifictionDescription": "规格描述",
+    "Details": "详细信息",
+    "EquipmentNId": "设备 Id",
+    "MTU": "MTU",
+    "MaterialNId": "材料 ID",
+    "MaterialRevision": "物料版本",
+    "LegendaMessage": "插入的值超出给定的公差值。",
+    "LegendaMessage2": "尚未选择初始有效选项。",
+    "FailureNotMigrated": "尚未迁移 NId 为 {{FailureNId}} 的故障",
+    "GridRows": "栅格行",
+    "GridColumns": "栅格列",
+    "popupTitle": "浏览故障",
+    "attachmentlist": "附件列表",
+    "document": "文档",
+    "BrowseForMore": "浏览更多...",
+    "failureassociated": "故障已指派",
+    "failuredisassociated": "故障已取消关联",
+    "NoAssociatedFailures": "没有关联任何故障",
+    "Legenda": "图例",
+    "FailureRevision": "版本",
+    "OpenChildrenFailures": "打开子故障",
+    "Defect": "残次品",
+    "showAttachments": "显示附件"
+  },
+  "instanceViewer": {
+    "acknowledge": {
+      "button": "确认",
+      "text": "已由 {{CompletedBy}} 于 {{AcknowledgeOn}} 认可"
+    },
+    "dataCollection": {
+      "button": "确认",
+      "text": "已由 {{CompletedBy}} 于 {{AcknowledgeOn}} 确认",
+      "lowLimit": "下限",
+      "highLimit": "上限",
+      "target": "目标",
+      "outOfSpecMessage": "值不在指定限制范围内。",
+      "lowLimitMessage": "输入的值小于指定下限 ({{lowLimit}})。",
+      "highLimitMessage": "输入的值大于指定上限 ({{highLimit}})。",
+      "rangeMessage": "输入的值不在指定限制范围 ({{lowLimit}} - {{highLimit}}) 内。",
+      "targetMessage": "输入的值与指定的目标值不符。",
+      "bigintRangeMessage": "字段值不是有效的 BigInt 值。允许的值范围为从 -9007199254740992 到 9007199254740991",
+      "decimalRangeMessage": "字段值不是有效的 BigInt 值。允许的值范围为从 -7.9 * Math.pow(10, 28) 到 7.9 * Math.pow(10, 28)。",
+      "formatMismatch": "字段值不匹配给定的格式。"
+    },
+    "reEdit": {
+      "button": "重新编辑"
+    },
+    "acquire": {
+      "button": "获取"
+    }
+  },
+  "documentViewer": {
+    "defaultTitle": "文档",
+    "previousPage": "上一页",
+    "nextPage": "下一页",
+    "maximizeDocument": "最大化文档",
+    "maximizeDetails": "最大化详细信息",
+    "minimizeDetails": "最小化详细信息",
+    "documentCarousel": {
+      "noData": "无数据"
+    }
+  },
+  "navigationLink": {
+    "moreTabsAvailable": "更多..."
+  },
+  "esSigners": {
+    "buttontext": "SIGN",
+    "buttontext_completed": "查看签名",
+    "title": "需要签名",
+    "description": "您需要批准的所有以下签名才能继续：",
+    "close": "关闭",
+    "only": "仅",
+    "leftsigns": "剩余签名",
+    "SpecificUser": "用户",
+    "Role": "角色",
+    "Meaning": "原因",
+    "UserID": "用户 ID",
+    "FullName": "全称",
+    "DateAndTime": "日期和时间",
+    "Comment": "评论",
+    "Sign": "签名",
+    "Approve": "批准",
+    "Reject": "拒绝",
+    "TooLongComment": "注释的最大允许长度为 255 字符。",
+    "ScenarioInRejectStatus": "场景处于拒绝状态。",
+    "ErrorPrepareSignature-3": "场景实例或指定步骤不存在。",
+    "ErrorPrepareSignature-5": "无法创建 ES 票据：场景步骤无效。",
+    "ErrorAddSignature-3": "签名实例或票据不存在。",
+    "ErrorAddSignature-901": "登录用户的签名配置已存在。",
+    "ErrorAddSignature-902": "特定用户的签名配置已存在。",
+    "ErrorAddSignature-903": "签名者无效。",
+    "ErrorAddSignature-904": "无法修改冻结场景的签名配置。",
+    "ErrorAddSignature-905": "签名者不处于有效状态。",
+    "ErrorAddSignature-906": "场景配置的签名配置不存在。",
+    "ErrorAddSignature-907": "签名配置不属于场景配置。",
+    "ErrorAddSignature-908": "签名实例的注释是必需的。",
+    "ErrorAddSignature-909": "场景实例状态不适合添加签名实例。",
+    "ErrorAddSignature-910": "签名实例已签名。",
+    "ErrorAddSignature-911": "签名实例的票据状态无效。",
+    "ErrorAddSignature-912": "票据的格式无效。",
+    "ErrorAddSignature-913": "签名者的身份验证标记无效。",
+    "ErrorAddSignature-914": "身份验证标记与票据无关。",
+    "ErrorAddSignature-915": "已验证身份的用户无效。",
+    "ErrorAddSignature-916": "尝试签名的用户的角色不正确。",
+    "ErrorAddSignature-917": "身份验证标记没有引用 UMC 用户。",
+    "ErrorAddSignature-919": "ESTicket 不存在。",
+    "ErrorAddSignature-920": "票据对此用户无效",
+    "ErrorAddSignature-921": "票据将被删除"
+  },
+  "electronicSignature": {
+    "messages": {
+      "notEnabled": "电子签名组件无法显示，因为您必须先安装和部署 Audit Trail 应用程序。"
+    },
+    "cancel": "取消",
+    "select": "选择",
+    "selectSignatureScenario": "选择场景",
+    "pickerPlaceHolder": "选择场景",
+    "scenarioConfiguration": "签名方案",
+    "scenarioName": "名称",
+    "user": "用户",
+    "role": "角色",
+    "scenarioDescription": "描述",
+    "refresh": "刷新",
+    "theLoggerUser": "登录用户",
+    "reason": "原因"
+  },
+  "homeCards": {
+    "accessControlManagement": {
+      "title": "访问控制管理",
+      "description": "访问控制管理描述",
+      "action": {
+        "title": "打开"
+      }
+    },
+    "adapterConfiguration": {
+      "title": "适配器配置",
+      "description": "适配器配置描述",
+      "action": {
+        "title": "打开"
+      }
+    },
+
+    "workOrder": {
+      "title": "计划管理",
+      "description": "用于管理工作订单、其工序和生产要求。",
+      "action": {
+        "title": "打开"
+      }
+    },
+    "archiving": {
+      "title": "归档",
+      "description": "用于访问归档数据。",
+      "action": {
+        "title": "打开"
+      }
+    },
+    "equipmentEngineering": {
+      "title": "设备管理",
+      "description": "用于创建和配置基于角色的设备和物理资产。",
+      "action": {
+        "title": "打开"
+      }
+    },
+    "interoperability": {
+      "title": "质量管理",
+      "description": "用于管理产品质量管控。",
+      "action": {
+        "title": "打开"
+      }
+    },
+    "manufacturing": {
+      "title": "加工",
+      "description": "用于配置公共制造数据（例如，物料和工厂模型）。",
+      "action": {
+        "title": "打开"
+      }
+    },
+    "materialEngineering": {
+      "title": "物料管理",
+      "description": "用于创建和配置生产所需的物料和产品。",
+      "action": {
+        "title": "打开"
+      }
+    },
+    "materialRuntime": {
+      "title": "物料管理",
+      "description": "用于管理物料追踪单元、物料批次、库存、贡献和系谱。",
+      "action": {
+        "title": "打开"
+      }
+    },
+    "operationalDashboards": {
+      "title": "操作面板",
+      "description": "操作面板描述",
+      "action": {
+        "title": "打开"
+      }
+    },
+    "process": {
+      "title": "质量管理",
+      "description": "用于管理物料检验和物料质量。",
+      "action": {
+        "title": "打开"
+      }
+    },
+    "processActivities": {
+      "title": "报表管理",
+      "description": "用户报表配置查看。",
+      "action": {
+        "title": "打开"
+      }
+    },
+    "productandProductionConfiguration": {
+      "title": "生产管理",
+      "description": "用于管理表示生产所需工程元素的实体。",
+      "action": {
+        "title": "打开"
+      }
+    },
+    "productionCoordination": {
+      "title": "基础数据",
+      "description": "用于协助生产协调员管理和监控他们区域中的进行中工作。",
+      "action": {
+        "title": "打开"
+      }
+    },
+    "settings": {
+      "title": "设置",
+      "description": "用于管理公共的系统范围内的配置和数据",
+      "action": {
+        "title": "打开"
+      }
+    },
+    "shopfloor": {
+      "title": "车间",
+      "description": "用于执行工作订单、工序和任务。",
+      "action": {
+        "title": "打开"
+      }
+    },
+    "shopfloorExecution": {
+      "title": "生产管理",
+      "description": "用于管理订单、工序和任务的执行：进度和可追踪性。",
+      "action": {
+        "title": "打开"
+      }
+    },
+    "siteManagement": {
+      "title": "站点管理",
+      "description": "站点管理描述",
+      "action": {
+        "title": "打开"
+      }
+    },
+    "system": {
+      "title": "系统管理",
+      "description": "用于管理公共的系统范围内的配置和数据。",
+      "action": {
+        "title": "打开"
+      }
+    }
+  },
+  "status": {
+    "total": "总数"
+  },
+  "tiles": {
+    "notificationTiles": "通知图块",
+    "unknownTileType": "未知图块类型"
+  },
+  "export": {
+    "title": "导出",
+    "sidePanel": {
+      "closeToolTip": "关闭"
+    }
+  },
+  "breadcrumb": {
+    "objects": "对象：",
+    "object": "对象："
+  },
+  "customCommon": {
+    "SelectTips": "--请选择--",
+    "Select": {
+      "SelectFactory": "请选择工厂",
+      "SelectMainData": "请选择主表数据",
+      "SelectProdTeam": "请选择生产小组"
+    },
+    "Saveing": "保存中，请稍后……",
+    "SaveSuccess": "保存成功！",
+    "Button": {
+      "Search": "搜索",
+      "Delete": "删除",
+      "Add": "新增",
+      "Edit": "编辑",
+      "Add2": "添加",
+      "Cancel": "取消",
+      "Save": "保存"
+    },
+    "Title": {
+      "Search": "搜索",
+      "Delete": "删除",
+      "Add": "新增",
+      "Edit": "编辑",
+      "Add2": "添加",
+      "Cancel": "取消",
+      "Save": "保存",
+      "To": "至"
+    },
+    "PageTips": "行每页",
+    "rowNum": "序号",
+    "Error": "出错",
+    "ErrorOperate": "操作出错",
+    "ErrorGetData": "获取数据出错",
+    "ErrorGetDataDetail": "获取明细数据出错",
+    "Confirm": {
+      "Title": "删除",
+      "Context": "确认删除选中记录吗？"
+    },
+    "ChangeLocation": {
+      "Title": "切换工厂",
+      "Country": {
+        "cn": "中国工厂",
+        "cn_remark": "中国工厂",
+        "vn": "越南工厂",
+        "vn_remark": "Nhà máy Việt Nam",
+        "th": "泰国工厂",
+        "th_remark": "โรงงานในประเทศไทย"
+      }
+    },
+    "SelectModal": {
+      "Tips_1": "选择",
+      "Tips_2": "名称",
+      "Tips_3": "查询",
+      "Tips_4": "确定",
+      "Tips_5": "取消",
+      "Tips_6": "编码",
+      "Tips_7": "条码",
+      "Tips_8": "批次号",
+      "Tips_9": "供应商",
+      "Tips_10": "附件管理",
+      "Tips_11": "添加",
+      "Tips_12": "删除",
+      "Tips_13": "关闭",
+      "Tips_14": "上传保存",
+      "JS": {
+        "Tips_1": "删除",
+        "Tips_2": "确认删除选中记录吗？",
+        "Tips_3": "获取数据出错",
+        "Tips_4": "获取数据时出现错误",
+        "Tips_5": "文件上传超出上传10个文件限制!",
+        "Tips_6": "加载中,请稍后..."
+      }
+    }
+  }
+}

@@ -1,0 +1,71 @@
+﻿<!--生产计划管理-->
+<style>
+    .colorLabel {
+        border: 2px solid #379082;
+        border-radius: 20px;
+        width: 30px;
+        height: 30px;
+        margin-left: 10px;
+    }
+</style>
+<div id="itemlist" class="content-area content-area-relative" style="height: calc(100% - 30px) !important">
+    <div class="row">
+        <div class="col-md-40 serachPanel" style="margin-left: 10px;">
+
+            <div class="side-panel-property-area-body">
+                <sit-property-grid sit-id="add_form" sit-layout="Horizontal" sit-type="Fluid" sit-mode="edit" sit-columns="5">
+                    <sit-property sit-widget="sit-text" sit-value="vm.searchParams.GroupCode" sit-read-only="false">
+                        {{'Siemens.SimaticIT.SystemApp.Sys_DataSegregateGroup.Sys_DataSegregateGrouplist.Tips_1'|translate}}
+                    </sit-property>
+                    <sit-property sit-widget="sit-text" sit-value="vm.searchParams.GroupName" sit-read-only="false">
+                        {{'Siemens.SimaticIT.SystemApp.Sys_DataSegregateGroup.Sys_DataSegregateGrouplist.Tips_2'|translate}}
+                    </sit-property>
+                    <sit-command-bar sit-type="action">
+                        <sit-command sit-icon="fa-search" sit-type="main" sit-name="com.siemens.customcommand.search" style="margin-top:10" :sit-tooltip="{{'Siemens.SimaticIT.SystemApp.Sys_DataSegregateGroup.Sys_DataSegregateGrouplist.Tips_3'|translate}}"
+                                     ng-click="vm.searchButtonHandler" :sit-label="{{'Siemens.SimaticIT.SystemApp.Sys_DataSegregateGroup.Sys_DataSegregateGrouplist.Tips_3'|translate}}"></sit-command>
+                    </sit-command-bar>
+                </sit-property-grid>
+            </div>
+            <sit-command-bar sit-vertical-autofixed="true" sit-type="Tool" :sit-label-align="right" sit-layout="vertical">
+               
+                <sit-command sit-icon="fa fa fa-tags" sit-type="main" sit-name="com.siemens.customcommand.search" ng-show='vm.isButtonVisible'
+                             :sit-tooltip="{{'Siemens.SimaticIT.SystemApp.Sys_DataSegregateGroup.Sys_DataSegregateGrouplist.Tips_4'|translate}}" ng-click="vm.lableButtonHandler" :sit-label="{{'Siemens.SimaticIT.SystemApp.Sys_DataSegregateGroup.Sys_DataSegregateGrouplist.Tips_4'|translate}}">
+                </sit-command>
+                <sit-command sit-icon="fa fa fa-user-plus" sit-type="main" sit-name="com.siemens.customcommand.search" :sit-tooltip="{{'Siemens.SimaticIT.SystemApp.Sys_DataSegregateGroup.Sys_DataSegregateGrouplist.Tips_5'|translate}}" ng-click="vm.personButtonHandler" ng-show='vm.isButtonVisible'
+                             :sit-label="{{'Siemens.SimaticIT.SystemApp.Sys_DataSegregateGroup.Sys_DataSegregateGrouplist.Tips_5'|translate}}"></sit-command>
+                <sit-command sit-icon="fa fa-trash" sit-type="main" sit-name="com.siemens.customcommand.search" :sit-tooltip="{{'Siemens.SimaticIT.SystemApp.Sys_DataSegregateGroup.Sys_DataSegregateGrouplist.Tips_6'|translate}}" ng-show='vm.isButtonVisible'
+                             ng-click="vm.deleteButtonHandler" :sit-label="{{'Siemens.SimaticIT.SystemApp.Sys_DataSegregateGroup.Sys_DataSegregateGrouplist.Tips_6'|translate}}"></sit-command>
+                <sit-command sit-icon="fa fa-pencil-square-o" sit-type="main" sit-name="com.siemens.customcommand.search" ng-show='vm.isButtonVisible'
+                             :sit-tooltip="{{'Siemens.SimaticIT.SystemApp.Sys_DataSegregateGroup.Sys_DataSegregateGrouplist.Tips_7'|translate}}" ng-click="vm.editButtonHandler" :sit-label="{{'Siemens.SimaticIT.SystemApp.Sys_DataSegregateGroup.Sys_DataSegregateGrouplist.Tips_7'|translate}}"></sit-command>
+				<sit-command sit-icon="fa-plus " sit-type="main" sit-name="com.siemens.customcommand.search" :sit-tooltip="{{'Siemens.SimaticIT.SystemApp.Sys_DataSegregateGroup.Sys_DataSegregateGrouplist.Tips_8'|translate}}"
+                             ng-click="vm.addButtonHandler" :sit-label="{{'Siemens.SimaticIT.SystemApp.Sys_DataSegregateGroup.Sys_DataSegregateGrouplist.Tips_8'|translate}}"></sit-command>
+            </sit-command-bar>
+
+        </div>
+
+    </div>
+
+
+    <div class="col-md-40" style="margin-left: 10px;">
+        <div ui-grid="vm.gridOptions" ui-grid-selection ui-grid-pagination class="grid"></div>
+        <sit-tabset style="width:100%;">
+            <sit-tab heading="{{'Siemens.SimaticIT.SystemApp.Sys_DataSegregateGroup.Sys_DataSegregateGrouplist.Tips_9'|translate}}" style="background-color: #204d74">
+                <div ui-grid="vm.gridOptionsLabel" ui-grid-pinning ui-grid-auto-resize ui-grid-selection ui-grid-pagination class="grid"></div>
+            </sit-tab>
+
+            <sit-tab heading="{{'Siemens.SimaticIT.SystemApp.Sys_DataSegregateGroup.Sys_DataSegregateGrouplist.Tips_10'|translate}}" style="width:1400px;">
+                <div ui-grid="vm.gridOptionsPerson" ui-grid-pinning ui-grid-auto-resize ui-grid-selection ui-grid-pagination class="grid"></div>
+            </sit-tab>
+        </sit-tabset>
+
+    </div>
+
+</div>
+<style>
+    ng-form[name='datepickerForm'] {
+        width: 160px;
+    }
+    .side-panel-wide-layout {
+        min-width: 40% !important;
+    }
+</style>

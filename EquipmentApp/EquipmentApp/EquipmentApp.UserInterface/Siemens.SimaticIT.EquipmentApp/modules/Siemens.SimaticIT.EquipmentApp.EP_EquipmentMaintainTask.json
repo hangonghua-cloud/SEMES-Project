@@ -1,0 +1,19 @@
+﻿{
+  "name": "Siemens.SimaticIT.EquipmentApp.EP_EquipmentMaintainTask",
+  "type": "standard",
+  "title": "Siemens.SimaticIT.EquipmentApp.EP_EquipmentMaintainTask.Title",
+  "header": "",
+  "icon": "svg typeActionLongTerm48",
+  "functionalBlock": "Siemens.SimaticIT.EquipmentApp",
+  "dependencies": [],
+  "states": [
+    {
+      "id": "home.Siemens_SimaticIT_EquipmentApp_EP_EquipmentMaintainTask_EP_EquipmentMaintainTask",
+      "title": "Siemens.SimaticIT.EquipmentApp.EP_EquipmentMaintainTask.Title",
+      "header": "",
+      "securable": true,
+      "roles": []
+    }
+  ],
+  "manifestVersion": "01.01.00"
+}

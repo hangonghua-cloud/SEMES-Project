@@ -1,0 +1,42 @@
+﻿
+<style>
+    .row {
+        padding: 5px;
+        margin-top: 10px;
+    }
+</style>
+<div class="command-bar-side-panel">
+    <button ng-click="vm.cancel()" class="btn side-panel-button">{{'Siemens.SimaticIT.QualityApp.IPQCManage.TestMaintenanceedit.Tips_1'|translate}}</button>
+    <button ng-click="vm.save()" class="btn side-panel-button" ng-show="vm.validInputs">{{'Siemens.SimaticIT.QualityApp.IPQCManage.TestMaintenanceedit.Tips_2'|translate}}</button>
+</div>
+<div class="side-panel-property-area-body">
+    <sit-property-grid sit-id="edit_form"
+                       sit-layout="Vertical"
+                       sit-type="Fluid"
+                       sit-mode="edit"
+                       sit-columns="1">
+        <sit-property-grid sit-id="view_form" sit-layout="Horizontal" sit-type="Fixed" sit-mode="edit" sit-columns="1" style="margin-left: 4px;">
+            <sit-property sit-widget="sit-select" sit-value="vm.typeFactory.value" sit-validation="{required: true}" sit-options="vm.typeFactory.options"
+                          sit-to-display="'ResourceName'" sit-to-keep="'ResourceCode'" sit-read-only="false">{{'Siemens.SimaticIT.QualityApp.IPQCManage.TestMaintenanceedit.Tips_3'|translate}}</sit-property>
+            <sit-property sit-widget="sit-select" sit-value="vm.typeTest.value" sit-validation="{required: true}" sit-options="vm.typeTest.options"
+                          sit-to-display="'ItemName'" sit-to-keep="'ItemValue'" sit-read-only="false">{{'Siemens.SimaticIT.QualityApp.IPQCManage.TestMaintenanceedit.Tips_4'|translate}}</sit-property>
+            <sit-property sit-widget="sit-text" sit-value="vm.currentItem.TestMethodCoading" sit-validation="{required: true}"
+                          sit-read-only="true">{{'Siemens.SimaticIT.QualityApp.IPQCManage.TestMaintenanceedit.Tips_5'|translate}}</sit-property>
+            <sit-property sit-widget="sit-text" sit-value="vm.currentItem.TestMethodName" sit-validation="{required: true}"
+                          sit-read-only="false">{{'Siemens.SimaticIT.QualityApp.IPQCManage.TestMaintenanceedit.Tips_6'|translate}}</sit-property>
+            <sit-property sit-widget="sit-text" sit-value="vm.currentItem.TestMethodDescription" sit-validation="{required: false}"
+                          sit-read-only="false">{{'Siemens.SimaticIT.QualityApp.IPQCManage.TestMaintenanceedit.Tips_7'|translate}}</sit-property>
+
+                          <sit-property sit-widget="sit-alp-text-picker"
+                          sit-read-only="true"
+                          sit-validation="{required: true}"
+                          sit-value="vm.currentItem.GroupName"
+                          ng-click="vm.SelectwlModal()">
+                          {{'Siemens.SimaticIT.QualityApp.IPQCManage.TestMaintenanceedit.Tips_8'|translate}}
+                  </sit-property> 
+            <sit-property sit-widget="sit-select" sit-read-only="false" sit-options="vm.typeEnabled.options"
+                          sit-validation="{required: true}" sit-to-keep="'ItemValue'"
+                          sit-value="vm.typeEnabled.value" sit-to-display="'ItemName'">{{'Siemens.SimaticIT.QualityApp.IPQCManage.TestMaintenanceedit.Tips_9'|translate}}</sit-property>
+        </sit-property-grid>
+    </sit-property-grid>
+</div>

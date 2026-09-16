@@ -1,0 +1,120 @@
+VERSION '01.13'
+
+///数据字典树形结构数据类型
+[@Guid(e3cd17fb-04c8-49d0-8b22-ca5e953ead07)]
+PARAMETERTYPE GetTreeList
+WITH
+    [@Guid(e98edff9-843d-4428-a0c6-e847b379853d)]
+    id AS Guid
+    [Optional]
+    [Length = 255]
+    [@Guid(009b437c-96e9-4b9a-85cb-3877c5973f82)]
+    label AS string
+    [Optional]
+    [Length = 255]
+    [@Guid(a76e965e-e423-4180-8825-a80314ae9b72)]
+    CategoryCode AS string
+    [Optional]
+    [Length = 255]
+    [@Guid(565d9d8a-79d6-4b77-a35c-9701c1186a8a)]
+    ParentId AS string
+    [Optional]
+    [Length = 255]
+    [@Guid(d1a43c63-ac45-4b2b-b1e6-5a8031f212cd)]
+    icon AS string
+    [@Guid(ec2f1bfd-41ce-458e-bfc6-3b05afbe5a5c)]
+    expanded AS bool
+    [Optional]
+    [@Guid(97af5244-857e-4c78-9806-8704f3a28cdd)]
+    SortNum AS decimal
+    [@Guid(691c23b9-f229-4b61-ab67-07eaa80be4fc)]
+    Isvalid AS bool
+    [Optional]
+    [@Guid(73bb6599-38e1-410d-8242-b90620c86f56)]
+    [@GuidRef(f61397bf-4db1-4767-accf-c29a4bf0ddd7, e3cd17fb-04c8-49d0-8b22-ca5e953ead07)]
+    children AS list of Siemens.SimaticIT.MasterData.BasicDataManageFBLib.MSModel.Types.GetTreeList
+    [Optional]
+    [Length = 255]
+    [@Guid(92f4bc03-8f45-4be4-b67c-7d544a60602c)]
+    CategoryName AS string
+
+///获取工厂建模返回值数据类型
+[@Guid(c818d479-adb3-4fd5-92a0-bf2b1f853162)]
+PARAMETERTYPE FactoryModelType
+WITH
+    [@Guid(bf8f832c-55c1-486c-9d51-05d9f2e1f628)]
+    Id AS Guid
+    [Length = 255]
+    [@Guid(078d6722-89bb-4636-b99a-63ab549fa197)]
+    ModelCode AS string
+    [Optional]
+    [Length = 255]
+    [@Guid(9abf420d-51a7-4b5f-a749-dea0a4a58fb0)]
+    ModelName AS string
+    [Optional]
+    [Length = 255]
+    [@Guid(a745c536-b3da-43aa-bb64-7e83ed0dd664)]
+    ModelDesc AS string
+    [Optional]
+    [Length = 255]
+    [@Guid(fdaa1552-5fec-4bbc-921b-2219d266a7e8)]
+    ModelLevelCode AS string
+    [Optional]
+    [Length = 255]
+    [@Guid(4597319a-3f72-45fc-8b96-9c0d58d4b599)]
+    ModelLevelName AS string
+    [Optional]
+    [Length = 255]
+    [@Guid(279b8b48-02f5-42f4-bf45-3dbabb39923d)]
+    FModelCode AS string
+
+///移动端角色配置数据类型
+[@Guid(b3404bd1-5b7c-4b9a-b1c3-78b241532641)]
+PARAMETERTYPE RoleModelType
+WITH
+    [Length = 255]
+    [@Guid(a686679e-8d1c-4421-b3af-76b8490ee7df)]
+    ModelCode AS string
+    [@Guid(63618fac-0c4b-483c-9b7b-6cdb897732b2)]
+    IsEnabled AS bool
+
+///移动端页面按钮权限类型
+[@Guid(2857e3dd-0179-47db-8222-a8563ad7c726)]
+PARAMETERTYPE UserBtnListType
+WITH
+    [Length = 255]
+    [@Guid(ef21257a-ff4e-4215-a6e0-c05ecc3f855e)]
+    ModelCode AS string
+    [Length = 255]
+    [@Guid(3b6a9789-69b1-4c4b-9620-880eed8eefdd)]
+    ModelColor AS string
+    [Length = 255]
+    [@Guid(be2a9732-39dd-4d36-b5a5-c64b64bd5cc4)]
+    ModelIco AS string
+    [Length = 255]
+    [@Guid(7d0781bf-a160-42a7-a556-5dc2a1ada1e2)]
+    ModelName AS string
+    [Length = 255]
+    [@Guid(07b8267b-e7a5-41d6-b192-16fe1049dce2)]
+    OwnedPage AS string
+
+///移动端用户页面权限类型
+[@Guid(ea0a0af1-958b-4daf-a381-e7ab70d5ba2d)]
+PARAMETERTYPE UserPageListType
+WITH
+    [Length = 255]
+    [@Guid(ecce90c4-b975-43d9-b152-72276587cd88)]
+    ModelCode AS string
+    [Length = 255]
+    [@Guid(aea0b5e1-03d5-428a-b6cf-49156cdad70a)]
+    ModelIco AS string
+    [Length = 255]
+    [@Guid(766fa059-1bd3-4cd9-bd3f-8f7cfb9e7b88)]
+    ModelName AS string
+    [Length = 255]
+    [@Guid(cc4b9e48-18c0-4e8d-a7e4-372225c35a8c)]
+    OwnedPage AS string
+    [Length = 255]
+    [@Guid(0591245f-a011-4c10-a42c-981dd4da5ccf)]
+    ModelColor AS string
+

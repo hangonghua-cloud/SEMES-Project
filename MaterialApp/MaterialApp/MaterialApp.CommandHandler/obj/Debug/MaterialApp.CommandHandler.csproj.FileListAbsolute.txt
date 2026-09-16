@@ -1,0 +1,6 @@
+D:\New folder\MaterialApp\MaterialApp\MaterialApp.CommandHandler\bin\Debug\Siemens.SimaticIT.MaterialApp.CommandHandler.dll
+D:\New folder\MaterialApp\MaterialApp\MaterialApp.CommandHandler\bin\Debug\Siemens.SimaticIT.MaterialApp.CommandHandler.pdb
+D:\New folder\MaterialApp\MaterialApp\MaterialApp.CommandHandler\obj\Debug\MaterialApp.CommandHandler.csprojAssemblyReference.cache
+D:\New folder\MaterialApp\MaterialApp\MaterialApp.CommandHandler\obj\Debug\MaterialApp.CommandHandler.csproj.CoreCompileInputs.cache
+D:\New folder\MaterialApp\MaterialApp\MaterialApp.CommandHandler\obj\Debug\Siemens.SimaticIT.MaterialApp.CommandHandler.dll
+D:\New folder\MaterialApp\MaterialApp\MaterialApp.CommandHandler\obj\Debug\Siemens.SimaticIT.MaterialApp.CommandHandler.pdb

@@ -1,0 +1,88 @@
+﻿<!--
+    0.代码生成: UA单表一键生成前后端html、JS、API接口代码生成器 Ver 2.13 更新日期：2021-07-12  设计者：刘万军
+    1.功能描述: 原材料库存检验记录表
+    2.创建人员: 丁零
+    3.创建日期: 2021-08-27
+    4.修改人员:
+    5.修改日期:
+-->
+<style>
+    .MainCommandActionButton {
+        margin-top: 20px !important;
+    }
+</style>
+<div id="itemlist" class="content-area content-area-relative" style="height: calc(93% - 30px) !important">
+    <!--查询条件与功能按钮-->
+    <div class="col-md-40" style="margin-left: 15px;">
+        <div class="side-panel-property-area-body">
+            <sit-property-grid sit-id="add_form" sit-layout="Horizontal" sit-type="Fixed" sit-mode="edit"
+                               sit-columns="8">
+                <sit-property sit-widget="sit-select" sit-value="vm.typeFactory.value"
+                              sit-validation="{required: false}" sit-options="vm.typeFactory.options"
+                              sit-to-display="'ResourceName'" sit-to-keep="'ResourceCode'" sit-read-only="false"
+                              sit-change="vm.typeFactoryChange">{{'Siemens.SimaticIT.QualityApp.QC_MaterialInventoryCheckList.QC_MaterialInventoryCheckListlist.Tips_1'|translate}}</sit-property>
+                <sit-property sit-widget="sit-text" sit-value="vm.searchParams.ReceivingNotificationLineNumber"
+                              sit-read-only="false" style="max-width:300px;">{{'Siemens.SimaticIT.QualityApp.QC_MaterialInventoryCheckList.QC_MaterialInventoryCheckListlist.Tips_2'|translate}}</sit-property>
+                <sit-property sit-widget="sit-text" sit-value="vm.searchParams.MaterialCode" sit-read-only="false"
+                              style="max-width:300px;">{{'Siemens.SimaticIT.QualityApp.QC_MaterialInventoryCheckList.QC_MaterialInventoryCheckListlist.Tips_3'|translate}}</sit-property>
+                <sit-property sit-widget="sit-select" sit-value="vm.typeWhsCode.value"
+                              sit-validation="{required: false}" sit-options="vm.typeWhsCode.options"
+                              sit-to-display="'ResourceName'" sit-to-keep="'ResourceCode'" sit-read-only="false">
+                    {{'Siemens.SimaticIT.QualityApp.QC_MaterialInventoryCheckList.QC_MaterialInventoryCheckListlist.Tips_4'|translate}}
+                </sit-property>
+                <sit-property sit-widget="sit-text" sit-value="vm.searchParams.MaterialName" sit-read-only="false"
+                              style="max-width:300px;">{{'Siemens.SimaticIT.QualityApp.QC_MaterialInventoryCheckList.QC_MaterialInventoryCheckListlist.Tips_5'|translate}}</sit-property>
+                <sit-property sit-widget="sit-text" sit-value="vm.searchParams.SupplierName" sit-read-only="false"
+                              style="max-width:300px;">{{'Siemens.SimaticIT.QualityApp.QC_MaterialInventoryCheckList.QC_MaterialInventoryCheckListlist.Tips_6'|translate}}</sit-property>
+                <sit-property sit-widget="sit-text" sit-value="vm.searchParams.BatchNo" sit-read-only="false"
+                              style="max-width:300px;">{{'Siemens.SimaticIT.QualityApp.QC_MaterialInventoryCheckList.QC_MaterialInventoryCheckListlist.Tips_7'|translate}}</sit-property>
+                <sit-property sit-widget="sit-select" sit-value="vm.typeTestDepartment.value"
+                              sit-validation="{required: true}" sit-options="vm.typeTestDepartment.options"
+                              sit-to-display="'ItemName'" sit-to-keep="'ItemValue'" sit-read-only="false"
+                              sit-change="vm.testDepartmentChange">{{'Siemens.SimaticIT.QualityApp.QC_MaterialInventoryCheckList.QC_MaterialInventoryCheckListlist.Tips_8'|translate}}</sit-property>
+                <sit-property sit-widget="sit-select" sit-value="vm.typeTestResult.value"
+                              sit-validation="{required: true}" sit-options="vm.typeTestResult.options"
+                              sit-to-display="'ItemName'" sit-to-keep="'ItemValue'" sit-read-only="false">{{'Siemens.SimaticIT.QualityApp.QC_MaterialInventoryCheckList.QC_MaterialInventoryCheckListlist.Tips_9'|translate}}</sit-property>
+
+
+                <sit-property sit-widget="sit-datepicker" sit-value="vm.StartDate" style="max-width:300px;"
+                              sit-format="'yyyy-MM-dd'" sit-validation="{required: false}" sit-read-only="false">
+                    {{'Siemens.SimaticIT.QualityApp.QC_MaterialInventoryCheckList.QC_MaterialInventoryCheckListlist.Tips_10'|translate}}
+                </sit-property>
+                <sit-property sit-widget="sit-datepicker" sit-value="vm.EndDate" style="max-width:300px;"
+                              sit-format="'yyyy-MM-dd'" sit-validation="{required: false}" sit-read-only="false">
+
+                </sit-property>
+                <sit-command-bar sit-type="action">
+                    <sit-command sit-icon="fa-search" sit-type="main" sit-name="com.siemens.customcommand.search"
+                                 :sit-tooltip="{{'Siemens.SimaticIT.QualityApp.QC_MaterialInventoryCheckList.QC_MaterialInventoryCheckListlist.Tips_11'|translate}}" ng-click="vm.searchButtonHandler" :sit-label="{{'Siemens.SimaticIT.QualityApp.QC_MaterialInventoryCheckList.QC_MaterialInventoryCheckListlist.Tips_11'|translate}}">
+                    </sit-command>
+                </sit-command-bar>
+            </sit-property-grid>
+        </div>
+    </div>
+    <!--右侧功能按钮-->
+    <sit-command-bar sit-vertical-autofixed="true" sit-type="Tool" :sit-label-align="right" sit-layout="vertical">
+
+        <sit-command sit-icon="fa-eye" sit-name="com.siemens.customcommand.delete" :sit-tooltip="{{'Siemens.SimaticIT.QualityApp.QC_MaterialInventoryCheckList.QC_MaterialInventoryCheckListlist.Tips_12'|translate}}"
+                     ng-click="vm.selectButtonHandler" :sit-label="{{'Siemens.SimaticIT.QualityApp.QC_MaterialInventoryCheckList.QC_MaterialInventoryCheckListlist.Tips_12'|translate}}" ng-show="vm.isButtonVisible" sit-type="main">
+        </sit-command>
+
+        <sit-command sit-icon="fa-trash" sit-name="com.siemens.customcommand.edit" :sit-tooltip="{{'Siemens.SimaticIT.QualityApp.QC_MaterialInventoryCheckList.QC_MaterialInventoryCheckListlist.Tips_13'|translate}}"
+                     ng-click="vm.deleteButtonHandler" ng-show="vm.isButtonVisible" :sit-label="{{'Siemens.SimaticIT.QualityApp.QC_MaterialInventoryCheckList.QC_MaterialInventoryCheckListlist.Tips_13'|translate}}"></sit-command>
+        <sit-command sit-icon="fa-pencil" sit-name="com.siemens.customcommand.edit" :sit-tooltip="{{'Siemens.SimaticIT.QualityApp.QC_MaterialInventoryCheckList.QC_MaterialInventoryCheckListlist.Tips_14'|translate}}"
+                     ng-click="vm.editButtonHandler" ng-show="vm.isButtonVisible" :sit-label="{{'Siemens.SimaticIT.QualityApp.QC_MaterialInventoryCheckList.QC_MaterialInventoryCheckListlist.Tips_14'|translate}}"></sit-command>
+        <sit-command sit-icon="fa-plus" sit-name="com.siemens.customcommand.add" ng-click="vm.addButtonHandler"
+                     :sit-tooltip="{{'Siemens.SimaticIT.QualityApp.QC_MaterialInventoryCheckList.QC_MaterialInventoryCheckListlist.Tips_15'|translate}}" :sit-label="{{'Siemens.SimaticIT.QualityApp.QC_MaterialInventoryCheckList.QC_MaterialInventoryCheckListlist.Tips_15'|translate}}" sit-type="main"></sit-command>
+    </sit-command-bar>
+    <!-- grid列表 -->
+
+    <div id="listClass1" style="width:100%; height: 44%; padding:0px 16px 0 16px; margin-top: 90px;">
+        <div ui-grid="vm.gridOptions" ui-grid-pinning ui-grid-auto-resize ui-grid-resize-columns ui-grid-selection
+             ui-grid-pagination class="uigrid"></div>
+    </div>
+    <div id="listClass2" style="width:100%; height: 45%; padding:0px 16px 0 16px; margin-top: 3px;">
+        <div ui-grid="vm.gridOptionsItem" ui-grid-pinning ui-grid-auto-resize ui-grid-resize-columns ui-grid-selection
+             ui-grid-pagination class="uigrid"></div>
+    </div>
+</div>

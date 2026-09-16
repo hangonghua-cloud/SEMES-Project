@@ -1,0 +1,19 @@
+﻿{
+  "name": "Siemens.SimaticIT.ProductionApp.PrinterOrder",
+  "type": "standard",
+  "title": "Siemens.SimaticIT.ProductionApp.PrinterOrder.Title",
+  "header": "",
+  "icon": "fa-folder",
+  "functionalBlock": "Siemens.SimaticIT.ProductionApp",
+  "dependencies": [],
+  "states": [
+    {
+      "id": "home.Siemens_SimaticIT_ProductionApp_PrinterOrder_PrinterOrder",
+      "title": "Siemens.SimaticIT.ProductionApp.PrinterOrder.Title",
+      "header": "",
+      "securable": true,
+      "roles": []
+    }
+  ],
+  "manifestVersion": "01.01.00"
+}

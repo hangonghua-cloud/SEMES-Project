@@ -1,0 +1,314 @@
+{
+  //公用
+  "Common": {
+    "Error": "操作失败，服务器异常",
+    "ErrorWithOther": "操作失败，{0}",
+    "ErrorWithOther2": "操作失败：",
+    "Success": "操作成功",
+    "Success2": "操作成功：",
+    "SuccessWithOther": "操作成功，{0}",
+    "ExecutionSuccess": "执行成功",
+    "ExecutionSuccess2": "执行成功：",
+    "ExecutionSuccessWithOther": "执行成功，{0}",
+    "ExecutionError": "执行失败",
+    "ExecutionError2": "执行失败：",
+    "ExecutionErrorWithOther": "执行失败，{0}",
+
+    "ParamsNotNull": "参数不能为空",
+    "SearchParamsNotNull": "查询参数不能为空",
+    "Yes": "是",
+    "No": "否",
+    "Qua": "合格",
+    "UnQua": "不合格",
+    "ErrorNone": "未知原因",
+    "DeleteSuccess": "删除成功",
+    "DeleteSuccess2": "删除成功：",
+    "DeleteSuccessWithOther": "删除成功:{0}",
+    "DeleteError": "删除失败",
+    "DeleteError2": "删除失败：",
+    "DeleteErrorWithOther": "删除失败:{0}",
+    "SearchSuccess": "查询成功",
+    "SearchSuccess2": "查询成功：",
+    "SearchSuccessWithOther": "查询成功:{0}",
+    "SearchError": "查询失败",
+    "SearchError2": "查询失败：",
+    "SearchErrorWithOther": "查询失败:{0}"
+  },
+  "API": {
+    "DemoAPIController": {
+      "Tips_1": "延伸复合",
+      "Tips_2": "放卷",
+      "Tips_3": "投料"
+    }
+  },
+  "BaseManage": {
+    "AccountController": {
+      "Tips_1": "操作失败，请传递请求参数",
+      "Tips_2": "Account/List接口异常：{0}",
+      "Tips_4": "Account/SaveAccount接口请求参数{0}",
+      "Tips_5": "Account/SaveAccount接口异常：{0}"
+    },
+    "BaseDataController": {
+      "Tips_3": "分页参数Pagination不能为空！",
+      "Tips_4": "存在相同编码或者名称",
+      "Tips_5": "存在相同名称",
+      "Tips_6": "userId 不能为空！",
+      "Tips_7": "BtnNames 不能为空！"
+    },
+    "BaseReportController": {
+      "Tips_1": "用户不存在",
+      "Tips_2": "用户权限不存在",
+      "Tips_6": "存在相同名称菜单或者报表"
+    },
+    "BaseReportGroupController": {
+      "Tips_3": "已经存在相同名称的角色"
+    },
+    "BaseReportRoleController": {
+      "Tips_4": "数据重复"
+    },
+    "BaseShiftController": {
+      "Tips_2": "分页参数Pagination不能为空！",
+      "Tips_4": "获取详情数据成功",
+      "Tips_5": "用户名不能为空！",
+      "Tips_8": "缺少KeyValue参数！",
+      "Tips_9": "缺少Entity参数！"
+    },
+    "Base_ImagesController": {
+      "Tips_1": "API接口测试正常！",
+      "Tips_2": "测试成功",
+      "Tips_5": "参数不能为空！",
+      "Tips_6": "缺少KeyValue参数！",
+      "Tips_9": "缺少Entity参数！",
+      "Tips_10": "删除操作成功",
+      "Tips_11": "删除操作失败:",
+      "Tips_12": "对象不存在",
+      "Tips_13": "删除操作失败",
+      "Tips_14": "获取详情数据成功"
+    },
+    "Base_KeyParameterController": {
+      "Tips_1": "API接口测试正常！",
+      "Tips_2": "测试成功",
+      "Tips_3": "]的数据",
+      "Tips_4": "]的数据失败：",
+      "Tips_7": "参数不能为空！",
+      "Tips_8": "缺少KeyValue参数！",
+      "Tips_9": "缺少Entity参数！",
+      "Tips_10": "存在相同编码或者名称",
+      "Tips_11": "存在相同名称",
+      "Tips_14": "删除操作成功",
+      "Tips_15": "删除操作失败",
+      "Tips_16": "获取详情数据成功",
+      "Tips_17": "缺少Entity参数！"
+    },
+    "Base_KeyParameterItemController": {
+      "Tips_1": "API接口测试正常！",
+      "Tips_2": "测试成功",
+      "Tips_5": "参数不能为空！",
+      "Tips_7": "缺少KeyValue参数！",
+      "Tips_8": "缺少Entity参数！",
+      "Tips_9": "存在相同编码或者名称",
+      "Tips_10": "存在相同名称",
+      "Tips_13": "缺少Entity参数！",
+      "Tips_14": "对象不存在",
+      "Tips_15": "删除操作成功",
+      "Tips_16": "删除操作失败:",
+      "Tips_17": "删除操作失败",
+      "Tips_18": "获取详情数据成功"
+    },
+    "Base_UpdateLogController": {
+      "Tips_1": "API接口测试正常！",
+      "Tips_2": "测试成功",
+      "Tips_5": "参数不能为空！",
+      "Tips_6": "缺少KeyValue参数！",
+      "Tips_7": "缺少Entity参数！",
+      "Tips_8": "业务类型不能为空！",
+      "Tips_9": "版本号不能为空！",
+      "Tips_12": "缺少CreatedByCode参数！",
+      "Tips_13": "缺少CreatedByName参数！",
+      "Tips_14": "业务类型",
+      "Tips_15": "版本号",
+      "Tips_16": "更新内容",
+      "Tips_17": "创建人",
+      "Tips_18": "创建时间",
+      "Tips_19": "缺少Entity参数！",
+      "Tips_20": "对象不存在",
+      "Tips_21": "删除操作成功",
+      "Tips_22": "删除操作失败:",
+      "Tips_23": "删除操作失败",
+      "Tips_24": "获取详情数据成功"
+    },
+    "BsModelLevelController": {
+      "Tips_1": "测试成功  0001",
+      "Tips_2": "检索成功",
+      "Tips_3": "分页参数Pagination不能为空！",
+      "Tips_6": "获取详情数据成功",
+      "Tips_7": "获取数据成功",
+      "Tips_8": "用户编号不能为空！",
+      "Tips_11": "缺少KeyValue参数！",
+      "Tips_12": "缺少Entity参数！"
+    },
+    "BS_PeopleController": {
+      "Tips_1": "API接口测试正常！",
+      "Tips_2": "测试成功",
+      "Tips_5": "参数不能为空！",
+      "Tips_6": "缺少KeyValue参数！",
+      "Tips_7": "缺少Entity参数！",
+      "Tips_8": "编码不能为空！",
+      "Tips_9": "名称不能为空！",
+      "Tips_10": "性别不能为空！",
+      "Tips_11": "身份证不能为空！",
+      "Tips_12": "电话不能为空！",
+      "Tips_13": "部门ID不能为空！",
+      "Tips_14": "岗位不能为空！",
+      "Tips_15": "职务不能为空！",
+      "Tips_16": "创建人不能为空！",
+      "Tips_17": "最后修改人不能为空！",
+      "Tips_18": "机台编码不能为空！",
+      "Tips_19": "生产小组编码不能为空！",
+      "Tips_22": "缺少CreatedByCode参数！",
+      "Tips_23": "缺少CreatedByName参数！",
+      "Tips_24": "编码",
+      "Tips_25": "名称",
+      "Tips_26": "性别",
+      "Tips_27": "身份证",
+      "Tips_28": "电话",
+      "Tips_29": "部门ID",
+      "Tips_30": "岗位",
+      "Tips_31": "职务",
+      "Tips_32": "创建人",
+      "Tips_33": "创建时间",
+      "Tips_34": "最后修改人",
+      "Tips_35": "最后修改时间",
+      "Tips_36": "机台编码",
+      "Tips_37": "生产小组编码",
+      "Tips_38": "缺少Entity参数！",
+      "Tips_39": "对象不存在",
+      "Tips_40": "删除操作成功",
+      "Tips_41": "删除操作失败:",
+      "Tips_42": "删除操作失败",
+      "Tips_43": "获取详情数据成功"
+    }
+  },
+  "DemoManage": {
+    "UIGridDemoController": {
+      "Tips_1": "分页参数Pagination不能为空！",
+      "Tips_4": "获取详情数据成功",
+      "Tips_5": "用户名不能为空！",
+      "Tips_7": "缺少KeyValue参数！",
+      "Tips_8": "缺少RoleEntity参数！"
+    }
+  },
+  "FileManage": {
+    "UploadFileController": {
+      "Tips_1": "上传成功",
+      "Tips_2": "上传文件[{0}]的格式不符合要求！",
+      "Tips_3": "上传文件[{0}]超过文件大小限制！",
+      "Tips_4": "上传文件写入失败：",
+      "Tips_5": "没有选择上传文件！"
+    }
+  },
+  "SystemManage": {
+    "BSAppLogUserInfoController": {
+      "Tips_1": "分页参数Pagination不能为空！",
+      "Tips_5": "删除失败，没有找到记录",
+      "Tips_7": "缺少KeyValue参数！",
+      "Tips_8": "缺少Entity参数！",
+      "Tips_9": "添加成功",
+      "Tips_10": "修改成功",
+      "Tips_11": "添加失败，用户编码重复，无法插入数据。"
+    },
+    "BSAppRoleController": {
+      "Tips_1": "分页参数Pagination不能为空！",
+      "Tips_5": "删除失败，没有找到记录",
+      "Tips_7": "缺少KeyValue参数！",
+      "Tips_8": "缺少Entity参数！",
+      "Tips_9": "添加成功",
+      "Tips_10": "修改成功",
+      "Tips_11": "添加失败，角色编码重复，无法插入数据。",
+      "Tips_12": "添加失败，权限编码重复，无法插入数据。",
+      "Tips_13": "缺少角色编码参数！",
+      "Tips_14": "缺少用户编码参数！",
+      "Tips_15": "缺少功能参数！",
+      "Tips_16": "添加失败，用户编码重复，无法插入数据。"
+    },
+    "BsPeopleByPrintServerController": {
+      "Tips_1": "分页参数Pagination不能为空！",
+      "Tips_5": "删除失败，没有找到记录",
+      "Tips_7": "缺少Jo参数！",
+      "Tips_8": "更改成功！",
+      "Tips_9": "更改失败！",
+      "Tips_10": "缺少Entity参数！",
+      "Tips_11": "添加成功",
+      "Tips_12": "修改成功",
+      "Tips_13": "更新成功。"
+    },
+    "BsPrintServerController": {
+      "Tips_1": "分页参数Pagination不能为空！",
+      "Tips_5": "删除失败，没有找到记录",
+      "Tips_7": "缺少KeyValue参数！",
+      "Tips_8": "缺少Entity参数！",
+      "Tips_9": "添加成功",
+      "Tips_10": "修改成功",
+      "Tips_11": "添加失败，IP地址重复，无法插入数据。"
+    },
+    "DataItemController": {
+      "Tips_1": "]的数据",
+      "Tips_2": "]的数据失败：",
+      "Tips_3": "]的数据",
+      "Tips_4": "获取详情数据成功",
+      "Tips_5": "分页参数Pagination不能为空！",
+      "Tips_8": "用户名不能为空！请联系系统管理员",
+      "Tips_11": "新建成功",
+      "Tips_12": "修改成功",
+      "Tips_13": "字典编码重复"
+    },
+    "DataItemDetailController": {
+      "Tips_1": "]的数据",
+      "Tips_2": "获取数据字典详情数据失败：",
+      "Tips_3": "]的数据",
+      "Tips_4": "--请选择--",
+      "Tips_5": "数据库中查不到相关的数据",
+      "Tips_6": "获取数据信息成功",
+      "Tips_7": "获取数据信息失败：",
+      "Tips_8": "用户名不能为空！请联系系统管理员",
+      "Tips_11": "添加成功",
+      "Tips_12": "修改成功",
+      "Tips_13": "添加失败，字典明细数据编码重复"
+    },
+    "SystemController": {
+      "Tips_1": "System/GetWorkShop接口异常：{0}",
+      "Tips_3": "System/GetYearMonth接口异常：{0}",
+      "Tips_6": "参数不能为空！",
+      "Tips_7": "查询成功！",
+      "Tips_8": "执行失败！改Code不存在！"
+    },
+    "Sys_DataSegregateGroupController": {
+      "Tips_1": "分页参数Pagination不能为空！",
+      "Tips_5": "删除失败，没有找到记录",
+      "Tips_7": "缺少KeyValue参数！",
+      "Tips_8": "缺少Entity参数！",
+      "Tips_9": "添加成功",
+      "Tips_10": "修改成功",
+      "Tips_11": "添加失败，组编码重复"
+    },
+    "Sys_DataSegregateGroupToLabelController": {
+      "Tips_1": "分页参数Pagination不能为空！",
+      "Tips_4": "没有选择值",
+      "Tips_5": "GroupCode不能为空",
+      "Tips_7": "删除失败，没有找到记录"
+    },
+    "Sys_DataSegregateGroupToPersonController": {
+      "Tips_1": "分页参数Pagination不能为空！",
+      "Tips_5": "删除失败，没有找到记录",
+      "Tips_7": "新建成功",
+      "Tips_8": "新建失败"
+    },
+    "Sys_DataSegregateLabelController": {
+      "Tips_1": "测试成功  0001",
+      "Tips_2": "分页参数Pagination不能为空！",
+      "Tips_5": "参数不能为空！",
+      "Tips_7": "Id不能为空！",
+      "Tips_8": "userName 不能为空！"
+    }
+  }
+}

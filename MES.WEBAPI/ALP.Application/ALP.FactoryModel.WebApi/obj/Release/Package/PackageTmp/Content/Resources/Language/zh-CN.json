@@ -1,0 +1,128 @@
+{
+  //公用
+  "Common": {
+    "Error": "操作失败，服务器异常",
+    "ErrorWithOther": "操作失败，{0}",
+    "ErrorWithOther2": "操作失败：",
+    "Success": "操作成功",
+    "Success2": "操作成功：",
+    "SuccessWithOther": "操作成功，{0}",
+    "ExecutionSuccess": "执行成功",
+    "ExecutionSuccess2": "执行成功：",
+    "ExecutionSuccessWithOther": "执行成功，{0}",
+    "ExecutionError": "执行失败",
+    "ExecutionError2": "执行失败：",
+    "ExecutionErrorWithOther": "执行失败，{0}",
+
+    "ParamsNotNull": "参数不能为空",
+    "SearchParamsNotNull": "查询参数不能为空",
+    "Yes": "是",
+    "No": "否",
+    "Qua": "合格",
+    "UnQua": "不合格",
+    "ErrorNone": "未知原因",
+    "DeleteSuccess": "删除成功",
+    "DeleteSuccess2": "删除成功：",
+    "DeleteSuccessWithOther": "删除成功:{0}",
+    "DeleteError": "删除失败",
+    "DeleteError2": "删除失败：",
+    "DeleteErrorWithOther": "删除失败:{0}",
+    "SearchSuccess": "查询成功",
+    "SearchSuccess2": "查询成功：",
+    "SearchSuccessWithOther": "查询成功:{0}",
+    "SearchError": "查询失败",
+    "SearchError2": "查询失败：",
+    "SearchErrorWithOther": "查询失败:{0}"
+  },
+  "BaseManage": {
+    "AccountController": {
+      "Tips_1": "操作失败，请传递请求参数",
+      "Tips_2": "Account/List接口异常：{0}",
+      "Tips_4": "Account/SaveAccount接口请求参数{0}",
+      "Tips_5": "Account/SaveAccount接口异常：{0}"
+    },
+    "BaseShiftController": {
+      "Tips_2": "分页参数Pagination不能为空！",
+      "Tips_4": "获取详情数据成功",
+      "Tips_5": "用户名不能为空！",
+      "Tips_8": "缺少KeyValue参数！",
+      "Tips_9": "缺少Entity参数！"
+    }
+  },
+  "LevelManage": {
+    "BsModelLevelExtendFieldsController": {
+      "Tips_1": "测试成功  0001",
+      "Tips_2": "】的数据",
+      "Tips_3": "检索成功",
+      "Tips_4": "分页参数Pagination不能为空！",
+      "Tips_7": "获取详情数据成功",
+      "Tips_8": "用户编号不能为空！",
+      "Tips_11": "缺少KeyValue参数！",
+      "Tips_12": "缺少Entity参数！",
+      "Tips_14": "添加失败：输入字段编号重复",
+      "Tips_15": "添加失败：输入字段名称重复",
+      "Tips_16": "修改成功",
+      "Tips_17": "输入的字段编码已存在",
+      "Tips_18": "输入的字段名称已经存在"
+    },
+    "BsModelLevelsController": {
+      "Tips_1": "测试成功  0001",
+      "Tips_2": "检索成功",
+      "Tips_3": "分页参数Pagination不能为空！",
+      "Tips_6": "获取详情数据成功",
+      "Tips_7": "获取数据成功",
+      "Tips_8": "用户编号不能为空！",
+      "Tips_11": "缺少KeyValue参数！",
+      "Tips_12": "缺少Entity参数！",
+      "Tips_13": "添加成功",
+      "Tips_14": "修改成功",
+      "Tips_15": "主键重复，请重新输入层级编码",
+      "Tips_16": "输入的层级名称已经存在",
+      "Tips_17": "输入的层级已经存在"
+    },
+    "BsModelResourceExtendInfoController": {
+      "Tips_1": "测试成功  0001",
+      "Tips_2": "检索成功",
+      "Tips_3": "分页参数Pagination不能为空！",
+      "Tips_6": "获取详情数据成功",
+      "Tips_7": "资源编号不能为空！",
+      "Tips_10": "缺少KeyValue参数！",
+      "Tips_11": "缺少Entity参数！",
+      "Tips_13": "resourceCode参数不能为空！",
+      "Tips_14": "fieldCode参数不能为空"
+    },
+    "BsModelWithResourceController": {
+      "Tips_1": "测试成功  0001",
+      "Tips_2": "检索成功",
+      "Tips_3": "分页参数Pagination不能为空！",
+      "Tips_6": "获取详情数据成功",
+      "Tips_7": "资源编号不能为空！",
+      "Tips_10": "缺少KeyValue参数！",
+      "Tips_11": "缺少Entity参数！",
+      "Tips_13": "修改成功",
+      "Tips_14": "操作失败，输入编码重复",
+      "Tips_15": "操作失败，输入名称重复"
+    },
+    "LevelController": {
+      "Tips_1": "测试成功  0001",
+      "Tips_2": "]的数据",
+      "Tips_3": "]的数据失败：",
+      "Tips_6": "参数不能为空！",
+      "Tips_7": "ResourceCode 参数不能为空！",
+      "Tips_8": "LevelCode 参数不能为空！",
+      "Tips_10": "登录人不能为空！",
+      "Tips_11": "工厂 参数不能为空！",
+      "Tips_12": "factoryCode 参数不能为空！",
+      "Tips_13": "操作失败:",
+      "Tips_14": "factoryCode、fieldCode、fieldValue 参数不能为空！",
+      "Tips_15": "parentResource 参数不能为空！",
+      "Tips_16": "ModelLeve 参数不能为空！",
+      "Tips_17": "FieldCode 参数不能为空！",
+      "Tips_18": "FieldValue 参数不能为空！",
+      "Tips_19": "ResourceCode 不能为空！",
+      "Tips_20": "FieldCode 不能为空！",
+      "Tips_21": "FieldValue 不能为空！",
+      "Tips_22": "userName 不能为空！"
+    }
+  }
+}

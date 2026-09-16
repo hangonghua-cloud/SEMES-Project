@@ -1,0 +1,19 @@
+{
+  "name": "CCS.CommonApp.Common",
+  "type": "standard",
+  "title": "Common",
+  "icon": "fa-folder",
+  "functionalBlock": "CCS.CommonApp",
+  "dependencies": [],
+  "states": [
+    {
+      "id": "home.CCS_CommonApp_Common_Common",
+      "title": "Common",
+      "securable": true,
+      "roles": [],
+      "header": ""
+    }
+  ],
+  "manifestVersion": "01.01.00",
+  "header": ""
+}

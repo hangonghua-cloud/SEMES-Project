@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="11/16/2021 20:54:18" ReportInfo.Modified="06/13/2023 09:01:05" ReportInfo.CreatorVersion="2014.4.8.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+
+
+//    private void btnOk_Click(object sender, EventArgs e)
+//    {
+//     Report.SetParameterValue(&quot;Code&quot;,&quot;05fd77c6-736b-42f7-be5c-3340e62c2ac9&quot;);
+//    }
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlqxfki+t8jnSxof6qn6ng9vZXyxJ29Vo8PhbFaOrHhCHgROOaG/q4zpcoYQe61tsOxaKWTscH6Ad1rABTy1kAs9dLOkZCIFkSPgtS3xo+Qd2I1vweO+bh9fU/O4XMGzx8XtIFJb67TJ4BRKzzmozO5UQpb9tCUGPeow9BQ0MTIwDeJ/j9L8W5nwyb3RVts9gSKJ6uO7NeFNVTcuLcV6XHziA==">
+      <TableDataSource Name="Table" Alias="Batch" DataType="System.Int32" Enabled="true" SelectCommand="EXEC dbo.Pro_PrintBatch @Code">
+        <Column Name="BatchNo" DataType="System.String"/>
+        <Column Name="MaterialName" DataType="System.String"/>
+        <Column Name="WhsCode" DataType="System.String"/>
+        <Column Name="WhsName" DataType="System.String"/>
+        <Column Name="LocationCode" DataType="System.String"/>
+        <Column Name="LocationName" DataType="System.String"/>
+        <Column Name="Qty" DataType="System.Decimal"/>
+        <Column Name="Unit" DataType="System.String"/>
+        <Column Name="PrintTime" DataType="System.String"/>
+        <CommandParameter Name="Code" DataType="22" Size="20000" Expression="[Code]"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+    <Parameter Name="Code" DataType="System.String"/>
+  </Dictionary>
+  <ReportPage Name="Page1" PaperWidth="100" PaperHeight="130" LeftMargin="0" TopMargin="0" RightMargin="0" BottomMargin="0" FirstPageSource="256" OtherPagesSource="256">
+    <GroupHeaderBand Name="GroupHeader1" Width="378" Condition="[Batch.BatchNo]">
+      <DataBand Name="Data1" Top="4" Width="378" Height="472.5" DataSource="Table">
+        <TextObject Name="Text1" Top="28.35" Width="378" Height="56.7" Text="[Batch.BatchNo]" HorzAlign="Center" Font="等线, 28pt, style=Bold"/>
+        <BarcodeObject Name="Barcode1" Left="47.25" Top="85.05" Width="267.2" Height="256.85" AutoSize="false" DataColumn="Batch.BatchNo" ShowText="false" Barcode="QR Code" Barcode.ErrorCorrection="L" Barcode.Encoding="UTF8" Barcode.QuietZone="true"/>
+        <TextObject Name="Text2" Left="9.45" Top="340.2" Width="359.1" Height="47.7" Text="[Batch.MaterialName]" HorzAlign="Center" Font="等线, 14.25pt, style=Bold"/>
+        <TextObject Name="Text3" Left="9.45" Top="387.75" Width="359.1" Height="18.9" Text="[Batch.WhsName]" HorzAlign="Center" Font="等线, 14.25pt, style=Bold"/>
+        <TextObject Name="Text4" Left="9.45" Top="416.1" Width="359.1" Height="18.9" Text="[Batch.Qty][Batch.Unit]" HorzAlign="Center" Font="等线, 14.25pt, style=Bold"/>
+        <TextObject Name="Text5" Left="9.45" Top="444.45" Width="359.1" Height="18.9" Text="[Batch.PrintTime]" HorzAlign="Center" Font="等线, 14.25pt, style=Bold"/>
+      </DataBand>
+      <GroupFooterBand Name="GroupFooter1" Top="480.5" Width="378"/>
+    </GroupHeaderBand>
+  </ReportPage>
+</Report>

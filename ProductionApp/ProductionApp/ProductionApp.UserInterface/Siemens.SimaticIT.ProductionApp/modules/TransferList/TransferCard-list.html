@@ -1,0 +1,101 @@
+﻿<!--
+    0.代码生成: UA主子表一键生成前后端html、JS、API接口代码生成器 Ver 1.11 更新日期：2021-07-14  设计者：刘万军
+    1.功能描述: 报工信息
+    2.创建人员: admin
+    3.创建日期: 2021-08-18
+    4.修改人员:
+    5.修改日期:
+-->
+<style>
+    .MainCommandActionButton {
+        margin-top: 20px !important;
+    }
+</style>
+<div id="itemlist" class="content-area content-area-relative" style="height: calc(10% - 0px) !important">
+    <!--查询条件与功能按钮-->
+    <div class="col-md-40" style="margin-left: 15px;">
+        <div class="side-panel-property-area-body">
+            <sit-property-grid sit-id="add_form" sit-layout="Horizontal" sit-type="Fixed" sit-mode="edit" sit-columns="8">
+                <sit-property sit-widget="sit-select" sit-value="vm.Factory.value" sit-validation="{required: false}" sit-options="vm.Factory.options"
+                              sit-to-display="'ResourceName'" sit-to-keep="'ResourceCode'" sit-read-only="false" sit-change="vm.FactoryChange">{{'Siemens.SimaticIT.ProductionApp.TransferList.Tips_1'|translate}}</sit-property>
+                <!-- <sit-property sit-widget="sit-select" sit-value="vm.Process.value" sit-validation="{required: false}" sit-options="vm.Process.options"
+                              sit-to-display="'ResourceName'" sit-to-keep="'ResourceCode'" sit-read-only="false" sit-change="vm.ProcessChange">{{'Siemens.SimaticIT.ProductionApp.TransferList.Tips_2'|translate}}</sit-property>
+                <sit-property sit-widget="sit-select" sit-value="vm.Machine.value" sit-validation="{required: false}" sit-options="vm.Machine.options"
+                              sit-to-display="'ResourceName'" sit-to-keep="'ResourceCode'" sit-read-only="false">{{'Siemens.SimaticIT.ProductionApp.TransferList.Tips_3'|translate}}</sit-property> -->
+                <sit-property sit-widget="sit-select" sit-value="vm.WorkOrderType.value" sit-validation="{required: false}" sit-options="vm.WorkOrderType.options"
+                              sit-to-display="'ItemName'" sit-to-keep="'ItemValue'" style="max-width:100px;">{{'Siemens.SimaticIT.ProductionApp.TransferList.Tips_4'|translate}}</sit-property>
+                <sit-property sit-widget="sit-text" sit-value="vm.searchParams.ProductOrder" sit-read-only="false" style="max-width:100px;">{{'Siemens.SimaticIT.ProductionApp.TransferList.Tips_5'|translate}}</sit-property>
+                <sit-property sit-widget="sit-text" sit-value="vm.searchParams.ContainerNO" sit-read-only="false" style="max-width:100px;">{{'Siemens.SimaticIT.ProductionApp.TransferList.Tips_6'|translate}}</sit-property>
+                <sit-property sit-widget="sit-text" sit-value="vm.searchParams.MMXH" sit-read-only="false" style="max-width:100px;">{{'Siemens.SimaticIT.ProductionApp.TransferList.Tips_7'|translate}}</sit-property>
+                <!-- <sit-property sit-widget="sit-text" sit-value="vm.searchParams.CardCode" sit-read-only="false" style="max-width:100px;">{{'Siemens.SimaticIT.ProductionApp.TransferList.Tips_8'|translate}}</sit-property> -->
+                <!-- <sit-property sit-widget="sit-text" sit-value="vm.searchParams.CardName" sit-read-only="false" style="max-width:100px;">{{'Siemens.SimaticIT.ProductionApp.TransferList.Tips_9'|translate}}</sit-property> -->
+                <sit-property sit-widget="sit-text" sit-value="vm.searchParams.Spec" sit-read-only="false" style="max-width:100px;">{{'Siemens.SimaticIT.ProductionApp.TransferList.Tips_10'|translate}}</sit-property>
+
+                <!-- <sit-property sit-widget="sit-datepicker"
+                              sit-value="vm.StartTime"
+                              sit-format="'yyyy-MM-dd'"
+                              sit-read-only="false">{{'Siemens.SimaticIT.ProductionApp.TransferList.Tips_11'|translate}}</sit-property>
+                <sit-property sit-widget="sit-datepicker"
+                              sit-value="vm.EndTime"
+                              sit-format="'yyyy-MM-dd'"
+                              sit-read-only="false">{{'Siemens.SimaticIT.ProductionApp.TransferList.Tips_12'|translate}}</sit-property> -->
+
+                <sit-command-bar sit-type="action">
+                    <sit-command sit-icon="fa-search" sit-type="main" sit-name="com.siemens.customcommand.search" :sit-tooltip="{{'Siemens.SimaticIT.ProductionApp.TransferList.Tips_13'|translate}}" ng-click="vm.searchButtonHandler" :sit-label="{{'Siemens.SimaticIT.ProductionApp.TransferList.Tips_13'|translate}}">
+                    </sit-command>
+                </sit-command-bar>
+            </sit-property-grid>
+        </div>
+    </div>
+    <!--右侧功能按钮-->
+    <!-- <sit-command-bar sit-vertical-autofixed="true" sit-type="Tool" :sit-label-align="right" sit-layout="vertical">
+        <sit-command sit-icon="fa-trash-o" sit-name="com.siemens.customcommand.delete2" :sit-tooltip="{{'Siemens.SimaticIT.ProductionApp.TransferList.Tips_14'|translate}}" ng-click="vm.delete2ButtonHandler"
+                     :sit-label="{{'Siemens.SimaticIT.ProductionApp.TransferList.Tips_14'|translate}}" ng-show="vm.isDetailDeleteButtonVisible"></sit-command>
+        <sit-command sit-icon="fa-plus-square-o" sit-name="com.siemens.customcommand.add2" ng-click="vm.add2ButtonHandler" :sit-tooltip="{{'Siemens.SimaticIT.ProductionApp.TransferList.Tips_15'|translate}}"
+                     :sit-label="{{'Siemens.SimaticIT.ProductionApp.TransferList.Tips_15'|translate}}" ng-show="vm.isDetailButtonVisible"></sit-command>
+
+        <sit-command sit-icon="fa-trash-o" sit-name="com.siemens.customcommand.delete3" :sit-tooltip="{{'Siemens.SimaticIT.ProductionApp.TransferList.Tips_16'|translate}}" ng-click="vm.delete3ButtonHandler"
+                     :sit-label="{{'Siemens.SimaticIT.ProductionApp.TransferList.Tips_16'|translate}}" ng-show="vm.isPersonDeleteButtonVisible"></sit-command>
+        <sit-command sit-icon="fa-plus-square-o" sit-name="com.siemens.customcommand.add3" ng-click="vm.add3ButtonHandler" :sit-tooltip="{{'Siemens.SimaticIT.ProductionApp.TransferList.Tips_17'|translate}}"
+                     :sit-label="{{'Siemens.SimaticIT.ProductionApp.TransferList.Tips_17'|translate}}" ng-show="vm.isPersonButtonVisible"></sit-command>
+
+        <sit-command sit-icon="fa-pencil" sit-name="com.siemens.customcommand.edit" :sit-tooltip="{{'Siemens.SimaticIT.ProductionApp.TransferList.Tips_18'|translate}}" ng-click="vm.editButtonHandler"
+                     :sit-label="{{'Siemens.SimaticIT.ProductionApp.TransferList.Tips_18'|translate}}" ng-show="vm.isButtonVisible"></sit-command>
+
+    </sit-command-bar> -->
+</div>
+<!-- grid列表 -->
+<div id="listClass" style="width:100%; height: 37%; padding:0px 16px 0 16px; margin-top: 3px;">
+    <div ui-grid="vm.gridOptions" ui-grid-pinning ui-grid-auto-resize ui-grid-resize-columns ui-grid-selection ui-grid-pagination class="uigrid"></div>
+</div>
+
+<div class="col-md-40" style="margin-left: 15px;">
+    <div class="side-panel-property-area-body">
+        <sit-property-grid sit-id="add_form" sit-layout="Horizontal" sit-type="Fixed" sit-mode="edit" sit-columns="8">
+
+            <sit-property sit-widget="sit-select" sit-value="vm.typeProcess.value" sit-validation="{required: false}" sit-options="vm.typeProcess.options"
+                          sit-to-display="'ResourceName'" sit-to-keep="'ResourceCode'" sit-read-only="false">{{'Siemens.SimaticIT.ProductionApp.TransferList.Tips_2'|translate}}</sit-property>
+            <sit-command-bar sit-type="action">
+                <sit-command sit-icon="fa-search" sit-type="main" sit-name="com.siemens.customcommand.search" :sit-tooltip="{{'Siemens.SimaticIT.ProductionApp.TransferList.Tips_13'|translate}}" ng-click="vm.search1ButtonHandler" :sit-label="{{'Siemens.SimaticIT.ProductionApp.TransferList.Tips_13'|translate}}">
+                </sit-command>
+            </sit-command-bar>
+        </sit-property-grid>
+    </div>
+</div>
+<div id="listClass2" class="col-md-40" style="width:100%; height: 43%; padding:0px 16px 0 16px; margin-top: 20px;">
+    <sit-tabset>
+        <sit-tab heading="{{'Siemens.SimaticIT.ProductionApp.TransferList.Tips_19'|translate}}" style="background-color: #204d74" select="vm.tabPerson()">
+            <div ui-grid="vm.gridPersonOptions" ui-grid-pinning ui-grid-auto-resize ui-grid-selection ui-grid-resize-columns ui-grid-pagination class="uigrid" style="height:98%"></div>
+            <!-- <div ui-grid="vm.gridPersonOptions" ui-grid-pinning ui-grid-auto-resize ui-grid-resize-columns ui-grid-selection ui-grid-pagination class="uigrid" style="height:99%"></div> -->
+        </sit-tab>
+        <sit-tab heading="{{'Siemens.SimaticIT.ProductionApp.TransferList.Tips_20'|translate}}" style="background-color: #204d74" select="vm.tabBadItem()">
+            <div ui-grid="vm.gridOptionsDetail" ui-grid-pinning ui-grid-auto-resize ui-grid-selection ui-grid-resize-columns ui-grid-pagination class="uigrid" style="height:235px;"></div>
+
+        </sit-tab>
+        <sit-tab heading="{{'Siemens.SimaticIT.ProductionApp.TransferList.Tips_21'|translate}}" style="background-color: #204d74" select="vm.tabMB()">
+            <div ui-grid="vm.gridMBOptions" ui-grid-pinning ui-grid-auto-resize ui-grid-selection ui-grid-resize-columns ui-grid-pagination class="uigrid" style="height:235px"></div>
+
+        </sit-tab>
+    </sit-tabset>
+</div>
+

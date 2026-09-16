@@ -1,0 +1,301 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Items>
+  <DomainStorageInfo Id="bb9d4ab1-d545-4b90-8388-7b10a801d5ac">
+    <DataModel>
+      <Id>cf98bd89-75d9-496e-b8af-9f529eafc622</Id>
+      <Id>e321fc31-b03e-452f-bd01-b2fb45f67488</Id>
+      <Id>db5caa9c-ab66-43fe-88b7-fc59b3ad6a7e</Id>
+      <Id>03a3807a-5bd2-443f-ac4d-a8881a8ba29a</Id>
+      <Id>9894eb80-a226-4006-a988-45bff736118b</Id>
+      <Id>1aa08a4a-fee5-401c-964b-505e2632d161</Id>
+      <Id>64953153-c65a-4ce1-b99d-fbf4779b76e6</Id>
+      <Id>00ec265b-de50-4765-bb82-33e7d646299e</Id>
+    </DataModel>
+    <Database>54302333-3e2c-405a-8fff-b684ef538c0d</Database>
+    <Name>MasterData</Name>
+    <IsSystemDomain>false</IsSystemDomain>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DomainStorageInfo>
+  <DomainStorageInfo Id="3ca2df86-e603-42b5-b00f-55c1467b54f8">
+    <DataModel>
+      <Id>be2ecf99-db3a-4daf-b6b1-0c7b62c879da</Id>
+      <Id>907757fa-6149-4589-a7e4-e5124b40c59c</Id>
+    </DataModel>
+    <Database>54302333-3e2c-405a-8fff-b684ef538c0d</Database>
+    <Name>OperationalData</Name>
+    <IsSystemDomain>false</IsSystemDomain>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DomainStorageInfo>
+  <DomainStorageInfo Id="25ea6a82-0e74-41e5-844f-9769d946e50b">
+    <DataModel>
+      <Id>0fbceed6-4d8e-4df9-95ff-5d74debbc658</Id>
+      <Id>08443db0-af67-4c68-878d-bd6eabe49a8b</Id>
+    </DataModel>
+    <Database>54302333-3e2c-405a-8fff-b684ef538c0d</Database>
+    <Name>ReferenceData</Name>
+    <IsSystemDomain>false</IsSystemDomain>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DomainStorageInfo>
+  <DomainStorageInfo Id="994b774c-9660-4649-bc25-4f245ad085ec">
+    <DataModel>
+      <Id>1f1bd55f-613b-4179-9e16-99786cbcc075</Id>
+      <Id>c5a358b7-1831-4028-91b4-a1334ff1da48</Id>
+      <Id>d809663b-901e-4099-9396-74e5f6d2ccc0</Id>
+      <Id>f8021de0-dddd-4e4d-a548-cbb637caed9f</Id>
+      <Id>8eb5c666-230f-4a1c-95ea-f8f7069b306a</Id>
+      <Id>f5c2b933-560f-42fc-b1bd-68f4111ecd59</Id>
+    </DataModel>
+    <Database>54302333-3e2c-405a-8fff-b684ef538c0d</Database>
+    <Name>SystemData</Name>
+    <IsSystemDomain>true</IsSystemDomain>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DomainStorageInfo>
+  <DomainStorageInfo Id="f96de879-0011-49a5-862b-7f4ae0544944">
+    <DataModel>
+      <Id>334f06a6-eb69-4000-b73f-aed8afdb2ba0</Id>
+    </DataModel>
+    <Database>54302333-3e2c-405a-8fff-b684ef538c0d</Database>
+    <Name>System</Name>
+    <IsSystemDomain>false</IsSystemDomain>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DomainStorageInfo>
+  <DomainStorageInfo Id="29f4b6be-33f4-4b42-b922-0182a6a340c6">
+    <DataModel>
+      <Id>28fc3324-3758-40bb-85cb-5b9bf9c57a25</Id>
+    </DataModel>
+    <Database>54302333-3e2c-405a-8fff-b684ef538c0d</Database>
+    <Name>UAMES</Name>
+    <IsSystemDomain>false</IsSystemDomain>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DomainStorageInfo>
+  <DomainStorageInfo Id="6989ca87-c97d-4663-b77b-6ada6a252692">
+    <DataModel>
+      <Id>6bbf58da-d0b5-4d20-b823-d19f7505de33</Id>
+    </DataModel>
+    <Database>54302333-3e2c-405a-8fff-b684ef538c0d</Database>
+    <Name>Personnel</Name>
+    <IsSystemDomain>false</IsSystemDomain>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DomainStorageInfo>
+  <DomainStorageInfo Id="99946b8c-8506-4968-91bc-be9daf3cdba6">
+    <DataModel>
+      <Id>341958b5-aa25-43b0-b7b4-4cfa98622685</Id>
+    </DataModel>
+    <Database>54302333-3e2c-405a-8fff-b684ef538c0d</Database>
+    <Name>ButtonAuthFBApp</Name>
+    <IsSystemDomain>false</IsSystemDomain>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DomainStorageInfo>
+  <DomainStorageInfo Id="e71d5b35-5278-47ba-bd74-be9b6c89f650">
+    <DataModel>
+      <Id>00ffbfbd-58d8-4d15-8d45-033c2359eec1</Id>
+      <Id>cd3af342-4e48-4ccf-b5ad-e4363ff5e06f</Id>
+      <Id>919eadc9-6fc2-4cb1-9bed-cba7e5f80c5c</Id>
+      <Id>5301b0d2-c73c-43d0-befd-d03ac5ad2c4b</Id>
+      <Id>c5eb78d6-52f4-4bb5-b4f5-585a95e99cc9</Id>
+      <Id>89c52bce-1baa-436c-8a57-e6f569a588cd</Id>
+      <Id>02206dca-c06e-4c70-92eb-d13bf2cb6d6e</Id>
+      <Id>149f82be-7b3f-4702-8a8f-33b9a8eb3176</Id>
+    </DataModel>
+    <Database>54302333-3e2c-405a-8fff-b684ef538c0d</Database>
+    <Name>MasterData</Name>
+    <IsSystemDomain>false</IsSystemDomain>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DomainStorageInfo>
+  <DomainStorageInfo Id="6e7daa1a-7405-43e6-b178-eda257f5611a">
+    <DataModel>
+      <Id>7088fe33-f2a5-45d1-8b3c-5ef8dfcee0a4</Id>
+      <Id>479f1f7f-9fbd-4501-9ea5-6ebabe48104c</Id>
+    </DataModel>
+    <Database>54302333-3e2c-405a-8fff-b684ef538c0d</Database>
+    <Name>OperationalData</Name>
+    <IsSystemDomain>false</IsSystemDomain>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DomainStorageInfo>
+  <DomainStorageInfo Id="2b3a1d2a-9531-42ad-8056-6c17797c3401">
+    <DataModel>
+      <Id>01cd6291-7339-4290-8a28-070ed3911e28</Id>
+      <Id>e29b372b-d8c5-44ae-9e1d-2d38184fae30</Id>
+    </DataModel>
+    <Database>54302333-3e2c-405a-8fff-b684ef538c0d</Database>
+    <Name>ReferenceData</Name>
+    <IsSystemDomain>false</IsSystemDomain>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DomainStorageInfo>
+  <DomainStorageInfo Id="f853266d-19e2-4d75-98d5-811d8658b096">
+    <DataModel>
+      <Id>299e5466-7cc4-4afc-8fbc-07d407ffb843</Id>
+      <Id>ef835dd1-dba6-4f40-b62e-cd2dfa04eb67</Id>
+      <Id>cd54eb75-8a0b-4541-8c5c-d32ac6e42472</Id>
+      <Id>799d08d3-ffa4-483b-9571-ad59ef9e615b</Id>
+      <Id>164998f6-3395-4b82-9c6a-8fec3e282b24</Id>
+      <Id>8d465434-6e41-452d-91e9-f329707f8570</Id>
+    </DataModel>
+    <Database>54302333-3e2c-405a-8fff-b684ef538c0d</Database>
+    <Name>SystemData</Name>
+    <IsSystemDomain>true</IsSystemDomain>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DomainStorageInfo>
+  <DomainStorageInfo Id="44c47b46-c617-4ad2-95b3-4f2fb67d5bcc">
+    <DataModel>
+      <Id>e683fdfc-8095-4e09-abb3-f330fe449a1e</Id>
+    </DataModel>
+    <Database>54302333-3e2c-405a-8fff-b684ef538c0d</Database>
+    <Name>System</Name>
+    <IsSystemDomain>false</IsSystemDomain>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DomainStorageInfo>
+  <DomainStorageInfo Id="c10b165b-3174-4357-8943-ccb34add2449">
+    <DataModel>
+      <Id>75bed475-1e20-453d-905e-53de9b6a6338</Id>
+    </DataModel>
+    <Database>54302333-3e2c-405a-8fff-b684ef538c0d</Database>
+    <Name>UAMES</Name>
+    <IsSystemDomain>false</IsSystemDomain>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DomainStorageInfo>
+  <DomainStorageInfo Id="6ab7baeb-30f7-4957-a9a0-acc3e8b6eda8">
+    <DataModel>
+      <Id>ffdd4cdf-b98e-48ce-b1ff-cb614ece9daa</Id>
+    </DataModel>
+    <Database>54302333-3e2c-405a-8fff-b684ef538c0d</Database>
+    <Name>Personnel</Name>
+    <IsSystemDomain>false</IsSystemDomain>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DomainStorageInfo>
+  <DomainStorageInfo Id="798f1dbd-1185-47a6-bfcf-4cb9c75a6918">
+    <DataModel>
+      <Id>a304c0a7-3fb2-4cc5-ab53-b23580e4e21d</Id>
+    </DataModel>
+    <Database>54302333-3e2c-405a-8fff-b684ef538c0d</Database>
+    <Name>ButtonAuthFBApp</Name>
+    <IsSystemDomain>false</IsSystemDomain>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DomainStorageInfo>
+  <DomainStorageInfo Id="282c8af6-cca1-4d06-8990-f619b9ad92fb">
+    <DataModel>
+      <Id>a1f6c13a-300b-44a9-8cf7-f0e228332e09</Id>
+    </DataModel>
+    <Database>54302333-3e2c-405a-8fff-b684ef538c0d</Database>
+    <Name>System</Name>
+    <IsSystemDomain>false</IsSystemDomain>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DomainStorageInfo>
+  <DomainStorageInfo Id="4d3d9dc8-ba07-48f9-adb3-e1ae211f7d29">
+    <DataModel>
+      <Id>e094127a-68d0-4c51-8ff1-71cd3dc19715</Id>
+    </DataModel>
+    <Database>54302333-3e2c-405a-8fff-b684ef538c0d</Database>
+    <Name>BaseDataApp</Name>
+    <IsSystemDomain>false</IsSystemDomain>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DomainStorageInfo>
+  <DomainStorageInfo Id="29db4af6-0e14-40be-ab4d-19f1ea7e3498">
+    <DataModel>
+      <Id>56bb56e6-2a94-4c14-8fea-08b4e13f4af7</Id>
+    </DataModel>
+    <Database>35776ebd-0e73-439a-a351-03fc50f8efa4</Database>
+    <Name>UAMES</Name>
+    <IsSystemDomain>false</IsSystemDomain>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DomainStorageInfo>
+  <DomainStorageInfo Id="ecdc5010-5897-44a4-8417-d3b10fb9353d">
+    <DataModel>
+      <Id>8f441aaa-cd2d-4d32-9cfd-e40efe4a740c</Id>
+    </DataModel>
+    <Database>54302333-3e2c-405a-8fff-b684ef538c0d</Database>
+    <Name>BasicDataManageFBApp</Name>
+    <IsSystemDomain>false</IsSystemDomain>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DomainStorageInfo>
+  <DomainStorageInfo Id="283c6e24-cf90-4e06-a29a-17e85adf6126">
+    <DataModel>
+      <Id>ef8424ba-27e6-43e1-a656-cfd3a827e73d</Id>
+    </DataModel>
+    <Database>54302333-3e2c-405a-8fff-b684ef538c0d</Database>
+    <Name>CommonApp</Name>
+    <IsSystemDomain>false</IsSystemDomain>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DomainStorageInfo>
+  <DomainStorageInfo Id="64c53b08-3c06-415d-8582-f02f8205076d">
+    <DataModel>
+      <Id>919b7f9e-5338-415c-82ba-831c78d6883c</Id>
+    </DataModel>
+    <Database>54302333-3e2c-405a-8fff-b684ef538c0d</Database>
+    <Name>EquipmentApp</Name>
+    <IsSystemDomain>false</IsSystemDomain>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DomainStorageInfo>
+  <DomainStorageInfo Id="23d4bec8-0098-43a4-9755-fb1d61afcf5e">
+    <DataModel>
+      <Id>ed940616-78bd-4698-8e1a-be55047b2182</Id>
+    </DataModel>
+    <Database>54302333-3e2c-405a-8fff-b684ef538c0d</Database>
+    <Name>FactoryModelApp</Name>
+    <IsSystemDomain>false</IsSystemDomain>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DomainStorageInfo>
+  <DomainStorageInfo Id="98879ae3-b6ae-4630-bcd5-ef3109d4108c">
+    <DataModel>
+      <Id>8f171945-1c96-448d-ad98-44c081c0211e</Id>
+    </DataModel>
+    <Database>54302333-3e2c-405a-8fff-b684ef538c0d</Database>
+    <Name>MaterialApp</Name>
+    <IsSystemDomain>false</IsSystemDomain>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DomainStorageInfo>
+  <DomainStorageInfo Id="1787fca5-6415-4d1f-a7c3-b1628c633461">
+    <DataModel>
+      <Id>1bf92fca-ddc0-4d73-ac05-12eaafe55dd9</Id>
+    </DataModel>
+    <Database>54302333-3e2c-405a-8fff-b684ef538c0d</Database>
+    <Name>Personnel</Name>
+    <IsSystemDomain>false</IsSystemDomain>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DomainStorageInfo>
+  <DomainStorageInfo Id="51daba87-beb9-4479-aa94-a074c2acc9b9">
+    <DataModel>
+      <Id>b5100fcf-8c06-4348-87a3-f58e5e54f345</Id>
+    </DataModel>
+    <Database>54302333-3e2c-405a-8fff-b684ef538c0d</Database>
+    <Name>PlanApp</Name>
+    <IsSystemDomain>false</IsSystemDomain>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DomainStorageInfo>
+  <DomainStorageInfo Id="a5ffb1d5-752c-4834-bae3-3fbd1c664659">
+    <DataModel>
+      <Id>d8ea7bb2-607e-4ac7-b2ce-3328cb7e59ea</Id>
+    </DataModel>
+    <Database>54302333-3e2c-405a-8fff-b684ef538c0d</Database>
+    <Name>ProductionApp</Name>
+    <IsSystemDomain>false</IsSystemDomain>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DomainStorageInfo>
+  <DomainStorageInfo Id="ab480002-a5f3-4230-88a3-b894dac90199">
+    <DataModel>
+      <Id>317fde6d-04e0-4ea3-aa06-886b8f9d0d70</Id>
+    </DataModel>
+    <Database>54302333-3e2c-405a-8fff-b684ef538c0d</Database>
+    <Name>QualityApp</Name>
+    <IsSystemDomain>false</IsSystemDomain>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DomainStorageInfo>
+  <DomainStorageInfo Id="4596510e-a61d-4a0f-ae1c-77b723d360aa">
+    <DataModel>
+      <Id>431d2bdd-37af-4d24-aa99-ac29f78ccbe4</Id>
+    </DataModel>
+    <Database>54302333-3e2c-405a-8fff-b684ef538c0d</Database>
+    <Name>SystemApp</Name>
+    <IsSystemDomain>false</IsSystemDomain>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DomainStorageInfo>
+  <DomainStorageInfo Id="7cf44f91-590c-4ced-b525-6096a5d18410">
+    <DataModel>
+      <Id>cabd6415-f383-41ca-a078-6fb47efe4afa</Id>
+    </DataModel>
+    <Database>54302333-3e2c-405a-8fff-b684ef538c0d</Database>
+    <Name>ButtonAuthFBApp</Name>
+    <IsSystemDomain>false</IsSystemDomain>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DomainStorageInfo>
+</Items>

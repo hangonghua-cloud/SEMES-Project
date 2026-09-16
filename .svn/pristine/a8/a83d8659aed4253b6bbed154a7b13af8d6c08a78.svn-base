@@ -1,0 +1,150 @@
+using ALP.Data.Attributes;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.IO;
+using System.Linq;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ALP.Application.Entity.MaterialManage
+{
+    /// <summary>
+    /// 1.创建日期: 2021-08-31
+    /// 2.创建作者: admin
+    /// 3.功能描述: MM_RawMaterialStock实体
+    /// 4.任务编号: 原材料库存管理
+    /// 5.最后修改日期: 
+    /// 6.最后修改作者: 
+    /// </summary>
+    [Serializable]
+    public class MM_RawMaterialStockEntity : BaseEntity
+    {
+        #region 表: MM_RawMaterialStock 实体类: MM_RawMaterialStock 
+
+        /// <summary>
+        /// Id
+        /// </summary>
+        public string Id { get; set; }
+        /// <summary>
+        /// 工厂
+        /// </summary>
+        public string FactoryCode { get; set; }
+        /// <summary>
+        /// 工厂名称
+        /// </summary>
+        public string FactoryName { get; set; }
+        /// <summary>
+        /// 物料编码
+        /// </summary>
+        public string MaterialCode { get; set; }
+
+        /// <summary>
+        /// 物料名称
+        /// </summary>
+        public string MaterialName { get; set; }
+        /// <summary>
+        /// 规格
+        /// </summary>
+        public string Spec { get; set; }
+        /// <summary>
+        /// 物料小类
+        /// </summary>
+        public string SmallClass { get; set; }
+        /// <summary>
+        /// 批次号
+        /// </summary>
+        public string BatchNo { get; set; }
+        /// <summary>
+        /// 数量
+        /// </summary>
+        [DecimalPrecision(18, 3)]
+        public decimal? Qty { get; set; }
+        /// <summary>
+        /// 出库数量
+        /// </summary>
+        [NotMapped]
+        [DecimalPrecision(18, 3)]
+        public decimal? OutQty { get; set; }
+
+        /// <summary>
+        /// 单位
+        /// </summary>
+        public string Unit { get; set; }
+
+        /// <summary>
+        /// 供应商
+        /// </summary>
+        public string SupplierCode { get; set; }
+
+        /// <summary>
+        /// 仓库编码
+        /// </summary>
+        public string WhsCode { get; set; }
+
+        /// <summary>
+        /// 库位编码
+        /// </summary>
+        public string LocationCode { get; set; }
+
+        /// <summary>
+        /// 冻结标识
+        /// </summary>
+        public string IsFrozen { get; set; }
+
+        /// <summary>
+        /// 备注
+        /// </summary>
+        public string Remark { get; set; }
+        /// <summary>
+        /// 创建人
+        /// </summary>
+        public string Creator { get; set; }
+
+        /// <summary>
+        /// 创建时间
+        /// </summary>
+        public DateTime? CreateTime { get; set; }
+
+        /// <summary>
+        /// 修改人
+        /// </summary>
+        public string ModifyBy { get; set; }
+
+        /// <summary>
+        /// 修改时间
+        /// </summary>
+        public DateTime? ModifyTime { get; set; }
+        /// <summary>
+        /// 批次日期
+        /// </summary>
+        public DateTime? BatchDate { get; set; }
+        /// <summary>
+        /// 特殊库存标识
+        /// </summary>
+        public string Specialmark { get; set; }
+
+        #region 扩展操作
+        /// <summary>
+        /// 新增调用
+        /// </summary>
+        public override void Create()
+        {
+            this.Id = Guid.NewGuid().ToString();
+        }
+        /// <summary>
+        /// 编辑调用
+        /// </summary>
+        /// <param name="keyValue"></param>
+        public override void Modify(string keyValue)
+        {
+            this.Id = keyValue;
+        }
+        
+        #endregion
+
+        #endregion
+    }
+}

@@ -1,0 +1,531 @@
+﻿{
+  "Siemens.SimaticIT.SystemApp": {
+    "APPRole": {
+      "APPRoleadd": {
+        "Tips_1": "Hủy bỏ",
+        "Tips_2": "Lưu",
+        "Tips_3": "Mã vai trò:",
+        "Tips_4": "Tên vai trò:",
+        "Tips_5": "Có hiệu lực không："
+      },
+      "APPRoleedit": {
+        "Tips_1": "Hủy bỏ",
+        "Tips_2": "Lưu",
+        "Tips_3": "Mã vai trò:",
+        "Tips_4": "Tên vai trò:",
+        "Tips_5": "Có hiệu lực không："
+      },
+      "APPRolelist": {
+        "Tips_1": "Mã vai trò:",
+        "Tips_2": "Tên vai trò:",
+        "Tips_3": "Tìm kiếm",
+        "Tips_4": "Ủy quyền",
+        "Tips_5": "Xóa",
+        "Tips_6": "Chỉnh sửa",
+        "Tips_7": "Thêm mới"
+      },
+      "APPRoleselect": {
+        "Tips_1": "Quay lại",
+        "Tips_2": "Lưu"
+      },
+      "APPRoleaddctrl": {
+        "Tips_1": "Thêm vai trò mới",
+        "Tips_2": "Có hiệu lực",
+        "Tips_3": "Lưu thành công！",
+        "Tips_4": "Lỗi thao tác"
+      },
+      "APPRoleeditctrl": {
+        "Tips_1": "Sửa đổi thông tin vai trò",
+        "Tips_2": "Có hiệu lực",
+        "Tips_3": "Lưu thành công！",
+        "Tips_4": "Lỗi thao tác"
+      },
+      "APPRolelistctrl": {
+        "Tips_1": "Số thứ tự",
+        "Tips_2": "Khóa chính",
+        "Tips_3": "Mã vai trò",
+        "Tips_4": "Tên vai trò",
+        "Tips_5": "Người tạo",
+        "Tips_6": "Ngày tạo",
+        "Tips_7": "Lỗi nhận dữ liệu",
+        "Tips_8": "Bạn chắc chắn muốn xóa mã",
+        "Tips_9": "ghi chép không?",
+        "Tips_10": "Xóa thành công!",
+        "Tips_11": "Thông báo",
+        "Tips_12": "APP quản lý vai trò"
+      },
+      "APPRoleselectctrl": {
+        "Tips_1": "Ủy quyền vai trò",
+        "Tips_2": "Số thứ tự",
+        "Tips_3": "Tên module",
+        "Tips_4": "Mã chức năng",
+        "Tips_5": "Tên chức năng",
+        "Tips_6": "Mã vai trò không được để trống!",
+        "Tips_7": "Vui lòng chọn chức năng!",
+        "Tips_8": "Lỗi nhận dữ liệu",
+        "Tips_9": "Lưu thành công！",
+        "Tips_10": "Lỗi thao tác"
+      },
+      "Title": "APP quản lý vai trò"
+    },
+    "APPRoleFunction": {
+      "APPRoleFunctionadd": {
+        "Tips_1": "Hủy bỏ",
+        "Tips_2": "Lưu",
+        "Tips_3": "Tên module:",
+        "Tips_4": "Mã chức năng:",
+        "Tips_5": "Tên chức năng:",
+        "Tips_6": "Màu sắc:",
+        "Tips_7": "Biểu tượng:",
+        "Tips_8": "Phân loại:",
+        "Tips_9": "Số sắp xếp",
+        "Tips_10": "Có hiệu lực không："
+      },
+      "APPRoleFunctionedit": {
+        "Tips_1": "Hủy bỏ",
+        "Tips_2": "Lưu",
+        "Tips_3": "Tên module:",
+        "Tips_4": "Mã chức năng:",
+        "Tips_5": "Tên chức năng:",
+        "Tips_6": "Màu sắc:",
+        "Tips_7": "Biểu tượng:",
+        "Tips_8": "Phân loại:",
+        "Tips_9": "Số sắp xếp",
+        "Tips_10": "Có hiệu lực không："
+      },
+      "APPRoleFunctionlist": {
+        "Tips_1": "Mã chức năng:",
+        "Tips_2": "Tên chức năng:",
+        "Tips_3": "Tìm kiếm",
+        "Tips_4": "Ủy quyền",
+        "Tips_5": "Xóa",
+        "Tips_6": "Chỉnh sửa",
+        "Tips_7": "Thêm mới"
+      },
+      "APPRoleFunctionaddctrl": {
+        "Tips_1": "Thêm mới",
+        "Tips_2": "Có hiệu lực",
+        "Tips_3": "Module vật liệu",
+        "Tips_4": "Module chất lượng",
+        "Tips_5": "Module thiết bị",
+        "Tips_6": "Module công nghệ",
+        "Tips_7": "Vui lòng chọn",
+        "Tips_8": "Trang",
+        "Tips_9": "Bấm nút",
+        "Tips_10": "Lưu thành công！",
+        "Tips_11": "Lỗi thao tác"
+      },
+      "APPRoleFunctioneditctrl": {
+        "Tips_1": "Sửa đổi",
+        "Tips_2": "Có hiệu lực",
+        "Tips_3": "Module vật liệu",
+        "Tips_4": "Module chất lượng",
+        "Tips_5": "Module thiết bị",
+        "Tips_6": "Module công nghệ",
+        "Tips_7": "Vui lòng chọn",
+        "Tips_8": "Trang",
+        "Tips_9": "Bấm nút",
+        "Tips_10": "Lưu thành công！",
+        "Tips_11": "Lỗi thao tác"
+      },
+      "APPRoleFunctionlistctrl": {
+        "Tips_1": "Số thứ tự",
+        "Tips_2": "Khóa chính",
+        "Tips_3": "Số module",
+        "Tips_4": "Số sắp xếp",
+        "Tips_5": "Tên module",
+        "Tips_6": "Mã chức năng",
+        "Tips_7": "Tên chức năng",
+        "Tips_8": "Người tạo",
+        "Tips_9": "Ngày tạo",
+        "Tips_10": "Lỗi nhận dữ liệu",
+        "Tips_11": "Bạn chắc chắn muốn xóa mã",
+        "Tips_12": "ghi chép không?",
+        "Tips_13": "Xóa thành công!",
+        "Tips_14": "Thông báo",
+        "Tips_15": "APP quản lý chức năng vai trò"
+      },
+      "Title": "APP chức năng"
+    },
+    "AppUserInfo": {
+      "AppUserInfoadd": {
+        "Tips_1": "Hủy bỏ",
+        "Tips_2": "Lưu",
+        "Tips_3": "Mã người dùng:",
+        "Tips_4": "Vai trò:",
+        "Tips_5": "Mật khẩu",
+        "Tips_6": "Xác nhận mật khẩu:"
+      },
+      "AppUserInfoedit": {
+        "Tips_1": "Hủy bỏ",
+        "Tips_2": "Lưu",
+        "Tips_3": "Mã người dùng:",
+        "Tips_4": "Vai trò:",
+        "Tips_5": "Mật khẩu",
+        "Tips_6": "Xác nhận mật khẩu:"
+      },
+      "AppUserInfolist": {
+        "Tips_1": "Mã người dùng:",
+        "Tips_2": "Tìm kiếm",
+        "Tips_3": "Xóa",
+        "Tips_4": "Chỉnh sửa",
+        "Tips_5": "Thêm mới"
+      },
+      "AppUserInfoaddctrl": {
+        "Tips_1": "Thêm người dùng mới",
+        "Tips_2": "Lỗi thao tác",
+        "Tips_3": "Hai lần nhập MK không giống nhau, vui lòng nhập lại",
+        "Tips_4": "Lưu thành công！"
+      },
+      "AppUserInfoeditctrl": {
+        "Tips_1": "Sửa đổi người dùng",
+        "Tips_2": "Hai lần nhập MK không giống nhau, vui lòng nhập lại",
+        "Tips_3": "Lỗi thao tác",
+        "Tips_4": "Lưu thành công！"
+      },
+      "AppUserInfolistctrl": {
+        "Tips_1": "Số thứ tự",
+        "Tips_2": "Khóa chính",
+        "Tips_3": "Mã người dùng",
+        "Tips_4": "APP vai trò",
+        "Tips_5": "Người tạo",
+        "Tips_6": "Ngày tạo",
+        "Tips_7": "Lỗi nhận dữ liệu",
+        "Tips_8": "Bạn chắc chắn muốn xóa mã",
+        "Tips_9": "ghi chép không?",
+        "Tips_10": "Xóa thành công!",
+        "Tips_11": "Thông báo",
+        "Tips_12": "APP quản lý người dùng"
+      },
+      "Title": "APP quản lý người dùng"
+    },
+    "Departments": {
+      "Departmentsadd": {
+        "Tips_1": "Quay lại",
+        "Tips_2": "Lưu",
+        "Tips_3": "Nhà xưởng:",
+        "Tips_4": "Mã bộ phận:",
+        "Tips_5": "Tên bộ phận:"
+      },
+      "Departmentsedit": {
+        "Tips_1": "Quay lại",
+        "Tips_2": "Lưu",
+        "Tips_3": "Tên nhà xưởng:",
+        "Tips_4": "Mã bộ phận:",
+        "Tips_5": "Tên bộ phận:"
+      },
+      "Departmentslist": {
+        "Tips_1": "Nhà xưởng:",
+        "Tips_2": "Mã bộ phận:",
+        "Tips_3": "Tên bộ phận:",
+        "Tips_4": "Tìm kiếm",
+        "Tips_5": "Đồng bộ dữ liệu U9",
+        "Tips_6": "Xóa",
+        "Tips_7": "Sửa đổi",
+        "Tips_8": "Thêm mới"
+      },
+      "Departmentsaddctrl": {
+        "Tips_1": "Thêm",
+        "Tips_2": "--Vui lòng chọn--",
+        "Tips_3": "Đang lưu, vui lòng đợi.........",
+        "Tips_4": "Lỗi thao tác"
+      },
+      "Departmentseditctrl": {
+        "Tips_1": "Sửa đổi",
+        "Tips_2": "Đang lưu, vui lòng đợi.........",
+        "Tips_3": "Lỗi thao tác"
+      },
+      "Departmentslistctrl": {
+        "Tips_1": "--Vui lòng chọn--",
+        "Tips_2": "Số thứ tự",
+        "Tips_3": "Tên nhà xưởng",
+        "Tips_4": "Mã bộ phận",
+        "Tips_5": "Tên bộ phận",
+        "Tips_6": "Thời gian cập nhật",
+        "Tips_7": "Vui lòng chọn nhà xưởng!",
+        "Tips_8": "Lỗi nhận dữ liệu",
+        "Tips_9": "Đồng bộ thành công!",
+        "Tips_10": "Vui lòng chọn thuộc tính",
+        "Tips_11": "Xóa",
+        "Tips_12": "Bạn chắc chắn muốn xóa toàn bộ dữ liệu？",
+        "Tips_13": "Quyết định",
+        "Tips_14": "Thông báo lỗi",
+        "Tips_15": "Thao tác thất bại -",
+        "Tips_16": "Quản lý bộ phận"
+      },
+      "Title": "Quản lý bộ phận"
+    },
+    "Persons": {
+      "Personsadd": {
+        "Tips_1": "Hủy bỏ",
+        "Tips_2": "Lưu",
+        "Tips_3": "Mã nhân viên:",
+        "Tips_4": "Tên công nhân:",
+        "Tips_5": "Giới tính:",
+        "Tips_6": "Số CCCD:",
+        "Tips_7": "SĐT:",
+        "Tips_8": "Bộ phận:",
+        "Tips_9": "Chức vụ:",
+        "Tips_10": "Nhà xưởng trực thuộc:",
+        "Tips_11": "Nhà xưởng:",
+        "Tips_12": "Có hiệu lực không："
+      },
+      "Personsedit": {
+        "Tips_1": "Quay lại",
+        "Tips_2": "Lưu",
+        "Tips_3": "Mã nhân viên:",
+        "Tips_4": "Tên công nhân:",
+        "Tips_5": "Giới tính:",
+        "Tips_6": "Số CCCD:",
+        "Tips_7": "SĐT:",
+        "Tips_8": "Bộ phận:",
+        "Tips_9": "Chức vụ:",
+        "Tips_10": "Nhà xưởng trực thuộc:",
+        "Tips_11": "Có hiệu lực không："
+      },
+      "Personslist": {
+        "Tips_1": "Mã nhân viên:",
+        "Tips_2": "Họ tên:",
+        "Tips_3": "Bộ phận:",
+        "Tips_4": "Chức vụ:",
+        "Tips_5": "Nhà xưởng:",
+        "Tips_6": "Tìm kiếm",
+        "Tips_7": "Ràng buộc máy quét",
+        "Tips_8": "Cài đặt quyền hạn",
+        "Tips_9": "Đồng bộ dữ liệu U9",
+        "Tips_10": "Xóa",
+        "Tips_11": "Sửa đổi",
+        "Tips_12": "Thêm mới"
+      },
+      "PersonsModifyPermissions": {
+        "Tips_1": "Cài đặt quyền hạn",
+        "Tips_2": "Đúng",
+        "Tips_3": "Không",
+        "Tips_4": "(Không tìm thấy máy in)",
+        "Tips_5": "Quyết định",
+        "Tips_6": "Lỗi truy vấn",
+        "Tips_7": "Lưu thành công！",
+        "Tips_8": "Lỗi thao tác"
+      },
+      "Personsaddctrl": {
+        "Tips_1": "Thêm",
+        "Tips_2": "Có hiệu lực",
+        "Tips_3": "Nam",
+        "Tips_4": "Nữ",
+        "Tips_5": "--Vui lòng chọn--",
+        "Tips_6": "(Không tìm thấy danh sách bộ phận)",
+        "Tips_7": "Quyết định",
+        "Tips_8": "Lỗi truy vấn",
+        "Tips_9": "Lưu thành công！",
+        "Tips_10": "Lỗi thao tác"
+      },
+      "Personseditctrl": {
+        "Tips_1": "Sửa đổi",
+        "Tips_2": "Có hiệu lực",
+        "Tips_3": "Nam",
+        "Tips_4": "Nữ",
+        "Tips_5": "--Vui lòng chọn--",
+        "Tips_6": "(Không tìm thấy danh sách bộ phận)",
+        "Tips_7": "Quyết định",
+        "Tips_8": "Lỗi truy vấn",
+        "Tips_9": "Lưu thành công！",
+        "Tips_10": "Lỗi thao tác"
+      },
+      "Personslistctrl": {
+        "Tips_1": "--Vui lòng chọn--",
+        "Tips_2": "(Không tìm thấy danh sách bộ phận)",
+        "Tips_3": "Quyết định",
+        "Tips_4": "Lỗi truy vấn",
+        "Tips_5": "Số thứ tự",
+        "Tips_6": "Mã nhân viên",
+        "Tips_7": "Họ tên",
+        "Tips_8": "Giới tính",
+        "Tips_9": "Bộ phận",
+        "Tips_10": "Chức vụ",
+        "Tips_11": "Vị trí",
+        "Tips_12": "Điện thoại",
+        "Tips_13": "Nhà xưởng trực thuộc",
+        "Tips_14": "Số CCCD",
+        "Tips_15": "Có hiệu lực không",
+        "Tips_16": "Thời gian tạo",
+        "Tips_17": "Lỗi nhận dữ liệu",
+        "Tips_18": "Đồng bộ thành công!",
+        "Tips_19": "Vui lòng chọn một dòng số liệu",
+        "Tips_20": "Vui lòng chọn thuộc tính",
+        "Tips_21": "Xóa",
+        "Tips_22": "Bạn chắc chắn xóa tất cả dữ liệu đã chọn？",
+        "Tips_23": "Thông báo lỗi",
+        "Tips_24": "Thao tác thất bại -",
+        "Tips_25": "Quản lý nhân viên"
+      },
+      "Title": "Quản lý nhân viên"
+    },
+    "PrintServer": {
+      "PrintServeradd": {
+        "Tips_1": "Hủy bỏ",
+        "Tips_2": "Lưu",
+        "Tips_3": "Tên máy in:",
+        "Tips_4": "Địa chỉ IP:",
+        "Tips_5": "Ghi chú:"
+      },
+      "PrintServeredit": {
+        "Tips_1": "Hủy bỏ",
+        "Tips_2": "Lưu",
+        "Tips_3": "Tên máy in:",
+        "Tips_4": "Địa chỉ IP:",
+        "Tips_5": "Ghi chú:"
+      },
+      "PrintServerlist": {
+        "Tips_1": "Tên máy in:",
+        "Tips_2": "Địa chỉ IP:",
+        "Tips_3": "Tìm kiếm",
+        "Tips_4": "Xóa",
+        "Tips_5": "Chỉnh sửa",
+        "Tips_6": "Thêm mới"
+      },
+      "PrintServeraddctrl": {
+        "Tips_1": "Thêm mới",
+        "Tips_2": "Địa chỉ IP không chính xác, vui lòng nhập lại",
+        "Tips_3": "Lưu thành công！",
+        "Tips_4": "Lỗi thao tác"
+      },
+      "PrintServereditctrl": {
+        "Tips_1": "Sửa đổi",
+        "Tips_2": "Địa chỉ IP không chính xác, vui lòng nhập lại",
+        "Tips_3": "Lưu thành công！",
+        "Tips_4": "Lỗi thao tác"
+      },
+      "PrintServerlistctrl": {
+        "Tips_1": "Số thứ tự",
+        "Tips_2": "Khóa chính",
+        "Tips_3": "Máy in",
+        "Tips_4": "Địa chỉ IP",
+        "Tips_5": "Ghi chú",
+        "Tips_6": "Lỗi nhận dữ liệu",
+        "Tips_7": "Bạn chắc chắn muốn xóa địa chỉ IP",
+        "Tips_8": "ghi chép không?",
+        "Tips_9": "Xóa thành công!",
+        "Tips_10": "Thông báo",
+        "Tips_11": "Dịch vụ in"
+      },
+      "Title": "Máy in"
+    },
+    "Sys_DataSegregateGroup": {
+      "Sys_DataSegregateGroupadd": {
+        "Tips_1": "Quay lại",
+        "Tips_2": "Lưu",
+        "Tips_3": "Mã nhóm cách ly:",
+        "Tips_4": "Tên nhóm cách ly",
+        "Tips_5": "Tem nhóm cách ly:",
+        "Tips_6": "Ghi chú:"
+      },
+      "Sys_DataSegregateGroupedit": {
+        "Tips_1": "Quay lại",
+        "Tips_2": "Lưu",
+        "Tips_3": "Mã nhóm cách ly:",
+        "Tips_4": "Tên nhóm cách ly",
+        "Tips_5": "Tem nhóm cách ly:",
+        "Tips_6": "Ghi chú:"
+      },
+      "Sys_DataSegregateGrouplable": {
+        "Tips_1": "Đóng",
+        "Tips_2": "Không xác định",
+        "Tips_3": "Đã xác định"
+      },
+      "Sys_DataSegregateGrouplist": {
+        "Tips_1": "Mã nhóm cách ly:",
+        "Tips_2": "Tên nhóm cách ly:",
+        "Tips_3": "Tìm kiếm",
+        "Tips_4": "Tem chỉ định",
+        "Tips_5": "Nhân viên phân công",
+        "Tips_6": "Xóa nhóm",
+        "Tips_7": "Chỉnh sửa",
+        "Tips_8": "Thêm mới",
+        "Tips_9": "Tem cách ly chỉ định nhóm",
+        "Tips_10": "Thành viên nhóm"
+      },
+      "Sys_DataSegregateGroupperson": {
+        "Tips_1": "Quay lại",
+        "Tips_2": "Bộ phận:",
+        "Tips_3": "Mã nhân viên",
+        "Tips_4": "Tìm kiếm"
+      },
+      "Sys_DataSegregateGroupaddctrl": {
+        "Tips_1": "Thêm mới nhóm cách ly"
+      },
+      "Sys_DataSegregateGroupeditctrl": {
+        "Tips_1": "Sửa đổi nhóm cách ly dữ liệu"
+      },
+      "Sys_DataSegregateGrouplablectrl": {
+        "Tips_1": "Tem chỉ định",
+        "Tips_2": "Tên tem",
+        "Tips_3": "Màu tem",
+        "Tips_4": "Ghi chú",
+        "Tips_5": "Không tìm thấy dữ liệu chưa phân bổ",
+        "Tips_6": "Lỗi nhận dữ liệu",
+        "Tips_7": "Không tìm thấy dữ liệu đã phân bổ",
+        "Tips_8": "Vui lòng chọn dữ liệu cần thao tác",
+        "Tips_9": "Thông báo",
+        "Tips_10": "Thao tác thành công"
+      },
+      "Sys_DataSegregateGrouplistctrl": {
+        "Tips_1": "Số thứ tự",
+        "Tips_2": "Mã nhóm cách ly",
+        "Tips_3": "Tên nhóm cách ly",
+        "Tips_4": "Giá trị tem nhóm cách ly",
+        "Tips_5": "Người tạo",
+        "Tips_6": "Ngày tạo",
+        "Tips_7": "Người sửa đổi",
+        "Tips_8": "Ngày sửa đổi",
+        "Tips_9": "Giá trị tem",
+        "Tips_10": "Màu tem",
+        "Tips_11": "Mã thành viên",
+        "Tips_12": "Tên thành viên",
+        "Tips_13": "Lỗi nhận dữ liệu",
+        "Tips_14": "Bạn chắc chắn muốn xoá mã nhóm cách ly",
+        "Tips_15": "ghi chép không?",
+        "Tips_16": "Lỗi xóa dữ liệu",
+        "Tips_17": "Bản ghi đã bị xóa, không cần xóa lại",
+        "Tips_18": "Thông báo",
+        "Tips_19": "Nhóm cách ly dữ liệu"
+      },
+      "Sys_DataSegregateGrouppersonctrl": {
+        "Tips_1": "Nhân viên phân công",
+        "Tips_2": "Mã thành viên",
+        "Tips_3": "Tên thành viên",
+        "Tips_4": "Khóa chính",
+        "Tips_5": "Lỗi nhận dữ liệu",
+        "Tips_6": "Không tìm thấy dữ liệu đã phân bổ",
+        "Tips_7": "Lỗi truy vấn",
+        "Tips_8": "Phân bổ thành công",
+        "Tips_9": "Hủy bỏ phân bổ thành công"
+      },
+      "Title": "Nhóm cách ly dữ liệu"
+    },
+    "Sys_DataSegregateLabel": {
+      "Sys_DataSegregateLabellist": {
+        "Tips_1": "Xóa"
+      },
+      "Sys_DataSegregateLabellistctrl": {
+        "Tips_1": "Số thứ tự",
+        "Tips_2": "Tên tem",
+        "Tips_3": "Màu tem",
+        "Tips_4": "Giá trị tem cách ly",
+        "Tips_5": "Người tạo",
+        "Tips_6": "Ngày tạo",
+        "Tips_7": "Người sửa đổi",
+        "Tips_8": "Ngày sửa đổi",
+        "Tips_9": "Ghi chú",
+        "Tips_10": "Lỗi nhận dữ liệu",
+        "Tips_11": "Bạn chắc chắn muốn xóa",
+        "Tips_12": "Xóa thành công!",
+        "Tips_13": "Thông báo",
+        "Tips_14": "Tem cách ly dữ liệu"
+      },
+      "Title": "Tem cách ly dữ liệu"
+    },
+    "UIModule1": {
+      "Title": "UIModule1"
+    }
+  }
+}

@@ -1,0 +1,28 @@
+﻿<div id="itemlist" class="content-area content-area-relative" style="height: calc(90% - 30px) !important">
+    <div class="col-md-40 serachPanel" style="margin-left: 10px;">
+        <sit-property-grid sit-id="add_form" sit-layout="Horizontal" sit-type="Fluid" sit-mode="edit" sit-columns="54">
+            <sit-property sit-widget="sit-text" sit-value="vm.searchParams.Server" sit-read-only="false">{{'Siemens.SimaticIT.SystemApp.PrintServer.PrintServerlist.Tips_1'|translate}}</sit-property>
+            <sit-property sit-widget="sit-text" sit-value="vm.searchParams.IP" sit-read-only="false">{{'Siemens.SimaticIT.SystemApp.PrintServer.PrintServerlist.Tips_2'|translate}}</sit-property>
+            <!-- 存放按钮 -->
+            <sit-command-bar sit-type="action">
+                <sit-command sit-icon="fa-search" sit-type="main" sit-name="com.siemens.customcommand.search" style="margin-top:10" :sit-tooltip="{{'Siemens.SimaticIT.SystemApp.PrintServer.PrintServerlist.Tips_3'|translate}}"
+                             ng-click="vm.searchButtonHandler" :sit-label="{{'Siemens.SimaticIT.SystemApp.PrintServer.PrintServerlist.Tips_3'|translate}}">
+                </sit-command>
+            </sit-command-bar>
+        </sit-property-grid>
+    </div>
+    <!-- 存放按钮 -->
+    <sit-command-bar sit-vertical-autofixed="true" sit-type="Tool" :sit-label-align="right" sit-layout="vertical">
+        <sit-command sit-icon="fa-trash" sit-type="main" sit-name="com.siemens.customcommand.search"
+                     :sit-tooltip="{{'Siemens.SimaticIT.SystemApp.PrintServer.PrintServerlist.Tips_4'|translate}}" ng-show="vm.isButtonVisible" ng-click="vm.deleteButtonHandler" :sit-label="{{'Siemens.SimaticIT.SystemApp.PrintServer.PrintServerlist.Tips_4'|translate}}"></sit-command>
+        <sit-command sit-icon="fa fa-pencil-square" sit-type="main" sit-name="com.siemens.customcommand.search"
+                     :sit-tooltip="{{'Siemens.SimaticIT.SystemApp.PrintServer.PrintServerlist.Tips_5'|translate}}" ng-show="vm.isButtonVisible" ng-click="vm.editButtonHandler" :sit-label="{{'Siemens.SimaticIT.SystemApp.PrintServer.PrintServerlist.Tips_5'|translate}}"></sit-command>
+        <sit-command sit-icon="fa-plus-square" sit-type="main" sit-name="com.siemens.customcommand.add"
+                     :sit-tooltip="{{'Siemens.SimaticIT.SystemApp.PrintServer.PrintServerlist.Tips_6'|translate}}" ng-click="vm.addButtonHandler" :sit-label="{{'Siemens.SimaticIT.SystemApp.PrintServer.PrintServerlist.Tips_6'|translate}}"></sit-command>
+    </sit-command-bar>
+    <div id="listClass" style="width:100%; height: 100%; padding:0px 16px 0 16px; margin-top: 3px;">
+        <div ui-grid="vm.gridOptions" ui-grid-pinning ui-grid-auto-resize ui-grid-resize-columns ui-grid-selection
+             ui-grid-pagination class="uigrid"></div>
+    </div>
+
+</div>

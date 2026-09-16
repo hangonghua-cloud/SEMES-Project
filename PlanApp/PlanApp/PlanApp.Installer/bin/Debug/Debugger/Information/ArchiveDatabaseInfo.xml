@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Items>
+  <ArchiveDatabaseInfo Id="9ff8da7e-fe46-4138-9d45-5878f37362a0">
+    <CommandTimeout>30000</CommandTimeout>
+    <ConnectionTimeout>15000</ConnectionTimeout>
+    <DataSource>UATEST-SERVER</DataSource>
+    <DatabaseType>MSSQLServer</DatabaseType>
+    <InitialCatalog>MESArchiving</InitialCatalog>
+    <NumberOfRetries>500</NumberOfRetries>
+    <RetriesDelay>500</RetriesDelay>
+    <Schema></Schema>
+    <Name>MOMArchive</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </ArchiveDatabaseInfo>
+</Items>

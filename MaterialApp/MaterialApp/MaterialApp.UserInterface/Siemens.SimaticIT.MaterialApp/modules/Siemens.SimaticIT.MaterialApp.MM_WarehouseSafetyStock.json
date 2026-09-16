@@ -1,0 +1,19 @@
+﻿{
+   "name": "Siemens.SimaticIT.MaterialApp.MM_WarehouseSafetyStock",
+   "type": "standard",
+   "title": "Siemens.SimaticIT.MaterialApp.MM_WarehouseSafetyStock.Title",
+   "header": "",
+   "icon": "svg typeActionLongTerm48",
+   "functionalBlock": "Siemens.SimaticIT.MaterialApp",
+   "dependencies": [],
+   "states": [
+     {
+       "id": "home.Siemens_SimaticIT_MaterialApp_MM_WarehouseSafetyStock_MM_WarehouseSafetyStock",
+       "title": "Siemens.SimaticIT.MaterialApp.MM_WarehouseSafetyStock.Title",
+       "header": "",
+       "securable": true,
+       "roles": []
+     }
+   ],
+   "manifestVersion": "01.01.00"
+}

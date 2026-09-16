@@ -1,0 +1,184 @@
+VERSION '01.13'
+
+///数据字典主表
+[NotRestricted]
+[Securable]
+[@Guid(1b493cc7-741a-4265-aba2-44c30494d900)]
+[@GuidId(6c9d9b6e-8954-465a-88ce-0744b2dbbbbb)]
+ENTITY DataItemCategoryEntity
+WITH
+    [Length = 255]
+    [@Guid(e2f627f7-903a-4fcd-9143-e64cfc6450ff)]
+    CategoryCode AS string
+    [Length = 255]
+    [@Guid(a964bf60-f6d1-494b-aead-472f7e258cb0)]
+    CategoryName AS string
+    [@Guid(4c9e3214-0224-4fca-91b4-e75dd8a41131)]
+    ParentId AS Guid
+    [@Guid(b125f8b8-4110-4179-821e-464dbb30f0bd)]
+    SortNum AS decimal
+    [@Guid(250a1be0-7918-453a-9fa9-e5d1b114e737)]
+    IsValid AS bool
+
+///数据字典子表
+[NotRestricted]
+[Securable]
+[@Guid(f4c619c3-70a2-4eb5-81f6-00b91d7be648)]
+[@GuidId(256c27bb-ef28-4f51-b89b-af43b55b6fa5)]
+ENTITY DataItemEntity
+WITH
+    [Length = 255]
+    [@Guid(499bee8c-cdaf-4234-9464-7e8f86caa358)]
+    ItemCode AS string
+    [Length = 255]
+    [@Guid(3f6e4200-bcf0-42c0-84fa-b1456ca78f99)]
+    ItemName AS string
+    [@Guid(3a4a1425-0fdf-40a4-bf3a-9b7f5da7fcb0)]
+    SortNum AS decimal
+    [@Guid(5a9d1fb8-b7d2-45f9-b3c9-5808f896fc33)]
+    IsValid AS bool
+    [Length = 255]
+    [@Guid(e0eb75bb-5f05-4521-8bb7-2bfb40228ae9)]
+    CategoryCode AS string
+    [Length = 255]
+    [@Guid(4a0cf062-8438-43cf-9312-754acd6e283d)]
+    ItemValue AS string
+    [Default = true]
+    [@Guid(2abdcab8-dc11-40f3-9faa-842383c3de06)]
+    IsAuto AS bool
+
+///移动端功能记录表
+[NotRestricted]
+[Securable]
+[@Guid(1b3a0f3b-f3c0-437f-aa8b-b534b74b73bf)]
+[@GuidId(4a73dd06-c063-41e0-b397-09e13268408e)]
+ENTITY AppModelEntity
+WITH
+    [Length = 255]
+    [@Guid(ebe036cf-9f2b-4025-88fe-168a7812bf64)]
+    ModelCode AS string
+    [Length = 255]
+    [@Guid(658f20e7-179e-424a-9d47-444eb1943ef8)]
+    ModelName AS string
+    [Length = 255]
+    [@Guid(1a429e7d-696f-4cb8-86c3-360a3afb2802)]
+    CreatedByName AS string
+    [@Guid(bb52f6f5-2a88-46a9-bb6b-24bd5c1ab5e9)]
+    CreatedTime AS DateTime
+    [Length = 255]
+    [@Guid(723e95a2-73e2-4477-9f0b-069256a6052f)]
+    ModelColor AS string
+    [Length = 255]
+    [@Guid(6271414e-e841-48b3-a2f6-bda042325aa1)]
+    ModelIco AS string
+    [@Guid(29a2ef83-2274-4a87-b3df-e2d45645b1db)]
+    OrderByNum AS decimal
+    [Length = 255]
+    [@Guid(8507c61d-1aec-4a17-9a15-bb2588eaf22a)]
+    UpdateByCode AS string
+    [Length = 255]
+    [@Guid(7dd3e08c-783f-471c-aca4-7f6db94807d3)]
+    UpdateByName AS string
+    [@Guid(2323bfa8-2ac2-4b9b-9031-601059ee7c19)]
+    UpdateTime AS DateTime
+    [Length = 255]
+    [@Guid(51d93b8a-592e-42df-8201-66efa5cf8827)]
+    ModelType AS string
+    [Length = 255]
+    [@Guid(2e45515a-57a8-4e7c-84d8-9b5e9574da5b)]
+    OwnedPage AS string
+    [Length = 255]
+    [@Guid(b36563b7-70da-48ea-b13f-d27d6d55c2a5)]
+    CreatedByCode AS string
+    [Length = 255]
+    [@Guid(e8a68e0a-7ac6-48ea-ae82-539ac2426bd6)]
+    ModelIcoName AS string
+    [Length = 255]
+    [@Guid(3d3511a1-d952-4295-a9fb-0c347bf04245)]
+    ModelIcoClass AS string
+    [Length = 255]
+    [@Guid(5725230d-7aea-4b43-9134-eaa3b0ee82cc)]
+    OwnedPageName AS string
+
+///移动端角色配置表
+[NotRestricted]
+[Securable]
+[@Guid(005a8d24-c4c6-472f-99f6-d0acc278ffba)]
+[@GuidId(2bbb17c7-2564-4ada-87df-edd8f62ce4a6)]
+ENTITY AppRolesConfiEntity
+WITH
+    [Length = 255]
+    [@Guid(ad1b1f06-f3b9-43b0-a1f2-4c9d9729cea1)]
+    CreatedByCode AS string
+    [Length = 255]
+    [@Guid(df25f725-9879-4f5c-af97-6d234264aac6)]
+    CreatedByName AS string
+    [@Guid(9437ffd9-0dc4-44f5-87e5-e3acf0b17629)]
+    IsEnabled AS bool
+    [Length = 255]
+    [@Guid(cadd7084-3377-4423-9883-c4f291569950)]
+    ModelCode AS string
+    [Length = 255]
+    [@Guid(bf13aaa7-a240-4030-a16d-c8585ee60c14)]
+    ModelName AS string
+    [Length = 255]
+    [@Guid(6ff8cf2f-65fc-4436-9f06-aefabad57118)]
+    ModelType AS string
+    [Length = 255]
+    [@Guid(424cd403-ac82-4b1b-8b7e-e3b41207b05f)]
+    OwnedPage AS string
+    [Length = 255]
+    [@Guid(adbb6c0e-458a-4b1e-a296-4ce9f52aa119)]
+    RoleCode AS string
+    [Length = 255]
+    [@Guid(82f76df4-2f82-48f1-a29b-644a6099be5b)]
+    UpdateByCode AS string
+    [@Guid(92add022-c5dd-46c1-b757-e60f002bd8fa)]
+    UpdateTime AS DateTime
+    [@Guid(67c38847-f904-41ae-a652-f5b4ad8a18de)]
+    CreatedTime AS DateTime
+    [Length = 255]
+    [@Guid(636373f7-88a4-40d6-95c1-893b6e57690a)]
+    UpdateByName AS string
+
+///移动端用户表
+[NotRestricted]
+[Securable]
+[@Guid(bb37ac2d-08dd-43cd-b208-1bded02a1a35)]
+[@GuidId(a597cb4d-af33-498b-a833-2866b643361a)]
+ENTITY AppUsersEntity
+WITH
+    [Length = 255]
+    [@Guid(a261d958-11b3-4af1-a0fa-74eb3581404e)]
+    UserId AS string
+    [Length = 255]
+    [@Guid(43b2ade8-2cc8-4384-ae25-591b45292bf5)]
+    UserCode AS string
+    [Length = 255]
+    [@Guid(1128d4b9-7c7f-4785-b48b-8d504df3fb9e)]
+    CreatedByCode AS string
+    [Length = 255]
+    [@Guid(530c40e5-0c23-4b8c-902a-ed41975ed30e)]
+    CreatedByName AS string
+    [@Guid(bc0dbd0b-2750-4df6-9e77-ed92b8c1a077)]
+    CreatedTime AS DateTime
+    [Length = 255]
+    [@Guid(399e8ed5-27f6-42a6-ad33-924873126e0d)]
+    UpdateByCode AS string
+    [Length = 255]
+    [@Guid(f1f6499d-8a36-4552-b6e2-8412e7495b68)]
+    UpdateByName AS string
+    [@Guid(e164dd80-0af2-4d09-b0c5-be4ec5515666)]
+    UpdateTime AS DateTime
+    [Length = 255]
+    [@Guid(31d34209-cf0a-469c-b3d4-473d5106884d)]
+    UserDesc AS string
+    [@Guid(df30ba3b-8d26-4903-90f7-07c7471aaeec)]
+    IsEnabled AS bool
+    [Length = 255]
+    [@Guid(a9c90363-edb7-4bfa-a9ee-4ac4a1a36fd6)]
+    UserPWD AS string
+    [Length = 255]
+    [@Guid(9e8f30ad-56e9-4a4e-a7bd-199135f651cd)]
+    GroupIds AS string
+

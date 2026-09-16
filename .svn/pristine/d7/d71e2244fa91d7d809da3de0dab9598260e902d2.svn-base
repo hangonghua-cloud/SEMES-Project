@@ -1,0 +1,19 @@
+﻿{
+  "name": "Siemens.SimaticIT.QualityApp.IPQCManage",
+  "type": "standard",
+  "title": "Siemens.SimaticIT.QualityApp.TestMaintenance.Title",
+  "header": "",
+  "icon": "fa-folder",
+  "functionalBlock": "Siemens.SimaticIT.QualityApp",
+  "dependencies": [],
+  "states": [
+    {
+      "id": "home.Siemens_SimaticIT_QualityApp_IPQCManage_TestMaintenance",
+      "title": "Siemens.SimaticIT.QualityApp.TestMaintenance.Title",
+      "header": "",
+      "securable": true,
+      "roles": []
+    }
+  ],
+  "manifestVersion": "01.01.00"
+}

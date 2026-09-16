@@ -1,0 +1,288 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{DABEDDAE-2BB2-403B-BB39-08776AEBAD33}</ProjectGuid>
+    <ProjectTypeGuids>{D45F378E-08AA-4766-880A-1AF4180CC2F8};{349c5851-65df-11da-9384-00065b846f21};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CCS.CommonApp.UserInterface</RootNamespace>
+    <AssemblyName>CCS.CommonApp.UserInterface</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <Name>CommonApp.UserInterface</Name>
+    <FunctionalBlockType>Project</FunctionalBlockType>
+    <FunctionalBlockVersion>01.00.00</FunctionalBlockVersion>
+    <FunctionalBlockName>CommonApp</FunctionalBlockName>
+    <FunctionalBlockPrefix>CCS</FunctionalBlockPrefix>
+    <SitPlatformVersion>4.1</SitPlatformVersion>
+    <Use64BitIISExpress />
+    <UseGlobalApplicationHostFile />
+    <TypeScriptToolsVersion>3.1</TypeScriptToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="CCS.CommonApp\components\" />
+    <Folder Include="CCS.CommonApp\config\" />
+    <Folder Include="CCS.CommonApp\fonts\" />
+    <Folder Include="CCS.CommonApp\images\" />
+    <Folder Include="CCS.CommonApp\swac\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CCS.CommonApp\layout\ChangeLocation\ChangeLocation.js" />
+    <Content Include="CCS.CommonApp\layout\ChangeLocation\ChangeLocation.tpl.html" />
+    <Content Include="CCS.CommonApp\modules\CommonUI\Blank-add-ctrl.js" />
+    <Content Include="CCS.CommonApp\modules\CommonUI\Blank-add.html" />
+    <Content Include="CCS.CommonApp\modules\CommonUI\Blank-edit-ctrl.js" />
+    <Content Include="CCS.CommonApp\modules\CommonUI\Blank-edit.html" />
+    <Content Include="CCS.CommonApp\modules\CommonUI\Blank-list-ctrl.js" />
+    <Content Include="CCS.CommonApp\modules\CommonUI\Blank-list.html" />
+    <Content Include="CCS.CommonApp\modules\CommonUI\Blank-select-ctrl.js" />
+    <Content Include="CCS.CommonApp\modules\CommonUI\Blank-select.html" />
+    <Content Include="CCS.CommonApp\modules\CommonUI\Blank-srv.js" />
+    <Content Include="CCS.CommonApp\modules\CommonUI\Demo-add-ctrl.js" />
+    <Content Include="CCS.CommonApp\modules\CommonUI\Demo-add.html" />
+    <Content Include="CCS.CommonApp\modules\CommonUI\Demo-edit-ctrl.js" />
+    <Content Include="CCS.CommonApp\modules\CommonUI\Demo-edit.html" />
+    <Content Include="CCS.CommonApp\modules\CommonUI\Demo-list-ctrl.js" />
+    <Content Include="CCS.CommonApp\modules\CommonUI\Demo-list.html" />
+    <Content Include="CCS.CommonApp\modules\CommonUI\Demo-select-ctrl.js" />
+    <Content Include="CCS.CommonApp\modules\CommonUI\Demo-select.html" />
+    <Content Include="CCS.CommonApp\modules\CommonUI\Demo-srv.js" />
+    <Content Include="CCS.CommonApp\modules\CommonUI\FileManageModal.html" />
+    <Content Include="CCS.CommonApp\modules\CommonUI\FileManageModal.js" />
+    <Content Include="CCS.CommonApp\modules\CommonUI\module.js" />
+    <Content Include="CCS.CommonApp\modules\CommonUI\SelectEP_EquipmentModal.html" />
+    <Content Include="CCS.CommonApp\modules\CommonUI\SelectEP_EquipmentModal.js" />
+    <Content Include="CCS.CommonApp\modules\CommonUI\SelectMaterialModal.html" />
+    <Content Include="CCS.CommonApp\modules\CommonUI\SelectMaterialModal.js" />
+    <Content Include="CCS.CommonApp\modules\CommonUI\Select_multiSelectModal.html" />
+    <Content Include="CCS.CommonApp\modules\CommonUI\Select_multiSelectModal.js" />
+    <Content Include="CCS.CommonApp\modules\CommonUI\Select_SingleChoiceModal.html" />
+    <Content Include="CCS.CommonApp\modules\CommonUI\Select_SingleChoiceModal.js" />
+    <Content Include="CCS.CommonApp\modules\CommonUI\Select_SingleChoiceModalByValue.html" />
+    <Content Include="CCS.CommonApp\modules\CommonUI\Select_SingleChoiceModalByValue.js" />
+    <Content Include="CCS.CommonApp\modules\CommonUI\Select_SingleChoiceModalForBarCode.html" />
+    <Content Include="CCS.CommonApp\modules\CommonUI\Select_SingleChoiceModalForBarCode.js" />
+    <Content Include="CCS.CommonApp\modules\CommonUI\Select_SingleChoiceModal_RawReceipt.html" />
+    <Content Include="CCS.CommonApp\modules\CommonUI\Select_SingleChoiceModal_RawReceipt.js" />
+    <Content Include="CCS.CommonApp\modules\Common\Common-add-ctrl.js" />
+    <Content Include="CCS.CommonApp\modules\Common\Common-add.html" />
+    <Content Include="CCS.CommonApp\modules\Common\Common-edit-ctrl.js" />
+    <Content Include="CCS.CommonApp\modules\Common\Common-edit.html" />
+    <Content Include="CCS.CommonApp\modules\Common\Common-list-ctrl.js" />
+    <Content Include="CCS.CommonApp\modules\Common\Common-list.html" />
+    <Content Include="CCS.CommonApp\modules\Common\Common-select-ctrl.js" />
+    <Content Include="CCS.CommonApp\modules\Common\Common-select.html" />
+    <Content Include="CCS.CommonApp\modules\Common\Common-srv.js" />
+    <Content Include="CCS.CommonApp\modules\Common\module.js" />
+    <Content Include="CCS.CommonApp\scripts\date.js" />
+    <Content Include="CCS.CommonApp\scripts\select2\angular-select2.js" />
+    <Content Include="CCS.CommonApp\scripts\select2\angular-select2.min.js" />
+    <Content Include="CCS.CommonApp\scripts\select2\select2.js" />
+    <Content Include="CCS.CommonApp\scripts\select2\select2.min.js" />
+    <Content Include="CCS.CommonApp\scripts\selectJS\angularjs-dropdown-multiselect.min.js" />
+    <Content Include="CCS.CommonApp\scripts\sheetJS\canvas-datagrid.js" />
+    <Content Include="CCS.CommonApp\scripts\sheetJS\shim.min.js" />
+    <Content Include="CCS.CommonApp\scripts\sheetJS\xlsx.full.min.js" />
+    <Content Include="CCS.CommonApp\scripts\upload\angular-file-upload.directive.js" />
+    <Content Include="CCS.CommonApp\scripts\upload\angular-file-upload.min.js" />
+    <Content Include="CCS.CommonApp\services\common-service.js" />
+    <Content Include="CCS.CommonApp\services\CommonFactory.js" />
+    <Content Include="CCS.CommonApp\services\commonTopSwacService.js" />
+    <Content Include="CCS.CommonApp\styles\CCS.CommonApp-Light.css" />
+    <Content Include="CCS.CommonApp\styles\select2-bootstrap.css" />
+    <Content Include="CCS.CommonApp\styles\select2-bootstrap.min.css" />
+    <Content Include="CCS.CommonApp\styles\select2.css" />
+    <Content Include="CCS.CommonApp\styles\select2.min.css" />
+    <Content Include="CCS.CommonApp\widgets\appico\cube.min.css" />
+    <Content Include="CCS.CommonApp\widgets\appico\demo.css" />
+    <Content Include="CCS.CommonApp\widgets\appico\iconfont.css" />
+    <Content Include="CCS.CommonApp\widgets\appico\iconfont.js" />
+    <Content Include="CCS.CommonApp\widgets\appico\iconfont.svg" />
+    <Content Include="CCS.CommonApp\widgets\entityPicker\dialog-template.html" />
+    <Content Include="CCS.CommonApp\widgets\jinqjs.1.6.1\content\scripts\jinqjs.js" />
+    <Content Include="CCS.CommonApp\widgets\jinqjs.1.6.1\content\scripts\jinqjs.min.js" />
+    <Content Include="CCS.CommonApp\widgets\jinqjs.1.6.1\[Content_Types].xml" />
+    <Content Include="CCS.CommonApp\widgets\jstree\jsTree.directive.js" />
+    <Content Include="CCS.CommonApp\widgets\jstree\jstree.min.js" />
+    <Content Include="CCS.CommonApp\widgets\jstree\jsTreePlugin.directive.js" />
+    <Content Include="CCS.CommonApp\widgets\jstree\themes\default-dark\32px.png" />
+    <Content Include="CCS.CommonApp\widgets\jstree\themes\default-dark\40px.png" />
+    <Content Include="CCS.CommonApp\widgets\jstree\themes\default-dark\style.css" />
+    <Content Include="CCS.CommonApp\widgets\jstree\themes\default-dark\style.min.css" />
+    <Content Include="CCS.CommonApp\widgets\jstree\themes\default-dark\throbber.gif" />
+    <Content Include="CCS.CommonApp\widgets\jstree\themes\default\32px.png" />
+    <Content Include="CCS.CommonApp\widgets\jstree\themes\default\40px.png" />
+    <Content Include="CCS.CommonApp\widgets\jstree\themes\default\style.css" />
+    <Content Include="CCS.CommonApp\widgets\jstree\themes\default\style.min.css" />
+    <Content Include="CCS.CommonApp\widgets\jstree\themes\default\throbber.gif" />
+    <Content Include="CCS.CommonApp\widgets\jstree\tree-dialog-template.html" />
+    <Content Include="CCS.CommonApp\widgets\layui\css\layui.css" />
+    <Content Include="CCS.CommonApp\widgets\layui\css\modules\code.css" />
+    <Content Include="CCS.CommonApp\widgets\layui\css\modules\laydate\default\laydate.css" />
+    <Content Include="CCS.CommonApp\widgets\layui\css\modules\layer\default\icon-ext.png" />
+    <Content Include="CCS.CommonApp\widgets\layui\css\modules\layer\default\icon.png" />
+    <Content Include="CCS.CommonApp\widgets\layui\css\modules\layer\default\layer.css" />
+    <Content Include="CCS.CommonApp\widgets\layui\css\modules\layer\default\loading-0.gif" />
+    <Content Include="CCS.CommonApp\widgets\layui\css\modules\layer\default\loading-1.gif" />
+    <Content Include="CCS.CommonApp\widgets\layui\css\modules\layer\default\loading-2.gif" />
+    <Content Include="CCS.CommonApp\widgets\layui\font\iconfont.svg" />
+    <Content Include="CCS.CommonApp\widgets\layui\layui.js" />
+    <Content Include="CCS.CommonApp\widgets\SheetJS\SheetJS-angular.js" />
+    <Content Include="CCS.CommonApp\widgets\sitAlpDatePicker\sitAlpDatepicker.js" />
+    <Content Include="CCS.CommonApp\widgets\sitAlpSelectPicker\sit-alp-select-picker.html" />
+    <Content Include="CCS.CommonApp\widgets\sitAlpSelectPicker\sitAlpSelectPicker.js" />
+    <Content Include="CCS.CommonApp\widgets\sitAlpTextPicker\sit-alp-text-picker.html" />
+    <Content Include="CCS.CommonApp\widgets\sitAlpTextPicker\sitAlpTextPicker.js" />
+    <Content Include="CCS.CommonApp\widgets\ui-grid\fonts\ui-grid.svg" />
+    <Content Include="CCS.CommonApp\widgets\ui-grid\grunt-scripts\csv.js" />
+    <Content Include="CCS.CommonApp\widgets\ui-grid\grunt-scripts\excel-builder.dist.js" />
+    <Content Include="CCS.CommonApp\widgets\ui-grid\grunt-scripts\jszip.min.js" />
+    <Content Include="CCS.CommonApp\widgets\ui-grid\grunt-scripts\lodash.min.js" />
+    <Content Include="CCS.CommonApp\widgets\ui-grid\grunt-scripts\vfs_fonts.js" />
+    <Content Include="CCS.CommonApp\widgets\ui-grid\ui-grid.min.css" />
+    <Content Include="CCS.CommonApp\widgets\ui-grid\ui-grid.min.js" />
+    <Content Include="CCS.CommonApp\scripts\initCommon.js" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CCS.CommonApp\resources\common.zh-CN.json" />
+    <Content Include="CCS.CommonApp\resources\entityPicker.zh-CN.json" />
+    <Content Include="CCS.CommonApp\modules\CCS.CommonApp.Common.json" />
+    <Content Include="CCS.CommonApp\modules\CCS.CommonApp.CommonUI.json" />
+    <Content Include="CCS.CommonApp\widgets\ui-grid\fonts\ui-grid.eot" />
+    <Content Include="CCS.CommonApp\widgets\ui-grid\fonts\ui-grid.ttf" />
+    <Content Include="CCS.CommonApp\widgets\ui-grid\fonts\ui-grid.woff" />
+    <Content Include="CCS.CommonApp\widgets\jinqjs.1.6.1\.signature.p7s" />
+    <Content Include="CCS.CommonApp\widgets\jinqjs.1.6.1\jinqJs.nuspec" />
+    <Content Include="CCS.CommonApp\widgets\jinqjs.1.6.1\package\services\metadata\core-properties\c4af7ca602df46658d14449c7ab00584.psmdcp" />
+    <Content Include="CCS.CommonApp\widgets\jinqjs.1.6.1\_rels\.rels" />
+    <Content Include="CCS.CommonApp\widgets\appico\iconfont.eot" />
+    <Content Include="CCS.CommonApp\widgets\appico\iconfont.json" />
+    <Content Include="CCS.CommonApp\widgets\appico\iconfont.ttf" />
+    <Content Include="CCS.CommonApp\widgets\appico\iconfont.woff" />
+    <Content Include="CCS.CommonApp\widgets\appico\iconfont.woff2" />
+    <Content Include="CCS.CommonApp\widgets\layui\font\iconfont.eot" />
+    <Content Include="CCS.CommonApp\widgets\layui\font\iconfont.ttf" />
+    <Content Include="CCS.CommonApp\widgets\layui\font\iconfont.woff" />
+    <Content Include="CCS.CommonApp\widgets\layui\font\iconfont.woff2" />
+    <Content Include="CCS.CommonApp\scripts\selectJS\angularjs-dropdown-multiselect.min.js.map" />
+    <Content Include="CCS.CommonApp\resources\common.vi-VN.json" />
+    <Content Include="CCS.CommonApp\resources\common.th-TH.json" />
+    <Content Include="CCS.CommonApp\resources\common.en-US.json" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="app.js" />
+    <Content Include="config.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="default.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="default-debug.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CCS.CommonApp\module.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="scripts\_references.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CCS.CommonApp\locales\locales.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="CCS.CommonApp\widgets\jinqjs.1.6.1\content\scripts\typings\jinqJs\jinqJs.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Import Project="$(SITUnifiedVSToolingPlatformBin)\Siemens.SimaticIt.UI.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>59854</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:59854/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeCompile">
+  </Target>
+  <Target Name="AfterCompile">
+  </Target>
+  -->
+</Project>

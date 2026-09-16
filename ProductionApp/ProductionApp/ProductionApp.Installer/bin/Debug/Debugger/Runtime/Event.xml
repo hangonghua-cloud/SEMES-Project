@@ -1,0 +1,274 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Items>
+  <Event Id="9c8550b5-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.SystemData.Foundation.Events, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <EventType>Application</EventType>
+    <TimeToLive>-1</TimeToLive>
+    <Name>Siemens.SimaticIT.SystemData.Foundation.Events.CommittedEvent</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Event>
+  <Event Id="a08550b5-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.SystemData.Foundation.Events, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <EventType>Application</EventType>
+    <TimeToLive>-1</TimeToLive>
+    <Name>Siemens.SimaticIT.SystemData.Foundation.Events.SignalRuleStatusChanged</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Event>
+  <Event Id="a48550b5-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.SystemData.Foundation.Events, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <EventType>Application</EventType>
+    <TimeToLive>-1</TimeToLive>
+    <Name>Siemens.SimaticIT.SystemData.Foundation.Events.NodeStarted</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Event>
+  <Event Id="a88550b5-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.SystemData.Foundation.Events, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <EventType>Application</EventType>
+    <TimeToLive>-1</TimeToLive>
+    <Name>Siemens.SimaticIT.SystemData.Foundation.Events.AuditTrailRecordCreated</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Event>
+  <Event Id="ac8550b5-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.SystemData.Foundation.Events, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <EventType>Application</EventType>
+    <TimeToLive>-1</TimeToLive>
+    <Name>Siemens.SimaticIT.SystemData.Foundation.Events.SessionCreated</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Event>
+  <Event Id="b08550b5-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.SystemData.Foundation.Events, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <EventType>Application</EventType>
+    <TimeToLive>-1</TimeToLive>
+    <Name>Siemens.SimaticIT.SystemData.Foundation.Events.SessionPopulated</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Event>
+  <Event Id="b48550b5-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.SystemData.Foundation.Events, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <EventType>Application</EventType>
+    <TimeToLive>-1</TimeToLive>
+    <Name>Siemens.SimaticIT.SystemData.Foundation.Events.SessionAlignment</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Event>
+  <Event Id="b88550b5-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.SystemData.Foundation.Events, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <EventType>Application</EventType>
+    <TimeToLive>-1</TimeToLive>
+    <Name>Siemens.SimaticIT.SystemData.Foundation.Events.SessionDeleted</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Event>
+  <Event Id="bc8550b5-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.SystemData.Foundation.Events, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <EventType>Application</EventType>
+    <TimeToLive>-1</TimeToLive>
+    <Name>Siemens.SimaticIT.SystemData.Foundation.Events.SessionAligned</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Event>
+  <Event Id="c08550b5-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.SystemData.Foundation.Events, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <EventType>Application</EventType>
+    <TimeToLive>-1</TimeToLive>
+    <Name>Siemens.SimaticIT.SystemData.Foundation.Events.SessionUpdated</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Event>
+  <Event Id="c48550b5-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.SystemData.Foundation.Events, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <EventType>Application</EventType>
+    <TimeToLive>-1</TimeToLive>
+    <Name>Siemens.SimaticIT.SystemData.Foundation.Events.TimerEvent</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Event>
+  <Event Id="c88550b5-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.SystemData.Foundation.Events, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <EventType>Application</EventType>
+    <TimeToLive>-1</TimeToLive>
+    <Name>Siemens.SimaticIT.SystemData.Foundation.Events.AddApplicationLogEvent</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Event>
+  <Event Id="cc8550b5-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.SystemData.Foundation.Events, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <EventType>Application</EventType>
+    <TimeToLive>-1</TimeToLive>
+    <Name>Siemens.SimaticIT.SystemData.Foundation.Events.AutomationEvent</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Event>
+  <Event Id="d08550b5-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.SystemData.SITUASys.SDModel.Events, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <DotNetEventType></DotNetEventType>
+    <EventType>Application</EventType>
+    <FunctionalBlock>b43acd69-f051-42e0-9d45-6b730ce641da</FunctionalBlock>
+    <TimeToLive>-1</TimeToLive>
+    <Name>Siemens.SimaticIT.SystemData.SITUASys.SDModel.Events.KeepOperationAlive</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Event>
+  <Event Id="d58550b5-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.SystemData.SITUASys.SDModel.Events, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <DotNetEventType></DotNetEventType>
+    <EventType>Application</EventType>
+    <FunctionalBlock>b43acd69-f051-42e0-9d45-6b730ce641da</FunctionalBlock>
+    <TimeToLive>-1</TimeToLive>
+    <Name>Siemens.SimaticIT.SystemData.SITUASys.SDModel.Events.PerformExport</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Event>
+  <Event Id="da8550b5-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.SystemData.SITUASys.SDModel.Events, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <DotNetEventType></DotNetEventType>
+    <EventType>Application</EventType>
+    <FunctionalBlock>b43acd69-f051-42e0-9d45-6b730ce641da</FunctionalBlock>
+    <TimeToLive>-1</TimeToLive>
+    <Name>Siemens.SimaticIT.SystemData.SITUASys.SDModel.Events.PerformImport</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Event>
+  <Event Id="df8550b5-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.SystemData.SITUASys.SDModel.Events, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <DotNetEventType></DotNetEventType>
+    <EventType>Application</EventType>
+    <FunctionalBlock>b43acd69-f051-42e0-9d45-6b730ce641da</FunctionalBlock>
+    <TimeToLive>-1</TimeToLive>
+    <Name>Siemens.SimaticIT.SystemData.SITUASys.SDModel.Events.ExportCompleted</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Event>
+  <Event Id="e48550b5-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.SystemData.SITUASys.SDModel.Events, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <DotNetEventType></DotNetEventType>
+    <EventType>Application</EventType>
+    <FunctionalBlock>b43acd69-f051-42e0-9d45-6b730ce641da</FunctionalBlock>
+    <TimeToLive>-1</TimeToLive>
+    <Name>Siemens.SimaticIT.SystemData.SITUASys.SDModel.Events.ImportCompleted</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Event>
+  <Event Id="e3a73bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.ReferenceData.UDM_RF.RFModel.Events, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <DotNetEventType></DotNetEventType>
+    <EventType>Application</EventType>
+    <FunctionalBlock>c4a22c07-0284-4150-9889-f9ace0dec283</FunctionalBlock>
+    <TimeToLive>-1</TimeToLive>
+    <Name>Siemens.SimaticIT.ReferenceData.UDM_RF.RFModel.Events.StatusChanged</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Event>
+  <Event Id="e8a73bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.ReferenceData.UDM_RF.RFModel.Events, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <DotNetEventType></DotNetEventType>
+    <EventType>Application</EventType>
+    <FunctionalBlock>c4a22c07-0284-4150-9889-f9ace0dec283</FunctionalBlock>
+    <TimeToLive>-1</TimeToLive>
+    <Name>Siemens.SimaticIT.ReferenceData.UDM_RF.RFModel.Events.StatusForced</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Event>
+  <Event Id="eda73bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.MasterData.EQU_MS.MSModel.Events, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <DotNetEventType></DotNetEventType>
+    <EventType>Application</EventType>
+    <FunctionalBlock>b7d801c2-4574-4d61-9a86-fd7d083b3e5b</FunctionalBlock>
+    <TimeToLive>-1</TimeToLive>
+    <Name>Siemens.SimaticIT.MasterData.EQU_MS.MSModel.Events.EquipmentGraphNodeConfigurationUpdated</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Event>
+  <Event Id="f2a73bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.MasterData.EQU_MS.MSModel.Events, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <DotNetEventType></DotNetEventType>
+    <EventType>Application</EventType>
+    <FunctionalBlock>b7d801c2-4574-4d61-9a86-fd7d083b3e5b</FunctionalBlock>
+    <TimeToLive>-1</TimeToLive>
+    <Name>Siemens.SimaticIT.MasterData.EQU_MS.MSModel.Events.EquipmentGraphLinkConfigurationUpdated</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Event>
+  <Event Id="f7a73bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.MasterData.EQU_MS.MSModel.Events, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <DotNetEventType></DotNetEventType>
+    <EventType>Application</EventType>
+    <FunctionalBlock>b7d801c2-4574-4d61-9a86-fd7d083b3e5b</FunctionalBlock>
+    <TimeToLive>-1</TimeToLive>
+    <Name>Siemens.SimaticIT.MasterData.EQU_MS.MSModel.Events.EquipmentConfigurationUpdated</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Event>
+  <Event Id="fca73bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.MasterData.EQU_MS.MSModel.Events, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <DotNetEventType></DotNetEventType>
+    <EventType>Application</EventType>
+    <FunctionalBlock>b7d801c2-4574-4d61-9a86-fd7d083b3e5b</FunctionalBlock>
+    <TimeToLive>-1</TimeToLive>
+    <Name>Siemens.SimaticIT.MasterData.EQU_MS.MSModel.Events.EquipmentConfigurationGroupUpdated</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Event>
+  <Event Id="01a83bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.MasterData.EQU_MS.MSModel.Events, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <DotNetEventType></DotNetEventType>
+    <EventType>Application</EventType>
+    <FunctionalBlock>b7d801c2-4574-4d61-9a86-fd7d083b3e5b</FunctionalBlock>
+    <TimeToLive>-1</TimeToLive>
+    <Name>Siemens.SimaticIT.MasterData.EQU_MS.MSModel.Events.EquipmentConfigurationPropertyUpdated</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Event>
+  <Event Id="06a83bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.MasterData.EQU_MS.MSModel.Events, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <DotNetEventType></DotNetEventType>
+    <EventType>Application</EventType>
+    <FunctionalBlock>b7d801c2-4574-4d61-9a86-fd7d083b3e5b</FunctionalBlock>
+    <TimeToLive>-1</TimeToLive>
+    <Name>Siemens.SimaticIT.MasterData.EQU_MS.MSModel.Events.EquipmentConfigurationPropertyAttributeUpdated</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Event>
+  <Event Id="0ba83bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.MasterData.EQU_MS.MSModel.Events, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <DotNetEventType></DotNetEventType>
+    <EventType>Application</EventType>
+    <FunctionalBlock>b7d801c2-4574-4d61-9a86-fd7d083b3e5b</FunctionalBlock>
+    <TimeToLive>-1</TimeToLive>
+    <Name>Siemens.SimaticIT.MasterData.EQU_MS.MSModel.Events.EquipmentGraphConfigurationUpdated</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Event>
+  <Event Id="10a83bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.MasterData.EQU_MS.MSModel.Events, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <DotNetEventType></DotNetEventType>
+    <EventType>Application</EventType>
+    <FunctionalBlock>b7d801c2-4574-4d61-9a86-fd7d083b3e5b</FunctionalBlock>
+    <TimeToLive>-1</TimeToLive>
+    <Name>Siemens.SimaticIT.MasterData.EQU_MS.MSModel.Events.EquipmentConfigurationStateMachineUpdated</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Event>
+  <Event Id="1a795fdf-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.SystemData.DSG_SD.SDModel.Events, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <DotNetEventType></DotNetEventType>
+    <EventType>Application</EventType>
+    <FunctionalBlock>7b727879-f9d4-454d-b046-0b3cf8c2a55e</FunctionalBlock>
+    <TimeToLive>-1</TimeToLive>
+    <Name>Siemens.SimaticIT.SystemData.DSG_SD.SDModel.Events.SegregationTagDeleted</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Event>
+  <Event Id="1f795fdf-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.SystemData.DSG_SD.SDModel.Events, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <DotNetEventType></DotNetEventType>
+    <EventType>Application</EventType>
+    <FunctionalBlock>7b727879-f9d4-454d-b046-0b3cf8c2a55e</FunctionalBlock>
+    <TimeToLive>-1</TimeToLive>
+    <Name>Siemens.SimaticIT.SystemData.DSG_SD.SDModel.Events.SessionSelectedChanged</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Event>
+  <Event Id="24795fdf-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.SystemData.DSG_SD.SDModel.Events, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <DotNetEventType></DotNetEventType>
+    <EventType>Application</EventType>
+    <FunctionalBlock>7b727879-f9d4-454d-b046-0b3cf8c2a55e</FunctionalBlock>
+    <TimeToLive>-1</TimeToLive>
+    <Name>Siemens.SimaticIT.SystemData.DSG_SD.SDModel.Events.ReplacedSegregationTagAssociation</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Event>
+  <Event Id="29795fdf-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.MasterData.PRM_MS.MSModel.Events, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <DotNetEventType></DotNetEventType>
+    <EventType>Application</EventType>
+    <FunctionalBlock>a5464822-db7a-4485-aa39-6d5472b4f740</FunctionalBlock>
+    <TimeToLive>-1</TimeToLive>
+    <Name>Siemens.SimaticIT.MasterData.PRM_MS.MSModel.Events.StartUserImport</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Event>
+  <Event Id="2e795fdf-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.MasterData.PRM_MS.MSModel.Events, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <DotNetEventType></DotNetEventType>
+    <EventType>Application</EventType>
+    <FunctionalBlock>a5464822-db7a-4485-aa39-6d5472b4f740</FunctionalBlock>
+    <TimeToLive>-1</TimeToLive>
+    <Name>Siemens.SimaticIT.MasterData.PRM_MS.MSModel.Events.UserImportCompleted</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Event>
+</Items>

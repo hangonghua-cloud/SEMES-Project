@@ -1,0 +1,576 @@
+﻿{
+  "Siemens.SimaticIT.BaseDataApp": {
+    "DataDictionary": {
+      "DataDictionaryadd": {
+        "Tips_1": "Cancel",
+        "Tips_2": "Save",
+        "Tips_3": "Code:",
+        "Tips_4": "Name:",
+        "Tips_5": "Sort Order:",
+        "Tips_6": "Is Valid:",
+        "Tips_7": "Remarks:",
+        "Tips_8": "Parent Category:",
+        "Tips_9": "Select the parent category. Leave empty for top-level category",
+        "Tips_10": "Select Parent Category",
+        "Tips_11": "&nbsp;Select",
+        "Tips_12": "Select Organization"
+      },
+      "DataDictionaryedit": {
+        "Tips_1": "Cancel",
+        "Tips_2": "Save",
+        "Tips_3": "Code:",
+        "Tips_4": "Name:",
+        "Tips_5": "Sort Order:",
+        "Tips_6": "Is Valid:",
+        "Tips_7": "Remarks:",
+        "Tips_8": "Parent Category:",
+        "Tips_9": "Select the parent category. Leave empty for top-level category",
+        "Tips_10": "Select Parent Category",
+        "Tips_11": "&nbsp;Select",
+        "Tips_12": "Select Organization"
+      },
+      "DataDictionarylist": {
+        "Tips_1": "Create Category",
+        "Tips_2": "Create",
+        "Tips_3": "Edit Category",
+        "Tips_4": "Edit",
+        "Tips_5": "Delete Category",
+        "Tips_6": "Delete",
+        "Tips_7": "Edit",
+        "Tips_8": "Dictionary Data -",
+        "Tips_9": "Delete Item",
+        "Tips_10": "Edit Item",
+        "Tips_11": "Create Item",
+        "Tips_12": "Edit Category",
+        "Tips_13": "Add Category"
+      },
+      "DataDictionary_editDataItemDetail": {
+        "Tips_1": "Edit Dictionary Item",
+        "Tips_2": "Is Valid",
+        "Tips_3": "Operation Error",
+        "Tips_4": "Code:",
+        "Tips_5": "Sort Order:",
+        "Tips_6": "Is Valid:",
+        "Tips_7": "Remarks:",
+        "Tips_8": "Remarks1:",
+        "Tips_9": "Cancel",
+        "Tips_10": "Save"
+      },
+      "DataItemadd": {
+        "Tips_1": "Cancel",
+        "Tips_2": "Save",
+        "Tips_3": "Name:",
+        "Tips_4": "Code:",
+        "Tips_5": "Sort Order:",
+        "Tips_6": "Is Valid:",
+        "Tips_7": "Remarks:",
+        "Tips_8": "Remarks1:"
+      },
+      "DataDictionaryaddctrl": {
+        "Tips_1": "Create Dictionary Category",
+        "Tips_2": "Is Valid",
+        "Tips_3": "Confirm",
+        "Tips_4": "Cancel",
+        "Tips_5": "Select Parent Category",
+        "Tips_6": "Error Prompt",
+        "Tips_7": "Operation Error"
+      },
+      "DataDictionaryeditctrl": {
+        "Tips_1": "Is Valid",
+        "Tips_2": "Confirm",
+        "Tips_3": "Cancel",
+        "Tips_4": "Select Parent Category",
+        "Tips_5": "Error Prompt",
+        "Tips_6": "Operation Error"
+      },
+      "DataDictionarylistctrl": {
+        "Tips_1": "No Category Selected",
+        "Tips_2": "Serial Number",
+        "Tips_3": "Code",
+        "Tips_4": "Name",
+        "Tips_5": "Remarks",
+        "Tips_6": "Remarks1",
+        "Tips_7": "Sort Order",
+        "Tips_8": "Is Valid",
+        "Tips_9": "Creation Time",
+        "Tips_10": "Operation Error",
+        "Tips_11": "Please select a category first!",
+        "Tips_12": "Delete",
+        "Tips_13": "Are you sure you want to delete the category [",
+        "Tips_14": "]?",
+        "Tips_15": "Are you sure you want to delete the item [",
+        "Tips_16": "Data Dictionary"
+      },
+      "DataItemaddctrl": {
+        "Tips_1": "Create Dictionary Item",
+        "Tips_2": "Is Valid",
+        "Tips_3": "Operation Error",
+        "Tips_4": "Confirm",
+        "Tips_5": "Error Prompt"
+      },
+      "Title": "Data Dictionary Management"
+    },
+    "KeyParameter": {
+      "KeyParameteradd": {
+        "Tips_1": "Cancel",
+        "Tips_2": "Save",
+        "Tips_3": "Parent:",
+        "Tips_4": "Code:",
+        "Tips_5": "Name:",
+        "Tips_6": "Sort Order:",
+        "Tips_7": "Is Duplicate:",
+        "Tips_8": "Is Valid:",
+        "Tips_9": "Remarks:",
+        "Tips_10": "Parent Category:",
+        "Tips_11": "Select the parent category. Leave empty for top-level category",
+        "Tips_12": "Select Parent Category",
+        "Tips_13": "&nbsp;Select",
+        "Tips_14": "Select Organization"
+      },
+      "KeyParameteraddDetail": {
+        "Tips_1": "Cancel",
+        "Tips_2": "Save",
+        "Tips_3": "Code:",
+        "Tips_4": "Name:",
+        "Tips_5": "Sort Order:",
+        "Tips_6": "Value:",
+        "Tips_7": "Field1:",
+        "Tips_8": "Field2:",
+        "Tips_9": "Field3:",
+        "Tips_10": "Remarks1:",
+        "Tips_11": "Remarks2:",
+        "Tips_12": "Is Valid:"
+      },
+      "KeyParameteredit": {
+        "Tips_1": "Cancel",
+        "Tips_2": "Save",
+        "Tips_3": "Code:",
+        "Tips_4": "Name:",
+        "Tips_5": "Sort Order:",
+        "Tips_6": "Is Duplicate:",
+        "Tips_7": "Is Valid:",
+        "Tips_8": "Remarks:"
+      },
+      "KeyParametereditDetail": {
+        "Tips_1": "Cancel",
+        "Tips_2": "Save",
+        "Tips_3": "Code:",
+        "Tips_4": "Name:",
+        "Tips_5": "Sort Order:",
+        "Tips_6": "Value:",
+        "Tips_7": "Field1:",
+        "Tips_8": "Field2:",
+        "Tips_9": "Field3:",
+        "Tips_10": "Remarks1:",
+        "Tips_11": "Remarks2:",
+        "Tips_12": "Is Valid:"
+      },
+      "KeyParameterlist": {
+        "Tips_1": "Create Category",
+        "Tips_2": "Create",
+        "Tips_3": "Edit Category",
+        "Tips_4": "Edit",
+        "Tips_5": "Delete Category",
+        "Tips_6": "Delete",
+        "Tips_7": "Edit",
+        "Tips_8": "Dictionary Data -",
+        "Tips_9": "Delete Item",
+        "Tips_10": "Edit Item",
+        "Tips_11": "Create Item",
+        "Tips_12": "Edit Category",
+        "Tips_13": "Add Category",
+        "Tips_14": "Key Parameter -"
+      },
+      "KeyParameterselect": {
+        "Tips_1": "Close"
+      },
+      "KeyParameteraddctrl": {
+        "Tips_1": "Add Key Parameter",
+        "Tips_2": "Is Valid",
+        "Tips_3": "Field Duplicate",
+        "Tips_4": "Saving, please wait...",
+        "Tips_5": "Confirm",
+        "Tips_6": "Cancel",
+        "Tips_7": "Select Parent Category",
+        "Tips_8": "Error Prompt",
+        "Tips_9": "Save Successful!",
+        "Tips_10": "Operation Error",
+        "Tips_11": "Add"
+      },
+      "KeyParameteraddDetailctrl": {
+        "Tips_1": "Add Details",
+        "Tips_2": "Is Valid",
+        "Tips_3": "Saving, please wait...",
+        "Tips_4": "Save Successful!",
+        "Tips_5": "Operation Error",
+        "Tips_6": "Add"
+      },
+      "KeyParametereditctrl": {
+        "Tips_1": "Edit",
+        "Tips_2": "Is Valid",
+        "Tips_3": "Field Duplicate",
+        "Tips_4": "Saving, please wait...",
+        "Tips_5": "Save Successful!",
+        "Tips_6": "Operation Error"
+      },
+      "KeyParametereditDetailctrl": {
+        "Tips_1": "Edit Details",
+        "Tips_2": "Valid",
+        "Tips_3": "Saving, please wait...",
+        "Tips_4": "Save successful!",
+        "Tips_5": "Operation error",
+        "Tips_6": "Edit"
+      },
+      "KeyParameterlistctrl": {
+        "Tips_1": "No category selected",
+        "Tips_2": "Sort",
+        "Tips_3": "Code",
+        "Tips_4": "Name",
+        "Tips_5": "Value",
+        "Tips_6": "Field 1",
+        "Tips_7": "Field 2",
+        "Tips_8": "Field 3",
+        "Tips_9": "Remark 1",
+        "Tips_10": "Remark 2",
+        "Tips_11": "Valid",
+        "Tips_12": "Remark",
+        "Tips_13": "Creation Time",
+        "Tips_14": "Operation error",
+        "Tips_15": "Please select a category first!",
+        "Tips_16": "Delete",
+        "Tips_17": "Are you sure you want to delete the category [",
+        "Tips_18": "]?",
+        "Tips_19": "Are you sure you want to delete the item [",
+        "Tips_20": "Key Parameter Maintenance"
+      },
+      "KeyParameterselectctrl": {
+        "Tips_1": "View"
+      },
+      "Title": "Key Parameter Maintenance"
+    },
+    "KnowledgeBase": {
+      "KnowledgeBaseadd": {
+        "Tips_1": "Cancel",
+        "Tips_2": "Save"
+      },
+      "KnowledgeBaseedit": {
+        "Tips_1": "Cancel",
+        "Tips_2": "Save"
+      },
+      "KnowledgeBaselist": {
+        "Tips_1": "1.UMC Link",
+        "Tips_2": "2.APP Download",
+        "Tips_3": "6.Scanner Setup Process Download",
+        "Tips_4": "3.CS Download",
+        "Tips_5": "7.Google Input Method"
+      },
+      "KnowledgeBaseselect": {
+        "Tips_1": "Close"
+      },
+      "KnowledgeBaseaddctrl": {
+        "Tips_1": "Add"
+      },
+      "KnowledgeBaseeditctrl": {
+        "Tips_1": "Edit"
+      },
+      "KnowledgeBaselistctrl": {
+        "Tips_1": "Common Websites"
+      },
+      "KnowledgeBaseselectctrl": {
+        "Tips_1": "View"
+      },
+      "Title": "Common Websites"
+    },
+    "ReportManage": {
+      "ReportGroupadd": {
+        "Tips_1": "Cancel",
+        "Tips_2": "Save",
+        "Tips_3": "Role Name:",
+        "Tips_4": "Sort:",
+        "Tips_5": "Remark:"
+      },
+      "ReportGroupaddDetail": {
+        "Tips_1": "Cancel",
+        "Tips_2": "Save"
+      },
+      "ReportGroupedit": {
+        "Tips_1": "Cancel",
+        "Tips_2": "Save",
+        "Tips_3": "Role Name:",
+        "Tips_4": "Sort:",
+        "Tips_5": "Remark:"
+      },
+      "ReportGroupeditDetail": {
+        "Tips_1": "Cancel",
+        "Tips_2": "Save",
+        "Tips_3": "Search",
+        "Tips_4": "Employee Number:",
+        "Tips_5": "Name:",
+        "Tips_6": "Department:"
+      },
+      "ReportGrouplist": {
+        "Tips_1": "Role Name:",
+        "Tips_2": "Search",
+        "Tips_3": "Add User",
+        "Tips_4": "New Permission",
+        "Tips_5": "Delete Role",
+        "Tips_6": "Edit Role",
+        "Tips_7": "Add New Role"
+      },
+      "ReportGroupselect": {
+        "Tips_1": "Close"
+      },
+      "ReportLayoutadd": {
+        "Tips_1": "Cancel",
+        "Tips_2": "Save",
+        "Tips_3": "Parent:",
+        "Tips_4": "Name:",
+        "Tips_5": "Sort:",
+        "Tips_6": "Valid:",
+        "Tips_7": "Remark:",
+        "Tips_8": "Superior:",
+        "Tips_9": "Select the superior category, empty indicates top-level category",
+        "Tips_10": "Select the superior category",
+        "Tips_11": "&nbsp;Select",
+        "Tips_12": "Select the organization"
+      },
+      "ReportLayoutaddDetail": {
+        "Tips_1": "Cancel",
+        "Tips_2": "Save",
+        "Tips_3": "Report Name:",
+        "Tips_4": "Address:",
+        "Tips_5": "Sort:",
+        "Tips_6": "Valid:",
+        "Tips_7": "Remark:"
+      },
+      "ReportLayoutedit": {
+        "Tips_1": "Cancel",
+        "Tips_2": "Save",
+        "Tips_3": "Name:",
+        "Tips_4": "Sort:",
+        "Tips_5": "Valid:",
+        "Tips_6": "Remark:"
+      },
+      "ReportLayouteditDetail": {
+        "Tips_1": "Cancel",
+        "Tips_2": "Save",
+        "Tips_3": "Report Name:",
+        "Tips_4": "Address:",
+        "Tips_5": "Sort:",
+        "Tips_6": "Valid:",
+        "Tips_7": "Remark:"
+      },
+      "ReportLayoutlist": {
+        "Tips_1": "Delete Report",
+        "Tips_2": "Edit Report",
+        "Tips_3": "New Report",
+        "Tips_4": "Delete Menu",
+        "Tips_5": "Edit Menu",
+        "Tips_6": "Add Menu",
+        "Tips_7": "Menu -"
+      },
+      "ReportLayoutselect": {
+        "Tips_1": "Close"
+      },
+      "ReportRecordadd": {
+        "Tips_1": "Cancel",
+        "Tips_2": "Save"
+      },
+      "ReportRecordedit": {
+        "Tips_1": "Cancel",
+        "Tips_2": "Save"
+      },
+      "ReportRecordselect": {
+        "Tips_1": "Close"
+      },
+      "ReportGroupaddctrl": {
+        "Tips_1": "Add",
+        "Tips_2": "Saving, please wait...",
+        "Tips_3": "Save successful!",
+        "Tips_4": "Operation error"
+      },
+      "ReportGroupaddDetailctrl": {
+        "Tips_1": "Add",
+        "Tips_2": "Operation error",
+        "Tips_3": "Saving, please wait...",
+        "Tips_4": "Please select a report",
+        "Tips_5": "Save successful!"
+      },
+      "ReportGroupeditctrl": {
+        "Tips_1": "Edit",
+        "Tips_2": "Saving, please wait...",
+        "Tips_3": "Save successful!",
+        "Tips_4": "Operation error"
+      },
+      "ReportGroupeditDetailctrl": {
+        "Tips_1": "Add User",
+        "Tips_2": "Employee Number",
+        "Tips_3": "Name",
+        "Tips_4": "Gender",
+        "Tips_5": "Department",
+        "Tips_6": "Position",
+        "Tips_7": "Please select a person",
+        "Tips_8": "Operation error",
+        "Tips_9": "Saving, please wait...",
+        "Tips_10": "Save successful!",
+        "Tips_11": "Edit"
+      },
+      "ReportGrouplistctrl": {
+        "Tips_1": "Sort",
+        "Tips_2": "Role Name",
+        "Tips_3": "Remark",
+        "Tips_4": "Error fetching data",
+        "Tips_5": "Serial Number",
+        "Tips_6": "Employee Number",
+        "Tips_7": "Name",
+        "Tips_8": "Report Role Management"
+      },
+      "ReportGroupselectctrl": {
+        "Tips_1": "View"
+      },
+      "ReportLayoutaddctrl": {
+        "Tips_1": "Add",
+        "Tips_2": "Valid",
+        "Tips_3": "Saving, please wait...",
+        "Tips_4": "Confirm",
+        "Tips_5": "Cancel",
+        "Tips_6": "Select Parent Category",
+        "Tips_7": "Error Message",
+        "Tips_8": "Save successful!",
+        "Tips_9": "Operation error"
+      },
+      "ReportLayoutaddDetailctrl": {
+        "Tips_1": "Add",
+        "Tips_2": "Valid",
+        "Tips_3": "Saving, please wait...",
+        "Tips_4": "Save successful!",
+        "Tips_5": "Operation error"
+      },
+      "ReportLayouteditctrl": {
+        "Tips_1": "Edit",
+        "Tips_2": "Valid",
+        "Tips_3": "Saving, please wait...",
+        "Tips_4": "Save successful!",
+        "Tips_5": "Operation error"
+      },
+      "ReportLayouteditDetailctrl": {
+        "Tips_1": "Edit",
+        "Tips_2": "Valid",
+        "Tips_3": "Saving, please wait...",
+        "Tips_4": "Save successful!",
+        "Tips_5": "Operation error"
+      },
+      "ReportLayoutlistctrl": {
+        "Tips_1": "No category selected",
+        "Tips_2": "Sort",
+        "Tips_3": "Report Name",
+        "Tips_4": "Address",
+        "Tips_5": "Remark",
+        "Tips_6": "Is Hidden",
+        "Tips_7": "Creation Time",
+        "Tips_8": "Operation error",
+        "Tips_9": "Please select a category first!",
+        "Tips_10": "Delete",
+        "Tips_11": "Are you sure you want to delete the category?",
+        "Tips_12": "Please select a menu first!",
+        "Tips_13": "Are you sure you want to delete the item?",
+        "Tips_14": "Report Page Configuration"
+      },
+      "ReportLayoutselectctrl": {
+        "Tips_1": "View"
+      },
+      "ReportRecordaddctrl": {
+        "Tips_1": "Add"
+      },
+      "ReportRecordeditctrl": {
+        "Tips_1": "Edit"
+      },
+      "ReportRecordlistctrl": {
+        "Tips_1": "Hide",
+        "Tips_2": "No category selected",
+        "Tips_3": "Factory Code",
+        "Tips_4": "Factory Name",
+        "Tips_5": "Show",
+        "Tips_6": "Operation error",
+        "Tips_7": "Report Page"
+      },
+      "ReportRecordselectctrl": {
+        "Tips_1": "View"
+      },
+      "Title": "Report Management"
+    },
+    "UpdateLog": {
+      "UpdateLogadd": {
+        "Tips_1": "Cancel",
+        "Tips_2": "Save",
+        "Tips_3": "Business Type:",
+        "Tips_4": "Version Number:",
+        "Tips_5": "Update Content:"
+      },
+      "UpdateLogedit": {
+        "Tips_1": "Cancel",
+        "Tips_2": "Save",
+        "Tips_3": "Business Type:",
+        "Tips_4": "Version Number:",
+        "Tips_5": "Update Content:"
+      },
+      "UpdateLoglist": {
+        "Tips_1": "Business Type:",
+        "Tips_2": "Version Number:",
+        "Tips_3": "Search",
+        "Tips_4": "Delete",
+        "Tips_5": "Edit",
+        "Tips_6": "Add"
+      },
+      "UpdateLogselect": {
+        "Tips_1": "Close"
+      },
+      "UpdateLogaddctrl": {
+        "Tips_1": "Add",
+        "Tips_2": "--Please Select--",
+        "Tips_3": "CS End",
+        "Tips_4": "Saving, please wait...",
+        "Tips_5": "Save successful!",
+        "Tips_6": "Operation error"
+      },
+      "UpdateLogeditctrl": {
+        "Tips_1": "Edit",
+        "Tips_2": "--Please Select--",
+        "Tips_3": "CS End",
+        "Tips_4": "Saving, please wait...",
+        "Tips_5": "Save successful!",
+        "Tips_6": "Operation error"
+      },
+      "UpdateLoglistctrl": {
+        "Tips_1": "--Please Select--",
+        "Tips_2": "CS End",
+        "Tips_3": "Serial Number",
+        "Tips_4": "Business Type",
+        "Tips_5": "Version Number",
+        "Tips_6": "Update Content",
+        "Tips_7": "Created By",
+        "Tips_8": "Creation Time",
+        "Tips_9": "Error fetching data",
+        "Tips_10": "Delete",
+        "Tips_11": "Are you sure you want to delete the selected record?",
+        "Tips_12": "Update Log"
+      },
+      "UpdateLogselectctrl": {
+        "Tips_1": "View"
+      },
+      "Title": "Update Log"
+    },
+    "DataItemDetail": {
+      "Title": "Data Dictionary Management Details"
+    },
+    "ReportRecord": {
+      "Title": "Report Page"
+    },
+    "ReportGroup": {
+      "Title": "Report Role Management"
+    },
+    "ReportLayout": {
+      "Title": "Report Page Configuration"
+    }
+  }
+}

@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<BuildInfo xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <ModelTimestamp>20250102115542683</ModelTimestamp>
+  <GeneratedAssemblies>
+    <Assembly>
+      <Name>Siemens.SimaticIT.ProductionApp.ProductionApp.PLPOMModel.Types.dll</Name>
+    </Assembly>
+    <Assembly>
+      <Name>Siemens.SimaticIT.ProductionApp.ProductionApp.PLPOMModel.Types.PlainModel.dll</Name>
+    </Assembly>
+    <Assembly>
+      <Name>Siemens.SimaticIT.ProductionApp.ProductionApp.PLPOMModel.Types.ProjectionModel.dll</Name>
+    </Assembly>
+    <Assembly>
+      <Name>Siemens.SimaticIT.ProductionApp.ProductionApp.PLPOMModel.Types.ReadingModel.dll</Name>
+    </Assembly>
+    <Assembly>
+      <Name>Siemens.SimaticIT.ProductionApp.ProductionApp.PLPOMModel.Types.Internal.dll</Name>
+    </Assembly>
+    <Assembly>
+      <Name>Siemens.SimaticIT.ProductionApp.ProductionApp.PLPOMModel.Types.ReadingModel.Internal.dll</Name>
+    </Assembly>
+    <Assembly>
+      <Name>Siemens.SimaticIT.ProductionApp.ProductionApp.PLPOMModel.Types.ProjectionModel.Internal.dll</Name>
+    </Assembly>
+    <Assembly>
+      <Name>Siemens.SimaticIT.ProductionApp.ProductionApp.PLPOMModel.PublicModel.dll</Name>
+    </Assembly>
+    <Assembly>
+      <Name>Siemens.SimaticIT.ProductionApp.ProductionApp.PLPOMModel.PublicModel.Internal.dll</Name>
+    </Assembly>
+  </GeneratedAssemblies>
+  <References />
+  <AssemblyInfoHash>6L+WrVXf4XMbZ37kzLfUdA==</AssemblyInfoHash>
+</BuildInfo>

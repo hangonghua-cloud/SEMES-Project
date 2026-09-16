@@ -1,0 +1,33 @@
+﻿{
+  "name": "Siemens.SimaticIT.BaseDataApp.ReportManage",
+  "type": "standard",
+  "title": "Siemens.SimaticIT.BaseDataApp.ReportManage.Title",
+  "header": "",
+  "icon": "fa-folder",
+  "functionalBlock": "Siemens.SimaticIT.BaseDataApp",
+  "dependencies": [],
+  "states": [
+    {
+      "id": "home.Siemens_SimaticIT_BaseDataApp_ReportManage_ReportRecord",
+      "title": "Siemens.SimaticIT.BaseDataApp.ReportRecord.Title",
+      "header": "",
+      "securable": true,
+      "roles": []
+    },
+    {
+      "id": "home.Siemens_SimaticIT_BaseDataApp_ReportManage_ReportGroup",
+      "title": "Siemens.SimaticIT.BaseDataApp.ReportGroup.Title",
+      "header": "",
+      "securable": true,
+      "roles": []
+    },
+    {
+      "id": "home.Siemens_SimaticIT_BaseDataApp_ReportManage_ReportLayout",
+      "title": "Siemens.SimaticIT.BaseDataApp.ReportLayout.Title",
+      "header": "",
+      "securable": true,
+      "roles": []
+    }
+  ],
+  "manifestVersion": "01.01.00"
+}

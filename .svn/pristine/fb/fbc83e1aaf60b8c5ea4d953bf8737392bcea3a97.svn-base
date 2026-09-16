@@ -1,0 +1,19 @@
+﻿{
+  "name": "Siemens.SimaticIT.EquipmentApp.EquipmentAccount",
+  "type": "standard",
+  "title": "Siemens.SimaticIT.EquipmentApp.EquipmentAccount.Title",
+  "header": "",
+  "icon": "fa-folder",
+  "functionalBlock": "Siemens.SimaticIT.EquipmentApp",
+  "dependencies": [],
+  "states": [
+    {
+      "id": "home.Siemens_SimaticIT_EquipmentApp_EquipmentAccount_EquipmentAccount",
+      "title": "Siemens.SimaticIT.EquipmentApp.EquipmentAccount.Title",
+      "header": "",
+      "securable": true,
+      "roles": []
+    }
+  ],
+  "manifestVersion": "01.01.00"
+}

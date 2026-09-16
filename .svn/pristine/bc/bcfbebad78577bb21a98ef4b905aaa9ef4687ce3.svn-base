@@ -1,0 +1,14 @@
+
+<DSL Version="1.13">
+    <Project>
+        <Name>CommonApp.APPOMModel</Name>
+        <Version>01.00.00</Version>
+        <Prefix>CCS</Prefix>
+        <Domain>CommonApp</Domain>
+        <DomainAcronym>AP</DomainAcronym>
+        <Guid>c2b3faba-6a1b-4bfb-a413-28b167f74177</Guid>
+		<ProjectKind>Pom</ProjectKind>
+    </Project>
+    <References>
+    </References>
+</DSL>

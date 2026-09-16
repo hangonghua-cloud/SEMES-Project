@@ -1,0 +1,14 @@
+<projectmanifest>
+  <datamodels>
+    <datamodel>
+      <assembly>CCS.CommonApp.CommonApp.APPOMModel.Types, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+      <mode>WR</mode>
+      <domain>CommonApp</domain>
+    </datamodel>
+    <datamodel>
+      <assembly>CCS.CommonApp.CommonApp.APPOMModel.Types.ReadingModel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+      <mode>RD</mode>
+      <domain>CommonApp</domain>
+    </datamodel>
+  </datamodels>
+</projectmanifest>

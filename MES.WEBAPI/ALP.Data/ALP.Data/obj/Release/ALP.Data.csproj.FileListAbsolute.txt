@@ -1,0 +1,12 @@
+D:\New folder\MES.WEBAPI\ALP.Data\ALP.Data\bin\Release\ALP.Data.dll
+D:\New folder\MES.WEBAPI\ALP.Data\ALP.Data\bin\Release\ALP.Data.pdb
+D:\New folder\MES.WEBAPI\ALP.Data\ALP.Data\bin\Release\ALP.Util.dll
+D:\New folder\MES.WEBAPI\ALP.Data\ALP.Data\bin\Release\MySql.Data.dll
+D:\New folder\MES.WEBAPI\ALP.Data\ALP.Data\bin\Release\System.Data.SQLite.dll
+D:\New folder\MES.WEBAPI\ALP.Data\ALP.Data\bin\Release\System.Data.SQLite.xml
+D:\New folder\MES.WEBAPI\ALP.Data\ALP.Data\bin\Release\System.Data.SQLite.dll.config
+D:\New folder\MES.WEBAPI\ALP.Data\ALP.Data\obj\Release\ALP.Data.csprojAssemblyReference.cache
+D:\New folder\MES.WEBAPI\ALP.Data\ALP.Data\obj\Release\ALP.Data.csproj.CoreCompileInputs.cache
+D:\New folder\MES.WEBAPI\ALP.Data\ALP.Data\obj\Release\ALP.Data.csproj.CopyComplete
+D:\New folder\MES.WEBAPI\ALP.Data\ALP.Data\obj\Release\ALP.Data.dll
+D:\New folder\MES.WEBAPI\ALP.Data\ALP.Data\obj\Release\ALP.Data.pdb

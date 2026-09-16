@@ -1,0 +1,26 @@
+﻿{
+  "name": "Siemens.SimaticIT.QualityApp.OQCManage",
+  "type": "standard",
+  "title": "Siemens.SimaticIT.QualityApp.OQCManage.Title",
+  "header": "",
+  "icon": "fa-folder",
+  "functionalBlock": "Siemens.SimaticIT.QualityApp",
+  "dependencies": [],
+  "states": [
+    {
+      "id": "home.Siemens_SimaticIT_QualityApp_OQCManage_OQCCheckConfig",
+      "title": "Siemens.SimaticIT.QualityApp.OQCCheckConfig.Title",
+      "header": "",
+      "securable": true,
+      "roles": []
+    },
+    {
+      "id": "home.Siemens_SimaticIT_QualityApp_OQCManage_OQCQualityCheck",
+      "title": "Siemens.SimaticIT.QualityApp.OQCQualityCheck.Title",
+      "header": "",
+      "securable": true,
+      "roles": []
+    }
+  ],
+  "manifestVersion": "01.01.00"
+}

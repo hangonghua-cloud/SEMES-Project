@@ -1,0 +1,47 @@
+<!--
+    0.代码生成: UADM单表一键生成前后端html、JS、API接口代码生成器 Ver 2.01 发布日期：2021-04-18  设计师：刘万军
+    1.功能描述: 跨工厂调拨
+    2.创建人员: jpf
+    3.创建日期: 2022-11-16
+    4.修改人员:
+    5.修改日期:
+-->
+<div id="itemlist" class="content-area content-area-relative" style="height: calc(93% - 30px) !important">
+    <!--查询条件与功能按钮-->
+    <div class="col-md-40" style="height: calc(13% - 10px) !important;margin-left: 15px;">
+        <div class="side-panel-property-area-body">
+            <sit-property-grid sit-id="add_form" sit-layout="Horizontal" sit-type="Fixed" sit-mode="edit"
+                               sit-columns="8">
+
+                <sit-property sit-widget="sit-select" sit-value="vm.typeFactory.value" sit-validation="{required: false}" sit-options="vm.typeFactory.options"
+                              sit-to-display="'ResourceName'" sit-to-keep="'ResourceCode'" sit-read-only="false" sit-change="vm.typeFactoryChange" sit-validation="{required: true}">{{'Siemens.SimaticIT.PlanApp.PL_TransfersRecord.Tips_1'|translate}}</sit-property>
+                <!-- <sit-property sit-widget="sit-text" sit-value="vm.searchParams.FactoryName" sit-read-only="false" style="max-width:300px;">{{'Siemens.SimaticIT.PlanApp.PL_TransfersRecord.Tips_2'|translate}}</sit-property> -->
+                <sit-property sit-widget="sit-text" sit-value="vm.searchParams.ProductOrder" sit-read-only="false" style="max-width:300px;">{{'Siemens.SimaticIT.PlanApp.PL_TransfersRecord.Tips_3'|translate}}</sit-property>
+                <sit-property sit-widget="sit-text" sit-value="vm.searchParams.MaterialCode" sit-read-only="false" style="max-width:300px;">{{'Siemens.SimaticIT.PlanApp.PL_TransfersRecord.Tips_4'|translate}}</sit-property>
+                <sit-property sit-widget="sit-text" sit-value="vm.searchParams.MMXH" sit-read-only="false" style="max-width:300px;">{{'Siemens.SimaticIT.PlanApp.PL_TransfersRecord.Tips_5'|translate}}</sit-property>
+                <sit-property sit-widget="sit-text" sit-value="vm.searchParams.Spec" sit-read-only="false" style="max-width:300px;">{{'Siemens.SimaticIT.PlanApp.PL_TransfersRecord.Tips_6'|translate}}</sit-property>
+
+                <sit-property sit-widget="sit-select" sit-value="vm.TransTypeName.value" sit-validation="{required: false}" sit-options="vm.TransTypeName.options"
+                              sit-to-display="'ItemName'" sit-to-keep="'ItemValue'" sit-read-only="false" sit-validation="{required: true}">{{'Siemens.SimaticIT.PlanApp.PL_TransfersRecord.Tips_7'|translate}}</sit-property>
+                <sit-property sit-widget="sit-select" sit-value="vm.TransState.value" sit-validation="{required: false}" sit-options="vm.TransState.options"
+                              sit-to-display="'ItemName'" sit-to-keep="'ItemValue'" sit-read-only="false" sit-validation="{required: true}">{{'Siemens.SimaticIT.PlanApp.PL_TransfersRecord.Tips_8'|translate}}</sit-property>
+                <sit-command-bar sit-type="action">
+                    <sit-command sit-icon="fa-search" sit-type="main" sit-name="com.siemens.customcommand.search" :sit-tooltip="{{'Siemens.SimaticIT.PlanApp.PL_TransfersRecord.Tips_9'|translate}}" ng-click="vm.searchButtonHandler" :sit-label="{{'Siemens.SimaticIT.PlanApp.PL_TransfersRecord.Tips_9'|translate}}">
+                    </sit-command>
+                </sit-command-bar>
+            </sit-property-grid>
+        </div>
+    </div>
+    <sit-command-bar sit-vertical-autofixed="true" sit-type="Tool" :sit-label-align="right" sit-layout="vertical">
+        <sit-command sit-icon="fa fa-reply-all" sit-name="com.siemens.customcommand.delete" :sit-tooltip="{{'Siemens.SimaticIT.PlanApp.PL_TransfersRecord.Tips_10'|translate}}" ng-click="vm.deleteButtonHandler"
+                     :sit-label="{{'Siemens.SimaticIT.PlanApp.PL_TransfersRecord.Tips_10'|translate}}" ng-show="vm.isButtonVisible"></sit-command>
+        <sit-command sit-icon="fa fa-check-square" sit-name="com.siemens.customcommand.edit" :sit-tooltip="{{'Siemens.SimaticIT.PlanApp.PL_TransfersRecord.Tips_11'|translate}}" ng-click="vm.editButtonHandler"
+                     :sit-label="{{'Siemens.SimaticIT.PlanApp.PL_TransfersRecord.Tips_11'|translate}}" ng-show="vm.isButtonVisible"></sit-command>
+        <sit-command sit-icon="fa fa-arrow-circle-down" sit-name="com.siemens.customcommand.edit" :sit-tooltip="{{'Siemens.SimaticIT.PlanApp.PL_TransfersRecord.Tips_12'|translate}}" ng-click="vm.ReciveButtonHandler"
+                     :sit-label="{{'Siemens.SimaticIT.PlanApp.PL_TransfersRecord.Tips_12'|translate}}" ng-show="vm.isButtonVisible"></sit-command>
+
+    </sit-command-bar>
+    <div id="listClass" style="width:100%; height: 100%; padding:0px 16px 0 16px; margin-top: 3px;">
+        <div ui-grid="vm.gridOptions" ui-grid-pinning ui-grid-auto-resize ui-grid-resize-columns ui-grid-selection ui-grid-pagination class="uigrid"></div>
+    </div>
+</div>

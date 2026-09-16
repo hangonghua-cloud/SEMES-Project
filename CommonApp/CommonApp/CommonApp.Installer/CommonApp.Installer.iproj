@@ -1,0 +1,87 @@
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>d9b240ce-593e-45de-ad2a-a4820decbb9b</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>CCS.CommonApp.Installer</RootNamespace>
+    <AssemblyName>CCS.CommonApp.Installer</AssemblyName>
+    <Name>CommonApp.Installer</Name>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FunctionalBlockType>Project</FunctionalBlockType>
+    <FunctionalBlockVersion>01.00.00</FunctionalBlockVersion>
+    <FunctionalBlockName>CommonApp</FunctionalBlockName>
+    <FunctionalBlockPrefix>CCS</FunctionalBlockPrefix>
+    <FunctionalBlockModels>CCS.CommonApp.CommonApp.APPOMModel</FunctionalBlockModels>
+    <FunctionalBlockDescription>
+    </FunctionalBlockDescription>
+    <SitPlatformVersion>4.1</SitPlatformVersion>
+    <AutoDeployPackage>True</AutoDeployPackage>
+    <CanBeExtended>False</CanBeExtended>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU'  ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Release\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="Config" />
+    <Folder Include="ExternalDependencies" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Config\CCS.CommonApp.Dbinit.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Config\CCS.CommonApp.References.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Config\CCS.CommonApp.ApplicationLog.en-US.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CommonApp.APPOMModel\CommonApp.APPOMModel.pmproj">
+      <Name>CommonApp.APPOMModel</Name>
+      <Project>{c2b3faba-6a1b-4bfb-a413-28b167f74177}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\CommonApp.CommandHandler\CommonApp.CommandHandler.csproj">
+      <Name>CommonApp.CommandHandler</Name>
+      <Project>{cc1bc937-3b42-4071-a509-d31cf76919d3}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\CommonApp.EventHandler\CommonApp.EventHandler.csproj">
+      <Name>CommonApp.EventHandler</Name>
+      <Project>{ebe283c5-aee1-44fc-8fc9-272130825b96}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\CommonApp.ReadingFunctionHandler\CommonApp.ReadingFunctionHandler.csproj">
+      <Name>CommonApp.ReadingFunctionHandler</Name>
+      <Project>{db62efb3-d227-497a-bf99-fc8f6b7bff69}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\CommonApp.UserInterface\CommonApp.UserInterface.csproj">
+      <Name>CommonApp.UserInterface</Name>
+      <Project>{dabeddae-2bb2-403b-bb39-08776aebad33}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(SITUnifiedVSToolingPlatformBin)\Siemens.SimaticIt.Build.Installer.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

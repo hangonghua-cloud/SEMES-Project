@@ -1,0 +1,74 @@
+﻿<style>
+     .row {
+         padding: 5px;
+         margin-top: 10px;
+     }
+</style>
+<div class="command-bar-side-panel">
+     <button ng-click="vm.cancel()" class="btn side-panel-button">{{'Siemens.SimaticIT.MaterialApp.MMRawMaterialDispatch.MMRawMaterialDispatchadd.Tips_1'|translate}}</button>
+     <button ng-click="vm.save()" class="btn side-panel-button" ng-show="vm.validInputs">{{'Siemens.SimaticIT.MaterialApp.MMRawMaterialDispatch.MMRawMaterialDispatchadd.Tips_2'|translate}}</button>
+</div>
+<div class="side-panel-property-area-body">
+     <sit-property-grid sit-id="add_form"
+         sit-layout="Horizontal"
+         sit-type="Fixed"
+         sit-mode="edit"
+         sit-columns="1">
+     <sit-property sit-widget="sit-text" sit-value="vm.currentItem.FactoryCode" 
+         sit-validation="{required: true}" sit-read-only="false">{{'Siemens.SimaticIT.MaterialApp.MMRawMaterialDispatch.MMRawMaterialDispatchadd.Tips_3'|translate}}</sit-property>
+     <sit-property sit-widget="sit-text" sit-value="vm.currentItem.FactoryName" 
+         sit-validation="{required: true}" sit-read-only="false">{{'Siemens.SimaticIT.MaterialApp.MMRawMaterialDispatch.MMRawMaterialDispatchadd.Tips_4'|translate}}</sit-property>
+     <sit-property sit-widget="sit-text" sit-value="vm.currentItem.DeliveryNo" 
+         sit-validation="{required: true}" sit-read-only="false">{{'Siemens.SimaticIT.MaterialApp.MMRawMaterialDispatch.MMRawMaterialDispatchadd.Tips_5'|translate}}</sit-property>
+     <sit-property sit-widget="sit-numeric" sit-value="vm.currentItem.GrossWeight" 
+         sit-validation="{required: true,min:0}" sit-read-only="false">{{'Siemens.SimaticIT.MaterialApp.MMRawMaterialDispatch.MMRawMaterialDispatchadd.Tips_6'|translate}}</sit-property>
+     <sit-property sit-widget="sit-numeric" sit-value="vm.currentItem.Volume" 
+         sit-validation="{required: true,min:0}" sit-read-only="false">{{'Siemens.SimaticIT.MaterialApp.MMRawMaterialDispatch.MMRawMaterialDispatchadd.Tips_7'|translate}}</sit-property>
+     <sit-property sit-widget="sit-text" sit-value="vm.currentItem.InvoiceNO" 
+         sit-validation="{required: true}" sit-read-only="false">{{'Siemens.SimaticIT.MaterialApp.MMRawMaterialDispatch.MMRawMaterialDispatchadd.Tips_8'|translate}}</sit-property>
+     <sit-property sit-widget="sit-text" sit-value="vm.currentItem.LoadingBill" 
+         sit-validation="{required: true}" sit-read-only="false">{{'Siemens.SimaticIT.MaterialApp.MMRawMaterialDispatch.MMRawMaterialDispatchadd.Tips_9'|translate}}</sit-property>
+     <sit-property sit-widget="sit-text" sit-value="vm.currentItem.Status" 
+         sit-validation="{required: true}" sit-read-only="false">{{'Siemens.SimaticIT.MaterialApp.MMRawMaterialDispatch.MMRawMaterialDispatchadd.Tips_10'|translate}}</sit-property>
+     <sit-property sit-widget="sit-text" sit-value="vm.currentItem.DeliveryDate" 
+         sit-validation="{required: true}" sit-read-only="false">{{'Siemens.SimaticIT.MaterialApp.MMRawMaterialDispatch.MMRawMaterialDispatchadd.Tips_11'|translate}}</sit-property>
+     <sit-property sit-widget="sit-text" sit-value="vm.currentItem.ContainerID" 
+         sit-validation="{required: true}" sit-read-only="false">{{'Siemens.SimaticIT.MaterialApp.MMRawMaterialDispatch.MMRawMaterialDispatchadd.Tips_12'|translate}}</sit-property>
+     <sit-property sit-widget="sit-text" sit-value="vm.currentItem.CarNumber" 
+         sit-validation="{required: true}" sit-read-only="false">{{'Siemens.SimaticIT.MaterialApp.MMRawMaterialDispatch.MMRawMaterialDispatchadd.Tips_13'|translate}}</sit-property>
+     <sit-property sit-widget="sit-text" sit-value="vm.currentItem.ForkliftWorker" 
+         sit-validation="{required: true}" sit-read-only="false">{{'Siemens.SimaticIT.MaterialApp.MMRawMaterialDispatch.MMRawMaterialDispatchadd.Tips_14'|translate}}</sit-property>
+     <sit-property sit-widget="sit-text" sit-value="vm.currentItem.WoodWorker" 
+         sit-validation="{required: true}" sit-read-only="false">{{'Siemens.SimaticIT.MaterialApp.MMRawMaterialDispatch.MMRawMaterialDispatchadd.Tips_15'|translate}}</sit-property>
+     <sit-property sit-widget="sit-text" sit-value="vm.currentItem.DeliveryUserCode" 
+         sit-validation="{required: true}" sit-read-only="false">{{'Siemens.SimaticIT.MaterialApp.MMRawMaterialDispatch.MMRawMaterialDispatchadd.Tips_16'|translate}}</sit-property>
+     <sit-property sit-widget="sit-text" sit-value="vm.currentItem.DeliveryUserName" 
+         sit-validation="{required: true}" sit-read-only="false">{{'Siemens.SimaticIT.MaterialApp.MMRawMaterialDispatch.MMRawMaterialDispatchadd.Tips_17'|translate}}</sit-property>
+     <sit-property sit-widget="sit-datepicker" sit-value="vm.currentItem.ActualDeliveryTime" 
+         sit-validation="{required: true}" sit-widget-attributes="{'sit-format':'yyyy-MM-dd','sit-show-meridian':'false'}" sit-read-only="false">{{'Siemens.SimaticIT.MaterialApp.MMRawMaterialDispatch.MMRawMaterialDispatchadd.Tips_18'|translate}}</sit-property>
+     <sit-property sit-widget="sit-checkbox" sit-value="vm.IsDeleted" 
+         sit-validation="{required: false" ng-show="true">{{'Siemens.SimaticIT.MaterialApp.MMRawMaterialDispatch.MMRawMaterialDispatchadd.Tips_19'|translate}}</sit-property>
+     <sit-property sit-widget="sit-text" sit-value="vm.currentItem.Remark" 
+         sit-validation="{required: true}" sit-read-only="false">{{'Siemens.SimaticIT.MaterialApp.MMRawMaterialDispatch.MMRawMaterialDispatchadd.Tips_20'|translate}}</sit-property>
+     <sit-property sit-widget="sit-text" sit-value="vm.currentItem.CreateByCode" 
+         sit-validation="{required: true}" sit-read-only="false">{{'Siemens.SimaticIT.MaterialApp.MMRawMaterialDispatch.MMRawMaterialDispatchadd.Tips_21'|translate}}</sit-property>
+     <sit-property sit-widget="sit-text" sit-value="vm.currentItem.CreateByName" 
+         sit-validation="{required: true}" sit-read-only="false">{{'Siemens.SimaticIT.MaterialApp.MMRawMaterialDispatch.MMRawMaterialDispatchadd.Tips_22'|translate}}</sit-property>
+     <sit-property sit-widget="sit-datepicker" sit-value="vm.currentItem.CreateTime" 
+         sit-validation="{required: true}" sit-widget-attributes="{'sit-format':'yyyy-MM-dd','sit-show-meridian':'false'}" sit-read-only="false">{{'Siemens.SimaticIT.MaterialApp.MMRawMaterialDispatch.MMRawMaterialDispatchadd.Tips_23'|translate}}</sit-property>
+     <sit-property sit-widget="sit-text" sit-value="vm.currentItem.ModifyByCode" 
+         sit-validation="{required: true}" sit-read-only="false">{{'Siemens.SimaticIT.MaterialApp.MMRawMaterialDispatch.MMRawMaterialDispatchadd.Tips_24'|translate}}</sit-property>
+     <sit-property sit-widget="sit-text" sit-value="vm.currentItem.ModifyByName" 
+         sit-validation="{required: true}" sit-read-only="false">{{'Siemens.SimaticIT.MaterialApp.MMRawMaterialDispatch.MMRawMaterialDispatchadd.Tips_25'|translate}}</sit-property>
+     <sit-property sit-widget="sit-datepicker" sit-value="vm.currentItem.ModifyTime" 
+         sit-validation="{required: true}" sit-widget-attributes="{'sit-format':'yyyy-MM-dd','sit-show-meridian':'false'}" sit-read-only="false">{{'Siemens.SimaticIT.MaterialApp.MMRawMaterialDispatch.MMRawMaterialDispatchadd.Tips_26'|translate}}</sit-property>
+     <sit-property sit-widget="sit-datepicker" sit-value="vm.currentItem.CusdeclarationDate" 
+         sit-validation="{required: true}" sit-widget-attributes="{'sit-format':'yyyy-MM-dd','sit-show-meridian':'false'}" sit-read-only="false">{{'Siemens.SimaticIT.MaterialApp.MMRawMaterialDispatch.MMRawMaterialDispatchadd.Tips_27'|translate}}</sit-property>
+     <sit-property sit-widget="sit-text" sit-value="vm.currentItem.CusdeclarationNum" 
+         sit-validation="{required: true}" sit-read-only="false">{{'Siemens.SimaticIT.MaterialApp.MMRawMaterialDispatch.MMRawMaterialDispatchadd.Tips_28'|translate}}</sit-property>
+     <sit-property sit-widget="sit-text" sit-value="vm.currentItem.Harbor" 
+         sit-validation="{required: true}" sit-read-only="false">{{'Siemens.SimaticIT.MaterialApp.MMRawMaterialDispatch.MMRawMaterialDispatchadd.Tips_29'|translate}}</sit-property>
+     <sit-property sit-widget="sit-datepicker" sit-value="vm.currentItem.CreateTime" 
+         sit-validation="{required: true}" sit-widget-attributes="{'sit-format':'yyyy-MM-dd','sit-show-meridian':'false'}" sit-read-only="false">{{'Siemens.SimaticIT.MaterialApp.MMRawMaterialDispatch.MMRawMaterialDispatchadd.Tips_23'|translate}}</sit-property>
+  </sit-property-grid>
+</div>

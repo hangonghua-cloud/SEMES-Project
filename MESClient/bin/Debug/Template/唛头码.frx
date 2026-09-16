@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="11/18/2021 16:51:52" ReportInfo.Modified="09/11/2023 09:56:19" ReportInfo.CreatorVersion="2014.4.8.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+
+         
+   
+
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlqHwzMSgwTFaHpjtG3vsOj8QqA6yNJ3tAoKp9uU1I2VqOsSbjrbGTxIXaPXcgiscftmkn91z828HIgzbqCudmpKfkthzJTimu1oUpBoYn45Ccv9kQgCjtReG+TB4DhS4LWVcQB5MbjPADhamCo1Z8xI7vbZ5kwEi/t6/gLBqS/FR9s+mX/mc9F7aqvUqvJEcn711b4cSCy8g0c4uNMvMy8qw==">
+      <TableDataSource Name="Table" Alias="markcode" DataType="System.Int32" Enabled="true" SelectCommand="exec Pro_PrintMarkCode  @Code">
+        <Column Name="PackTransferCode" DataType="System.String"/>
+        <Column Name="CustomerPO" DataType="System.String"/>
+        <Column Name="MaterialCode" DataType="System.String"/>
+        <Column Name="Mark" DataType="System.String"/>
+        <Column Name="ProductOrder" DataType="System.String"/>
+        <Column Name="ContainerNO" DataType="System.String"/>
+        <Column Name="ContainerNO1" Enabled="false" DataType="System.String"/>
+        <Column Name="ProductOrder1" DataType="System.String"/>
+        <Column Name="Spec" DataType="System.String"/>
+        <CommandParameter Name="Code" DataType="22" Size="20000" Expression="[Code]"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+    <Parameter Name="Code" DataType="System.String"/>
+  </Dictionary>
+  <ReportPage Name="Page1" Landscape="true" PaperWidth="80" PaperHeight="50" LeftMargin="0" TopMargin="0" RightMargin="0" BottomMargin="0" FirstPageSource="256" OtherPagesSource="256">
+    <GroupHeaderBand Name="GroupHeader1" Width="302.4" Condition="[markcode.PackTransferCode]">
+      <DataBand Name="Data1" Top="4" Width="302.4" Height="160.65" DataSource="Table">
+        <TextObject Name="Text1" Top="47.25" Width="292.95" Height="66.15" Text="PVC Batch#: [markcode.Spec]" HorzAlign="Center" Font="Arial, 16pt"/>
+      </DataBand>
+      <GroupFooterBand Name="GroupFooter1" Top="168.65" Width="302.4"/>
+    </GroupHeaderBand>
+  </ReportPage>
+</Report>

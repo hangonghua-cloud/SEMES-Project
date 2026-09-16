@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<BuildInfo xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <ModelTimestamp>20240918123059721</ModelTimestamp>
+  <GeneratedAssemblies>
+    <Assembly>
+      <Name>CCS.CommonApp.CommonApp.APPOMModel.Types.dll</Name>
+    </Assembly>
+    <Assembly>
+      <Name>CCS.CommonApp.CommonApp.APPOMModel.Types.ProjectionModel.dll</Name>
+    </Assembly>
+    <Assembly>
+      <Name>CCS.CommonApp.CommonApp.APPOMModel.Types.ReadingModel.dll</Name>
+    </Assembly>
+    <Assembly>
+      <Name>CCS.CommonApp.CommonApp.APPOMModel.Types.PlainModel.dll</Name>
+    </Assembly>
+    <Assembly>
+      <Name>CCS.CommonApp.CommonApp.APPOMModel.Types.ProjectionModel.Internal.dll</Name>
+    </Assembly>
+    <Assembly>
+      <Name>CCS.CommonApp.CommonApp.APPOMModel.Types.Internal.dll</Name>
+    </Assembly>
+    <Assembly>
+      <Name>CCS.CommonApp.CommonApp.APPOMModel.Types.ReadingModel.Internal.dll</Name>
+    </Assembly>
+    <Assembly>
+      <Name>CCS.CommonApp.CommonApp.APPOMModel.PublicModel.dll</Name>
+    </Assembly>
+    <Assembly>
+      <Name>CCS.CommonApp.CommonApp.APPOMModel.PublicModel.Internal.dll</Name>
+    </Assembly>
+  </GeneratedAssemblies>
+  <References />
+  <AssemblyInfoHash>6L+WrVXf4XMbZ37kzLfUdA==</AssemblyInfoHash>
+</BuildInfo>

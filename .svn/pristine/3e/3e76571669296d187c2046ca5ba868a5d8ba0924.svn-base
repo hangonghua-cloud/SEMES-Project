@@ -1,0 +1,9 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="ALP.WebApi.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="ALP_WebApi_WebChatPushService_MsgPushService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://10.17.2.32:8084/MsgPushService.svc</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

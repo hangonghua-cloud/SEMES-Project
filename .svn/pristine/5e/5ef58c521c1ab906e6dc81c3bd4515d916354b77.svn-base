@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.757
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasicDataManageFBLib.CommandHandler", "BasicDataManageFBLib\BasicDataManageFBLib.CommandHandler\BasicDataManageFBLib.CommandHandler.csproj", "{FE24FD82-DA28-42DA-8338-30CA5A5E824C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasicDataManageFBLib.EventHandler", "BasicDataManageFBLib\BasicDataManageFBLib.EventHandler\BasicDataManageFBLib.EventHandler.csproj", "{13BF0AE1-2266-4668-AC13-78D7E3AF830C}"
+EndProject
+Project("{DA7C07C8-D9F3-4A79-840F-611D1C5950A5}") = "BasicDataManageFBLib.Installer", "BasicDataManageFBLib\BasicDataManageFBLib.Installer\BasicDataManageFBLib.Installer.iproj", "{7D827394-CE24-498A-8A8B-2C130C9D1D39}"
+EndProject
+Project("{A412FA11-93F1-45AA-BF1D-D6DE2D0318E4}") = "BasicDataManageFBLib.MSModel", "BasicDataManageFBLib\BasicDataManageFBLib.MSModel\BasicDataManageFBLib.MSModel.umproj", "{F61397BF-4DB1-4767-ACCF-C29A4BF0DDD7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{21843C3F-E031-4ABF-8D36-60AF21041166}"
+	ProjectSection(SolutionItems) = preProject
+		packages.reference = packages.reference
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FE24FD82-DA28-42DA-8338-30CA5A5E824C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE24FD82-DA28-42DA-8338-30CA5A5E824C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE24FD82-DA28-42DA-8338-30CA5A5E824C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE24FD82-DA28-42DA-8338-30CA5A5E824C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13BF0AE1-2266-4668-AC13-78D7E3AF830C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13BF0AE1-2266-4668-AC13-78D7E3AF830C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13BF0AE1-2266-4668-AC13-78D7E3AF830C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13BF0AE1-2266-4668-AC13-78D7E3AF830C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D827394-CE24-498A-8A8B-2C130C9D1D39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D827394-CE24-498A-8A8B-2C130C9D1D39}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D827394-CE24-498A-8A8B-2C130C9D1D39}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D827394-CE24-498A-8A8B-2C130C9D1D39}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F61397BF-4DB1-4767-ACCF-C29A4BF0DDD7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F61397BF-4DB1-4767-ACCF-C29A4BF0DDD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F61397BF-4DB1-4767-ACCF-C29A4BF0DDD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F61397BF-4DB1-4767-ACCF-C29A4BF0DDD7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {70277696-ABF8-4DB6-8E26-DB7755E0DBD5}
+	EndGlobalSection
+EndGlobal

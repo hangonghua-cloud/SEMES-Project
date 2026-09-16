@@ -1,0 +1,14 @@
+
+<DSL Version="1.13">
+    <Project>
+        <Name>PlanApp.PLPOMModel</Name>
+        <Version>01.00.00</Version>
+        <Prefix>Siemens.SimaticIT</Prefix>
+        <Domain>PlanApp</Domain>
+        <DomainAcronym>PL</DomainAcronym>
+        <Guid>5eb92ba1-3f52-459d-9c3c-e2aebdc19347</Guid>
+		<ProjectKind>Pom</ProjectKind>
+    </Project>
+    <References>
+    </References>
+</DSL>

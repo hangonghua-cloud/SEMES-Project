@@ -1,0 +1,53 @@
+﻿<div class="command-bar-side-panel">
+    <button ng-click="vm.cancel()" class="btn side-panel-button">{{'Siemens.SimaticIT.SystemApp.APPRoleFunction.APPRoleFunctionedit.Tips_1'|translate}}</button>
+    <button ng-click="vm.save()" class="btn side-panel-button" ng-show="vm.validInputs">{{'Siemens.SimaticIT.SystemApp.APPRoleFunction.APPRoleFunctionedit.Tips_2'|translate}}</button>
+</div>
+<div class="side-panel-property-area-body">
+    <sit-property-grid sit-id="edit_form"
+                       sit-layout="Vertical"
+                       sit-type="Fluid"
+                       sit-mode="edit"
+                       sit-columns="2">
+        <!-- TODO: Put here the properties of the entity managed by the service -->
+        <sit-property sit-widget="sit-select"
+                      sit-options="vm.AppModuleOptions.options"
+                      sit-validation="{required: true}"
+                      sit-to-keep="'ModuleCode'"
+                      sit-value="vm.AppModuleOptions.selectedOption"
+                      sit-to-display="'ModuleName'"
+                      width:200 sit-read-only="false">{{'Siemens.SimaticIT.SystemApp.APPRoleFunction.APPRoleFunctionedit.Tips_3'|translate}}</sit-property>
+        <sit-property sit-widget="sit-text"
+                      sit-value="vm.currentItem.FunctionCode"
+                      sit-validation="{required: true}"
+                      sit-read-only="true">{{'Siemens.SimaticIT.SystemApp.APPRoleFunction.APPRoleFunctionedit.Tips_4'|translate}}</sit-property>
+        <sit-property sit-widget="sit-text"
+                      sit-value="vm.currentItem.FunctionName"
+                      sit-validation="{required: true}"
+                      sit-read-only="false">{{'Siemens.SimaticIT.SystemApp.APPRoleFunction.APPRoleFunctionedit.Tips_5'|translate}}</sit-property>
+        <sit-property sit-widget="sit-text"
+                      sit-value="vm.currentItem.FunctionColor"
+                      sit-validation="{required: true}"
+                      sit-read-only="false">{{'Siemens.SimaticIT.SystemApp.APPRoleFunction.APPRoleFunctionedit.Tips_6'|translate}}</sit-property>
+        <sit-property sit-widget="sit-text"
+                      sit-value="vm.currentItem.FunctionIco"
+                      sit-validation="{required: true}"
+                      sit-read-only="false">{{'Siemens.SimaticIT.SystemApp.APPRoleFunction.APPRoleFunctionedit.Tips_7'|translate}}</sit-property>
+        <sit-property sit-widget="sit-select"
+                      sit-options="vm.TypeOptions.options"
+                      sit-validation="{required: true}"
+                      sit-to-keep="'Code'"
+                      sit-value="vm.TypeOptions.selectedOption"
+                      sit-to-display="'Name'"
+                      width:200 sit-read-only="false">{{'Siemens.SimaticIT.SystemApp.APPRoleFunction.APPRoleFunctionedit.Tips_8'|translate}}</sit-property>
+        <sit-property sit-widget="sit-numeric"
+                      sit-value="vm.currentItem.Sort"
+                      sit-validation="{required: false}"
+                      sit-read-only="false">{{'Siemens.SimaticIT.SystemApp.APPRoleFunction.APPRoleFunctionedit.Tips_9'|translate}}</sit-property>
+        <sit-property sit-widget="sit-checkbox"
+                      sit-value="vm.EnabledMark"
+                      sit-validation="{required: false}"
+                      ng-show="true">
+            {{'Siemens.SimaticIT.SystemApp.APPRoleFunction.APPRoleFunctionedit.Tips_10'|translate}}
+        </sit-property>
+    </sit-property-grid>
+</div>

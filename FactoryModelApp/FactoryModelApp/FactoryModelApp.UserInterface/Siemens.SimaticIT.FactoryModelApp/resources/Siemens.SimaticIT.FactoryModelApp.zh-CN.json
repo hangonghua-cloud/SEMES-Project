@@ -1,0 +1,287 @@
+﻿{
+  "Siemens.SimaticIT.FactoryModelApp": {
+    "ModelLevel": {
+      "ModelLeveladd": {
+        "Tips_1": "返回",
+        "Tips_2": "保存",
+        "Tips_3": "层级代码:",
+        "Tips_4": "层级名称:",
+        "Tips_5": "描述:",
+        "Tips_6": "层级:"
+      },
+      "ModelLeveledit": {
+        "Tips_1": "取消",
+        "Tips_2": "保存",
+        "Tips_3": "层级代码:",
+        "Tips_4": "层级名称:",
+        "Tips_5": "描述:",
+        "Tips_6": "层级:"
+      },
+      "ModelLevellist": {
+        "Tips_1": "搜索",
+        "Tips_2": "删除层级",
+        "Tips_3": "修改层级",
+        "Tips_4": "新增层级"
+      },
+      "ModelLeveladdctrl": {
+        "Tips_1": "新建层级",
+        "Tips_2": "层级属性值应输入整数",
+        "Tips_3": "层级属性值应大于0",
+        "Tips_4": "层级编码不能为空",
+        "Tips_5": "层级名称不能为空",
+        "Tips_6": "操作出错",
+        "Tips_7": "工厂模型层级添加"
+      },
+      "ModelLeveleditctrl": {
+        "Tips_1": "修改层级",
+        "Tips_2": "层级属性值应输入整数",
+        "Tips_3": "层级属性值应大于0",
+        "Tips_4": "层级编码不能为空",
+        "Tips_5": "层级名称不能为空",
+        "Tips_6": "操作出错",
+        "Tips_7": "工厂模型层级修改"
+      },
+      "ModelLevellistctrl": {
+        "Tips_1": "序号",
+        "Tips_2": "层级代码",
+        "Tips_3": "层级名称",
+        "Tips_4": "层级",
+        "Tips_5": "描述",
+        "Tips_6": "创建人",
+        "Tips_7": "创建日期",
+        "Tips_8": "修改人",
+        "Tips_9": "修改日期",
+        "Tips_10": "获取数据出错",
+        "Tips_11": "获取数据时出现错误，",
+        "Tips_12": "请选择层级",
+        "Tips_13": "删除",
+        "Tips_14": "你确定要删除层级编号为【",
+        "Tips_15": "】的记录吗?",
+        "Tips_16": "--全部--",
+        "Tips_17": "工厂层级"
+      },
+      "Title": "工厂层级"
+    },
+    "ModelLevelExtendFileds": {
+      "ModelLevelExtendFiledsadd": {
+        "Tips_1": "返回",
+        "Tips_2": "保存",
+        "Tips_3": "属性编码:",
+        "Tips_4": "属性名称:",
+        "Tips_5": "字段类型:",
+        "Tips_6": "是否有效:",
+        "Tips_7": "属性类型:",
+        "Tips_8": "是否内置:"
+      },
+      "ModelLevelExtendFiledsedit": {
+        "Tips_1": "返回",
+        "Tips_2": "保存",
+        "Tips_3": "属性编码:",
+        "Tips_4": "属性名称:",
+        "Tips_5": "字段类型:",
+        "Tips_6": "是否有效:",
+        "Tips_7": "属性类型:",
+        "Tips_8": "是否内置:"
+      },
+      "ModelLevelExtendFiledslist": {
+        "Tips_1": "删除扩展",
+        "Tips_2": "编辑扩展",
+        "Tips_3": "新建扩展",
+        "Tips_4": "模型层级 -"
+      },
+      "ModelLevelExtendFiledsaddctrl": {
+        "Tips_1": "新建属性",
+        "Tips_2": "字符类型",
+        "Tips_3": "数字类型",
+        "Tips_4": "日期时间类型",
+        "Tips_5": "属性编码不能为空",
+        "Tips_6": "属性名称不能为空",
+        "Tips_7": "属性不能为空",
+        "Tips_8": "操作出错",
+        "Tips_9": "是",
+        "Tips_10": "否"
+      },
+      "ModelLevelExtendFiledseditctrl": {
+        "Tips_1": "修改属性",
+        "Tips_2": "字符类型",
+        "Tips_3": "数字类型",
+        "Tips_4": "日期类型",
+        "Tips_5": "属性编码不能为空",
+        "Tips_6": "属性名称不能为空",
+        "Tips_7": "属性不能为空",
+        "Tips_8": "操作出错",
+        "Tips_9": "是",
+        "Tips_10": "否"
+      },
+      "ModelLevelExtendFiledslistctrl": {
+        "Tips_1": "未选择分类",
+        "Tips_2": "序号",
+        "Tips_3": "层级代码",
+        "Tips_4": "属性代码",
+        "Tips_5": "属性名称",
+        "Tips_6": "属性类型",
+        "Tips_7": "是否有效",
+        "Tips_8": "创建人",
+        "Tips_9": "创建日期",
+        "Tips_10": "修改人",
+        "Tips_11": "修改日期",
+        "Tips_12": "确定",
+        "Tips_13": "错误提示",
+        "Tips_14": "请先选择层级",
+        "Tips_15": "请先选择属性",
+        "Tips_16": "删除",
+        "Tips_17": "确定要删除所选的【",
+        "Tips_18": "】属性吗？",
+        "Tips_19": "操作失败 -",
+        "Tips_20": "工厂层级模板"
+      },
+      "Title": "工厂层级模板"
+    },
+    "ModelManage": {
+      "ModelManageadd": {
+        "Tips_1": "返回",
+        "Tips_2": "保存",
+        "Tips_3": "层级代码:",
+        "Tips_4": "层级名称:",
+        "Tips_5": "描述:",
+        "Tips_6": "层级:",
+        "Tips_7": "是否有效:",
+        "Tips_8": "创建人:",
+        "Tips_9": "创建日期:",
+        "Tips_10": "修改人:",
+        "Tips_11": "修改日期:"
+      },
+      "ModelManageedit": {
+        "Tips_1": "返回",
+        "Tips_2": "保存",
+        "Tips_3": "层级代码:",
+        "Tips_4": "层级名称:",
+        "Tips_5": "描述:",
+        "Tips_6": "层级:",
+        "Tips_7": "是否有效:",
+        "Tips_8": "创建人:",
+        "Tips_9": "创建日期:",
+        "Tips_10": "修改人:",
+        "Tips_11": "修改日期:"
+      },
+      "ModelManagelist": {
+        "Tips_1": "工厂信息"
+      },
+      "ModelManagelistctrl": {
+        "Tips_1": "未选择分类",
+        "Tips_2": "序号",
+        "Tips_3": "属性名称",
+        "Tips_4": "值",
+        "Tips_5": "确定",
+        "Tips_6": "错误提示",
+        "Tips_7": "工厂建模"
+      },
+      "Title": "工厂建模"
+    },
+    "ModelResource": {
+      "ModelResourceadd": {
+        "Tips_1": "返回",
+        "Tips_2": "保存",
+        "Tips_3": "父级层级:",
+        "Tips_4": "父级资源:",
+        "Tips_5": "资源编码:",
+        "Tips_6": "资源名称:",
+        "Tips_7": "描述:",
+        "Tips_8": "排序:"
+      },
+      "ModelResourceaddDetail": {
+        "Tips_1": "返回",
+        "Tips_2": "保存",
+        "Tips_3": "资源编码:",
+        "Tips_4": "属性代码:",
+        "Tips_5": "属性值:",
+        "Tips_6": "是否有效:",
+        "Tips_7": "描述:",
+        "Tips_8": "创建人:",
+        "Tips_9": "创建日期:",
+        "Tips_10": "修改人:",
+        "Tips_11": "修改日期:"
+      },
+      "ModelResourceedit": {
+        "Tips_1": "返回",
+        "Tips_2": "保存",
+        "Tips_3": "父级层级:",
+        "Tips_4": "父级资源:",
+        "Tips_5": "资源编码:",
+        "Tips_6": "资源名称:",
+        "Tips_7": "描述:",
+        "Tips_8": "排序:"
+      },
+      "ModelResourceeditDetail": {
+        "Tips_1": "返回",
+        "Tips_2": "保存"
+      },
+      "ModelResourcelist": {
+        "Tips_1": "删除字段",
+        "Tips_2": "编辑属性",
+        "Tips_3": "删除项目",
+        "Tips_4": "编辑项目",
+        "Tips_5": "新建项目",
+        "Tips_6": "资源编码:",
+        "Tips_7": "搜索",
+        "Tips_8": "模型资源 -"
+      },
+      "ModelResourceaddctrl": {
+        "Tips_1": "新建资源",
+        "Tips_2": "描述",
+        "Tips_3": "顶层",
+        "Tips_4": "确定",
+        "Tips_5": "错误提示",
+        "Tips_6": "无",
+        "Tips_7": "没有选择父级资源",
+        "Tips_8": "操作出错"
+      },
+      "ModelResourceeditctrl": {
+        "Tips_1": "修改资源",
+        "Tips_2": "描述",
+        "Tips_3": "顶层",
+        "Tips_4": "确定",
+        "Tips_5": "错误提示",
+        "Tips_6": "无",
+        "Tips_7": "没有选择父级资源",
+        "Tips_8": "操作出错"
+      },
+      "ModelResourceeditDetailctrl": {
+        "Tips_1": "设置属性值",
+        "Tips_2": "确定",
+        "Tips_3": "错误提示",
+        "Tips_4": "修改属性"
+      },
+      "ModelResourcelistctrl": {
+        "Tips_1": "未选择分类",
+        "Tips_2": "序号",
+        "Tips_3": "资源编码",
+        "Tips_4": "资源名称",
+        "Tips_5": "模型层级",
+        "Tips_6": "父级资源",
+        "Tips_7": "排序",
+        "Tips_8": "描述",
+        "Tips_9": "创建人",
+        "Tips_10": "创建日期",
+        "Tips_11": "修改人",
+        "Tips_12": "修改日期",
+        "Tips_13": "车间编码",
+        "Tips_14": "资源代码",
+        "Tips_15": "属性代码",
+        "Tips_16": "属性名称",
+        "Tips_17": "属性类型",
+        "Tips_18": "属性值",
+        "Tips_19": "确定",
+        "Tips_20": "错误提示",
+        "Tips_21": "请先选择层级",
+        "Tips_22": "请先选择资源",
+        "Tips_23": "请先选择资源属性",
+        "Tips_24": "删除",
+        "Tips_25": "确定要删除所选的编号为【",
+        "Tips_26": "】的资源吗？",
+        "Tips_27": "工厂定义"
+      },
+      "Title": "工厂定义"
+    }
+  }
+}

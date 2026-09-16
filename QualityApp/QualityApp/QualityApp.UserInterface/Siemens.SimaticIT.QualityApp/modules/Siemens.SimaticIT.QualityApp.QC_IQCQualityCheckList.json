@@ -1,0 +1,19 @@
+﻿{
+  "name": "Siemens.SimaticIT.QualityApp.QC_IQCQualityCheckList",
+  "type": "standard",
+  "title": "Siemens.SimaticIT.QualityApp.QC_IQCQualityCheckList.Title",
+  "header": "",
+  "icon": "svg typeActionLongTerm48",
+  "functionalBlock": "Siemens.SimaticIT.QualityApp",
+  "dependencies": [],
+  "states": [
+    {
+      "id": "home.Siemens_SimaticIT_QualityApp_QC_IQCQualityCheckList_QC_IQCQualityCheckList",
+      "title": "Siemens.SimaticIT.QualityApp.QC_IQCQualityCheckList.Title",
+      "header": "",
+      "securable": true,
+      "roles": []
+    }
+  ],
+  "manifestVersion": "01.01.00"
+}

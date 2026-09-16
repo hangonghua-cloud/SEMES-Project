@@ -1,0 +1,36 @@
+<div ng-controller="ChangeLocationCtrl as sc" class="user-preference-ChangeLocation">
+    <div class="vertical-cmdbar">
+        <sit-command-bar sit-vertical-autofixed="true" sit-type="tool" sit-label-align="right" sit-layout="vertical">
+            <!-- <sit-command sit-name="ChangeLocation.reset" ng-click="sc.restoreChangeLocation"
+                         cmd-icon="Import" sit-tooltip="{{'ChangeLocation.btnReset'|translate}}"
+                         sit-label="{{'ChangeLocation.btnReset'|translate}}">
+            </sit-command> -->
+            <sit-command sit-name="ChangeLocation.save" ng-click="sc.saveChangeLocation"
+                         cmd-icon="Save" sit-tooltip="{{'ChangeLocation.btnSave'|translate}}"
+                         sit-label="{{'ChangeLocation.btnSave'|translate}}">
+            </sit-command>
+        </sit-command-bar>
+    </div>
+    <div class="container-fluid">
+        <!-- left column: language  & log -->
+        <div class="ChangeLocation-log-info">
+            <h3>{{ 'ChangeLocation.subtitle' | translate }}</h3>
+            <div data-internal-type="ChangeLocationLogLevels">
+                <sit-item-tile ng-model="sc.loglevel" ng-repeat="item in sc.loglevel" sit-tile-content="item"></sit-item-tile>
+            </div>
+        </div>
+    </div>
+    <div sit-notification-tile
+         sit-tile-title="sc.notificationTile.title"
+         sit-tile-content="sc.notificationTile.content"
+         sit-tile-type="sc.notificationTile.type"
+         sit-tile-counter=sc.notificationTile.counter
+         sit-tile-callback="sc.notificationTile.clickCallback"
+         sit-tile-position="sc.notificationTile.position"
+         sit-tile-popup="sc.notificationTile.popup"
+         id="{{sc.notificationTile.id}}"></div>
+</div>
+
+
+
+

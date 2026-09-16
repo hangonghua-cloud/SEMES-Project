@@ -1,0 +1,1016 @@
+{
+  "common": {
+    "and": "และ",
+    "and-or": "และ\/หรือ",
+    "apply": "นำมาใช้",
+    "กำลังโหลด": {
+      "loading": "กำลังโหลด..",
+      "please-wait": "รอสักครู่...",
+      "working": "กำลังทำงาน..."
+    },
+    "redirectInProgress": "คุณกำลังไปสู่หน้าเข้าระบบ...",
+    "cancel": "ยกเลิก",
+    "selectAll": "เลือกทั้งหมด",
+    "configure": "การกำหนดค่า",
+    "contains": "รวม",
+    "delete": "ยกเลิก",
+    "description": "อธิบาย",
+    "done": "สำเร็จ",
+    "edit": "แก้ไข",
+    "ends-with": "ลงท้ายด้วย",
+    "error": "ผิดพลาด",
+    "error-code-message": "ผิดพลาดรหัส({{รหัส}})：{{ข้อความ}}",
+    "error-text-code-message": "{{text}}\nผิดพลาดรหัส({{รหัส}})：{{ข้อความ}}",
+    "field": "เขตข้อมูล",
+    "imageUpload": "รูปภาพอัพโหลด",
+    "in": "ตั้งอยู่ที่",
+    "invalid-parameter-value": "พารามิเตอร์ ({{name}}) ค่าไม่ถูกต้อง：{{ข้อความ}}",
+    "isNull": "ว่างเปล่า",
+    "isNotNull": "ไม่ว่างเปล่า",
+    "any": "ใดๆ",
+    "notany": "ไม่ทั้งหมด",
+    "load": "โหลด",
+    "match-case": "ตัวพิมพ์ใหญ่-เล็ก",
+    "group": "กลุ่ม",
+    "ungroup": "ยกเลิกกลุ่ม",
+    "name": "ชื่อ",
+    "no": "ไม่",
+    "no-data": "ไม่มีข้อมูล",
+    "none": "ไม่มี",
+    "ok": "โอเค",
+    "operator": "ผู้ดำเนินการ",
+    "or": "หรือ",
+    "param-msg-exceed-max-string-length": "เกินมูลค่า {{length}} จำกัดความยาวสูงสุดของตัวอักษร。",
+    "param-msg-invalid-format": "มูลค่าไม่ถูกต้อง {{format}} รูปแบบ。",
+    "remove": "ย้ายออก",
+    "reset": "รีเซ็ต",
+    "save": "บันทึก",
+    "saveAll": "บันทึกทั้งหมด",
+    "export-sidepanel": "ส่งออก",
+    "selected": "เนื้อหาที่เลือก",
+    "starts-with": "เริ่มจาก",
+    "success": "สำเร็จ",
+    "update": "อัพเดท",
+    "value": "มูลค่า",
+    "version": "เวอร์ชั่น",
+    "yes": "ใช่",
+    "confirmation": "คอนเฟิร์ม",
+    "export": {
+      "exportInProgress": "กำลังเตรียมแพ็คเกจส่งออก。เมื่อพร้อมแล้ว，คุณสามารถค้นหาได้ในหน้า ส่งออกการจัดการการนำเข้า",
+      "exportWithDataSegregation": "คุณจะส่งออกตามแท็กแยกข้อมูลที่กำหนดให้คุณเท่านั้นและหน่วยงานและหน่วยงานที่เกี่ยวข้องจะมองเห็นได้",
+      "general": "ทั่วไป",
+      "exportDescendants": "รวมรุ่นหลังๆ",
+      "warningInformation": "เตือน"
+    },
+    "authentication": {
+      "overlayLogoutErrorTitle": "ผิดพลาด",
+      "overlayLogoutErrorMsg": "การออกจากระบบผิดพลาด",
+      "overlaySessionExpireWarning": "ส่วนของผู้ใช้งานกำลังจะหมดอายุ...",
+      "overlaySessionExpireข้อความ": "ส่วนของผู้ใช้งานกำลังจะหมดอายุ มีเวลาเหลืออยู่：",
+      "overlaySesionExpiredข้อความ": "เว้นแต่คุณได้ทำกิจกรรมในแท็บอื่นแล้ว，ไม่ใช่ส่วนผู้ใช้งานอาจหมดอายุแล้ว。",
+      "renewSession": "ต่ออายุเซสชัน"
+    },
+    "header": {
+      "actions": {
+        "home": "หน้าแรก",
+        "settings": "ติดตั้ง",
+        "about": "เกี่ยวกับ",
+        "logout": "ออกระบบ"
+      },
+      "about": {
+        "title": "เกี่ยวกับ",
+        "version": "Opcenter Execution Foundation 3.2",
+        "copyright": "© Siemens AG, 2020"
+      }
+    },
+    "helpWindow": {
+      "title": "ช่วยเหลือ",
+      "search": "ป้อนคำค้นหาที่นี่...",
+      "no-items-found": "ไม่พบผลลัพธ์。กรุณาเพิ่มเกณฑ์การค้นหาของคุณ。",
+      "search-info": "คุณค้นหาแล้ว",
+      "document": "เอกสาร",
+      "unknown-page": "ไม่มีหน้านี้อยู่。",
+      "no-help-รหัส": "ไม่มีในหน้าช่วยเหลือ",
+      "no-documents": "ไม่มีหน้าช่วยเหลือ"
+    },
+    "viewbar": {
+      "grid": "ตาราง",
+      "small": "เล็ก",
+      "medium": "กลาง",
+      "large": "ใหญ่"
+    },
+    "gridster": {
+      "dragresize": "ลากและปรับขนาดใหญ่เล็ก",
+      "dragresizeTitle": "ลากและปรับขนาดส่วนประกอบใหญ่เล็ก"
+    },
+    "unauthorize": {
+      "title": "การอนุญาตผิดพลาด",
+      "ข้อความ": "คุณไม่ได้รับอนุญาตให้เข้าถึงหน้านี้。"
+    },
+    "undefinedHome": {
+      "title": "หน้าแรกไม่ได้กำหนดสถานะ",
+      "text": "หน้าแรกสถานะไม่ได้การกำหนดค่า"
+    },
+    "serviceLayerError": {
+      "title": "ไม่มีบริการ"
+    },
+    "nerveBox": {
+      "generic": {
+        "title": "การตรวจสอบใบอนุญาต",
+        "body": "การตรวจสอบใบอนุญาตไม่ผ่าน。\nโปรดติดต่อผู้ดูแลระบบของคุณ。"
+      }
+    },
+    "homePageWithSearch": {
+      "placeholder": "พิมพ์ข้อความค้นหาที่นี่...",
+      "searchResults": "ค้นหาผลลัพธ์"
+    }
+  },
+  "datePicker": {
+    "clear": "ลบ",
+    "close": "ปิด",
+    "now": "ตอนนี้",
+    "today": "วันนี้",
+    "ok": "โอเค",
+    "setDateAsToday": "โดยกำหนดวันที่ไว้เป็นวันนี้",
+    "setTimeAsNow": "เวลาที่ตั้งไว้คือตอนนี้"
+  },
+  "dateTimePicker": {
+    "clear": "ลบ",
+    "close": "ปิด",
+    "now": "ตอนนี้",
+    "today": "วันนี้",
+    "ok": "โอเค",
+    "setDateAsToday": "โดยกำหนดวันที่ไว้เป็นวันนี้",
+    "setTimeAsNow": "เวลาที่ตั้งไว้คือตอนนี้"
+  },
+  "dialog": {
+    "close": "ปิด",
+    "validator": {
+      "warningTitle": "เตือน：",
+      "warningข้อความ": "อย่างน้อยหนึ่งเขตข้อมูลไม่เป็นไปตามกฎการตรวจสอบ。"
+    }
+  },
+  "entityPicker": {
+    "defaultPlaceHolder": "ค้นหาเอนทิตี",
+    "cancel": "ยกเลิก",
+    "select": "เลือก",
+    "selectItem": "เลือกรายการ"
+  },
+  "fileUploader": {
+    "noFile": "ไม่มีการระบุไฟล์。",
+    "error": {
+      "fileType": "ประเภทไฟล์ไม่มีผล。",
+      "fileSize": "ไฟล์ใหญ่เล็กไม่มีความถูกต้อง。",
+      "readError": "เกิดข้อผิดพลาดขณะอ่านไฟล์。"
+    },
+    "tooltip": {
+      "browse": "เรียกดู",
+      "remove": "ย้ายออก"
+    }
+  },
+  "iconPicker": {
+    "defaultPlaceHolder": "เริ่มพิมพ์ fa หรือ sit เพื่อค้นหาไอคอน"
+  },
+  "textEditor": {
+    "browse": "เรียกดู",
+    "tabHeading": "อัพโหลดจากระบบไฟล์"
+  },
+  "commandBar": {
+    "moreCommandsAvailable": "เพิ่มเติม",
+    "lessCommands": "น้อยลง",
+    "clearToolTip": "ลบ",
+    "saveAsToolTip": "บันทึกเป็น",
+    "saveToolTip": "บันทึก",
+    "setDefaultTooltip": "ตั้งเป็นค่าเริ่มต้น",
+    "unsetDefaultTooltip": "ยกเลิกตั้งเป็นค่าเริ่มต้น",
+    "unknownCommandSep": "ไม่รู้จักประเภทคำสั่งย่อย：อนุญาตให้ใช้มูลค่าเป็น 'Command' หรือ 'Sep'",
+    "unknownCommand": "ไม่รู้จักประเภทคำสั่งย่อย：อนุญาตให้ใช้มูลค่าเป็น 'Command'、'Group' หรือ 'Sep'"
+  },
+  "contextInfo": {
+    "title": "ข้อมูลบริบท"
+  },
+  "filter": {
+    "add-new-clause": "เพิ่มข้อใหม่",
+    "constant": "คงที่",
+    "field": "เขตข้อมูล",
+    "unknownType": "ประเภทที่ไม่รู้จัก",
+    "optionalDescription": "พิมพ์ตัวเลือกคำอธิบายที่นี่"
+  },
+  "filterPanel": {
+    "title": "กรอง",
+    "reset": "รีเซ็ต",
+    "apply": "นำมาใช้",
+    "save": "บันทึก",
+    "cancel": "ยกเลิก",
+    "saveFilterAs": "จะกรองบันทึกเป็น",
+    "setDefault": "ตั้งเป็นค่าเริ่มต้น",
+    "unSetDefault": "ยกเลิกตั้งเป็นค่าเริ่มต้น",
+    "name": "ชื่อ",
+    "description": "อธิบาย",
+    "optionalDescription": "พิมพ์ตัวเลือกคำอธิบายที่นี่",
+    "nameInfo": "ควรขึ้นต้นด้วยตัวอักษรหรือตัวเลข，ความยาว 3 ถึง 25 ตัวอักษร。",
+    "descInfo": "ความยาวสูงสุดควรเป็น 200 อักษร。",
+    "filterName": "กรองชื่อ",
+    "newFilter": "ตัวกรองใหม่",
+    "openFilter": "เปิดกรอง",
+    "delete": "ยกเลิก",
+    "overlay": {
+      "text": "ผิดพลาด：มีตัวกรองที่มีชื่อเดียวกันนี้อยู่แล้ว。",
+      "title": "มีตัวกรองอยู่แล้ว",
+      "displayName": "โอเค"
+    }
+  },
+  "filterBar": {
+    "none": "ไม่มี",
+    "quick-search": "พิมพ์ที่นี่เพื่อเริ่มค้นหา",
+    "quickSearchPlaceholder": "เงื่อนไขการค้นหา",
+    "sortby": "เรียงตามลำดับ",
+    "userPreferenceTitle": "รายการที่ต้องการของผู้ใช้",
+    "filterTitle": "กรอง",
+    "groupTitle": "จัดตามกลุ่ม",
+    "ascending": "ลำดับจากน้อยไปหามาก",
+    "descending": "ลำดับจากมากไปน้อย",
+    "ascendingTitle": "จัดเรียงตามจากน้อยไปหามาก",
+    "descendingTitle": "จัดเรียงตามจากมากไปหาน้อย",
+    "segregationTagsTitle": "ตราประทับ",
+    "exportTitle": "ส่งออก",
+    "mode": "แบบอย่าง",
+    "table": "ตาราง",
+    "list": "คอลั้มน์",
+    "selectAll": "เลือกทั้งหมด",
+    "multiSelection": "เลือกได้ทีละเยอะๆ"
+
+  },
+  "contextual": {
+    "search": "ป้อนคำค้นหาที่นี่..."
+  },
+  "generic": {
+    "search": "ป้อนคำค้นหาที่นี่..."
+  },
+  "interactiveAccordion": {
+    "newNode": "สร้างโหนดลูกใหม่"
+  },
+  "Graph": {
+    "error": {
+      "graphUndefined": "ยังไม่ได้กำหนดโหนดและขอบสำหรับกราฟนี้。",
+      "uniqueNodeId": "รหัสโหนดต้องไม่ซ้ำกัน。",
+      "uniqueEdgeId": "รหัส Edge ต้องไม่ซ้ำกัน。",
+      "emptyGraph": "รูปว่างเปล่า"
+    },
+    "name": "ชื่อ",
+    "description": "อธิบาย",
+    "autoFit": "ปรับให้พอดีอัตโนมัติ",
+    "panAndZoom": "แพนและซูม"
+  },
+  "Notification": {
+    "tileNull": "[Controller.notificationTileShow] tileContent เพื่อnull \n'",
+    "tileContentGt120": "[Controller.notificationTileShow] tileContent ใหญ่ที่ 120 ตัวอักษร \n",
+    "tileTitleGt120": "[Controller.notificationTileShow] tileTitle ใหญ่ที่ 22 ตัวอักษร \n",
+    "infoTitle": "ข้อมูล",
+    "warningTitle": "เตือน"
+  },
+  "pager": {
+    "page-size": "หน้าใหญ่เล็ก",
+    "total-items": "รายการทั้งหมด",
+    "filtered-items": "กรองรายการ",
+    "selected-items": "เลือกรายการ",
+    "page": "หน้า",
+    "page-first": "หน้าแรก",
+    "page-prev": "หน้าก่อน",
+    "page-next": "หน้าต่อไป",
+    "page-last": "หน้าสุดท้าย"
+
+  },
+  "pagination": {
+    "showing": "แสดง",
+    "to": "ถึง",
+    "of": "\/",
+    "entries": "รายการ",
+    "selected-items": "เลือกรายการ"
+  },
+  "settings": {
+    "title": "ติดตั้ง",
+    "subtitle": "ภาษาและภูมิภาค",
+    "select": "เลือกภาษาและภูมิภาค。",
+    "theme": "ชุดรูปแบบ",
+    "log": "UI การบันทึก",
+    "ข้อความ": "เปิดใช้งานการแก้ไขข้อบกพร่องหรือการแจ้งเตือนโดยละเอียดอาจส่งผลต่อประสิทธิภาพ UI โดยรวม。",
+    "btnReset": "รีเซ็ตเป็นมูลค่าเริ่มต้น",
+    "btnSave": "บันทึกเปลี่ยน",
+    "notificationTile": {
+      "title": "สำเร็จ",
+      "savetext": "แก้ไขบันทึกให้ถูกต้อง。",
+      "restoretext": "ได้ถูกเรียกคืนอย่างถูกต้องแล้ว。"
+    }
+  },
+  "ChangeLocation": {
+    "title": "ติดตั้ง",
+    "subtitle": "ภาษาและภูมิภาค",
+    "select": "เลือกภาษาและภูมิภาค。",
+    "theme": "ชุดรูปแบบ",
+    "log": "UI การบันทึก",
+    "ข้อความ": "เปิดใช้งานการแก้ไขข้อบกพร่องหรือการแจ้งเตือนโดยละเอียดอาจส่งผลต่อประสิทธิภาพ UI โดยรวม。",
+    "btnReset": "รีเซ็ตเป็นมูลค่าเริ่มต้น",
+    "btnSave": "บันทึกเปลี่ยน",
+    "notificationTile": {
+      "title": "สำเร็จ",
+      "savetext": "แก้ไขบันทึกให้ถูกต้อง。",
+      "restoretext": "ได้ถูกเรียกคืนอย่างถูกต้องแล้ว。"
+    }
+  },
+  "sidebar": {
+    "title": "แถบด้านข้าง",
+    "open": "เปิด",
+    "back": "กลับ",
+    "error": {
+      "configMissing": "ไม่มีข้อมูลที่สามารถใช้ได้。",
+      "homeMissing": "หน้าแรกยังการกำหนดค่า。",
+      "invalidNavigationButtons": "ปุ่มนำทางยังคงถูกต้องอยู่。",
+      "iconMissing": "ไอคอนยังการกำหนดค่า。"
+    }
+  },
+  "sidePanel": {
+    "close": "ปิด",
+    "labelErrorMsg": "ป้ายใช่ที่จำเป็น",
+    "tooltipErrorMsg": "เคล็ดลับเครื่องมือใช่ที่จำเป็น",
+    "minimize": "เล็กสุด",
+    "maximize": "ใหญ่สุด",
+    "closeConfirmTitle": "คอนเฟิร์มปิด",
+    "closeConfirmtext": "โอเค ต้องการปิดแผงด้านข้างไหม？"
+  },
+  "timePicker": {
+    "clear": "ลบ",
+    "set": "ติดตั้ง"
+  },
+  "validator": {
+    "errors": {
+      "noLabel": "เขตข้อมูล",
+      "required": "{{field}}ต้องระบุรายการ。",
+      "pattern": "{{field}}{{ value }}",
+      "min": "{{field}}มูลค่าต่ำที่สุด ({{value}})。",
+      "max": "{{field}}เกินมูลค่าแล้ว ({{value}})。",
+      "minlength": "{{field}}มูลค่าต่ำที่สุด ({{value}})。",
+      "maxlength": "{{field}}เกินความยาวสูงสุดแล้ว ({{value}})。",
+      "number": "{{field}}ต้องเป็นตัวเลข。",
+      "integer": "{{field}} ต้องเป็นจำนวนเต็ม。",
+      "editable": "{{field}}ต้องมีตั้งแต่มูลค่ากลางเลือก。",
+      "custom": "{{field}}{{value}}"
+    }
+  },
+  "propertyGrid": {
+    "property": {
+      "addNew": "เพิ่มเข้ามาใหม่",
+      "remove": "ย้ายออก",
+      "canNotAdd": "เพิ่มไม่ได้",
+      "canNotRemove": "ย้ายไม่ได้",
+      "addItem": "เพิ่มส่วนประกอบ"
+    },
+    "invalidLayout": "ประเภทแอตทริบิวต์ที่ไม่รู้จักประเภทตาราง：อนุญาตให้ใช้มูลค่าเป็น“คงที่”หรือ“ของเหลว”"
+  },
+  "taskContainer": {
+    "taskList": {
+      "name-sort-by": "ชื่อ",
+      "default-sort-by": "สถานะ",
+      "created-sort-by": "เวลาสร้าง",
+      "lastupdated-sort-by": "เวลาอัพเดทครั้งที่แล้ว"
+    },
+    "tile": {
+      "status": "สถานะ",
+      "created": "สร้าง",
+      "lastUpdated": "อัพเดทแล้ว",
+      "taskDefinitionId": "คำนิยาม"
+    },
+    "parameters": {
+      "parameter": "พารามิเตอร์",
+      "description": "อธิบาย",
+      "direction": "ทิศทาง",
+      "id": "ID",
+      "isReadOnly": "อ่านเท่านั้น",
+      "name": "ชื่อ",
+      "type": "พิมพ์",
+      "uom": "หน่วยวัด",
+      "value": "มูลค่า",
+      "noData": "ไม่มีข้อมูล"
+    },
+    "details": {
+      "id": "ID",
+      "name": "ชื่อ",
+      "description": "อธิบาย",
+      "taskDefinitionNId": "คำจำกัดความของงาน ID",
+      "taskDefinitionRevision": "เวอร์ชั่น",
+      "equipment": "เครื่องจักร",
+      "taskFlow": "การหมุนเวียนของงาน",
+      "taskOverview": "สรุปภารกิจ",
+      "taskDetails": "รายละเอียดงานข้อมูล",
+      "properties": "รายละเอียดข้อมูล",
+      "status": "สถานะ"
+    },
+    "context": {
+      "noData": "ไม่มีข้อมูล",
+      "context": "ประโยคบนและล่าง",
+      "contextEntityType": "ประโยคบนและล่างพิมพ์",
+      "description": "อธิบาย",
+      "direction": "ทิศทาง",
+      "id": "ID",
+      "isReadOnly": "อ่านเท่านั้น",
+      "name": "ชื่อ",
+      "noUserFieldAvailable": "ไม่มีผู้ใช้งานเขตข้อมูล",
+      "type": "พิมพ์",
+      "uom": "หน่วยวัด",
+      "value": "มูลค่า"
+    }
+  },
+  "ERRORS": {
+    "404": "ไม่พบทรัพยากรที่ร้องขอโดยถึง。",
+    "503": "โครงการชั้นบริการอยู่ระหว่างการบำรุงรักษา。",
+    "400": "ไวยากรณ์ของคำขอนี้อย่างไรก็ตามไม่ถูกต้องหรือไม่มีการตอบสนองวิธีการ。",
+    "403": "คำขอนี้เป็นสิ่งต้องห้าม การอนุญาตไม่มีประโยชน์",
+    "500": "เซิร์ฟเวอร์พบสถานการณ์ที่ไม่คาดคิด และไม่สามารถดำเนินการตามคำขอได้",
+    "502": "การเชื่อมต่อล้มเหลว. ไม่มีการตอบรับวิธีการดึงข้อมูล。",
+    "4XX": "เซิร์ฟเวอร์ล้มเหลวในการตอบสนองคำขอที่ถูกต้องของลูกค้า。",
+    "5XX": "เซิร์ฟเวอร์ล้มเหลวในการตอบสนองคำขอที่ถูกต้อง"
+  },
+  "svcErrors": {
+    "documentation": {
+      "noID": "คำสั่งผิดพลาด：ไม่มี ID ไม่มีวิธีดำเนินการคำสั่ง",
+      "noQuery": "คำสั่งผิดพลาด：ไม่มีการสืบค้น ไม่มีวิธีดำเนินการคำสั่ง",
+      "noNames": "คำสั่งผิดพลาด：ไม่มีชื่อ ไม่มีการบังคับใช้กฎหมายคำสั่ง",
+      "noEntityName": "คำสั่งผิดพลาด：ไม่มีนิติบุคคล ชื่อ ไม่มีการบังคับใช้กฎหมาย คำสั่ง"
+
+    },
+    "engineering": {
+      "noConfig": "คำสั่งผิดพลาด：ไม่มี ไม่มีการบังคับใช้กฎหมายคำสั่ง",
+      "noEntityName": "คำสั่งผิดพลาด：ไม่มีนิติบุคคล ชื่อ ไม่มีการบังคับใช้กฎหมาย คำสั่ง",
+      "generic": "ไม่มีวิธีเชื่อมต่อกับบริการข้อมูลทางวิศวกรรม",
+      "wrongEntityName": "เอนทิตีชื่อผิดพลาด"
+    },
+    "databaseInfo": {
+      "createNoMsg": "คำสั่งผิดพลาด：ไม่มี (' {{msg}} ') ไม่มีวิธีการสร้างฐานข้อมูลข้อมูล",
+      "createWrongInput": "คำสั่งผิดพลาด：เวลาเข้าพิมพ์ผิดพลาดไม่มีวิธีการสร้างฐานข้อมูลข้อมูล",
+      "updateNoMsg": "คำสั่งผิดพลาด：ไม่มีการปรับปรุงข้อมูลฐานข้อมูล，เพราะไม่มี ",
+      "updateWrongInput": "คำสั่งผิดพลาด：เวลาเข้าพิมพ์ผิดพลาดไม่มีการปรับปรุงข้อมูลฐานข้อมูล",
+      "deleteNoMsg": "คำสั่งผิดพลาด：ไม่มีการยกเลิกข้อมูลฐานข้อมูล，เพราะไม่มี ",
+      "deleteWrongInput": "คำสั่งผิดพลาด：เวลาเข้าพิมพ์ผิดพลาดไม่มีการยกเลิกข้อมูลฐานข้อมูล",
+      "associateNoMsg": "คำสั่งผิดพลาด：ไม่มีวิธีการเชื่อมโยงฐานข้อมูลข้อมูล，เพราะไม่มี ",
+      "associateWrongInput": "คำสั่งผิดพลาด：เวลาเข้าพิมพ์ผิดพลาดไม่มีวิธีการเชื่อมโยงฐานข้อมูลข้อมูล"
+    },
+    "eventSubscription": {
+      "addNoWRName": "คำสั่งผิดพลาด：ไม่มีชื่อบทบาทกระบวนการเสริมเพิ่มไม่ได้สมัครสมาชิก",
+      "addNoSubscriptionName": "คำสั่งผิดพลาด：ไม่มีการสมัครสมาชิกชื่อเพิ่มไม่ได้สมัครสมาชิก",
+      "remNoWRName": "คำสั่งผิดพลาด：ไม่มีชื่อบทบาทกระบวนการเสริม ไม่มีการย้ายออกการสมัครสมาชิก",
+      "remNoSubscriptionName": "คำสั่งผิดพลาด：ไม่มีการสมัครสมาชิกชื่อไม่มีย้ายออกสมัครสมาชิก",
+      "createNoSubsEventName": "คำสั่งผิดพลาด：ไม่มีชื่อกิจกรรมที่สมัครรับข้อมูลไม่มีวิธีสร้างการสมัครสมาชิก",
+      "createNoEventHandlerName": "คำสั่งผิดพลาด：ไม่มีตัวจัดการเหตุการณ์ ชื่อ ไม่มีวิธีการสร้างการสมัครสมาชิก",
+      "createNoName": "คำสั่งผิดพลาด：ไม่มีชื่อไม่มีวิธีสร้างการสมัครสมาชิก",
+      "updateNoSubsEventName": "คำสั่งผิดพลาด：ไม่มีชื่อกิจกรรมที่สมัครรับข้อมูลไม่มีอัพเดพการอ่าน",
+      "updateNoEventHandlerName": "คำสั่งผิดพลาด：ไม่มีตัวจัดการเหตุการณ์ชื่อไม่มีอัพเดพการอ่าน",
+      "updateNoName": "คำสั่งผิดพลาด：ไม่มีชื่อไม่มีอัพเดพการอ่าน",
+      "deleteNoName": "คำสั่งผิดพลาด：อัพเดทไม่มีชื่อ",
+      "renameSameName": "คำสั่งผิดพลาด：เปลื่อนชื่อใหม่เป็นชื่อเดิม",
+      "renameNoOldName": "คำสั่งผิดพลาด：เปลื่อนชื่อใหม่ไม่เป็นชื่อเก่า",
+      "renameNoNewName": "คำสั่งผิดพลาด：ไม่มีใหม่ชื่อไม่มีวิธีการเปลี่ยนชื่อการสมัครสมาชิกกิจกรรม",
+      "addFilterNoName": "คำสั่งผิดพลาด：มีการเพิ่มกิจกรรมที่ไม่มีชื่อ",
+      "updateFilterNoName": "คำสั่งผิดพลาด：ไม่มีสมัครสมาชิกกิจกรรมชื่อไม่มีการอัพเดทสมัครสมาชิกกิจกรรมกลางของกรอง",
+      "removeFilterNoName": "คำสั่งผิดพลาด：ไม่มีสมัครสมาชิกกิจกรรมชื่อไม่มี สมัครสมาชิกกิจกรรมกลางย้ายออกกรอง"
+    },
+    "project": {
+      "loadNoVersion": "คำสั่งผิดพลาด：ไม่มีการโหลดเวอร์ชั่น",
+      "loadNoName": "คำสั่งผิดพลาด：การโหลดไม่มีชื่อ",
+      "loadWrongInput": "คำสั่งผิดพลาด：เวลาเข้าพิมพ์ผิดพลาดไม่มีโหลดรายการ",
+      "unloadNoName": "คำสั่งผิดพลาด：ไม่มีชื่อไม่มีวิธีการถอนการติดตั้งรายการ",
+      "unloadWrongInput": "คำสั่งผิดพลาด：วิธีการถอนการติดตั้งรายการ",
+      "deployNoVersion": "คำสั่งผิดพลาด：ไม่มีการโหลดเวอร์ชั่น",
+      "deployNoName": "คำสั่งผิดพลาด：การโหลดไม่มีชื่อ",
+      "deployWrongInput": "คำสั่งผิดพลาด：เวลาเข้าพิมพ์ผิดพลาดไม่มีโหลดรายการ"
+    },
+    "systemEvents": {
+      "startupNoMsg": "คำสั่งผิดพลาด：ไม่มีวิธีการเริ่มบริการรันไทม์ เนื่องจากคุณไม่ได้ระบุด้วย (' {{msg}} ')",
+      "startupWrongInput": "คำสั่งผิดพลาด：ไม่มีวิธีเริ่มบริการรันไทม์，เพราะคุณระบุในการพิมพ์สำหรับข้อผิดพลาด",
+      "shutdownNoMsg": "คำสั่งผิดพลาด：ไม่มีปิดบริการรันไทม์，เพราะไม่มีคำสั่ง(' {{msg}} ')",
+      "shutdownWrongInput": "คำสั่งผิดพลาด：ไม่มีปิดบริการรันไทม์，เพราะคุณระบุในการพิมพ์สำหรับข้อผิดพลาด"
+    },
+    "workerRole": {
+      "createNoName": "คำสั่งผิดพลาด：การสร้างโดยไม่มีชื่อ",
+      "updateNoName": "คำสั่งผิดพลาด：การอัพเดทโดยไม่มีชื่อ",
+      "deleteNoName": "คำสั่งผิดพลาด：การลบโดยไม่มีชื่อ",
+      "addUndefWR": "คำสั่งผิดพลาด：ไม่มีคำสั่งเพิ่มเข้าไปอีกคำนิยามชื่อบทบาทกระบวนการเสริม",
+      "addUndefCommands": "คำสั่งผิดพลาด：เพิ่มคำนิยามคำสั่งไม่ได้",
+      "addEmptyCommands": "คำสั่งผิดพลาด：เพิ่มไม่ได้คำสั่งว่าง",
+      "remUndefWR": "คำสั่งผิดพลาด：ชื่อบทบาทกระบวนการเสริมของไม่มีไม่เคยมีคำนิยามออกคำสั่ง",
+      "remUndefCommands": "คำสั่งผิดพลาด：ไม่มีการย้ายออก ชุดคำนิยามของคำสั่ง",
+      "remEmptyCommands": "คำสั่งผิดพลาด：ไม่มีย้ายออกคำสั่งว่าง",
+      "addNoCommandName": "คำสั่งผิดพลาด：ไม่มีคำสั่งชื่อเพิ่มไม่ได้คำสั่ง",
+      "addNoWRName": "คำสั่งผิดพลาด：ไม่มีชื่อบทบาทกระบวนการเสริมเพิ่มไม่ได้คำสั่ง",
+      "remNoCommandName": "คำสั่งผิดพลาด：ไม่มีคำสั่งชื่อไม่มีย้ายออกคำสั่ง",
+      "remNoWRName": "คำสั่งผิดพลาด：ไม่มีชื่อบทบาทกระบวนการเสริมไม่มีย้ายออกคำสั่ง",
+      "addWRNoWRName": "คำสั่งผิดพลาด：ไม่มีชื่อบทบาทกระบวนการเสริมไม่มีเพิ่มบทบาทของผู้ปฏิบัติงานให้กับบทบาทเจ้าบ้านคำสั่ง",
+      "addWRNoHRName": "คำสั่งผิดพลาด：ไม่มีชื่อบทบาทเจ้าบ้านไม่มีเพิ่มบทบาทของผู้ปฏิบัติงานให้กับบทบาทเจ้าบ้านคำสั่ง",
+      "remWRNoWRName": "คำสั่งผิดพลาด：ไม่มีชื่อบทบาทกระบวนการเสริมไม่มีคำสั่งย้ายออกบทบาทกระบวนการของผู้ปฏิบัติงาน",
+      "remWRNoHRName": "คำสั่งผิดพลาด：ไม่มีชื่อบทบาทเจ้าบ้านไม่มี คำสั่งย้ายออกบทบาทกระบวนการของผู้ปฏิบัติงาน"
+    },
+    "business": {
+      "noConfig": "คำสั่งผิดพลาด：ไม่มี ไม่มีการบังคับใช้กฎหมายคำสั่ง",
+      "noEntityName": "คำสั่งผิดพลาด：ไม่มีนิติบุคคล ชื่อ ไม่มีการบังคับใช้กฎหมาย คำสั่ง",
+      "executeNoInput": "คำสั่งผิดพลาด：ไม่มีการเข้าไม่มีการดำเนินการคำสั่ง",
+      "noFunctionName": "อ่านข้อผิดพลาด: ไม่มีการระบุฟังก์ชันที่จะโทร",
+      "defaultErrorข้อความ": "ไม่มีการตอบรับวิธีการดึงข้อมูล。"
+    },
+    "businessCommand": {
+      "executeInvalidInput": "คำสั่งผิดพลาด：เข้าไม่มีเวลาตรวจสอบ ไม่มีเวลาดำเนินการคำสั่ง",
+      "executeInvalidCommand": "คำสั่งผิดพลาด：คำสั่งชื่อไม่มีผลเวลาไม่มีคำสั่งรันไทม์การดำเนินการเมธอด"
+    }
+  },
+  "auditTrail": {
+    "viewer": {
+      "headers": {
+        "RootEntityId": "องค์ประกอบเอนทิตี",
+        "UpdatedOn": "การประทับเวลา",
+        "UserName": "ผู้ใช้",
+        "Action": "ดำเนินงาน",
+        "RootEntityType": "เอนทิตีพิมพ์",
+        "RootCommand": "คำสั่ง",
+        "Environment": "สภาพแวดล้อม",
+        "Domain": "บริเวณ",
+        "ExecutionInstance": "ExecutionInstance"
+      },
+      "commands": {
+        "refresh": "เริ่มใหม่ใหม่"
+      }
+    },
+    "messages": {
+      "notEnabled": "ข้อมูลการตรวจสอบย้อนกลับไม่มีแสดง，เพราะคุณต้องติดตั้งและปรับใช้ก่อน Audit Trail นำโปรแกรมมาใช้。"
+    },
+    "summary": {
+      "ข้อความ": "อยู่ {{timestamp | date:'medium'}}，{{username}} {{'auditTrail.summary.actions.' + action | translate}} {{entity}}（อยู่ {{environment}} กลาง）。",
+      "actions": {
+        "Added": "เพิ่ม",
+        "Modified": "แก้ไขแล้ว",
+        "Deleted": "ยกเลิกแล้ว",
+        "SignatureApproved": "อนุมัติแล้ว",
+        "SignatureRejected": "ถูกปฏิเสธ"
+      },
+      "viewMore": "เห็นเพิ่มเติมข้อมูล"
+    },
+    "properties": {
+      "title": "คุณลักษณะ",
+      "old": "เก่า",
+      "new": "ใหม่",
+      "bigdata": "มูลค่าเปลี่ยนแล้ว"
+    },
+    "complex": {
+      "title": "คุณลักษณะซับซ้อน",
+      "propName": "ชื่อคุณลักษณะ",
+      "old": "เก่า",
+      "new": "ใหม่"
+    },
+    "relationships": {
+      "title": "เกี่ยวกับ",
+      "backwardNavigation": "{{entity}} {{logicalKey}} {{'auditTrail.relationships.actions.' + action | translate}}",
+      "forwardNavigation": {
+        "Added": "{{entity}} {{newLogicalKey}} {{'auditTrail.relationships.actions.' + action | translate}}",
+        "Modified": "{{entity}} {{newLogicalKey}} {{'auditTrail.relationships.actions.' + action | translate}}",
+        "Removed": "{{entity}} {{oldLogicalKey}} {{'auditTrail.relationships.actions.' + action | translate}}"
+      },
+      "actions": {
+        "Added": "เพิ่ม",
+        "Modified": "แก้ไขแล้ว",
+        "Removed": "ย้ายออกแล้ว"
+      }
+    },
+    "composition": {
+      "title": "ประกอบด้วยรายละเอียดข้อมูล",
+      "partTitle": "{{entityName}} {{'auditTrail.summary.actions.' + action | translate}}"
+    },
+    "electronicSignature": {
+      "title": "ลายเซนต์อิเล็กทรอนิกส์รายละเอียดข้อมูล"
+    }
+  },
+  "userPrefrences": {
+    "defaultViewModeHeading": "มุมมองเริ่มต้นแบบอย่าง",
+    "table": "ตาราง",
+    "list": "คอลั้มน์",
+    "columnConfigurator": {
+      "heading": "หัวตาราง",
+      "availableSectionHeader": "คอลัมน์ที่มีอยู่",
+      "selectedSectionHeader": "คอลัมน์ที่เลือก",
+      "addButtonLabel": "เพิ่ม",
+      "removeButtonLabel": "ย้ายออก",
+      "addAllButtonLabel": "เพิ่มทั้งหมด",
+      "removeAllButtonLabel": "ย้ายออกทั้งหมด",
+      "resetButtonLabel": "รีเซ็ต",
+      "moveUpButtonLabel": "ขยับขึ้น",
+      "moveDownButtonLabel": "ขยับลง",
+      "columnConfiguration": "คอลั้มการกำหนดค่า"
+    },
+    "tileConfigurator": {
+      "heading": "คอลั้มน์คุณลักษณะ",
+      "inputFieldsHeader": "คุณลักษณะ",
+      "liveTilePreviewHeader": "ดูตัวอย่าง",
+      "selectSize": "ใหญ่เล็ก",
+      "resetButtonLabel": "รีเซ็ต",
+      "title": "หัวข้อ",
+      "description": "อธิบาย",
+      "property1": "Property1",
+      "property2": "Property2",
+      "property3": "Property3",
+      "property4": "Property4"
+    },
+    "overlayข้อความ": {
+      "title": "คอนเฟิร์มรีเซ็ต",
+      "bothtext": "สิ่งนี้จะรีเซ็ตตารางและไทล์ของรายการที่ต้องการเผยแพร่ที่ต้องการใช้ที่ต้องการ。โอเค จำเป็นต้องมีการรีเซ็ตหรือเปล่า?？",
+      "text": "รีเซ็ตรายการที่ต้องการของผู้ใช้。ใช่ไม่โอเคที่จะรีเซ็ต？",
+      "tiletext": "รีเซ็ตรายการที่ต้องการของผู้ใช้。ใช่ไม่โอเคที่จะรีเซ็ต？"
+    },
+    "title": {
+      "tile": "ทำคอลั้มน์คุณลักษณะ",
+      "grid": "ทำตาราง",
+      "tileGrid": "ทำเอง {{moduleName}} ดูแบบอย่าง"
+    }
+  },
+  "tagsManager": {
+    "title": "การจัดการป้าย",
+    "assignedTags": "ป้ายที่ได้รับมอบหมาย",
+    "availableTags": "ป้ายที่มีอยู่",
+    "totalItems": "รายการทั้งหมด",
+    "warning": "เตือน",
+    "canModifyWarning": "ข้อจำกัดที่ได้รับมาจากที่เอนทิตี，การแก้ไขแท็กอาจไม่มีผล",
+    "inputPlaceholdertext": "ป้อนคำค้นหาที่นี่...",
+    "sidePanel": {
+      "closeToolTip": "ปิด"
+    },
+    "cantAssignTagToFrozen": "ตราประทับไม่มีกฎหมายที่ได้รับมอบหมายให้{{EntityType}} {{EntityId}}，เพราะมันค้างอยู่",
+    "cantAssignTagToLocked": "ตราประทับไม่มีกฎหมายที่ได้รับมอบหมายให้{{EntityType}} {{EntityId}}，เพราะมันถูกล็อค",
+    "cantAssignTagToMarkedForCleaning": "ตราประทับไม่มีกฎหมายมอบหมายให้{{EntityType}} {{EntityId}}，เพราะมันถูกทำเครื่องหมายเพื่อทำความสะอาด"
+  },
+  "characteristicRepr": {
+    "valueinside": "มูลค่าที่แทรกจะต้องระบุไว้ด้านล่างรายการกลาง：",
+    "and": "และ",
+    "CanBeSkipped": "สามารถข้ามได้",
+    "NId": "สเปค NId",
+    "Id": "ตัวอักษรปรากฎอีกครั้ง ID",
+    "Revision": "สเปคเวอร์ชั่น",
+    "samplesaved": "ตัวอย่างบันทึก",
+    "sampleupdated": "ตัวงอย่างอัพเดทแล้ว",
+    "Description": "อธิบาย",
+    "Criticality": "ความรุนแรง",
+    "Name": "ชื่อ",
+    "NominalValue": "ระบุมูลค่า",
+    "UoM": "หน่วยวัด",
+    "UpperTolerance": "ขีดจำกัดสูงสุดของความอดทน",
+    "LowerTolerance": "ขีดจำกัดต่ำสุดของความอดทน",
+    "PotentialFailures": "ความผิดพลาด",
+    "SpecifictionName": "สเปคชื่อ",
+    "SpecifictionDescription": "สเปคอธิบาย",
+    "Details": "รายละเอียดข้อมูล",
+    "EquipmentNId": "เครื่องจักร Id",
+    "MTU": "MTU",
+    "MaterialNId": "วัสดุ ID",
+    "MaterialRevision": "วัสดุเวอร์ชั่น",
+    "Legendaข้อความ": "มูลค่าที่แทรกเกินมูลค่าที่ยอมรับได้ที่กำหนด。",
+    "Legendaข้อความ2": "ยังเลือกการคัดเลือกที่มีประสิทธิภาพรายการ。",
+    "FailureNotMigrated": "ยังย้าย NId เพื่อ{{FailureNId}} ความผิดพลาด",
+    "GridRows": "แถวตาราง",
+    "GridColumns": "ตารางคอลั้ม",
+    "popupTitle": "เรียกดูความผิดพลาด",
+    "attachmentlist": "แนบคอลั้มน์",
+    "document": "เอกสาร",
+    "BrowseForMore": "เรียกดูเพิ่มเติม...",
+    "failureassociated": "ความผิดพลาดที่ได้รับมอบหมาย",
+    "failuredisassociated": "ความผิดพลาดยกเลิกเชื่อมโยงแล้ว",
+    "NoAssociatedFailures": "ไม่มีเกี่ยวข้องกับสิ่งใดๆความผิดพลาด",
+    "Legenda": "ตัวอย่างรูป",
+    "FailureRevision": "เวอร์ชั่น",
+    "OpenChildrenFailures": "เปิดความผิดพลาด",
+    "Defect": "สินค้ามีตำหนิ",
+    "showAttachments": "แสดงการแนบ"
+  },
+  "instanceViewer": {
+    "acknowledge": {
+      "button": "คอนเฟิร์ม",
+      "text": "เรียบร้อย {{CompletedBy}} ที่ {{AcknowledgeOn}} การอนุมัติ"
+    },
+    "dataCollection": {
+      "button": "คอนเฟิร์ม",
+      "text": "เรียบร้อย {{CompletedBy}} ที่ {{AcknowledgeOn}} คอนเฟิร์ม",
+      "lowLimit": "ขอบเขตล่าง",
+      "highLimit": "ขอบเขตบน",
+      "target": "เป้าหมาย",
+      "outOfSpecข้อความ": "มูลค่าไม่อยู่ในขอบเขตที่กำหนด。",
+      "lowLimitข้อความ": "เข้าถึงมูลค่าขอบเขตล่าง ({{lowLimit}})。",
+      "highLimitข้อความ": "เข้าถึงมูลค่าขอบเขตบน ({{highLimit}})。",
+      "rangeข้อความ": "เข้ามูลค่าไม่อยู่ระบุขีดจำกัด ({{lowLimit}} - {{highLimit}}) 内。",
+      "targetข้อความ": "เข้า的มูลค่าและเป้าหมายที่ระบุมูลค่าไม่สอดคล้อง",
+      "bigintRangeข้อความ": "เขตข้อมูลมูลค่าไม่ถูกต้องผลของ BigInt มูลค่า。ช่วงมูลค่าที่อนุญาตคือตั้งแต่ -9007199254740992 ถึง 9007199254740991",
+      "decimalRangeข้อความ": "เขตข้อมูลมูลค่าไม่ถูกต้องผลของ BigInt มูลค่า。ช่วงมูลค่าที่อนุญาตคือตั้งแต่ -7.9 * Math.pow(10, 28) ถึง 7.9 * Math.pow(10, 28)。",
+      "formatMismatch": "เขตข้อมูลมูลค่าไม่ตรงกับที่กำหนดรูปแบบ。"
+    },
+    "reEdit": {
+      "button": "ปุ่มแก้ไขใหม่"
+    },
+    "acquire": {
+      "button": "รับ"
+    }
+  },
+  "documentViewer": {
+    "defaultTitle": "เอกสาร",
+    "previousPage": "หน้าก่อน",
+    "nextPage": "หน้าต่อไป",
+    "maximizeDocument": "ใหญ่สุดเอกสาร",
+    "maximizeDetails": "ใหญ่สุดรายละเอียดข้อมูล",
+    "minimizeDetails": "เล็กสุดรายละเอียดข้อมูล",
+    "documentCarousel": {
+      "noData": "ไม่มีข้อมูล"
+    }
+  },
+  "navigationLink": {
+    "moreTabsAvailable": "เพิ่มเติม..."
+  },
+  "esSigners": {
+    "buttontext": "SIGN",
+    "buttontext_completed": "เห็นการเซ็นชื่อ",
+    "title": "ต้องมีลายเซ็น",
+    "description": "คุณจะต้องมีลายเซ็นอนุมัติต่อไปนี้ทั้งหมดเพื่อดำเนินการต่อ：",
+    "close": "ปิด",
+    "only": "แค่",
+    "leftsigns": "ลายเซ็นที่เหลืออยู่",
+    "SpecificUser": "ผู้ใช้",
+    "Role": "บทบาท",
+    "Meaning": "เหตุผล",
+    "UserID": "ผู้ใช้ ID",
+    "FullName": "ชื่อเต็ม",
+    "DateAndTime": "วันและเวลา",
+    "Comment": "ความเห็น",
+    "Sign": "เซ็นชื่อ",
+    "Approve": "อนุมัติ",
+    "Reject": "ปฏิเสธ",
+    "TooLongComment": "ความยาวสูงสุดของความคิดเห็นคือ 255 ตัวอักษร。",
+    "ScenarioInRejectStatus": "สถานการณ์ที่ปฏิเสธสถานะ。",
+    "ErrorPrepareSignature-3": "ตัวอย่างสถานการณ์หรือรไม่มีการระบุขั้นตอน。",
+    "ErrorPrepareSignature-5": "ไม่มีวิธีสร้างตั๋ว ES: ขั้นตอนสถานการณ์ไม่มีผล。",
+    "ErrorAddSignature-3": "ตัวอย่างลายเซ็นหรือไม่ใบแจ้งหนี้อยู่。",
+    "ErrorAddSignature-901": "เข้าสู่ระบบลายเซ็นของผู้ใช้การกำหนดค่าอยู่แล้ว。",
+    "ErrorAddSignature-902": "เฉพาะเจาะจงผู้ใช้ของลายเซ็นการกำหนดค่าอยู่แล้ว。",
+    "ErrorAddSignature-903": "ผู้ลงนามไม่มีผล。",
+    "ErrorAddSignature-904": "ไม่มีของลายเซ็นการกำหนดค่า。",
+    "ErrorAddSignature-905": "ไม่มีสถานะผู้ลงนาม",
+    "ErrorAddSignature-906": "ฉากการกำหนดค่าของลายเซ็นการกำหนดค่าไม่อยู่แล้ว。",
+    "ErrorAddSignature-907": "เข้าสู่ระบบการกำหนดค่าไม่ทีมีฉากการกำหนดค่า。",
+    "ErrorAddSignature-908": "ความคิดเห็นสำหรับอินสแตนซ์เข้าสู่ระบบยังคงมีอยู่",
+    "ErrorAddSignature-909": "สถานะไม่เหมาะสำหรับการเพิ่มอินสแตนซ์เข้าสู่ระบบ。",
+    "ErrorAddSignature-910": "อินสแตนซ์เข้าสู่ระบบได้รับการเข้าสู่ระบบแล้ว",
+    "ErrorAddSignature-911": "หมายเหตุสำหรับอินสแตนซ์เข้าสู่ระบบสถานะไม่มีผล",
+    "ErrorAddSignature-912": "ไม่มีผลของการเรียกเก็บเงิน",
+    "ErrorAddSignature-913": "ผู้ลงนามมีการรับรองที่ถูกต้องไม่มีผล。",
+    "ErrorAddSignature-914": "เครื่องหมายการรับรองที่ถูกต้องและ票据ไม่มี关。",
+    "ErrorAddSignature-915": "ตรวจสอบผู้ใช้ไม่มีผล。",
+    "ErrorAddSignature-916": "ลองเข้าสู่ระบบชผู้ใช้ไม่ถูกต้อง。",
+    "ErrorAddSignature-917": "เครื่องหมายการรับรองที่ถูกต้องไม่มีใช้ UMC ผู้ใช้。",
+    "ErrorAddSignature-919": "ESTicket ไม่อยู่。",
+    "ErrorAddSignature-920": "บิลเรียกเก็บเงินนี้ผู้ใช้ไม่มีผล",
+    "ErrorAddSignature-921": "บิลเรียกเก็บเงินนี้ยกเลิก"
+  },
+  "electronicSignature": {
+    "ข้อความs": {
+      "notEnabled": "เข้าสู่ระบบอิเล็กทรอนิกส์ส่วนประกอบไม่มีแสดง，เพราะคุณต้องติดตั้งและปรับใช้ก่อน Audit Trail นำโปรแกรมมาใช้。"
+    },
+    "cancel": "ยกเลิก",
+    "select": "เลือก",
+    "selectSignatureScenario": "เลือกฉาก",
+    "pickerPlaceHolder": "เลือกฉาก",
+    "scenarioConfiguration": "วางแผนเข้าสู่ระบบ",
+    "scenarioName": "ชื่อ",
+    "user": "ผู้ใช้",
+    "role": "บทบาท",
+    "scenarioDescription": "อธิบาย",
+    "refresh": "เริ่มใหม่ใหม่",
+    "theLoggerUser": "เข้าสู่ระบบผู้ใช้",
+    "reason": "เหตุผล"
+  },
+  "homeCards": {
+    "accessControlManagement": {
+      "title": "การจัดการควบคุมการเข้าถึง",
+      "description": "อธิบายการจัดการควบคุมการเข้าถึง",
+      "action": {
+        "title": "เปิด"
+      }
+    },
+    "adapterConfiguration": {
+      "title": "อะแดปเตอร์การกำหนดค่า",
+      "description": "อะแดปเตอร์การกำหนดค่าอธิบาย",
+      "action": {
+        "title": "เปิด"
+      }
+    },
+
+    "workOrder": {
+      "title": "การจัดการแผน",
+      "description": "ใช้",
+      "action": {
+        "title": "เปิดที่จัดการคำสั่งงาน、กระบวนการและข้อกำหนดการผลิต"
+      }
+    },
+    "archiving": {
+      "title": "คลังเก็บเอกสารสำคัญ",
+      "description": "ใช้ที่เพื่อเข้าถึงข้อมูลที่เก็บไว้",
+      "action": {
+        "title": "เปิด"
+      }
+    },
+    "equipmentEngineering": {
+      "title": "การจัดการเครื่องจักร",
+      "description": "สร้างของบทบาทพื้นฐานที่สินทรัพย์ทางกายภาพ",
+      "action": {
+        "title": "เปิด"
+      }
+    },
+    "interoperability": {
+      "title": "ควบคุมคุณภาพ",
+      "description": "ใช้ที่เพื่อจัดการการควบคุมคุณภาพผลิตภัณฑ์",
+      "action": {
+        "title": "เปิด"
+      }
+    },
+    "manufacturing": {
+      "title": "กำลังประมวลผล",
+      "description": "ใช้การกำหนดค่าข้อมูลการผลิตของรัฐ（เช่น，วัสดุและโมเดลโรงงาน）。",
+      "action": {
+        "title": "เปิด"
+      }
+    },
+    "materialEngineering": {
+      "title": "วัสดุการจัดการ",
+      "description": "สร้างและการกำหนดค่วัสดุและผลิตภัณฑ์",
+      "action": {
+        "title": "เปิด"
+      }
+    },
+    "materialRuntime": {
+      "title": "วัสดุการจัดการ",
+      "description": "จัดการหน่วยติดตามวัสดุด้วยที่、วัสดุชุด、มีสินค้า、มีส่วนช่วยและระบบ",
+      "action": {
+        "title": "เปิด"
+      }
+    },
+    "operationalDashboards": {
+      "title": "แผงหน้าปัดดำเนินงาน",
+      "description": "แผงหน้าปัดดำเนินงานอธิบาย",
+      "action": {
+        "title": "เปิด"
+      }
+    },
+    "process": {
+      "title": "ควบคุมคุณภาพ",
+      "description": "ใช้ที่เพื่อจัดการวัสดุและตรวจสอบคุณภาพและวัสดุ",
+      "action": {
+        "title": "เปิด"
+      }
+    },
+    "processActivities": {
+      "title": "การจัดการรายงาน",
+      "description": "ผู้ใช้แสดงตารางการกำหนดค่า。",
+      "action": {
+        "title": "เปิด"
+      }
+    },
+    "productandProductionConfiguration": {
+      "title": "การจัดการการผลิต",
+      "description": "ใช้ ที่ เพื่อจัดการตารางที่แสดงเอนทิตีขององค์ประกอบทางวิศวกรรมที่จำเป็นสำหรับการผลิต",
+      "action": {
+        "title": "เปิด"
+      }
+    },
+    "productionCoordination": {
+      "title": "ข้อมูลพื้นฐาน",
+      "description": "ใช้ที่เพื่อช่วยผู้ประสานงานการผลิตในการจัดการและติดตามงานที่กำลังดำเนินอยู่ในพื้นที่ของตน",
+      "action": {
+        "title": "เปิด"
+      }
+    },
+    "settings": {
+      "title": "ติดตั้ง",
+      "description": "ใช้ที่เพื่อจัดการสาธารณะทั้งระบบ และข้อมูล",
+      "action": {
+        "title": "เปิด"
+      }
+    },
+    "shopfloor": {
+      "title": "การประชุมเชิงปฏิบัติการ",
+      "description": "ใช้ที่เพื่อดำเนินการคำสั่งงานและดำเนินการและงาน",
+      "action": {
+        "title": "เปิด"
+      }
+    },
+    "shopfloorExecution": {
+      "title": "การจัดการการผลิต",
+      "description": "ใช้ที่เพื่อจัดการการดำเนินการตามคำสั่งและกระบวนการและงาน：ความก้าวหน้าและการติดตามได้",
+      "action": {
+        "title": "เปิด"
+      }
+    },
+    "siteManagement": {
+      "title": "การจัดการไซต์",
+      "description": "อธิบายการจัดการไซต์",
+      "action": {
+        "title": "เปิด"
+      }
+    },
+    "system": {
+      "title": "การจัดการระบบ",
+      "description": "ใช้ที่เพื่อจัดการสาธารณะ ทั้งระบบ และข้อมูล",
+      "action": {
+        "title": "เปิด"
+      }
+    }
+  },
+  "status": {
+    "total": "รวมทั้งหมด"
+  },
+  "tiles": {
+    "notificationTiles": "แจ้งรูป",
+    "unknownTileType": "ไทล์ที่ไม่รู้จักพิมพ์"
+  },
+  "export": {
+    "title": "ส่งออก",
+    "sidePanel": {
+      "closeToolTip": "ปิด"
+    }
+  },
+  "breadcrumb": {
+    "objects": "วัตถุ：",
+    "object": "วัตถุ："
+  },
+  "customcommon": {
+    "SelectTips": "--เชฺิญเลือก--",
+    "Select": {
+      "SelectFactory": "กรุณาเลือกโรงงาน",
+      "SelectMainData": "กรุณาเลือกตารางข้อมูล",
+      "SelectProdTeam": "กรุณาเลือกกลุมการผลิต"
+    },
+    "Saveing": "บันทึกกลาง，โปรดรอ……",
+    "SaveSuccess": "บันทึกสำเร็จ！",
+    "Button": {
+      "Search": "ค้นหา",
+      "Delete": "ยกเลิก",
+      "Add": "เพิ่มใหม่",
+      "Edit": "แก้ไข",
+      "Add2": "เพิ่ม",
+      "Cancel": "ยกเลิก",
+      "Save": "บันทึก"
+    },
+    "Title": {
+      "Search": "ค้นหา",
+      "Delete": "ยกเลิก",
+      "Add": "เพิ่มใหม่",
+      "Edit": "แก้ไข",
+      "Add2": "เพิ่ม",
+      "Cancel": "ยกเลิก",
+      "Save": "บันทึก",
+      "To": "ถึง"
+    },
+    "PageTips": "แถวต่อหน้า",
+    "rowNum": "ลำดับ",
+    "Error": "เกิดข้อผิดพลาด",
+    "ErrorOperate": "ดำเนินงานผิดพลาด",
+    "ErrorGetData": "เกิดข้อผิดพลาดในการรับข้อมูล",
+    "ErrorGetDataDetail": "เกิดข้อผิดพลาดในการรับข้อมูลโดยละเอียด",
+    "Confirm": {
+      "Title": "ยกเลิก",
+      "Context": "คอนเฟิร์มยกเลิกการเลือกการบันทึก？"
+    },
+    "ChangeLocation": {
+      "Title": "สลับโรงงาน",
+      "Country": {
+        "cn": "โรงงานกลางประเทศ",
+        "cn_remark": "โรงงานกลางประเทศ",
+        "vn": "โรงงานเวียดนาม",
+        "vn_remark": "Nhà máy Việt Nam",
+        "th": "โรงงานประเทศไทย",
+        "th_remark": "โรงงานตั้งอยู่ที่ประเทศไทย"
+      }
+    },
+    "SelectModal": {
+      "Tips_1": "เลือก",
+      "Tips_2": "ชื่อ",
+      "Tips_3": "สอบถาม",
+      "Tips_4": "โอเค",
+      "Tips_5": "ยกเลิก",
+      "Tips_6": "ตัวเลข",
+      "Tips_7": "บาร์โค้ด",
+      "Tips_8": "หมายเลขชุดงาน",
+      "Tips_9": "ซัพพลายเออร์",
+      "Tips_10": "การจัดการสิ่งที่แนบมา",
+      "Tips_11": "เพิ่ม",
+      "Tips_12": "ยกเลิก",
+      "Tips_13": "ปิด",
+      "Tips_14": "อัพโหลดบันทึก",
+      "JS": {
+        "Tips_1": "ยกเลิก",
+        "Tips_2": "คอนเฟิร์มยกเลิกการเลือกการบันทึก？",
+        "Tips_3": "เกิดข้อผิดพลาดในการรับข้อมูล",
+        "Tips_4": "ปรากฏขึ้นเมื่อรับข้อมูลผิดพลาด",
+        "Tips_5": "การอัปโหลดไฟล์เกินขีดจำกัดการอัปโหลด 10 ไฟล์!",
+        "Tips_6": "โหลดกลาง,รอสักครู่..."
+      }
+    }
+  }
+}

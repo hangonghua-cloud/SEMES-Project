@@ -1,0 +1,19 @@
+﻿{
+  "name": "Siemens.SimaticIT.PlanApp.WorkOrderDismantle",
+  "type": "standard",
+  "title": "Siemens.SimaticIT.PlanApp.WorkOrderDismantle.Title",
+  "header": "",
+  "icon": "fa-folder",
+  "functionalBlock": "Siemens.SimaticIT.PlanApp",
+  "dependencies": [],
+  "states": [
+    {
+      "id": "home.Siemens_SimaticIT_PlanApp_WorkOrderDismantle_WorkOrderDismantle",
+      "title": "Siemens.SimaticIT.PlanApp.WorkOrderDismantle.Title",
+      "header": "",
+      "securable": true,
+      "roles": []
+    }
+  ],
+  "manifestVersion": "01.01.00"
+}

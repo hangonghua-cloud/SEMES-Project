@@ -1,0 +1,24 @@
+{ //主窗体
+  "Frm_Main": {
+  },
+  //登录页面
+  "Frm_Login": {
+    "label1.Left": "txtUserCode.Left - label1.Width - 2",
+    "label2.Left": "txtPassword.Left - label2.Width - 2",
+    "lbl_Location.Left": "comboBox2.Left - lbl_Location.Width - 2"
+  },
+  //分页用户组建
+  "PagerControl": {
+    "lbl_PageSize.Left": "cmbPerRow.Left - lbl_PageSize.Width- 2"
+  },
+  //修改密码界面
+  "Frm_UpdatePassword": {
+
+  },
+  //生产小组打印
+  "Frm_PTeam": {
+    "label3.Left": "cmbFactory.Left - label3.Width - 2",
+    "label1.Left": "txtPTeamCode.Left - label1.Width - 2",
+    "label2.Left": "txtPTeamName.Left - label2.Width - 2"
+  }
+}

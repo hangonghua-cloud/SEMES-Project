@@ -1,0 +1,26 @@
+﻿{
+  "name": "Siemens.SimaticIT.ProductionApp.OwnProduct",
+  "type": "standard",
+  "title": "Siemens.SimaticIT.ProductionApp.OwnProduct.Title",
+  "header": "",
+  "icon": "fa-folder",
+  "functionalBlock": "Siemens.SimaticIT.ProductionApp",
+  "dependencies": [],
+  "states": [
+    {
+      "id": "home.Siemens_SimaticIT_ProductionApp_OwnProduct_OwnProductOrder",
+      "title": "Siemens.SimaticIT.ProductionApp.OwnProductOrder.Title",
+      "header": "",
+      "securable": true,
+      "roles": []
+    },
+    {
+      "id": "home.Siemens_SimaticIT_ProductionApp_OwnProduct_OwnProductBG",
+      "title": "Siemens.SimaticIT.ProductionApp.OwnProductBG.Title",
+      "header": "",
+      "securable": true,
+      "roles": []
+    }
+  ],
+  "manifestVersion": "01.01.00"
+}

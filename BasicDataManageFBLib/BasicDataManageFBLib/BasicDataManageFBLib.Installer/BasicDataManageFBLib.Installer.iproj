@@ -1,0 +1,81 @@
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>7d827394-ce24-498a-8a8b-2c130c9d1d39</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Siemens.SimaticIT.BasicDataManageFBLib.Installer</RootNamespace>
+    <AssemblyName>Siemens.SimaticIT.BasicDataManageFBLib.Installer</AssemblyName>
+    <Name>BasicDataManageFBLib.Installer</Name>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FunctionalBlockType>Library</FunctionalBlockType>
+    <FunctionalBlockVersion>01.00.00</FunctionalBlockVersion>
+    <FunctionalBlockName>BasicDataManageFBLib</FunctionalBlockName>
+    <FunctionalBlockPrefix>Siemens.SimaticIT</FunctionalBlockPrefix>
+    <FunctionalBlockModels>Siemens.SimaticIT.MasterData.BasicDataManageFBLib.MSModel</FunctionalBlockModels>
+    <FunctionalBlockDescription>基础数据</FunctionalBlockDescription>
+    <SitPlatformVersion>4.1</SitPlatformVersion>
+    <AutoDeployPackage>True</AutoDeployPackage>
+    <CanBeExtended>False</CanBeExtended>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU'  ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Release\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <CertificateName>
+    </CertificateName>
+    <AppName>BasicDataManageFBApp</AppName>
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="Config" />
+    <Folder Include="ExternalDependencies" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Config\Siemens.SimaticIT.BasicDataManageFBLib.Dbinit.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Config\Siemens.SimaticIT.BasicDataManageFBLib.References.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Config\Siemens.SimaticIT.BasicDataManageFBLib.ApplicationLog.en-US.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BasicDataManageFBLib.CommandHandler\BasicDataManageFBLib.CommandHandler.csproj">
+      <Name>BasicDataManageFBLib.CommandHandler</Name>
+      <Project>{fe24fd82-da28-42da-8338-30ca5a5e824c}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\BasicDataManageFBLib.EventHandler\BasicDataManageFBLib.EventHandler.csproj">
+      <Name>BasicDataManageFBLib.EventHandler</Name>
+      <Project>{13bf0ae1-2266-4668-ac13-78d7e3af830c}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\BasicDataManageFBLib.MSModel\BasicDataManageFBLib.MSModel.umproj">
+      <Name>BasicDataManageFBLib.MSModel</Name>
+      <Project>{f61397bf-4db1-4767-accf-c29a4bf0ddd7}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(SITUnifiedVSToolingPlatformBin)\Siemens.SimaticIt.Build.Installer.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

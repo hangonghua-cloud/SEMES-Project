@@ -1,0 +1,86 @@
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>fc81a7a3-38da-4ad3-ad37-13edd0437ccc</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Siemens.SimaticIT.EquipmentApp.Installer</RootNamespace>
+    <AssemblyName>Siemens.SimaticIT.EquipmentApp.Installer</AssemblyName>
+    <Name>EquipmentApp.Installer</Name>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FunctionalBlockType>Project</FunctionalBlockType>
+    <FunctionalBlockVersion>01.00.00</FunctionalBlockVersion>
+    <FunctionalBlockName>EquipmentApp</FunctionalBlockName>
+    <FunctionalBlockPrefix>Siemens.SimaticIT</FunctionalBlockPrefix>
+    <FunctionalBlockModels>Siemens.SimaticIT.EquipmentApp.EquipmentApp.EPPOMModel</FunctionalBlockModels>
+    <FunctionalBlockDescription>Equipment Manage App</FunctionalBlockDescription>
+    <SitPlatformVersion>4.1</SitPlatformVersion>
+    <AutoDeployPackage>True</AutoDeployPackage>
+    <CanBeExtended>False</CanBeExtended>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU'  ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Release\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="Config" />
+    <Folder Include="ExternalDependencies" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Config\Siemens.SimaticIT.EquipmentApp.Dbinit.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Config\Siemens.SimaticIT.EquipmentApp.References.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Config\Siemens.SimaticIT.EquipmentApp.ApplicationLog.en-US.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EquipmentApp.CommandHandler\EquipmentApp.CommandHandler.csproj">
+      <Name>EquipmentApp.CommandHandler</Name>
+      <Project>{6610e329-7dba-46a3-b69f-2f7640966ae1}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\EquipmentApp.EPPOMModel\EquipmentApp.EPPOMModel.pmproj">
+      <Name>EquipmentApp.EPPOMModel</Name>
+      <Project>{3dcb7ac7-ae03-478b-ab0b-12621808862d}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\EquipmentApp.EventHandler\EquipmentApp.EventHandler.csproj">
+      <Name>EquipmentApp.EventHandler</Name>
+      <Project>{11ebda90-19cd-4970-a451-164ae2d30ea0}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\EquipmentApp.ReadingFunctionHandler\EquipmentApp.ReadingFunctionHandler.csproj">
+      <Name>EquipmentApp.ReadingFunctionHandler</Name>
+      <Project>{45dbbbd5-d033-4017-b300-ce0b0027f8e3}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\EquipmentApp.UserInterface\EquipmentApp.UserInterface.csproj">
+      <Name>EquipmentApp.UserInterface</Name>
+      <Project>{4265b065-ef0b-441b-82b5-87fa6ec1bafa}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(SITUnifiedVSToolingPlatformBin)\Siemens.SimaticIt.Build.Installer.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

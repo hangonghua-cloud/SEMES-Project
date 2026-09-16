@@ -1,0 +1,6 @@
+D:\New folder\MaterialApp\MaterialApp\MaterialApp.ReadingFunctionHandler\bin\Debug\Siemens.SimaticIT.MaterialApp.ReadingFunctionHandler.dll
+D:\New folder\MaterialApp\MaterialApp\MaterialApp.ReadingFunctionHandler\bin\Debug\Siemens.SimaticIT.MaterialApp.ReadingFunctionHandler.pdb
+D:\New folder\MaterialApp\MaterialApp\MaterialApp.ReadingFunctionHandler\obj\Debug\MaterialApp.ReadingFunctionHandler.csprojAssemblyReference.cache
+D:\New folder\MaterialApp\MaterialApp\MaterialApp.ReadingFunctionHandler\obj\Debug\MaterialApp.ReadingFunctionHandler.csproj.CoreCompileInputs.cache
+D:\New folder\MaterialApp\MaterialApp\MaterialApp.ReadingFunctionHandler\obj\Debug\Siemens.SimaticIT.MaterialApp.ReadingFunctionHandler.dll
+D:\New folder\MaterialApp\MaterialApp\MaterialApp.ReadingFunctionHandler\obj\Debug\Siemens.SimaticIT.MaterialApp.ReadingFunctionHandler.pdb

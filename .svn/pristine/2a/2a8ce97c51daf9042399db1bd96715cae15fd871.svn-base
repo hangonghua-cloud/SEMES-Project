@@ -1,0 +1,19 @@
+﻿{
+  "name": "Siemens.SimaticIT.ProductionApp.PMPostCoefficient",
+  "type": "standard",
+  "title": "Siemens.SimaticIT.ProductionApp.PMPostCoefficient.Title",
+  "header": "",
+  "icon": "fa-folder",
+  "functionalBlock": "Siemens.SimaticIT.ProductionApp",
+  "dependencies": [],
+  "states": [
+    {
+      "id": "home.Siemens_SimaticIT_ProductionApp_PMPostCoefficient_PMPostCoefficient",
+      "title": "Siemens.SimaticIT.ProductionApp.PMPostCoefficient.Title",
+      "header": "",
+      "securable": true,
+      "roles": []
+    }
+  ],
+  "manifestVersion": "01.01.00"
+}

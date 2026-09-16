@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Items>
+  <LogFilter Id="2416b581-8bef-480a-96e9-ce82a322ad25">
+    <Level>All</Level>
+    <TaskCategory>All</TaskCategory>
+    <IsSystemEntity>true</IsSystemEntity>
+  </LogFilter>
+</Items>

@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="11/19/2021 08:47:07" ReportInfo.Modified="01/18/2022 10:07:15" ReportInfo.CreatorVersion="2014.4.8.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;           
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+  
+
+  }
+ 
+}
+</ScriptText>
+  <Dictionary>
+    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlqxfki+t8jnSxof6qn6ng9vZXyxJ29Vo8PhbFaOrHhCHgROOaG/q4zpcoYQe61tsOxaKWTscH6Ad1rABTy1kAs9dLOkZCIFkSPgtS3xo+Qd2I1vweO+bh9fU/O4XMGzx8XtIFJb67TJ4BRKzzmozO5USMnTU+BVsfcVYRfleWN7PgHb2pv83dp1wwngJCwNsyBmfGNG9xDOTs5xe0RK3NaMw==">
+      <TableDataSource Name="Table" DataType="System.Int32" Enabled="true" SelectCommand="EXEC Pro_PrintPackingPrintMarkCode @Code">
+        <Column Name="CustomerPO" DataType="System.String"/>
+        <Column Name="Customer" DataType="System.String"/>
+        <Column Name="MaterialCode" DataType="System.String"/>
+        <Column Name="Spec" DataType="System.String"/>
+        <Column Name="Quantity" DataType="System.String"/>
+        <Column Name="Mark" DataType="System.String"/>
+        <Column Name="ProductOrder" DataType="System.String"/>
+        <Column Name="PackTransferCode" DataType="System.String"/>
+        <Column Name="CreateTime" DataType="System.String"/>
+        <Column Name="MTBT" DataType="System.String"/>
+        <Column Name="ContainerNO" DataType="System.String"/>
+        <Column Name="XL" DataType="System.String"/>
+        <CommandParameter Name="Code" DataType="22" Size="20000" Expression="[Code]"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+    <Parameter Name="Code" DataType="System.String"/>
+    <Parameter Name="BJGY" DataType="System.String"/>
+    <Parameter Name="LotNo" DataType="System.String"/>
+  </Dictionary>
+  <ReportPage Name="Page1" Landscape="true" PaperWidth="297" PaperHeight="210" RawPaperSize="9" LeftMargin="0" TopMargin="0" RightMargin="0" BottomMargin="0" FirstPageSource="256" OtherPagesSource="256">
+    <GroupHeaderBand Name="GroupHeader2" Width="1122.66" Condition="[Table.PackTransferCode]">
+      <DataBand Name="Data1" Top="4" Width="1122.66" Height="793.8" DataSource="Table">
+        <TextObject Name="Text2" Left="75.6" Top="255.15" Width="274.05" Height="56.7" Text="Sales Order:" Font="Calibri, 36pt, style=Bold"/>
+        <TextObject Name="Text3" Left="75.6" Top="321.3" Width="236.25" Height="56.7" Text="Customer:" Font="Calibri, 36pt, style=Bold"/>
+        <TextObject Name="Text4" Left="75.6" Top="387.45" Width="207.9" Height="56.7" Text="Style No:" Font="Calibri, 36pt, style=Bold"/>
+        <TextObject Name="Text5" Left="75.6" Top="453.6" Width="132.3" Height="56.7" Text="Spec:" Font="Calibri, 36pt, style=Bold"/>
+        <TextObject Name="Text6" Left="75.6" Top="519.75" Width="170.1" Height="56.7" Text="Lot No:" Font="Calibri, 36pt, style=Bold" TextFill.Color="Red"/>
+        <TextObject Name="Text7" Left="75.6" Top="585.9" Width="217.35" Height="56.7" Text="Quantity:" Font="Calibri, 36pt, style=Bold"/>
+        <TextObject Name="Text8" Left="576.45" Top="585.9" Width="226.8" Height="56.7" Text="Pallet No:" Font="Calibri, 36pt, style=Bold"/>
+        <TextObject Name="Text1" Left="349.65" Top="255.15" Width="774.9" Height="56.7" Text="[Table.CustomerPO]" Font="Calibri, 36pt, style=Bold" TextFill.Color="Red"/>
+        <TextObject Name="Text9" Left="311.85" Top="321.3" Width="812.7" Height="56.7" Text="[Table.Customer]" Font="Calibri, 36pt, style=Bold"/>
+        <TextObject Name="Text10" Left="283.5" Top="387.45" Width="841.05" Height="56.7" Text="[Table.MaterialCode]" Font="Calibri, 36pt, style=Bold" TextFill.Color="Red"/>
+        <TextObject Name="Text11" Left="207.9" Top="453.6" Width="916.65" Height="56.7" Text="[Table.Spec]" Font="Calibri, 36pt, style=Bold"/>
+        <TextObject Name="Text12" Left="292.95" Top="585.9" Width="283.5" Height="56.7" Text="[Table.Quantity]" Font="Calibri, 36pt, style=Bold"/>
+        <TextObject Name="Text13" Left="803.25" Top="585.9" Width="292.95" Height="56.7" Text="[Table.Mark] [BJGY]" Font="Calibri, 36pt, style=Bold" TextFill.Color="Red"/>
+        <TextObject Name="Text14" Left="576.45" Top="652.05" Width="491.4" Height="66.15" Text="[Table.ProductOrder]" HorzAlign="Center" Font="Calibri, 36pt, style=Bold" TextFill.Color="Red"/>
+        <TextObject Name="Text15" Left="75.6" Top="132.3" Width="982.8" Height="122.85" Text="[Table.MTBT]" Font="Calibri, 72pt, style=Bold"/>
+        <TextObject Name="Text16" Left="236.25" Top="519.75" Width="916.65" Height="56.7" Text="[LotNo][Table.XL]" Font="Calibri, 36pt, style=Bold" TextFill.Color="Red"/>
+      </DataBand>
+      <GroupFooterBand Name="GroupFooter2" Top="801.8" Width="1122.66"/>
+    </GroupHeaderBand>
+  </ReportPage>
+</Report>

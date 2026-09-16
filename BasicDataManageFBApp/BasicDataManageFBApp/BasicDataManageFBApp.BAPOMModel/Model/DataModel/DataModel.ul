@@ -1,0 +1,63 @@
+VERSION '01.13'
+
+[@Guid(40d09d36-6bb9-4afb-8f04-31b62eb0ec5e)]
+[@GuidRef(9db5c733-1718-4f5b-ac79-b4c34474db0f, 9e1a3191-4b81-410a-809c-cb9e5538c4a0)]
+ENTITYLINK V_WMS_Supplier TO Siemens.SimaticIT.UAMES.ThirdPartyDBFBLib.UMModel.DataModel.V_WMS_Supplier
+
+[@Guid(9671c599-3558-4728-bcaf-1f2f723ebfb0)]
+[@GuidRef(9db5c733-1718-4f5b-ac79-b4c34474db0f, f3742f20-ef74-4154-80cd-c1d33106cf3c)]
+ENTITYLINK V_WMS_CustomerInfo TO Siemens.SimaticIT.UAMES.ThirdPartyDBFBLib.UMModel.DataModel.V_WMS_CustomerInfo
+
+///移动端功能记录表
+[@Guid(40c29b6a-62a7-4e08-9dc8-b59251cc28cf)]
+[@GuidRef(f61397bf-4db1-4767-accf-c29a4bf0ddd7, 1b3a0f3b-f3c0-437f-aa8b-b534b74b73bf)]
+ENTITYLINK AppModelEntity TO Siemens.SimaticIT.MasterData.BasicDataManageFBLib.MSModel.DataModel.AppModelEntity
+
+///移动端角色配置表
+[@Guid(a2e2dff4-2e5e-4a6a-89cc-d309fa7713fd)]
+[@GuidRef(f61397bf-4db1-4767-accf-c29a4bf0ddd7, 005a8d24-c4c6-472f-99f6-d0acc278ffba)]
+ENTITYLINK AppRolesConfiEntity TO Siemens.SimaticIT.MasterData.BasicDataManageFBLib.MSModel.DataModel.AppRolesConfiEntity
+
+///移动端用户表
+[@Guid(e0fe479c-a167-48a6-b1db-0414fea577f1)]
+[@GuidRef(f61397bf-4db1-4767-accf-c29a4bf0ddd7, bb37ac2d-08dd-43cd-b208-1bded02a1a35)]
+ENTITYLINK AppUsersEntity TO Siemens.SimaticIT.MasterData.BasicDataManageFBLib.MSModel.DataModel.AppUsersEntity
+
+[@Guid(aa8f3a50-bade-45fe-824a-dead93b915e9)]
+[@GuidRef(9db5c733-1718-4f5b-ac79-b4c34474db0f, 8c72a106-f652-400a-b7be-2b1dc8fd79b8)]
+ENTITYLINK V_RoleAssociation TO Siemens.SimaticIT.UAMES.ThirdPartyDBFBLib.UMModel.DataModel.V_RoleAssociation
+
+[@Guid(8c1534e6-c3e1-4264-847e-80a55ba4433a)]
+[@GuidRef(9db5c733-1718-4f5b-ac79-b4c34474db0f, fa703644-f4e0-4bd6-be71-581e27711ba6)]
+ENTITYLINK V_UARoles TO Siemens.SimaticIT.UAMES.ThirdPartyDBFBLib.UMModel.DataModel.V_UARoles
+
+[@Guid(6d59b242-b82c-4552-b866-d8b572aebe7c)]
+[@GuidRef(9db5c733-1718-4f5b-ac79-b4c34474db0f, 152cf265-23ed-4869-9942-85fe00dd30b0)]
+ENTITYLINK V_PS_Unit TO Siemens.SimaticIT.UAMES.ThirdPartyDBFBLib.UMModel.DataModel.V_PS_Unit
+
+[@Guid(c070cb8e-b0ec-4d6f-8bdf-abc212454a31)]
+[@GuidRef(9db5c733-1718-4f5b-ac79-b4c34474db0f, f21a2e93-c55b-4316-9d83-8ae7477333b6)]
+ENTITYLINK V_WMS_MaterialArrivalMain TO Siemens.SimaticIT.UAMES.ThirdPartyDBFBLib.UMModel.DataModel.V_WMS_MaterialArrivalMain
+
+[@Guid(fad0e255-434f-4f36-9a4e-09177e1f7a97)]
+[@GuidRef(9db5c733-1718-4f5b-ac79-b4c34474db0f, f2464654-c24d-4f59-8138-06c963e13620)]
+ENTITYLINK V_Sy_AppModel TO Siemens.SimaticIT.UAMES.ThirdPartyDBFBLib.UMModel.DataModel.V_Sy_AppModel
+
+[@Guid(2cbe9217-8219-4307-b162-182c1cb65d33)]
+[@GuidRef(9db5c733-1718-4f5b-ac79-b4c34474db0f, cafcb6ed-e57b-4f02-8e5f-e73d49c1f1a8)]
+ENTITYLINK V_Sy_AppUsers TO Siemens.SimaticIT.UAMES.ThirdPartyDBFBLib.UMModel.DataModel.V_Sy_AppUsers
+
+[@Guid(45d5b02d-ba31-4280-a25d-1c7856ff64bc)]
+[@GuidRef(9db5c733-1718-4f5b-ac79-b4c34474db0f, 34dd391e-6f44-43e0-a053-5ab814437daa)]
+ENTITYLINK V_DataItemEntity TO Siemens.SimaticIT.UAMES.ThirdPartyDBFBLib.UMModel.DataModel.V_DataItemEntity
+
+///数据字典主表
+[@Guid(b63de3c2-ff15-48ba-826e-ba0b0e9477f0)]
+[@GuidRef(f61397bf-4db1-4767-accf-c29a4bf0ddd7, 1b493cc7-741a-4265-aba2-44c30494d900)]
+ENTITYLINK DataItemCategoryEntity TO Siemens.SimaticIT.MasterData.BasicDataManageFBLib.MSModel.DataModel.DataItemCategoryEntity
+
+///数据字典子表
+[@Guid(b9320ada-3043-406a-bd00-c61b28e3a623)]
+[@GuidRef(f61397bf-4db1-4767-accf-c29a4bf0ddd7, f4c619c3-70a2-4eb5-81f6-00b91d7be648)]
+ENTITYLINK DataItemEntity TO Siemens.SimaticIT.MasterData.BasicDataManageFBLib.MSModel.DataModel.DataItemEntity
+

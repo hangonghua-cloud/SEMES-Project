@@ -1,0 +1,74 @@
+﻿<style>
+    .row {
+        padding: 5px;
+        margin-top: 10px;
+    }
+</style>
+<div class="command-bar-side-panel">
+    <button ng-click="vm.cancel()" class="btn side-panel-button">{{'Siemens.SimaticIT.PlanApp.WorkOrderManage.add.Tips_1'|translate}}</button>
+    <button ng-click="vm.save()" class="btn side-panel-button" ng-show="vm.validInputs">{{'Siemens.SimaticIT.PlanApp.WorkOrderManage.add.Tips_2'|translate}}</button>
+</div>
+<div class="side-panel-property-area-body">
+    <sit-property-grid sit-id="add_form" sit-layout="Vertical" sit-type="Fluid" sit-mode="edit" sit-columns="1">
+        <sit-property-grid sit-id="view_form" sit-layout="Horizontal" sit-type="Fixed" sit-mode="edit" sit-columns="2"
+                           style="margin-left: 4px;">
+
+            <sit-property sit-widget="sit-text" sit-value="vm.currentItem.ProductOrder"
+                          sit-validation="{required: true}" sit-read-only="true">{{'Siemens.SimaticIT.PlanApp.WorkOrderManage.add.Tips_3'|translate}}</sit-property>
+            <sit-property sit-widget="sit-text" sit-value="vm.currentItem.ContainerNO" sit-validation="{required: true}"
+                          sit-read-only="true">{{'Siemens.SimaticIT.PlanApp.WorkOrderManage.add.Tips_4'|translate}}</sit-property>
+            <!-- <sit-property sit-widget="sit-text" sit-value="vm.currentItem.WorkOrder" sit-validation="{required: true}"
+                          sit-read-only="false">{{'Siemens.SimaticIT.PlanApp.WorkOrderManage.add.Tips_5'|translate}}</sit-property>
+            <sit-property sit-widget="sit-text" sit-value="vm.currentItem.CustomerPO" sit-validation="{required: true}"
+                          sit-read-only="false">{{'Siemens.SimaticIT.PlanApp.WorkOrderManage.add.Tips_6'|translate}}</sit-property>
+
+            <sit-property sit-widget="sit-text" sit-value="vm.currentItem.OrderStatus" sit-validation="{required: true}"
+                          sit-read-only="false">{{'Siemens.SimaticIT.PlanApp.WorkOrderManage.add.Tips_7'|translate}}</sit-property>
+            <sit-property sit-widget="sit-text" sit-value="vm.currentItem.POStatus" sit-validation="{required: true}"
+                          sit-read-only="false">{{'Siemens.SimaticIT.PlanApp.WorkOrderManage.add.Tips_8'|translate}}</sit-property> -->
+            <sit-property sit-widget="sit-text" sit-value="vm.currentItem.MaterialCode"
+                          sit-validation="{required: true}" sit-read-only="true">{{'Siemens.SimaticIT.PlanApp.WorkOrderManage.add.Tips_9'|translate}}</sit-property>
+            <!-- <sit-property sit-widget="sit-numeric" sit-value="vm.currentItem.OrderPieces" sit-validation="{required: true, min: 0}"
+                          sit-read-only="false">{{'Siemens.SimaticIT.PlanApp.WorkOrderManage.add.Tips_10'|translate}}</sit-property>
+            <sit-property sit-widget="sit-numeric" sit-value="vm.currentItem.OrderBox" sit-validation="{required: true, min: 0}"
+                          sit-read-only="false">{{'Siemens.SimaticIT.PlanApp.WorkOrderManage.add.Tips_11'|translate}}</sit-property>
+            <sit-property sit-widget="sit-numeric" sit-value="vm.currentItem.OrderPallet" sit-validation="{required: true, min: 0}"
+                          sit-read-only="false">{{'Siemens.SimaticIT.PlanApp.WorkOrderManage.add.Tips_12'|translate}}</sit-property>
+            <sit-property sit-widget="sit-numeric" sit-value="vm.currentItem.OrderStartPallet" sit-validation="{required: true, min: 0}"
+                          sit-read-only="false">{{'Siemens.SimaticIT.PlanApp.WorkOrderManage.add.Tips_13'|translate}}</sit-property>
+            <sit-property sit-widget="sit-numeric" sit-value="vm.currentItem.DeliveryPieces" sit-validation="{required: true, min: 0}"
+                          sit-read-only="false">{{'Siemens.SimaticIT.PlanApp.WorkOrderManage.add.Tips_14'|translate}}</sit-property>
+            <sit-property sit-widget="sit-numeric" sit-value="vm.currentItem.DeliveryBox" sit-validation="{required: true, min: 0}"
+                          sit-read-only="false">{{'Siemens.SimaticIT.PlanApp.WorkOrderManage.add.Tips_15'|translate}}</sit-property>
+            <sit-property sit-widget="sit-numeric" sit-value="vm.currentItem.DeliveryPallet" sit-validation="{required: true, min: 0}"
+                          sit-read-only="false">{{'Siemens.SimaticIT.PlanApp.WorkOrderManage.add.Tips_16'|translate}}</sit-property>
+            <sit-property sit-widget="sit-numeric" sit-value="vm.currentItem.DeliveryStartPallet" sit-validation="{required: true, min: 0}"
+                          sit-read-only="false">{{'Siemens.SimaticIT.PlanApp.WorkOrderManage.add.Tips_17'|translate}}</sit-property>
+            <sit-property sit-widget="sit-numeric" sit-value="vm.currentItem.TotalSheets" sit-validation="{required: true, min: 0}"
+                          sit-read-only="false">{{'Siemens.SimaticIT.PlanApp.WorkOrderManage.add.Tips_18'|translate}}</sit-property> -->
+            <sit-property sit-widget="sit-text" sit-value="vm.currentItem.Spec" sit-validation="{required: true}"
+                          sit-read-only="true">{{'Siemens.SimaticIT.PlanApp.WorkOrderManage.add.Tips_19'|translate}}</sit-property>
+            <sit-property sit-widget="sit-numeric" sit-value="vm.currentItem.DXZH" sit-validation="{required: true}"
+                          sit-read-only="true">{{'Siemens.SimaticIT.PlanApp.WorkOrderManage.add.Tips_20'|translate}}</sit-property>
+            <sit-property sit-widget="sit-numeric" sit-value="vm.currentItem.TotalSheets"
+                          sit-validation="{required: true, min: 0}" sit-read-only="vm.isReadNum" sit-change="vm.numChange">{{'Siemens.SimaticIT.PlanApp.WorkOrderManage.add.Tips_21'|translate}}</sit-property>
+            <sit-property sit-widget="sit-numeric" sit-value="vm.currentItem.OrderPieces"
+                          sit-validation="{required: true, min: 0}" sit-read-only="true">
+                {{'Siemens.SimaticIT.PlanApp.WorkOrderManage.add.Tips_22'|translate}}
+            </sit-property>
+
+            <sit-property sit-widget="sit-select" sit-value="vm.typeProcessOperation.value"
+                          sit-validation="{required: true}" sit-options="vm.typeProcessOperation.options"
+                          sit-to-display="'ProcessName'" sit-to-keep="'ProcessCode'" sit-change="vm.processRouteChange"
+                          sit-read-only="!vm.isReadNum">
+                {{'Siemens.SimaticIT.PlanApp.WorkOrderManage.add.Tips_23'|translate}}
+            </sit-property>
+            <sit-property sit-widget="sit-select" sit-value="vm.typeStartProcess.value"
+                          sit-validation="{required: true}" sit-options="vm.typeStartProcess.options"
+                          sit-to-display="'OperationName'" sit-to-keep="'OperationCode'">{{'Siemens.SimaticIT.PlanApp.WorkOrderManage.add.Tips_24'|translate}}</sit-property>
+
+            <sit-property sit-widget="sit-text" sit-value="vm.currentItem.JY_Remark" sit-validation="{required: false}"
+                          sit-read-only="false">{{'Siemens.SimaticIT.PlanApp.WorkOrderManage.add.Tips_25'|translate}}</sit-property>
+        </sit-property-grid>
+    </sit-property-grid>
+</div>

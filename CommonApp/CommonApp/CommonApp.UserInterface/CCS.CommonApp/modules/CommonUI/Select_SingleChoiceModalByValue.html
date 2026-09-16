@@ -1,0 +1,33 @@
+﻿<style>
+    .header-filtered {
+        color: blue;
+    }
+</style>
+<div class="modal-header">
+    <h3 class="modal-title">{{'customCommon.SelectModal.Tips_1'|translate}}</h3>
+</div>
+
+<div class="modal-body" ui-i18n="{{vm.lang}}">
+    <div class="col-xs-40 col-sm-40 col-md-40 col-lg-40" style="margin-bottom: 10px;padding: 0px;">
+        <div class="row" style="margin-top:10px;">
+            <div class="col-xs-5 col_text">
+                {{'customCommon.SelectModal.Tips_2'|translate}}：
+            </div>
+            <div class="col-xs-20" style="padding-right:5px">
+                <sit-text sit-value="vm.queryParmeters.queryName"></sit-text>
+            </div>
+            <div class="col-xs-10">
+                <button ng-click="vm.loadData()" class="btn btn-primary"><i class="fa fa-search"></i><span>&nbsp;{{'customCommon.SelectModal.Tips_3'|translate}}</span></button>
+            </div>
+
+        </div>
+    </div>
+    <div style="display: block;clear: both;margin-top:10px;">
+        <div ui-grid="vm.gridOptions" ui-grid-pagination ui-grid-selection ui-grid-resize-columns ui-grid-auto-resize></div>
+    </div>
+</div>
+
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="vm.save()">{{'customCommon.SelectModal.Tips_1'|translate}}</button>
+    <button class="btn btn-default" type="button" ng-click="vm.cancel()">{{'customCommon.SelectModal.Tips_5'|translate}}</button>
+</div>

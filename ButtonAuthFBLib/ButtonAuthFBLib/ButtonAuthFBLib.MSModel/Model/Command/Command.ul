@@ -1,0 +1,272 @@
+VERSION '01.13'
+
+///计划管理编辑按钮
+[Protected]
+[@Guid(44c6d8a7-8fc0-46b7-b4ee-6f7920018abe)]
+COMMAND ProductionOrderEdit
+
+///下载订单按钮
+[Protected]
+[@Guid(3ff65c62-6922-464c-8ba1-66fc5bbf7615)]
+COMMAND ProductionOrderLoad
+
+///导入销售订单按钮
+[Protected]
+[@Guid(94ed649a-1fd0-4285-8a5b-d870bfae1a4d)]
+COMMAND ProductionOrderImportPrd
+
+///导入销售订单明细按钮
+[Protected]
+[@Guid(66fec483-0c86-439c-b9b0-187821cc0955)]
+COMMAND ProductionOrderImportWO
+
+///编辑工单按钮
+[Protected]
+[@Guid(cb5eee11-dd6a-4e48-aca3-17ad9a4cd85e)]
+COMMAND ProductionOrderEditWO
+
+///工单发布按钮
+[Protected]
+[@Guid(20f6eb6c-04fe-4f64-bf9f-ab11691e04a9)]
+COMMAND ProductionOrderPublish
+
+///工单冻结按钮
+[Protected]
+[@Guid(a1529139-d190-4678-8a07-49d4a5692108)]
+COMMAND ProductionOrderFrozen
+
+///工单删除按钮
+[Protected]
+[@Guid(9100b080-cb65-469d-921e-9418db83a1a4)]
+COMMAND ProductionOrderDelWO
+
+///生成物料需求按钮
+[Protected]
+[@Guid(64288923-1764-40a7-b212-9f27b3c290ee)]
+COMMAND ProductionOrderEditMaterial
+
+///新增补料单按钮
+[Protected]
+[@Guid(0169c82d-2fe6-4a84-bf3b-0b31d3efa239)]
+COMMAND WorkOrderAddSupple
+
+///新增拣余单按钮
+[Protected]
+[@Guid(04270b69-fb3f-4a4b-a521-4ae660eb07a3)]
+COMMAND WorkOrderAddPick
+
+///计划编辑按钮
+[Protected]
+[@Guid(151d5828-dffb-412f-ba6a-5f26d84250c5)]
+COMMAND WorkOrderEditPlan
+
+///质量编辑按钮
+[Protected]
+[@Guid(df6ee65f-ca9e-4440-980a-9d25e9e2c938)]
+COMMAND WorkOrderEditQuality
+
+///要料按钮
+[Protected]
+[@Guid(a6e735b2-c77d-485c-a7a7-fd0813716d97)]
+COMMAND WorkOrderDemand
+
+///修改bom按钮
+[Protected]
+[@Guid(073cda96-62a0-4b3b-92ee-48cddf6b52da)]
+COMMAND WorkOrderEditBom
+
+///修改工艺按钮
+[Protected]
+[@Guid(c8752f18-90d1-4f52-8537-521d47b68e7e)]
+COMMAND WorkOrderEditProcess
+
+///销售订单-删除
+[Protected]
+[@Guid(4a99ca92-cdb6-4726-bed7-d0bf600448eb)]
+COMMAND ProductionOrderDel
+
+///生产工单删除
+[Protected]
+[@Guid(f7362101-83d0-414e-8268-e33c3f7b7c0f)]
+COMMAND WorkOrderDel
+
+///原材料库存管理-新增
+[Protected]
+[@Guid(5a160df5-a60f-486a-9e1c-342521326f45)]
+COMMAND RawMaterialStockManageAdd
+
+///原材料库存管理-出库
+[Protected]
+[@Guid(94f4678a-eba3-4565-8e96-47eb0fc06b1c)]
+COMMAND RawMaterialStockManageOutWhs
+
+///原材料库存管理-移库
+[Protected]
+[@Guid(1adba45c-7c02-44bf-a7f8-3841e7131f4c)]
+COMMAND RawMaterialStockManageMove
+
+///原材料库存管理-调拨
+[Protected]
+[@Guid(29d58c89-69c3-48f5-82d0-4e0fdedd9194)]
+COMMAND RawMaterialStockManageMove2
+
+///原材料库存管理-库存校准
+[Protected]
+[@Guid(b7790b15-edd4-4266-a69c-fa5fde17d4b5)]
+COMMAND RawMaterialStockManageAdjust
+
+///返工任务删除
+[Protected]
+[@Guid(33db01af-01c0-4933-b04c-9793f55ade49)]
+COMMAND ReworkDel
+
+///销售订单管理-跨工厂调拨
+[Protected]
+[@Guid(f36fa806-a2e9-44b9-a8cd-9f03d2fe7a2a)]
+COMMAND ProductionOrderTransfer
+
+///物料主数据-新增
+[Protected]
+[@Guid(cc13410f-5d0b-4c8d-bf10-bb1297c3c339)]
+COMMAND BaseMaterialAdd
+
+///物料主数据-修改
+[Protected]
+[@Guid(2936c279-a91f-4cd5-a668-19f7d2549f7b)]
+COMMAND BaseMaterialEdit
+
+///物料主数据-删除
+[Protected]
+[@Guid(c4b8bcc7-f6ca-433e-9265-3c460617cfb1)]
+COMMAND BaseMaterialDelete
+
+///BOM管理-新增
+[Protected]
+[@Guid(b67425c4-bc21-49b1-a2f8-53adc85ac788)]
+COMMAND BaseBOMAdd
+
+///BOM管理-修改
+[Protected]
+[@Guid(45eff7ce-9742-44e3-9cf1-c56b32022857)]
+COMMAND BaseBOMEdit
+
+///BOM管理-删除
+[Protected]
+[@Guid(e399a237-3174-4b2f-b6d8-25e21ca9f4d3)]
+COMMAND BaseBOMDelete
+
+///BOM管理-新增BOM明细
+[Protected]
+[@Guid(042f1454-7596-40f2-abdd-c869215429e7)]
+COMMAND BaseBOMAddDetail
+
+///BOM管理-修改BOM明细
+[Protected]
+[@Guid(8caf1b37-5c3f-4924-9e5f-fba05c8f7fba)]
+COMMAND BaseBOMEditDetail
+
+///BOM管理-删除BOM明细
+[Protected]
+[@Guid(aaa30519-3c0c-4c26-b3fe-52fba2b69477)]
+COMMAND BaseBOMDeleteDetail
+
+///BOM管理-复制BOM
+[Protected]
+[@Guid(d666c42c-918e-41f1-b94b-0b84b9141a67)]
+COMMAND BaseBOMCopy
+
+///BOM管理-粘贴BOM
+[Protected]
+[@Guid(9688463f-e8c9-4100-8790-c65e02acfde3)]
+COMMAND BaseBOMPaste
+
+///原材料库存管理-库存备份
+[Protected]
+[@Guid(e0ff0e3b-62c6-4b12-bd85-82165355375d)]
+COMMAND RawMaterialStockManageBackup
+
+///返工任务-质量确认
+[Protected]
+[@Guid(417a1676-4ec1-4733-afa7-4efc309c4dd7)]
+COMMAND ReworkQualityConfirm
+
+///原材料库存管理-出库2
+[Protected]
+[@Guid(27c431cd-2cd1-4e8b-adfe-3967a8525f41)]
+COMMAND RawMaterialStockManageOutWhs2
+
+///销售订单管理-SAP发布
+[Protected]
+[@Guid(4bb3fca5-6b6b-487c-a660-8b7a622bd87b)]
+COMMAND ProductionOrderSapPublish
+
+///采购订单管理-新增
+[Protected]
+[@Guid(2c5ae2e8-388a-47ce-a971-cd6a3159cbef)]
+COMMAND PurchaseManageAdd
+
+///采购订单管理-编辑
+[Protected]
+[@Guid(910fd708-4283-4aa0-9d2b-b6f5a260e31f)]
+COMMAND PurchaseManageEdit
+
+///采购订单管理-删除
+[Protected]
+[@Guid(02659879-4498-4ed4-ab8e-b583f3a91d78)]
+COMMAND PurchaseManageDelete
+
+///采购订单管理-删除入库
+[Protected]
+[@Guid(2cdc8187-5670-48e5-8df9-7f78537f5130)]
+COMMAND PurchaseManageDeleteDetail
+
+///收料通知单管理-新增
+[Protected]
+[@Guid(44a61002-30a3-46fe-bd5a-79b7f48dcbd2)]
+COMMAND ReceiptNoticeAdd
+
+///收料通知单管理-编辑
+[Protected]
+[@Guid(42871504-7662-43b8-8e17-2b1cc53ddc93)]
+COMMAND ReceiptNoticeEdit
+
+///收料通知单管理-删除
+[Protected]
+[@Guid(7f3be1df-e3a6-4615-bdc9-3b6ebca47c3e)]
+COMMAND ReceiptNoticeDelete
+
+///成品库存管理-入库
+[Protected]
+[@Guid(c321a8f4-d25a-43ed-ab62-9f5c628d94db)]
+COMMAND ProductStockManageInWhs
+
+///成品库存管理-库存校准
+[Protected]
+[@Guid(8649efd4-3c06-434a-8f2a-a2677144e784)]
+COMMAND ProductStockManageAdjust
+
+///成品发货管理-新增
+[Protected]
+[@Guid(a1dca3ab-a195-45b1-b63e-c62e1624ed0b)]
+COMMAND ProductDispatchAdd
+
+///成品发货管理-编辑
+[Protected]
+[@Guid(16aadb34-c759-4dd1-bf73-4e158043f521)]
+COMMAND ProductDispatchEdit
+
+///成品发货管理-删除
+[Protected]
+[@Guid(2cd9254c-64d6-4c11-8bdd-b22dfa987bc7)]
+COMMAND ProductDispatchDelete
+
+///工单管理-SAP结案
+[Protected]
+[@Guid(05e1c01f-5117-472e-80d2-705096d98881)]
+COMMAND WorkOrderFinishCase
+
+///自制半成品工单管理-SAP结案
+[Protected]
+[@Guid(7040a02e-e732-4cbe-86ef-d3d3d604e84f)]
+COMMAND OwnProductFinishCase
+

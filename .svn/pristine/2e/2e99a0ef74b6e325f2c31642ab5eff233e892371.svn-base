@@ -1,0 +1,23 @@
+﻿<style>
+    .row {
+        padding: 5px;
+        margin-top: 10px;
+    }
+
+    .canvas .property-area-container > div.content .side-panel-property-area-body {
+        overflow: visible;
+    }
+    /* .uigrid-edit .ui-grid-viewport {
+          overflow: auto !important;
+      }
+    */
+</style>
+<div class="command-bar-side-panel">
+    <button ng-click="vm.cancel()" class="btn side-panel-button">{{'Siemens.SimaticIT.PlanApp.WorkOrderDismantle.print.Tips_1'|translate}}</button>
+    <button ng-click="vm.print()" class="btn side-panel-button">{{'Siemens.SimaticIT.PlanApp.WorkOrderDismantle.print.Tips_2'|translate}}</button>
+</div>
+
+<div style="clear: both;"></div>
+<div id="itemlist1" style="width:calc(100% - 2px); height: 85%;margin-top: 6px; padding:5px 16px 0 16px;clear: both; display: block;overflow: auto;">
+    <div ui-grid="vm.gridOptions" ui-grid-selection ui-grid-resize-columns ui-grid-auto-resize class="uigrid  gridItem"></div>
+</div>

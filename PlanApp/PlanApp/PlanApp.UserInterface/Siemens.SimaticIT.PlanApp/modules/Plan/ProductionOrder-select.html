@@ -1,0 +1,21 @@
+﻿<div class="command-bar-side-panel">
+    <button ng-click="vm.cancel()" class="btn side-panel-button">{{'Siemens.SimaticIT.PlanApp.Plan.select.Tips_1'|translate}}</button>
+</div>
+<style>
+  textarea {
+        height: 600px;
+    }
+
+    .canvas .property-area-container > div.content .side-panel-property-area-body {
+        overflow-y: visible;
+    }
+</style>
+
+<div class="side-panel-property-area-body">
+    <!-- <div style="height: 500px;border: 1px solid rgb(143, 140, 140);overflow: hidden;">{{vm.currentItem.Technology}}</div> -->
+    <textarea type='text' rows="5"
+              ng-model="vm.currentItem.Technology" ng-readonly="true"
+              style="width:100%;"
+              ng-disabled="true"></textarea>
+
+</div>

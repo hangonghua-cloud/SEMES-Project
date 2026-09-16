@@ -1,0 +1,46 @@
+﻿<!--
+    0.代码生成: UA单表一键生成前后端html、JS、API接口代码生成器 Ver 2.13 更新日期：2021-07-12  设计者：刘万军
+    1.功能描述: 检验明细表
+    2.创建人员: 丁零
+    3.创建日期: 2021-08-27
+    4.修改人员: 
+    5.修改日期: 
+-->
+<style>
+    .row {
+        padding: 5px;
+        margin-top: 10px;
+    }
+</style>
+<div class="command-bar-side-panel">
+    <button ng-click="vm.cancel()" class="btn side-panel-button">{{'Siemens.SimaticIT.QualityApp.QC_TestDetail.QC_TestDetailedit.Tips_1'|translate}}</button>
+    <button ng-click="vm.save()" class="btn side-panel-button">{{'Siemens.SimaticIT.QualityApp.QC_TestDetail.QC_TestDetailedit.Tips_2'|translate}}</button>
+</div>
+<div class="side-panel-property-area-body">
+    <sit-property-grid sit-id="edit_form"
+                       sit-layout="Vertical"
+                       sit-type="Fluid"
+                       sit-mode="edit"
+                       sit-columns="1">
+        <sit-property-grid sit-id="view_form" sit-layout="Horizontal" sit-type="Fixed" sit-mode="edit" sit-columns="1" style="margin-left: 4px;">
+            <sit-property sit-widget="sit-text" sit-value="vm.currentItem.ParentId" sit-validation="{required: true}"
+                          sit-read-only="false">{{'Siemens.SimaticIT.QualityApp.QC_TestDetail.QC_TestDetailedit.Tips_3'|translate}}</sit-property>
+            <sit-property sit-widget="sit-text" sit-value="vm.currentItem.TestItemCoading" sit-validation="{required: true}"
+                          sit-read-only="false">{{'Siemens.SimaticIT.QualityApp.QC_TestDetail.QC_TestDetailedit.Tips_4'|translate}}</sit-property>
+            <sit-property sit-widget="sit-numeric" sit-value="vm.currentItem.InspectionQty" sit-validation="{required: true, min: 0}"
+                          sit-read-only="false">{{'Siemens.SimaticIT.QualityApp.QC_TestDetail.QC_TestDetailedit.Tips_5'|translate}}</sit-property>
+            <sit-property sit-widget="sit-text" sit-value="vm.currentItem.TestItemResult" sit-validation="{required: true}"
+                          sit-read-only="false">{{'Siemens.SimaticIT.QualityApp.QC_TestDetail.QC_TestDetailedit.Tips_6'|translate}}</sit-property>
+            <sit-property sit-widget="sit-text" sit-value="vm.currentItem.EnabledMark" sit-validation="{required: true}"
+                          sit-read-only="false">{{'Siemens.SimaticIT.QualityApp.QC_TestDetail.QC_TestDetailedit.Tips_7'|translate}}</sit-property>
+            <sit-property sit-widget="sit-text" sit-value="vm.currentItem.Creator" sit-validation="{required: true}"
+                          sit-read-only="false">{{'Siemens.SimaticIT.QualityApp.QC_TestDetail.QC_TestDetailedit.Tips_8'|translate}}</sit-property>
+            <sit-property sit-widget="sit-datepicker" sit-value="vm.currentItem.CreateTime" sit-validation="{required: true}"
+                          sit-widget-attributes="{'sit-format':'yyyy-MM-dd','sit-show-meridian':'false'}" sit-read-only="false">{{'Siemens.SimaticIT.QualityApp.QC_TestDetail.QC_TestDetailedit.Tips_9'|translate}}</sit-property>
+            <sit-property sit-widget="sit-text" sit-value="vm.currentItem.ModifyBy" sit-validation="{required: true}"
+                          sit-read-only="false">{{'Siemens.SimaticIT.QualityApp.QC_TestDetail.QC_TestDetailedit.Tips_10'|translate}}</sit-property>
+            <sit-property sit-widget="sit-datepicker" sit-value="vm.currentItem.ModifyTime" sit-validation="{required: true}"
+                          sit-widget-attributes="{'sit-format':'yyyy-MM-dd','sit-show-meridian':'false'}" sit-read-only="false">{{'Siemens.SimaticIT.QualityApp.QC_TestDetail.QC_TestDetailedit.Tips_11'|translate}}</sit-property>
+        </sit-property-grid>
+    </sit-property-grid>
+</div>

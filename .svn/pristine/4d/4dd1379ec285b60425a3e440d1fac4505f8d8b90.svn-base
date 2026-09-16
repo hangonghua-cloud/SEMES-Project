@@ -1,0 +1,19 @@
+﻿{
+  "name": "Siemens.SimaticIT.PlanApp.WorkOrderWearingLayer",
+  "type": "standard",
+  "title": "Siemens.SimaticIT.PlanApp.WorkOrderWearingLayer.Title",
+  "header": "",
+  "icon": "fa-folder",
+  "functionalBlock": "Siemens.SimaticIT.PlanApp",
+  "dependencies": [],
+  "states": [
+    {
+      "id": "home.Siemens_SimaticIT_PlanApp_WorkOrderWearingLayer_WorkOrderWearingLayer",
+      "title": "Siemens.SimaticIT.PlanApp.WorkOrderWearingLayer.Title",
+      "header": "",
+      "securable": true,
+      "roles": []
+    }
+  ],
+  "manifestVersion": "01.01.00"
+}

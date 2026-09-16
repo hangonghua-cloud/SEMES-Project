@@ -1,0 +1,223 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Items>
+  <FunctionalBlock Id="1d471d14-a07b-4ca9-b169-1b854e67ebf5">
+    <Apps>
+      <Id>72bdc30e-b9f5-40a3-886b-7a4f27b49f42</Id>
+    </Apps>
+    <Version>01.06.00</Version>
+    <CompanyName>Siemens.SimaticIT</CompanyName>
+    <Type>Project</Type>
+    <Name>Siemens.SimaticIT.System</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </FunctionalBlock>
+  <FunctionalBlock Id="d4a9f1ca-043e-4469-916b-deaab4ac1248">
+    <Apps>
+      <Id>72bdc30e-b9f5-40a3-886b-7a4f27b49f42</Id>
+    </Apps>
+    <Version>01.06.00</Version>
+    <CompanyName>Siemens.SimaticIT</CompanyName>
+    <Type>Library</Type>
+    <Name>Siemens.SimaticIT.SITUASys</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </FunctionalBlock>
+  <FunctionalBlock Id="8f7e8481-5c45-4868-a995-a2cd8ba82eeb">
+    <Apps>
+      <Id>a1e34816-182a-4552-99f7-4c7351f9153f</Id>
+    </Apps>
+    <Version>01.00.00</Version>
+    <CompanyName>Siemens.SimaticIT</CompanyName>
+    <Type>Project</Type>
+    <Name>Siemens.SimaticIT.BaseDataApp</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </FunctionalBlock>
+  <FunctionalBlock Id="f353542d-a7f6-4991-98c9-e87c256d017c">
+    <Apps>
+      <Id>e44db3f8-6feb-441f-9f10-04a79cd73f02</Id>
+    </Apps>
+    <Version>04.00.00</Version>
+    <CompanyName>Siemens.SimaticIT</CompanyName>
+    <Type>Project</Type>
+    <Name>Siemens.SimaticIT.BasicDataManageFBApp</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </FunctionalBlock>
+  <FunctionalBlock Id="a8361cc5-8877-4e38-b6ee-d7a4fe8747bb">
+    <Apps>
+      <Id>e44db3f8-6feb-441f-9f10-04a79cd73f02</Id>
+    </Apps>
+    <Version>01.00.00</Version>
+    <CompanyName>Siemens.SimaticIT</CompanyName>
+    <Type>Library</Type>
+    <Name>Siemens.SimaticIT.BasicDataManageFBLib</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </FunctionalBlock>
+  <FunctionalBlock Id="28446983-eb66-4380-8dda-e418a4d7f5e9">
+    <Apps>
+      <Id>e44db3f8-6feb-441f-9f10-04a79cd73f02</Id>
+    </Apps>
+    <Version>05.01.00</Version>
+    <CompanyName>Siemens.SimaticIT</CompanyName>
+    <Type>Library</Type>
+    <Name>Siemens.SimaticIT.UDM_RF</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </FunctionalBlock>
+  <FunctionalBlock Id="89c3e2e8-0925-4a5d-8eb1-41041d0de02e">
+    <Apps>
+      <Id>e44db3f8-6feb-441f-9f10-04a79cd73f02</Id>
+    </Apps>
+    <Version>06.01.00</Version>
+    <CompanyName>Siemens.SimaticIT</CompanyName>
+    <Type>Library</Type>
+    <Name>Siemens.SimaticIT.EQU_MS</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </FunctionalBlock>
+  <FunctionalBlock Id="77a40883-58a7-42fc-a464-b5e18b46ef1d">
+    <Apps>
+      <Id>e44db3f8-6feb-441f-9f10-04a79cd73f02</Id>
+    </Apps>
+    <Version>06.01.00</Version>
+    <CompanyName>Siemens.SimaticIT</CompanyName>
+    <Type>Library</Type>
+    <Name>Siemens.SimaticIT.EQU_OP</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </FunctionalBlock>
+  <FunctionalBlock Id="4ab9c18b-3b26-4366-8c39-9d0681303e00">
+    <Apps>
+      <Id>e44db3f8-6feb-441f-9f10-04a79cd73f02</Id>
+    </Apps>
+    <Version>01.00.00</Version>
+    <CompanyName>Siemens.SimaticIT</CompanyName>
+    <Type>Library</Type>
+    <Name>Siemens.SimaticIT.ThirdPartyDBFBLib</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </FunctionalBlock>
+  <FunctionalBlock Id="99f20596-5924-450e-9c52-6bc52f8fb21b">
+    <Apps>
+      <Id>6020b229-5ded-43c1-9e60-66ce9cfc1233</Id>
+    </Apps>
+    <Version>01.00.00</Version>
+    <CompanyName>CCS</CompanyName>
+    <Type>Project</Type>
+    <Name>CCS.CommonApp</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </FunctionalBlock>
+  <FunctionalBlock Id="516d00fb-1cbd-4429-b179-07162644d925">
+    <Apps>
+      <Id>aad32beb-654d-436f-a76a-7ddb62c27b9d</Id>
+    </Apps>
+    <Version>01.00.00</Version>
+    <CompanyName>Siemens.SimaticIT</CompanyName>
+    <Type>Project</Type>
+    <Name>Siemens.SimaticIT.EquipmentApp</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </FunctionalBlock>
+  <FunctionalBlock Id="c3a9f68f-61ee-4954-9bf7-56105139298d">
+    <Apps>
+      <Id>46570efd-acf3-464f-ba7f-f9ea36abc2b9</Id>
+    </Apps>
+    <Version>01.00.00</Version>
+    <CompanyName>Siemens.SimaticIT</CompanyName>
+    <Type>Project</Type>
+    <Name>Siemens.SimaticIT.FactoryModelApp</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </FunctionalBlock>
+  <FunctionalBlock Id="c4548462-86fd-4e0b-bf9f-e4d669cc21f7">
+    <Apps>
+      <Id>6cc95896-f8d2-46c7-a825-4fe35d239605</Id>
+    </Apps>
+    <Version>01.00.00</Version>
+    <CompanyName>Siemens.SimaticIT</CompanyName>
+    <Type>Project</Type>
+    <Name>Siemens.SimaticIT.MaterialApp</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </FunctionalBlock>
+  <FunctionalBlock Id="671f2dd9-dad3-4964-941c-e64ef0b99ba2">
+    <Apps>
+      <Id>ba05468a-33e0-45b2-a2d8-a04a778522c5</Id>
+    </Apps>
+    <Version>02.03.00</Version>
+    <CompanyName>Siemens.SimaticIT</CompanyName>
+    <Type>Project</Type>
+    <Name>Siemens.SimaticIT.Personnel</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </FunctionalBlock>
+  <FunctionalBlock Id="5ce5fae4-9a4c-4995-bd8a-26e0a3516b1c">
+    <Apps>
+      <Id>ba05468a-33e0-45b2-a2d8-a04a778522c5</Id>
+    </Apps>
+    <Version>01.04.00</Version>
+    <CompanyName>Siemens.SimaticIT</CompanyName>
+    <Type>Library</Type>
+    <Name>Siemens.SimaticIT.DSG_SD</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </FunctionalBlock>
+  <FunctionalBlock Id="c886069d-97da-4001-83d1-0f4c99209a72">
+    <Apps>
+      <Id>ba05468a-33e0-45b2-a2d8-a04a778522c5</Id>
+    </Apps>
+    <Version>02.02.00</Version>
+    <CompanyName>Siemens.SimaticIT</CompanyName>
+    <Type>Library</Type>
+    <Name>Siemens.SimaticIT.PRM_MS</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </FunctionalBlock>
+  <FunctionalBlock Id="6dd1edd1-446a-4fe8-8b6a-8b4c857a8bd5">
+    <Apps>
+      <Id>be29a523-b672-4073-a1ee-7154c56b8f3d</Id>
+    </Apps>
+    <Version>01.00.00</Version>
+    <CompanyName>Siemens.SimaticIT</CompanyName>
+    <Type>Project</Type>
+    <Name>Siemens.SimaticIT.PlanApp</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </FunctionalBlock>
+  <FunctionalBlock Id="327a603d-df5d-4abd-9251-6821763901ff">
+    <Apps>
+      <Id>dfbf1c94-9d51-48ca-9506-59387d4e6936</Id>
+    </Apps>
+    <Version>01.00.00</Version>
+    <CompanyName>Siemens.SimaticIT</CompanyName>
+    <Type>Project</Type>
+    <Name>Siemens.SimaticIT.ProductionApp</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </FunctionalBlock>
+  <FunctionalBlock Id="e179d1bd-6a90-4718-aa03-b939a07c6e04">
+    <Apps>
+      <Id>843a8640-1ac3-4a40-b243-5f88dc5027fa</Id>
+    </Apps>
+    <Version>01.00.00</Version>
+    <CompanyName>Siemens.SimaticIT</CompanyName>
+    <Type>Project</Type>
+    <Name>Siemens.SimaticIT.QualityApp</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </FunctionalBlock>
+  <FunctionalBlock Id="816ee956-767b-49f6-9e79-49328cbabd57">
+    <Apps>
+      <Id>91c76733-4530-4863-b0eb-a5cb0c3aa86c</Id>
+    </Apps>
+    <Version>01.00.00</Version>
+    <CompanyName>Siemens.SimaticIT</CompanyName>
+    <Type>Project</Type>
+    <Name>Siemens.SimaticIT.SystemApp</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </FunctionalBlock>
+  <FunctionalBlock Id="a05a2a6f-d8bc-48f6-a45c-272119535c5f">
+    <Apps>
+      <Id>72123ce0-6bf8-4245-83dd-cdf779609086</Id>
+    </Apps>
+    <Version>01.00.00</Version>
+    <CompanyName>Siemens.SimaticIT</CompanyName>
+    <Type>Project</Type>
+    <Name>Siemens.SimaticIT.ButtonAuthFBApp</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </FunctionalBlock>
+  <FunctionalBlock Id="68e27599-3154-44d2-872b-cc0d8c3b2ce6">
+    <Apps>
+      <Id>72123ce0-6bf8-4245-83dd-cdf779609086</Id>
+    </Apps>
+    <Version>01.00.00</Version>
+    <CompanyName>Siemens.SimaticIT</CompanyName>
+    <Type>Library</Type>
+    <Name>Siemens.SimaticIT.ButtonAuthFBLib</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </FunctionalBlock>
+</Items>

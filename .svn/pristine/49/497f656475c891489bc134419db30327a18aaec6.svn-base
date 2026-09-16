@@ -1,0 +1,210 @@
+﻿<style>
+    .upload-container {
+        margin-top: 15px;
+        width: 40%;
+    }
+
+        .upload-container label {
+            font-size: 12px;
+            line-height: 19px;
+        }
+
+        .upload-container input {
+            display: none;
+        }
+
+        .upload-container #upload {
+            vertical-align: baseline;
+        }
+
+        .upload-container .files {
+            max-height: 150px;
+            overflow-y: auto;
+        }
+
+            .upload-container .files .item {
+                padding: 8px;
+                margin-bottom: 8px;
+                background: #ccc;
+                position: relative;
+            }
+
+                .upload-container .files .item .remove {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    font-size: 1.3em;
+                    cursor: pointer;
+                }
+
+    /*上传进度条样式*/
+    /*  外部容器样式*/
+    .container {
+        width: 300px;
+        height: 30px;
+        border: 1px solid lightgray;
+        border-radius: 15px;
+    }
+
+    /* 内部加载部分样式 */
+    #content {
+        height: 30px;
+        border-radius: 15px;
+        background-color: skyblue;
+        text-align: center;
+        line-height: 30px;
+    }
+</style>
+
+<div class="command-bar-side-panel">
+    <button ng-click="vm.cancel()"
+            class="btn side-panel-button">
+        {{'Siemens.SimaticIT.MaterialApp.MMReceiptNotice.ReceiptNoticeadd.Tips_1'|translate}}
+    </button>
+    <button ng-click="vm.save()"
+            class="btn side-panel-button">
+        {{'Siemens.SimaticIT.MaterialApp.MMReceiptNotice.ReceiptNoticeadd.Tips_2'|translate}}
+    </button>
+</div>
+<div style="height:2000px; overflow: auto;">
+    <div class="side-panel-property-area-body" style="height: calc(18% - 0px) !important;">
+        <sit-property-grid sit-id="add_form" sit-layout="Horizontal" sit-type="Fixed" sit-mode="edit" sit-columns="6">
+            <sit-property sit-widget="sit-select" sit-value="vm.typeFactory.value" sit-validation="{required: false}"
+                          sit-options="vm.typeFactory.options" sit-to-display="'ResourceName'" sit-to-keep="'ResourceCode'"
+                          sit-read-only="false">
+                {{'Siemens.SimaticIT.MaterialApp.MMReceiptNotice.ReceiptNoticeadd.Tips_3'|translate}}
+            </sit-property>
+            <sit-property sit-widget="sit-text" sit-value="vm.searchParams.PurchaseOrder" sit-validation="{required: false}"
+                          sit-read-only="false">
+                {{'Siemens.SimaticIT.MaterialApp.MMReceiptNotice.ReceiptNoticeadd.Tips_4'|translate}}
+            </sit-property>
+            <sit-property sit-widget="sit-text" sit-value="vm.searchParams.ProductOrder" sit-validation="{required: false}"
+                          sit-read-only="false">
+                {{'Siemens.SimaticIT.MaterialApp.MMReceiptNotice.ReceiptNoticeadd.Tips_5'|translate}}
+            </sit-property>
+            <sit-property sit-widget="sit-text" sit-value="vm.searchParams.Material" sit-validation="{required: false}"
+                          sit-read-only="false">
+                {{'Siemens.SimaticIT.MaterialApp.MMReceiptNotice.ReceiptNoticeadd.Tips_6'|translate}}
+            </sit-property>
+            <sit-property sit-widget="sit-text" sit-value="vm.searchParams.Supplier" sit-validation="{required: false}"
+                          sit-read-only="false">
+                {{'Siemens.SimaticIT.MaterialApp.MMReceiptNotice.ReceiptNoticeadd.Tips_7'|translate}}
+            </sit-property>
+            <sit-property sit-widget="sit-numeric" sit-value="vm.searchParams.LowerLimit"
+                          sit-validation="{required: false,min:0}" sit-read-only="false">
+                {{'Siemens.SimaticIT.MaterialApp.MMReceiptNotice.ReceiptNoticeadd.Tips_8'|translate}}
+            </sit-property>
+            <sit-property sit-widget="sit-numeric" sit-value="vm.searchParams.UpperLimit"
+                          sit-validation="{required: false,min:0}" sit-read-only="false">
+                {{'Siemens.SimaticIT.MaterialApp.MMReceiptNotice.ReceiptNoticeadd.Tips_9'|translate}}
+            </sit-property>
+
+            <sit-property sit-widget="sit-datepicker" sit-value="vm.StartTime" sit-format="'yyyy-MM-dd'"
+                          sit-read-only="false">
+                {{'Siemens.SimaticIT.MaterialApp.MMReceiptNotice.ReceiptNoticeadd.Tips_10'|translate}}
+            </sit-property>
+            <sit-property sit-widget="sit-datepicker" sit-value="vm.EndTime" sit-format="'yyyy-MM-dd'"
+                          sit-read-only="false">
+                {{'Siemens.SimaticIT.MaterialApp.MMReceiptNotice.ReceiptNoticeadd.Tips_9'|translate}}
+            </sit-property>
+            <sit-command-bar sit-type="action">
+                <sit-command sit-icon="fa-search" sit-type="main" sit-name="com.siemens.customcommand.search"
+                             :sit-tooltip="{{'Siemens.SimaticIT.MaterialApp.MMReceiptNotice.ReceiptNoticeadd.Tips_11'|translate}}"
+                             ng-click="vm.search"
+                             :sit-label="{{'Siemens.SimaticIT.MaterialApp.MMReceiptNotice.ReceiptNoticeadd.Tips_11'|translate}}">
+                </sit-command>
+            </sit-command-bar>
+        </sit-property-grid>
+    </div>
+
+    <!-- <div style="clear: both;"></div> -->
+    <!-- <div id="itemlist1" style="width:calc(100% - 2px); height: 30%;margin-top: 6px; padding:5px 16px 0 0px;clear: both; display: block;">
+        <div ui-grid="vm.gridOptionsItem1" ui-grid-selection ui-grid-resize-columns ui-grid-auto-resize class="uigrid  gridItem"></div>
+    </div> -->
+    <div id="itemlist1"
+         style="width:calc(100% - 2px); height: 25%;margin-top: 3px; padding:5px 16px 0 0px;clear: both; display: block;">
+        <div ui-grid="vm.gridOptionsItem1" ui-grid-selection ui-grid-resize-columns ui-grid-auto-resize ui-grid-pagination
+             class="uigrid  gridItem"></div>
+    </div>
+    <div class="side-panel-property-area-body" style="height: calc(16% - 0px) !important;margin-top: 15px;">
+        <sit-property-grid sit-id="add_form" sit-layout="Horizontal" sit-type="Fixed" sit-mode="edit" sit-columns="6">
+            <sit-property sit-widget="sit-numeric" sit-value="vm.currentItem.ArrivalQty"
+                          sit-validation="{required: true,min:0}" sit-read-only="false">
+                {{'Siemens.SimaticIT.MaterialApp.MMReceiptNotice.ReceiptNoticeadd.Tips_12'|translate}}
+            </sit-property>
+            <sit-property sit-widget="sit-datepicker" sit-value="vm.ArrivalTime" sit-format="'yyyy-MM-dd'"
+                          sit-validation="{required: true}" sit-read-only="false">
+                {{'Siemens.SimaticIT.MaterialApp.MMReceiptNotice.ReceiptNoticeadd.Tips_13'|translate}}
+            </sit-property>
+
+            <!-- <sit-property sit-widget="sit-select" sit-value="vm.typeManufacturer.value" sit-validation="{required: false}"
+                sit-options="vm.typeManufacturer.options" sit-to-display="'ItemName'" sit-to-keep="'ItemValue'"
+                sit-read-only="false">{{'Siemens.SimaticIT.MaterialApp.MMReceiptNotice.ReceiptNoticeadd.Tips_14'|translate}}</sit-property> -->
+            <!-- <sit-property sit-widget="sit-alp-text-picker" sit-value="vm.currentItem.ManufacturerName"
+                sit-validation="{required: false}" sit-read-only="false" ng-click="vm.manufacturerModal()">
+                {{'Siemens.SimaticIT.MaterialApp.MMReceiptNotice.ReceiptNoticeadd.Tips_14'|translate}}
+            </sit-property> -->
+
+            <sit-property sit-widget="sit-alp-text-picker" sit-value="vm.currentItem.SupplierName2"
+                          sit-validation="{required: false}" sit-read-only="false" ng-click="vm.supplierClick('2')">
+                {{'Siemens.SimaticIT.MaterialApp.MMReceiptNotice.ReceiptNoticeadd.Tips_18'|translate}}
+            </sit-property>
+            <sit-property sit-widget="sit-alp-text-picker" sit-value="vm.currentItem.SupplierName3"
+                          sit-validation="{required: false}" sit-read-only="false" ng-click="vm.supplierClick('3')">
+                {{'Siemens.SimaticIT.MaterialApp.MMReceiptNotice.ReceiptNoticeadd.Tips_19'|translate}}
+            </sit-property>
+            <sit-property sit-widget="sit-alp-text-picker" sit-value="vm.currentItem.SupplierName4"
+                          sit-validation="{required: false}" sit-read-only="false" ng-click="vm.supplierClick('4')">
+                {{'Siemens.SimaticIT.MaterialApp.MMReceiptNotice.ReceiptNoticeadd.Tips_20'|translate}}
+            </sit-property>
+            <sit-property sit-widget="sit-alp-text-picker" sit-value="vm.currentItem.SupplierName5"
+                          sit-validation="{required: false}" sit-read-only="false" ng-click="vm.supplierClick('5')">
+                {{'Siemens.SimaticIT.MaterialApp.MMReceiptNotice.ReceiptNoticeadd.Tips_21'|translate}}
+            </sit-property>
+            <sit-property sit-widget="sit-alp-text-picker" sit-value="vm.currentItem.SupplierName6"
+                          sit-validation="{required: false}" sit-read-only="false" ng-click="vm.supplierClick('6')">
+                {{'Siemens.SimaticIT.MaterialApp.MMReceiptNotice.ReceiptNoticeadd.Tips_22'|translate}}
+            </sit-property>
+
+
+            <sit-property sit-widget="sit-text" sit-value="vm.currentItem.Remark" sit-validation="{required: false}"
+                          sit-read-only="false">
+                {{'Siemens.SimaticIT.MaterialApp.MMReceiptNotice.ReceiptNoticeadd.Tips_15'|translate}}
+            </sit-property>
+            <div>
+                <button ng-click="vm.deleteForm()" class="btn side-panel-button" ng-show="vm.IsShowDeleteButten"
+                        style="margin-top: 16px;">
+                    {{'Siemens.SimaticIT.MaterialApp.MMReceiptNotice.ReceiptNoticeadd.Tips_16'|translate}}
+                </button>
+                <button ng-click="vm.addForm()" class="btn side-panel-button" ng-show="vm.validInputs"
+                        style="margin-top: 16px;">
+                    {{'Siemens.SimaticIT.MaterialApp.MMReceiptNotice.ReceiptNoticeadd.Tips_17'|translate}}
+                </button>
+            </div>
+        </sit-property-grid>
+    </div>
+    <div id="itemlist2"
+         style="width:calc(100% - 2px); height: 20%;margin-top: 6px; padding:5px 16px 0 0px;clear: both; display: block;">
+        <div ui-grid="vm.gridOptionsItem2" ui-grid-selection ui-grid-resize-columns ui-grid-auto-resize
+             class="uigrid  gridItem"></div>
+    </div>
+    <div class="upload-container" style="margin-top: 40px;">
+        <label>
+            {{'Siemens.SimaticIT.MaterialApp.MMReceiptNotice.ReceiptNoticeadd.Tips_23'|translate}}
+            <div class="container">
+                <div id="content"></div>
+            </div>
+            <a href="javascript:void(0);" class="btn btn-primary upload-btn" ng-click="vm.doUpload()">
+                <i class="ace-icon fa fa-upload"></i>
+                <input id="upload" type="file" accept="" nv-file-select="" uploader="vm.uploader"
+                       multiple /> {{'Siemens.SimaticIT.MaterialApp.MMReceiptNotice.ReceiptNoticeadd.Tips_24'|translate}}
+            </a>
+        </label>
+        <div class="files">
+            <div class="item" ng-repeat="item in vm.fileList track by $index" ng-if="item">
+                {{item.name}}
+                <i class="fa fa-times-circle remove" aria-hidden="true" ng-click="vm.deleteFile(item.path)"></i>
+            </div>
+        </div>
+    </div>
+</div>

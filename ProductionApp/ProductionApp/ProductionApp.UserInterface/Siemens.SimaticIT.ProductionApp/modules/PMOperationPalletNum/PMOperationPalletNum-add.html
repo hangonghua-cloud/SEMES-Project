@@ -1,0 +1,62 @@
+<style>
+    .row {
+        padding: 5px;
+        margin-top: 10px;
+    }
+</style>
+<div class="command-bar-side-panel">
+    <button ng-click="vm.cancel()"
+            class="btn side-panel-button">
+        {{'Siemens.SimaticIT.ProductionApp.PMOperationPalletNum.add.Tips_1'|translate}}
+    </button>
+    <button ng-click="vm.save()" class="btn side-panel-button"
+            ng-show="vm.validInputs">
+        {{'Siemens.SimaticIT.ProductionApp.PMOperationPalletNum.add.Tips_2'|translate}}
+    </button>
+</div>
+<div class="side-panel-property-area-body">
+    <sit-property-grid sit-id="add_form" sit-layout="Horizontal" sit-type="Fixed" sit-mode="edit" sit-columns="2">
+        <sit-property sit-widget="sit-select" sit-value="vm.typeFactory.value" sit-options="vm.typeFactory.options"
+                      sit-to-display="'ResourceName'" sit-to-keep="'ResourceCode'" sit-validation="{required: true}"
+                      sit-change="vm.typeFactoryChange">
+            {{'Siemens.SimaticIT.ProductionApp.PMOperationPalletNum.add.Tips_3'|translate}}
+        </sit-property>
+
+        <sit-property sit-widget="sit-select" sit-value="vm.typeProcess.value" sit-options="vm.typeProcess.options"
+                      sit-to-display="'ResourceName'" sit-to-keep="'ResourceCode'" sit-validation="{required: true}">
+            {{'Siemens.SimaticIT.ProductionApp.PMOperationPalletNum.add.Tips_4'|translate}}
+        </sit-property>
+
+        <sit-property sit-widget="sit-alp-text-picker" sit-value="vm.currentItem.MaterialCode"
+                      sit-validation="{required: true}" sit-read-only="false" ng-click="vm.selectMaterialModal()">
+            {{'Siemens.SimaticIT.ProductionApp.PMOperationPalletNum.add.Tips_5'|translate}}
+        </sit-property>
+
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.MaterialName" sit-validation="{required: false}"
+                      sit-read-only="true">
+            {{'Siemens.SimaticIT.ProductionApp.PMOperationPalletNum.add.Tips_6'|translate}}
+        </sit-property>
+
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.Spec" sit-validation="{required: false}"
+                      sit-read-only="true">
+            {{'Siemens.SimaticIT.ProductionApp.PMOperationPalletNum.add.Tips_7'|translate}}
+        </sit-property>
+
+        <sit-property sit-widget="sit-numeric" sit-value="vm.currentItem.PalletNum"
+                      sit-validation="{required: false,min:1,pattern:'^[0-9]*$',patternInfo:'必须为整数！'}" sit-read-only="false">
+            {{'Siemens.SimaticIT.ProductionApp.PMOperationPalletNum.add.Tips_8'|translate}}
+        </sit-property>
+
+        <!-- <sit-property sit-widget="sit-text" sit-value="vm.currentItem.UnitName" sit-validation="{required: true}"
+                      sit-read-only="true">{{'Siemens.SimaticIT.ProductionApp.PMOperationPalletNum.add.Tips_9'|translate}}</sit-property> -->
+
+        <sit-property sit-widget="sit-select" sit-value="vm.typeUnit.value" sit-validation="{required: true}"
+                      sit-options="vm.typeUnit.options" sit-to-display="'ItemName'" sit-to-keep="'ItemValue'">
+            {{'Siemens.SimaticIT.ProductionApp.PMOperationPalletNum.add.Tips_9'|translate}}
+        </sit-property>
+
+        <sit-property sit-widget="sit-numeric" sit-value="vm.currentItem.HourCoefficient"
+                      sit-validation="{required: false,min:0.01}" sit-read-only="false">
+            {{'Siemens.SimaticIT.ProductionApp.PMOperationPalletNum.add.Tips_10'|translate}}
+        </sit-property>
+</div>

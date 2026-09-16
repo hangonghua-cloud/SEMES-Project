@@ -1,0 +1,86 @@
+﻿using ALP.Application.Entity.HTTPEntity;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ALP.Application.Entity.SAPEntity.ToSAP
+{
+    /// <summary>
+    /// SAP采购订单、收料通知单 入库冲销
+    /// </summary>
+    public class IF109: SAPRequestDto
+    {
+        public IF109_RSQ_DATA RSQ_DATA { get; set; }
+    }
+    public class IF109_RSQ_DATA
+    {
+        public IF109_HEAD IS_HEAD { get; set; }
+
+        
+    }
+    public class IF109_HEAD
+    {
+        /// <summary>
+        /// 物料凭证编号
+        /// </summary>
+        public string MBLNR { get; set; } = "";
+        /// <summary>
+        /// 物料凭证年度
+        /// </summary>
+        public string MJAHR { get; set; } = "";
+        /// <summary>
+        /// 凭证日期
+        /// </summary>
+        public string BLDAT { get; set; } = "";
+        /// <summary>
+        /// 过账日期
+        /// </summary>
+        public string BUDAT { get; set; } = "";
+        /// <summary>
+        /// 凭证抬头文本
+        /// </summary>
+        public string BKTXT { get; set; } = "";
+        /// <summary>
+        /// 物料编号
+        /// </summary>
+        public string MATNR { get; set; } = "";
+        /// <summary>
+        /// 采购凭证编号
+        /// </summary>
+        public string EBELN { get; set; } = "";
+        /// <summary>
+        /// 采购凭证项目编号
+        /// </summary>
+        public string EBELP { get; set; } = "";
+        /// <summary>
+        /// 交货
+        /// </summary>
+        public string VBELN_IM { get; set; } = "";
+        /// <summary>
+        /// 交货项目
+        /// </summary>
+        public string VBELP_IM { get; set; } = "";
+        /// <summary>
+        /// 项目文本
+        /// </summary>
+        public string SGTXT { get; set; } = "";
+        /// <summary>
+        /// 预留字段1
+        /// </summary>
+        public string YULIU1 { get; set; } = "";
+        /// <summary>
+        /// 预留字段2
+        /// </summary>
+        public string YULIU2 { get; set; } = "";
+        /// <summary>
+        /// 预留字段3
+        /// </summary>
+        public string YULIU3 { get; set; } = "";
+        /// <summary>
+        /// 预留字段4
+        /// </summary>
+        public string YULIU4 { get; set; } = "";
+    }
+}

@@ -1,0 +1,81 @@
+﻿<style>
+    .row {
+        padding: 5px;
+        margin-top: 10px;
+    }
+
+    .canvas .property-area-container div.command-bar-side-panel {
+        padding-bottom: 40px;
+    }
+
+    .canvas .property-area-container > div.content .side-panel-property-area-body {
+        overflow: visible;
+        flex: none;
+    }
+
+    /* .uigrid-edit .ui-grid-viewport {
+          overflow: auto !important;
+      }
+    */
+</style>
+
+<div class="command-bar-side-panel">
+    <button ng-click="vm.cancel()" class="btn side-panel-button">{{'Siemens.SimaticIT.PlanApp.WorkOrderDismantle.split.Tips_1'|translate}}</button>
+    <button ng-click="vm.save()" class="btn side-panel-button">{{'Siemens.SimaticIT.PlanApp.WorkOrderDismantle.split.Tips_2'|translate}}</button>
+    <button ng-click="vm.editMask()" class="btn side-panel-button">{{'Siemens.SimaticIT.PlanApp.WorkOrderDismantle.split.Tips_3'|translate}}</button>
+    <button ng-click="vm.edit()" class="btn side-panel-button">{{'Siemens.SimaticIT.PlanApp.WorkOrderDismantle.split.Tips_4'|translate}}</button>
+</div>
+<div class="side-panel-property-area-body">
+    <sit-property-grid sit-id="add_form1" sit-layout="Horizontal" sit-type="Fixed" sit-mode="edit" sit-columns="5">
+        <!-- <sit-property sit-widget="sit-numeric" sit-value="vm.currentItem.TotalNum"
+                      sit-read-only="true">{{'Siemens.SimaticIT.PlanApp.WorkOrderDismantle.split.Tips_5'|translate}}</sit-property> -->
+        <!-- <sit-property sit-widget="sit-text" sit-value="vm.currentItem.FactoryCode" sit-validation="{required: false}"
+            sit-read-only="false">{{'Siemens.SimaticIT.PlanApp.WorkOrderDismantle.split.Tips_6'|translate}}</sit-property> -->
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.Remark" sit-validation="{required: false}"
+                      sit-read-only="false">{{'Siemens.SimaticIT.PlanApp.WorkOrderDismantle.split.Tips_7'|translate}}</sit-property>
+        <sit-property sit-widget="sit-numeric" sit-value="vm.currentItem.AllQty" sit-validation="{required: false}"
+                      sit-read-only="true">{{'Siemens.SimaticIT.PlanApp.WorkOrderDismantle.split.Tips_8'|translate}}</sit-property>
+        <sit-property sit-widget="sit-numeric" sit-value="vm.currentItem.MarkQty" sit-validation="{required: false}"
+                      sit-read-only="true">{{'Siemens.SimaticIT.PlanApp.WorkOrderDismantle.split.Tips_9'|translate}}</sit-property>
+        <!-- <sit-property sit-widget="sit-numeric" sit-value="vm.currentItem.DeductionNum" sit-validation="{required: false,min:0}"
+                      sit-read-only="false">{{'Siemens.SimaticIT.PlanApp.WorkOrderDismantle.split.Tips_10'|translate}}</sit-property>
+
+        <sit-property sit-widget="sit-select" sit-value="vm.Process.value" sit-validation="{required: false}"
+                      sit-options="vm.Process.options" sit-to-display="'ResourceName'" sit-to-keep="'ResourceCode'"
+                      sit-read-only="false">{{'Siemens.SimaticIT.PlanApp.WorkOrderDismantle.split.Tips_11'|translate}}</sit-property> -->
+
+    </sit-property-grid>
+</div>
+<div style="clear: both;"></div>
+<div id="itemlist1"
+     style="width:calc(100% - 2px); height: 30%;margin-top: 6px; padding:5px 16px 0px 0px;clear: both; display: block;">
+    <div ui-grid="vm.gridOptionsItem1" ui-grid-selection ui-grid-resize-columns ui-grid-auto-resize
+         class="uigrid  gridItem"></div>
+</div>
+<div class="row"><span style="color:  #006487;font-size: 24px;">{{'Siemens.SimaticIT.PlanApp.WorkOrderDismantle.split.Tips_12'|translate}}</span></div>
+<div class="side-panel-property-area-body">
+    <sit-property-grid sit-id="add_form" sit-layout="Horizontal" sit-type="Fixed" sit-mode="edit" sit-columns="4">
+        <sit-property sit-widget="sit-numeric" sit-value="vm.currentItem.DeductionNum"
+                      sit-validation="{required: true,min:0}" sit-read-only="false">{{'Siemens.SimaticIT.PlanApp.WorkOrderDismantle.split.Tips_13'|translate}}</sit-property>
+        <!-- <sit-property sit-widget="sit-select" sit-value="vm.Process.value" sit-validation="{required: true}"
+                      sit-options="vm.Process.options" sit-to-display="'ResourceName'" sit-to-keep="'ResourceCode'"
+                      sit-read-only="false">{{'Siemens.SimaticIT.PlanApp.WorkOrderDismantle.split.Tips_11'|translate}}</sit-property> -->
+        <button ng-click="vm.resetSuper()" class="btn side-panel-button" ng-show="vm.isVisbale"
+                style="margin-bottom:-10px">
+            {{'Siemens.SimaticIT.PlanApp.WorkOrderDismantle.split.Tips_14'|translate}}
+        </button>
+        <button ng-click="vm.saveSuper()" class="btn side-panel-button" ng-show="vm.validInputs"
+                style="margin-bottom:-10px">
+            {{'Siemens.SimaticIT.PlanApp.WorkOrderDismantle.split.Tips_15'|translate}}
+        </button>
+        <button ng-click="vm.editSuper()" class="btn side-panel-button" ng-show="vm.validInputs"
+                style="margin-bottom:-10px">
+            {{'Siemens.SimaticIT.PlanApp.WorkOrderDismantle.split.Tips_16'|translate}}
+        </button>
+    </sit-property-grid>
+</div>
+<div id="itemlist2"
+     style="width:calc(100% - 2px); height: 30%;margin-top: 6px; padding:5px 16px 0 0px;clear: both; display: block;overflow: auto;">
+    <div ui-grid="vm.gridOptionsItem2" ui-grid-selection ui-grid-resize-columns ui-grid-auto-resize
+         class="uigrid  gridItem" style="width: 1100px;"></div>
+</div>

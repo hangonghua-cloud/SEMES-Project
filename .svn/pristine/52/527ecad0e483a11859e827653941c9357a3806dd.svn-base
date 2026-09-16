@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7558EF4D-0416-46D4-8F70-CC22F8C87091}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Lib</RootNamespace>
+    <AssemblyName>Lib</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.2.0.90\lib\net461\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Bll\BaseDataBll.cs" />
+    <Compile Include="Bll\BaseMaterialBll.cs" />
+    <Compile Include="Bll\PackingBGBll.cs" />
+    <Compile Include="Bll\PM_MaterialBatchUpRecordBLL.cs" />
+    <Compile Include="Bll\PrintLogBll.cs" />
+    <Compile Include="Bll\SystemBLL.cs" />
+    <Compile Include="Bll\TransferCardBll.cs" />
+    <Compile Include="Bll\WorkOrderExcuteBll.cs" />
+    <Compile Include="Common\Baselog.cs" />
+    <Compile Include="Common\ConfigOperationHelper.cs" />
+    <Compile Include="Common\ConfigurationUtil.cs" />
+    <Compile Include="Common\DapperHelper.cs" />
+    <Compile Include="Common\Extern.cs" />
+    <Compile Include="Common\Http.cs" />
+    <Compile Include="Common\HttpHelper.cs" />
+    <Compile Include="Common\HttpListRequest.cs" />
+    <Compile Include="Common\HttpPagination.cs" />
+    <Compile Include="Common\HttpRows.cs" />
+    <Compile Include="Common\JsonHelper.cs" />
+    <Compile Include="Common\Language.cs" />
+    <Compile Include="Common\PubFunction.cs" />
+    <Compile Include="Common\RegistryHelper.cs" />
+    <Compile Include="Common\SqlHelper.cs" />
+    <Compile Include="Dal\BaseDataDal.cs" />
+    <Compile Include="Dal\BaseMaterialDal.cs" />
+    <Compile Include="Dal\PackingBGDal.cs" />
+    <Compile Include="Dal\PrintLogDal.cs" />
+    <Compile Include="Dal\TransferCardDal.cs" />
+    <Compile Include="Model\Base_MaterialEntity.cs" />
+    <Compile Include="Model\BsModelWithResouceEntity.cs" />
+    <Compile Include="Model\BS_PeopleEntity.cs" />
+    <Compile Include="Model\Common\HttpError.cs" />
+    <Compile Include="Model\Common\HttpResult.cs" />
+    <Compile Include="Model\Consts.cs" />
+    <Compile Include="Model\CurrentUser.cs" />
+    <Compile Include="Model\Dto\LocationDto.cs" />
+    <Compile Include="Model\Dto\MachineDto.cs" />
+    <Compile Include="Model\Dto\MaterialBatchDto.cs" />
+    <Compile Include="Model\Dto\PackingBGDto.cs" />
+    <Compile Include="Model\Dto\PeopleDto.cs" />
+    <Compile Include="Model\Dto\PersonDto.cs" />
+    <Compile Include="Model\Dto\PrintLogDto.cs" />
+    <Compile Include="Model\Dto\PTeamDto.cs" />
+    <Compile Include="Model\Dto\QRCode.cs" />
+    <Compile Include="Model\Dto\Select.cs" />
+    <Compile Include="Model\Dto\TeamDto.cs" />
+    <Compile Include="Model\Dto\TransferCardDto.cs" />
+    <Compile Include="Model\Dto\WorkOrderExeDto.cs" />
+    <Compile Include="Model\Dto\WorkOrderExeSWDto.cs" />
+    <Compile Include="Model\MachineEntity.cs" />
+    <Compile Include="Model\MarkEntity.cs" />
+    <Compile Include="Model\PeopleEntity.cs" />
+    <Compile Include="Model\PM_BGBadRecordEntity.cs" />
+    <Compile Include="Model\PM_MaterialBatchUpRecordEntity.cs" />
+    <Compile Include="Model\PM_OwnProductBGEntity.cs" />
+    <Compile Include="Model\PM_TeamPerson_ItemsEntity.cs" />
+    <Compile Include="Model\PostEntity.cs" />
+    <Compile Include="Model\RawMaterialStockEntity.cs" />
+    <Compile Include="Model\Role\RolePermissionEntity.cs" />
+    <Compile Include="Model\TeamPersonEntity.cs" />
+    <Compile Include="Model\TransferCardEntity.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Dal\WorkOrderExcuteDal.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\Style\usStyle.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\Style\viStyle.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\Style\thStyle.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\Style\zhStyle.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\vi-VN.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\th-TH.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\en-US.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\zh-CN.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -1,0 +1,47 @@
+﻿{
+  "name": "Siemens.SimaticIT.ProductionApp.TransferCardResume",
+  "type": "standard",
+  "title": "Siemens.SimaticIT.ProductionApp.TransferCardResume.Title",
+  "header": "",
+  "icon": "fa-folder",
+  "functionalBlock": "Siemens.SimaticIT.ProductionApp",
+  "dependencies": [],
+  "states": [
+    {
+      "id": "home.Siemens_SimaticIT_ProductionApp_TransferCardResume_RawMaterialComplete",
+      "title": "Siemens.SimaticIT.ProductionApp.RawMaterialComplete.Title",
+      "header": "",
+      "securable": true,
+      "roles": []
+    },
+    {
+      "id": "home.Siemens_SimaticIT_ProductionApp_TransferCardResume_RawMaterialReceive",
+      "title": "Siemens.SimaticIT.ProductionApp.RawMaterialReceive.Title",
+      "header": "",
+      "securable": true,
+      "roles": []
+    },
+    {
+      "id": "home.Siemens_SimaticIT_ProductionApp_TransferCardResume_TransferCardResume",
+      "title": "Siemens.SimaticIT.ProductionApp.TransferCardResume.Title",
+      "header": "",
+      "securable": true,
+      "roles": []
+    },
+    {
+      "id": "home.Siemens_SimaticIT_ProductionApp_TransferCardResume_SharedInventory",
+      "title": "Siemens.SimaticIT.ProductionApp.SharedInventory.Title",
+      "header": "",
+      "securable": true,
+      "roles": []
+    },
+    {
+      "id": "home.Siemens_SimaticIT_ProductionApp_TransferCardResume_BeforeSlottingInventory",
+      "title": "Siemens.SimaticIT.ProductionApp.BeforeSlottingInventory.Title",
+      "header": "",
+      "securable": true,
+      "roles": []
+    }
+  ],
+  "manifestVersion": "01.01.00"
+}

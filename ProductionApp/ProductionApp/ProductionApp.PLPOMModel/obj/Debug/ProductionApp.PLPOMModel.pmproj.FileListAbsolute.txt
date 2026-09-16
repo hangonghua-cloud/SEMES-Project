@@ -1,0 +1,2 @@
+D:\New folder\ProductionApp\ProductionApp\ProductionApp.PLPOMModel\obj\Debug\ProductionApp.PLPOMModel.pmprojAssemblyReference.cache
+D:\New folder\ProductionApp\ProductionApp\ProductionApp.PLPOMModel\obj\Debug\ProductionApp.PLPOMModel.pmproj.CoreCompileInputs.cache

@@ -1,0 +1,3 @@
+﻿<div id="SelectContainer" class="entity-picker-popup">
+    <sit-item-collection-viewer id="{{Dialog.modalid}}-item-colletion-viewer" sit-data="Dialog.templatedata.viewerData" sit-options="Dialog.templatedata.viewerOptions"></sit-item-collection-viewer>
+</div>

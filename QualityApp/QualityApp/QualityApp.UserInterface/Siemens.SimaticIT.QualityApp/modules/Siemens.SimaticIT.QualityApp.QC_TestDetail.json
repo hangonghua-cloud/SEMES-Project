@@ -1,0 +1,19 @@
+﻿{
+   "name": "Siemens.SimaticIT.QualityApp.QC_TestDetail",
+   "type": "standard",
+   "title": "Siemens.SimaticIT.QualityApp.QC_TestDetail.Title",
+   "header": "",
+   "icon": "svg typeActionLongTerm48",
+   "functionalBlock": "Siemens.SimaticIT.QualityApp",
+   "dependencies": [],
+   "states": [
+     {
+       "id": "home.Siemens_SimaticIT_QualityApp_QC_TestDetail_QC_TestDetail",
+       "title": "Siemens.SimaticIT.QualityApp.QC_TestDetail.Title",
+       "header": "",
+       "securable": true,
+       "roles": []
+     }
+   ],
+   "manifestVersion": "01.01.00"
+}

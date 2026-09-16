@@ -1,0 +1,16 @@
+{
+  "name": "ZhongtongQK",
+  "version": "1.0.0",
+  "description": "blockchain",
+  "scripts": {},
+  "author": "flex",
+  "license": "ISC",
+  "dependencies": {
+    "@dcloudio/uni-ui": "^1.2.4",
+	"element-ui": "^2.15.6",
+    "pako": "^1.0.11",
+    "tki-qrcode": "^0.1.6",
+    "uview-ui": "^1.6.3",
+    "vue-moment": "^4.1.0"
+  }
+}

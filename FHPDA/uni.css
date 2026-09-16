@@ -1,0 +1,871 @@
+@charset "UTF-8";
+/* 页面左右间距 */
+/* 文字尺寸 */
+/*文字颜色*/
+/* 边框颜色 */
+/* 图片加载中颜色 */
+/* 行为相关颜色 */
+.order-item {
+  width: 100%;
+  padding: 20upx 30upx; }
+  .order-item .user-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 80upx;
+    line-height: 80upx; }
+    .order-item .user-info .name {
+      font-size: 30upx;
+      font-weight: bold;
+      display: flex;
+      flex-direction: row;
+      align-items: center; }
+    .order-item .user-info .profile {
+      width: 50upx;
+      height: 50upx;
+      line-height: 50upx;
+      border-radius: 50%;
+      text-align: center;
+      background: #2696FF;
+      color: #fff;
+      font-weight: 100;
+      font-weight: bold;
+      font-size: 30upx;
+      margin-right: 10upx; }
+  .order-item .opt {
+    margin: 20upx 0; }
+  .order-item .row {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 2upx 0;
+    align-items: flex-end; }
+    .order-item .row .price {
+      color: #0952C3; }
+    .order-item .row .nomarl {
+      font-size: 4px;
+      color: #8B9FAA; }
+    .order-item .row .pay image {
+      width: 25px;
+      height: 25px; }
+    .order-item .row .buy {
+      background: #2696FF; }
+    .order-item .row .sell {
+      background: #475F78; }
+    .order-item .row .btn {
+      border: 0;
+      color: #fff;
+      font-size: 24upx;
+      height: 60upx;
+      line-height: 60upx;
+      padding: 0 50upx; }
+
+.box {
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  height: 280px;
+  padding: 30upx 30upx;
+  font-size: 28upx;
+  color: #8B9FAA; }
+  .box .coin {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 10upx; }
+    .box .coin .name {
+      font-size: 34upx;
+      color: #606266;
+      padding-bottom: 10upx; }
+    .box .coin .price {
+      color: #0952C3; }
+    .box .coin .icon {
+      width: 40px;
+      height: 40px; }
+  .box .type {
+    display: flex;
+    flex-direction: row;
+    padding: 10upx 0; }
+    .box .type view {
+      margin-right: 30upx;
+      position: relative;
+      padding: 10upx 0; }
+      .box .type view.active {
+        color: #2696FF; }
+        .box .type view.active:after {
+          content: '';
+          position: absolute;
+          left: 50%;
+          bottom: 0;
+          transform: translateX(-50%);
+          width: 100%;
+          height: 0;
+          border-bottom: 2px solid #2696FF; }
+  .box .input {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    padding: 14upx 10upx;
+    margin: 20upx 0;
+    border: 1upx solid #8B9FAA; }
+    .box .input input {
+      color: #8B9FAA;
+      font-size: 28upx; }
+    .box .input .cny {
+      margin-right: 20upx;
+      color: #606266; }
+    .box .input .all {
+      margin-left: 20upx;
+      color: #0952C3; }
+  .box .amount {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 10upx 0; }
+    .box .amount .p {
+      font-size: 34upx;
+      color: #0952C3; }
+  .box .btns {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10upx 0; }
+    .box .btns .btn {
+      display: block;
+      width: 48%;
+      height: 70upx;
+      line-height: 70upx;
+      text-align: center;
+      color: #fff;
+      border-radius: 0;
+      font-size: 28upx; }
+    .box .btns .cancel {
+      background: #96A7BA; }
+    .box .btns .submit {
+      background: #2696FF; }
+
+.cell-tit {
+  font-size: 30upx;
+  color: #14191F; }
+
+.cell-input {
+  font-size: 28upx;
+  text-align: right; }
+
+.list-cell {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  margin-top: 3upx;
+  padding: 9upx 30upx;
+  line-height: 60upx;
+  position: relative;
+  background: #fff;
+  justify-content: space-between; }
+  .list-cell.log-out-btn {
+    margin-top: 40upx; }
+    .list-cell.log-out-btn .cell-tit {
+      color: #fa436a;
+      text-align: center;
+      margin-right: 0; }
+  .list-cell.cell-hover {
+    background: #fafafa; }
+  .list-cell.b-b:after {
+    left: 30upx; }
+  .list-cell.m-t {
+    margin-top: 16upx; }
+  .list-cell .cell-more {
+    align-self: baseline;
+    font-size: 28upx;
+    color: #0952C3;
+    margin-left: 10upx; }
+  .list-cell .cell-tit {
+    font-size: 28upx;
+    color: #14191F; }
+  .list-cell .cell-tip {
+    font-size: 28upx;
+    color: #8B9FAA; }
+  .list-cell .placeholder {
+    display: flex; }
+    .list-cell .placeholder image {
+      width: 150upx;
+      height: 150upx; }
+  .list-cell .upload {
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px dashed #DCDFE6;
+    border-radius: 6upx;
+    padding: 20upx 20upx; }
+    .list-cell .upload image {
+      width: 60upx;
+      height: 60upx; }
+    .list-cell .upload .tip {
+      font-size: 24upx;
+      color: #4399fc;
+      line-height: normal; }
+  .list-cell switch {
+    transform: translateX(16upx) scale(0.84); }
+  .list-cell .cell-cust {
+    width: 60%;
+    height: 60upx;
+    line-height: 60upx;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center; }
+    .list-cell .cell-cust .limit-r {
+      text-align: right;
+      width: 150upx; }
+    .list-cell .cell-cust .limit-l {
+      text-align: left;
+      width: 150upx; }
+  .list-cell .cell-side {
+    font-size: 28upx; }
+  .list-cell radio {
+    transform: scale(0.7);
+    margin-left: 20upx; }
+  .list-cell .cell-input {
+    font-size: 28upx;
+    text-align: right; }
+  .list-cell .cell-btn {
+    display: block;
+    margin-right: 0;
+    padding: 2upx 40upx;
+    font-size: 28upx;
+    border: 1upx solid #0952C3;
+    color: #0952C3; }
+
+.coin-section {
+  background: #fff; }
+  .coin-section .block .s-row {
+    display: flex;
+    align-items: center; }
+    .coin-section .block .s-row .subtitle {
+      padding: 4upx 0 10upx 0;
+      margin-top: 5px; }
+    .coin-section .block .s-row .col {
+      font-size: 28upx;
+      color: #14191F;
+      flex: 1; }
+      .coin-section .block .s-row .col .coin {
+        font-weight: bold; }
+    .coin-section .block .s-row .coinLogo {
+      width: 36upx;
+      height: 36upx;
+      margin-right: 8px;
+      display: inline-block;
+      vertical-align: middle;
+      float: left; }
+    .coin-section .block .s-row .light {
+      font-weight: bold;
+      font-size: 34upx;
+      color: #14191F; }
+    .coin-section .block .s-row .r {
+      text-align: right; }
+    .coin-section .block .s-row .row-title {
+      font-size: 28upx;
+      font-weight: normal;
+      color: #8B9FAA; }
+    .coin-section .block .s-row .row-amount {
+      font-size: 28upx;
+      font-weight: normal;
+      color: #14191F; }
+    .coin-section .block .s-row .gt {
+      font-weight: 10; }
+
+.Itemlable {
+  width: 120upx;
+  text-align: justify;
+  float: left;
+  height: 28rpx;
+  margin: 2rpx 0 5rpx 15rpx;
+  font-size: 20upx;
+  font-weight: 350;
+  color: black; }
+  .Itemlable span {
+    display: inline-block;
+    width: 100%; }
+
+.Itemvalue {
+  float: left;
+  width: 80%;
+  margin: 2rpx 0 5rpx 0;
+  text-align: left;
+  font-size: 20rpx;
+  color: #909399; }
+
+.clearView {
+  clear: both; }
+
+.bottom {
+  display: flex;
+  margin-top: 5px;
+  padding: 0 10rpx;
+  justify-content: space-between;
+  align-items: center; }
+  .bottom .btn {
+    line-height: 52rpx;
+    width: 160rpx;
+    border-radius: 26rpx;
+    border: 2rpx solid #e4e7ed;
+    font-size: 26rpx;
+    text-align: center;
+    color: #82848a; }
+  .bottom .evaluate {
+    color: #2696FF;
+    border-color: #2696FF; }
+
+.viewpanel {
+  margin: 3px 0px;
+  border-radius: 10px;
+  font-size: 28upx;
+  font-weight: normal;
+  color: #8B9FAA; }
+
+.listitem {
+  background-color: white;
+  margin: 10rpx 20rpx;
+  padding: 0rpx 10rpx;
+  border-radius: 10px; }
+
+.s-rowP {
+  margin-top: 10px;
+  margin-bottom: 5px; }
+
+.additemx {
+  padding: 0px 10px;
+  font-size: 20rpx;
+  color: #909399; }
+
+.upseach {
+  margin-top: 10rpx;
+  background-color: RGB(242, 242, 242);
+  border-radius: 20px; }
+
+.upseach-seach {
+  width: 90%;
+  float: left; }
+
+.upseach-ico-plan {
+  width: 10%;
+  float: left; }
+
+.upseach-ico {
+  width: 55rpx;
+  height: 55rpx;
+  margin: 13rpx 35rpx 0 0; }
+
+.upseach-select {
+  margin: 18rpx 0 0 20rpx; }
+
+.bodybackcolor {
+  background-color: #F9F9F9; }
+
+.newcheckbox {
+  transform: scale(0.8);
+  margin: 0px;
+  padding: 0px;
+  line-height: 10px;
+  width: 30px; }
+
+.itemleftcheckbox {
+  width: 40rpx;
+  text-align: center; }
+
+.txtbutton-ok {
+  color: ForestGreen;
+  width: 100rpx;
+  height: 40rpx;
+  background-color: #7FFF00;
+  font-size: 20rpx;
+  padding: 5rpx 20rpx;
+  text-align: center;
+  border-radius: 15px;
+  font-weight: normal; }
+
+.txtbutton-ng {
+  color: white;
+  width: 100rpx;
+  height: 40rpx;
+  background-color: #808080;
+  font-size: 20rpx;
+  padding: 5rpx 20rpx;
+  text-align: center;
+  border-radius: 15px;
+  font-weight: normal; }
+
+.inputlable {
+  width: 100%;
+  height: 50rpx;
+  line-height: 40rpx;
+  padding-bottom: 40rpx;
+  position: relative;
+  border-bottom: 1px solid #e8e8e8;
+  clear: both;
+  background: transparent; }
+
+/* 页面左右间距 */
+/* 文字尺寸 */
+/*文字颜色*/
+/* 边框颜色 */
+/* 图片加载中颜色 */
+/* 行为相关颜色 */
+html, body {
+  font-size: 35upx; }
+
+.order-item {
+  width: 100%;
+  padding: 20upx 30upx; }
+  .order-item .user-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 80upx;
+    line-height: 80upx; }
+    .order-item .user-info .name {
+      font-size: 30upx;
+      font-weight: bold;
+      display: flex;
+      flex-direction: row;
+      align-items: center; }
+    .order-item .user-info .profile {
+      width: 50upx;
+      height: 50upx;
+      line-height: 50upx;
+      border-radius: 50%;
+      text-align: center;
+      background: #2696FF;
+      color: #fff;
+      font-weight: 100;
+      font-weight: bold;
+      font-size: 30upx;
+      margin-right: 10upx; }
+  .order-item .opt {
+    margin: 20upx 0; }
+  .order-item .row {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 2upx 0;
+    align-items: flex-end; }
+    .order-item .row .price {
+      color: #0952C3; }
+    .order-item .row .nomarl {
+      font-size: 4px;
+      color: #8B9FAA; }
+    .order-item .row .pay image {
+      width: 25px;
+      height: 25px; }
+    .order-item .row .buy {
+      background: #2696FF; }
+    .order-item .row .sell {
+      background: #475F78; }
+    .order-item .row .btn {
+      border: 0;
+      color: #fff;
+      font-size: 24upx;
+      height: 60upx;
+      line-height: 60upx;
+      padding: 0 50upx; }
+
+.box {
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  height: 280px;
+  padding: 30upx 30upx;
+  font-size: 28upx;
+  color: #8B9FAA; }
+  .box .coin {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 10upx; }
+    .box .coin .name {
+      font-size: 34upx;
+      color: #606266;
+      padding-bottom: 10upx; }
+    .box .coin .price {
+      color: #0952C3; }
+    .box .coin .icon {
+      width: 40px;
+      height: 40px; }
+  .box .type {
+    display: flex;
+    flex-direction: row;
+    padding: 10upx 0; }
+    .box .type view {
+      margin-right: 30upx;
+      position: relative;
+      padding: 10upx 0; }
+      .box .type view.active {
+        color: #2696FF; }
+        .box .type view.active:after {
+          content: '';
+          position: absolute;
+          left: 50%;
+          bottom: 0;
+          transform: translateX(-50%);
+          width: 100%;
+          height: 0;
+          border-bottom: 2px solid #2696FF; }
+  .box .input {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    padding: 14upx 10upx;
+    margin: 20upx 0;
+    border: 1upx solid #8B9FAA; }
+    .box .input input {
+      color: #8B9FAA;
+      font-size: 28upx; }
+    .box .input .cny {
+      margin-right: 20upx;
+      color: #606266; }
+    .box .input .all {
+      margin-left: 20upx;
+      color: #0952C3; }
+  .box .amount {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 10upx 0; }
+    .box .amount .p {
+      font-size: 34upx;
+      color: #0952C3; }
+  .box .btns {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10upx 0; }
+    .box .btns .btn {
+      display: block;
+      width: 48%;
+      height: 70upx;
+      line-height: 70upx;
+      text-align: center;
+      color: #fff;
+      border-radius: 0;
+      font-size: 28upx; }
+    .box .btns .cancel {
+      background: #96A7BA; }
+    .box .btns .submit {
+      background: #2696FF; }
+
+.cell-tit {
+  font-size: 30upx;
+  color: #14191F; }
+
+.cell-input {
+  font-size: 28upx;
+  text-align: right; }
+
+.list-cell {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  margin-top: 3upx;
+  padding: 9upx 30upx;
+  line-height: 60upx;
+  position: relative;
+  background: #fff;
+  justify-content: space-between; }
+  .list-cell.log-out-btn {
+    margin-top: 40upx; }
+    .list-cell.log-out-btn .cell-tit {
+      color: #fa436a;
+      text-align: center;
+      margin-right: 0; }
+  .list-cell.cell-hover {
+    background: #fafafa; }
+  .list-cell.b-b:after {
+    left: 30upx; }
+  .list-cell.m-t {
+    margin-top: 16upx; }
+  .list-cell .cell-more {
+    align-self: baseline;
+    font-size: 28upx;
+    color: #0952C3;
+    margin-left: 10upx; }
+  .list-cell .cell-tit {
+    font-size: 28upx;
+    color: #14191F; }
+  .list-cell .cell-tip {
+    font-size: 28upx;
+    color: #8B9FAA; }
+  .list-cell .placeholder {
+    display: flex; }
+    .list-cell .placeholder image {
+      width: 150upx;
+      height: 150upx; }
+  .list-cell .upload {
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px dashed #DCDFE6;
+    border-radius: 6upx;
+    padding: 20upx 20upx; }
+    .list-cell .upload image {
+      width: 60upx;
+      height: 60upx; }
+    .list-cell .upload .tip {
+      font-size: 24upx;
+      color: #4399fc;
+      line-height: normal; }
+  .list-cell switch {
+    transform: translateX(16upx) scale(0.84); }
+  .list-cell .cell-cust {
+    width: 60%;
+    height: 60upx;
+    line-height: 60upx;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center; }
+    .list-cell .cell-cust .limit-r {
+      text-align: right;
+      width: 150upx; }
+    .list-cell .cell-cust .limit-l {
+      text-align: left;
+      width: 150upx; }
+  .list-cell .cell-side {
+    font-size: 28upx; }
+  .list-cell radio {
+    transform: scale(0.7);
+    margin-left: 20upx; }
+  .list-cell .cell-input {
+    font-size: 28upx;
+    text-align: right; }
+  .list-cell .cell-btn {
+    display: block;
+    margin-right: 0;
+    padding: 2upx 40upx;
+    font-size: 28upx;
+    border: 1upx solid #0952C3;
+    color: #0952C3; }
+
+.coin-section {
+  background: #fff; }
+  .coin-section .block .s-row {
+    display: flex;
+    align-items: center; }
+    .coin-section .block .s-row .subtitle {
+      padding: 4upx 0 10upx 0;
+      margin-top: 5px; }
+    .coin-section .block .s-row .col {
+      font-size: 28upx;
+      color: #14191F;
+      flex: 1; }
+      .coin-section .block .s-row .col .coin {
+        font-weight: bold; }
+    .coin-section .block .s-row .coinLogo {
+      width: 36upx;
+      height: 36upx;
+      margin-right: 8px;
+      display: inline-block;
+      vertical-align: middle;
+      float: left; }
+    .coin-section .block .s-row .light {
+      font-weight: bold;
+      font-size: 34upx;
+      color: #14191F; }
+    .coin-section .block .s-row .r {
+      text-align: right; }
+    .coin-section .block .s-row .row-title {
+      font-size: 28upx;
+      font-weight: normal;
+      color: #8B9FAA; }
+    .coin-section .block .s-row .row-amount {
+      font-size: 28upx;
+      font-weight: normal;
+      color: #14191F; }
+    .coin-section .block .s-row .gt {
+      font-weight: 10; }
+
+.Itemlable {
+  width: 120upx;
+  text-align: justify;
+  float: left;
+  height: 28rpx;
+  margin: 2rpx 0 5rpx 15rpx;
+  font-size: 48upx;
+  font-weight: 350;
+  color: black; }
+  .Itemlable span {
+    display: inline-block;
+    width: 100%; }
+
+.Itemvalue {
+  float: left;
+  width: 80%;
+  margin: 2rpx 0 5rpx 0;
+  text-align: left;
+  font-size: 20rpx;
+  color: #909399; }
+
+.clearView {
+  clear: both; }
+
+.bottom {
+  display: flex;
+  margin-top: 5px;
+  padding: 0 10rpx;
+  justify-content: space-between;
+  align-items: center; }
+  .bottom .btn {
+    line-height: 52rpx;
+    width: 160rpx;
+    border-radius: 26rpx;
+    border: 2rpx solid #e4e7ed;
+    font-size: 26rpx;
+    text-align: center;
+    color: #82848a; }
+  .bottom .evaluate {
+    color: #2696FF;
+    border-color: #2696FF; }
+
+.viewpanel {
+  margin: 3px 0px;
+  border-radius: 10px;
+  font-size: 28upx;
+  font-weight: normal;
+  color: #8B9FAA; }
+
+.listitem {
+  background-color: white;
+  margin: 10rpx 20rpx;
+  padding: 0rpx 10rpx;
+  border-radius: 10px; }
+
+.s-rowP {
+  margin-top: 10px;
+  margin-bottom: 5px; }
+
+.additemx {
+  padding: 0px 10px;
+  font-size: 20rpx;
+  color: #909399; }
+
+.upseach {
+  margin-top: 10rpx;
+  background-color: RGB(242, 242, 242);
+  border-radius: 20px; }
+
+.upseach-seach {
+  width: 90%;
+  float: left; }
+
+.upseach-ico-plan {
+  width: 10%;
+  float: left; }
+
+.upseach-ico {
+  width: 55rpx;
+  height: 55rpx;
+  margin: 13rpx 35rpx 0 0; }
+
+.upseach-select {
+  margin: 18rpx 0 0 20rpx; }
+
+.bodybackcolor {
+  background-color: #F9F9F9; }
+
+.newcheckbox {
+  transform: scale(0.8);
+  margin: 0px;
+  padding: 0px;
+  line-height: 10px;
+  width: 30px; }
+
+.itemleftcheckbox {
+  width: 40rpx;
+  text-align: center; }
+
+.txtbutton-ok {
+  color: ForestGreen;
+  width: 100rpx;
+  height: 40rpx;
+  background-color: #7FFF00;
+  font-size: 20rpx;
+  padding: 5rpx 20rpx;
+  text-align: center;
+  border-radius: 15px;
+  font-weight: normal; }
+
+.txtbutton-ng {
+  color: white;
+  width: 100rpx;
+  height: 40rpx;
+  background-color: #808080;
+  font-size: 20rpx;
+  padding: 5rpx 20rpx;
+  text-align: center;
+  border-radius: 15px;
+  font-weight: normal; }
+
+.inputlable {
+  width: 100%;
+  height: 50rpx;
+  line-height: 40rpx;
+  padding-bottom: 40rpx;
+  position: relative;
+  border-bottom: 1px solid #e8e8e8;
+  clear: both;
+  background: transparent; }
+
+.u-form-item {
+  padding: 10upx 10upx !important;
+  height: 80upx; }
+
+.u-form-item--left {
+  flex: 0 0 180upx !important;
+  width: 300upx !important;
+  font-size: 40upx; }
+
+.u-label, .uni-input-placeholder, .uni-input-input, .uni-textarea-placeholder, .u-picker-header, .u-select__header, .u-select__body__picker-view__item, .u-column-item {
+  font-size: 40upx !important; }
+
+.submits, .return {
+  margin-top: 20upx;
+  width: 48%;
+  height: 80upx !important; }
+
+.return {
+  margin-top: 20upx;
+  width: 48%;
+  height: 80upx !important;
+  background: #ccc !important; }
+
+.u-btn--primary {
+  height: 80upx !important;
+  line-height: 80upx !important; }
+
+.mescroll-body {
+  width: 100% !important; }
+
+.u-border-bottom:after {
+  border: 0 !important; }
+
+.u-collapse-head {
+  font-size: 26upx !important; }
+
+.u-checkbox__label {
+  font-size: 28upx !important; }
+
+.box .u-checkbox__label {
+  font-size: 40upx !important; }

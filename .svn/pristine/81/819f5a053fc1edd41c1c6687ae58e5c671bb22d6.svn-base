@@ -1,0 +1,97 @@
+﻿<style>
+    .row {
+        padding: 5px;
+        margin-top: 10px;
+    }
+
+    .ui-grid-cell {
+        overflow: inherit;
+    }
+
+    .multi-advanced-selection .dropdown,
+    .multi-advanced-selection .dropup {
+        min-width: 50px !important;
+    }
+
+    .canvas .property-area-container > div.content .side-panel-property-area-body {
+        overflow-y: visible;
+    }
+</style>
+<div class="command-bar-side-panel">
+    <button ng-click="vm.cancel()"
+            class="btn side-panel-button">
+        {{'Siemens.SimaticIT.ProductionApp.FormulaBG.add.Tips_1'|translate}}
+    </button>
+    <button ng-click="vm.save()" class="btn side-panel-button"
+            ng-show="vm.validInputs">
+        {{'Siemens.SimaticIT.ProductionApp.FormulaBG.add.Tips_2'|translate}}
+    </button>
+</div>
+<div class="side-panel-property-area-body">
+    <sit-property-grid sit-id="add_form" sit-layout="Horizontal" sit-type="Fixed" sit-mode="edit" sit-columns="6">
+        <!-- <sit-property sit-widget="sit-numeric" sit-value="vm.currentItem.TotalNum"
+                      sit-read-only="true">{{'Siemens.SimaticIT.ProductionApp.FormulaBG.add.Tips_3'|translate}}</sit-property> -->
+
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.MaterialName" sit-validation="{required: true}"
+                      sit-read-only="true">{{'Siemens.SimaticIT.ProductionApp.FormulaBG.add.Tips_4'|translate}}</sit-property>
+
+        <sit-property sit-widget="sit-datepicker" sit-value="vm.FormulaTime" sit-format="'yyyy-MM-dd'"
+                      sit-read-only="false">
+            {{'Siemens.SimaticIT.ProductionApp.FormulaBG.add.Tips_5'|translate}}
+        </sit-property>
+
+        <sit-property sit-widget="sit-alp-text-picker" sit-value="vm.currentItem.UserCode"
+                      sit-validation="{required: true}" ng-click="vm.selectClick()" sit-read-only="false">
+            {{'Siemens.SimaticIT.ProductionApp.FormulaBG.add.Tips_6'|translate}}
+        </sit-property>
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.UserNames" sit-validation="{required: true}"
+                      sit-read-only="true">{{'Siemens.SimaticIT.ProductionApp.FormulaBG.add.Tips_7'|translate}}</sit-property>
+
+        <sit-property sit-widget="sit-select" sit-value="vm.typeMachine.value" sit-validation="{required: true}"
+                      sit-options="vm.typeMachine.options" sit-to-display="'ResourceName'" sit-to-keep="'ResourceCode'"
+                      sit-read-only="false">{{'Siemens.SimaticIT.ProductionApp.FormulaBG.add.Tips_8'|translate}}</sit-property>
+
+        <sit-property sit-widget="sit-numeric" sit-value="vm.currentItem.FormulaNum" sit-validation="{required: true}"
+                      sit-read-only="vm.isreadonly" sit-change="vm.formulachange">
+            {{'Siemens.SimaticIT.ProductionApp.FormulaBG.add.Tips_9'|translate}}
+        </sit-property>
+        <!-- <sit-property sit-widget="sit-numeric" sit-value="vm.currentItem.DeductionNum" sit-validation="{required: false,min:0}"
+                      sit-read-only="false">{{'Siemens.SimaticIT.ProductionApp.FormulaBG.add.Tips_10'|translate}}</sit-property>
+
+        <sit-property sit-widget="sit-select" sit-value="vm.Process.value" sit-validation="{required: false}"
+                      sit-options="vm.Process.options" sit-to-display="'ResourceName'" sit-to-keep="'ResourceCode'"
+                      sit-read-only="false">{{'Siemens.SimaticIT.ProductionApp.FormulaBG.add.Tips_11'|translate}}</sit-property> -->
+    </sit-property-grid>
+</div>
+<div style="clear: both;"></div>
+<div id="itemlist1"
+     style="width:calc(100% - 2px); height: 30%;margin-top: 6px; padding:5px 16px 0 16px;clear: both; display: block;">
+    <div ui-grid="vm.gridOptionsItem1" ui-grid-selection ui-grid-resize-columns ui-grid-auto-resize
+         class="uigrid  gridItem"></div>
+</div>
+<div class="side-panel-property-area-body">
+    <sit-property-grid sit-id="add_form2" sit-layout="Horizontal" sit-type="Fixed" sit-mode="edit" sit-columns="3">
+
+        <sit-property sit-widget="sit-select" sit-value="vm.typeBatchNo.value" sit-validation="{required: false}"
+                      sit-options="vm.typeBatchNo.options" sit-to-display="'ItemName'" sit-to-keep="'ItemValue'">
+            {{'Siemens.SimaticIT.ProductionApp.FormulaBG.add.Tips_12'|translate}}
+        </sit-property>
+        <sit-property sit-widget="sit-numeric" sit-value="vm.currentItem.Qty"
+                      sit-validation="{required: true}" sit-read-only="false">
+            {{'Siemens.SimaticIT.ProductionApp.FormulaBG.add.Tips_13'|translate}}
+        </sit-property>
+        <button ng-click="vm.delete()" class="btn side-panel-button" ng-show="vm.is2DetailButtonVisible"
+                style="margin-bottom:-30px;margin-top: 30px;">
+            {{'Siemens.SimaticIT.ProductionApp.FormulaBG.add.Tips_14'|translate}}
+        </button>
+        <button ng-click="vm.add()" class="btn side-panel-button" ng-show="vm.validInputs2"
+                style="margin-bottom:-30px;margin-top: 30px;">
+            {{'Siemens.SimaticIT.ProductionApp.FormulaBG.add.Tips_15'|translate}}
+        </button>
+    </sit-property-grid>
+</div>
+<div id="itemlist2"
+     style="width:calc(100% - 2px); height: 30%;margin-top: 6px; padding:5px 16px 0 16px;clear: both; display: block;overflow: auto;">
+    <div ui-grid="vm.gridOptionsItem2" ui-grid-selection ui-grid-resize-columns ui-grid-auto-resize
+         class="uigrid  gridItem"></div>
+</div>

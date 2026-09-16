@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?><projectmanifest>
+  <header>
+    <manifestversion>4.1</manifestversion>
+    <platformversion>4.1</platformversion>
+    <type>Project</type>
+    <name>CCS.CommonApp</name>
+    <shortname>CommonApp</shortname>
+    <description></description>
+    <version>01.00.00</version>
+    <companyname>CCS</companyname>
+    <author>CCS</author>
+    <hash>EzDSyo6sHzOCm5nXFW9Grl6eLpUmBesaHPx3uYJL9fg=</hash>
+    <canbeextended>false</canbeextended>
+    <domain>CommonApp</domain>
+  </header>
+  <reference>
+    <functionalblocks></functionalblocks>
+  </reference>
+  <artifacts>
+    <commands></commands>
+    <commandActions></commandActions>
+    <events></events>
+    <event_handlers></event_handlers>
+    <signals></signals>
+    <readingFunctions></readingFunctions>
+    <entities></entities>
+    <datamodels><datamodel>
+      <assembly>CCS.CommonApp.CommonApp.APPOMModel.Types, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+      <mode>WR</mode>
+      <domain>CommonApp</domain>
+    </datamodel><datamodel>
+      <assembly>CCS.CommonApp.CommonApp.APPOMModel.Types.ReadingModel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+      <mode>RD</mode>
+      <domain>CommonApp</domain>
+    </datamodel></datamodels>
+    <externaldatamodels></externaldatamodels>
+    <appdatamodels><appdatamodel>
+              <assembly>CCS.CommonApp.CommonApp.APPOMModel.PublicModel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+              <domain>CommonApp</domain>
+           </appdatamodel></appdatamodels>
+    <uimodules>
+      <uimodule>
+        <name>CCS.CommonApp.Common</name>
+        <title>Common</title>
+        <type>standard</type>
+        <uiscreens>
+          <uiscreen>
+            <name>home.CCS_CommonApp_Common_Common</name>
+            <title>Common</title>
+            <securable>true</securable>
+          </uiscreen>
+        </uiscreens>
+        <uicomponents />
+      </uimodule>
+      <uimodule>
+        <name>CCS.CommonApp.CommonUI</name>
+        <title>CommonUI</title>
+        <type>standard</type>
+        <uiscreens>
+          <uiscreen>
+            <name>home.CCS_CommonApp_CommonUI_Blank</name>
+            <title>Blank</title>
+            <securable>true</securable>
+          </uiscreen>
+          <uiscreen>
+            <name>home.CCS_CommonApp_CommonUI_Demo</name>
+            <title>Demo</title>
+            <securable>true</securable>
+          </uiscreen>
+        </uiscreens>
+        <uicomponents />
+      </uimodule>
+    </uimodules>
+    <uicomponents></uicomponents>
+    <wr_entities></wr_entities>
+    <wr_facets></wr_facets>
+  </artifacts>
+  <security>
+    <roles></roles>
+  </security>
+  <runtime>
+    <event_subscriptions></event_subscriptions>
+    <handlergroups></handlergroups>
+  </runtime>
+</projectmanifest>

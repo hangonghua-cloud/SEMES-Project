@@ -1,0 +1,287 @@
+﻿{
+  "Siemens.SimaticIT.FactoryModelApp": {
+    "ModelLevel": {
+      "ModelLeveladd": {
+        "Tips_1": "Quay lại",
+        "Tips_2": "Lưu",
+        "Tips_3": "Mã cấp",
+        "Tips_4": "Tên cấp:",
+        "Tips_5": "Miêu tả:",
+        "Tips_6": "Cấp:"
+      },
+      "ModelLeveledit": {
+        "Tips_1": "Hủy bỏ",
+        "Tips_2": "Lưu",
+        "Tips_3": "Mã cấp",
+        "Tips_4": "Tên cấp:",
+        "Tips_5": "Miêu tả:",
+        "Tips_6": "Cấp:"
+      },
+      "ModelLevellist": {
+        "Tips_1": "Tìm kiếm",
+        "Tips_2": "Xóa cấp",
+        "Tips_3": "Chỉnh sửa cấp",
+        "Tips_4": "Thêm cấp"
+      },
+      "ModelLeveladdctrl": {
+        "Tips_1": "Cấp mới",
+        "Tips_2": "Giá trị thuộc tính cấp nhập số nguyên",
+        "Tips_3": "Giá trị thuộc tính cấp lớn hơn 0",
+        "Tips_4": "Mã cấp không được để trống",
+        "Tips_5": "Tên cấp không được để trống",
+        "Tips_6": "Lỗi thao tác",
+        "Tips_7": "Thêm cấp mô hình nhà xưởng"
+      },
+      "ModelLeveleditctrl": {
+        "Tips_1": "Chỉnh sửa cấp",
+        "Tips_2": "Giá trị thuộc tính cấp nhập số nguyên",
+        "Tips_3": "Giá trị thuộc tính cấp lớn hơn 0",
+        "Tips_4": "Mã cấp không được để trống",
+        "Tips_5": "Tên cấp không được để trống",
+        "Tips_6": "Lỗi thao tác",
+        "Tips_7": "Sửa đổi cấp mô hình nhà xưởng"
+      },
+      "ModelLevellistctrl": {
+        "Tips_1": "Số thứ tự",
+        "Tips_2": "Mã cấp",
+        "Tips_3": "Tên mã",
+        "Tips_4": "Cấp",
+        "Tips_5": "Miêu tả",
+        "Tips_6": "Người tạo",
+        "Tips_7": "Ngày tạo",
+        "Tips_8": "Người sửa",
+        "Tips_9": "Ngày sửa",
+        "Tips_10": "Lỗi nhận dữ liệu",
+        "Tips_11": "Đã xảy ra lỗi khi nhận dữ liệu，",
+        "Tips_12": "Vui lòng chọn cấp",
+        "Tips_13": "Xóa",
+        "Tips_14": "Bạn chắc chắn muốn xóa số cấp【",
+        "Tips_15": "】ghi chép không?",
+        "Tips_16": "--Toàn bộ--",
+        "Tips_17": "Cấp nhà xưởng"
+      },
+      "Title": "Cấp nhà xưởng"
+    },
+    "ModelLevelExtendFileds": {
+      "ModelLevelExtendFiledsadd": {
+        "Tips_1": "Quay lại",
+        "Tips_2": "Lưu",
+        "Tips_3": "Mã thuộc tính:",
+        "Tips_4": "Tên thuộc tính:",
+        "Tips_5": "Loại lĩnh vực:",
+        "Tips_6": "Có hiệu lực không:",
+        "Tips_7": "Loại thuộc tính:",
+        "Tips_8": "Có tích hợp sẵn không"
+      },
+      "ModelLevelExtendFiledsedit": {
+        "Tips_1": "Quay lại",
+        "Tips_2": "Lưu",
+        "Tips_3": "Mã thuộc tính:",
+        "Tips_4": "Tên thuộc tính:",
+        "Tips_5": "Loại lĩnh vực:",
+        "Tips_6": "Có hiệu lực không:",
+        "Tips_7": "Loại thuộc tính:",
+        "Tips_8": "Có tích hợp sẵn không"
+      },
+      "ModelLevelExtendFiledslist": {
+        "Tips_1": "Xóa tiện ích mở rộng",
+        "Tips_2": "Chỉnh sửa tiện ích mở rộng",
+        "Tips_3": "Thêm mới tiện ích mở rộng",
+        "Tips_4": "Cấp mô hình -"
+      },
+      "ModelLevelExtendFiledsaddctrl": {
+        "Tips_1": "Thêm mới thuộc tính",
+        "Tips_2": "Loại hình ký tự",
+        "Tips_3": "Loại hình số",
+        "Tips_4": "Loại hình thời gian",
+        "Tips_5": "Mã thuộc tính không để trống",
+        "Tips_6": "Tên thuộc tính không để trống",
+        "Tips_7": "Thuộc tính không để trống",
+        "Tips_8": "Lỗi thao tác",
+        "Tips_9": "Vâng",
+        "Tips_10": "Không"
+      },
+      "ModelLevelExtendFiledseditctrl": {
+        "Tips_1": "Sửa thuộc tính",
+        "Tips_2": "Loại hình ký tự",
+        "Tips_3": "Loại hình số",
+        "Tips_4": "Loại hình ngày",
+        "Tips_5": "Mã thuộc tính không để trống",
+        "Tips_6": "Tên thuộc tính không để trống",
+        "Tips_7": "Thuộc tính không để trống",
+        "Tips_8": "Lỗi thao tác",
+        "Tips_9": "Vâng",
+        "Tips_10": "Không"
+      },
+      "ModelLevelExtendFiledslistctrl": {
+        "Tips_1": "Không có danh mục nào được chọn",
+        "Tips_2": "Số thứ tự",
+        "Tips_3": "Mã cấp",
+        "Tips_4": "Mã thuộc tính",
+        "Tips_5": "Tên thuộc tính",
+        "Tips_6": "Loại thuộc tính",
+        "Tips_7": "Có hiệu lực không",
+        "Tips_8": "Người tạo",
+        "Tips_9": "Ngày tạo",
+        "Tips_10": "Người sửa",
+        "Tips_11": "Ngày sửa",
+        "Tips_12": "Quyết định",
+        "Tips_13": "Thông báo lỗi",
+        "Tips_14": "Vui lòng chọn cấp",
+        "Tips_15": "Vui lòng chọn thuộc tính",
+        "Tips_16": "Xóa",
+        "Tips_17": "BẠn chắc chắn muốn xóa tất cả đã chọn【",
+        "Tips_18": "】thuộc tính？",
+        "Tips_19": "Thao tác thất bại -",
+        "Tips_20": "Bản mẫu cấp nhà xưởng"
+      },
+      "Title": "Bản mẫu cấp nhà xưởng"
+    },
+    "ModelManage": {
+      "ModelManageadd": {
+        "Tips_1": "Quay lại",
+        "Tips_2": "Lưu",
+        "Tips_3": "Mã cấp",
+        "Tips_4": "Tên cấp:",
+        "Tips_5": "Miêu tả:",
+        "Tips_6": "Cấp:",
+        "Tips_7": "Có hiệu lực không:",
+        "Tips_8": "Người tạo:",
+        "Tips_9": "Ngày tạo:",
+        "Tips_10": "Người sửa:",
+        "Tips_11": "Ngày sửa:"
+      },
+      "ModelManageedit": {
+        "Tips_1": "Quay lại",
+        "Tips_2": "Lưu",
+        "Tips_3": "Mã cấp",
+        "Tips_4": "Tên cấp:",
+        "Tips_5": "Miêu tả:",
+        "Tips_6": "Cấp:",
+        "Tips_7": "Có hiệu lực không:",
+        "Tips_8": "Người tạo:",
+        "Tips_9": "Ngày tạo:",
+        "Tips_10": "Người sửa:",
+        "Tips_11": "Ngày sửa:"
+      },
+      "ModelManagelist": {
+        "Tips_1": "Thông tin nhà xưởng"
+      },
+      "ModelManagelistctrl": {
+        "Tips_1": "Không có danh mục nào được chọn",
+        "Tips_2": "Số thứ tự",
+        "Tips_3": "Tên thuộc tính",
+        "Tips_4": "Giá trị",
+        "Tips_5": "Quyết định",
+        "Tips_6": "Thông báo lỗi",
+        "Tips_7": "Mô hình nhà máy"
+      },
+      "Title": "Mô hình nhà máy"
+    },
+    "ModelResource": {
+      "ModelResourceadd": {
+        "Tips_1": "Quay lại",
+        "Tips_2": "Lưu",
+        "Tips_3": "Cấp mẹ:",
+        "Tips_4": "Tài nguyên mẹ:",
+        "Tips_5": "Mã tài nguyên:",
+        "Tips_6": "Tên tài nguyên:",
+        "Tips_7": "Miêu tả:",
+        "Tips_8": "Sắp xếp:"
+      },
+      "ModelResourceaddDetail": {
+        "Tips_1": "Quay lại",
+        "Tips_2": "Lưu",
+        "Tips_3": "Mã tài nguyên:",
+        "Tips_4": "Mã thuộc tính:",
+        "Tips_5": "Giá trị thuộc tính:",
+        "Tips_6": "Có hiệu lực không:",
+        "Tips_7": "Miêu tả:",
+        "Tips_8": "Người tạo:",
+        "Tips_9": "Ngày tạo:",
+        "Tips_10": "Người sửa:",
+        "Tips_11": "Ngày sửa:"
+      },
+      "ModelResourceedit": {
+        "Tips_1": "Quay lại",
+        "Tips_2": "Lưu",
+        "Tips_3": "Cấp mẹ:",
+        "Tips_4": "Tài nguyên mẹ:",
+        "Tips_5": "Mã tài nguyên:",
+        "Tips_6": "Tên tài nguyên:",
+        "Tips_7": "Miêu tả:",
+        "Tips_8": "Sắp xếp:"
+      },
+      "ModelResourceeditDetail": {
+        "Tips_1": "Quay lại",
+        "Tips_2": "Lưu"
+      },
+      "ModelResourcelist": {
+        "Tips_1": "Xóa miền",
+        "Tips_2": "Chỉnh sửa thuộc tính",
+        "Tips_3": "Xóa mục",
+        "Tips_4": "Chỉnh sửa mục",
+        "Tips_5": "Thêm mục mới",
+        "Tips_6": "Mã tài nguyên:",
+        "Tips_7": "Tìm kiếm",
+        "Tips_8": "Tài nguyên mô hình -"
+      },
+      "ModelResourceaddctrl": {
+        "Tips_1": "Tài nguyên mới",
+        "Tips_2": "Miêu tả",
+        "Tips_3": "Cấp trên cùng",
+        "Tips_4": "Quyết định",
+        "Tips_5": "Thông báo lỗi",
+        "Tips_6": "Không",
+        "Tips_7": "Không có tài nguyên mẹ nào được chọn",
+        "Tips_8": "Lỗi thao tác"
+      },
+      "ModelResourceeditctrl": {
+        "Tips_1": "Sửa tài nguyên",
+        "Tips_2": "Miêu tả",
+        "Tips_3": "Cấp trên cùng",
+        "Tips_4": "Quyết định",
+        "Tips_5": "Thông báo lỗi",
+        "Tips_6": "Không",
+        "Tips_7": "Không có tài nguyên mẹ nào được chọn",
+        "Tips_8": "Lỗi thao tác"
+      },
+      "ModelResourceeditDetailctrl": {
+        "Tips_1": "Cài đặt giá trị thuộc tính",
+        "Tips_2": "Quyết định",
+        "Tips_3": "Thông báo lỗi",
+        "Tips_4": "Sửa thuộc tính"
+      },
+      "ModelResourcelistctrl": {
+        "Tips_1": "Không có danh mục nào được chọn",
+        "Tips_2": "Số thứ tự",
+        "Tips_3": "Mã tài nguyên",
+        "Tips_4": "Tên tài nguyên",
+        "Tips_5": "Cấp mô hình",
+        "Tips_6": "Tài nguyên mẹ",
+        "Tips_7": "Sắp xếp",
+        "Tips_8": "Miêu tả",
+        "Tips_9": "Người tạo",
+        "Tips_10": "Ngày tạo",
+        "Tips_11": "Người sửa",
+        "Tips_12": "Ngày sửa",
+        "Tips_13": "Mã xưởng",
+        "Tips_14": "Mã tài nguyên",
+        "Tips_15": "Mã thuộc tính",
+        "Tips_16": "Tên thuộc tính",
+        "Tips_17": "Loại thuộc tính",
+        "Tips_18": "Giá trị thuộc tính",
+        "Tips_19": "Quyết định",
+        "Tips_20": "Thông báo lỗi",
+        "Tips_21": "Vui lòng chọn cấp",
+        "Tips_22": "Vui lòng chọn tài nguyên",
+        "Tips_23": "Vui lòng chọn thuộc tính tài nguyên",
+        "Tips_24": "Xóa",
+        "Tips_25": "Bạn chắc chắn muốn xóa mã đã chọn【",
+        "Tips_26": "】tài nguyên không？",
+        "Tips_27": "Định nghĩa nhà xưởng"
+      },
+      "Title": "Định nghĩa nhà xưởng"
+    }
+  }
+}

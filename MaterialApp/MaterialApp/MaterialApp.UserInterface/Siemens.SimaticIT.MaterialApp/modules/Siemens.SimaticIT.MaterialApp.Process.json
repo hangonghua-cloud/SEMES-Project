@@ -1,0 +1,26 @@
+﻿{
+  "name": "Siemens.SimaticIT.MaterialApp.Process",
+  "type": "standard",
+  "title": "Siemens.SimaticIT.MaterialApp.ProcessOperation.Title",
+  "header": "",
+  "icon": "fa-folder",
+  "functionalBlock": "Siemens.SimaticIT.MaterialApp",
+  "dependencies": [],
+  "states": [
+    {
+      "id": "home.Siemens_SimaticIT_MaterialApp_Process_ProcessOperation",
+      "title": "Siemens.SimaticIT.MaterialApp.ProcessOperation.Title",
+      "header": "",
+      "securable": true,
+      "roles": []
+    },
+    {
+      "id": "home.Siemens_SimaticIT_MaterialApp_Process_ProcessAttr",
+      "title": "Siemens.SimaticIT.MaterialApp.ProcessAttr.Title",
+      "header": "",
+      "securable": true,
+      "roles": []
+    }
+  ],
+  "manifestVersion": "01.01.00"
+}

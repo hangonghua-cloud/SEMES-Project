@@ -1,0 +1,90 @@
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>ec03ed13-f30c-4df9-8f4d-edbf6ab7a0c3</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Siemens.SimaticIT.ButtonAuthFBApp.Installer</RootNamespace>
+    <AssemblyName>Siemens.SimaticIT.ButtonAuthFBApp.Installer</AssemblyName>
+    <Name>ButtonAuthFBApp.Installer</Name>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FunctionalBlockType>Project</FunctionalBlockType>
+    <FunctionalBlockVersion>01.00.00</FunctionalBlockVersion>
+    <FunctionalBlockName>ButtonAuthFBApp</FunctionalBlockName>
+    <FunctionalBlockPrefix>Siemens.SimaticIT</FunctionalBlockPrefix>
+    <FunctionalBlockModels>Siemens.SimaticIT.ButtonAuthFBApp.ButtonAuthFBApp.BAPOMModel</FunctionalBlockModels>
+    <FunctionalBlockDescription>按钮权限</FunctionalBlockDescription>
+    <SitPlatformVersion>4.1</SitPlatformVersion>
+    <AutoDeployPackage>True</AutoDeployPackage>
+    <CanBeExtended>False</CanBeExtended>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU'  ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Release\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <AppName>ButtonAuthFBApp</AppName>
+    <CertificateName />
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="Config" />
+    <Folder Include="ExternalDependencies" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Config\Siemens.SimaticIT.ButtonAuthFBApp.Dbinit.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Config\Siemens.SimaticIT.ButtonAuthFBApp.References.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Config\Siemens.SimaticIT.ButtonAuthFBApp.ApplicationLog.en-US.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ButtonAuthFBApp.BAPOMModel\ButtonAuthFBApp.BAPOMModel.pmproj">
+      <Name>ButtonAuthFBApp.BAPOMModel</Name>
+      <Project>{80bf7920-0cd8-4354-a35b-2c901e22ad11}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\ButtonAuthFBApp.CommandHandler\ButtonAuthFBApp.CommandHandler.csproj">
+      <Name>ButtonAuthFBApp.CommandHandler</Name>
+      <Project>{d1e0e648-990f-4aaf-ab6a-651effd5cbb9}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\ButtonAuthFBApp.EventHandler\ButtonAuthFBApp.EventHandler.csproj">
+      <Name>ButtonAuthFBApp.EventHandler</Name>
+      <Project>{e3b11346-264a-4c86-b7e8-494462dc158a}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\ButtonAuthFBApp.ReadingFunctionHandler\ButtonAuthFBApp.ReadingFunctionHandler.csproj">
+      <Name>ButtonAuthFBApp.ReadingFunctionHandler</Name>
+      <Project>{61bff3ff-b1b7-4d2f-ae8f-6ec9acd30910}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\ButtonAuthFBApp.UserInterface\ButtonAuthFBApp.UserInterface.csproj">
+      <Name>ButtonAuthFBApp.UserInterface</Name>
+      <Project>{53945527-07e9-4fdc-b6d9-28ed3283cae7}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(SITUnifiedVSToolingPlatformBin)\Siemens.SimaticIt.Build.Installer.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

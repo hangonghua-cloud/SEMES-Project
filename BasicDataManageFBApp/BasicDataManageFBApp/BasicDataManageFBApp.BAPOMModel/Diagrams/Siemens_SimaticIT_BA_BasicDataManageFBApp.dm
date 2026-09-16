@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<ArrayOfProjectSuo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ProjectSuo>
+    <DiagramName>Siemens_SimaticIT_BA_BasicDataManageFBApp.dm</DiagramName>
+    <FileName>BasicDataManageFBApp.BAPOMModel</FileName>
+    <Artifacts />
+  </ProjectSuo>
+</ArrayOfProjectSuo>

@@ -1,0 +1,19 @@
+﻿{
+  "name": "Siemens.SimaticIT.MaterialApp.ProductDatafile",
+  "type": "standard",
+  "title": "Siemens.SimaticIT.MaterialApp.ProductDatafile.Title",
+  "header": "",
+  "icon": "fa-folder",
+  "functionalBlock": "Siemens.SimaticIT.MaterialApp",
+  "dependencies": [],
+  "states": [
+    {
+      "id": "home.Siemens_SimaticIT_MaterialApp_ProductDatafile_ProductDatafile",
+      "title": "Siemens.SimaticIT.MaterialApp.ProductDatafile.Title",
+      "header": "",
+      "securable": true,
+      "roles": []
+    }
+  ],
+  "manifestVersion": "01.01.00"
+}

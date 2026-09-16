@@ -1,0 +1,12 @@
+﻿<link rel="stylesheet" type="text/css" href="CCS.CommonApp/widgets/jstree/themes/default/style.min.css">
+<style>
+    /*弹出窗口样式*/
+    .modal-dialog .dialog-body-overflow {
+    width: 100%;
+    max-height: 80vh;
+    overflow: scroll;
+}
+</style>
+<div id="SelectContainer">
+    <js-tree-plugin id="{{Dialog.modalid}}-tree-viewer" tree-plugins="types" tree-types="Dialog.templatedata.treeTypes" tree-data="scope" tree-model="Dialog.templatedata.treeModel" tree-events="changed:changedCB;"></js-tree-plugin>
+</div>

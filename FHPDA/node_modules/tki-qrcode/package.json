@@ -1,0 +1,56 @@
+{
+  "_args": [
+    [
+      "tki-qrcode@0.1.6",
+      "D:\\HBuilderProjects\\koch-fex-wallet-app-master\\fex-wallet-app"
+    ]
+  ],
+  "_from": "tki-qrcode@0.1.6",
+  "_id": "tki-qrcode@0.1.6",
+  "_inBundle": false,
+  "_integrity": "sha512-EnnlS8psowC7PsW3MDYcxvJYkuklX3WAZ/BYanR4TdBHTu74GfjTBX8Y16REP+AeDENiVtBPh4jtTRL2P736hQ==",
+  "_location": "/tki-qrcode",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "tki-qrcode@0.1.6",
+    "name": "tki-qrcode",
+    "escapedName": "tki-qrcode",
+    "rawSpec": "0.1.6",
+    "saveSpec": null,
+    "fetchSpec": "0.1.6"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/tki-qrcode/-/tki-qrcode-0.1.6.tgz",
+  "_spec": "0.1.6",
+  "_where": "D:\\HBuilderProjects\\koch-fex-wallet-app-master\\fex-wallet-app",
+  "author": {
+    "name": "sxq"
+  },
+  "bugs": {
+    "url": "https://github.com/q310550690/uni-app-qrcode/issues"
+  },
+  "description": "qrcode",
+  "homepage": "https://github.com/q310550690/uni-app-qrcode#readme",
+  "keywords": [
+    "qrcode",
+    "mpvue",
+    "uni-app",
+    "tki-qrcode",
+    "TikiUi"
+  ],
+  "license": "MIT",
+  "main": "components/tki-qrcode/tki-qrcode.vue",
+  "name": "tki-qrcode",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/q310550690/uni-app-qrcode.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "0.1.6"
+}

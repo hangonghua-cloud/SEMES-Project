@@ -1,0 +1,29 @@
+﻿<div id="itemlist" class="content-area content-area-relative" style="height: calc(100% - 30px) !important">
+    <sit-command-bar sit-type="action">
+        <sit-command sit-icon="fa-edit"
+                     sit-name="com.siemens.customcommand.edit"
+                     sit-tooltip="编辑"
+                     ng-click="vm.editButtonHandler"
+                     sit-label="编辑"
+                     ng-show="vm.isButtonVisible"></sit-command>
+        <sit-command sit-icon="fa-list-alt"
+                     sit-name="com.siemens.customcommand.select"
+                     sit-tooltip="查看"
+                     ng-click="vm.selectButtonHandler"
+                     sit-label="查看"
+                     ng-show="vm.isButtonVisible"></sit-command>
+        <sit-command sit-icon="fa-trash"
+                     sit-name="com.siemens.customcommand.delete"
+                     sit-tooltip="删除"
+                     ng-click="vm.deleteButtonHandler"
+                     sit-label="删除"
+                     ng-show="vm.isButtonVisible"></sit-command>
+        <sit-command sit-icon="fa-plus"
+                     sit-name="com.siemens.customcommand.add"
+                     ng-click="vm.addButtonHandler"
+                     sit-tooltip="添加"
+                     sit-label="添加"
+                     sit-type="main"></sit-command>
+    </sit-command-bar>
+    <sit-item-collection-viewer sit-data="vm.viewerData" sit-options="vm.viewerOptions"></sit-item-collection-viewer>
+</div>

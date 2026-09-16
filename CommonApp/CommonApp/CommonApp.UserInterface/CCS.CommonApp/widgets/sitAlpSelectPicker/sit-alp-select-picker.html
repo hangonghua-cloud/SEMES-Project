@@ -1,0 +1,27 @@
+<link rel="stylesheet" href="CCS.CommonApp/styles/select2.css">
+<link rel="stylesheet" href="CCS.CommonApp/styles/select2-bootstrap.css">
+<script type="text/javascript" src="CCS.CommonApp/scripts/select2/select2.js"></script>
+<!-- <script type="text/javascript" src="CCS.CommonApp/scripts/select2/angular-select2.js"></script> -->
+<style>
+    .select2-selection__choice__remove {
+        padding-bottom: 10px !important;
+    }
+
+    .select2-container--default {
+        width: 100% !important;
+    }
+</style>
+<div ng-if="alpSelectPickerCtrl.readOnly || alpSelectPickerCtrl.ngReadonly|| alpSelectPickerCtrl.ngDisabled"
+    class="label-property-grid-control-readonly property-value-ellipsis" title="{{alpSelectPickerCtrl.value}}">
+    {{alpSelectPickerCtrl.value}}
+</div>
+<ng-form name='alpSelectPickerForm'
+    ng-if="!(alpSelectPickerCtrl.readOnly || alpSelectPickerCtrl.ngReadonly|| alpSelectPickerCtrl.ngDisabled)"
+    ng-class="{'isrequired' :(alpSelectPickerCtrl.validation.required) && alpSelectPickerCtrl.value!==undefined}"
+    on-finish-render>
+    <div class='property-grid-input-group' data-ng-init="LoadWaitHTML()">
+        <select id="multiple_ID" class="js-example-basic-multiple js-states form-control" name="states[]"
+            multiple="multiple" ng-required='alpSelectPickerCtrl.validation.required'></select>
+        <!-- ng-model='alpSelectPickerCtrl.value' -->
+    </div>
+</ng-form>

@@ -1,0 +1,14 @@
+<projectmanifest>
+  <datamodels>
+    <datamodel>
+      <assembly>Siemens.SimaticIT.PlanApp.PlanApp.PLPOMModel.Types, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+      <mode>WR</mode>
+      <domain>PlanApp</domain>
+    </datamodel>
+    <datamodel>
+      <assembly>Siemens.SimaticIT.PlanApp.PlanApp.PLPOMModel.Types.ReadingModel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+      <mode>RD</mode>
+      <domain>PlanApp</domain>
+    </datamodel>
+  </datamodels>
+</projectmanifest>

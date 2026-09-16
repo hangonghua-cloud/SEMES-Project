@@ -1,0 +1,86 @@
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>6b04fc4c-03eb-471a-9bd7-06506ed2b515</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Siemens.SimaticIT.QualityApp.Installer</RootNamespace>
+    <AssemblyName>Siemens.SimaticIT.QualityApp.Installer</AssemblyName>
+    <Name>QualityApp.Installer</Name>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FunctionalBlockType>Project</FunctionalBlockType>
+    <FunctionalBlockVersion>01.00.00</FunctionalBlockVersion>
+    <FunctionalBlockName>QualityApp</FunctionalBlockName>
+    <FunctionalBlockPrefix>Siemens.SimaticIT</FunctionalBlockPrefix>
+    <FunctionalBlockModels>Siemens.SimaticIT.QualityApp.QualityApp.QLPOMModel</FunctionalBlockModels>
+    <FunctionalBlockDescription>Quality function of MES</FunctionalBlockDescription>
+    <SitPlatformVersion>4.1</SitPlatformVersion>
+    <AutoDeployPackage>True</AutoDeployPackage>
+    <CanBeExtended>False</CanBeExtended>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU'  ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Release\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="Config" />
+    <Folder Include="ExternalDependencies" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Config\Siemens.SimaticIT.QualityApp.Dbinit.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Config\Siemens.SimaticIT.QualityApp.References.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Config\Siemens.SimaticIT.QualityApp.ApplicationLog.en-US.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\QualityApp.CommandHandler\QualityApp.CommandHandler.csproj">
+      <Name>QualityApp.CommandHandler</Name>
+      <Project>{9b0c539c-b629-4972-9a02-41ff392d576d}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\QualityApp.EventHandler\QualityApp.EventHandler.csproj">
+      <Name>QualityApp.EventHandler</Name>
+      <Project>{07ca3d4c-50fc-4544-8ef4-2436b7fce149}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\QualityApp.QLPOMModel\QualityApp.QLPOMModel.pmproj">
+      <Name>QualityApp.QLPOMModel</Name>
+      <Project>{7d082581-c0c9-4a84-9e53-6859738b47e1}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\QualityApp.ReadingFunctionHandler\QualityApp.ReadingFunctionHandler.csproj">
+      <Name>QualityApp.ReadingFunctionHandler</Name>
+      <Project>{57862d08-b5f4-4127-9aa3-0259e9cb12b2}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\QualityApp.UserInterface\QualityApp.UserInterface.csproj">
+      <Name>QualityApp.UserInterface</Name>
+      <Project>{e8404865-051a-45ed-8db4-41831eb5689f}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(SITUnifiedVSToolingPlatformBin)\Siemens.SimaticIt.Build.Installer.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

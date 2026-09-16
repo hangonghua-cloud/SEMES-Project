@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="01/11/2023 19:11:19" ReportInfo.Modified="01/13/2023 10:48:06" ReportInfo.CreatorVersion="2014.4.8.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+
+    
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlqxfki+t8jnSxof6qn6ng9vZC5S+6R3tLBUWiLwq90pfjl45eB9MnzEd6j2kpVEWsHf5Vd3eUeL4zOY3mnksZK3xJY4Aii3ytg4KRnOJQS5ut3U1o4d8/ADMkT8XMBHUjl8fFVSzXTQu71bdpRR3QWwTN1PsSSWgWLMNhT6FApwbo7OZIM81qu50+Vwv+EvGF0/RPMl39VIbvQ3LZaj+odPg==">
+      <TableDataSource Name="Table" DataType="System.Int32" Enabled="true" SelectCommand="exec [dbo].[Pro_PrintsemiMarkCode] @TransferCode">
+        <Column Name="Spec" DataType="System.String"/>
+        <Column Name="NMCRYD" DataType="System.String"/>
+        <Column Name="shif" DataType="System.String"/>
+        <Column Name="BGcount" DataType="System.Int32"/>
+        <Column Name="BGWeight" DataType="System.Decimal"/>
+        <Column Name="BGCreate" DataType="System.String"/>
+        <CommandParameter Name="TransferCode" DataType="22" Size="10000" Expression="[TransferCode]"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+    <Parameter Name="TransferCode" DataType="System.String"/>
+  </Dictionary>
+  <ReportPage Name="Page1" RawPaperSize="9" LeftMargin="0" TopMargin="0" RightMargin="0" BottomMargin="0" FirstPageSource="15" OtherPagesSource="15">
+    <ReportTitleBand Name="ReportTitle1" Width="793.8" Height="103.95">
+      <RichObject Name="Rich1" Left="151.2" Top="9.45" Width="396.9" Height="94.5" Text="{\rtf1\ansi\ansicpg936\deff0\nouicompat\deflang1033\deflangfe2052{\fonttbl{\f0\fswiss\fcharset134 \'ce\'a2\'c8\'ed\'d1\'c5\'ba\'da;}{\f1\fnil\fcharset134 \'ce\'a2\'c8\'ed\'d1\'c5\'ba\'da;}}&#13;&#10;{\*\generator Riched20 10.0.19041}\viewkind4\uc1 &#13;&#10;\pard\qc\f0\fs18\lang2052\par&#13;&#10;\b\f1\fs40\'bb\'aa\'bf\'a1\'d0\'c2\'b2\'c4\'c1\'cf\par&#13;&#10;}&#13;&#10;"/>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader1" Top="107.95" Width="793.8" Height="28.35"/>
+    <DataBand Name="Data1" Top="140.3" Width="793.8" Height="472.5">
+      <RichObject Name="Rich2" Left="56.7" Top="28.35" Width="122.85" Height="18.9" Text="{\rtf1\ansi\ansicpg936\deff0\nouicompat\deflang1033\deflangfe2052{\fonttbl{\f0\fnil\fcharset134 \'cb\'ce\'cc\'e5;}{\f1\fnil Tahoma;}}&#13;&#10;{\*\generator Riched20 10.0.19041}\viewkind4\uc1 &#13;&#10;\pard\f0\fs28\lang2052\'b9\'e6\'b8\'f1\'a3\'ba\f1\fs17\par&#13;&#10;}&#13;&#10;"/>
+      <RichObject Name="Rich3" Left="217.35" Top="28.35" Width="321.3" Height="18.9" Text="{\rtf1\ansi\ansicpg936\deff0\nouicompat\deflang1033\deflangfe2052{\fonttbl{\f0\fnil\fcharset134 \'cb\'ce\'cc\'e5;}{\f1\fnil Tahoma;}}&#13;&#10;{\*\generator Riched20 10.0.19041}\viewkind4\uc1 &#13;&#10;\pard\f0\fs28\lang2052 [Table.Spec]\f1\fs17\par&#13;&#10;}&#13;&#10;"/>
+      <RichObject Name="Rich4" Left="56.7" Top="103.95" Width="122.85" Height="18.9" Text="{\rtf1\ansi\ansicpg936\deff0\nouicompat\deflang1033\deflangfe2052{\fonttbl{\f0\fnil\fcharset134 \'cb\'ce\'cc\'e5;}{\f1\fnil Tahoma;}}&#13;&#10;{\*\generator Riched20 10.0.19041}\viewkind4\uc1 &#13;&#10;\pard\f0\fs28\lang2052\'c8\'ed\'d3\'b2\'b6\'c8\'a3\'ba\f1\fs17\par&#13;&#10;}&#13;&#10;"/>
+      <RichObject Name="Rich5" Left="217.35" Top="103.95" Width="321.3" Height="18.9" Text="{\rtf1\ansi\ansicpg936\deff0\nouicompat\deflang1033\deflangfe2052{\fonttbl{\f0\fnil\fcharset134 \'cb\'ce\'cc\'e5;}{\f1\fnil Tahoma;}}&#13;&#10;{\*\generator Riched20 10.0.19041}\viewkind4\uc1 &#13;&#10;\pard\f0\fs28\lang2052 [Table.NMCRYD]\f1\fs17\par&#13;&#10;}&#13;&#10;"/>
+      <RichObject Name="Rich6" Left="56.7" Top="179.55" Width="122.85" Height="18.9" Text="{\rtf1\ansi\ansicpg936\deff0\nouicompat\deflang1033\deflangfe2052{\fonttbl{\f0\fnil\fcharset134 \'cb\'ce\'cc\'e5;}{\f1\fnil Tahoma;}}&#13;&#10;{\*\generator Riched20 10.0.19041}\viewkind4\uc1 &#13;&#10;\pard\f0\fs28\lang2052\'b0\'e0\'b4\'ce\'a3\'ba\f1\fs17\par&#13;&#10;}&#13;&#10;"/>
+      <RichObject Name="Rich7" Left="217.35" Top="179.55" Width="321.3" Height="18.9" Text="{\rtf1\ansi\ansicpg936\deff0\nouicompat\deflang1033\deflangfe2052{\fonttbl{\f0\fnil\fcharset134 \'cb\'ce\'cc\'e5;}{\f1\fnil Tahoma;}}&#13;&#10;{\*\generator Riched20 10.0.19041}\viewkind4\uc1 &#13;&#10;\pard\f0\fs28\lang2052 [Table.shif]\f1\fs17\par&#13;&#10;}&#13;&#10;"/>
+      <RichObject Name="Rich8" Left="56.7" Top="255.15" Width="122.85" Height="18.9" Text="{\rtf1\ansi\ansicpg936\deff0\nouicompat\deflang1033\deflangfe2052{\fonttbl{\f0\fnil\fcharset134 \'cb\'ce\'cc\'e5;}{\f1\fnil Tahoma;}}&#13;&#10;{\*\generator Riched20 10.0.19041}\viewkind4\uc1 &#13;&#10;\pard\f0\fs28\lang2052\'d6\'a7\'ca\'fd\'a3\'ba\f1\fs17\par&#13;&#10;}&#13;&#10;"/>
+      <RichObject Name="Rich9" Left="217.35" Top="255.15" Width="321.3" Height="18.9" Text="{\rtf1\ansi\ansicpg936\deff0\nouicompat\deflang1033\deflangfe2052{\fonttbl{\f0\fnil\fcharset134 \'cb\'ce\'cc\'e5;}{\f1\fnil Tahoma;}}&#13;&#10;{\*\generator Riched20 10.0.19041}\viewkind4\uc1 &#13;&#10;\pard\f0\fs28\lang2052 [Table.BGcount]\f1\fs17\par&#13;&#10;}&#13;&#10;"/>
+      <RichObject Name="Rich10" Left="56.7" Top="330.75" Width="122.85" Height="18.9" Text="{\rtf1\ansi\ansicpg936\deff0\nouicompat\deflang1033\deflangfe2052{\fonttbl{\f0\fnil\fcharset134 \'cb\'ce\'cc\'e5;}{\f1\fnil Tahoma;}}&#13;&#10;{\*\generator Riched20 10.0.19041}\viewkind4\uc1 &#13;&#10;\pard\f0\fs28\lang2052\'d6\'d8\'c1\'bf\'a3\'ba\f1\fs17\par&#13;&#10;}&#13;&#10;"/>
+      <RichObject Name="Rich11" Left="217.35" Top="330.75" Width="321.3" Height="18.9" Text="{\rtf1\ansi\ansicpg936\deff0\nouicompat\deflang1033\deflangfe2052{\fonttbl{\f0\fnil\fcharset134 \'cb\'ce\'cc\'e5;}{\f1\fnil Tahoma;}}&#13;&#10;{\*\generator Riched20 10.0.19041}\viewkind4\uc1 &#13;&#10;\pard\f0\fs28\lang2052 [Table.BGWeight]\f1\fs17\par&#13;&#10;}&#13;&#10;"/>
+      <RichObject Name="Rich12" Left="56.7" Top="406.35" Width="122.85" Height="18.9" Text="{\rtf1\ansi\ansicpg936\deff0\nouicompat\deflang1033\deflangfe2052{\fonttbl{\f0\fnil\fcharset134 \'cb\'ce\'cc\'e5;}{\f1\fnil Tahoma;}}&#13;&#10;{\*\generator Riched20 10.0.19041}\viewkind4\uc1 &#13;&#10;\pard\f0\fs28\lang2052\'c9\'fa\'b2\'fa\'c8\'d5\'c6\'da\'a3\'ba\f1\fs17\par&#13;&#10;}&#13;&#10;"/>
+      <RichObject Name="Rich13" Left="217.35" Top="406.35" Width="321.3" Height="18.9" Text="{\rtf1\ansi\ansicpg936\deff0\nouicompat\deflang1033\deflangfe2052{\fonttbl{\f0\fnil\fcharset134 \'cb\'ce\'cc\'e5;}{\f1\fnil Tahoma;}}&#13;&#10;{\*\generator Riched20 10.0.19041}\viewkind4\uc1 &#13;&#10;\pard\f0\fs28\lang2052 [Table.BGCreate]\f1\fs17\par&#13;&#10;}&#13;&#10;"/>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="616.8" Width="793.8" Height="18.9"/>
+  </ReportPage>
+</Report>

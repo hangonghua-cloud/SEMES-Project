@@ -1,0 +1,79 @@
+﻿<style>
+    /* textarea {
+        height: 200px;
+    } */
+</style>
+<div class="command-bar-side-panel">
+    <button ng-click="vm.cancel()" class="btn side-panel-button">
+        {{'Siemens.SimaticIT.MaterialApp.ProductDispatch.ProductDispatchedit.Tips_1'|translate}}
+    </button>
+    <button ng-click="vm.save()" class="btn side-panel-button" ng-show="vm.validInputs">
+        {{'Siemens.SimaticIT.MaterialApp.ProductDispatch.ProductDispatchedit.Tips_2'|translate}}
+    </button>
+    <button ng-click="vm.takeOut()" class="btn side-panel-button" ng-show="vm.validInputs">
+        确认发货
+    </button>
+</div>
+<div class="side-panel-property-area-body">
+    <sit-property-grid sit-id="edit_form" sit-layout="Horizontal" sit-type="Fixed" sit-mode="edit" sit-columns="2">
+        <sit-property sit-widget="sit-datepicker" sit-value="vm.DeliveryDate" sit-validation="{required: true}"
+                      sit-format="'yyyy-MM-dd'" sit-read-only="false">
+            {{'Siemens.SimaticIT.MaterialApp.ProductDispatch.ProductDispatchedit.Tips_3'|translate}}
+        </sit-property>
+
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.InvoiceNO" sit-validation="{required: false}"
+                      sit-read-only="false">
+            {{'Siemens.SimaticIT.MaterialApp.ProductDispatch.ProductDispatchedit.Tips_5'|translate}}
+        </sit-property>
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.LoadingBill" sit-validation="{required: false}"
+                      sit-read-only="false">
+            {{'Siemens.SimaticIT.MaterialApp.ProductDispatch.ProductDispatchedit.Tips_6'|translate}}
+        </sit-property>
+        <sit-property sit-widget="sit-numeric" sit-value="vm.currentItem.Volume" sit-validation="{required: false}"
+                      sit-read-only="false">
+            {{'Siemens.SimaticIT.MaterialApp.ProductDispatch.ProductDispatchedit.Tips_7'|translate}}
+        </sit-property>
+
+        <sit-property sit-widget="sit-numeric" sit-value="vm.currentItem.BoxNum" sit-validation="{required: false}"
+                      sit-read-only="false">
+            {{'Siemens.SimaticIT.MaterialApp.ProductDispatch.ProductDispatchedit.Tips_8'|translate}}
+        </sit-property>
+        <sit-property sit-widget="sit-numeric" sit-value="vm.currentItem.GrossWeight" sit-validation="{required: false}"
+                      sit-read-only="false">
+            {{'Siemens.SimaticIT.MaterialApp.ProductDispatch.ProductDispatchedit.Tips_9'|translate}}
+        </sit-property>
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.ContainerID" sit-validation="{required: false}"
+                      sit-read-only="false">
+            {{'Siemens.SimaticIT.MaterialApp.ProductDispatch.ProductDispatchedit.Tips_10'|translate}}
+        </sit-property>
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.CarNumber" sit-validation="{required: false}"
+                      sit-read-only="false">
+            {{'Siemens.SimaticIT.MaterialApp.ProductDispatch.ProductDispatchedit.Tips_11'|translate}}
+        </sit-property>
+
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.ForkliftWorker" sit-validation="{required: false}"
+                      sit-read-only="false">
+            {{'Siemens.SimaticIT.MaterialApp.ProductDispatch.ProductDispatchedit.Tips_12'|translate}}
+        </sit-property>
+
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.WoodWorker" sit-validation="{required: false}"
+                      sit-read-only="false">
+            {{'Siemens.SimaticIT.MaterialApp.ProductDispatch.ProductDispatchedit.Tips_13'|translate}}
+        </sit-property>
+
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.SealingNo" sit-validation="{required: false}"
+                      sit-read-only="false">
+            封箱号
+        </sit-property>
+
+        <sit-property sit-widget="sit-datepicker" sit-value="vm.PostDate" sit-format="'yyyy-MM-dd'"
+                      sit-read-only="false">
+            {{'Siemens.SimaticIT.MaterialApp.ProductDispatch.ProductDispatchedit.Tips_14'|translate}}
+        </sit-property>
+
+        <sit-property sit-widget="sit-textarea" sit-value="vm.currentItem.Remark" sit-validation="{required: false}"
+                      sit-read-only="false">
+            {{'Siemens.SimaticIT.MaterialApp.ProductDispatch.ProductDispatchedit.Tips_4'|translate}}
+        </sit-property>
+    </sit-property-grid>
+</div>

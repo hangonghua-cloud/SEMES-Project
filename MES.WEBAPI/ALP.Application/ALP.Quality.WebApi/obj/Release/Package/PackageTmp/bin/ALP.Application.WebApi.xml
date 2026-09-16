@@ -1,0 +1,4173 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ALP.Application.WebApi</name>
+    </assembly>
+    <members>
+        <member name="M:ALP.Application.WebApi.Controllers.API.ApiBaseController.ConvertValidationResultToErrorResponse(FluentValidation.Results.ValidationResult,System.Net.HttpStatusCode)">
+            <summary>
+            Converts the validation result to error response.
+            </summary>
+            <param name="validationResult">The validation result.</param>
+            <param name="statusCode"> </param>
+            <returns>Error response</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.API.ApiBaseController.ConvertValidationResultToErrorResponse(System.Collections.Generic.List{ALP.Application.WebApi.APIModel.ApiErrors},System.Net.HttpStatusCode)">
+            <summary>
+            Converts the Api Errors to error response.
+            </summary>
+            <param name="validationResult">The Api Errors.</param>
+            <param name="statusCode"> </param>
+            <returns>Error response</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.API.ApiBaseController.ToJson(System.Object)">
+            <summary>
+            返回结果转JSON函数
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.API.ApiBaseController.GetHeaderByKey(ALP.WebApi.Util.RequestHeaderKey)">
+            <summary>
+            根据请求头的key获取请求头数据
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.API.ApiBaseController.getValue(Newtonsoft.Json.Linq.JObject,System.String)">
+            <summary>
+            根据属性名称以字符串格式获取值
+            </summary>
+            <param name="job"></param>
+            <param name="propertyName"></param>
+            <returns></returns>
+        </member>
+        <member name="P:ALP.Application.WebApi.Controllers.API.ApiBaseController.CurrentAccount">
+            <summary>
+            当前访问用户对象
+            </summary>
+        </member>
+        <member name="T:ALP.Application.WebApi.Controllers.API.AccountEntity">
+            <summary>
+            当前访问账户对象
+            </summary>
+        </member>
+        <member name="P:ALP.Application.WebApi.Controllers.API.AccountEntity.UserCode">
+            <summary>
+            用户主键Code
+            </summary>
+        </member>
+        <member name="P:ALP.Application.WebApi.Controllers.API.AccountEntity.UserName">
+            <summary>
+            用户名
+            </summary>
+        </member>
+        <member name="P:ALP.Application.WebApi.Controllers.API.AccountEntity.UDID">
+            <summary>
+            当前用户使用的设备标识码
+            </summary>
+        </member>
+        <member name="P:ALP.Application.WebApi.Controllers.API.AccountEntity.TerminalType">
+            <summary>
+            当前用户终端类型
+            </summary>
+        </member>
+        <member name="T:ALP.Application.WebApi.Controllers.BaseManage.AccountController">
+            <summary>
+            操作工账号管理控制器
+            </summary>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.BaseManage.AccountController.GetAccountList(ALP.Application.WebApi.Models.Account.GetAccountListParms)">
+            <summary>
+            分页获取操作工账号集合接口
+            </summary>
+            <param name="parms"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.BaseManage.AccountController.SaveAccount(ALP.Application.Entity.BaseManage.MESBaseAccountEntity)">
+            <summary>
+            保存操作工账号接口
+            </summary>
+            <param name="parms"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.BaseManage.AccountController.Delete(ALP.Application.WebApi.Models.Account.DeleteAccountParms)">
+            <summary>
+            
+            </summary>
+            <param name="ID"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ALP.Application.WebApi.Controllers.BaseManage.BaseDataController">
+            <summary>
+            基础数据类查询接口控制器
+            </summary>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.BaseManage.BaseDataController.GetDataItemListJson(System.String)">
+            <summary>
+            获取数据字典列表（绑定控件）
+            </summary>
+            <param name="EnCode">代码</param>
+            <returns>返回列表Json</returns>
+        </member>
+        <member name="T:ALP.Application.WebApi.Controllers.QualityManage.QC_IPQCDetailController">
+            <summary>
+            1.创建日期: 2021-08-23
+            2.创建作者: 丁零
+            3.功能描述: QC_IPQCDetailController 控制器 友情提示: 如果是移动APP接口使用请把[Auth]注释掉
+            4.任务编号: 过程检验记录表
+            5.最后修改日期: 
+            6.最后修改作者: 
+            </summary>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_IPQCDetailController.test">
+            <summary>
+            功能描述: 测试接口
+            创　　建: 丁零
+            创建日期: 2021-08-23 10:37:38
+            任务编号: 过程检验记录表
+            </summary>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_IPQCDetailController.QC_IPQCDetailPageList(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 获取列表(分页) 数据支持查询与分页
+            创　　建: 丁零
+            创建日期: 2021-08-23 10:37:38
+            任务编号: 过程检验记录表
+            </summary>
+            <param name="jo">pagination 分页参数;queryJson 查询参数</param>
+            <returns>返回分页列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_IPQCDetailController.QC_IPQCDetailPageDataTableList(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 获取列表(分页) 数据支持查询与分页
+            创　　建: 丁零
+            创建日期: 2021-08-23 10:37:38
+            任务编号: 过程检验记录表
+            </summary>
+            <param name="jo">pagination 分页参数;queryJson 查询参数</param>
+            <returns>返回分页列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_IPQCDetailController.GetCalibrationMethodPageList(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            获取检验方法下拉列表
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_IPQCDetailController.GetProcessList(System.String)">
+            <summary>
+            获取检验方法关联工序列表
+            </summary>
+            <param name="method"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_IPQCDetailController.GetProcessList(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            查询工序列表
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_IPQCDetailController.GetMaintenanceList(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            获取检验方法关联工序列表
+            </summary>
+            <param name="method"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_IPQCDetailController.GetQC_IPQCDetailList(System.String)">
+            <summary>
+            功能描述: 获取所有列表, 不分页, 适用于下拉列表使用
+            创　　建: 丁零
+            创建日期: 2021-08-23 10:37:38
+            任务编号: 过程检验记录表
+            </summary>
+            <returns>返回列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_IPQCDetailController.SaveQC_IPQCDetail(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 保存表单（新增、修改）
+            创　　建: 丁零
+            创建日期: 2021-08-23 10:37:38
+            任务编号: 过程检验记录表
+            </summary>
+            <param name="jo">json参数, 包含keyValue 主键值, entity 实体对象 </param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_IPQCDetailController.SaveBatchQC_IPQCDetail(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 导入 保存表单（新增、修改）
+            创　　建: 丁零
+            创建日期: 2021-08-23 10:37:38
+            任务编号: 过程检验记录表
+            </summary>
+            <param name="jo">json参数, entity 实体对象数组</param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_IPQCDetailController.DeleteQC_IPQCDetail(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 删除, 通过主键删除
+            创　　建: 丁零
+            创建日期: 2021-08-23 10:37:38
+            任务编号: 过程检验记录表
+            </summary>
+            <param name="jo">json参数</param>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_IPQCDetailController.RemoveQC_IPQCDetail(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 假删除, 通过主键删除, 删除标记设置为0
+            创　　建: 丁零
+            创建日期: 2021-08-23 10:37:38
+            任务编号: 过程检验记录表
+            </summary>
+            <param name="jo">json参数</param>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_IPQCDetailController.GetFormJson(System.String)">
+            <summary>
+            功能描述: 获取实体
+            创　　建: 丁零
+            创建日期: 2021-08-23 10:37:38
+            任务编号: 过程检验记录表
+            </summary>
+            <param name="keyValue">主键值</param>
+            <returns>QC_IPQCDetailEntity</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_IPQCDetailController.GetEntityByQuery(System.String)">
+            <summary>
+            功能描述: 通过某字段(不是主键)查询对象
+            创　　建: 丁零
+            创建日期: 2021-08-23 10:37:38
+            任务编号: 过程检验记录表
+            </summary>
+            <param name="keyValue">主键值</param>
+            <returns>QC_IPQCDetailEntity</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_IPQCDetailController.GetEntityByLinq(System.String,System.String)">
+            <summary>
+            功能描述: 通过N个字段拼写linq查询数组对象 参考
+            创　　建: 丁零
+            创建日期: 2021-08-23 10:37:38
+            任务编号: 过程检验记录表
+            </summary>
+            <param name="keyValue">条件值</param>
+            <param name="keyValue2">条件值</param>
+            <returns>返回列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_IPQCDetailController.GetList_TestOtherEntity(System.String)">
+            <summary>
+            功能描述: 查询列表, 不分页,返回不是当前实体,使用另一个实体进行返回 参考示例
+            创　　建: 丁零
+            创建日期: 2021-08-23 10:37:38
+            任务编号: 过程检验记录表
+            </summary>
+            <returns>返回列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_IPQCDetailController.GetDataTable_TestOtherEntity(System.String)">
+            <summary>
+            功能描述: 查询列表, 不分页,返回不是当前实体,使用另一个数据表进行返回 参考示例
+            创　　建: 丁零
+            创建日期: 2021-08-23 10:37:38
+            任务编号: 过程检验记录表
+            </summary>
+            <returns>返回列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_IPQCDetailController.QC_IPQCDetail_export(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 导出 列表到EXCEL 
+            创　　建: 丁零
+            创建日期: 2021-08-23 10:37:38
+            任务编号: 过程检验记录表
+            </summary>
+            <param name="jo">queryJson 查询参数</param>
+            <returns>链接地址</returns>
+        </member>
+        <member name="T:ALP.Application.WebApi.Controllers.QualityManage.QC_IPQCDetailResultController">
+            <summary>
+            1.创建日期: 2021-08-23
+            2.创建作者: 丁零
+            3.功能描述: QC_IPQCDetailResultController 控制器 友情提示: 如果是移动APP接口使用请把[Auth]注释掉
+            4.任务编号: 过程检验记录表
+            5.最后修改日期: 
+            6.最后修改作者: 
+            </summary>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_IPQCDetailResultController.test">
+            <summary>
+            功能描述: 测试接口
+            创　　建: 丁零
+            创建日期: 2021-08-23 17:47:38
+            任务编号: 过程检验记录表
+            </summary>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_IPQCDetailResultController.QC_IPQCDetailResultPageList(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 获取列表(分页) 数据支持查询与分页
+            创　　建: 丁零
+            创建日期: 2021-08-23 17:47:38
+            任务编号: 过程检验记录表
+            </summary>
+            <param name="jo">pagination 分页参数;queryJson 查询参数</param>
+            <returns>返回分页列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_IPQCDetailResultController.QC_IPQCDetailResultPageDataTableList(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 获取列表(分页) 数据支持查询与分页
+            创　　建: 丁零
+            创建日期: 2021-08-23 17:47:38
+            任务编号: 过程检验记录表
+            </summary>
+            <param name="jo">pagination 分页参数;queryJson 查询参数</param>
+            <returns>返回分页列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_IPQCDetailResultController.GetCheckPageDataTableList(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 获取列表(分页) 数据支持查询与分页
+            创　　建: 丁零
+            创建日期: 2021-08-23 17:47:38
+            任务编号: 过程检验记录表
+            </summary>
+            <param name="jo">pagination 分页参数;queryJson 查询参数</param>
+            <returns>返回分页列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_IPQCDetailResultController.GetCheckDataTableList(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 获取列表(分页) 数据支持查询与分页
+            创　　建: 丁零
+            创建日期: 2021-08-23 17:47:38
+            任务编号: 过程检验记录表
+            </summary>
+            <param name="jo">pagination 分页参数;queryJson 查询参数</param>
+            <returns>返回分页列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_IPQCDetailResultController.GetQC_IPQCDetailResultList(System.String)">
+            <summary>
+            功能描述: 获取所有列表, 不分页, 适用于下拉列表使用
+            创　　建: 丁零
+            创建日期: 2021-08-23 17:47:38
+            任务编号: 过程检验记录表
+            </summary>
+            <returns>返回列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_IPQCDetailResultController.SaveQC_IPQCDetailResult(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 保存表单（新增、修改）
+            创　　建: 丁零
+            创建日期: 2021-08-23 17:47:38
+            任务编号: 过程检验记录表
+            </summary>
+            <param name="jo">json参数, 包含keyValue 主键值, entity 实体对象 </param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_IPQCDetailResultController.SaveQC_IPQCDetailResults(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 保存表单（新增、修改）
+            创　　建: 丁零
+            创建日期: 2021-08-23 17:47:38
+            任务编号: 过程检验记录表
+            </summary>
+            <param name="jo">json参数, 包含keyValue 主键值, entity 实体对象 </param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_IPQCDetailResultController.SaveBatchQC_IPQCDetailResult(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 导入 保存表单（新增、修改）
+            创　　建: 丁零
+            创建日期: 2021-08-23 17:47:38
+            任务编号: 过程检验记录表
+            </summary>
+            <param name="jo">json参数, entity 实体对象数组</param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_IPQCDetailResultController.DeleteQC_IPQCDetailResult(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 删除, 通过主键删除
+            创　　建: 丁零
+            创建日期: 2021-08-23 17:47:38
+            任务编号: 过程检验记录表
+            </summary>
+            <param name="jo">json参数</param>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_IPQCDetailResultController.RemoveQC_IPQCDetailResult(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 假删除, 通过主键删除, 删除标记设置为0
+            创　　建: 丁零
+            创建日期: 2021-08-23 17:47:38
+            任务编号: 过程检验记录表
+            </summary>
+            <param name="jo">json参数</param>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_IPQCDetailResultController.GetFormJson(System.String)">
+            <summary>
+            功能描述: 获取实体
+            创　　建: 丁零
+            创建日期: 2021-08-23 17:47:38
+            任务编号: 过程检验记录表
+            </summary>
+            <param name="keyValue">主键值</param>
+            <returns>QC_IPQCDetailResultEntity</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_IPQCDetailResultController.GetEntityByQuery(System.String)">
+            <summary>
+            功能描述: 通过某字段(不是主键)查询对象
+            创　　建: 丁零
+            创建日期: 2021-08-23 17:47:38
+            任务编号: 过程检验记录表
+            </summary>
+            <param name="keyValue">主键值</param>
+            <returns>QC_IPQCDetailResultEntity</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_IPQCDetailResultController.GetEntityByLinq(System.String,System.String)">
+            <summary>
+            功能描述: 通过N个字段拼写linq查询数组对象 参考
+            创　　建: 丁零
+            创建日期: 2021-08-23 17:47:38
+            任务编号: 过程检验记录表
+            </summary>
+            <param name="keyValue">条件值</param>
+            <param name="keyValue2">条件值</param>
+            <returns>返回列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_IPQCDetailResultController.GetList_TestOtherEntity(System.String)">
+            <summary>
+            功能描述: 查询列表, 不分页,返回不是当前实体,使用另一个实体进行返回 参考示例
+            创　　建: 丁零
+            创建日期: 2021-08-23 17:47:38
+            任务编号: 过程检验记录表
+            </summary>
+            <returns>返回列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_IPQCDetailResultController.GetDataTable_TestOtherEntity(System.String)">
+            <summary>
+            功能描述: 查询列表, 不分页,返回不是当前实体,使用另一个数据表进行返回 参考示例
+            创　　建: 丁零
+            创建日期: 2021-08-23 17:47:38
+            任务编号: 过程检验记录表
+            </summary>
+            <returns>返回列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_IPQCDetailResultController.QC_IPQCDetailResult_export(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 导出 列表到EXCEL 
+            创　　建: 丁零
+            创建日期: 2021-08-23 17:47:38
+            任务编号: 过程检验记录表
+            </summary>
+            <param name="jo">queryJson 查询参数</param>
+            <returns>链接地址</returns>
+        </member>
+        <member name="T:ALP.Application.WebApi.Controllers.QualityManage.QC_IQCQualityCheckController">
+            <summary>
+            1.创建日期: 2021-08-27
+            2.创建作者: 丁零
+            3.功能描述: QC_IQCQualityCheckListController 控制器 友情提示: 如果是移动APP接口使用请把[Auth]注释掉
+            4.任务编号: IQC品质检验记录表
+            5.最后修改日期: 
+            6.最后修改作者: 
+            </summary>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_IQCQualityCheckController.test">
+            <summary>
+            功能描述: 测试接口
+            创　　建: 丁零
+            创建日期: 2021-08-27 10:46:19
+            任务编号: IQC品质检验记录表
+            </summary>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_IQCQualityCheckController.QC_IQCQualityCheckListPageList(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 获取列表(分页) 数据支持查询与分页
+            创　　建: 丁零
+            创建日期: 2021-08-27 10:46:19
+            任务编号: IQC品质检验记录表
+            </summary>
+            <param name="jo">pagination 分页参数;queryJson 查询参数</param>
+            <returns>返回分页列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_IQCQualityCheckController.QC_IQCQualityCheckListPageDataTableList(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 获取列表(分页) 数据支持查询与分页
+            创　　建: 丁零
+            创建日期: 2021-08-27 10:46:19
+            任务编号: IQC品质检验记录表
+            </summary>
+            <param name="jo">pagination 分页参数;queryJson 查询参数</param>
+            <returns>返回分页列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_IQCQualityCheckController.GetQC_IQCQualityCheckListList(System.String)">
+            <summary>
+            功能描述: 获取所有列表, 不分页, 适用于下拉列表使用
+            创　　建: 丁零
+            创建日期: 2021-08-27 10:46:19
+            任务编号: IQC品质检验记录表
+            </summary>
+            <returns>返回列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_IQCQualityCheckController.SaveQC_IQCQualityCheckList(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 保存表单（新增、修改）
+            创　　建: 丁零
+            创建日期: 2021-08-27 10:46:19
+            任务编号: IQC品质检验记录表
+            </summary>
+            <param name="jo">json参数, 包含keyValue 主键值, entity 实体对象 </param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_IQCQualityCheckController.SaveBatchQC_IQCQualityCheckList(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 导入 保存表单（新增、修改）
+            创　　建: 丁零
+            创建日期: 2021-08-27 10:46:19
+            任务编号: IQC品质检验记录表
+            </summary>
+            <param name="jo">json参数, entity 实体对象数组</param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_IQCQualityCheckController.DeleteQC_IQCQualityCheckList(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 删除, 通过主键删除
+            创　　建: 丁零
+            创建日期: 2021-08-27 10:46:19
+            任务编号: IQC品质检验记录表
+            </summary>
+            <param name="jo">json参数</param>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_IQCQualityCheckController.RemoveQC_IQCQualityCheckList(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 假删除, 通过主键删除, 删除标记设置为0
+            创　　建: 丁零
+            创建日期: 2021-08-27 10:46:19
+            任务编号: IQC品质检验记录表
+            </summary>
+            <param name="jo">json参数</param>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_IQCQualityCheckController.GetFormJson(System.String)">
+            <summary>
+            功能描述: 获取实体
+            创　　建: 丁零
+            创建日期: 2021-08-27 10:46:19
+            任务编号: IQC品质检验记录表
+            </summary>
+            <param name="keyValue">主键值</param>
+            <returns>QC_IQCQualityCheckListEntity</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_IQCQualityCheckController.GetEntityByQuery(System.String)">
+            <summary>
+            功能描述: 通过某字段(不是主键)查询对象
+            创　　建: 丁零
+            创建日期: 2021-08-27 10:46:19
+            任务编号: IQC品质检验记录表
+            </summary>
+            <param name="keyValue">主键值</param>
+            <returns>QC_IQCQualityCheckListEntity</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_IQCQualityCheckController.GetEntityByLinq(System.String,System.String)">
+            <summary>
+            功能描述: 通过N个字段拼写linq查询数组对象 参考
+            创　　建: 丁零
+            创建日期: 2021-08-27 10:46:19
+            任务编号: IQC品质检验记录表
+            </summary>
+            <param name="keyValue">条件值</param>
+            <param name="keyValue2">条件值</param>
+            <returns>返回列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_IQCQualityCheckController.GetList_TestOtherEntity(System.String)">
+            <summary>
+            功能描述: 查询列表, 不分页,返回不是当前实体,使用另一个实体进行返回 参考示例
+            创　　建: 丁零
+            创建日期: 2021-08-27 10:46:19
+            任务编号: IQC品质检验记录表
+            </summary>
+            <returns>返回列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_IQCQualityCheckController.GetDataTable_TestOtherEntity(System.String)">
+            <summary>
+            功能描述: 查询列表, 不分页,返回不是当前实体,使用另一个数据表进行返回 参考示例
+            创　　建: 丁零
+            创建日期: 2021-08-27 10:46:19
+            任务编号: IQC品质检验记录表
+            </summary>
+            <returns>返回列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_IQCQualityCheckController.QC_IQCQualityCheckList_export(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 导出 列表到EXCEL 
+            创　　建: 丁零
+            创建日期: 2021-08-27 10:46:19
+            任务编号: IQC品质检验记录表
+            </summary>
+            <param name="jo">queryJson 查询参数</param>
+            <returns>链接地址</returns>
+        </member>
+        <member name="T:ALP.Application.WebApi.Controllers.QualityManage.QC_MaterialInventoryCheckController">
+            <summary>
+            1.创建日期: 2021-09-11
+            2.创建作者: liyongguo
+            3.功能描述: QC_MaterialInventoryCheckController 控制器 友情提示: 如果是移动APP接口使用请把[Auth]注释掉
+            4.任务编号: 原材料库存检验
+            5.最后修改日期: 
+            6.最后修改作者: 
+            </summary>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_MaterialInventoryCheckController.test">
+            <summary>
+            功能描述: 测试接口
+            创　　建: liyongguo
+            创建日期: 2021-09-11 14:55:56
+            任务编号: 原材料库存检验
+            </summary>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_MaterialInventoryCheckController.QC_MaterialInventoryCheckPageList(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 获取列表(分页) 数据支持查询与分页
+            创　　建: liyongguo
+            创建日期: 2021-09-11 14:55:56
+            任务编号: 原材料库存检验
+            </summary>
+            <param name="jo">pagination 分页参数;queryJson 查询参数</param>
+            <returns>返回分页列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_MaterialInventoryCheckController.QC_MaterialInventoryCheckPageDataTableList(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 获取列表(分页) 数据支持查询与分页
+            创　　建: liyongguo
+            创建日期: 2021-09-11 14:55:56
+            任务编号: 原材料库存检验
+            </summary>
+            <param name="jo">pagination 分页参数;queryJson 查询参数</param>
+            <returns>返回分页列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_MaterialInventoryCheckController.GetQC_MaterialInventoryCheckList(System.String)">
+            <summary>
+            功能描述: 获取所有列表, 不分页, 适用于下拉列表使用
+            创　　建: liyongguo
+            创建日期: 2021-09-11 14:55:56
+            任务编号: 原材料库存检验
+            </summary>
+            <returns>返回列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_MaterialInventoryCheckController.SaveQC_MaterialInventoryCheck(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 保存表单（新增、修改）
+            创　　建: liyongguo
+            创建日期: 2021-09-11 14:55:56
+            任务编号: 原材料库存检验
+            </summary>
+            <param name="jo">json参数, 包含keyValue 主键值, entity 实体对象 </param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_MaterialInventoryCheckController.SaveBatchQC_MaterialInventoryCheck(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 导入 保存表单（新增、修改）
+            创　　建: liyongguo
+            创建日期: 2021-09-11 14:55:56
+            任务编号: 原材料库存检验
+            </summary>
+            <param name="jo">json参数, entity 实体对象数组</param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_MaterialInventoryCheckController.DeleteQC_MaterialInventoryCheck(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 删除, 通过主键删除
+            创　　建: liyongguo
+            创建日期: 2021-09-11 14:55:56
+            任务编号: 原材料库存检验
+            </summary>
+            <param name="jo">json参数</param>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_MaterialInventoryCheckController.RemoveQC_MaterialInventoryCheck(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 假删除, 通过主键删除, 删除标记设置为0
+            创　　建: liyongguo
+            创建日期: 2021-09-11 14:55:56
+            任务编号: 原材料库存检验
+            </summary>
+            <param name="jo">json参数</param>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_MaterialInventoryCheckController.GetFormJson(System.String)">
+            <summary>
+            功能描述: 获取实体
+            创　　建: liyongguo
+            创建日期: 2021-09-11 14:55:56
+            任务编号: 原材料库存检验
+            </summary>
+            <param name="keyValue">主键值</param>
+            <returns>QC_MaterialInventoryCheckEntity</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_MaterialInventoryCheckController.GetEntityByQuery(System.String)">
+            <summary>
+            功能描述: 通过某字段(不是主键)查询对象
+            创　　建: liyongguo
+            创建日期: 2021-09-11 14:55:56
+            任务编号: 原材料库存检验
+            </summary>
+            <param name="keyValue">主键值</param>
+            <returns>QC_MaterialInventoryCheckEntity</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_MaterialInventoryCheckController.GetEntityByLinq(System.String,System.String)">
+            <summary>
+            功能描述: 通过N个字段拼写linq查询数组对象 参考
+            创　　建: liyongguo
+            创建日期: 2021-09-11 14:55:56
+            任务编号: 原材料库存检验
+            </summary>
+            <param name="keyValue">条件值</param>
+            <param name="keyValue2">条件值</param>
+            <returns>返回列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_MaterialInventoryCheckController.GetList_TestOtherEntity(System.String)">
+            <summary>
+            功能描述: 查询列表, 不分页,返回不是当前实体,使用另一个实体进行返回 参考示例
+            创　　建: liyongguo
+            创建日期: 2021-09-11 14:55:56
+            任务编号: 原材料库存检验
+            </summary>
+            <returns>返回列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_MaterialInventoryCheckController.GetDataTable_TestOtherEntity(System.String)">
+            <summary>
+            功能描述: 查询列表, 不分页,返回不是当前实体,使用另一个数据表进行返回 参考示例
+            创　　建: liyongguo
+            创建日期: 2021-09-11 14:55:56
+            任务编号: 原材料库存检验
+            </summary>
+            <returns>返回列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_MaterialInventoryCheckController.QC_MaterialInventoryCheck_export(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 导出 列表到EXCEL 
+            创　　建: liyongguo
+            创建日期: 2021-09-11 14:55:56
+            任务编号: 原材料库存检验
+            </summary>
+            <param name="jo">queryJson 查询参数</param>
+            <returns>链接地址</returns>
+        </member>
+        <member name="T:ALP.Application.WebApi.Controllers.QualityManage.QC_MaterialInventoryCheckItemController">
+            <summary>
+            1.创建日期: 2021-09-11
+            2.创建作者: liyongguo
+            3.功能描述: QC_MaterialInventoryCheckController 控制器 友情提示: 如果是移动APP接口使用请把[Auth]注释掉
+            4.任务编号: 原材料库存检验
+            5.最后修改日期: 
+            6.最后修改作者: 
+            </summary>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_MaterialInventoryCheckItemController.test">
+            <summary>
+            功能描述: 测试接口
+            创　　建: liyongguo
+            创建日期: 2021-09-11 14:55:56
+            任务编号: 原材料库存检验
+            </summary>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_MaterialInventoryCheckItemController.QC_MaterialInventoryCheckItemPageList(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 获取列表(分页) 数据支持查询与分页
+            创　　建: liyongguo
+            创建日期: 2021-09-11 14:55:56
+            任务编号: 原材料库存检验
+            </summary>
+            <param name="jo">pagination 分页参数;queryJson 查询参数</param>
+            <returns>返回分页列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_MaterialInventoryCheckItemController.QC_MaterialInventoryCheckItemPageDataTableList(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 获取列表(分页) 数据支持查询与分页
+            创　　建: liyongguo
+            创建日期: 2021-09-11 14:55:56
+            任务编号: 原材料库存检验
+            </summary>
+            <param name="jo">pagination 分页参数;queryJson 查询参数</param>
+            <returns>返回分页列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_MaterialInventoryCheckItemController.GetQC_MaterialInventoryCheckItemList(System.String)">
+            <summary>
+            功能描述: 获取所有列表, 不分页, 适用于下拉列表使用
+            创　　建: liyongguo
+            创建日期: 2021-09-11 14:55:56
+            任务编号: 原材料库存检验
+            </summary>
+            <returns>返回列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_MaterialInventoryCheckItemController.SaveQC_MaterialInventoryCheckItem(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 保存表单（新增、修改）
+            创　　建: liyongguo
+            创建日期: 2021-09-11 14:55:56
+            任务编号: 原材料库存检验
+            </summary>
+            <param name="jo">json参数, 包含keyValue 主键值, entity 实体对象 </param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_MaterialInventoryCheckItemController.SaveBatchQC_MaterialInventoryCheckItem(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 导入 保存表单（新增、修改）
+            创　　建: liyongguo
+            创建日期: 2021-09-11 14:55:56
+            任务编号: 原材料库存检验
+            </summary>
+            <param name="jo">json参数, entity 实体对象数组</param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_MaterialInventoryCheckItemController.DeleteQC_MaterialInventoryCheckItem(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 删除, 通过主键删除
+            创　　建: liyongguo
+            创建日期: 2021-09-11 14:55:56
+            任务编号: 原材料库存检验
+            </summary>
+            <param name="jo">json参数</param>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_MaterialInventoryCheckItemController.RemoveQC_MaterialInventoryCheckItem(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 假删除, 通过主键删除, 删除标记设置为0
+            创　　建: liyongguo
+            创建日期: 2021-09-11 14:55:56
+            任务编号: 原材料库存检验
+            </summary>
+            <param name="jo">json参数</param>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_MaterialInventoryCheckItemController.GetFormJson(System.String)">
+            <summary>
+            功能描述: 获取实体
+            创　　建: liyongguo
+            创建日期: 2021-09-11 14:55:56
+            任务编号: 原材料库存检验
+            </summary>
+            <param name="keyValue">主键值</param>
+            <returns>QC_MaterialInventoryCheckItemEntity</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_MaterialInventoryCheckItemController.GetEntityByQuery(System.String)">
+            <summary>
+            功能描述: 通过某字段(不是主键)查询对象
+            创　　建: liyongguo
+            创建日期: 2021-09-11 14:55:56
+            任务编号: 原材料库存检验
+            </summary>
+            <param name="keyValue">主键值</param>
+            <returns>QC_MaterialInventoryCheckItemEntity</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_MaterialInventoryCheckItemController.GetEntityByLinq(System.String,System.String)">
+            <summary>
+            功能描述: 通过N个字段拼写linq查询数组对象 参考
+            创　　建: liyongguo
+            创建日期: 2021-09-11 14:55:56
+            任务编号: 原材料库存检验
+            </summary>
+            <param name="keyValue">条件值</param>
+            <param name="keyValue2">条件值</param>
+            <returns>返回列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_MaterialInventoryCheckItemController.GetList_TestOtherEntity(System.String)">
+            <summary>
+            功能描述: 查询列表, 不分页,返回不是当前实体,使用另一个实体进行返回 参考示例
+            创　　建: liyongguo
+            创建日期: 2021-09-11 14:55:56
+            任务编号: 原材料库存检验
+            </summary>
+            <returns>返回列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_MaterialInventoryCheckItemController.GetDataTable_TestOtherEntity(System.String)">
+            <summary>
+            功能描述: 查询列表, 不分页,返回不是当前实体,使用另一个数据表进行返回 参考示例
+            创　　建: liyongguo
+            创建日期: 2021-09-11 14:55:56
+            任务编号: 原材料库存检验
+            </summary>
+            <returns>返回列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_MaterialInventoryCheckItemController.QC_MaterialInventoryCheckItem_export(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 导出 列表到EXCEL 
+            创　　建: liyongguo
+            创建日期: 2021-09-11 14:55:56
+            任务编号: 原材料库存检验
+            </summary>
+            <param name="jo">queryJson 查询参数</param>
+            <returns>链接地址</returns>
+        </member>
+        <member name="T:ALP.Application.WebApi.Controllers.QualityManage.QC_OQCCheckConfigController">
+            <summary>
+            1.创建日期: 2021-10-09
+            2.创建作者: liyongguo
+            3.功能描述: QC_OQCCheckConfigController 控制器 友情提示: 如果是移动APP接口使用请把[Auth]注释掉
+            4.任务编号: OQC检验配置
+            5.最后修改日期: 
+            6.最后修改作者: 
+            </summary>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_OQCCheckConfigController.test">
+            <summary>
+            功能描述: 测试接口
+            创　　建: liyongguo
+            创建日期: 2021-10-09 14:19:55
+            任务编号: OQC检验配置
+            </summary>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_OQCCheckConfigController.QC_OQCCheckConfigPageList(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 获取列表(分页) 数据支持查询与分页
+            创　　建: liyongguo
+            创建日期: 2021-10-09 14:19:55
+            任务编号: OQC检验配置
+            </summary>
+            <param name="jo">pagination 分页参数;queryJson 查询参数</param>
+            <returns>返回分页列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_OQCCheckConfigController.QC_OQCCheckConfigPageDataTableList(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 获取列表(分页) 数据支持查询与分页
+            创　　建: liyongguo
+            创建日期: 2021-10-09 14:19:55
+            任务编号: OQC检验配置
+            </summary>
+            <param name="jo">pagination 分页参数;queryJson 查询参数</param>
+            <returns>返回分页列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_OQCCheckConfigController.GetQC_OQCCheckConfigList(System.String)">
+            <summary>
+            功能描述: 获取所有列表, 不分页, 适用于下拉列表使用
+            创　　建: liyongguo
+            创建日期: 2021-10-09 14:19:55
+            任务编号: OQC检验配置
+            </summary>
+            <returns>返回列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_OQCCheckConfigController.SaveQC_OQCCheckConfig(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 保存表单（新增、修改）
+            创　　建: liyongguo
+            创建日期: 2021-10-09 14:19:55
+            任务编号: OQC检验配置
+            </summary>
+            <param name="jo">json参数, 包含keyValue 主键值, entity 实体对象 </param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_OQCCheckConfigController.SaveBatchQC_OQCCheckConfig(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 导入 保存表单（新增、修改）
+            创　　建: liyongguo
+            创建日期: 2021-10-09 14:19:55
+            任务编号: OQC检验配置
+            </summary>
+            <param name="jo">json参数, entity 实体对象数组</param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_OQCCheckConfigController.DeleteQC_OQCCheckConfig(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 删除, 通过主键删除
+            创　　建: liyongguo
+            创建日期: 2021-10-09 14:19:55
+            任务编号: OQC检验配置
+            </summary>
+            <param name="jo">json参数</param>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_OQCCheckConfigController.RemoveQC_OQCCheckConfig(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 假删除, 通过主键删除, 删除标记设置为0
+            创　　建: liyongguo
+            创建日期: 2021-10-09 14:19:55
+            任务编号: OQC检验配置
+            </summary>
+            <param name="jo">json参数</param>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_OQCCheckConfigController.GetFormJson(System.String)">
+            <summary>
+            功能描述: 获取实体
+            创　　建: liyongguo
+            创建日期: 2021-10-09 14:19:55
+            任务编号: OQC检验配置
+            </summary>
+            <param name="keyValue">主键值</param>
+            <returns>QC_OQCCheckConfigEntity</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_OQCCheckConfigController.GetEntityByQuery(System.String)">
+            <summary>
+            功能描述: 通过某字段(不是主键)查询对象
+            创　　建: liyongguo
+            创建日期: 2021-10-09 14:19:55
+            任务编号: OQC检验配置
+            </summary>
+            <param name="keyValue">主键值</param>
+            <returns>QC_OQCCheckConfigEntity</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_OQCCheckConfigController.GetEntityByLinq(System.String,System.String)">
+            <summary>
+            功能描述: 通过N个字段拼写linq查询数组对象 参考
+            创　　建: liyongguo
+            创建日期: 2021-10-09 14:19:55
+            任务编号: OQC检验配置
+            </summary>
+            <param name="keyValue">条件值</param>
+            <param name="keyValue2">条件值</param>
+            <returns>返回列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_OQCCheckConfigController.GetList_TestOtherEntity(System.String)">
+            <summary>
+            功能描述: 查询列表, 不分页,返回不是当前实体,使用另一个实体进行返回 参考示例
+            创　　建: liyongguo
+            创建日期: 2021-10-09 14:19:55
+            任务编号: OQC检验配置
+            </summary>
+            <returns>返回列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_OQCCheckConfigController.GetDataTable_TestOtherEntity(System.String)">
+            <summary>
+            功能描述: 查询列表, 不分页,返回不是当前实体,使用另一个数据表进行返回 参考示例
+            创　　建: liyongguo
+            创建日期: 2021-10-09 14:19:55
+            任务编号: OQC检验配置
+            </summary>
+            <returns>返回列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_OQCCheckConfigController.QC_OQCCheckConfig_export(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 导出 列表到EXCEL 
+            创　　建: liyongguo
+            创建日期: 2021-10-09 14:19:55
+            任务编号: OQC检验配置
+            </summary>
+            <param name="jo">queryJson 查询参数</param>
+            <returns>链接地址</returns>
+        </member>
+        <member name="T:ALP.Application.WebApi.Controllers.QualityManage.QC_OQCCheckConfigItemController">
+            <summary>
+            1.创建日期: 2021-10-09
+            2.创建作者: liyongguo
+            3.功能描述: QC_OQCCheckConfigController 控制器 友情提示: 如果是移动APP接口使用请把[Auth]注释掉
+            4.任务编号: OQC检验配置
+            5.最后修改日期: 
+            6.最后修改作者: 
+            </summary>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_OQCCheckConfigItemController.test">
+            <summary>
+            功能描述: 测试接口
+            创　　建: liyongguo
+            创建日期: 2021-10-09 14:19:55
+            任务编号: OQC检验配置
+            </summary>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_OQCCheckConfigItemController.QC_OQCCheckConfigItemPageList(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 获取列表(分页) 数据支持查询与分页
+            创　　建: liyongguo
+            创建日期: 2021-10-09 14:19:55
+            任务编号: OQC检验配置
+            </summary>
+            <param name="jo">pagination 分页参数;queryJson 查询参数</param>
+            <returns>返回分页列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_OQCCheckConfigItemController.QC_OQCCheckConfigItemPageDataTableList(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 获取列表(分页) 数据支持查询与分页
+            创　　建: liyongguo
+            创建日期: 2021-10-09 14:19:55
+            任务编号: OQC检验配置
+            </summary>
+            <param name="jo">pagination 分页参数;queryJson 查询参数</param>
+            <returns>返回分页列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_OQCCheckConfigItemController.GetQC_OQCCheckConfigItemList(System.String)">
+            <summary>
+            功能描述: 获取所有列表, 不分页, 适用于下拉列表使用
+            创　　建: liyongguo
+            创建日期: 2021-10-09 14:19:55
+            任务编号: OQC检验配置
+            </summary>
+            <returns>返回列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_OQCCheckConfigItemController.SaveQC_OQCCheckConfigItem(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 保存表单（新增、修改）
+            创　　建: liyongguo
+            创建日期: 2021-10-09 14:19:55
+            任务编号: OQC检验配置
+            </summary>
+            <param name="jo">json参数, 包含keyValue 主键值, entity 实体对象 </param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_OQCCheckConfigItemController.SaveBatchQC_OQCCheckConfigItem(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 导入 保存表单（新增、修改）
+            创　　建: liyongguo
+            创建日期: 2021-10-09 14:19:55
+            任务编号: OQC检验配置
+            </summary>
+            <param name="jo">json参数, entity 实体对象数组</param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_OQCCheckConfigItemController.DeleteQC_OQCCheckConfigItem(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 删除, 通过主键删除
+            创　　建: liyongguo
+            创建日期: 2021-10-09 14:19:55
+            任务编号: OQC检验配置
+            </summary>
+            <param name="jo">json参数</param>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_OQCCheckConfigItemController.RemoveQC_OQCCheckConfigItem(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 假删除, 通过主键删除, 删除标记设置为0
+            创　　建: liyongguo
+            创建日期: 2021-10-09 14:19:55
+            任务编号: OQC检验配置
+            </summary>
+            <param name="jo">json参数</param>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_OQCCheckConfigItemController.GetFormJson(System.String)">
+            <summary>
+            功能描述: 获取实体
+            创　　建: liyongguo
+            创建日期: 2021-10-09 14:19:55
+            任务编号: OQC检验配置
+            </summary>
+            <param name="keyValue">主键值</param>
+            <returns>QC_OQCCheckConfigItemEntity</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_OQCCheckConfigItemController.GetEntityByQuery(System.String)">
+            <summary>
+            功能描述: 通过某字段(不是主键)查询对象
+            创　　建: liyongguo
+            创建日期: 2021-10-09 14:19:55
+            任务编号: OQC检验配置
+            </summary>
+            <param name="keyValue">主键值</param>
+            <returns>QC_OQCCheckConfigItemEntity</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_OQCCheckConfigItemController.GetEntityByLinq(System.String,System.String)">
+            <summary>
+            功能描述: 通过N个字段拼写linq查询数组对象 参考
+            创　　建: liyongguo
+            创建日期: 2021-10-09 14:19:55
+            任务编号: OQC检验配置
+            </summary>
+            <param name="keyValue">条件值</param>
+            <param name="keyValue2">条件值</param>
+            <returns>返回列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_OQCCheckConfigItemController.GetList_TestOtherEntity(System.String)">
+            <summary>
+            功能描述: 查询列表, 不分页,返回不是当前实体,使用另一个实体进行返回 参考示例
+            创　　建: liyongguo
+            创建日期: 2021-10-09 14:19:55
+            任务编号: OQC检验配置
+            </summary>
+            <returns>返回列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_OQCCheckConfigItemController.GetDataTable_TestOtherEntity(System.String)">
+            <summary>
+            功能描述: 查询列表, 不分页,返回不是当前实体,使用另一个数据表进行返回 参考示例
+            创　　建: liyongguo
+            创建日期: 2021-10-09 14:19:55
+            任务编号: OQC检验配置
+            </summary>
+            <returns>返回列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_OQCCheckConfigItemController.QC_OQCCheckConfigItem_export(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 导出 列表到EXCEL 
+            创　　建: liyongguo
+            创建日期: 2021-10-09 14:19:55
+            任务编号: OQC检验配置
+            </summary>
+            <param name="jo">queryJson 查询参数</param>
+            <returns>链接地址</returns>
+        </member>
+        <member name="T:ALP.Application.WebApi.Controllers.QualityManage.QC_OQCCheckConfigMaterialController">
+            <summary>
+            1.创建日期: 2021-10-13
+            2.创建作者: liyongguo
+            3.功能描述: QC_OQCCheckConfigMaterialController 控制器 友情提示: 如果是移动APP接口使用请把[Auth]注释掉
+            4.任务编号: OQC关联物料
+            5.最后修改日期: 
+            6.最后修改作者: 
+            </summary>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_OQCCheckConfigMaterialController.test">
+            <summary>
+            功能描述: 测试接口
+            创　　建: liyongguo
+            创建日期: 2021-10-13 17:36:49
+            任务编号: OQC关联物料
+            </summary>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_OQCCheckConfigMaterialController.QC_OQCCheckConfigMaterialPageList(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 获取列表(分页) 数据支持查询与分页
+            创　　建: liyongguo
+            创建日期: 2021-10-13 17:36:49
+            任务编号: OQC关联物料
+            </summary>
+            <param name="jo">pagination 分页参数;queryJson 查询参数</param>
+            <returns>返回分页列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_OQCCheckConfigMaterialController.GetwlZList(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            获取物料组
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_OQCCheckConfigMaterialController.QC_OQCCheckConfigMaterialPageDataTableList(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 获取列表(分页) 数据支持查询与分页
+            创　　建: liyongguo
+            创建日期: 2021-10-13 17:36:49
+            任务编号: OQC关联物料
+            </summary>
+            <param name="jo">pagination 分页参数;queryJson 查询参数</param>
+            <returns>返回分页列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_OQCCheckConfigMaterialController.GetQC_OQCCheckConfigMaterialList(System.String)">
+            <summary>
+            功能描述: 获取所有列表, 不分页, 适用于下拉列表使用
+            创　　建: liyongguo
+            创建日期: 2021-10-13 17:36:49
+            任务编号: OQC关联物料
+            </summary>
+            <returns>返回列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_OQCCheckConfigMaterialController.SaveQC_OQCCheckConfigMaterial(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 保存表单（新增、修改）
+            创　　建: liyongguo
+            创建日期: 2021-10-13 17:36:49
+            任务编号: OQC关联物料
+            </summary>
+            <param name="jo">json参数, 包含keyValue 主键值, entity 实体对象 </param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_OQCCheckConfigMaterialController.SaveBatchQC_OQCCheckConfigMaterial(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 导入 保存表单（新增、修改）
+            创　　建: liyongguo
+            创建日期: 2021-10-13 17:36:49
+            任务编号: OQC关联物料
+            </summary>
+            <param name="jo">json参数, entity 实体对象数组</param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_OQCCheckConfigMaterialController.DeleteQC_OQCCheckConfigMaterial(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 删除, 通过主键删除
+            创　　建: liyongguo
+            创建日期: 2021-10-13 17:36:49
+            任务编号: OQC关联物料
+            </summary>
+            <param name="jo">json参数</param>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_OQCCheckConfigMaterialController.RemoveQC_OQCCheckConfigMaterial(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 假删除, 通过主键删除, 删除标记设置为0
+            创　　建: liyongguo
+            创建日期: 2021-10-13 17:36:49
+            任务编号: OQC关联物料
+            </summary>
+            <param name="jo">json参数</param>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_OQCCheckConfigMaterialController.GetFormJson(System.String)">
+            <summary>
+            功能描述: 获取实体
+            创　　建: liyongguo
+            创建日期: 2021-10-13 17:36:49
+            任务编号: OQC关联物料
+            </summary>
+            <param name="keyValue">主键值</param>
+            <returns>QC_OQCCheckConfigMaterialEntity</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_OQCCheckConfigMaterialController.GetEntityByQuery(System.String)">
+            <summary>
+            功能描述: 通过某字段(不是主键)查询对象
+            创　　建: liyongguo
+            创建日期: 2021-10-13 17:36:49
+            任务编号: OQC关联物料
+            </summary>
+            <param name="keyValue">主键值</param>
+            <returns>QC_OQCCheckConfigMaterialEntity</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_OQCCheckConfigMaterialController.GetList_TestOtherEntity(System.String)">
+            <summary>
+            功能描述: 查询列表, 不分页,返回不是当前实体,使用另一个实体进行返回 参考示例
+            创　　建: liyongguo
+            创建日期: 2021-10-13 17:36:49
+            任务编号: OQC关联物料
+            </summary>
+            <returns>返回列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_OQCCheckConfigMaterialController.GetDataTable_TestOtherEntity(System.String)">
+            <summary>
+            功能描述: 查询列表, 不分页,返回不是当前实体,使用另一个数据表进行返回 参考示例
+            创　　建: liyongguo
+            创建日期: 2021-10-13 17:36:49
+            任务编号: OQC关联物料
+            </summary>
+            <returns>返回列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_OQCCheckConfigMaterialController.QC_OQCCheckConfigMaterial_export(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 导出 列表到EXCEL 
+            创　　建: liyongguo
+            创建日期: 2021-10-13 17:36:49
+            任务编号: OQC关联物料
+            </summary>
+            <param name="jo">queryJson 查询参数</param>
+            <returns>链接地址</returns>
+        </member>
+        <member name="T:ALP.Application.WebApi.Controllers.QualityManage.QC_OQCQualityCheckController">
+            <summary>
+            1.创建日期: 2021-10-09
+            2.创建作者: liyongguo
+            3.功能描述: QC_OQCQualityCheckController 控制器 友情提示: 如果是移动APP接口使用请把[Auth]注释掉
+            4.任务编号: OQC检验记录
+            5.最后修改日期: 
+            6.最后修改作者: 
+            </summary>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_OQCQualityCheckController.test">
+            <summary>
+            功能描述: 测试接口
+            创　　建: liyongguo
+            创建日期: 2021-10-09 14:20:17
+            任务编号: OQC检验记录
+            </summary>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_OQCQualityCheckController.QC_OQCQualityCheckPageList(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 获取列表(分页) 数据支持查询与分页
+            创　　建: liyongguo
+            创建日期: 2021-10-09 14:20:17
+            任务编号: OQC检验记录
+            </summary>
+            <param name="jo">pagination 分页参数;queryJson 查询参数</param>
+            <returns>返回分页列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_OQCQualityCheckController.QC_OQCQualityCheckPageDataTableList(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 获取列表(分页) 数据支持查询与分页
+            创　　建: liyongguo
+            创建日期: 2021-10-09 14:20:17
+            任务编号: OQC检验记录
+            </summary>
+            <param name="jo">pagination 分页参数;queryJson 查询参数</param>
+            <returns>返回分页列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_OQCQualityCheckController.GetQC_OQCQualityCheckList(System.String)">
+            <summary>
+            功能描述: 获取所有列表, 不分页, 适用于下拉列表使用
+            创　　建: liyongguo
+            创建日期: 2021-10-09 14:20:17
+            任务编号: OQC检验记录
+            </summary>
+            <returns>返回列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_OQCQualityCheckController.SaveQC_OQCQualityCheck(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 保存表单（新增、修改）
+            创　　建: liyongguo
+            创建日期: 2021-10-09 14:20:17
+            任务编号: OQC检验记录
+            </summary>
+            <param name="jo">json参数, 包含keyValue 主键值, entity 实体对象 </param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_OQCQualityCheckController.SaveBatchQC_OQCQualityCheck(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 导入 保存表单（新增、修改）
+            创　　建: liyongguo
+            创建日期: 2021-10-09 14:20:17
+            任务编号: OQC检验记录
+            </summary>
+            <param name="jo">json参数, entity 实体对象数组</param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_OQCQualityCheckController.DeleteQC_OQCQualityCheck(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 删除, 通过主键删除
+            创　　建: liyongguo
+            创建日期: 2021-10-09 14:20:17
+            任务编号: OQC检验记录
+            </summary>
+            <param name="jo">json参数</param>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_OQCQualityCheckController.RemoveQC_OQCQualityCheck(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 假删除, 通过主键删除, 删除标记设置为0
+            创　　建: liyongguo
+            创建日期: 2021-10-09 14:20:17
+            任务编号: OQC检验记录
+            </summary>
+            <param name="jo">json参数</param>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_OQCQualityCheckController.GetFormJson(System.String)">
+            <summary>
+            功能描述: 获取实体
+            创　　建: liyongguo
+            创建日期: 2021-10-09 14:20:17
+            任务编号: OQC检验记录
+            </summary>
+            <param name="keyValue">主键值</param>
+            <returns>QC_OQCQualityCheckEntity</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_OQCQualityCheckController.GetEntityByQuery(System.String)">
+            <summary>
+            功能描述: 通过某字段(不是主键)查询对象
+            创　　建: liyongguo
+            创建日期: 2021-10-09 14:20:17
+            任务编号: OQC检验记录
+            </summary>
+            <param name="keyValue">主键值</param>
+            <returns>QC_OQCQualityCheckEntity</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_OQCQualityCheckController.GetEntityByLinq(System.String,System.String)">
+            <summary>
+            功能描述: 通过N个字段拼写linq查询数组对象 参考
+            创　　建: liyongguo
+            创建日期: 2021-10-09 14:20:17
+            任务编号: OQC检验记录
+            </summary>
+            <param name="keyValue">条件值</param>
+            <param name="keyValue2">条件值</param>
+            <returns>返回列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_OQCQualityCheckController.GetList_TestOtherEntity(System.String)">
+            <summary>
+            功能描述: 查询列表, 不分页,返回不是当前实体,使用另一个实体进行返回 参考示例
+            创　　建: liyongguo
+            创建日期: 2021-10-09 14:20:17
+            任务编号: OQC检验记录
+            </summary>
+            <returns>返回列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_OQCQualityCheckController.GetDataTable_TestOtherEntity(System.String)">
+            <summary>
+            功能描述: 查询列表, 不分页,返回不是当前实体,使用另一个数据表进行返回 参考示例
+            创　　建: liyongguo
+            创建日期: 2021-10-09 14:20:17
+            任务编号: OQC检验记录
+            </summary>
+            <returns>返回列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_OQCQualityCheckController.QC_OQCQualityCheck_export(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 导出 列表到EXCEL 
+            创　　建: liyongguo
+            创建日期: 2021-10-09 14:20:17
+            任务编号: OQC检验记录
+            </summary>
+            <param name="jo">queryJson 查询参数</param>
+            <returns>链接地址</returns>
+        </member>
+        <member name="T:ALP.Application.WebApi.Controllers.QualityManage.QC_OQCQualityCheckItemController">
+            <summary>
+            1.创建日期: 2021-10-09
+            2.创建作者: liyongguo
+            3.功能描述: QC_OQCQualityCheckController 控制器 友情提示: 如果是移动APP接口使用请把[Auth]注释掉
+            4.任务编号: OQC检验记录
+            5.最后修改日期: 
+            6.最后修改作者: 
+            </summary>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_OQCQualityCheckItemController.test">
+            <summary>
+            功能描述: 测试接口
+            创　　建: liyongguo
+            创建日期: 2021-10-09 14:20:17
+            任务编号: OQC检验记录
+            </summary>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_OQCQualityCheckItemController.QC_OQCQualityCheckItemPageList(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 获取列表(分页) 数据支持查询与分页
+            创　　建: liyongguo
+            创建日期: 2021-10-09 14:20:17
+            任务编号: OQC检验记录
+            </summary>
+            <param name="jo">pagination 分页参数;queryJson 查询参数</param>
+            <returns>返回分页列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_OQCQualityCheckItemController.QC_OQCQualityCheckItemPageDataTableList(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 获取列表(分页) 数据支持查询与分页
+            创　　建: liyongguo
+            创建日期: 2021-10-09 14:20:17
+            任务编号: OQC检验记录
+            </summary>
+            <param name="jo">pagination 分页参数;queryJson 查询参数</param>
+            <returns>返回分页列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_OQCQualityCheckItemController.GetQC_OQCQualityCheckItemList(System.String)">
+            <summary>
+            功能描述: 获取所有列表, 不分页, 适用于下拉列表使用
+            创　　建: liyongguo
+            创建日期: 2021-10-09 14:20:17
+            任务编号: OQC检验记录
+            </summary>
+            <returns>返回列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_OQCQualityCheckItemController.SaveQC_OQCQualityCheckItem(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 保存表单（新增、修改）
+            创　　建: liyongguo
+            创建日期: 2021-10-09 14:20:17
+            任务编号: OQC检验记录
+            </summary>
+            <param name="jo">json参数, 包含keyValue 主键值, entity 实体对象 </param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_OQCQualityCheckItemController.SaveBatchQC_OQCQualityCheckItem(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 导入 保存表单（新增、修改）
+            创　　建: liyongguo
+            创建日期: 2021-10-09 14:20:17
+            任务编号: OQC检验记录
+            </summary>
+            <param name="jo">json参数, entity 实体对象数组</param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_OQCQualityCheckItemController.DeleteQC_OQCQualityCheckItem(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 删除, 通过主键删除
+            创　　建: liyongguo
+            创建日期: 2021-10-09 14:20:17
+            任务编号: OQC检验记录
+            </summary>
+            <param name="jo">json参数</param>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_OQCQualityCheckItemController.RemoveQC_OQCQualityCheckItem(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 假删除, 通过主键删除, 删除标记设置为0
+            创　　建: liyongguo
+            创建日期: 2021-10-09 14:20:17
+            任务编号: OQC检验记录
+            </summary>
+            <param name="jo">json参数</param>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_OQCQualityCheckItemController.GetFormJson(System.String)">
+            <summary>
+            功能描述: 获取实体
+            创　　建: liyongguo
+            创建日期: 2021-10-09 14:20:17
+            任务编号: OQC检验记录
+            </summary>
+            <param name="keyValue">主键值</param>
+            <returns>QC_OQCQualityCheckItemEntity</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_OQCQualityCheckItemController.GetEntityByQuery(System.String)">
+            <summary>
+            功能描述: 通过某字段(不是主键)查询对象
+            创　　建: liyongguo
+            创建日期: 2021-10-09 14:20:17
+            任务编号: OQC检验记录
+            </summary>
+            <param name="keyValue">主键值</param>
+            <returns>QC_OQCQualityCheckItemEntity</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_OQCQualityCheckItemController.GetEntityByLinq(System.String,System.String)">
+            <summary>
+            功能描述: 通过N个字段拼写linq查询数组对象 参考
+            创　　建: liyongguo
+            创建日期: 2021-10-09 14:20:17
+            任务编号: OQC检验记录
+            </summary>
+            <param name="keyValue">条件值</param>
+            <param name="keyValue2">条件值</param>
+            <returns>返回列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_OQCQualityCheckItemController.GetList_TestOtherEntity(System.String)">
+            <summary>
+            功能描述: 查询列表, 不分页,返回不是当前实体,使用另一个实体进行返回 参考示例
+            创　　建: liyongguo
+            创建日期: 2021-10-09 14:20:17
+            任务编号: OQC检验记录
+            </summary>
+            <returns>返回列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_OQCQualityCheckItemController.GetDataTable_TestOtherEntity(System.String)">
+            <summary>
+            功能描述: 查询列表, 不分页,返回不是当前实体,使用另一个数据表进行返回 参考示例
+            创　　建: liyongguo
+            创建日期: 2021-10-09 14:20:17
+            任务编号: OQC检验记录
+            </summary>
+            <returns>返回列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_OQCQualityCheckItemController.QC_OQCQualityCheckItem_export(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 导出 列表到EXCEL 
+            创　　建: liyongguo
+            创建日期: 2021-10-09 14:20:17
+            任务编号: OQC检验记录
+            </summary>
+            <param name="jo">queryJson 查询参数</param>
+            <returns>链接地址</returns>
+        </member>
+        <member name="T:ALP.Application.WebApi.Controllers.QualityManage.QC_PollingDetailController">
+            <summary>
+            1.创建日期: 2021-08-23
+            2.创建作者: 丁零
+            3.功能描述: QC_PollingDetailController 控制器 友情提示: 如果是移动APP接口使用请把[Auth]注释掉
+            4.任务编号: 巡检检验记录表
+            5.最后修改日期: 
+            6.最后修改作者: 
+            </summary>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_PollingDetailController.test">
+            <summary>
+            功能描述: 测试接口
+            创　　建: 丁零
+            创建日期: 2021-08-23 10:42:59
+            任务编号: 巡检检验记录表
+            </summary>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_PollingDetailController.QC_PollingDetailPageList(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 获取列表(分页) 数据支持查询与分页
+            创　　建: 丁零
+            创建日期: 2021-08-23 10:42:59
+            任务编号: 巡检检验记录表
+            </summary>
+            <param name="jo">pagination 分页参数;queryJson 查询参数</param>
+            <returns>返回分页列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_PollingDetailController.QC_PollingDetailPageDataTableList(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 获取列表(分页) 数据支持查询与分页
+            创　　建: 丁零
+            创建日期: 2021-08-23 10:42:59
+            任务编号: 巡检检验记录表
+            </summary>
+            <param name="jo">pagination 分页参数;queryJson 查询参数</param>
+            <returns>返回分页列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_PollingDetailController.GetUserEntity(System.String)">
+            <summary>
+            用户实体
+            </summary>
+            <param name="keyValue">主键值</param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_PollingDetailController.GetQC_PollingDetailList(System.String)">
+            <summary>
+            功能描述: 获取所有列表, 不分页, 适用于下拉列表使用
+            创　　建: 丁零
+            创建日期: 2021-08-23 10:42:59
+            任务编号: 巡检检验记录表
+            </summary>
+            <returns>返回列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_PollingDetailController.SaveQC_PollingDetail(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 保存表单（新增、修改）
+            创　　建: 丁零
+            创建日期: 2021-08-23 10:42:59
+            任务编号: 巡检检验记录表
+            </summary>
+            <param name="jo">json参数, 包含keyValue 主键值, entity 实体对象 </param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_PollingDetailController.SaveDetermination(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            更新判定状态
+            </summary>
+            <param name="keyValue"></param>
+            <param name="determinationValue"></param>
+            <param name="msg"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_PollingDetailController.SaveBatchQC_PollingDetail(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 导入 保存表单（新增、修改）
+            创　　建: 丁零
+            创建日期: 2021-08-23 10:42:59
+            任务编号: 巡检检验记录表
+            </summary>
+            <param name="jo">json参数, entity 实体对象数组</param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_PollingDetailController.DeleteQC_PollingDetail(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 删除, 通过主键删除
+            创　　建: 丁零
+            创建日期: 2021-08-23 10:42:59
+            任务编号: 巡检检验记录表
+            </summary>
+            <param name="jo">json参数</param>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_PollingDetailController.RemoveQC_PollingDetail(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 假删除, 通过主键删除, 删除标记设置为0
+            创　　建: 丁零
+            创建日期: 2021-08-23 10:42:59
+            任务编号: 巡检检验记录表
+            </summary>
+            <param name="jo">json参数</param>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_PollingDetailController.GetFormJson(System.String)">
+            <summary>
+            功能描述: 获取实体
+            创　　建: 丁零
+            创建日期: 2021-08-23 10:42:59
+            任务编号: 巡检检验记录表
+            </summary>
+            <param name="keyValue">主键值</param>
+            <returns>QC_PollingDetailEntity</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_PollingDetailController.GetEntityByQuery(System.String)">
+            <summary>
+            功能描述: 通过某字段(不是主键)查询对象
+            创　　建: 丁零
+            创建日期: 2021-08-23 10:42:59
+            任务编号: 巡检检验记录表
+            </summary>
+            <param name="keyValue">主键值</param>
+            <returns>QC_PollingDetailEntity</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_PollingDetailController.GetEntityByLinq(System.String,System.String)">
+            <summary>
+            功能描述: 通过N个字段拼写linq查询数组对象 参考
+            创　　建: 丁零
+            创建日期: 2021-08-23 10:42:59
+            任务编号: 巡检检验记录表
+            </summary>
+            <param name="keyValue">条件值</param>
+            <param name="keyValue2">条件值</param>
+            <returns>返回列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_PollingDetailController.GetList_TestOtherEntity(System.String)">
+            <summary>
+            功能描述: 查询列表, 不分页,返回不是当前实体,使用另一个实体进行返回 参考示例
+            创　　建: 丁零
+            创建日期: 2021-08-23 10:42:59
+            任务编号: 巡检检验记录表
+            </summary>
+            <returns>返回列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_PollingDetailController.GetDataTable_TestOtherEntity(System.String)">
+            <summary>
+            功能描述: 查询列表, 不分页,返回不是当前实体,使用另一个数据表进行返回 参考示例
+            创　　建: 丁零
+            创建日期: 2021-08-23 10:42:59
+            任务编号: 巡检检验记录表
+            </summary>
+            <returns>返回列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_PollingDetailController.QC_PollingDetail_export(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 导出 列表到EXCEL 
+            创　　建: 丁零
+            创建日期: 2021-08-23 10:42:59
+            任务编号: 巡检检验记录表
+            </summary>
+            <param name="jo">queryJson 查询参数</param>
+            <returns>链接地址</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_PollingDetailController.GetWorkOrderOperation(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 查询列表, 不分页,返回不是当前实体,使用另一个实体进行返回 参考示例
+            创　　建: 丁零
+            创建日期: 2021-08-23 10:42:59
+            任务编号: 巡检检验记录表
+            </summary>
+            <returns>返回列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_PollingDetailController.GetTestItemMaintenance(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 获取检测方法
+            创　　建: dragon
+            创建日期: 2021-08-23 10:42:59
+            任务编号: 巡检检验记录表
+            </summary>
+            <returns>返回列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_PollingDetailController.PollingDetailAndResultSave(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 保存新增的检验记录
+            创　　建: dragon
+            创建日期: 2022-03-21 10:42:59
+            任务编号: 巡检检验记录表
+            </summary>
+            <returns>返回列表</returns>
+        </member>
+        <member name="T:ALP.Application.WebApi.Controllers.QualityManage.QC_PollingDetailResultController">
+            <summary>
+            1.创建日期: 2021-08-23
+            2.创建作者: 丁零
+            3.功能描述: QC_PollingDetailResultController 控制器 友情提示: 如果是移动APP接口使用请把[Auth]注释掉
+            4.任务编号: 巡检检验记录表
+            5.最后修改日期: 
+            6.最后修改作者: 
+            </summary>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_PollingDetailResultController.test">
+            <summary>
+            功能描述: 测试接口
+            创　　建: 丁零
+            创建日期: 2021-08-23 17:47:59
+            任务编号: 巡检检验记录表
+            </summary>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_PollingDetailResultController.QC_PollingDetailResultPageList(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 获取列表(分页) 数据支持查询与分页
+            创　　建: 丁零
+            创建日期: 2021-08-23 17:47:59
+            任务编号: 巡检检验记录表
+            </summary>
+            <param name="jo">pagination 分页参数;queryJson 查询参数</param>
+            <returns>返回分页列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_PollingDetailResultController.QC_PollingDetailResultPageDataTableList(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 获取列表(分页) 数据支持查询与分页
+            创　　建: 丁零
+            创建日期: 2021-08-23 17:47:59
+            任务编号: 巡检检验记录表
+            </summary>
+            <param name="jo">pagination 分页参数;queryJson 查询参数</param>
+            <returns>返回分页列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_PollingDetailResultController.GetCheckPageDataList(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            获取检验结果列表
+            </summary>
+            <param name="pagination"></param>
+            <param name="queryJson"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_PollingDetailResultController.GetCheckDataList(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            获取检验结果列表
+            </summary>
+            <param name="pagination"></param>
+            <param name="queryJson"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_PollingDetailResultController.GetQC_PollingDetailResultList(System.String)">
+            <summary>
+            功能描述: 获取所有列表, 不分页, 适用于下拉列表使用
+            创　　建: 丁零
+            创建日期: 2021-08-23 17:47:59
+            任务编号: 巡检检验记录表
+            </summary>
+            <returns>返回列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_PollingDetailResultController.SaveQC_PollingDetailResult(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 保存表单（新增、修改）
+            创　　建: 丁零
+            创建日期: 2021-08-23 17:47:59
+            任务编号: 巡检检验记录表
+            </summary>
+            <param name="jo">json参数, 包含keyValue 主键值, entity 实体对象 </param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_PollingDetailResultController.SaveQC_PollingDetailResults(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            
+            </summary>
+            <param name="mainEntity"></param>
+            <param name="list"></param>
+            <param name="msg"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_PollingDetailResultController.SaveBatchQC_PollingDetailResult(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 导入 保存表单（新增、修改）
+            创　　建: 丁零
+            创建日期: 2021-08-23 17:47:59
+            任务编号: 巡检检验记录表
+            </summary>
+            <param name="jo">json参数, entity 实体对象数组</param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_PollingDetailResultController.DeleteQC_PollingDetailResult(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 删除, 通过主键删除
+            创　　建: 丁零
+            创建日期: 2021-08-23 17:47:59
+            任务编号: 巡检检验记录表
+            </summary>
+            <param name="jo">json参数</param>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_PollingDetailResultController.RemoveQC_PollingDetailResult(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 假删除, 通过主键删除, 删除标记设置为0
+            创　　建: 丁零
+            创建日期: 2021-08-23 17:47:59
+            任务编号: 巡检检验记录表
+            </summary>
+            <param name="jo">json参数</param>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_PollingDetailResultController.GetFormJson(System.String)">
+            <summary>
+            功能描述: 获取实体
+            创　　建: 丁零
+            创建日期: 2021-08-23 17:47:59
+            任务编号: 巡检检验记录表
+            </summary>
+            <param name="keyValue">主键值</param>
+            <returns>QC_PollingDetailResultEntity</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_PollingDetailResultController.GetEntityByQuery(System.String)">
+            <summary>
+            功能描述: 通过某字段(不是主键)查询对象
+            创　　建: 丁零
+            创建日期: 2021-08-23 17:47:59
+            任务编号: 巡检检验记录表
+            </summary>
+            <param name="keyValue">主键值</param>
+            <returns>QC_PollingDetailResultEntity</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_PollingDetailResultController.GetEntityByLinq(System.String,System.String)">
+            <summary>
+            功能描述: 通过N个字段拼写linq查询数组对象 参考
+            创　　建: 丁零
+            创建日期: 2021-08-23 17:47:59
+            任务编号: 巡检检验记录表
+            </summary>
+            <param name="keyValue">条件值</param>
+            <param name="keyValue2">条件值</param>
+            <returns>返回列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_PollingDetailResultController.GetList_TestOtherEntity(System.String)">
+            <summary>
+            功能描述: 查询列表, 不分页,返回不是当前实体,使用另一个实体进行返回 参考示例
+            创　　建: 丁零
+            创建日期: 2021-08-23 17:47:59
+            任务编号: 巡检检验记录表
+            </summary>
+            <returns>返回列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_PollingDetailResultController.GetDataTable_TestOtherEntity(System.String)">
+            <summary>
+            功能描述: 查询列表, 不分页,返回不是当前实体,使用另一个数据表进行返回 参考示例
+            创　　建: 丁零
+            创建日期: 2021-08-23 17:47:59
+            任务编号: 巡检检验记录表
+            </summary>
+            <returns>返回列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_PollingDetailResultController.QC_PollingDetailResult_export(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 导出 列表到EXCEL 
+            创　　建: 丁零
+            创建日期: 2021-08-23 17:47:59
+            任务编号: 巡检检验记录表
+            </summary>
+            <param name="jo">queryJson 查询参数</param>
+            <returns>链接地址</returns>
+        </member>
+        <member name="T:ALP.Application.WebApi.Controllers.QualityManage.QC_IQCQualityCheckItemController">
+            <summary>
+            1.创建日期: 2021-08-27
+            2.创建作者: 丁零
+            3.功能描述: QC_TestDetailController 控制器 友情提示: 如果是移动APP接口使用请把[Auth]注释掉
+            4.任务编号: 检验明细表
+            5.最后修改日期: 
+            6.最后修改作者: 
+            </summary>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_IQCQualityCheckItemController.test">
+            <summary>
+            功能描述: 测试接口
+            创　　建: 丁零
+            创建日期: 2021-08-27 10:45:43
+            任务编号: 检验明细表
+            </summary>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_IQCQualityCheckItemController.QC_TestDetailPageList(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 获取列表(分页) 数据支持查询与分页
+            创　　建: 丁零
+            创建日期: 2021-08-27 10:45:43
+            任务编号: 检验明细表
+            </summary>
+            <param name="jo">pagination 分页参数;queryJson 查询参数</param>
+            <returns>返回分页列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_IQCQualityCheckItemController.QC_TestDetailPageDataTableList(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 获取列表(分页) 数据支持查询与分页
+            创　　建: 丁零
+            创建日期: 2021-08-27 10:45:43
+            任务编号: 检验明细表
+            </summary>
+            <param name="jo">pagination 分页参数;queryJson 查询参数</param>
+            <returns>返回分页列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_IQCQualityCheckItemController.GetQC_TestDetailList(System.String)">
+            <summary>
+            功能描述: 获取所有列表, 不分页, 适用于下拉列表使用
+            创　　建: 丁零
+            创建日期: 2021-08-27 10:45:43
+            任务编号: 检验明细表
+            </summary>
+            <returns>返回列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_IQCQualityCheckItemController.SaveQC_TestDetail(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 保存表单（新增、修改）
+            创　　建: 丁零
+            创建日期: 2021-08-27 10:45:43
+            任务编号: 检验明细表
+            </summary>
+            <param name="jo">json参数, 包含keyValue 主键值, entity 实体对象 </param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_IQCQualityCheckItemController.SaveBatchQC_TestDetailList(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 导入 保存表单（新增、修改）
+            创　　建: 丁零
+            创建日期: 2021-08-27 10:45:43
+            任务编号: 检验明细表
+            </summary>
+            <param name="jo">json参数, entity 实体对象数组</param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_IQCQualityCheckItemController.DeleteQC_TestDetail(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 删除, 通过主键删除
+            创　　建: 丁零
+            创建日期: 2021-08-27 10:45:43
+            任务编号: 检验明细表
+            </summary>
+            <param name="jo">json参数</param>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_IQCQualityCheckItemController.RemoveQC_TestDetail(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 假删除, 通过主键删除, 删除标记设置为0
+            创　　建: 丁零
+            创建日期: 2021-08-27 10:45:43
+            任务编号: 检验明细表
+            </summary>
+            <param name="jo">json参数</param>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_IQCQualityCheckItemController.RemoveQC_TestDetailList(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 假删除, 通过主键删除, 删除标记设置为0
+            创　　建: 丁零
+            创建日期: 2021-08-27 10:45:43
+            任务编号: 检验明细表
+            </summary>
+            <param name="jo">json参数</param>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_IQCQualityCheckItemController.RemoveResultQC_TestDetail(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 假删除, 通过主键删除, 删除标记设置为0
+            创　　建: 丁零
+            创建日期: 2021-08-27 10:45:43
+            任务编号: 检验明细表
+            </summary>
+            <param name="jo">json参数</param>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_IQCQualityCheckItemController.GetFormJson(System.String)">
+            <summary>
+            功能描述: 获取实体
+            创　　建: 丁零
+            创建日期: 2021-08-27 10:45:43
+            任务编号: 检验明细表
+            </summary>
+            <param name="keyValue">主键值</param>
+            <returns>QC_TestDetailEntity</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_IQCQualityCheckItemController.GetEntityByQuery(System.String)">
+            <summary>
+            功能描述: 通过某字段(不是主键)查询对象
+            创　　建: 丁零
+            创建日期: 2021-08-27 10:45:43
+            任务编号: 检验明细表
+            </summary>
+            <param name="keyValue">主键值</param>
+            <returns>QC_TestDetailEntity</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_IQCQualityCheckItemController.GetEntityByLinq(System.String,System.String)">
+            <summary>
+            功能描述: 通过N个字段拼写linq查询数组对象 参考
+            创　　建: 丁零
+            创建日期: 2021-08-27 10:45:43
+            任务编号: 检验明细表
+            </summary>
+            <param name="keyValue">条件值</param>
+            <param name="keyValue2">条件值</param>
+            <returns>返回列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_IQCQualityCheckItemController.GetList_TestOtherEntity(System.String)">
+            <summary>
+            功能描述: 查询列表, 不分页,返回不是当前实体,使用另一个实体进行返回 参考示例
+            创　　建: 丁零
+            创建日期: 2021-08-27 10:45:43
+            任务编号: 检验明细表
+            </summary>
+            <returns>返回列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_IQCQualityCheckItemController.GetDataTable_TestOtherEntity(System.String)">
+            <summary>
+            功能描述: 查询列表, 不分页,返回不是当前实体,使用另一个数据表进行返回 参考示例
+            创　　建: 丁零
+            创建日期: 2021-08-27 10:45:43
+            任务编号: 检验明细表
+            </summary>
+            <returns>返回列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_IQCQualityCheckItemController.QC_TestDetail_export(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 导出 列表到EXCEL 
+            创　　建: 丁零
+            创建日期: 2021-08-27 10:45:43
+            任务编号: 检验明细表
+            </summary>
+            <param name="jo">queryJson 查询参数</param>
+            <returns>链接地址</returns>
+        </member>
+        <member name="T:ALP.Application.WebApi.Controllers.QualityManage.QC_TestItemMaintenanceController">
+            <summary>
+            1.创建日期: 2021-08-19
+            2.创建作者: liyongguo
+            3.功能描述: QC_TestMaintenanceController 控制器 友情提示: 如果是移动APP接口使用请把[Auth]注释掉
+            4.任务编号: QC检测维护
+            5.最后修改日期: 
+            6.最后修改作者: 
+            </summary>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_TestItemMaintenanceController.test">
+            <summary>
+            功能描述: 测试接口
+            创　　建: liyongguo
+            创建日期: 2021-08-19 09:48:13
+            任务编号: QC检测维护
+            </summary>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_TestItemMaintenanceController.QC_TestItemMaintenancePageList(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 获取列表(分页) 数据支持查询与分页
+            创　　建: liyongguo
+            创建日期: 2021-08-19 09:48:13
+            任务编号: QC检测维护
+            </summary>
+            <param name="jo">pagination 分页参数;queryJson 查询参数</param>
+            <returns>返回分页列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_TestItemMaintenanceController.QC_TestItemMaintenancePageDataTableList(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 获取列表(分页) 数据支持查询与分页
+            创　　建: liyongguo
+            创建日期: 2021-08-19 09:48:13
+            任务编号: QC检测维护
+            </summary>
+            <param name="jo">pagination 分页参数;queryJson 查询参数</param>
+            <returns>返回分页列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_TestItemMaintenanceController.GetQC_TestItemMaintenanceList(System.String)">
+            <summary>
+            功能描述: 获取所有列表, 不分页, 适用于下拉列表使用
+            创　　建: liyongguo
+            创建日期: 2021-08-19 09:48:13
+            任务编号: QC检测维护
+            </summary>
+            <returns>返回列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_TestItemMaintenanceController.SaveQC_TestItemMaintenance(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 保存表单（新增、修改）
+            创　　建: liyongguo
+            创建日期: 2021-08-19 09:48:13
+            任务编号: QC检测维护
+            </summary>
+            <param name="jo">json参数, 包含keyValue 主键值, entity 实体对象 </param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_TestItemMaintenanceController.SaveBatchQC_TestItemMaintenance(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 导入 保存表单（新增、修改）
+            创　　建: liyongguo
+            创建日期: 2021-08-19 09:48:13
+            任务编号: QC检测维护
+            </summary>
+            <param name="jo">json参数, entity 实体对象数组</param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_TestItemMaintenanceController.DeleteQC_TestItemMaintenance(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 删除, 通过主键删除
+            创　　建: liyongguo
+            创建日期: 2021-08-19 09:48:13
+            任务编号: QC检测维护
+            </summary>
+            <param name="jo">json参数</param>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_TestItemMaintenanceController.RemoveQC_TestItemMaintenance(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 假删除, 通过主键删除, 删除标记设置为0
+            创　　建: liyongguo
+            创建日期: 2021-08-19 09:48:13
+            任务编号: QC检测维护
+            </summary>
+            <param name="jo">json参数</param>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_TestItemMaintenanceController.GetFormJson(System.String)">
+            <summary>
+            功能描述: 获取实体
+            创　　建: liyongguo
+            创建日期: 2021-08-19 09:48:13
+            任务编号: QC检测维护
+            </summary>
+            <param name="keyValue">主键值</param>
+            <returns>QC_TestItemMaintenanceEntity</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_TestItemMaintenanceController.GetEntityByQuery(System.String)">
+            <summary>
+            功能描述: 通过某字段(不是主键)查询对象
+            创　　建: liyongguo
+            创建日期: 2021-08-19 09:48:13
+            任务编号: QC检测维护
+            </summary>
+            <param name="keyValue">主键值</param>
+            <returns>QC_TestItemMaintenanceEntity</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_TestItemMaintenanceController.GetEntityByLinq(System.String,System.String)">
+            <summary>
+            功能描述: 通过N个字段拼写linq查询数组对象 参考
+            创　　建: liyongguo
+            创建日期: 2021-08-19 09:48:13
+            任务编号: QC检测维护
+            </summary>
+            <param name="keyValue">条件值</param>
+            <param name="keyValue2">条件值</param>
+            <returns>返回列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_TestItemMaintenanceController.GetList_TestOtherEntity(System.String)">
+            <summary>
+            功能描述: 查询列表, 不分页,返回不是当前实体,使用另一个实体进行返回 参考示例
+            创　　建: liyongguo
+            创建日期: 2021-08-19 09:48:13
+            任务编号: QC检测维护
+            </summary>
+            <returns>返回列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_TestItemMaintenanceController.GetDataTable_TestOtherEntity(System.String)">
+            <summary>
+            功能描述: 查询列表, 不分页,返回不是当前实体,使用另一个数据表进行返回 参考示例
+            创　　建: liyongguo
+            创建日期: 2021-08-19 09:48:13
+            任务编号: QC检测维护
+            </summary>
+            <returns>返回列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_TestItemMaintenanceController.QC_TestItemMaintenance_export(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 导出 列表到EXCEL 
+            创　　建: liyongguo
+            创建日期: 2021-08-19 09:48:13
+            任务编号: QC检测维护
+            </summary>
+            <param name="jo">queryJson 查询参数</param>
+            <returns>链接地址</returns>
+        </member>
+        <member name="T:ALP.Application.WebApi.Controllers.QualityManage.QC_TestMaintenanceController">
+            <summary>
+            1.创建日期: 2021-08-19
+            2.创建作者: liyongguo
+            3.功能描述: QC_TestMaintenanceController 控制器 友情提示: 如果是移动APP接口使用请把[Auth]注释掉
+            4.任务编号: QC检测维护
+            5.最后修改日期: 
+            6.最后修改作者: 
+            </summary>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_TestMaintenanceController.test">
+            <summary>
+            功能描述: 测试接口
+            创　　建: liyongguo
+            创建日期: 2021-08-19 09:48:13
+            任务编号: QC检测维护
+            </summary>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_TestMaintenanceController.QC_TestMaintenancePageList(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 获取列表(分页) 数据支持查询与分页
+            创　　建: liyongguo
+            创建日期: 2021-08-19 09:48:13
+            任务编号: QC检测维护
+            </summary>
+            <param name="jo">pagination 分页参数;queryJson 查询参数</param>
+            <returns>返回分页列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_TestMaintenanceController.GetwlZList(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            获取物料组
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_TestMaintenanceController.QC_TestMaintenancePageDataTableList(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 获取列表(分页) 数据支持查询与分页
+            创　　建: liyongguo
+            创建日期: 2021-08-19 09:48:13
+            任务编号: QC检测维护
+            </summary>
+            <param name="jo">pagination 分页参数;queryJson 查询参数</param>
+            <returns>返回分页列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_TestMaintenanceController.GetQC_TestMaintenanceList(System.String)">
+            <summary>
+            功能描述: 获取所有列表, 不分页, 适用于下拉列表使用
+            创　　建: liyongguo
+            创建日期: 2021-08-19 09:48:13
+            任务编号: QC检测维护
+            </summary>
+            <returns>返回列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_TestMaintenanceController.SaveQC_TestMaintenance(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 保存表单（新增、修改）
+            创　　建: liyongguo
+            创建日期: 2021-08-19 09:48:13
+            任务编号: QC检测维护
+            </summary>
+            <param name="jo">json参数, 包含keyValue 主键值, entity 实体对象 </param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_TestMaintenanceController.SaveBatchQC_TestMaintenance(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 导入 保存表单（新增、修改）
+            创　　建: liyongguo
+            创建日期: 2021-08-19 09:48:13
+            任务编号: QC检测维护
+            </summary>
+            <param name="jo">json参数, entity 实体对象数组</param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_TestMaintenanceController.DeleteQC_TestMaintenance(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 删除, 通过主键删除
+            创　　建: liyongguo
+            创建日期: 2021-08-19 09:48:13
+            任务编号: QC检测维护
+            </summary>
+            <param name="jo">json参数</param>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_TestMaintenanceController.RemoveQC_TestMaintenance(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 假删除, 通过主键删除, 删除标记设置为0
+            创　　建: liyongguo
+            创建日期: 2021-08-19 09:48:13
+            任务编号: QC检测维护
+            </summary>
+            <param name="jo">json参数</param>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_TestMaintenanceController.GetFormJson(System.String)">
+            <summary>
+            功能描述: 获取实体
+            创　　建: liyongguo
+            创建日期: 2021-08-19 09:48:13
+            任务编号: QC检测维护
+            </summary>
+            <param name="keyValue">主键值</param>
+            <returns>QC_TestMaintenanceEntity</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_TestMaintenanceController.GetEntityByQuery(System.String)">
+            <summary>
+            功能描述: 通过某字段(不是主键)查询对象
+            创　　建: liyongguo
+            创建日期: 2021-08-19 09:48:13
+            任务编号: QC检测维护
+            </summary>
+            <param name="keyValue">主键值</param>
+            <returns>QC_TestMaintenanceEntity</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_TestMaintenanceController.GetEntityByLinq(System.String,System.String)">
+            <summary>
+            功能描述: 通过N个字段拼写linq查询数组对象 参考
+            创　　建: liyongguo
+            创建日期: 2021-08-19 09:48:13
+            任务编号: QC检测维护
+            </summary>
+            <param name="keyValue">条件值</param>
+            <param name="keyValue2">条件值</param>
+            <returns>返回列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_TestMaintenanceController.GetList_TestOtherEntity(System.String)">
+            <summary>
+            功能描述: 查询列表, 不分页,返回不是当前实体,使用另一个实体进行返回 参考示例
+            创　　建: liyongguo
+            创建日期: 2021-08-19 09:48:13
+            任务编号: QC检测维护
+            </summary>
+            <returns>返回列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_TestMaintenanceController.GetDataTable_TestOtherEntity(System.String)">
+            <summary>
+            功能描述: 查询列表, 不分页,返回不是当前实体,使用另一个数据表进行返回 参考示例
+            创　　建: liyongguo
+            创建日期: 2021-08-19 09:48:13
+            任务编号: QC检测维护
+            </summary>
+            <returns>返回列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_TestMaintenanceController.QC_TestMaintenance_export(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 导出 列表到EXCEL 
+            创　　建: liyongguo
+            创建日期: 2021-08-19 09:48:13
+            任务编号: QC检测维护
+            </summary>
+            <param name="jo">queryJson 查询参数</param>
+            <returns>链接地址</returns>
+        </member>
+        <member name="T:ALP.Application.WebApi.Controllers.QualityManage.QC_TestMethodItemMaintenanceController">
+            <summary>
+            1.创建日期: 2021-08-27
+            2.创建作者: 丁零
+            3.功能描述: QC_TestMethodItemMaintenanceController 控制器 友情提示: 如果是移动APP接口使用请把[Auth]注释掉
+            4.任务编号: IQC检验项目配置表
+            5.最后修改日期: 
+            6.最后修改作者: 
+            </summary>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_TestMethodItemMaintenanceController.test">
+            <summary>
+            功能描述: 测试接口
+            创　　建: 丁零
+            创建日期: 2021-08-27 10:43:15
+            任务编号: IQC检验项目配置表
+            </summary>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_TestMethodItemMaintenanceController.QC_TestMethodItemMaintenancePageList(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 获取列表(分页) 数据支持查询与分页
+            创　　建: 丁零
+            创建日期: 2021-08-27 10:43:15
+            任务编号: IQC检验项目配置表
+            </summary>
+            <param name="jo">pagination 分页参数;queryJson 查询参数</param>
+            <returns>返回分页列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_TestMethodItemMaintenanceController.QC_TestMethodItemMaintenancePageDataTableList(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 获取列表(分页) 数据支持查询与分页
+            创　　建: 丁零
+            创建日期: 2021-08-27 10:43:15
+            任务编号: IQC检验项目配置表
+            </summary>
+            <param name="jo">pagination 分页参数;queryJson 查询参数</param>
+            <returns>返回分页列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_TestMethodItemMaintenanceController.GetQC_TestMethodItemMaintenanceList(System.String)">
+            <summary>
+            功能描述: 获取所有列表, 不分页, 适用于下拉列表使用
+            创　　建: 丁零
+            创建日期: 2021-08-27 10:43:15
+            任务编号: IQC检验项目配置表
+            </summary>
+            <returns>返回列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_TestMethodItemMaintenanceController.SaveQC_TestMethodItemMaintenance(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 保存表单（新增、修改）
+            创　　建: 丁零
+            创建日期: 2021-08-27 10:43:15
+            任务编号: IQC检验项目配置表
+            </summary>
+            <param name="jo">json参数, 包含keyValue 主键值, entity 实体对象 </param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_TestMethodItemMaintenanceController.SaveBatchQC_TestMethodItemMaintenance(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 导入 保存表单（新增、修改）
+            创　　建: 丁零
+            创建日期: 2021-08-27 10:43:15
+            任务编号: IQC检验项目配置表
+            </summary>
+            <param name="jo">json参数, entity 实体对象数组</param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_TestMethodItemMaintenanceController.DeleteQC_TestMethodItemMaintenance(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 删除, 通过主键删除
+            创　　建: 丁零
+            创建日期: 2021-08-27 10:43:15
+            任务编号: IQC检验项目配置表
+            </summary>
+            <param name="jo">json参数</param>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_TestMethodItemMaintenanceController.RemoveQC_TestMethodItemMaintenance(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 假删除, 通过主键删除, 删除标记设置为0
+            创　　建: 丁零
+            创建日期: 2021-08-27 10:43:15
+            任务编号: IQC检验项目配置表
+            </summary>
+            <param name="jo">json参数</param>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_TestMethodItemMaintenanceController.GetFormJson(System.String)">
+            <summary>
+            功能描述: 获取实体
+            创　　建: 丁零
+            创建日期: 2021-08-27 10:43:15
+            任务编号: IQC检验项目配置表
+            </summary>
+            <param name="keyValue">主键值</param>
+            <returns>QC_TestMethodItemMaintenanceEntity</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_TestMethodItemMaintenanceController.GetEntityByQuery(System.String)">
+            <summary>
+            功能描述: 通过某字段(不是主键)查询对象
+            创　　建: 丁零
+            创建日期: 2021-08-27 10:43:15
+            任务编号: IQC检验项目配置表
+            </summary>
+            <param name="keyValue">主键值</param>
+            <returns>QC_TestMethodItemMaintenanceEntity</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_TestMethodItemMaintenanceController.GetEntityByLinq(System.String,System.String)">
+            <summary>
+            功能描述: 通过N个字段拼写linq查询数组对象 参考
+            创　　建: 丁零
+            创建日期: 2021-08-27 10:43:15
+            任务编号: IQC检验项目配置表
+            </summary>
+            <param name="keyValue">条件值</param>
+            <param name="keyValue2">条件值</param>
+            <returns>返回列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_TestMethodItemMaintenanceController.GetList_TestOtherEntity(System.String)">
+            <summary>
+            功能描述: 查询列表, 不分页,返回不是当前实体,使用另一个实体进行返回 参考示例
+            创　　建: 丁零
+            创建日期: 2021-08-27 10:43:15
+            任务编号: IQC检验项目配置表
+            </summary>
+            <returns>返回列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_TestMethodItemMaintenanceController.GetDataTable_TestOtherEntity(System.String)">
+            <summary>
+            功能描述: 查询列表, 不分页,返回不是当前实体,使用另一个数据表进行返回 参考示例
+            创　　建: 丁零
+            创建日期: 2021-08-27 10:43:15
+            任务编号: IQC检验项目配置表
+            </summary>
+            <returns>返回列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_TestMethodItemMaintenanceController.QC_TestMethodItemMaintenance_export(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 导出 列表到EXCEL 
+            创　　建: 丁零
+            创建日期: 2021-08-27 10:43:15
+            任务编号: IQC检验项目配置表
+            </summary>
+            <param name="jo">queryJson 查询参数</param>
+            <returns>链接地址</returns>
+        </member>
+        <member name="T:ALP.Application.WebApi.Controllers.QualityManage.QC_TestMethodMaintenanceController">
+            <summary>
+            1.创建日期: 2021-08-27
+            2.创建作者: 丁零
+            3.功能描述: QC_TestMethodMaintenanceController 控制器 友情提示: 如果是移动APP接口使用请把[Auth]注释掉
+            4.任务编号: IQC检验方法配置表
+            5.最后修改日期: 
+            6.最后修改作者: 
+            </summary>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_TestMethodMaintenanceController.test">
+            <summary>
+            功能描述: 测试接口
+            创　　建: 丁零
+            创建日期: 2021-08-27 10:44:26
+            任务编号: IQC检验方法配置表
+            </summary>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_TestMethodMaintenanceController.QC_TestMethodMaintenancePageList(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 获取列表(分页) 数据支持查询与分页
+            创　　建: 丁零
+            创建日期: 2021-08-27 10:44:26
+            任务编号: IQC检验方法配置表
+            </summary>
+            <param name="jo">pagination 分页参数;queryJson 查询参数</param>
+            <returns>返回分页列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_TestMethodMaintenanceController.QC_TestMethodMaintenancePageDataTableList(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 获取列表(分页) 数据支持查询与分页
+            创　　建: 丁零
+            创建日期: 2021-08-27 10:44:26
+            任务编号: IQC检验方法配置表
+            </summary>
+            <param name="jo">pagination 分页参数;queryJson 查询参数</param>
+            <returns>返回分页列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_TestMethodMaintenanceController.GetQC_TestMethodMaintenanceList(System.String)">
+            <summary>
+            功能描述: 获取所有列表, 不分页, 适用于下拉列表使用
+            创　　建: 丁零
+            创建日期: 2021-08-27 10:44:26
+            任务编号: IQC检验方法配置表
+            </summary>
+            <returns>返回列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_TestMethodMaintenanceController.SaveQC_TestMethodMaintenance(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 保存表单（新增、修改）
+            创　　建: 丁零
+            创建日期: 2021-08-27 10:44:26
+            任务编号: IQC检验方法配置表
+            </summary>
+            <param name="jo">json参数, 包含keyValue 主键值, entity 实体对象 </param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_TestMethodMaintenanceController.SaveBatchQC_TestMethodMaintenance(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 导入 保存表单（新增、修改）
+            创　　建: 丁零
+            创建日期: 2021-08-27 10:44:26
+            任务编号: IQC检验方法配置表
+            </summary>
+            <param name="jo">json参数, entity 实体对象数组</param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_TestMethodMaintenanceController.DeleteQC_TestMethodMaintenance(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 删除, 通过主键删除
+            创　　建: 丁零
+            创建日期: 2021-08-27 10:44:26
+            任务编号: IQC检验方法配置表
+            </summary>
+            <param name="jo">json参数</param>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_TestMethodMaintenanceController.RemoveQC_TestMethodMaintenance(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 假删除, 通过主键删除, 删除标记设置为0
+            创　　建: 丁零
+            创建日期: 2021-08-27 10:44:26
+            任务编号: IQC检验方法配置表
+            </summary>
+            <param name="jo">json参数</param>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_TestMethodMaintenanceController.GetFormJson(System.String)">
+            <summary>
+            功能描述: 获取实体
+            创　　建: 丁零
+            创建日期: 2021-08-27 10:44:26
+            任务编号: IQC检验方法配置表
+            </summary>
+            <param name="keyValue">主键值</param>
+            <returns>QC_TestMethodMaintenanceEntity</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_TestMethodMaintenanceController.GetEntityByQuery(System.String)">
+            <summary>
+            功能描述: 通过某字段(不是主键)查询对象
+            创　　建: 丁零
+            创建日期: 2021-08-27 10:44:26
+            任务编号: IQC检验方法配置表
+            </summary>
+            <param name="keyValue">主键值</param>
+            <returns>QC_TestMethodMaintenanceEntity</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_TestMethodMaintenanceController.GetEntityByLinq(System.String,System.String)">
+            <summary>
+            功能描述: 通过N个字段拼写linq查询数组对象 参考
+            创　　建: 丁零
+            创建日期: 2021-08-27 10:44:26
+            任务编号: IQC检验方法配置表
+            </summary>
+            <param name="keyValue">条件值</param>
+            <param name="keyValue2">条件值</param>
+            <returns>返回列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_TestMethodMaintenanceController.GetList_TestOtherEntity(System.String)">
+            <summary>
+            功能描述: 查询列表, 不分页,返回不是当前实体,使用另一个实体进行返回 参考示例
+            创　　建: 丁零
+            创建日期: 2021-08-27 10:44:26
+            任务编号: IQC检验方法配置表
+            </summary>
+            <returns>返回列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_TestMethodMaintenanceController.GetDataTable_TestOtherEntity(System.String)">
+            <summary>
+            功能描述: 查询列表, 不分页,返回不是当前实体,使用另一个数据表进行返回 参考示例
+            创　　建: 丁零
+            创建日期: 2021-08-27 10:44:26
+            任务编号: IQC检验方法配置表
+            </summary>
+            <returns>返回列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_TestMethodMaintenanceController.QC_TestMethodMaintenance_export(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 导出 列表到EXCEL 
+            创　　建: 丁零
+            创建日期: 2021-08-27 10:44:26
+            任务编号: IQC检验方法配置表
+            </summary>
+            <param name="jo">queryJson 查询参数</param>
+            <returns>链接地址</returns>
+        </member>
+        <member name="T:ALP.Application.WebApi.Controllers.QualityManage.QC_TestMethodMaterialController">
+            <summary>
+            1.创建日期: 2021-09-09
+            2.创建作者: liyongguo
+            3.功能描述: QC_TestMethodMaterialController 控制器 友情提示: 如果是移动APP接口使用请把[Auth]注释掉
+            4.任务编号: 原料/IQC检测物料小类关联表
+            5.最后修改日期: 
+            6.最后修改作者: 
+            </summary>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_TestMethodMaterialController.test">
+            <summary>
+            功能描述: 测试接口
+            创　　建: liyongguo
+            创建日期: 2021-09-09 17:05:43
+            任务编号: 原料/IQC检测物料小类关联表
+            </summary>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_TestMethodMaterialController.GetwlZList(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            获取物料组
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_TestMethodMaterialController.QC_TestMethodMaterialPageList(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 获取列表(分页) 数据支持查询与分页
+            创　　建: liyongguo
+            创建日期: 2021-09-09 17:05:43
+            任务编号: 原料/IQC检测物料小类关联表
+            </summary>
+            <param name="jo">pagination 分页参数;queryJson 查询参数</param>
+            <returns>返回分页列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_TestMethodMaterialController.QC_TestMethodMaterialPageDataTableList(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 获取列表(分页) 数据支持查询与分页
+            创　　建: liyongguo
+            创建日期: 2021-09-09 17:05:43
+            任务编号: 原料/IQC检测物料小类关联表
+            </summary>
+            <param name="jo">pagination 分页参数;queryJson 查询参数</param>
+            <returns>返回分页列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_TestMethodMaterialController.GetQC_TestMethodMaterialList(System.String)">
+            <summary>
+            功能描述: 获取所有列表, 不分页, 适用于下拉列表使用
+            创　　建: liyongguo
+            创建日期: 2021-09-09 17:05:43
+            任务编号: 原料/IQC检测物料小类关联表
+            </summary>
+            <returns>返回列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_TestMethodMaterialController.SaveQC_TestMethodMaterial(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 保存表单（新增、修改）
+            创　　建: liyongguo
+            创建日期: 2021-09-09 17:05:43
+            任务编号: 原料/IQC检测物料小类关联表
+            </summary>
+            <param name="jo">json参数, 包含keyValue 主键值, entity 实体对象 </param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_TestMethodMaterialController.SaveBatchQC_TestMethodMaterial(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 导入 保存表单（新增、修改）
+            创　　建: liyongguo
+            创建日期: 2021-09-09 17:05:43
+            任务编号: 原料/IQC检测物料小类关联表
+            </summary>
+            <param name="jo">json参数, entity 实体对象数组</param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_TestMethodMaterialController.DeleteQC_TestMethodMaterial(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 删除, 通过主键删除
+            创　　建: liyongguo
+            创建日期: 2021-09-09 17:05:43
+            任务编号: 原料/IQC检测物料小类关联表
+            </summary>
+            <param name="jo">json参数</param>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_TestMethodMaterialController.RemoveQC_TestMethodMaterial(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 假删除, 通过主键删除, 删除标记设置为0
+            创　　建: liyongguo
+            创建日期: 2021-09-09 17:05:43
+            任务编号: 原料/IQC检测物料小类关联表
+            </summary>
+            <param name="jo">json参数</param>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_TestMethodMaterialController.GetFormJson(System.String)">
+            <summary>
+            功能描述: 获取实体
+            创　　建: liyongguo
+            创建日期: 2021-09-09 17:05:43
+            任务编号: 原料/IQC检测物料小类关联表
+            </summary>
+            <param name="keyValue">主键值</param>
+            <returns>QC_TestMethodMaterialEntity</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_TestMethodMaterialController.GetEntityByQuery(System.String)">
+            <summary>
+            功能描述: 通过某字段(不是主键)查询对象
+            创　　建: liyongguo
+            创建日期: 2021-09-09 17:05:43
+            任务编号: 原料/IQC检测物料小类关联表
+            </summary>
+            <param name="keyValue">主键值</param>
+            <returns>QC_TestMethodMaterialEntity</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_TestMethodMaterialController.GetEntityByLinq(System.String,System.String)">
+            <summary>
+            功能描述: 通过N个字段拼写linq查询数组对象 参考
+            创　　建: liyongguo
+            创建日期: 2021-09-09 17:05:43
+            任务编号: 原料/IQC检测物料小类关联表
+            </summary>
+            <param name="keyValue">条件值</param>
+            <param name="keyValue2">条件值</param>
+            <returns>返回列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_TestMethodMaterialController.GetList_TestOtherEntity(System.String)">
+            <summary>
+            功能描述: 查询列表, 不分页,返回不是当前实体,使用另一个实体进行返回 参考示例
+            创　　建: liyongguo
+            创建日期: 2021-09-09 17:05:43
+            任务编号: 原料/IQC检测物料小类关联表
+            </summary>
+            <returns>返回列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_TestMethodMaterialController.GetDataTable_TestOtherEntity(System.String)">
+            <summary>
+            功能描述: 查询列表, 不分页,返回不是当前实体,使用另一个数据表进行返回 参考示例
+            创　　建: liyongguo
+            创建日期: 2021-09-09 17:05:43
+            任务编号: 原料/IQC检测物料小类关联表
+            </summary>
+            <returns>返回列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_TestMethodMaterialController.QC_TestMethodMaterial_export(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 导出 列表到EXCEL 
+            创　　建: liyongguo
+            创建日期: 2021-09-09 17:05:43
+            任务编号: 原料/IQC检测物料小类关联表
+            </summary>
+            <param name="jo">queryJson 查询参数</param>
+            <returns>链接地址</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_TestMethodMaterialController.QC_TestMethodItemMaintenanceMaterial(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            查询检测项目-原材料库存检验
+            </summary>
+            <param name="jo"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ALP.Application.WebApi.Controllers.QualityManage.QC_TestProcessMaintenanceController">
+            <summary>
+            1.创建日期: 2021-08-19
+            2.创建作者: liyongguo
+            3.功能描述: QC_TestProcessMaintenanceController 控制器 友情提示: 如果是移动APP接口使用请把[Auth]注释掉
+            4.任务编号: QC检测维护
+            5.最后修改日期: 
+            6.最后修改作者: 
+            </summary>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_TestProcessMaintenanceController.QC_TestProcessMaintenancePageList(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 获取列表(分页) 数据支持查询与分页
+            创　　建: liyongguo
+            创建日期: 2021-08-19 09:53:08
+            任务编号: QC检测维护
+            </summary>
+            <param name="jo">pagination 分页参数;queryJson 查询参数</param>
+            <returns>返回分页列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_TestProcessMaintenanceController.QC_TestProcessMaintenancePageDataTableList(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 获取列表(分页) 数据支持查询与分页
+            创　　建: liyongguo
+            创建日期: 2021-08-19 09:53:08
+            任务编号: QC检测维护
+            </summary>
+            <param name="jo">pagination 分页参数;queryJson 查询参数</param>
+            <returns>返回分页列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_TestProcessMaintenanceController.GetQC_TestProcessMaintenanceList(System.String)">
+            <summary>
+            功能描述: 获取所有列表, 不分页, 适用于下拉列表使用
+            创　　建: liyongguo
+            创建日期: 2021-08-19 09:53:08
+            任务编号: QC检测维护
+            </summary>
+            <returns>返回列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_TestProcessMaintenanceController.SaveQC_TestProcessMaintenance(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 保存表单（新增、修改）
+            创　　建: liyongguo
+            创建日期: 2021-08-19 09:53:08
+            任务编号: QC检测维护
+            </summary>
+            <param name="jo">json参数, 包含keyValue 主键值, entity 实体对象 </param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_TestProcessMaintenanceController.SaveBatchQC_TestProcessMaintenance(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 导入 保存表单（新增、修改）
+            创　　建: liyongguo
+            创建日期: 2021-08-19 09:53:08
+            任务编号: QC检测维护
+            </summary>
+            <param name="jo">json参数, entity 实体对象数组</param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_TestProcessMaintenanceController.DeleteQC_TestProcessMaintenance(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 删除, 通过主键删除
+            创　　建: liyongguo
+            创建日期: 2021-08-19 09:53:08
+            任务编号: QC检测维护
+            </summary>
+            <param name="jo">json参数</param>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_TestProcessMaintenanceController.RemoveQC_TestProcessMaintenance(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 假删除, 通过主键删除, 删除标记设置为0
+            创　　建: liyongguo
+            创建日期: 2021-08-19 09:53:08
+            任务编号: QC检测维护
+            </summary>
+            <param name="jo">json参数</param>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_TestProcessMaintenanceController.GetFormJson(System.String)">
+            <summary>
+            功能描述: 获取实体
+            创　　建: liyongguo
+            创建日期: 2021-08-19 09:53:08
+            任务编号: QC检测维护
+            </summary>
+            <param name="keyValue">主键值</param>
+            <returns>QC_TestProcessMaintenanceEntity</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_TestProcessMaintenanceController.GetEntityByQuery(System.String)">
+            <summary>
+            功能描述: 通过某字段(不是主键)查询对象
+            创　　建: liyongguo
+            创建日期: 2021-08-19 09:53:08
+            任务编号: QC检测维护
+            </summary>
+            <param name="keyValue">主键值</param>
+            <returns>QC_TestProcessMaintenanceEntity</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_TestProcessMaintenanceController.GetEntityByLinq(System.String,System.String)">
+            <summary>
+            功能描述: 通过N个字段拼写linq查询数组对象 参考
+            创　　建: liyongguo
+            创建日期: 2021-08-19 09:53:08
+            任务编号: QC检测维护
+            </summary>
+            <param name="keyValue">条件值</param>
+            <param name="keyValue2">条件值</param>
+            <returns>返回列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_TestProcessMaintenanceController.GetList_TestOtherEntity(System.String)">
+            <summary>
+            功能描述: 查询列表, 不分页,返回不是当前实体,使用另一个实体进行返回 参考示例
+            创　　建: liyongguo
+            创建日期: 2021-08-19 09:53:08
+            任务编号: QC检测维护
+            </summary>
+            <returns>返回列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_TestProcessMaintenanceController.GetDataTable_TestOtherEntity(System.String)">
+            <summary>
+            功能描述: 查询列表, 不分页,返回不是当前实体,使用另一个数据表进行返回 参考示例
+            创　　建: liyongguo
+            创建日期: 2021-08-19 09:53:08
+            任务编号: QC检测维护
+            </summary>
+            <returns>返回列表</returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Controllers.QualityManage.QC_TestProcessMaintenanceController.QC_TestProcessMaintenance_export(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            功能描述: 导出 列表到EXCEL 
+            创　　建: liyongguo
+            创建日期: 2021-08-19 09:53:08
+            任务编号: QC检测维护
+            </summary>
+            <param name="jo">queryJson 查询参数</param>
+            <returns>链接地址</returns>
+        </member>
+        <member name="T:ALP.Application.WebApi.Models.Account.DeleteAccountParms">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ALP.Application.WebApi.Models.Account.DeleteAccountParms.ID">
+            <summary>
+            主键ID
+            </summary>
+        </member>
+        <member name="P:ALP.Application.WebApi.Models.Account.GetAccountListParms.FirstName">
+            <summary>
+            名
+            </summary>
+        </member>
+        <member name="P:ALP.Application.WebApi.Models.Account.GetAccountListParms.LastName">
+            <summary>
+            姓
+            </summary>
+        </member>
+        <member name="P:ALP.Application.WebApi.Models.Account.GetAccountListParms.UserEnCode">
+            <summary>
+            工牌
+            </summary>
+        </member>
+        <member name="P:ALP.Application.WebApi.Models.Account.GetAccountListParms.PagingParms">
+            <summary>
+            分页对象
+            </summary>
+        </member>
+        <member name="T:ALP.Application.WebApi.Models.System.GetProcessParms">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ALP.Application.WebApi.Models.System.GetProcessParms.WorkShopCode">
+            <summary>
+            车间码
+            </summary>
+        </member>
+        <member name="T:ALP.Application.WebApi.Models.System.GetStationParms">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:ALP.Application.WebApi.Models.System.GetStationParms.WorkShopCode">
+            <summary>
+            车间编码
+            </summary>
+        </member>
+        <member name="P:ALP.Application.WebApi.Models.System.GetStationParms.ProcessCode">
+            <summary>
+            工序编码
+            </summary>
+        </member>
+        <member name="T:ALP.Application.WebApi.Models.System.GetWorkShopParms">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:ALP.Application.WebApi.Util.TimeHelper">
+            <summary>
+            定时任务操作
+            </summary>
+        </member>
+        <member name="M:ALP.Application.WebApi.Util.TimeHelper.Start">
+            <summary>
+            启动定时任务
+            </summary>
+        </member>
+        <member name="M:ALP.Application.WebApi.Util.TimeHelper.TimeOperation(System.Object,System.Timers.ElapsedEventArgs)">
+            <summary>
+            定时操作内容：根据设备点检规则定时生成设备点检计划
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:ALP.Application.WebApi.Util.TimeHelper.GetDays(System.DateTimeOffset,System.String,System.Int32)">
+            <summary>
+            获取保养结束时间
+            </summary>
+            <param name="dtMark"></param>
+            <param name="unitMark"></param>
+            <param name="periodMark"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Util.TimeHelper.CreatePlanFromNow(System.Data.DataTable,System.String,System.DateTimeOffset,System.DateTimeOffset)">
+            <summary>
+            
+            </summary>
+            <param name="dtRuleData"></param>
+            <param name="equipCode"></param>
+            <param name="lastFinishTime"></param>
+            <param name="lastStartTime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Util.TimeHelper.CreatePlanFromNull(System.Data.DataTable,System.String)">
+            <summary>
+            在没有保养计划时创造保养计划
+            </summary>
+            <param name="dt"></param>
+            <param name="equipCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Util.TimeHelper.ToString(System.Object)">
+            <summary>
+             转换为字符串
+            </summary>
+            <param name="o"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Util.TimeHelper.ToDecimal(System.Object)">
+            <summary>
+             转换为decimal
+            </summary>
+            <param name="o"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Util.TimeHelper.ToInt(System.Object)">
+            <summary>
+             转换为int
+            </summary>
+            <param name="o"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.Application.WebApi.Util.TimeHelper.ToBool(System.Object)">
+            <summary>
+             转换为bool
+            </summary>
+            <param name="o"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ALP.WebApi.APIModel.ModelConvertHelper`1">
+            <summary>    
+            实体转换辅助类 DataTable转List、DataTable转成Dto
+            </summary>    
+        </member>
+        <member name="M:ALP.WebApi.APIModel.ModelConvertHelper`1.ConvertToModelDto(System.Data.DataTable)">
+            <summary>
+            DataTable转成Dto
+            </summary>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.WebApi.APIModel.ModelConvertHelper`1.ToDataTable``1(System.Collections.Generic.List{``0})">
+            <summary>
+            将实体集合转换为DataTable
+            </summary>
+            <typeparam name="T">实体类型</typeparam>
+            <param name="entities">实体集合</param>
+        </member>
+        <member name="M:ALP.WebApi.APIModel.ModelConvertHelper`1.CreateTable``1">
+            <summary>
+            创建表
+            </summary>
+        </member>
+        <member name="M:ALP.WebApi.APIModel.ModelConvertHelper`1.FillData``1(System.Data.DataTable,System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            填充数据
+            </summary>
+        </member>
+        <member name="M:ALP.WebApi.APIModel.ModelConvertHelper`1.CreateRow``1(System.Data.DataTable,``0)">
+            <summary>
+            创建行
+            </summary>
+        </member>
+        <member name="T:ALP.WebApi.Common.URLTool">
+            <summary>
+            URL工具类
+            </summary>
+        </member>
+        <member name="F:ALP.WebApi.Common.URLTool._resource_url">
+            <summary>
+            资源地址
+            </summary>
+        </member>
+        <member name="M:ALP.WebApi.Common.URLTool.GetAPPUploadURL(System.String)">
+            <summary>
+            获取完整的app下载地址
+            </summary>
+            <param name="appName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.WebApi.Controllers.BaseManage.BaseShiftController.GetListJson(System.String)">
+            <summary>
+            获取列表
+            </summary>
+            <param name="queryJson">查询参数</param>
+            <returns>返回列表Json</returns>
+        </member>
+        <member name="M:ALP.WebApi.Controllers.BaseManage.BaseShiftController.GetPageListJson(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            获取列表(分页)
+            </summary>
+            <param name="pagination">分页参数</param>
+            <param name="queryJson">查询参数</param>
+            <returns>返回分页列表Json</returns>
+        </member>
+        <member name="M:ALP.WebApi.Controllers.BaseManage.BaseShiftController.GetFormJson(System.Guid)">
+            <summary>
+            获取实体 
+            </summary>
+            <param name="keyValue">主键值</param>
+            <returns>返回对象Json</returns>
+        </member>
+        <member name="M:ALP.WebApi.Controllers.BaseManage.BaseShiftController.Delete(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            删除数据
+            </summary>
+            <param name="jo">json参数</param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.WebApi.Controllers.BaseManage.BaseShiftController.Save(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            保存表单（新增、修改）
+            </summary>
+            <param name="jo">json参数</param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.WebApi.Controllers.DemoManage.UIGridDemoController.GetPageListJson(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            获取列表(分页)
+            </summary>
+            <param name="pagination">分页参数</param>
+            <param name="queryJson">查询参数</param>
+            <returns>返回分页列表Json</returns>
+        </member>
+        <member name="M:ALP.WebApi.Controllers.DemoManage.UIGridDemoController.GetFormJson(System.String)">
+            <summary>
+            获取实体 
+            </summary>
+            <param name="keyValue">主键值</param>
+            <returns>返回对象Json</returns>
+        </member>
+        <member name="M:ALP.WebApi.Controllers.DemoManage.UIGridDemoController.Delete(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            删除分类
+            </summary>
+            <param name="keyValue">主键值</param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.WebApi.Controllers.DemoManage.UIGridDemoController.Save(Newtonsoft.Json.Linq.JObject)">
+            <summary>
+            保存分类表单（新增、修改）
+            </summary>
+            <param name="keyValue">主键值</param>
+            <param name="dataItemEntity">分类实体</param>
+            <returns></returns>
+        </member>
+        <member name="M:ALP.WebApi.Filter.APIFilterAttribute.OnActionExecuting(System.Web.Http.Controllers.HttpActionContext)">
+            <summary>
+            请求之前
+            </summary>
+            <param name="actionContext"></param>
+        </member>
+        <member name="M:ALP.WebApi.Filter.APIFilterAttribute.OnActionExecuted(System.Web.Http.Filters.HttpActionExecutedContext)">
+            <summary>
+            请求响应
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="T:ALP.WebApi.Filter.AuthAttribute">
+            <summary>
+            接口请求认证授权特性
+            TODO: 实现校验操作用户登录状态，操作权限等
+            </summary>
+        </member>
+        <member name="T:ALP.WebApi.Filter.HttpHeaderFilter">
+            <summary>
+            Swagger接口帮助请求头标注过滤器
+            </summary>
+        </member>
+        <member name="M:ALP.WebApi.Filter.HttpHeaderFilter.Apply(Swashbuckle.Swagger.Operation,Swashbuckle.Swagger.SchemaRegistry,System.Web.Http.Description.ApiDescription)">
+            <summary>
+            
+            </summary>
+            <param name="operation"></param>
+            <param name="schemaRegistry"></param>
+            <param name="apiDescription"></param>
+        </member>
+        <member name="T:ALP.WebApi.Models.Account.LoginRequestParms">
+            <summary>
+            登录接口参数
+            </summary>    
+        </member>
+        <member name="P:ALP.WebApi.Models.Account.LoginRequestParms.UserName">
+            <summary>
+            登录名
+            </summary>
+        </member>
+        <member name="P:ALP.WebApi.Models.Account.LoginRequestParms.Password">
+            <summary>
+            密码
+            </summary>
+        </member>
+        <member name="T:ALP.WebApi.Models.BaseResponseMessage">
+            <summary>
+            默认请求响应结果类
+            </summary>
+        </member>
+        <member name="T:ALP.WebApi.Models.BaseResponseResult`1">
+            <summary>
+            HTTP请求响应结果基类
+            </summary>
+        </member>
+        <member name="P:ALP.WebApi.Models.BaseResponseResult`1.success">
+            <summary>
+            是否成功
+            </summary>
+        </member>
+        <member name="P:ALP.WebApi.Models.BaseResponseResult`1.returnMsg">
+            <summary>
+            响应消息
+            </summary>
+        </member>
+        <member name="P:ALP.WebApi.Models.BaseResponseResult`1.statusCode">
+            <summary>
+            业务状态码
+            </summary>
+        </member>
+        <member name="P:ALP.WebApi.Models.BaseResponseResult`1.resultData">
+            <summary>
+            业务结果集合
+            </summary>
+        </member>
+        <member name="P:ALP.WebApi.Models.BaseResponseResult.success">
+            <summary>
+            是否成功
+            </summary>
+        </member>
+        <member name="P:ALP.WebApi.Models.BaseResponseResult.returnMsg">
+            <summary>
+            响应消息
+            </summary>
+        </member>
+        <member name="P:ALP.WebApi.Models.BaseResponseResult.statusCode">
+            <summary>
+            业务状态码
+            </summary>
+        </member>
+        <member name="P:ALP.WebApi.Models.BaseResponseResult.resultData">
+            <summary>
+            业务结果集合
+            </summary>
+        </member>
+        <member name="T:ALP.WebApi.Models.ResponseResult`1">
+            <summary>
+            接口响应结果通用类
+            </summary>
+        </member>
+        <member name="P:ALP.WebApi.Models.ResponseResult`1.commandString">
+            <summary>
+            请求命令
+            </summary>
+        </member>
+        <member name="T:ALP.WebApi.Models.ResponseResult">
+            <summary>
+            接口响应结果通用类
+            </summary>
+        </member>
+        <member name="T:ALP.WebApi.Util.RequestHeaderKey">
+            <summary>
+            请求头参数键枚举
+            </summary>
+        </member>
+        <member name="F:ALP.WebApi.Util.RequestHeaderKey.UserCode">
+            <summary>
+            用户主键ID
+            </summary>
+        </member>
+        <member name="F:ALP.WebApi.Util.RequestHeaderKey.UserName">
+            <summary>
+            用户名称
+            </summary>
+        </member>
+        <member name="F:ALP.WebApi.Util.RequestHeaderKey.UDID">
+            <summary>
+            设备标识码
+            </summary>
+        </member>
+        <member name="F:ALP.WebApi.Util.RequestHeaderKey.Sign">
+            <summary>
+            签名
+            </summary>
+        </member>
+        <member name="F:ALP.WebApi.Util.RequestHeaderKey.TerminalType">
+            <summary>
+            终端类型
+            </summary>
+        </member>
+        <member name="F:ALP.WebApi.Util.RequestHeaderKey.Language">
+            <summary>
+            语言
+            </summary>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.MsgPushService">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.#ctor">
+            <remarks/>
+        </member>
+        <member name="E:ALP.WebApi.WebChatPushService.MsgPushService.SendMessageCompleted">
+            <remarks/>
+        </member>
+        <member name="E:ALP.WebApi.WebChatPushService.MsgPushService.GetDepartmentListCompleted">
+            <remarks/>
+        </member>
+        <member name="E:ALP.WebApi.WebChatPushService.MsgPushService.GetUserByDepidCompleted">
+            <remarks/>
+        </member>
+        <member name="E:ALP.WebApi.WebChatPushService.MsgPushService.GetUserByUseridCompleted">
+            <remarks/>
+        </member>
+        <member name="E:ALP.WebApi.WebChatPushService.MsgPushService.PushFirstPassYieldInfoCompleted">
+            <remarks/>
+        </member>
+        <member name="E:ALP.WebApi.WebChatPushService.MsgPushService.PushDefectTopThreeInfoCompleted">
+            <remarks/>
+        </member>
+        <member name="E:ALP.WebApi.WebChatPushService.MsgPushService.PushMaterielShortageInfoCompleted">
+            <remarks/>
+        </member>
+        <member name="E:ALP.WebApi.WebChatPushService.MsgPushService.PushMaterielDistSheetInfoCompleted">
+            <remarks/>
+        </member>
+        <member name="E:ALP.WebApi.WebChatPushService.MsgPushService.PushInWhExceptionFrozenInfoCompleted">
+            <remarks/>
+        </member>
+        <member name="E:ALP.WebApi.WebChatPushService.MsgPushService.PushEquipMouldRepairInfoCompleted">
+            <remarks/>
+        </member>
+        <member name="E:ALP.WebApi.WebChatPushService.MsgPushService.PushEquipMouldMaintainInfoCompleted">
+            <remarks/>
+        </member>
+        <member name="E:ALP.WebApi.WebChatPushService.MsgPushService.PushEquipSpecialVerifiInfoCompleted">
+            <remarks/>
+        </member>
+        <member name="E:ALP.WebApi.WebChatPushService.MsgPushService.PushChangeMouldInfoCompleted">
+            <remarks/>
+        </member>
+        <member name="E:ALP.WebApi.WebChatPushService.MsgPushService.PushSchedulingInfoCompleted">
+            <remarks/>
+        </member>
+        <member name="E:ALP.WebApi.WebChatPushService.MsgPushService.AutoPushSchedulingInfoCompleted">
+            <remarks/>
+        </member>
+        <member name="E:ALP.WebApi.WebChatPushService.MsgPushService.PushProFactorMaterialsInfoCompleted">
+            <remarks/>
+        </member>
+        <member name="E:ALP.WebApi.WebChatPushService.MsgPushService.PushEquipLineStopInfoCompleted">
+            <remarks/>
+        </member>
+        <member name="E:ALP.WebApi.WebChatPushService.MsgPushService.PushJobWorkingInfoCompleted">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.SendMessage(System.String)">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.SendMessageAsync(System.String)">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.SendMessageAsync(System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.GetDepartmentList(System.String)">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.GetDepartmentListAsync(System.String)">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.GetDepartmentListAsync(System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.GetUserByDepid(System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.GetUserByDepidAsync(System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.GetUserByDepidAsync(System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.GetUserByUserid(System.String)">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.GetUserByUseridAsync(System.String)">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.GetUserByUseridAsync(System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushFirstPassYieldInfo(System.String,ALP.WebApi.WebChatPushService.FirstPassYieldEntity[])">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushFirstPassYieldInfoAsync(System.String,ALP.WebApi.WebChatPushService.FirstPassYieldEntity[])">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushFirstPassYieldInfoAsync(System.String,ALP.WebApi.WebChatPushService.FirstPassYieldEntity[],System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushDefectTopThreeInfo(System.String,ALP.WebApi.WebChatPushService.DefectTopThreeEntity[])">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushDefectTopThreeInfoAsync(System.String,ALP.WebApi.WebChatPushService.DefectTopThreeEntity[])">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushDefectTopThreeInfoAsync(System.String,ALP.WebApi.WebChatPushService.DefectTopThreeEntity[],System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushMaterielShortageInfo(System.String,System.String,System.String,System.String,ALP.WebApi.WebChatPushService.GetMesDMaResponse[])">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushMaterielShortageInfoAsync(System.String,System.String,System.String,System.String,ALP.WebApi.WebChatPushService.GetMesDMaResponse[])">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushMaterielShortageInfoAsync(System.String,System.String,System.String,System.String,ALP.WebApi.WebChatPushService.GetMesDMaResponse[],System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushMaterielDistSheetInfo(System.String,System.String,System.String,System.String,ALP.WebApi.WebChatPushService.DistSheetEntity[])">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushMaterielDistSheetInfoAsync(System.String,System.String,System.String,System.String,ALP.WebApi.WebChatPushService.DistSheetEntity[])">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushMaterielDistSheetInfoAsync(System.String,System.String,System.String,System.String,ALP.WebApi.WebChatPushService.DistSheetEntity[],System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushInWhExceptionFrozenInfo(System.String,ALP.WebApi.WebChatPushService.InWhExceptionFrozenEntity[])">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushInWhExceptionFrozenInfoAsync(System.String,ALP.WebApi.WebChatPushService.InWhExceptionFrozenEntity[])">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushInWhExceptionFrozenInfoAsync(System.String,ALP.WebApi.WebChatPushService.InWhExceptionFrozenEntity[],System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushEquipMouldRepairInfo(ALP.WebApi.WebChatPushService.EquipMouldRepairEntity)">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushEquipMouldRepairInfoAsync(ALP.WebApi.WebChatPushService.EquipMouldRepairEntity)">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushEquipMouldRepairInfoAsync(ALP.WebApi.WebChatPushService.EquipMouldRepairEntity,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushEquipMouldMaintainInfo(ALP.WebApi.WebChatPushService.EquipMouldMaintainEntity)">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushEquipMouldMaintainInfoAsync(ALP.WebApi.WebChatPushService.EquipMouldMaintainEntity)">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushEquipMouldMaintainInfoAsync(ALP.WebApi.WebChatPushService.EquipMouldMaintainEntity,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushEquipSpecialVerifiInfo(System.String,ALP.WebApi.WebChatPushService.EquipSpecialVerifiEntity[])">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushEquipSpecialVerifiInfoAsync(System.String,ALP.WebApi.WebChatPushService.EquipSpecialVerifiEntity[])">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushEquipSpecialVerifiInfoAsync(System.String,ALP.WebApi.WebChatPushService.EquipSpecialVerifiEntity[],System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushChangeMouldInfo(System.String,ALP.WebApi.WebChatPushService.ChangeMouldEntity[])">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushChangeMouldInfoAsync(System.String,ALP.WebApi.WebChatPushService.ChangeMouldEntity[])">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushChangeMouldInfoAsync(System.String,ALP.WebApi.WebChatPushService.ChangeMouldEntity[],System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushSchedulingInfo(System.String,System.String,System.String,System.String,System.String,ALP.WebApi.WebChatPushService.SchedulingEntity[])">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushSchedulingInfoAsync(System.String,System.String,System.String,System.String,System.String,ALP.WebApi.WebChatPushService.SchedulingEntity[])">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushSchedulingInfoAsync(System.String,System.String,System.String,System.String,System.String,ALP.WebApi.WebChatPushService.SchedulingEntity[],System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.AutoPushSchedulingInfo(System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.AutoPushSchedulingInfoAsync(System.String,System.String,System.String,System.String)">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.AutoPushSchedulingInfoAsync(System.String,System.String,System.String,System.String,System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushProFactorMaterialsInfo(System.String,ALP.WebApi.WebChatPushService.ProFactorMaterialsEntity[])">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushProFactorMaterialsInfoAsync(System.String,ALP.WebApi.WebChatPushService.ProFactorMaterialsEntity[])">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushProFactorMaterialsInfoAsync(System.String,ALP.WebApi.WebChatPushService.ProFactorMaterialsEntity[],System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushEquipLineStopInfo(System.String,ALP.WebApi.WebChatPushService.EquipLineStopEntity[])">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushEquipLineStopInfoAsync(System.String,ALP.WebApi.WebChatPushService.EquipLineStopEntity[])">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushEquipLineStopInfoAsync(System.String,ALP.WebApi.WebChatPushService.EquipLineStopEntity[],System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushJobWorkingInfo(System.String,ALP.WebApi.WebChatPushService.JobWorkingResultEntity[])">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushJobWorkingInfoAsync(System.String,ALP.WebApi.WebChatPushService.JobWorkingResultEntity[])">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.PushJobWorkingInfoAsync(System.String,ALP.WebApi.WebChatPushService.JobWorkingResultEntity[],System.Object)">
+            <remarks/>
+        </member>
+        <member name="M:ALP.WebApi.WebChatPushService.MsgPushService.CancelAsync(System.Object)">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.SendMsgResult">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.SendMsgResult.errcode">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.SendMsgResult.errcodeSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.SendMsgResult.errmsg">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.SendMsgResult.invalidparty">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.SendMsgResult.invalidtag">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.SendMsgResult.invaliduser">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.JobWorkingResultEntity">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.JobWorkingResultEntity.Note">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.JobWorkingResultEntity.PrdOrderCode">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.JobWorkingResultEntity.ReportResult">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.JobWorkingResultEntity.ReportTime">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.JobWorkingResultEntity.ScheduleCode">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.JobWorkingResultEntity.Status">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.EquipLineStopEntity">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.EquipLineStopEntity.ClassName">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.EquipLineStopEntity.Downtime">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.EquipLineStopEntity.LineName">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.EquipLineStopEntity.LineSpotMark">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.EquipLineStopEntity.NowTime">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.EquipLineStopEntity.StopDate">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.ProFactorMaterialsEntity">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.ProFactorMaterialsEntity.MaterialCode">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.ProFactorMaterialsEntity.MaterialName">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.SchedulingEntity">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.SchedulingEntity.BC">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.SchedulingEntity.ChangeStatus">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.SchedulingEntity.IsMrPost">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.SchedulingEntity.IsWindUp">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.SchedulingEntity.MaterialName">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.SchedulingEntity.MesStatus">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.SchedulingEntity.PlanEndDate">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.SchedulingEntity.PlanQty">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.SchedulingEntity.PlanStartDate">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.SchedulingEntity.PrdorderCode">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.SchedulingEntity.ScheduleCode">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.SchedulingEntity.ScheduleOrder">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.ChangeMouldEntity">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.ChangeMouldEntity.ClipId">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.ChangeMouldEntity.EndDate">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.ChangeMouldEntity.LineCode">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.ChangeMouldEntity.NewMould">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.ChangeMouldEntity.NewProFactorDescr">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.ChangeMouldEntity.NewSlotId">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.ChangeMouldEntity.OldMould">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.ChangeMouldEntity.OldProFactorDescr">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.ChangeMouldEntity.Remark">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.ChangeMouldEntity.StartDate">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.EquipSpecialVerifiEntity">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.EquipSpecialVerifiEntity.EquipCode">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.EquipSpecialVerifiEntity.EquipName">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.EquipSpecialVerifiEntity.LineCode">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.EquipSpecialVerifiEntity.PlanDate">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.EquipMouldMaintainEntity">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.EquipMouldMaintainEntity.EquipMouldCode">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.EquipMouldMaintainEntity.EquipMouldName">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.EquipMouldMaintainEntity.EquipPartName">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.EquipMouldMaintainEntity.LineCode">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.EquipMouldMaintainEntity.PlanDate">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.EquipMouldRepairEntity">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.EquipMouldRepairEntity.Applicant">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.EquipMouldRepairEntity.ApplyDate">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.EquipMouldRepairEntity.EquipMouldCode">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.EquipMouldRepairEntity.EquipMouldName">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.EquipMouldRepairEntity.FailureDesc">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.EquipMouldRepairEntity.FailureSymptomName">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.EquipMouldRepairEntity.LineCode">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.EquipMouldRepairEntity.Symptom">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.InWhExceptionFrozenEntity">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.InWhExceptionFrozenEntity.BarCode">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.InWhExceptionFrozenEntity.FrozenReason">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.InWhExceptionFrozenEntity.HappenTime">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.InWhExceptionFrozenEntity.LineCode">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.InWhExceptionFrozenEntity.MaterialName">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.InWhExceptionFrozenEntity.PrdOrderCode">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.InWhExceptionFrozenEntity.ScheduleCode">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.DistSheetEntity">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.DistSheetEntity.DeliveryNum">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.DistSheetEntity.MRId">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.DistSheetEntity.MRName">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.GetMesDMaResponse">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.GetMesDMaResponse.MaResNum">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.GetMesDMaResponse.errMsg">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.GetMesDMaResponse.factory">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.GetMesDMaResponse.flag">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.GetMesDMaResponse.flagSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.GetMesDMaResponse.maCode">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.GetMesDMaResponse.mesNum">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.GetMesDMaResponse.missNum">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.GetMesDMaResponse.orderNo">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.GetMesDMaResponse.pOrder">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.GetMesDMaResponse.sNumber">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.GetMesDMaResponse.supplyCode">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.GetMesDMaResponse.supplyDescr">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.DefectTopThreeEntity">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.DefectTopThreeEntity.AcqPositionName">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.DefectTopThreeEntity.Top1">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.DefectTopThreeEntity.Top2">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.DefectTopThreeEntity.Top3">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.FirstPassYieldEntity">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.FirstPassYieldEntity.AcqCount">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.FirstPassYieldEntity.JudgeResult">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.FirstPassYieldEntity.PassYieldRate">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.FirstPassYieldEntity.PassYieldType">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.FirstPassYieldEntity.QCNGAcqCount">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.FirstPassYieldEntity.StandardPassYieldRate">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.Userlist">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.Userlist.department">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.Userlist.name">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.Userlist.userid">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.WeiXinUserListInfo">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.WeiXinUserListInfo.errcode">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.WeiXinUserListInfo.errcodeSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.WeiXinUserListInfo.errmsg">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.WeiXinUserListInfo.userlist">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.Department">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.Department.id">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.Department.idSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.Department.name">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.Department.order">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.Department.orderSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.Department.parentid">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.Department.parentidSpecified">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.WeiXinDepartmentListInfo">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.WeiXinDepartmentListInfo.department">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.WeiXinDepartmentListInfo.errcode">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.WeiXinDepartmentListInfo.errcodeSpecified">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.WeiXinDepartmentListInfo.errmsg">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.SendMessageCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.SendMessageCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.SendMessageCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.GetDepartmentListCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.GetDepartmentListCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.GetDepartmentListCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.GetUserByDepidCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.GetUserByDepidCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.GetUserByDepidCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.GetUserByUseridCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.GetUserByUseridCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.GetUserByUseridCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.PushFirstPassYieldInfoCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.PushFirstPassYieldInfoCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.PushFirstPassYieldInfoCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.PushDefectTopThreeInfoCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.PushDefectTopThreeInfoCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.PushDefectTopThreeInfoCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.PushMaterielShortageInfoCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.PushMaterielShortageInfoCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.PushMaterielShortageInfoCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.PushMaterielDistSheetInfoCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.PushMaterielDistSheetInfoCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.PushMaterielDistSheetInfoCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.PushInWhExceptionFrozenInfoCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.PushInWhExceptionFrozenInfoCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.PushInWhExceptionFrozenInfoCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.PushEquipMouldRepairInfoCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.PushEquipMouldRepairInfoCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.PushEquipMouldRepairInfoCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.PushEquipMouldMaintainInfoCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.PushEquipMouldMaintainInfoCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.PushEquipMouldMaintainInfoCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.PushEquipSpecialVerifiInfoCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.PushEquipSpecialVerifiInfoCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.PushEquipSpecialVerifiInfoCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.PushChangeMouldInfoCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.PushChangeMouldInfoCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.PushChangeMouldInfoCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.PushSchedulingInfoCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.PushSchedulingInfoCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.PushSchedulingInfoCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.AutoPushSchedulingInfoCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.PushProFactorMaterialsInfoCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.PushProFactorMaterialsInfoCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.PushProFactorMaterialsInfoCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.PushEquipLineStopInfoCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.PushEquipLineStopInfoCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.PushEquipLineStopInfoCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.PushJobWorkingInfoCompletedEventHandler">
+            <remarks/>
+        </member>
+        <member name="T:ALP.WebApi.WebChatPushService.PushJobWorkingInfoCompletedEventArgs">
+            <remarks/>
+        </member>
+        <member name="P:ALP.WebApi.WebChatPushService.PushJobWorkingInfoCompletedEventArgs.Result">
+            <remarks/>
+        </member>
+        <member name="T:SqlSugar.WebApi.SwaggerConfig">
+            <summary>
+            SwaggerConfig
+            </summary>
+        </member>
+        <member name="M:SqlSugar.WebApi.SwaggerConfig.Register">
+            <summary>
+            Register
+            </summary>
+        </member>
+    </members>
+</doc>

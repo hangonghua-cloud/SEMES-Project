@@ -1,0 +1,280 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E8404865-051A-45ED-8DB4-41831EB5689F}</ProjectGuid>
+    <ProjectTypeGuids>{D45F378E-08AA-4766-880A-1AF4180CC2F8};{349c5851-65df-11da-9384-00065b846f21};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Siemens.SimaticIT.QualityApp.UserInterface</RootNamespace>
+    <AssemblyName>Siemens.SimaticIT.QualityApp.UserInterface</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <Name>QualityApp.UserInterface</Name>
+    <FunctionalBlockType>Project</FunctionalBlockType>
+    <FunctionalBlockVersion>01.00.00</FunctionalBlockVersion>
+    <FunctionalBlockName>QualityApp</FunctionalBlockName>
+    <FunctionalBlockPrefix>Siemens.SimaticIT</FunctionalBlockPrefix>
+    <SitPlatformVersion>4.1</SitPlatformVersion>
+    <Use64BitIISExpress />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
+    <Folder Include="Siemens.SimaticIT.QualityApp\components\" />
+    <Folder Include="Siemens.SimaticIT.QualityApp\config\" />
+    <Folder Include="Siemens.SimaticIT.QualityApp\fonts\" />
+    <Folder Include="Siemens.SimaticIT.QualityApp\images\" />
+    <Folder Include="Siemens.SimaticIT.QualityApp\scripts\" />
+    <Folder Include="Siemens.SimaticIT.QualityApp\services\" />
+    <Folder Include="Siemens.SimaticIT.QualityApp\styles\" />
+    <Folder Include="Siemens.SimaticIT.QualityApp\swac\" />
+    <Folder Include="Siemens.SimaticIT.QualityApp\widgets\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\IPQCManage\module.js" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\IPQCManage\TestMaintenance-addProcess.html" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\IPQCManage\TestMaintenance-addProcess-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\IPQCManage\TestMaintenance-addDetail.html" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\IPQCManage\TestMaintenance-addDetail-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\IPQCManage\TestMaintenance-add-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\IPQCManage\TestMaintenance-add.html" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\IPQCManage\TestMaintenance-editProcess.html" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\IPQCManage\TestMaintenance-editProcess-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\IPQCManage\TestMaintenance-editDetail.html" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\IPQCManage\TestMaintenance-editDetail-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\IPQCManage\TestMaintenance-edit-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\IPQCManage\TestMaintenance-edit.html" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\IPQCManage\TestMaintenance-list-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\IPQCManage\TestMaintenance-list.html" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\IPQCManage\TestMaintenance-select-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\IPQCManage\TestMaintenance-select.html" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\IPQCManage\TestMaintenance-srv.js" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\OQCManage\module.js" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\OQCManage\OQCCheckConfig-addMaterial.html" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\OQCManage\OQCCheckConfig-addMaterial-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\OQCManage\OQCCheckConfig-addDetail.html" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\OQCManage\OQCCheckConfig-addDetail-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\OQCManage\OQCCheckConfig-add-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\OQCManage\OQCCheckConfig-add.html" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\OQCManage\OQCCheckConfig-editDetail.html" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\OQCManage\OQCCheckConfig-editDetail-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\OQCManage\OQCCheckConfig-edit-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\OQCManage\OQCCheckConfig-edit.html" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\OQCManage\OQCCheckConfig-list-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\OQCManage\OQCCheckConfig-list.html" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\OQCManage\OQCCheckConfig-select-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\OQCManage\OQCCheckConfig-select.html" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\OQCManage\OQCCheckConfig-srv.js" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\OQCManage\OQCQualityCheck-add-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\OQCManage\OQCQualityCheck-add.html" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\OQCManage\OQCQualityCheck-edit-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\OQCManage\OQCQualityCheck-edit.html" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\OQCManage\OQCQualityCheck-list-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\OQCManage\OQCQualityCheck-list.html" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\OQCManage\OQCQualityCheck-select-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\OQCManage\OQCQualityCheck-select.html" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\OQCManage\OQCQualityCheck-srv.js" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\QC_IPQCDetail\QC_IPQCDetail-select.html" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\QC_IPQCDetail\QC_IPQCDetail-select-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\QC_IPQCDetail\QC_IPQCDetail-addresult.html" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\QC_IPQCDetail\QC_IPQCDetail-addresult-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\QC_IPQCDetail\QC_IPQCDetail-add-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\QC_IPQCDetail\QC_IPQCDetail-add.html" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\QC_IPQCDetail\QC_IPQCDetail-editresult.html" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\QC_IPQCDetail\QC_IPQCDetail-editresult-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\QC_IPQCDetail\QC_IPQCDetail-edit-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\QC_IPQCDetail\QC_IPQCDetail-edit.html" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\QC_IPQCDetail\QC_IPQCDetail-list-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\QC_IPQCDetail\QC_IPQCDetail-list.html" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\QC_IPQCDetail\QC_IPQCDetail-srv.js" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\QC_IQCQualityCheckList\QC_IQCQualityCheckList-addresult.html" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\QC_IQCQualityCheckList\QC_IQCQualityCheckList-addresult-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\QC_IQCQualityCheckList\QC_IQCQualityCheckList-add-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\QC_IQCQualityCheckList\QC_IQCQualityCheckList-add.html" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\QC_IQCQualityCheckList\QC_IQCQualityCheckList-editaudit.html" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\QC_IQCQualityCheckList\QC_IQCQualityCheckList-editaudit-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\QC_IQCQualityCheckList\QC_IQCQualityCheckList-editresult.html" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\QC_IQCQualityCheckList\QC_IQCQualityCheckList-editresult-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\QC_IQCQualityCheckList\QC_IQCQualityCheckList-edit-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\QC_IQCQualityCheckList\QC_IQCQualityCheckList-edit.html" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\QC_IQCQualityCheckList\QC_IQCQualityCheckList-list-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\QC_IQCQualityCheckList\QC_IQCQualityCheckList-list.html" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\QC_IQCQualityCheckList\QC_IQCQualityCheckList-srv.js" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\QC_MaterialInventoryCheckList\QC_MaterialInventoryCheckList-addresult.html" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\QC_MaterialInventoryCheckList\QC_MaterialInventoryCheckList-addresult-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\QC_MaterialInventoryCheckList\QC_MaterialInventoryCheckList-add-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\QC_MaterialInventoryCheckList\QC_MaterialInventoryCheckList-add.html" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\QC_MaterialInventoryCheckList\QC_MaterialInventoryCheckList-editaudit.html" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\QC_MaterialInventoryCheckList\QC_MaterialInventoryCheckList-editaudit-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\QC_MaterialInventoryCheckList\QC_MaterialInventoryCheckList-editresult.html" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\QC_MaterialInventoryCheckList\QC_MaterialInventoryCheckList-editresult-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\QC_MaterialInventoryCheckList\QC_MaterialInventoryCheckList-edit-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\QC_MaterialInventoryCheckList\QC_MaterialInventoryCheckList-edit.html" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\QC_MaterialInventoryCheckList\QC_MaterialInventoryCheckList-list-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\QC_MaterialInventoryCheckList\QC_MaterialInventoryCheckList-list.html" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\QC_MaterialInventoryCheckList\QC_MaterialInventoryCheckList-srv.js" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\QC_PollingDetail\QC_PollingDetail-select.html" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\QC_PollingDetail\QC_PollingDetail-select-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\QC_PollingDetail\QC_PollingDetail-add-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\QC_PollingDetail\QC_PollingDetail-add.html" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\QC_PollingDetail\QC_PollingDetail-addresult-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\QC_PollingDetail\QC_PollingDetail-addresult.html" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\QC_PollingDetail\QC_PollingDetail-edit-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\QC_PollingDetail\QC_PollingDetail-edit.html" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\QC_PollingDetail\QC_PollingDetail-editauthor.html" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\QC_PollingDetail\QC_PollingDetail-editauthor-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\QC_PollingDetail\QC_PollingDetail-editresult-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\QC_PollingDetail\QC_PollingDetail-editresult.html" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\QC_PollingDetail\QC_PollingDetail-list-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\QC_PollingDetail\QC_PollingDetail-list.html" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\QC_PollingDetail\QC_PollingDetail-srv.js" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\QC_TestDetail\QC_TestDetail-add-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\QC_TestDetail\QC_TestDetail-add.html" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\QC_TestDetail\QC_TestDetail-edit-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\QC_TestDetail\QC_TestDetail-edit.html" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\QC_TestDetail\QC_TestDetail-list-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\QC_TestDetail\QC_TestDetail-list.html" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\QC_TestDetail\QC_TestDetail-srv.js" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\QC_TestMethodItemMaintenance\QC_TestMethodItemMaintenance-add-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\QC_TestMethodItemMaintenance\QC_TestMethodItemMaintenance-add.html" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\QC_TestMethodItemMaintenance\QC_TestMethodItemMaintenance-edit-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\QC_TestMethodItemMaintenance\QC_TestMethodItemMaintenance-edit.html" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\QC_TestMethodItemMaintenance\QC_TestMethodItemMaintenance-list-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\QC_TestMethodItemMaintenance\QC_TestMethodItemMaintenance-list.html" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\QC_TestMethodItemMaintenance\QC_TestMethodItemMaintenance-srv.js" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\QC_TestMethodMaintenance\QC_TestMethodMaintenance-add-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\QC_TestMethodMaintenance\QC_TestMethodMaintenance-add.html" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\QC_TestMethodMaintenance\QC_TestMethodMaintenance-adddetail-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\QC_TestMethodMaintenance\QC_TestMethodMaintenance-adddetail.html" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\QC_TestMethodMaintenance\QC_TestMethodMaintenance-addmaterial-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\QC_TestMethodMaintenance\QC_TestMethodMaintenance-addmaterial.html" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\QC_TestMethodMaintenance\QC_TestMethodMaintenance-edit-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\QC_TestMethodMaintenance\QC_TestMethodMaintenance-edit.html" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\QC_TestMethodMaintenance\QC_TestMethodMaintenance-editdetail-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\QC_TestMethodMaintenance\QC_TestMethodMaintenance-editdetail.html" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\QC_TestMethodMaintenance\QC_TestMethodMaintenance-list-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\QC_TestMethodMaintenance\QC_TestMethodMaintenance-list.html" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\QC_TestMethodMaintenance\QC_TestMethodMaintenance-srv.js" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\Siemens.SimaticIT.QualityApp.IPQCManage.json" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\Siemens.SimaticIT.QualityApp.QC_IPQCDetail.json" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\Siemens.SimaticIT.QualityApp.QC_PollingDetail.json" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\Siemens.SimaticIT.QualityApp.QC_IQCQualityCheckList.json" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\Siemens.SimaticIT.QualityApp.QC_MaterialInventoryCheckList.json" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\Siemens.SimaticIT.QualityApp.QC_TestDetail.json" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\Siemens.SimaticIT.QualityApp.QC_TestMethodItemMaintenance.json" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\Siemens.SimaticIT.QualityApp.QC_TestMethodMaintenance.json" />
+    <Content Include="Siemens.SimaticIT.QualityApp\modules\Siemens.SimaticIT.QualityApp.OQCManage.json" />
+    <Content Include="Siemens.SimaticIT.QualityApp\resources\resources.json" />
+    <Content Include="Siemens.SimaticIT.QualityApp\resources\Siemens.SimaticIT.QualityApp.vi-VN.json" />
+    <Content Include="Siemens.SimaticIT.QualityApp\resources\Siemens.SimaticIT.QualityApp.zh-CN.json" />
+    <Content Include="Siemens.SimaticIT.QualityApp\resources\Siemens.SimaticIT.QualityApp.th-TH.json" />
+    <Content Include="Siemens.SimaticIT.QualityApp\resources\Siemens.SimaticIT.QualityApp.en-US.json" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="app.js" />
+    <Content Include="config.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="default.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="default-debug.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Siemens.SimaticIT.QualityApp\module.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="scripts\_references.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Siemens.SimaticIT.QualityApp\locales\locales.json" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Import Project="$(SITUnifiedVSToolingPlatformBin)\Siemens.SimaticIt.UI.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>59854</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:59854/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeCompile">
+  </Target>
+  <Target Name="AfterCompile">
+  </Target>
+  -->
+</Project>

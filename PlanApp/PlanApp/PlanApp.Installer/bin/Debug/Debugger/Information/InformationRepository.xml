@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Items>
+  <InformationRepository Id="382f0007-e649-4f17-90d8-201b1bde012d">
+    <DefaultDatabase>2d643a0f-6aa7-412c-b666-efcf81132ca6</DefaultDatabase>
+    <Mode>RD</Mode>
+    <Storage>
+      <Id>6ad6abe1-2c4d-4cb7-9bd8-d12cd87aa4b3</Id>
+      <Id>e6a4530a-1c77-4147-ab87-2d67fbf83001</Id>
+      <Id>add98317-91ef-494d-8f9b-97029c6a50ea</Id>
+      <Id>5fb7cfd2-6bbe-4017-bade-c1c1a5d07150</Id>
+      <Id>db706977-73e8-42a6-b376-956a162ffe57</Id>
+      <Id>ba4712a1-537c-498c-9544-da1f98e08e32</Id>
+      <Id>5295a9ba-e620-4266-a57a-696703ff9719</Id>
+      <Id>12d1975d-40ba-4aeb-ac52-a2ebe37248f5</Id>
+    </Storage>
+    <Name>MOM-READ</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </InformationRepository>
+  <InformationRepository Id="56d4e44a-a732-4f63-9383-0e8a5093168d">
+    <DefaultDatabase>2d643a0f-6aa7-412c-b666-efcf81132ca6</DefaultDatabase>
+    <Mode>WR</Mode>
+    <Storage>
+      <Id>06b6d22b-8ea0-41af-9181-d20a53a77702</Id>
+      <Id>497b8568-d676-4718-95a1-ed39ab9ab50d</Id>
+      <Id>ed807940-71f7-46c8-be50-3e8eef0e2dec</Id>
+      <Id>3cc4d009-2330-4f26-9069-7ae19216f90a</Id>
+      <Id>ba0dc564-052f-453a-b803-f58662f0f875</Id>
+      <Id>a64c8530-5dc8-46e4-b25b-5471aef9e99c</Id>
+      <Id>7be9db50-554b-4aec-9c9c-101f3f0724f3</Id>
+      <Id>b5c36bcb-6e7e-4739-ae83-f0cfd494334b</Id>
+    </Storage>
+    <Name>MOM-WRITE</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </InformationRepository>
+  <InformationRepository Id="84340d56-3ab9-464e-b98a-10f905b6ac7f">
+    <DefaultDatabase>2d643a0f-6aa7-412c-b666-efcf81132ca6</DefaultDatabase>
+    <Mode>ES</Mode>
+    <Storage />
+    <Name>MOM-EVENTSTORE</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </InformationRepository>
+  <InformationRepository Id="61580ff7-fff8-409a-b711-e60d9134c450">
+    <Mode>RD</Mode>
+    <Storage>
+      <Id>7301df6f-ad1b-48b2-8bbe-e1e9d7a87ec8</Id>
+    </Storage>
+    <Name>System</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </InformationRepository>
+  <InformationRepository Id="43683755-0ada-481a-9166-a18cf9fc6c74">
+    <Mode>RD</Mode>
+    <Storage>
+      <Id>08ffb5da-db0e-4ffc-b919-0f75c30df599</Id>
+    </Storage>
+    <Name>BaseDataApp</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </InformationRepository>
+  <InformationRepository Id="f107f358-c8e3-4b86-91ca-7e6f854de1ce">
+    <DefaultDatabase>7ccd7ede-91a3-45a3-b8ed-da05e5fef104</DefaultDatabase>
+    <Mode>RD</Mode>
+    <Storage>
+      <Id>916403d0-36ff-4081-a93b-b8dc8508c113</Id>
+    </Storage>
+    <Name>Siemens.SimaticIT.ThirdPartyDBFBLib</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </InformationRepository>
+  <InformationRepository Id="6e8d99a2-c5aa-4994-886f-16a20b0fd076">
+    <Mode>RD</Mode>
+    <Storage>
+      <Id>614c912a-630f-4618-a115-4e5b4bdd9d1a</Id>
+    </Storage>
+    <Name>BasicDataManageFBApp</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </InformationRepository>
+  <InformationRepository Id="b8c81d46-8379-4aa4-9122-9985388abbca">
+    <Mode>RD</Mode>
+    <Storage>
+      <Id>b3d71e4e-9d70-4e10-b886-e901f6cbfe3c</Id>
+    </Storage>
+    <Name>CommonApp</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </InformationRepository>
+  <InformationRepository Id="22e98a72-e0bf-4d8b-9b05-c20a4e49cab9">
+    <Mode>RD</Mode>
+    <Storage>
+      <Id>8bc59098-88c5-4511-9d23-7e254f1753b9</Id>
+    </Storage>
+    <Name>EquipmentApp</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </InformationRepository>
+  <InformationRepository Id="0ed1e280-e35d-4d40-b508-92d35177b2c6">
+    <Mode>RD</Mode>
+    <Storage>
+      <Id>1a708fc1-a6fa-40a4-b620-409b225ab3d9</Id>
+    </Storage>
+    <Name>FactoryModelApp</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </InformationRepository>
+  <InformationRepository Id="45b1dea0-4370-49e9-bb1d-bc6ff055f1e8">
+    <Mode>RD</Mode>
+    <Storage>
+      <Id>2c105686-2174-435c-a7c1-b11a0c6f7b62</Id>
+    </Storage>
+    <Name>MaterialApp</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </InformationRepository>
+  <InformationRepository Id="b33c1daa-4b6f-461f-84dc-f8a7b1520fc7">
+    <Mode>RD</Mode>
+    <Storage>
+      <Id>8993cf9b-602e-4959-8c17-1cc7b5bb6fb6</Id>
+    </Storage>
+    <Name>Personnel</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </InformationRepository>
+  <InformationRepository Id="6dfbd859-4661-407c-a7ab-7b57c62e5ad7">
+    <Mode>RD</Mode>
+    <Storage>
+      <Id>1c9a954e-0b1f-4a7c-bafb-05bc0ead0c41</Id>
+    </Storage>
+    <Name>PlanApp</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </InformationRepository>
+  <InformationRepository Id="c3d83408-ff37-445c-a2dd-9add11f66c7a">
+    <Mode>RD</Mode>
+    <Storage>
+      <Id>aa52ed26-a5e1-441a-b1d2-cfc84d561273</Id>
+    </Storage>
+    <Name>ProductionApp</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </InformationRepository>
+  <InformationRepository Id="91745644-9568-4dbb-a281-bf797bc11547">
+    <Mode>RD</Mode>
+    <Storage>
+      <Id>17511b48-1ae0-43b4-9683-12bdd2a9eb25</Id>
+    </Storage>
+    <Name>QualityApp</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </InformationRepository>
+  <InformationRepository Id="6a85320d-1463-4031-b1b6-50520e2754c2">
+    <Mode>RD</Mode>
+    <Storage>
+      <Id>1d6e83c9-55cc-4889-bfcc-5dda291fd634</Id>
+    </Storage>
+    <Name>SystemApp</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </InformationRepository>
+  <InformationRepository Id="9a9b2ef3-036d-4301-b29b-8b5dc4270f05">
+    <Mode>RD</Mode>
+    <Storage>
+      <Id>8d63bef1-5a4b-46a8-8dba-6ad76bc381ac</Id>
+    </Storage>
+    <Name>ButtonAuthFBApp</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </InformationRepository>
+</Items>

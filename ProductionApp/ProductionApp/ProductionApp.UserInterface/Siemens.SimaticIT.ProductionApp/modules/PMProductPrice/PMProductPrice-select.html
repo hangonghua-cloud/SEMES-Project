@@ -1,0 +1,57 @@
+<style>
+    .row {
+        padding: 5px;
+        margin-top: 10px;
+    }
+</style>
+<div class="command-bar-side-panel">
+    <button ng-click="vm.cancel()" class="btn side-panel-button">{{'Siemens.SimaticIT.ProductionApp.PMProductPrice.select.Tips_1'|translate}}</button>
+</div>
+<div class="side-panel-property-area-body">
+    <sit-property-grid sit-id="view_form"
+        sit-layout="Horizontal"
+        sit-type="Fixed"
+        sit-mode="edit"
+        sit-columns="1">
+    <sit-property sit-widget="sit-text" sit-value="vm.currentItem.FactoryCode" 
+        sit-validation="{required: true}" sit-read-only="true">{{'Siemens.SimaticIT.ProductionApp.PMProductPrice.select.Tips_2'|translate}}</sit-property>
+    <sit-property sit-widget="sit-text" sit-value="vm.currentItem.FactoryName" 
+        sit-validation="{required: true}" sit-read-only="true">{{'Siemens.SimaticIT.ProductionApp.PMProductPrice.select.Tips_3'|translate}}</sit-property>
+    <sit-property sit-widget="sit-text" sit-value="vm.currentItem.ProcessCode" 
+        sit-validation="{required: true}" sit-read-only="true">{{'Siemens.SimaticIT.ProductionApp.PMProductPrice.select.Tips_4'|translate}}</sit-property>
+    <sit-property sit-widget="sit-text" sit-value="vm.currentItem.ProcessName" 
+        sit-validation="{required: true}" sit-read-only="true">{{'Siemens.SimaticIT.ProductionApp.PMProductPrice.select.Tips_5'|translate}}</sit-property>
+    <sit-property sit-widget="sit-text" sit-value="vm.currentItem.MaterialCode" 
+        sit-validation="{required: true}" sit-read-only="true">{{'Siemens.SimaticIT.ProductionApp.PMProductPrice.select.Tips_6'|translate}}</sit-property>
+    <sit-property sit-widget="sit-text" sit-value="vm.currentItem.MaterialName" 
+        sit-validation="{required: true}" sit-read-only="true">{{'Siemens.SimaticIT.ProductionApp.PMProductPrice.select.Tips_7'|translate}}</sit-property>
+    <sit-property sit-widget="sit-text" sit-value="vm.currentItem.Spec" 
+        sit-validation="{required: true}" sit-read-only="true">{{'Siemens.SimaticIT.ProductionApp.PMProductPrice.select.Tips_8'|translate}}</sit-property>
+    <sit-property sit-widget="sit-text" sit-value="vm.currentItem.UnitName" 
+        sit-validation="{required: true}" sit-read-only="true">{{'Siemens.SimaticIT.ProductionApp.PMProductPrice.select.Tips_9'|translate}}</sit-property>
+    <sit-property sit-widget="sit-numeric" sit-value="vm.currentItem.PeopleQty" 
+        sit-validation="{required: true,min:0}" sit-read-only="true">{{'Siemens.SimaticIT.ProductionApp.PMProductPrice.select.Tips_10'|translate}}</sit-property>
+    <sit-property sit-widget="sit-numeric" sit-value="vm.currentItem.Price" 
+        sit-validation="{required: true,min:0}" sit-read-only="true">{{'Siemens.SimaticIT.ProductionApp.PMProductPrice.select.Tips_11'|translate}}</sit-property>
+    <sit-property sit-widget="sit-checkbox" sit-value="vm.IsDefault" 
+        sit-validation="{required: false" sit-read-only="true" ng-show="true">{{'Siemens.SimaticIT.ProductionApp.PMProductPrice.select.Tips_12'|translate}}</sit-property>
+    <sit-property sit-widget="sit-checkbox" sit-value="vm.IsDeleted" 
+        sit-validation="{required: false" sit-read-only="true" ng-show="true">{{'Siemens.SimaticIT.ProductionApp.PMProductPrice.select.Tips_13'|translate}}</sit-property>
+    <sit-property sit-widget="sit-text" sit-value="vm.currentItem.Remark" 
+        sit-validation="{required: true}" sit-read-only="true">{{'Siemens.SimaticIT.ProductionApp.PMProductPrice.select.Tips_14'|translate}}</sit-property>
+    <sit-property sit-widget="sit-text" sit-value="vm.currentItem.CreatorCode" 
+        sit-validation="{required: true}" sit-read-only="true">{{'Siemens.SimaticIT.ProductionApp.PMProductPrice.select.Tips_15'|translate}}</sit-property>
+    <sit-property sit-widget="sit-text" sit-value="vm.currentItem.CreatorName" 
+        sit-validation="{required: true}" sit-read-only="true">{{'Siemens.SimaticIT.ProductionApp.PMProductPrice.select.Tips_16'|translate}}</sit-property>
+    <sit-property sit-widget="sit-datepicker" sit-value="vm.currentItem.CreateTime" 
+        sit-validation="{required: true}" sit-read-only="true" sit-widget-attributes="{'sit-format':'yyyy-MM-dd','sit-show-meridian':'false'}" sit-read-only="false">{{'Siemens.SimaticIT.ProductionApp.PMProductPrice.select.Tips_17'|translate}}</sit-property>
+    <sit-property sit-widget="sit-text" sit-value="vm.currentItem.ModifyCode" 
+        sit-validation="{required: true}" sit-read-only="true">{{'Siemens.SimaticIT.ProductionApp.PMProductPrice.select.Tips_18'|translate}}</sit-property>
+    <sit-property sit-widget="sit-text" sit-value="vm.currentItem.ModifyName" 
+        sit-validation="{required: true}" sit-read-only="true">{{'Siemens.SimaticIT.ProductionApp.PMProductPrice.select.Tips_19'|translate}}</sit-property>
+    <sit-property sit-widget="sit-datepicker" sit-value="vm.currentItem.ModifyTime" 
+        sit-validation="{required: true}" sit-read-only="true" sit-widget-attributes="{'sit-format':'yyyy-MM-dd','sit-show-meridian':'false'}" sit-read-only="false">{{'Siemens.SimaticIT.ProductionApp.PMProductPrice.select.Tips_20'|translate}}</sit-property>
+    <sit-property sit-widget="sit-datepicker" sit-value="vm.currentItem.CreateTime" 
+        sit-validation="{required: true}" sit-read-only="true" sit-widget-attributes="{'sit-format':'yyyy-MM-dd','sit-show-meridian':'false'}" sit-read-only="false">{{'Siemens.SimaticIT.ProductionApp.PMProductPrice.select.Tips_17'|translate}}</sit-property>
+ </sit-property-grid>
+</div>

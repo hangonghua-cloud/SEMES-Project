@@ -1,0 +1,14 @@
+
+<DSL Version='1.13'>
+    <Project>
+        <Name>SystemApp.STPOMModel</Name>
+        <Version>01.00.00</Version>
+        <Prefix>Siemens.SimaticIT</Prefix>
+        <Domain>SystemApp</Domain>
+        <DomainAcronym>ST</DomainAcronym>
+        <Guid>a67fe9d6-0a50-421c-8089-427b5b0c9c68</Guid>
+		<ProjectKind>Pom</ProjectKind>
+    </Project>
+    <References>
+    </References>
+</DSL>

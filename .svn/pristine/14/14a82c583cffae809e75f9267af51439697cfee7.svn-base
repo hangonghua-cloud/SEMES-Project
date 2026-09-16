@@ -1,0 +1,26 @@
+﻿{
+  "name": "Siemens.SimaticIT.MaterialApp.RawMaterialStock",
+  "type": "standard",
+  "title": "Siemens.SimaticIT.MaterialApp.RawMaterialStock.Title",
+  "header": "",
+  "icon": "fa-folder",
+  "functionalBlock": "Siemens.SimaticIT.MaterialApp",
+  "dependencies": [],
+  "states": [
+    {
+      "id": "home.Siemens_SimaticIT_MaterialApp_RawMaterialStock_RawMaterialStock",
+      "title": "Siemens.SimaticIT.MaterialApp.RawMaterialStock.Title",
+      "header": "",
+      "securable": true,
+      "roles": []
+    },
+    {
+      "id": "home.Siemens_SimaticIT_MaterialApp_RawMaterialStock_RawMaterialStockManage",
+      "title": "Siemens.SimaticIT.MaterialApp.RawMaterialStockManage.Title",
+      "header": "",
+      "securable": true,
+      "roles": []
+    }
+  ],
+  "manifestVersion": "01.01.00"
+}

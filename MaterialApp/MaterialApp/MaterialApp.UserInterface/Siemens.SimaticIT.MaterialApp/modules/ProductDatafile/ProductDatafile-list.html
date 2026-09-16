@@ -1,0 +1,74 @@
+﻿<style>
+    .MainCommandActionButton {
+        margin-top: 20px !important;
+    }
+
+    .green {
+        color: rgb(38, 228, 31)
+    }
+
+    .red {
+        color: red
+    }
+
+    .ui-grid-disable-selection {
+        -moz-user-select: text;
+        -webkit-user-select: text;
+        -ms-user-select: text;
+        user-select: text;
+    }
+
+    /* #dropdownMenuAdvanced {
+        max-width: 130px;
+    } */
+</style>
+<div id="itemlist" class="content-area content-area-relative" style="height: calc(19% - 30px) !important;">
+    <!--查询条件与功能按钮-->
+    <div class="col-md-40" style="margin-left: 15px;">
+        <div class="side-panel-property-area-body">
+            <sit-property-grid sit-id="add_form" sit-layout="Horizontal" sit-type="Fixed" sit-mode="edit"
+                               sit-columns="8">
+                <sit-property sit-widget="sit-text" sit-value="vm.searchParams.ProductOrder" sit-read-only="false"
+                              style="max-width:300px;">{{'Siemens.SimaticIT.MaterialApp.ProductDatafile.ProductDatafilelist.Tips_1'|translate}}</sit-property>
+                <sit-property sit-widget="sit-text" sit-value="vm.searchParams.Customer" sit-read-only="false"
+                              style="max-width:300px;">{{'Siemens.SimaticIT.MaterialApp.ProductDatafile.ProductDatafilelist.Tips_2'|translate}}</sit-property>
+                <sit-property sit-widget="sit-text" sit-value="vm.searchParams.Salesman" sit-read-only="false"
+                              style="max-width:300px;">{{'Siemens.SimaticIT.MaterialApp.ProductDatafile.ProductDatafilelist.Tips_3'|translate}}</sit-property>
+                <sit-property sit-widget="sit-select" sit-value="vm.typeOrderType.value"
+                              sit-validation="{required: false}" sit-options="vm.typeOrderType.options"
+                              sit-to-display="'ItemName'" sit-to-keep="'ItemValue'" style="max-width:100px;">{{'Siemens.SimaticIT.MaterialApp.ProductDatafile.ProductDatafilelist.Tips_4'|translate}}</sit-property>
+                <sit-property sit-widget="sit-select" sit-value="vm.typeOrderStatus.value"
+                              sit-validation="{required: false}" sit-options="vm.typeOrderStatus.options"
+                              sit-to-display="'ItemName'" sit-to-keep="'ItemValue'" style="max-width:100px;">{{'Siemens.SimaticIT.MaterialApp.ProductDatafile.ProductDatafilelist.Tips_5'|translate}}</sit-property>
+                <sit-property sit-widget="sit-select" sit-value="vm.typeWoType.value" sit-validation="{required: false}"
+                              sit-options="vm.typeWoType.options" sit-to-display="'ItemName'" sit-to-keep="'ItemValue'"
+                              style="max-width:100px;">{{'Siemens.SimaticIT.MaterialApp.ProductDatafile.ProductDatafilelist.Tips_6'|translate}}</sit-property>
+                <sit-property sit-widget="sit-datepicker" sit-value="vm.StartPrepay" sit-format="'yyyy-MM-dd'"
+                              sit-read-only="false">{{'Siemens.SimaticIT.MaterialApp.ProductDatafile.ProductDatafilelist.Tips_7'|translate}}</sit-property>
+                <sit-property sit-widget="sit-datepicker" sit-value="vm.EndPrepay" sit-format="'yyyy-MM-dd'"
+                              sit-read-only="false">{{'Siemens.SimaticIT.MaterialApp.ProductDatafile.ProductDatafilelist.Tips_8'|translate}}</sit-property>
+
+                <sit-command-bar sit-type="action">
+                    <sit-command sit-icon="fa-search" sit-type="main" sit-name="com.siemens.customcommand.search"
+                                 :sit-tooltip="{{'Siemens.SimaticIT.MaterialApp.ProductDatafile.ProductDatafilelist.Tips_9'|translate}}" ng-click="vm.searchButtonHandler" :sit-label="{{'Siemens.SimaticIT.MaterialApp.ProductDatafile.ProductDatafilelist.Tips_9'|translate}}">
+                    </sit-command>
+                </sit-command-bar>
+            </sit-property-grid>
+        </div>
+    </div>
+    <!--右侧功能按钮-->
+    <sit-command-bar sit-vertical-autofixed="true" sit-type="Tool" :sit-label-align="right" sit-layout="vertical">
+
+        <sit-command sit-icon="fa-arrow-circle-o-down" aria-hidden="true" sit-name="com.siemens.customcommand.add"
+                     :sit-tooltip="{{'Siemens.SimaticIT.MaterialApp.ProductDatafile.ProductDatafilelist.Tips_10'|translate}}" ng-click="vm.addMeasure" :sit-label="{{'Siemens.SimaticIT.MaterialApp.ProductDatafile.ProductDatafilelist.Tips_10'|translate}}" sit-type="main"></sit-command>
+        <sit-command sit-icon="fa-calendar-check-o" sit-name="com.siemens.customcommand.add" ng-click="vm.addSort"
+                     :sit-tooltip="{{'Siemens.SimaticIT.MaterialApp.ProductDatafile.ProductDatafilelist.Tips_11'|translate}}" :sit-label="{{'Siemens.SimaticIT.MaterialApp.ProductDatafile.ProductDatafilelist.Tips_11'|translate}}" sit-type="main"></sit-command>
+
+    </sit-command-bar>
+    <!-- grid列表 -->
+
+</div>
+<div id="listClass" style="width:100%; height: 80%; padding:0px 16px 0 16px; margin-top: 30px;">
+    <div ui-grid="vm.gridOptions" ui-grid-pinning ui-grid-auto-resize ui-grid-resize-columns ui-grid-selection
+         ui-grid-pagination class="uigrid"></div>
+</div>

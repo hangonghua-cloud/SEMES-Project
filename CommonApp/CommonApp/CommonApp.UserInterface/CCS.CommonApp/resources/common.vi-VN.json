@@ -1,0 +1,1016 @@
+﻿{
+  "common": {
+    "and": "và",
+    "and-or": "và\/hoặc",
+    "apply": "Áp dụng",
+    "busy-message": {
+      "loading": "Đang tải...",
+      "please-wait": "Xin hãy đợi...",
+      "working": "Đang làm việc..."
+    },
+    "redirectInProgress": "Bạn đang được chuyển đến trang đăng nhập...",
+    "cancel": "Hủy bỏ",
+    "selectAll": "Chọn tất cả",
+    "configure": "Cấu hình",
+    "contains": "Bao gồm",
+    "delete": "Xóa",
+    "description": "Mô tả",
+    "done": "Hoàn thành",
+    "edit": "Chỉnh sửa",
+    "ends-with": "Kết thúc với",
+    "error": "Lỗi",
+    "error-code-message": "Mã lỗi({{code}})：{{message}}",
+    "error-text-code-message": "{{text}}\nMã lỗi({{code}})：{{message}}",
+    "field": "Trường",
+    "imageUpload": "Tải ảnh lên",
+    "in": "Vào",
+    "invalid-parameter-value": "Tham số ({{name}}) không hợp lệ：{{message}}",
+    "isNull": "Trống",
+    "isNotNull": "Không để trống",
+    "any": "Bất kỳ",
+    "notany": "Trống",
+    "load": "Tải",
+    "match-case": "Phân biệt chữ hoa, chữ thường",
+    "group": "Nhóm",
+    "ungroup": "Tách nhóm",
+    "name": "Tên",
+    "no": "Không",
+    "no-data": "Không có dữ liệu",
+    "none": "Trống",
+    "ok": "Xác nhận",
+    "operator": "Người thao tác",
+    "or": "hoặc",
+    "param-msg-exceed-max-string-length": "Giá trị vượt quá giới hạn độ dài tối đa là {{length}} ký tự.",
+    "param-msg-invalid-format": "Giá trị không ở định dạng {{format}}.",
+    "remove": "Xóa",
+    "reset": "Đặt lại",
+    "save": "Lưu",
+    "saveAll": "Lưu toàn bộ",
+    "export-sidepanel": "Xuất dữ liệu",
+    "selected": "Đã chọn",
+    "starts-with": "Bắt đầu với",
+    "success": "Thành công",
+    "update": "Cập nhật",
+    "value": "Giá trị",
+    "version": "Phiên bản",
+    "yes": "Có",
+    "confirmation": "Xác nhận",
+    "export": {
+      "exportInProgress": "Chuẩn bị xuất kiện hàng. Khi đã sẵn sàng, bạn có thể tìm thấy nó trong trang Quản lý Xuất Nhập",
+      "exportWithDataSegregation": "Bạn sẽ chỉ xuất được các thực thể và thực thể liên quan dự trên dữ liệu chỉ định",
+      "general": "Bình thường",
+      "exportDescendants": "包括后代",
+      "warningInformation": "Nhắc nhở"
+    },
+    "authentication": {
+      "overlayLogoutErrorTitle": "Lỗi",
+      "overlayLogoutErrorMsg": "Lỗi đăng xuất",
+      "overlaySessionExpireWarning": "Phiên sử dụng sắp hết hạn...",
+      "overlaySessionExpireMessage": "Phiên sử dụng sắp hết hạn, thời gian còn lại:",
+      "overlaySesionExpiredMessage": "Phiên của bạn có thể đã hết hạn trừ khi bạn thực hiện hoạt động trong các tab khác.",
+      "renewSession": "Gia hạn phiên sử dụng"
+    },
+    "header": {
+      "actions": {
+        "home": "Trang chủ",
+        "settings": "Cài đặt",
+        "about": "Giới thiệu",
+        "logout": "Đăng xuất"
+      },
+      "about": {
+        "title": "Giới thiệu",
+        "version": "Opcenter Execution Foundation 3.2",
+        "copyright": "© Siemens AG, 2020"
+      }
+    },
+    "helpWindow": {
+      "title": "Trợ giúp",
+      "search": "Nhập từ cần tìm kiếm ở đây...",
+      "no-items-found": "Không tìm thấy kết quả. Vui lòng tăng điều kiện tìm kiếm",
+      "search-info": "Thông tin tìm kiếm",
+      "document": "Tệp",
+      "unknown-page": "Trang này không tồn tại.",
+      "no-help-code": "Không có trang trợ giúp",
+      "no-documents": "Không có trang trợ giúp"
+    },
+    "viewbar": {
+      "grid": "Lưới",
+      "small": "Nhỏ",
+      "medium": "Trung bình",
+      "large": "Lớn"
+    },
+    "gridster": {
+      "dragresize": "Kéo và thay đổi kích thước",
+      "dragresizeTitle": "Kéo và thay đổi kích thước các phần"
+    },
+    "unauthorize": {
+      "title": "Lỗi ủy quyền",
+      "message": "Bạn không có quyền truy cập trang này."
+    },
+    "undefinedHome": {
+      "title": "Trạng thái trang chủ không xác định",
+      "text": "Trạng thái trang chủ chưa được cấu hình"
+    },
+    "serviceLayerError": {
+      "title": "Dịch vụ không có sẵn"
+    },
+    "nerveBox": {
+      "generic": {
+        "title": "Kiểm tra giấy phép",
+        "body": "Kiểm tra giấy phép không thành công, vui lòng liên hệ quản trị viên."
+      }
+    },
+    "homePageWithSearch": {
+      "placeholder": "Nhập văn bản tìm kiếm ở đây...",
+      "searchResults": "Kết quả tìm kiếm"
+    }
+  },
+  "datePicker": {
+    "clear": "Xóa",
+    "close": "Đóng",
+    "now": "Hiện tại",
+    "today": "Hôm nay",
+    "ok": "Xác nhận",
+    "setDateAsToday": "Đặt ngày thành hôm nay",
+    "setTimeAsNow": "Đặt thời gian hiện tại"
+  },
+  "dateTimePicker": {
+    "clear": "Xóa",
+    "close": "Đóng",
+    "now": "Hiện tại",
+    "today": "Hôm nay",
+    "ok": "Xác nhận",
+    "setDateAsToday": "Đặt ngày thành hôm nay",
+    "setTimeAsNow": "Đặt thời gian hiện tại"
+  },
+  "dialog": {
+    "close": "Đóng",
+    "validator": {
+      "warningTitle": "Nhắc nhở:",
+      "warningMessage": "ít nhất 1 trường dữ liệu không đáp ứng quy tắc xác thực."
+    }
+  },
+  "entityPicker": {
+    "defaultPlaceHolder": "Đối tượng tìm kiếm",
+    "cancel": "Hủy bỏ",
+    "select": "Lựa chọn",
+    "selectItem": "Tùy chọn"
+  },
+  "fileUploader": {
+    "noFile": "Không tìm thấy tệp",
+    "error": {
+      "fileType": "Loại tệp không hợp lệ.",
+      "fileSize": "Kích thước tệp không hợp lệ.",
+      "readError": "Đã xảy ra lỗi khi đọc tệp."
+    },
+    "tooltip": {
+      "browse": "Xem",
+      "remove": "Xóa"
+    }
+  },
+  "iconPicker": {
+    "defaultPlaceHolder": "Bắt đầu gõ fa hoặc sit để tìm biểu tượng"
+  },
+  "textEditor": {
+    "browse": "Xem",
+    "tabHeading": "Tải lên từ hệ thống tệp tin"
+  },
+  "commandBar": {
+    "moreCommandsAvailable": "Nhiều hơn",
+    "lessCommands": "Ít hơn",
+    "clearToolTip": "Xóa",
+    "saveAsToolTip": "Lưu dưới dạng",
+    "saveToolTip": "Lưu",
+    "setDefaultTooltip": "Đặt thành mặc định",
+    "unsetDefaultTooltip": "Hủy mặc định",
+    "unknownCommandSep": "Loại lệnh con không xác định: các giá trị được phép là 'Command' hoặc 'Sep'",
+    "unknownCommand": "Loại lệnh con không xác định: các giá trị được phép là 'Command'、'Group' hoặc 'Sep'"
+  },
+  "contextInfo": {
+    "title": "Thông tin ngữ cảnh"
+  },
+  "filter": {
+    "add-new-clause": "Thêm điều khoản mới",
+    "constant": "Hằng số",
+    "field": "Trường",
+    "unknownType": "Loại không xác định",
+    "optionalDescription": "Nhập tùy chọn mô tả tại đây"
+  },
+  "filterPanel": {
+    "title": "Bộ lọc",
+    "reset": "Đặt lại",
+    "apply": "Áp dụng",
+    "save": "Lưu",
+    "cancel": "Hủy bỏ",
+    "saveFilterAs": "Lưu bộ lọc dưới dạng",
+    "setDefault": "Đặt thành mặc định",
+    "unSetDefault": "Hủy mặc định",
+    "name": "Tên",
+    "description": "Mô tả",
+    "optionalDescription": "Nhập tùy chọn mô tả tại đây",
+    "nameInfo": "Nên bắt đầu bằng một ký tự hoặc số và có độ dài từ 3 đến 25 ký tự.",
+    "descInfo": "Độ dài tối đa là 200 ký tự.",
+    "filterName": "Tên bộ lọc",
+    "newFilter": "Bộ lọc mới",
+    "openFilter": "Mở bộ lọc",
+    "delete": "Xóa",
+    "overlay": {
+      "text": "Lỗi：Tên bộ lọc đã tồn tại.",
+      "title": "Bộ lọc đã tồn tại",
+      "displayName": "Xác nhận"
+    }
+  },
+  "filterBar": {
+    "none": "Không",
+    "quick-search": "Gõ vào đây để bắt đầu tìm kiếm",
+    "quickSearchPlaceholder": "Điều kiện tìm kiếm",
+    "sortby": "Sắp xếp theo",
+    "userPreferenceTitle": "Thói quen người dùng",
+    "filterTitle": "Bộ lọc",
+    "groupTitle": "Nhóm theo",
+    "ascending": "Tăng dần",
+    "descending": "Giảm dần",
+    "ascendingTitle": "Thứ tự tăng dần",
+    "descendingTitle": "Thứ tự giảm dần",
+    "segregationTagsTitle": "Phân biệt",
+    "exportTitle": "Xuất dữ liệu",
+    "mode": "Mẫu",
+    "table": "Bảng",
+    "list": "Danh sách",
+    "selectAll": "Chọn tất cả",
+    "multiSelection": "Chọn nhiều"
+
+  },
+  "contextual": {
+    "search": "Nhập từ cần tìm kiếm ở đây..."
+  },
+  "generic": {
+    "search": "Nhập từ cần tìm kiếm ở đây..."
+  },
+  "interactiveAccordion": {
+    "newNode": "Nút mới"
+  },
+  "Graph": {
+    "error": {
+      "graphUndefined": "Không có nút và cạnh nào được xác định cho biểu đồ này.",
+      "uniqueNodeId": "Nút ID phải là duy nhất.",
+      "uniqueEdgeId": "Cạnh ID phải là duy nhất.",
+      "emptyGraph": "Hình ảnh trống"
+    },
+    "name": "Tên",
+    "description": "Mô tả",
+    "autoFit": "Tự động điều chỉnh",
+    "panAndZoom": "Xoay và thu phóng"
+  },
+  "Notification": {
+    "tileNull": "[Controller.notificationTileShow] tileContent 为 null \n'",
+    "tileContentGt120": "[Controller.notificationTileShow] tileContent lớn hơn 120 ký tự \n",
+    "tileTitleGt120": "[Controller.notificationTileShow] tileTitle lớn hơn 22 ký tự \n",
+    "infoTitle": "Thông tin",
+    "warningTitle": "Nhắc nhở"
+  },
+  "pager": {
+    "page-size": "Kích thước trang",
+    "total-items": "Tất cả các mục",
+    "filtered-items": "Mục lọc",
+    "selected-items": "Chọn tùy chỉnh",
+    "page": "Trang",
+    "page-first": "Trang đầu",
+    "page-prev": "Trang trước",
+    "page-next": "Tiếp theo",
+    "page-last": "Trang cuối"
+
+  },
+  "pagination": {
+    "showing": "Hiển thị",
+    "to": "đến",
+    "of": "\/",
+    "entries": "Mục",
+    "selected-items": "Chọn tùy chỉnh"
+  },
+  "settings": {
+    "title": "Cài đặt",
+    "subtitle": "Ngôn ngữ và khu vực",
+    "select": "Hãy chọn ngôn ngữ và khu vực",
+    "theme": "Chủ đề",
+    "log": "UI Nhật ký người dùng",
+    "message": "Kích hoạt gỡ lỗi hoặc ghi nhật ký có thể ảnh hưởng đến hiệu suất giao diện người dùng.",
+    "btnReset": "Đặt lại về mặc định",
+    "btnSave": "Lưu thay đổi",
+    "notificationTile": {
+      "title": "Thành công",
+      "saveText": "Đã lưu cài đặt",
+      "restoreText": "Đã khôi phục cài đặt"
+    }
+  },
+  "ChangeLocation": {
+    "title": "Cài đặt",
+    "subtitle": "Ngôn ngữ và khu vực",
+    "select": "Hãy chọn ngôn ngữ và khu vực",
+    "theme": "Chủ đề",
+    "log": "UI Nhật ký người dùng",
+    "message": "Kích hoạt gỡ lỗi hoặc ghi nhật ký có thể ảnh hưởng đến hiệu suất giao diện người dùng.",
+    "btnReset": "Đặt lại về mặc định",
+    "btnSave": "Lưu thay đổi",
+    "notificationTile": {
+      "title": "Thành công",
+      "saveText": "Đã lưu cài đặt",
+      "restoreText": "Đã khôi phục cài đặt"
+    }
+  },
+  "sidebar": {
+    "title": "Tiêu đề",
+    "open": "Mở",
+    "back": "Trở lại",
+    "error": {
+      "configMissing": "Không có dữ liệu.",
+      "homeMissing": "Trang chủ chưa cấu hình.",
+      "invalidNavigationButtons": "Các nút điều hướng chưa được định cấu hình.",
+      "iconMissing": "Biểu tượng chưa được cấu hình."
+    }
+  },
+  "sidePanel": {
+    "close": "Đóng",
+    "labelErrorMsg": "Bắt buộc phải có nhãn",
+    "tooltipErrorMsg": "Phải có chú thích công cụ",
+    "minimize": "Thu nhỏ cửa sổ",
+    "maximize": "Phóng to cửa sổ",
+    "closeConfirmTitle": "Xác nhận đóng",
+    "closeConfirmText": "Xác nhận đóng bảng điều khiển?"
+  },
+  "timePicker": {
+    "clear": "Xóa",
+    "set": "Cài đặt"
+  },
+  "validator": {
+    "errors": {
+      "noLabel": "Trường",
+      "required": "{{field}}Bắt buộc.",
+      "pattern": "{{field}}{{ value }}",
+      "min": "{{field}}dưới giá trị tối thiểu ({{value}}).",
+      "max": "{{field}}đã vượt quá giá trị tối đa ({{value}}).",
+      "minlength": "{{field}}dưới giá trị tối thiểu ({{value}}).",
+      "maxlength": "{{field}}đã vượt quá độ dài tối đa ({{value}}).",
+      "number": "{{field}}phải là số.",
+      "integer": "{{field}} phải là số nguyên.",
+      "editable": "{{field}}phải chọn từ các giá trị có sẵn.",
+      "custom": "{{field}}{{value}}"
+    }
+  },
+  "propertyGrid": {
+    "property": {
+      "addNew": "Thêm mới",
+      "remove": "Xóa",
+      "canNotAdd": "Không thể thêm",
+      "canNotRemove": "Không thể xóa",
+      "addItem": "Thêm thành phần"
+    },
+    "invalidLayout": "Bố cục không hợp lệ： giá trị cho phép là 'cố định' hoặc 'linh hoạt' "
+  },
+  "taskContainer": {
+    "taskList": {
+      "name-sort-by": "Tên",
+      "default-sort-by": "Trạng thái",
+      "created-sort-by": "TG tạo",
+      "lastupdated-sort-by": "Thời gian cập nhật gần nhất"
+    },
+    "tile": {
+      "status": "Trạng thái",
+      "created": "Đã tạo",
+      "lastUpdated": "Đã cập nhật",
+      "taskDefinitionId": "Định nghĩa"
+    },
+    "parameters": {
+      "parameter": "Tham số",
+      "description": "Mô tả",
+      "direction": "Phương hướng",
+      "id": "ID",
+      "isReadOnly": "Chỉ đọc",
+      "name": "Tên",
+      "type": "Loại",
+      "uom": "Đơn vị đo lường",
+      "value": "Giá trị",
+      "noData": "Không có dữ liệu"
+    },
+    "details": {
+      "id": "ID",
+      "name": "Tên",
+      "description": "Mô tả",
+      "taskDefinitionNId": "ID nhiệm vụ",
+      "taskDefinitionRevision": "Phiên bản",
+      "equipment": "Thiết bị",
+      "taskFlow": "Loại nhiệm vụ",
+      "taskOverview": "Tổng quan nhiệm vụ",
+      "taskDetails": "Chi tiết nhiệm vụ",
+      "properties": "Thông tin chi tiết",
+      "status": "Trạng thái"
+    },
+    "context": {
+      "noData": "Không có dữ liệu",
+      "context": "Ngữ cảnh",
+      "contextEntityType": "Loại thực thể ngữ cảnh",
+      "description": "Mô tả",
+      "direction": "Phương hướng",
+      "id": "ID",
+      "isReadOnly": "Chỉ đọc",
+      "name": "Tên",
+      "noUserFieldAvailable": "Không có trường người dùng",
+      "type": "Loại",
+      "uom": "Đơn vị đo lường",
+      "value": "Giá trị"
+    }
+  },
+  "ERRORS": {
+    "404": "Không tìm thấy tài nguyên được yêu cầu.",
+    "503": "Dịch vụ đang được bảo trì.",
+    "400": "Cú pháp của yêu cầu này không đúng định dạng hoặc không thể đáp ứng được.",
+    "403": "Yêu cầu này bị cấm. Ủy quyền cũng không hoạt động.",
+    "500": "Máy chủ gặp phải tình trạng không mong muốn, không thể thực hiện yêu cầu.",
+    "502": "Kết nối thất bại. Không thể truy xuất phản hồi.",
+    "4XX": "Máy chủ không đáp ứng, yêu cầu không hợp lệ",
+    "5XX": "Máy chủ không thực hiện được yêu cầu."
+  },
+  "svcErrors": {
+    "documentation": {
+      "noID": "Lỗi: Không thể thực thi lệnh mà không có ID",
+      "noQuery": "Lỗi: Không thể thực thi lệnh mà không có truy vấn",
+      "noNames": "Lỗi: Không thể thực thi lệnh không có tên",
+      "noEntityName": "Lỗi: Không thể thực thi lệnh mà không có tên thực thể"
+
+    },
+    "engineering": {
+      "noConfig": "Lỗi: Không thể thực thi lệnh mà không có cấu hình",
+      "noEntityName": "Lỗi: Không thể thực thi lệnh mà không có tên thực thể",
+      "generic": "Không thể kết nối với dịch vụ dữ liệu kỹ thuật",
+      "wrongEntityName": "Lỗi tên thực thể"
+    },
+    "databaseInfo": {
+      "createNoMsg": "Lỗi:Không thể tạo dữ liệu kho mà không có (' {{msg}} ')",
+      "createWrongInput": "Lỗi: Không thể tạo thông tin cơ sở dữ liệu khi nhập sai kiểu",
+      "updateNoMsg": "Lỗi: Không thể cập nhật thông tin cơ sở dữ liệu vì không có",
+      "updateWrongInput": "Lỗi: Không cập nhật được thông tin cơ sở dữ liệu khi nhập sai kiểu",
+      "deleteNoMsg": "Lỗi: Không thể xóa thông tin cơ sở dữ liệu vì không có",
+      "deleteWrongInput": "Lỗi: Không xóa được thông tin cơ sở dữ liệu khi nhập sai kiểu",
+      "associateNoMsg": "Lỗi: Không thể liên kết thông tin cơ sở dữ liệu vì không có",
+      "associateWrongInput": "Lỗi: Không thể liên kết thông tin cơ sở dữ liệu khi nhập sai kiểu"
+    },
+    "eventSubscription": {
+      "addNoWRName": "Lỗi: Không có tên QT phụ trợ. Không thể đăng ký",
+      "addNoSubscriptionName": "Lỗi: Không thể thêm đăng ký mà không có tên đăng ký",
+      "remNoWRName": "Lỗi: Không thể xóa đăng ký mà không có tên QT phụ trợ",
+      "remNoSubscriptionName": "Lỗi: Không thể xóa đăng ký không có tên đăng ký",
+      "createNoSubsEventName": "Lỗi: Không thể tạo đăng ký cho tên sự kiện mà không có đăng ký",
+      "createNoEventHandlerName": "Lỗi: Không thể tạo đăng ký mà không có tên trình xử lý sự kiện",
+      "createNoName": "Lỗi: Không thể đăng ký mà không có tên",
+      "updateNoSubsEventName": "Lỗi: Không có sự kiện đăng ký không thể cập nhật đăng ký",
+      "updateNoEventHandlerName": "Lỗi: Không thể cập nhật đăng ký mà không có tên trình xử lý sự kiện",
+      "updateNoName": "Lỗi: Không có tên không thể cập nhật đăng ký",
+      "deleteNoName": "Lỗi: Không có tên sự kiện đăng ký, không thể xóa đăng ký",
+      "renameSameName": "Lỗi: Trùng tên, không thể đổi tên đăng ký sự kiện",
+      "renameNoOldName": "Lỗi: Không thể đổi tên đăng ký sự kiện mà không có tên cũ",
+      "renameNoNewName": "Lỗi: Không thể đổi tên đăng ký sự kiện mà không có tên mới",
+      "addFilterNoName": "Lỗi: Không có tên sự kiện đăng ký, không thể thêm bộ lọc vào đăng ký",
+      "updateFilterNoName": "Lỗi: Không có tên sự kiện đăng ký, không thể cập nhật bộ lọc đăng ký",
+      "removeFilterNoName": "Lỗi: Không có tên sự kiện đăng ký, không thể xóa bộ lọc đăng ký"
+    },
+    "project": {
+      "loadNoVersion": "Lỗi: Không thể tải hạng mục mà không có phiên bản",
+      "loadNoName": "Lỗi: Không thể tải hạng mục mà không có tên",
+      "loadWrongInput": "Lỗi: Không thể tải hạng mục khi nhập sai đầu vào",
+      "unloadNoName": "Lỗi: Không thể gỡ hạng mục mà không có tên",
+      "unloadWrongInput": "Lỗi: Không thể gỡ hạng mục khi nhập sai đầu vào",
+      "deployNoVersion": "Lỗi: Không thể tải hạng mục mà không có phiên bản",
+      "deployNoName": "Lỗi: Không thể tải hạng mục mà không có tên",
+      "deployWrongInput": "Lỗi: Không thể tải hạng mục khi nhập sai đầu vào"
+    },
+    "systemEvents": {
+      "startupNoMsg": "Lỗi: Không thể khởi động dịch vụ khi chưa chỉ định (' {{msg}} ')",
+      "startupWrongInput": "Lỗi: Không thể khởi động dịch vụ vì đã chỉ định sai loại đầu vào",
+      "shutdownNoMsg": "Lỗi: Không thể tắt dịch vụ vì bạn chưa chỉ định (' {{msg}} ')",
+      "shutdownWrongInput": "Lỗi: Không thể tắt dịch vụ vì đã chỉ định sai loại đầu vào"
+    },
+    "workerRole": {
+      "createNoName": "Lỗi: Không thể tạo QT phụ trợ mà không có tên",
+      "updateNoName": "Lỗi: Không thể cập nhật QT phụ trợ mà không có tên",
+      "deleteNoName": "Lỗi: Không thể xóa QT phụ trợ mà không có tên",
+      "addUndefWR": "Lỗi: Không thể thêm lệnh vào QT phụ trợ không xác định",
+      "addUndefCommands": "Lỗi: Không thể thêm tập hợp các lệnh không xác định",
+      "addEmptyCommands": "Lỗi: Không thể thêm một tập lệnh trống",
+      "remUndefWR": "Lỗi: Không thể xóa lệnh khỏi QT phụ trợ không xác định",
+      "remUndefCommands": "Lỗi: Không thể xóa một nhóm lệnh không xác định",
+      "remEmptyCommands": "Lỗi: Không thể xóa một nhóm lệnh trống",
+      "addNoCommandName": "Lỗi: Không thể thêm lệnh mà không có tên lệnh",
+      "addNoWRName": "Lỗi: Không thể thêm lệnh mà không có tên QT phụ trợ",
+      "remNoCommandName": "Lỗi: Không thể xóa lệnh mà không có tên lệnh",
+      "remNoWRName": "Lỗi: Không thể xóa lệnh mà không có tên QT phụ trợ",
+      "addWRNoWRName": "Lỗi: Không thể thêm lệnh vào QT phụ trợ mà không có tên QT",
+      "addWRNoHRName": "Lỗi: Không thể thêm QT phụ trợ vào QT chính mà không có tên",
+      "remWRNoWRName": "Lỗi: Không thể xóa QT phụ trợ khỏi QT chính mà không có tên QT phụ trợ",
+      "remWRNoHRName": "Lỗi: Không thể xóa QT phụ trợ khỏi QT chính mà không có tên QT chính"
+    },
+    "business": {
+      "noConfig": "Lỗi: Không thể thực thi lệnh mà không có cấu hình",
+      "noEntityName": "Lỗi: Không thể thực thi lệnh mà không có tên thực thể",
+      "executeNoInput": "Lỗi: Không thể thực thi lệnh mà không có đầu vào",
+      "noFunctionName": "Lỗi đọc： Hàm số không xác định",
+      "defaultErrorMessage": "Không thể truy xuất phản hồi."
+    },
+    "businessCommand": {
+      "executeInvalidInput": "Lỗi: Không thể thực thi lệnh khi đầu vào không hợp lệ",
+      "executeInvalidCommand": "Lỗi: Không thể thực thi lệnh khi tên lệnh không hợp lệ"
+    }
+  },
+  "auditTrail": {
+    "viewer": {
+      "headers": {
+        "RootEntityId": "Thực thể gốc",
+        "UpdatedOn": "Dấu thời gian",
+        "UserName": "Người dùng",
+        "Action": "Thao tác",
+        "RootEntityType": "Loại thực thể",
+        "RootCommand": "Lệnh",
+        "Environment": "Điều kiện",
+        "Domain": "Miền",
+        "ExecutionInstance": "ExecutionInstance"
+      },
+      "commands": {
+        "refresh": "Làm mới"
+      }
+    },
+    "messages": {
+      "notEnabled": "Dữ liệu kiểm tra không hiển thị, bạn phải cài đặt và triển khai ứng dụng Audit Trail."
+    },
+    "summary": {
+      "message": "在 {{timestamp | date:'medium'}}，{{username}} {{'auditTrail.summary.actions.' + action | translate}} {{entity}}（trong {{environment}}）.",
+      "actions": {
+        "Added": "Đã thêm",
+        "Modified": "Đã thay đổi",
+        "Deleted": "Đã xóa",
+        "SignatureApproved": "Đã duyệt",
+        "SignatureRejected": "Đã từ chối"
+      },
+      "viewMore": "Xem nhiều hơn"
+    },
+    "properties": {
+      "title": "Thuộc tính",
+      "old": "Cũ",
+      "new": "Mới",
+      "bigdata": "Giá trị thay đổi"
+    },
+    "complex": {
+      "title": "Thuộc tính phức tạp",
+      "propName": "Tên thuộc tính",
+      "old": "Cũ",
+      "new": "Mới"
+    },
+    "relationships": {
+      "title": "Liên hệ",
+      "backwardNavigation": "{{entity}} {{logicalKey}} {{'auditTrail.relationships.actions.' + action | translate}}",
+      "forwardNavigation": {
+        "Added": "{{entity}} {{newLogicalKey}} {{'auditTrail.relationships.actions.' + action | translate}}",
+        "Modified": "{{entity}} {{newLogicalKey}} {{'auditTrail.relationships.actions.' + action | translate}}",
+        "Removed": "{{entity}} {{oldLogicalKey}} {{'auditTrail.relationships.actions.' + action | translate}}"
+      },
+      "actions": {
+        "Added": "Đã thêm",
+        "Modified": "Đã thay đổi",
+        "Removed": "Đã xóa"
+      }
+    },
+    "composition": {
+      "title": "Thông tin chi tiết",
+      "partTitle": "{{entityName}} {{'auditTrail.summary.actions.' + action | translate}}"
+    },
+    "electronicSignature": {
+      "title": "Chi tiết chữ ký điện tử"
+    }
+  },
+  "userPrefrences": {
+    "defaultViewModeHeading": "Chế độ xem mặc định",
+    "table": "Bảng",
+    "list": "Danh sách",
+    "columnConfigurator": {
+      "heading": "Bảng",
+      "availableSectionHeader": "Cột có sẵn",
+      "selectedSectionHeader": "Cột đã chọn",
+      "addButtonLabel": "Thêm vào",
+      "removeButtonLabel": "Xóa",
+      "addAllButtonLabel": "Thêm tất cả",
+      "removeAllButtonLabel": "Xóa tất cả",
+      "resetButtonLabel": "Đặt lại",
+      "moveUpButtonLabel": "Di chuyển lên",
+      "moveDownButtonLabel": "Di chuyển xuống",
+      "columnConfiguration": "Cài đặt cột"
+    },
+    "tileConfigurator": {
+      "heading": "Thuộc tính danh sách",
+      "inputFieldsHeader": "Thuộc tính",
+      "liveTilePreviewHeader": "Xem trước",
+      "selectSize": "Kích thước",
+      "resetButtonLabel": "Đặt lại",
+      "title": "Tiêu đề",
+      "description": "Mô tả",
+      "property1": "Property1",
+      "property2": "Property2",
+      "property3": "Property3",
+      "property4": "Property4"
+    },
+    "overlayMessage": {
+      "title": "Xác nhận đặt lại",
+      "bothText": "Thao tác này sẽ đặt lại tùy chọn người dùng cho lưới và ô, bạn có chắc chắn đặt lại?",
+      "text": "Đặt lại tùy chọn người dùng, bạn có chắc chắn muốn đặt lại không?",
+      "tileText": "Đặt lại tùy chọn người dùng, bạn có chắc chắn muốn đặt lại không?"
+    },
+    "title": {
+      "tile": "Tùy chỉnh thuộc tính danh sách",
+      "grid": "Tùy chỉnh cột bảng",
+      "tileGrid": "Tùy chỉnh {{moduleName}} chế độ xem"
+    }
+  },
+  "tagsManager": {
+    "title": "Quản lý thẻ",
+    "assignedTags": "Thẻ chỉ định",
+    "availableTags": "Thẻ có sẵn",
+    "totalItems": "Tất cả các mục",
+    "warning": "Nhắc nhở",
+    "canModifyWarning": "Do hạn chế thừa kế thực thể, các sửa đổi với thẻ có thể không có hiệu lực.",
+    "inputPlaceholderText": "Nhập từ cần tìm kiếm ở đây...",
+    "sidePanel": {
+      "closeToolTip": "Đóng"
+    },
+    "cantAssignTagToFrozen": "Không thể gán thẻ cho{{EntityType}} {{EntityId}}，bởi vì nó bị đóng băng",
+    "cantAssignTagToLocked": "Không thể gán thẻ cho{{EntityType}} {{EntityId}}，bởi vì nó bị khóa",
+    "cantAssignTagToMarkedForCleaning": "Không thể gán thẻ cho{{EntityType}} {{EntityId}}，bởi vì nó bị đánh dấu để dọn dẹp"
+  },
+  "characteristicRepr": {
+    "valueinside": "Các giá trị được chèn phải ở dạng:",
+    "and": "và",
+    "CanBeSkipped": "Có thể bỏ qua",
+    "NId": "Quy cách NId",
+    "Id": "Hiển thị ký tự ID",
+    "Revision": "Phiên bản",
+    "samplesaved": "Đã lưu mẫu",
+    "sampleupdated": "Đã cập nhật mẫu",
+    "Description": "Mô tả",
+    "Criticality": "Quan trọng",
+    "Name": "Tên",
+    "NominalValue": "Chỉ số nhãn",
+    "UoM": "Đơn vị đo lường",
+    "UpperTolerance": "Giới hạn dung sai trên",
+    "LowerTolerance": "Giới hạn dung sai dưới",
+    "PotentialFailures": "Sự cố",
+    "SpecifictionName": "Tên quy cách",
+    "SpecifictionDescription": "Mô tả thông số",
+    "Details": "Thông tin chi tiết",
+    "EquipmentNId": "ID thiết bị",
+    "MTU": "MTU",
+    "MaterialNId": "ID vật liệu",
+    "MaterialRevision": "Phiên bản vật liệu",
+    "LegendaMessage": "Giá trị thêm vào lớn hơn giá trị cho phép",
+    "LegendaMessage2": "Không có tùy chọn hợp lệ nào được chọn",
+    "FailureNotMigrated": "Lỗi với NId {{FailureNId}} chưa được di chuyển",
+    "GridRows": "Hàng lưới",
+    "GridColumns": "Cột lưới",
+    "popupTitle": "Lỗi hiển thị",
+    "attachmentlist": "DS đính kèm",
+    "document": "Tệp",
+    "BrowseForMore": "Xem nhiều hơn......",
+    "failureassociated": "Lỗi được gán",
+    "failuredisassociated": "Sự cố đã tách rời",
+    "NoAssociatedFailures": "Không có lỗi liên quan",
+    "Legenda": "Chú giải",
+    "FailureRevision": "Phiên bản",
+    "OpenChildrenFailures": "Mở lỗi",
+    "Defect": "Hàng lỗi",
+    "showAttachments": "Hiển thị tệp đính kèm"
+  },
+  "instanceViewer": {
+    "acknowledge": {
+      "button": "Xác nhận",
+      "text": "Được cho phép bởi {{CompletedBy}} trên {{AcknowledgeOn}}"
+    },
+    "dataCollection": {
+      "button": "Xác nhận",
+      "text": "Được xác nhận bởi {{CompletedBy}} trên {{AcknowledgeOn}}",
+      "lowLimit": "Hạn mức thấp nhất",
+      "highLimit": "Hạn mức cao nhất",
+      "target": "Mục tiêu",
+      "outOfSpecMessage": "Giá trị không nằm trong giới hạn cho phép.",
+      "lowLimitMessage": "Giá trị đã nhập nhỏ hơn giá trị giới hạn chỉ định ({{lowLimit}}).",
+      "highLimitMessage": "Giá trị đã nhập lớn hơn giá trị giới hạn chỉ định ({{highLimit}}).",
+      "rangeMessage": "Giá trị đã nhập nằm ngoài giới hạn chỉ định ({{lowLimit}} - {{highLimit}})",
+      "targetMessage": "Giá trị đã nhập không khớp với giá trị đích đã chỉ định.",
+      "bigintRangeMessage": "Giá trị trường không phải là giá trị BigInt hợp lệ. Các giá trị được phép nằm trong khoảng từ -9007199254740992 đến 9007199254740991",
+      "decimalRangeMessage": "Giá trị trường không phải là giá trị BigInt hợp lệ. Các giá trị được phép nằm trong khoảng từ -7.9 * Math.pow(10, 28) đến 7.9 * Math.pow(10, 28).",
+      "formatMismatch": "Giá trị trường không khớp với định dạng đã cho."
+    },
+    "reEdit": {
+      "button": "Chỉnh sửa lại"
+    },
+    "acquire": {
+      "button": "Lấy"
+    }
+  },
+  "documentViewer": {
+    "defaultTitle": "Tệp",
+    "previousPage": "Trang trước",
+    "nextPage": "Tiếp theo",
+    "maximizeDocument": "Phóng to tài liệu",
+    "maximizeDetails": "Phóng to chi tiết",
+    "minimizeDetails": "Thu nhỏ chi tiết",
+    "documentCarousel": {
+      "noData": "Không có dữ liệu"
+    }
+  },
+  "navigationLink": {
+    "moreTabsAvailable": "Nhiều hơn..."
+  },
+  "esSigners": {
+    "buttontext": "SIGN",
+    "buttontext_completed": "Xem chữ ký",
+    "title": "Yêu cầu chữ ký",
+    "description": "Bạn cần phê duyệt tất cả các chữ ký sau để tiếp tục：",
+    "close": "Đóng",
+    "only": "Chỉ một",
+    "leftsigns": "Chữ ký còn lại",
+    "SpecificUser": "Người dùng",
+    "Role": "Vai trò",
+    "Meaning": "Nguyên nhân",
+    "UserID": "ID Người dùng",
+    "FullName": "Tên đầy đủ",
+    "DateAndTime": "Ngày và Giờ",
+    "Comment": "Nhận xét",
+    "Sign": "ký tên",
+    "Approve": "Chấp nhận",
+    "Reject": "Từ chối",
+    "TooLongComment": "Độ dài tối đa được phép là 255 ký tự.",
+    "ScenarioInRejectStatus": "Kịch bản ở trạng thái từ chối.",
+    "ErrorPrepareSignature-3": "Kịch bản hoặc bước đã chỉ định không tồn tại.",
+    "ErrorPrepareSignature-5": "Không thể tạo phiếu ES: Bước kịch bản không hợp lệ.",
+    "ErrorAddSignature-3": "Phiên bản chữ ký hoặc phiếu không tồn tại.",
+    "ErrorAddSignature-901": "Cấu hình chữ ký của người dùng đăng nhập đã tồn tại.",
+    "ErrorAddSignature-902": "Cấu hình chữ ký của người dùng cụ thể đã tồn tại.",
+    "ErrorAddSignature-903": "Người ký không hợp lệ.",
+    "ErrorAddSignature-904": "Không thể sửa cấu hình ký cho kịch bản bị đóng băng.",
+    "ErrorAddSignature-905": "Người ký không ở trạng thái hợp lệ.",
+    "ErrorAddSignature-906": "Cấu hình chữ ký của kịch bản không tồn tại.",
+    "ErrorAddSignature-907": "Cấu hình chữ ký không thuộc về kịch bản.",
+    "ErrorAddSignature-908": "Chú thích cho các phiên bản đã ký là bắt buộc.",
+    "ErrorAddSignature-909": "Trạng thái kịch bản không phù hợp để thêm chữ ký.",
+    "ErrorAddSignature-910": "Chữ ký đã được ký.",
+    "ErrorAddSignature-911": "Trạng thái phiếu không hợp lệ để ký.",
+    "ErrorAddSignature-912": "Định dạng của phiếu không hợp lệ.",
+    "ErrorAddSignature-913": "Mã xác thực của người ký không hợp lệ.",
+    "ErrorAddSignature-914": "Mã thông báo xác thực không liên quan đến phiếu.",
+    "ErrorAddSignature-915": "Người dùng được xác thực không hợp lệ.",
+    "ErrorAddSignature-916": "Người dùng đang cố ký có vai trò không chính xác.",
+    "ErrorAddSignature-917": "Mã thông báo xác thực không đề cập đến người dùng UMC.",
+    "ErrorAddSignature-919": "ESTicket không tồn tại.",
+    "ErrorAddSignature-920": "Phiếu không hợp lệ cho người dùng này",
+    "ErrorAddSignature-921": "Phiếu sẽ bị xóa"
+  },
+  "electronicSignature": {
+    "messages": {
+      "notEnabled": "Thành phần Chữ ký điện tử không thể hiển thị vì trước tiên bạn phải cài đặt và triển khai ứng dụng Audit Trail."
+    },
+    "cancel": "Hủy bỏ",
+    "select": "Lựa chọn",
+    "selectSignatureScenario": "Chọn kịch bản",
+    "pickerPlaceHolder": "Chọn kịch bản",
+    "scenarioConfiguration": "Phương án ký",
+    "scenarioName": "Tên",
+    "user": "Người dùng",
+    "role": "Vai trò",
+    "scenarioDescription": "Mô tả",
+    "refresh": "Làm mới",
+    "theLoggerUser": "Người dùng đăng nhập",
+    "reason": "Nguyên nhân"
+  },
+  "homeCards": {
+    "accessControlManagement": {
+      "title": "Quản lý kiểm soát truy cập",
+      "description": "Mô tả quản lý, kiểm soát truy cập",
+      "action": {
+        "title": "Mở"
+      }
+    },
+    "adapterConfiguration": {
+      "title": "Cấu hình bộ điều hợp",
+      "description": "Mô tả cấu hình bộ điều hợp",
+      "action": {
+        "title": "Mở"
+      }
+    },
+
+    "workOrder": {
+      "title": "Quản lý kế hoạch",
+      "description": "Được sử dụng để quản lý các lệnh sản xuất, hoạt động và các yêu cầu sản xuất.",
+      "action": {
+        "title": "Mở"
+      }
+    },
+    "archiving": {
+      "title": "Lưu trữ",
+      "description": "Được sử dụng để truy cập dữ liệu lưu trữ.",
+      "action": {
+        "title": "Mở"
+      }
+    },
+    "equipmentEngineering": {
+      "title": "Quản lý thiết bị",
+      "description": "Được sử dụng để tạo và định cấu hình các thiết bị và tài sản vật lý dựa trên vai trò.",
+      "action": {
+        "title": "Mở"
+      }
+    },
+    "interoperability": {
+      "title": "Quản lý chất lượng",
+      "description": "Dùng để quản lý, kiểm soát chất lượng sản phẩm.",
+      "action": {
+        "title": "Mở"
+      }
+    },
+    "manufacturing": {
+      "title": "Gia công",
+      "description": "Được sử dụng để định cấu hình dữ liệu sản xuất phổ biến (ví dụ: vật liệu và mô hình nhà máy).",
+      "action": {
+        "title": "Mở"
+      }
+    },
+    "materialEngineering": {
+      "title": "Quản lý vật tư",
+      "description": "Được sử dụng để tạo và định cấu hình các vật liệu và sản phẩm cần thiết cho sản xuất.",
+      "action": {
+        "title": "Mở"
+      }
+    },
+    "materialRuntime": {
+      "title": "Quản lý vật tư",
+      "description": "Dùng để quản lý theo dõi đơn vị vật tư, lô vật tư, tồn kho, lưu chuyển và nguồn gốc.",
+      "action": {
+        "title": "Mở"
+      }
+    },
+    "operationalDashboards": {
+      "title": "Bảng điều khiển",
+      "description": "Mô tả bảng điều khiển",
+      "action": {
+        "title": "Mở"
+      }
+    },
+    "process": {
+      "title": "Quản lý chất lượng",
+      "description": "Dùng để quản lý kiểm tra nguyên vật liệu, chất lượng nguyên vật liệu.",
+      "action": {
+        "title": "Mở"
+      }
+    },
+    "processActivities": {
+      "title": "Quản lý báo cáo",
+      "description": "Dùng để kiểm tra báo cáo",
+      "action": {
+        "title": "Mở"
+      }
+    },
+    "productandProductionConfiguration": {
+      "title": "Quản lý sản xuất",
+      "description": "Được sử dụng để quản lý các thực thể đại diện cho các yếu tố kỹ thuật cần thiết cho sản xuất.",
+      "action": {
+        "title": "Mở"
+      }
+    },
+    "productionCoordination": {
+      "title": "Dữ liệu cơ bản",
+      "description": "Được sử dụng để hỗ trợ nhân viên sản xuất trong việc quản lý và giám sát công việc đang tiến hành trong khu vực của họ.",
+      "action": {
+        "title": "Mở"
+      }
+    },
+    "settings": {
+      "title": "Cài đặt",
+      "description": "Được sử dụng để quản lý cấu hình và dữ liệu chung trên toàn hệ thống",
+      "action": {
+        "title": "Mở"
+      }
+    },
+    "shopfloor": {
+      "title": "Xưởng",
+      "description": "Được sử dụng để thực hiện lệnh sản xuất, công đoạn và nhiệm vụ.",
+      "action": {
+        "title": "Mở"
+      }
+    },
+    "shopfloorExecution": {
+      "title": "Quản lý sản xuất",
+      "description": "Để quản lý việc thực hiện các đơn đặt hàng, hoạt động và nhiệm vụ: tiến độ và truy xuất nguồn gốc.",
+      "action": {
+        "title": "Mở"
+      }
+    },
+    "siteManagement": {
+      "title": "Quản lý website",
+      "description": "Mô tả quản lý website",
+      "action": {
+        "title": "Mở"
+      }
+    },
+    "system": {
+      "title": "Quản lý hệ thống",
+      "description": "Được sử dụng để quản lý cấu hình và dữ liệu chung trên toàn hệ thống.",
+      "action": {
+        "title": "Mở"
+      }
+    }
+  },
+  "status": {
+    "total": "Tổng số"
+  },
+  "tiles": {
+    "notificationTiles": "Loại thông báo",
+    "unknownTileType": "Loại thông báo không xác định"
+  },
+  "export": {
+    "title": "Xuất dữ liệu",
+    "sidePanel": {
+      "closeToolTip": "Đóng"
+    }
+  },
+  "breadcrumb": {
+    "objects": "Đối tượng：",
+    "object": "Đối tượng："
+  },
+  "customCommon": {
+    "SelectTips": "Hãy lựa chọn",
+    "Select": {
+      "SelectFactory": "Hãy chọn nhà máy",
+      "SelectMainData": "Hãy chọn dữ liệu chính",
+      "SelectProdTeam": "Hãy chọn tổ sản xuất"
+    },
+    "Saveing": "Đang lưu, xin đợi một lát...",
+    "SaveSuccess": "Lưu thành công !",
+    "Button": {
+      "Search": "Tìm kiếm",
+      "Delete": "Xóa",
+      "Add": "Thêm",
+      "Edit": "Chỉnh sửa",
+      "Add2": "Thêm vào",
+      "Cancel": "Hủy bỏ",
+      "Save": "Lưu"
+    },
+    "Title": {
+      "Search": "Tìm kiếm",
+      "Delete": "Xóa",
+      "Add": "Thêm",
+      "Edit": "Chỉnh sửa",
+      "Add2": "Thêm vào",
+      "Cancel": "Hủy bỏ",
+      "Save": "Lưu",
+      "To": "Đến"
+    },
+    "PageTips": "Số dòng mỗi trang",
+    "rowNum": "Số dòng",
+    "Error": "Lỗi",
+    "ErrorOperate": "Lỗi vận hành",
+    "ErrorGetData": "Lỗi nhận dữ liệu",
+    "ErrorGetDataDetail": "Lỗi nhận chi tiết dữ liệu",
+    "Confirm": {
+      "Title": "Xóa",
+      "Context": "Xác nhận xóa các bản ghi đã chọn?"
+    },
+    "ChangeLocation": {
+      "Title": "Chuyển đổi nhà máy",
+      "Country": {
+        "cn": "Nhà máy Trung Quốc",
+        "cn_remark": "中国工厂",
+        "vn": "Nhà máy Việt Nam",
+        "vn_remark": "越南工厂",
+        "th": "Nhà máy Thái Lan",
+        "th_remark": "泰国工厂"
+      }
+    },
+    "SelectModal": {
+      "Tips_1": "Chọn",
+      "Tips_2": "Tên",
+      "Tips_3": "Tìm kiếm",
+      "Tips_4": "Xác nhận",
+      "Tips_5": "Huỷ",
+      "Tips_6": "Mã",
+      "Tips_7": "Mã vạch",
+      "Tips_8": "Số lô",
+      "Tips_9": "Nhà cung cấp",
+      "Tips_10": "Quản lý tệp đính kèm",
+      "Tips_11": "Thêm ",
+      "Tips_12": "Xoá",
+      "Tips_13": "Đóng lại",
+      "Tips_14": "Tải lên lưu",
+      "JS": {
+        "Tips_1": "Xoá",
+        "Tips_2": "Xác nhận xóa các bản ghi đã chọn không?",
+        "Tips_3": "Lỗi lấy dữ liệu ",
+        "Tips_4": "Đã sảy ra lỗi khi lấy dữ liệu",
+        "Tips_5": "Tệp tải lên đã vượt quá giới hạn tải lên là 10 tệp!",
+        "Tips_6": "Đang tải, vui lòng đợi..."
+      }
+    }
+  }
+}

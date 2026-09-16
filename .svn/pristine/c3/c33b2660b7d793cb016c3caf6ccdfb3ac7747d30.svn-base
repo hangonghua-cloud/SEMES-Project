@@ -1,0 +1,44 @@
+﻿<div class="command-bar-side-panel">
+    <button ng-click="vm.cancel()" class="btn side-panel-button">{{'Siemens.SimaticIT.ProductionApp.ScrapRecord.add.Tips_1'|translate}}</button>
+    <button ng-click="vm.save()" class="btn side-panel-button" ng-show="vm.validInputs">{{'Siemens.SimaticIT.ProductionApp.ScrapRecord.add.Tips_2'|translate}}</button>
+</div>
+<div class="side-panel-property-area-body">
+    <sit-property-grid sit-id="add_form" sit-layout="Vertical" sit-type="Fluid" sit-mode="edit" sit-columns="1">
+        <sit-property-grid sit-id="view_form" sit-layout="Horizontal" sit-type="Fixed" sit-mode="edit" sit-columns="2"
+                           style="margin-left: 4px;">
+            <sit-property sit-widget="sit-select" sit-value="vm.typeFactory.value" sit-validation="{required: true}"
+                          sit-options="vm.typeFactory.options" sit-to-display="'ResourceName'" sit-to-keep="'ResourceCode'"
+                          sit-read-only="false" sit-change="vm.typeFactoryChange">{{'Siemens.SimaticIT.ProductionApp.ScrapRecord.add.Tips_3'|translate}}</sit-property>
+
+            <sit-property sit-widget="sit-select" sit-value="vm.typeScrapReason.value"
+                          sit-validation="{required: false}" sit-options="vm.typeScrapReason.options" sit-to-display="'ItemName'"
+                          sit-to-keep="'ItemValue'" sit-read-only="false" sit-change="vm.typeScrapReasonChange">
+                {{'Siemens.SimaticIT.ProductionApp.ScrapRecord.add.Tips_4'|translate}}
+            </sit-property>
+
+            <sit-property sit-widget="sit-select" sit-value="vm.typeProcess.value" sit-validation="{required: true}"
+                          sit-options="vm.typeProcess.options" sit-to-display="'ResourceName'" sit-to-keep="'ResourceCode'"
+                          sit-read-only="false">{{'Siemens.SimaticIT.ProductionApp.ScrapRecord.add.Tips_5'|translate}}</sit-property>
+
+            <sit-property sit-widget="sit-alp-text-picker" sit-value="vm.currentItem.SmallClassName"
+                          sit-validation="{required: false}" sit-read-only="false" ng-click="vm.typeSmallClassModal()">
+                {{'Siemens.SimaticIT.ProductionApp.ScrapRecord.add.Tips_6'|translate}}
+            </sit-property>
+
+            <sit-property sit-widget="sit-numeric" sit-value="vm.currentItem.ScrapQty"
+                          sit-validation="{required: true, min: 0}" sit-read-only="false">{{'Siemens.SimaticIT.ProductionApp.ScrapRecord.add.Tips_7'|translate}}</sit-property>
+
+            <!-- <sit-property sit-widget="sit-textarea" sit-value="vm.currentItem.Remark" sit-validation="{required: false}"
+                sit-read-only="false">{{'Siemens.SimaticIT.ProductionApp.ScrapRecord.add.Tips_8'|translate}}</sit-property> -->
+            <sit-property sit-widget="sit-datepicker" sit-value="vm.StartTime" sit-validation="{required: true}"
+                          sit-widget-attributes="{'sit-format':'yyyy-MM-dd','sit-show-meridian':'false'}" sit-read-only="false">
+                {{'Siemens.SimaticIT.ProductionApp.ScrapRecord.add.Tips_9'|translate}}
+            </sit-property>
+            <sit-property sit-widget="sit-datepicker" sit-value="vm.EndTime" sit-validation="{required: true}"
+                          sit-widget-attributes="{'sit-format':'yyyy-MM-dd','sit-show-meridian':'false'}" sit-read-only="false">
+                {{'Siemens.SimaticIT.ProductionApp.ScrapRecord.add.Tips_10'|translate}}
+            </sit-property>
+
+        </sit-property-grid>
+    </sit-property-grid>
+</div>

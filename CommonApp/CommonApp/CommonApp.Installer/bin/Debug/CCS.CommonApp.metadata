@@ -1,0 +1,190 @@
+{
+  "ToolVersion": "1.0",
+  "Prefix": "CCS",
+  "AppName": "CommonApp.APPOMModel",
+  "AppShortName": "CommonApp",
+  "AppFullName": "CCS.CommonApp.CommonApp.APPOMModel",
+  "AppVersion": "01.00.00",
+  "AssemblyVersion": "1.0.0.0",
+  "SystemMetaDataTypes": [
+    {
+      "FullInfo": "CommittedEventProperties",
+      "ArtifactType": "Entity",
+      "Members": [
+        {
+          "Name": "Action",
+          "Type": "String",
+          "IsMandatory": "True"
+        },
+        {
+          "Name": "EntityDomain",
+          "Type": "String",
+          "IsMandatory": "True"
+        },
+        {
+          "Name": "Operation",
+          "Type": "String",
+          "IsMandatory": "True"
+        },
+        {
+          "Name": "Ordering",
+          "Type": "Int64",
+          "IsMandatory": "True"
+        },
+        {
+          "Name": "SessionId",
+          "Type": "String",
+          "IsMandatory": "True"
+        },
+        {
+          "Name": "Timestamp",
+          "Type": "DateTimeOffset",
+          "IsMandatory": "True"
+        },
+        {
+          "Name": "Version",
+          "Type": "String",
+          "IsMandatory": "True"
+        },
+        {
+          "Name": "UafEntityName",
+          "Type": "String",
+          "IsMandatory": "True"
+        }
+      ]
+    },
+    {
+      "FullInfo": "BusinessEventSourceEnvelope",
+      "ArtifactType": "Event",
+      "Members": [
+        {
+          "Name": "EnvelopeCategory",
+          "Type": "String",
+          "IsMandatory": "True"
+        },
+        {
+          "Name": "EnvelopeTopic",
+          "Type": "String",
+          "IsMandatory": "True"
+        },
+        {
+          "Name": "EnvelopeModule",
+          "Type": "String",
+          "IsMandatory": "True"
+        },
+        {
+          "Name": "EnvelopeTag",
+          "Type": "String",
+          "IsMandatory": "True"
+        },
+        {
+          "Name": "EnvelopeUserField1",
+          "Type": "String",
+          "IsMandatory": "True"
+        },
+        {
+          "Name": "EnvelopeUserField2",
+          "Type": "String",
+          "IsMandatory": "True"
+        },
+        {
+          "Name": "EnvelopeUserField3",
+          "Type": "String",
+          "IsMandatory": "True"
+        },
+        {
+          "Name": "EnvelopeUserField4",
+          "Type": "String",
+          "IsMandatory": "True"
+        },
+        {
+          "Name": "EnvelopeUserField5",
+          "Type": "String",
+          "IsMandatory": "True"
+        },
+        {
+          "Name": "EnvelopeUserField6",
+          "Type": "String",
+          "IsMandatory": "True"
+        },
+        {
+          "Name": "EnvelopeUserField7",
+          "Type": "String",
+          "IsMandatory": "True"
+        },
+        {
+          "Name": "EnvelopeUserField8",
+          "Type": "String",
+          "IsMandatory": "True"
+        },
+        {
+          "Name": "EnvelopeUserField9",
+          "Type": "String",
+          "IsMandatory": "True"
+        },
+        {
+          "Name": "EnvelopeUserField10",
+          "Type": "String",
+          "IsMandatory": "True"
+        }
+      ]
+    },
+    {
+      "FullInfo": "RevisionEntityProperties",
+      "ArtifactType": "RevisionEntity",
+      "Members": [
+        {
+          "Name": "Revision",
+          "Type": "String",
+          "IsMandatory": "True",
+          "IsLogicalKey": "True"
+        },
+        {
+          "Name": "SourceRevision",
+          "Type": "String"
+        },
+        {
+          "Name": "IsLocked",
+          "Type": "Boolean",
+          "IsMandatory": "True"
+        },
+        {
+          "Name": "IsCurrent",
+          "Type": "Boolean",
+          "IsMandatory": "True"
+        }
+      ]
+    },
+    {
+      "FullInfo": "Entity",
+      "ArtifactType": "Entity",
+      "Members": [
+        {
+          "Name": "Id",
+          "Type": "Guid",
+          "IsMandatory": "True"
+        },
+        {
+          "Name": "IsFrozen",
+          "Type": "Boolean",
+          "IsMandatory": "True"
+        },
+        {
+          "Name": "CreatedOn",
+          "Type": "DateTimeOffset",
+          "IsMandatory": "True"
+        },
+        {
+          "Name": "LastUpdatedOn",
+          "Type": "DateTimeOffset",
+          "IsMandatory": "True"
+        },
+        {
+          "Name": "ToBeCleaned",
+          "Type": "Boolean",
+          "IsMandatory": "True"
+        }
+      ]
+    }
+  ]
+}

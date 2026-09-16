@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="Post_PushPurchaseInWhInfo_Test">
+        <s:complexType />
+      </s:element>
+      <s:element name="Post_PushPurchaseInWhInfo_TestResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Post_PushPurchaseInWhInfo_TestResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Post_PushPurchaseInWhInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sBatchCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lstJwInfo" type="tns:ArrayOfPushPurchaseInWhEntity" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfPushPurchaseInWhEntity">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PushPurchaseInWhEntity" nillable="true" type="tns:PushPurchaseInWhEntity" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PushPurchaseInWhEntity">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="APPLYBATCH" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="REPORTCODE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SNUMBER" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PORDER" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="WORDERCODE" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="RSPOS" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="MACODE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MADESC" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="MAQUANTITY" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Post_PushPurchaseInWhInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Post_PushPurchaseInWhInfoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Post_PushJobWorkingInfo_Test">
+        <s:complexType />
+      </s:element>
+      <s:element name="Post_PushJobWorkingInfo_TestResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Post_PushJobWorkingInfo_TestResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Post_PushJobWorkingInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sBatchCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lstJwInfo" type="tns:ArrayOfPushJobWorkingInfoEntity" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfPushJobWorkingInfoEntity">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PushJobWorkingInfoEntity" nillable="true" type="tns:PushJobWorkingInfoEntity" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PushJobWorkingInfoEntity">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="APPLYBATCH" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="REPORTCODE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SNUMBER" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PORDER" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MACODE" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="MAQUANTITY" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ACCOUNTDATE" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ISPART" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Post_PushJobWorkingInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Post_PushJobWorkingInfoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="Post_PushPurchaseInWhInfo_TestSoapIn">
+    <wsdl:part name="parameters" element="tns:Post_PushPurchaseInWhInfo_Test" />
+  </wsdl:message>
+  <wsdl:message name="Post_PushPurchaseInWhInfo_TestSoapOut">
+    <wsdl:part name="parameters" element="tns:Post_PushPurchaseInWhInfo_TestResponse" />
+  </wsdl:message>
+  <wsdl:message name="Post_PushPurchaseInWhInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:Post_PushPurchaseInWhInfo" />
+  </wsdl:message>
+  <wsdl:message name="Post_PushPurchaseInWhInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:Post_PushPurchaseInWhInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="Post_PushJobWorkingInfo_TestSoapIn">
+    <wsdl:part name="parameters" element="tns:Post_PushJobWorkingInfo_Test" />
+  </wsdl:message>
+  <wsdl:message name="Post_PushJobWorkingInfo_TestSoapOut">
+    <wsdl:part name="parameters" element="tns:Post_PushJobWorkingInfo_TestResponse" />
+  </wsdl:message>
+  <wsdl:message name="Post_PushJobWorkingInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:Post_PushJobWorkingInfo" />
+  </wsdl:message>
+  <wsdl:message name="Post_PushJobWorkingInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:Post_PushJobWorkingInfoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="MES2SAPSoap">
+    <wsdl:operation name="Post_PushPurchaseInWhInfo_Test">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">采购收货推送接口测试 List</wsdl:documentation>
+      <wsdl:input message="tns:Post_PushPurchaseInWhInfo_TestSoapIn" />
+      <wsdl:output message="tns:Post_PushPurchaseInWhInfo_TestSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Post_PushPurchaseInWhInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">采购收货推送</wsdl:documentation>
+      <wsdl:input message="tns:Post_PushPurchaseInWhInfoSoapIn" />
+      <wsdl:output message="tns:Post_PushPurchaseInWhInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Post_PushJobWorkingInfo_Test">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">自动报工推送接口测试 List</wsdl:documentation>
+      <wsdl:input message="tns:Post_PushJobWorkingInfo_TestSoapIn" />
+      <wsdl:output message="tns:Post_PushJobWorkingInfo_TestSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Post_PushJobWorkingInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">自动报工推送</wsdl:documentation>
+      <wsdl:input message="tns:Post_PushJobWorkingInfoSoapIn" />
+      <wsdl:output message="tns:Post_PushJobWorkingInfoSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="MES2SAPSoap" type="tns:MES2SAPSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Post_PushPurchaseInWhInfo_Test">
+      <soap:operation soapAction="http://tempuri.org/Post_PushPurchaseInWhInfo_Test" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Post_PushPurchaseInWhInfo">
+      <soap:operation soapAction="http://tempuri.org/Post_PushPurchaseInWhInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Post_PushJobWorkingInfo_Test">
+      <soap:operation soapAction="http://tempuri.org/Post_PushJobWorkingInfo_Test" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Post_PushJobWorkingInfo">
+      <soap:operation soapAction="http://tempuri.org/Post_PushJobWorkingInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="MES2SAPSoap12" type="tns:MES2SAPSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Post_PushPurchaseInWhInfo_Test">
+      <soap12:operation soapAction="http://tempuri.org/Post_PushPurchaseInWhInfo_Test" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Post_PushPurchaseInWhInfo">
+      <soap12:operation soapAction="http://tempuri.org/Post_PushPurchaseInWhInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Post_PushJobWorkingInfo_Test">
+      <soap12:operation soapAction="http://tempuri.org/Post_PushJobWorkingInfo_Test" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Post_PushJobWorkingInfo">
+      <soap12:operation soapAction="http://tempuri.org/Post_PushJobWorkingInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MES2SAP">
+    <wsdl:port name="MES2SAPSoap" binding="tns:MES2SAPSoap">
+      <soap:address location="http://10.18.1.145:8002/ServicePackages/SAP/MES2SAP.asmx" />
+    </wsdl:port>
+    <wsdl:port name="MES2SAPSoap12" binding="tns:MES2SAPSoap12">
+      <soap12:address location="http://10.18.1.145:8002/ServicePackages/SAP/MES2SAP.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

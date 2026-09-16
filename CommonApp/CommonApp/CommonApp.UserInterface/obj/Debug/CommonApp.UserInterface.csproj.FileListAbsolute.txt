@@ -1,0 +1,7 @@
+D:\New folder\CommonApp\CommonApp\CommonApp.UserInterface\bin\CCS.CommonApp.UserInterface.dll.config
+D:\New folder\CommonApp\CommonApp\CommonApp.UserInterface\bin\CCS.CommonApp.UserInterface.dll
+D:\New folder\CommonApp\CommonApp\CommonApp.UserInterface\bin\CCS.CommonApp.UserInterface.pdb
+D:\New folder\CommonApp\CommonApp\CommonApp.UserInterface\obj\Debug\CommonApp.UserInterface.csprojAssemblyReference.cache
+D:\New folder\CommonApp\CommonApp\CommonApp.UserInterface\obj\Debug\CommonApp.UserInterface.csproj.CoreCompileInputs.cache
+D:\New folder\CommonApp\CommonApp\CommonApp.UserInterface\obj\Debug\CCS.CommonApp.UserInterface.dll
+D:\New folder\CommonApp\CommonApp\CommonApp.UserInterface\obj\Debug\CCS.CommonApp.UserInterface.pdb

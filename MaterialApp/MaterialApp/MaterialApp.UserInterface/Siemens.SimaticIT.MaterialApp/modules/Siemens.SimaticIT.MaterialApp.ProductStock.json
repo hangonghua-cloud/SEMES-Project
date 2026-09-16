@@ -1,0 +1,26 @@
+﻿{
+  "name": "Siemens.SimaticIT.MaterialApp.ProductStock",
+  "type": "standard",
+  "title": "Siemens.SimaticIT.MaterialApp.ProductStock.Title",
+  "header": "",
+  "icon": "fa-folder",
+  "functionalBlock": "Siemens.SimaticIT.MaterialApp",
+  "dependencies": [],
+  "states": [
+    {
+      "id": "home.Siemens_SimaticIT_MaterialApp_ProductStock_ProductStock",
+      "title": "Siemens.SimaticIT.MaterialApp.ProductStock.Title",
+      "header": "",
+      "securable": true,
+      "roles": []
+    },
+    {
+      "id": "home.Siemens_SimaticIT_MaterialApp_ProductStock_PackingTransferStock",
+      "title": "Siemens.SimaticIT.MaterialApp.PackingTransferStock.Title",
+      "header": "",
+      "securable": true,
+      "roles": []
+    }
+  ],
+  "manifestVersion": "01.01.00"
+}

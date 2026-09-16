@@ -1,0 +1,65 @@
+﻿<!--
+    0.代码生成: UA单表一键生成前后端html、JS、API接口代码生成器 Ver 2.13 更新日期：2021-07-12  设计者：刘万军
+    1.功能描述: 设备保养项目维护
+    2.创建人员: 王坤
+    3.创建日期: 2021-08-05
+    4.修改人员: 
+    5.修改日期: 
+-->
+<style>
+    .row {
+        padding: 5px;
+        margin-top: 10px;
+    }
+</style>
+<div class="command-bar-side-panel">
+    <button ng-click="vm.cancel()" class="btn side-panel-button">{{'Siemens.SimaticIT.EquipmentApp.EP_EquipmentMaintain.EP_EquipmentMaintaineditspare.Tips_1'|translate}}</button>
+    <button ng-click="vm.save()" class="btn side-panel-button">{{'Siemens.SimaticIT.EquipmentApp.EP_EquipmentMaintain.EP_EquipmentMaintaineditspare.Tips_2'|translate}}</button>
+</div>
+<div class="side-panel-property-area-body">
+    <sit-property-grid sit-id="edit_form"
+                       sit-layout="Vertical"
+                       sit-type="Fluid"
+                       sit-mode="edit"
+                       sit-columns="1">
+        <sit-property-grid sit-id="view_form" sit-layout="Horizontal" sit-type="Fixed" sit-mode="edit" sit-columns="2" style="margin-left: 4px;">
+            <sit-property sit-widget="sit-alp-text-picker"
+                          sit-read-only="true"
+                          sit-validation="{required: false}"
+                          sit-value="vm.currentItemDetail.SparePartsName"
+                          ng-click="vm.SelectSpareModal()">
+                {{'Siemens.SimaticIT.EquipmentApp.EP_EquipmentMaintain.EP_EquipmentMaintaineditspare.Tips_3'|translate}}
+            </sit-property>
+            <sit-property sit-widget="sit-text" sit-value="vm.currentItemDetail.SpecificationsModels" sit-validation="{required: false}"
+                          sit-read-only="true">{{'Siemens.SimaticIT.EquipmentApp.EP_EquipmentMaintain.EP_EquipmentMaintaineditspare.Tips_4'|translate}}</sit-property>
+            <sit-property sit-widget="sit-select"
+                          sit-read-only="false"
+                          sit-options="vm.TypeConfig.options"
+                          sit-to-keep="'ItemValue'" sit-validation="{required: false}" ng-show="false"
+                          sit-value="vm.TypeConfig.selectedOption"
+                          sit-to-display="'ItemName'">
+                {{'Siemens.SimaticIT.EquipmentApp.EP_EquipmentMaintain.EP_EquipmentMaintaineditspare.Tips_5'|translate}}
+            </sit-property>
+            <sit-property sit-widget="sit-select"
+                          sit-read-only="false"
+                          sit-options="vm.UnitConfig.options"
+                          sit-to-keep="'ItemValue'" sit-validation="{required: false}" ng-show="false"
+                          sit-value="vm.UnitConfig.selectedOption"
+                          sit-to-display="'ItemName'">
+                {{'Siemens.SimaticIT.EquipmentApp.EP_EquipmentMaintain.EP_EquipmentMaintaineditspare.Tips_6'|translate}}
+            </sit-property>
+            <sit-property sit-widget="sit-numeric" sit-value="vm.currentItemDetail.Num" sit-validation="{required: false}"
+                          sit-read-only="false">{{'Siemens.SimaticIT.EquipmentApp.EP_EquipmentMaintain.EP_EquipmentMaintaineditspare.Tips_7'|translate}}</sit-property>
+            <sit-property sit-widget="sit-datepicker" sit-value="vm.currentItemDetail.DateOfReplace" sit-validation="{required: false}" ng-show="false"
+                          sit-widget-attributes="{'sit-format':'yyyy-MM-dd','sit-show-meridian':'false'}" sit-read-only="false">{{'Siemens.SimaticIT.EquipmentApp.EP_EquipmentMaintain.EP_EquipmentMaintaineditspare.Tips_8'|translate}}</sit-property>
+            <sit-property sit-widget="sit-alp-text-picker"
+                          sit-read-only="false"
+                          ng-show="false"
+                          sit-validation="{required: false}"
+                          sit-value="vm.currentItemDetail.PersonOfReplaceName"
+                          ng-click="vm.SelectPeopleModal()">
+                {{'Siemens.SimaticIT.EquipmentApp.EP_EquipmentMaintain.EP_EquipmentMaintaineditspare.Tips_9'|translate}}
+            </sit-property>
+        </sit-property-grid>
+    </sit-property-grid>
+</div>

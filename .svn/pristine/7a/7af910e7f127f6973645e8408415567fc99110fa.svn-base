@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<connectionStrings>
+  <!--<add name="BaseDb" connectionString="Server=.;Initial Catalog=SIT_UA_MES;User ID=sa;Password=sa@2016;Connect Timeout=45;" providerName="System.Data.SqlClient" />-->
+  <!--<add name="BaseDb" connectionString="Server=172.168.11.132;Initial Catalog=FHMESDB;User ID=sa;Password=messa@2021;Connect Timeout=45;" providerName="System.Data.SqlClient" />-->
+  <!--<add name="BaseDb" connectionString="Server=172.168.11.127;Initial Catalog=FHMESDB;User ID=sa;Password=messa@2021;Connect Timeout=45;" providerName="System.Data.SqlClient" />-->
+ <!--越南-->
+  <!--<add name="BaseDb" connectionString="Server=192.168.19.102;Initial Catalog=FHMESDB;User ID=sa;Password=messa@2023;Connect Timeout=45;" providerName="System.Data.SqlClient" />-->
+  <!--泰国-->
+  <add name="BaseDb" connectionString="Server=172.16.10.102;Initial Catalog=FHMESDB;User ID=sa;Password=messa@2024;Connect Timeout=45;" providerName="System.Data.SqlClient" />
+</connectionStrings>

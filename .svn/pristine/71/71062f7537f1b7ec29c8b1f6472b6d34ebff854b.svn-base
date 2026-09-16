@@ -1,0 +1,15 @@
+﻿<div class="command-bar-side-panel">
+    <button ng-click="vm.cancel()" class="btn side-panel-button">{{'Siemens.SimaticIT.PlanApp.Plan.material.Tips_1'|translate}}</button>
+</div>
+<style>
+
+    .canvas .property-area-container > div.content .side-panel-property-area-body {
+        overflow-y: visible;
+    }
+</style>
+
+
+<div id="itemlist" style="width:calc(100% - 2px); height: calc(100% - 150px);margin-top: 6px; padding:5px 16px 0 16px;clear: both; display: block;">
+    <div ui-grid="vm.gridOptionsItem" ui-grid-selection ui-grid-resize-columns ui-grid-auto-resize class="uigrid gridItem"></div>
+</div>
+

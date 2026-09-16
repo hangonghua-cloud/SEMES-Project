@@ -1,0 +1,81 @@
+﻿
+<style>
+    #itemlist {
+        margin: 30px;
+    }
+
+    img {
+        cursor: pointer;
+        width: 260px;
+        height: 260px;
+    }
+
+    label {
+        cursor: pointer;
+        font-size: 28px;
+        /* font-weight: 300;
+        font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; */
+    }
+</style>
+
+<div id="itemlist" class="content-area content-area-relative" style="width: 98%;;height: calc(90% - 10px) !important">
+
+    <div class="row">
+        <div class="col-md-10" ng-click="vm.clickModel('UMC')">
+            <label>
+                {{'Siemens.SimaticIT.BaseDataApp.KnowledgeBase.KnowledgeBaselist.Tips_1'|translate}}<i class="fa fa-share"></i>
+            </label>
+        </div>
+
+        <div class="col-md-10" ng-click="vm.clickModel('worldDown')">
+            <label>
+                {{'Siemens.SimaticIT.BaseDataApp.KnowledgeBase.KnowledgeBaselist.Tips_3'|translate}}<i class="fa fa-download"></i>
+            </label>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-10" ng-click="vm.clickModel('AppDown')">
+            <label>
+                {{'Siemens.SimaticIT.BaseDataApp.KnowledgeBase.KnowledgeBaselist.Tips_2'|translate}}<i class="fa fa-download"></i>
+            </label>
+        </div>
+        <div class="col-md-10" ng-click="vm.clickModel('Google')">
+            <label>
+                {{'Siemens.SimaticIT.BaseDataApp.KnowledgeBase.KnowledgeBaselist.Tips_5'|translate}}<i class="fa fa-download"></i>
+            </label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10" ng-click="vm.clickModel('AppDown')"><img ng-src="Siemens.SimaticIT.BaseDataApp\images\AppDown.png" /></div>
+        <div class="col-md-10" ng-click="vm.clickModel('Google')"><img ng-src="Siemens.SimaticIT.BaseDataApp\images\Google.png" /></div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-10" ng-click="vm.clickModel('CS')">
+            <label>
+                {{'Siemens.SimaticIT.BaseDataApp.KnowledgeBase.KnowledgeBaselist.Tips_4'|translate}}<i class="fa fa-download"></i>
+            </label>
+        </div>
+        <div class="col-md-10" ng-click="vm.clickModel('CS_TH')">
+            <label>
+                8.CS端下载_泰国<i class="fa fa-download"></i>
+            </label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10" ng-click="vm.clickModel('Honeywell')">
+            <label>
+                4.Honeywell<i class="fa fa-download"></i>
+            </label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10" ng-click="vm.clickModel('FrameWork')">
+            <label>
+                5.FrameWork4.7<i class="fa fa-download"></i>
+            </label>
+        </div>
+    </div>
+</div>

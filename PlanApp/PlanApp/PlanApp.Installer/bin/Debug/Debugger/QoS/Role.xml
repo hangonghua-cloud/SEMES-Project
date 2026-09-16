@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Items>
+  <Role Id="0ea0aa59-885b-e511-827c-0050569f6b31">
+    <FunctionRights>
+      <Id>1ba0aa59-885b-e511-827c-0050569f6b31</Id>
+      <Id>24a0aa59-885b-e511-827c-0050569f6b31</Id>
+      <Id>29a0aa59-885b-e511-827c-0050569f6b31</Id>
+      <Id>30a0aa59-885b-e511-827c-0050569f6b31</Id>
+      <Id>46a0aa59-885b-e511-827c-0050569f6b31</Id>
+      <Id>49a0aa59-885b-e511-827c-0050569f6b31</Id>
+      <Id>4ca0aa59-885b-e511-827c-0050569f6b31</Id>
+      <Id>35a0aa59-885b-e511-827c-0050569f6b31</Id>
+      <Id>3ca0aa59-885b-e511-827c-0050569f6b31</Id>
+      <Id>68caee87-09fd-4cd8-ba72-2a8142e92245</Id>
+      <Id>66d97531-b179-4801-8e64-cc63a1cd81ea</Id>
+    </FunctionRights>
+    <IsSystemRole>true</IsSystemRole>
+    <Name>SysAdmin</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Role>
+  <Role Id="8fa0aa59-885b-e511-827c-0050569f6b31">
+    <FunctionRights>
+      <Id>45d52bc4-782e-485c-940e-7406f7687876</Id>
+      <Id>87f14bcf-377e-4b60-b505-286ffac9ad53</Id>
+      <Id>1f7596b5-da52-4d69-8abe-7dafe9648784</Id>
+      <Id>694d992c-e521-4dab-ba10-1316683da207</Id>
+      <Id>b9df852c-c368-4cdf-82af-70eba174ea7e</Id>
+    </FunctionRights>
+    <IsSystemRole>true</IsSystemRole>
+    <Name>AccessControlViewer</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Role>
+  <Role Id="9fa0aa59-885b-e511-827c-0050569f6b31">
+    <FunctionRights>
+      <Id>45d52bc4-782e-485c-940e-7406f7687876</Id>
+      <Id>87f14bcf-377e-4b60-b505-286ffac9ad53</Id>
+      <Id>1f7596b5-da52-4d69-8abe-7dafe9648784</Id>
+      <Id>694d992c-e521-4dab-ba10-1316683da207</Id>
+      <Id>b9df852c-c368-4cdf-82af-70eba174ea7e</Id>
+      <Id>4e61df62-90e8-451b-8f6f-882b834e5665</Id>
+      <Id>ec0eb0cc-ead5-4880-932d-1c653c4819be</Id>
+      <Id>5a02ed95-e0c6-413f-8835-22b5cdb81afc</Id>
+      <Id>b3025fc8-c55e-4a4c-82f9-7a7e01e53c67</Id>
+      <Id>dde5d13a-cbdb-4cf3-ab8b-3452d28145ea</Id>
+    </FunctionRights>
+    <IsSystemRole>true</IsSystemRole>
+    <Name>AccessControlAdmin</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Role>
+  <Role Id="f4f09af0-f1f4-4086-b15e-f33e92f8bab5">
+    <FunctionRights>
+      <Id>a564b22a-0141-42a4-9e48-905d1e64a56d</Id>
+    </FunctionRights>
+    <IsSystemRole>true</IsSystemRole>
+    <Name>SystemMonitoring</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Role>
+  <Role Id="dcaca78a-6a85-41bb-a025-cb1b9d8c50ef">
+    <FunctionRights>
+      <Id>21a0aa59-885b-e511-827c-0050569f6b31</Id>
+      <Id>39a0aa59-885b-e511-827c-0050569f6b31</Id>
+      <Id>eb1ed6b9-b412-4b17-a42b-c6d3e6899a95</Id>
+    </FunctionRights>
+    <IsSystemRole>true</IsSystemRole>
+    <Name>RemoteSystemCall</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Role>
+</Items>

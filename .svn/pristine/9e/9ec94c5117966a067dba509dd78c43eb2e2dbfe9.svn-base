@@ -1,0 +1,14 @@
+
+<DSL Version="1.13">
+    <Project>
+        <Name>QualityApp.QLPOMModel</Name>
+        <Version>01.00.00</Version>
+        <Prefix>Siemens.SimaticIT</Prefix>
+        <Domain>QualityApp</Domain>
+        <DomainAcronym>QL</DomainAcronym>
+        <Guid>7d082581-c0c9-4a84-9e53-6859738b47e1</Guid>
+		<ProjectKind>Pom</ProjectKind>
+    </Project>
+    <References>
+    </References>
+</DSL>

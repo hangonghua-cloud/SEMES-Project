@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Items>
+  <CertificateRoles Id="c6bc8fce-02f2-490e-a349-a67f412d0cc2">
+    <IsRevoked>false</IsRevoked>
+    <Roles>
+      <Id>dcaca78a-6a85-41bb-a025-cb1b9d8c50ef</Id>
+    </Roles>
+    <Thumbprint>E3D0D033368B21A8946F21AC83CFDA5D8F8BC30D</Thumbprint>
+    <IsSystemEntity>true</IsSystemEntity>
+  </CertificateRoles>
+</Items>

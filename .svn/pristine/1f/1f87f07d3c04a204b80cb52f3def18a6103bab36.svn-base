@@ -1,0 +1,33 @@
+﻿<style>
+    .canvas .property-area-container div.command-bar-side-panel {
+        padding-bottom: 40px;
+    }
+
+    .canvas .property-area-container > div.content .side-panel-property-area-body {
+        overflow: visible;
+        flex: none;
+    }
+</style>
+<div class="command-bar-side-panel">
+    <button ng-click="vm.cancel()" class="btn side-panel-button">取消</button>
+    <button ng-click="vm.save()" class="btn side-panel-button" ng-show="vm.validInputs">保存</button>
+</div>
+<div class="side-panel-property-area-body" style="height: calc(10% - 0px) !important;">
+    <sit-property-grid sit-id="add_form" sit-layout="Horizontal" sit-type="Fixed" sit-mode="edit" sit-columns="4">
+        <sit-property sit-id="File" sit-widget="sit-file-uploader" sit-value="vm.file"
+                      sit-validation="{ required: true }" sit-change="vm.changeFile"
+                      sit-widget-attributes="{'accept':'.xls,.xlsx','sit-min-size': '1KB', 'sit-max-size': '10MB'}">
+            (<a href="Siemens.SimaticIT.ProductionApp/resources/报废记录模板.xlsx">下载导入模板</a>):
+        </sit-property>
+    </sit-property-grid>
+</div>
+<div id="itemlist1"
+     style="width:calc(100% - 2px); height: 80%;margin-top: 3px; padding:5px 16px 0 0px;clear: both; display: block;">
+    <div>
+        <sit-tabset>
+            <sit-tab heading="导入信息">
+                <div id="sittab1" style="overflow: hidden;overflow:auto;white-space: nowrap;height: 330px;"></div>
+            </sit-tab>
+        </sit-tabset>
+    </div>
+</div>

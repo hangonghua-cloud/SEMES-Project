@@ -1,0 +1,92 @@
+﻿<style>
+    .row {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+        .row > [class*='col-'] {
+            display: flex;
+            flex-direction: column;
+        }
+
+    .ng-tree-search {
+        width: 100%;
+        margin-bottom: 1px;
+    }
+
+    .panel-Title {
+        background-color: #fff;
+        color: #333;
+        height: 35px;
+        line-height: 35px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        font-weight: bold;
+        border: 1px solid #ccc;
+        border-bottom-width: 0;
+        padding-left: 0px;
+        width: 100%;
+        box-sizing: content-box;
+    }
+</style>
+
+
+<sit-command-bar sit-vertical-autofixed="true" sit-type="Tool" :sit-label-align="right" sit-layout="vertical">
+
+    <sit-command sit-icon="fa  fa-plus-square-o" sit-type="main" sit-name="com.siemens.customcommand.search" :sit-tooltip="{{'Siemens.SimaticIT.MaterialApp.MaterialGroup.MaterialGrouplist.Tips_10'|translate}}" ng-click="vm.addDataItemSpecButtonHandler"
+                 :sit-label="{{'Siemens.SimaticIT.MaterialApp.MaterialGroup.MaterialGrouplist.Tips_10'|translate}}" ng-show="vm.is_addDataItemDetailButtonHandler"></sit-command>
+
+    <sit-command sit-icon="fa fa-trash-o" sit-type="main" sit-name="com.siemens.customcommand.search" :sit-tooltip="{{'Siemens.SimaticIT.MaterialApp.MaterialGroup.MaterialGrouplist.Tips_1'|translate}}" ng-click="vm.deleteDataItemDetailButtonHandler"
+                 :sit-label="{{'Siemens.SimaticIT.MaterialApp.MaterialGroup.MaterialGrouplist.Tips_1'|translate}}" ng-show="vm.is_deleteDataItemDetailButtonHandler"></sit-command>
+
+    <!-- <sit-command sit-icon="fa fa-pencil-square-o" sit-type="main" sit-name="com.siemens.customcommand.search" :sit-tooltip="{{'Siemens.SimaticIT.MaterialApp.MaterialGroup.MaterialGrouplist.Tips_2'|translate}}" ng-click="vm.editDataItemDetailButtonHandler"
+                 :sit-label="{{'Siemens.SimaticIT.MaterialApp.MaterialGroup.MaterialGrouplist.Tips_2'|translate}}" ng-show="vm.is_editDataItemDetailButtonHandler"></sit-command> -->
+
+    <sit-command sit-icon="fa  fa-plus-square-o" sit-type="main" sit-name="com.siemens.customcommand.add" :sit-tooltip="{{'Siemens.SimaticIT.MaterialApp.MaterialGroup.MaterialGrouplist.Tips_3'|translate}}" ng-click="vm.addDataItemDetailButtonHandler"
+                 :sit-label="{{'Siemens.SimaticIT.MaterialApp.MaterialGroup.MaterialGrouplist.Tips_3'|translate}}" ng-show="vm.is_addDataItemDetailButtonHandler"></sit-command>
+
+    <sit-command sit-icon="fa fa-trash" sit-type="main" sit-name="com.siemens.customcommand.search" :sit-tooltip="{{'Siemens.SimaticIT.MaterialApp.MaterialGroup.MaterialGrouplist.Tips_4'|translate}}"
+                 ng-click="vm.deleteButtonHandler" :sit-label="{{'Siemens.SimaticIT.MaterialApp.MaterialGroup.MaterialGrouplist.Tips_4'|translate}}" ng-show="vm.is_deleteButtonHandler"></sit-command>
+    <sit-command sit-icon="fa fa-plus" sit-type="main" sit-name="com.siemens.customcommand.add" :sit-tooltip="{{'Siemens.SimaticIT.MaterialApp.MaterialGroup.MaterialGrouplist.Tips_5'|translate}}"
+                 ng-click="vm.addButtonHandler" :sit-label="{{'Siemens.SimaticIT.MaterialApp.MaterialGroup.MaterialGrouplist.Tips_5'|translate}}" ng-show="vm.is_addButtonHandler"></sit-command>
+</sit-command-bar>
+<div id="itemlistContainer" class="content-area content-area-relative" style="width:100%; height:100%;overflow: hidden">
+    <div class="row" style="height:100%;">
+        <div class="col-xs-8 col-md-8" id="boxTree" style="height: 95%;overflow: hidden;">
+            <div style="margin: 16px 0px 15px 10px; border: 1px solid #cccccc; background-color: #f6f6f6; width:calc(100%-10px); height: 100%; padding:1px 10px 0 10px;overflow: auto;">
+
+                <js-tree tree-plugins="types,search" tree-types="typesConfig" tree-data="scope" tree-model="treeModel" tree-core="treeCore"
+                         tree-events="changed:changedCB;"></js-tree>
+            </div>
+            <div id="test"></div>
+        </div>
+        <div class="col-xs-32 col-md-32" style="height:95%;">
+            <div id="itemlist" style="width:calc(100% - 5px); height: calc(100% - 92px); padding:15px 5px 0 10px">
+
+                <div class="panel-Title">
+                    <div style="margin-left: 10px;">
+                        {{'Siemens.SimaticIT.MaterialApp.MaterialGroup.MaterialGrouplist.Tips_6'|translate}}
+                        <span id="titleinfo">{{vm.DataItemClass}} {{vm.DataItemClassValue}}</span>
+                    </div>
+                </div>
+                <div class="col-md-40" style="margin-left: 15px;height: calc(15% - 10px);">
+                    <div class="side-panel-property-area-body">
+                        <sit-property-grid sit-id="add_form" sit-layout="Horizontal" sit-type="Fixed" sit-mode="edit" sit-columns="5">
+                            <sit-property sit-widget="sit-text" sit-value="vm.searchParams.MaterialCode" sit-read-only="false" style="max-width:300px;">{{'Siemens.SimaticIT.MaterialApp.MaterialGroup.MaterialGrouplist.Tips_7'|translate}}</sit-property>
+                            <sit-property sit-widget="sit-text" sit-value="vm.searchParams.MaterialName" sit-read-only="false" style="max-width:300px;">{{'Siemens.SimaticIT.MaterialApp.MaterialGroup.MaterialGrouplist.Tips_8'|translate}}</sit-property>
+                            <sit-command-bar sit-type="action">
+                                <sit-command sit-icon="fa-search" sit-type="main" sit-name="com.siemens.customcommand.search" :sit-tooltip="{{'Siemens.SimaticIT.MaterialApp.MaterialGroup.MaterialGrouplist.Tips_9'|translate}}" ng-click="vm.searchButtonHandler" :sit-label="{{'Siemens.SimaticIT.MaterialApp.MaterialGroup.MaterialGrouplist.Tips_9'|translate}}">
+                                </sit-command>
+                            </sit-command-bar>
+                        </sit-property-grid>
+                    </div>
+                </div>
+                <div ui-grid="vm.gridOptions" ui-grid-pinning ui-grid-auto-resize ui-grid-resize-columns ui-grid-selection ui-grid-pagination class="uigrid"></div>
+            </div>
+        </div>
+    </div>
+</div>

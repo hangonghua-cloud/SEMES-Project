@@ -1,0 +1,499 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0E91C9A4-A209-4B20-A859-DA808C0C0027}</ProjectGuid>
+    <ProjectTypeGuids>{D45F378E-08AA-4766-880A-1AF4180CC2F8};{349c5851-65df-11da-9384-00065b846f21};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Siemens.SimaticIT.ProductionApp.UserInterface</RootNamespace>
+    <AssemblyName>Siemens.SimaticIT.ProductionApp.UserInterface</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <Name>ProductionApp.UserInterface</Name>
+    <FunctionalBlockType>Project</FunctionalBlockType>
+    <FunctionalBlockVersion>01.00.00</FunctionalBlockVersion>
+    <FunctionalBlockName>ProductionApp</FunctionalBlockName>
+    <FunctionalBlockPrefix>Siemens.SimaticIT</FunctionalBlockPrefix>
+    <SitPlatformVersion>4.1</SitPlatformVersion>
+    <Use64BitIISExpress />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Siemens.SimaticIT.ProductionApp\components\" />
+    <Folder Include="Siemens.SimaticIT.ProductionApp\config\" />
+    <Folder Include="Siemens.SimaticIT.ProductionApp\fonts\" />
+    <Folder Include="Siemens.SimaticIT.ProductionApp\images\" />
+    <Folder Include="Siemens.SimaticIT.ProductionApp\scripts\" />
+    <Folder Include="Siemens.SimaticIT.ProductionApp\services\" />
+    <Folder Include="Siemens.SimaticIT.ProductionApp\styles\" />
+    <Folder Include="Siemens.SimaticIT.ProductionApp\swac\" />
+    <Folder Include="Siemens.SimaticIT.ProductionApp\widgets\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\AbrasiveOrder\AbrasiveOrder-editbg.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\AbrasiveOrder\AbrasiveOrder-addbg-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\AbrasiveOrder\AbrasiveOrder-addbg.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\AbrasiveOrder\AbrasiveOrder-editbg-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\AbrasiveOrder\AbrasiveOrder-add-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\AbrasiveOrder\AbrasiveOrder-add.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\AbrasiveOrder\AbrasiveOrder-edit-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\AbrasiveOrder\AbrasiveOrder-edit.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\AbrasiveOrder\AbrasiveOrder-list-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\AbrasiveOrder\AbrasiveOrder-list.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\AbrasiveOrder\AbrasiveOrder-select-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\AbrasiveOrder\AbrasiveOrder-select.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\AbrasiveOrder\AbrasiveOrder-srv.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\AbrasiveOrder\AddBomItem.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\AbrasiveOrder\AddBomItem.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\AbrasiveOrder\EditBomItem.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\AbrasiveOrder\EditBomItem.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\AbrasiveOrder\module.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\ExeWorkOrderSW\ExeWorkOrderSW-seq.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\ExeWorkOrderSW\ExeWorkOrderSW-seq-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\ExeWorkOrderSW\ExeWorkOrderSW-add-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\ExeWorkOrderSW\ExeWorkOrderSW-add.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\ExeWorkOrderSW\ExeWorkOrderSW-edit-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\ExeWorkOrderSW\ExeWorkOrderSW-edit.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\ExeWorkOrderSW\ExeWorkOrderSW-list-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\ExeWorkOrderSW\ExeWorkOrderSW-list.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\ExeWorkOrderSW\ExeWorkOrderSW-select-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\ExeWorkOrderSW\ExeWorkOrderSW-select.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\ExeWorkOrderSW\ExeWorkOrderSW-srv.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\ExeWorkOrderSW\module.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\FormulaManage\FormulaBG-add-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\FormulaManage\FormulaBG-add.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\FormulaManage\FormulaBG-edit-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\FormulaManage\FormulaBG-edit.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\FormulaManage\FormulaBG-list-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\FormulaManage\FormulaBG-list.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\FormulaManage\FormulaBG-select-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\FormulaManage\FormulaBG-select.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\FormulaManage\FormulaBG-srv.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\FormulaManage\FormulaRecord-add-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\FormulaManage\FormulaRecord-add.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\FormulaManage\FormulaRecord-edit-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\FormulaManage\FormulaRecord-edit.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\FormulaManage\FormulaRecord-list-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\FormulaManage\FormulaRecord-list.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\FormulaManage\FormulaRecord-select-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\FormulaManage\FormulaRecord-select.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\FormulaManage\FormulaRecord-srv.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\FormulaManage\module.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\MaterialBatchUpRecord\MaterialBatchUpRecord-add-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\MaterialBatchUpRecord\MaterialBatchUpRecord-add.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\MaterialBatchUpRecord\MaterialBatchUpRecord-edit-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\MaterialBatchUpRecord\MaterialBatchUpRecord-edit.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\MaterialBatchUpRecord\MaterialBatchUpRecord-list-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\MaterialBatchUpRecord\MaterialBatchUpRecord-list.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\MaterialBatchUpRecord\MaterialBatchUpRecord-select-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\MaterialBatchUpRecord\MaterialBatchUpRecord-select.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\MaterialBatchUpRecord\MaterialBatchUpRecord-srv.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\MaterialBatchUpRecord\module.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\OwnProduct\AddBomItem.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\OwnProduct\AddBomItem.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\OwnProduct\EditBomItem.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\OwnProduct\EditBomItem.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\OwnProduct\module.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\OwnProduct\OwnProductBG-add-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\OwnProduct\OwnProductBG-add.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\OwnProduct\OwnProductBG-edit-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\OwnProduct\OwnProductBG-edit.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\OwnProduct\OwnProductBG-list-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\OwnProduct\OwnProductBG-list.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\OwnProduct\OwnProductBG-select-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\OwnProduct\OwnProductBG-select.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\OwnProduct\OwnProductBG-srv.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\OwnProduct\OwnProductOrder-add-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\OwnProduct\OwnProductOrder-add.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\OwnProduct\OwnProductOrder-addDetail-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\OwnProduct\OwnProductOrder-addDetail.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\OwnProduct\OwnProductOrder-bom-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\OwnProduct\OwnProductOrder-bom.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\OwnProduct\OwnProductOrder-edit-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\OwnProduct\OwnProductOrder-edit.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\OwnProduct\OwnProductOrder-editDetail-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\OwnProduct\OwnProductOrder-editDetail.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\OwnProduct\OwnProductOrder-list-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\OwnProduct\OwnProductOrder-list.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\OwnProduct\OwnProductOrder-select-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\OwnProduct\OwnProductOrder-select.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\OwnProduct\OwnProductOrder-srv.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\OwnProduct\OwnProductBG-addBad-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\OwnProduct\OwnProductBG-addBad.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\OwnProduct\OwnProductBG-addUser-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\OwnProduct\OwnProductBG-addUser.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\PackingBG\module.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\PackingBG\PackingRecord-add-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\PackingBG\PackingRecord-add.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\PackingBG\PackingRecord-edit-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\PackingBG\PackingRecord-edit.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\PackingBG\PackingRecord-list-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\PackingBG\PackingRecord-list.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\PackingBG\PackingRecord-select-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\PackingBG\PackingRecord-select.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\PackingBG\PackingRecord-srv.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\PMOperationPalletNum\module.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\PMOperationPalletNum\PMOperationPalletNum-addVC.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\PMOperationPalletNum\PMOperationPalletNum-addVC-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\PMOperationPalletNum\PMOperationPalletNum-editVC.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\PMOperationPalletNum\PMOperationPalletNum-editVC-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\PMOperationPalletNum\PMOperationPalletNum-import.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\PMOperationPalletNum\PMOperationPalletNum-import-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\PMOperationPalletNum\PMOperationPalletNum-add-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\PMOperationPalletNum\PMOperationPalletNum-add.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\PMOperationPalletNum\PMOperationPalletNum-edit-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\PMOperationPalletNum\PMOperationPalletNum-edit.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\PMOperationPalletNum\PMOperationPalletNum-list-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\PMOperationPalletNum\PMOperationPalletNum-list.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\PMOperationPalletNum\PMOperationPalletNum-select-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\PMOperationPalletNum\PMOperationPalletNum-select.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\PMOperationPalletNum\PMOperationPalletNum-srv.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\PMOwnSemiProductOrder\module.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\PMOwnSemiProductOrder\PMOwnSemiProductOrder-out.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\PMOwnSemiProductOrder\PMOwnSemiProductOrder-out-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\PMOwnSemiProductOrder\PMOwnSemiProductOrder-add-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\PMOwnSemiProductOrder\PMOwnSemiProductOrder-add.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\PMOwnSemiProductOrder\PMOwnSemiProductOrder-edit-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\PMOwnSemiProductOrder\PMOwnSemiProductOrder-edit.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\PMOwnSemiProductOrder\PMOwnSemiProductOrder-list-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\PMOwnSemiProductOrder\PMOwnSemiProductOrder-list.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\PMOwnSemiProductOrder\PMOwnSemiProductOrder-import-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\PMOwnSemiProductOrder\PMOwnSemiProductOrder-import.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\PMOwnSemiProductOrder\PMOwnSemiProductOrder-srv.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\PMPerformanceManage\module.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\PMPerformanceManage\PMPerformanceManage-add-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\PMPerformanceManage\PMPerformanceManage-add.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\PMPerformanceManage\PMPerformanceManage-import-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\PMPerformanceManage\PMPerformanceManage-import.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\PMPerformanceManage\PMPerformanceManage-list-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\PMPerformanceManage\PMPerformanceManage-list.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\PMPerformanceManage\PMPerformanceManage-select-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\PMPerformanceManage\PMPerformanceManage-select.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\PMPerformanceManage\PMPerformanceManage-srv.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\PMPostCoefficient\module.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\PMPostCoefficient\PMPostCoefficient-add-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\PMPostCoefficient\PMPostCoefficient-add.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\PMPostCoefficient\PMPostCoefficient-edit-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\PMPostCoefficient\PMPostCoefficient-edit.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\PMPostCoefficient\PMPostCoefficient-list-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\PMPostCoefficient\PMPostCoefficient-list.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\PMPostCoefficient\PMPostCoefficient-select-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\PMPostCoefficient\PMPostCoefficient-select.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\PMPostCoefficient\PMPostCoefficient-srv.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\PMProductPrice\module.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\PMProductPrice\PMProductPrice-addDetail.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\PMProductPrice\PMProductPrice-addDetail-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\PMProductPrice\PMProductPrice-add-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\PMProductPrice\PMProductPrice-add.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\PMProductPrice\PMProductPrice-editDetail.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\PMProductPrice\PMProductPrice-editDetail-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\PMProductPrice\PMProductPrice-edit-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\PMProductPrice\PMProductPrice-edit.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\PMProductPrice\PMProductPrice-importVC.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\PMProductPrice\PMProductPrice-importVC-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\PMProductPrice\PMProductPrice-list-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\PMProductPrice\PMProductPrice-list.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\PMProductPrice\PMProductPrice-importWL.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\PMProductPrice\PMProductPrice-importWL-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\PMProductPrice\PMProductPrice-select-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\PMProductPrice\PMProductPrice-select.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\PMProductPrice\PMProductPrice-srv.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\PrinterOrder\module.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\PrinterOrder\PrinterOrder-import.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\PrinterOrder\PrinterOrder-import-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\PrinterOrder\PrinterOrder-add-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\PrinterOrder\PrinterOrder-add.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\PrinterOrder\PrinterOrder-addDetail-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\PrinterOrder\PrinterOrder-addDetail.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\PrinterOrder\PrinterOrder-edit-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\PrinterOrder\PrinterOrder-edit.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\PrinterOrder\PrinterOrder-editBG-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\PrinterOrder\PrinterOrder-editBG.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\PrinterOrder\PrinterOrder-editDetail-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\PrinterOrder\PrinterOrder-editDetail.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\PrinterOrder\PrinterOrder-list-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\PrinterOrder\PrinterOrder-list.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\PrinterOrder\PrinterOrder-select-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\PrinterOrder\PrinterOrder-select.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\PrinterOrder\PrinterOrder-srv.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\PrinterWorkOrderBG\module.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\PrinterWorkOrderBG\PrinterWorkOrderBG-add-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\PrinterWorkOrderBG\PrinterWorkOrderBG-add.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\PrinterWorkOrderBG\PrinterWorkOrderBG-edit-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\PrinterWorkOrderBG\PrinterWorkOrderBG-edit.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\PrinterWorkOrderBG\PrinterWorkOrderBG-list-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\PrinterWorkOrderBG\PrinterWorkOrderBG-list.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\PrinterWorkOrderBG\PrinterWorkOrderBG-select-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\PrinterWorkOrderBG\PrinterWorkOrderBG-select.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\PrinterWorkOrderBG\PrinterWorkOrderBG-srv.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\ProcessBad\module.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\ProcessBad\ProcessBad-add-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\ProcessBad\ProcessBad-add.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\ProcessBad\ProcessBad-edit-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\ProcessBad\ProcessBad-edit.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\ProcessBad\ProcessBad-list-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\ProcessBad\ProcessBad-list.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\ProcessBad\ProcessBad-select-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\ProcessBad\ProcessBad-select.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\ProcessBad\ProcessBad-srv.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\ProductionFirstInspection\module.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\ProductionFirstInspection\ProductionFirstInspection-add-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\ProductionFirstInspection\ProductionFirstInspection-add.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\ProductionFirstInspection\ProductionFirstInspection-edit-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\ProductionFirstInspection\ProductionFirstInspection-edit.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\ProductionFirstInspection\ProductionFirstInspection-editDetail-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\ProductionFirstInspection\ProductionFirstInspection-editDetail.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\ProductionFirstInspection\ProductionFirstInspection-list-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\ProductionFirstInspection\ProductionFirstInspection-list.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\ProductionFirstInspection\ProductionFirstInspection-select-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\ProductionFirstInspection\ProductionFirstInspection-select.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\ProductionFirstInspection\ProductionFirstInspection-srv.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\ReworkRecord\module.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\ReworkRecord\ReworkRecord-add-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\ReworkRecord\ReworkRecord-add.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\ReworkRecord\ReworkRecord-edit-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\ReworkRecord\ReworkRecord-edit.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\ReworkRecord\ReworkRecord-list-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\ReworkRecord\ReworkRecord-list.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\ReworkRecord\ReworkRecord-select-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\ReworkRecord\ReworkRecord-select.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\ReworkRecord\ReworkRecord-srv.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\ScrapRecord\module.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\ScrapRecord\ScrapRecord-add-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\ScrapRecord\ScrapRecord-add.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\ScrapRecord\ScrapRecord-edit-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\ScrapRecord\ScrapRecord-edit.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\ScrapRecord\ScrapRecord-list-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\ScrapRecord\ScrapRecord-list.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\ScrapRecord\ScrapRecord-import.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\ScrapRecord\ScrapRecord-import-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\ScrapRecord\ScrapRecord-select-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\ScrapRecord\ScrapRecord-select.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\ScrapRecord\ScrapRecord-srv.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\Siemens.SimaticIT.ProductionApp.ProcessBad.json" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\TeamPerson\module.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\TeamPerson\TeamPerson-add-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\TeamPerson\TeamPerson-add.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\TeamPerson\TeamPerson-edit-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\TeamPerson\TeamPerson-edit.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\TeamPerson\TeamPerson-list-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\TeamPerson\TeamPerson-list.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\TeamPerson\TeamPerson-select-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\TeamPerson\TeamPerson-select.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\TeamPerson\TeamPerson-srv.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\TransferCardResume\BeforeSlottingInventory-add-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\TransferCardResume\BeforeSlottingInventory-add.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\TransferCardResume\BeforeSlottingInventory-edit-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\TransferCardResume\BeforeSlottingInventory-edit.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\TransferCardResume\BeforeSlottingInventory-list-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\TransferCardResume\BeforeSlottingInventory-list.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\TransferCardResume\BeforeSlottingInventory-select-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\TransferCardResume\BeforeSlottingInventory-select.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\TransferCardResume\BeforeSlottingInventory-srv.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\TransferCardResume\module.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\TransferCardResume\RawMaterialComplete-add-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\TransferCardResume\RawMaterialComplete-add.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\TransferCardResume\RawMaterialComplete-edit-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\TransferCardResume\RawMaterialComplete-edit.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\TransferCardResume\RawMaterialComplete-list-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\TransferCardResume\RawMaterialComplete-list.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\TransferCardResume\RawMaterialComplete-select-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\TransferCardResume\RawMaterialComplete-select.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\TransferCardResume\RawMaterialComplete-srv.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\TransferCardResume\RawMaterialReceive-add-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\TransferCardResume\RawMaterialReceive-add.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\TransferCardResume\RawMaterialReceive-edit-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\TransferCardResume\RawMaterialReceive-edit.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\TransferCardResume\RawMaterialReceive-list-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\TransferCardResume\RawMaterialReceive-list.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\TransferCardResume\RawMaterialReceive-select-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\TransferCardResume\RawMaterialReceive-select.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\TransferCardResume\RawMaterialReceive-srv.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\TransferCardResume\SharedInventory-add-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\TransferCardResume\SharedInventory-add.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\TransferCardResume\SharedInventory-edit-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\TransferCardResume\SharedInventory-edit.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\TransferCardResume\SharedInventory-list-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\TransferCardResume\SharedInventory-list.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\TransferCardResume\SharedInventory-select-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\TransferCardResume\SharedInventory-select.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\TransferCardResume\SharedInventory-srv.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\TransferCardResume\TransferCardResume-add-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\TransferCardResume\TransferCardResume-add.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\TransferCardResume\TransferCardResume-edit-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\TransferCardResume\TransferCardResume-edit.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\TransferCardResume\TransferCardResume-list-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\TransferCardResume\TransferCardResume-list.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\TransferCardResume\TransferCardResume-select-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\TransferCardResume\TransferCardResume-select.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\TransferCardResume\TransferCardResume-srv.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\TransferList\module.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\TransferList\TransferCard-add-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\TransferList\TransferCard-add.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\TransferList\TransferCard-addBad-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\TransferList\TransferCard-addBad.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\TransferList\TransferCard-addUser-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\TransferList\TransferCard-addUser.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\TransferList\TransferCard-edit-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\TransferList\TransferCard-edit.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\TransferList\TransferCard-list-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\TransferList\TransferCard-list.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\TransferList\TransferCard-select-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\TransferList\TransferCard-select.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\TransferList\TransferCard-srv.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\WorkOrderBatch\module.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\WorkOrderBatch\WorkOrderBatch-add-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\WorkOrderBatch\WorkOrderBatch-add.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\WorkOrderBatch\WorkOrderBatch-edit-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\WorkOrderBatch\WorkOrderBatch-edit.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\WorkOrderBatch\WorkOrderBatch-list-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\WorkOrderBatch\WorkOrderBatch-list.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\WorkOrderBatch\WorkOrderBatch-select-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\WorkOrderBatch\WorkOrderBatch-select.html" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\WorkOrderBatch\WorkOrderBatch-srv.js" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\Siemens.SimaticIT.ProductionApp.ExeWorkOrderSW.json" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\Siemens.SimaticIT.ProductionApp.TeamPerson.json" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\Siemens.SimaticIT.ProductionApp.ProductionFirstInspection.json" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\Siemens.SimaticIT.ProductionApp.ReworkRecord.json" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\Siemens.SimaticIT.ProductionApp.ScrapRecord.json" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\Siemens.SimaticIT.ProductionApp.ReworkRecord.json" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\Siemens.SimaticIT.ProductionApp.FormulaManage.json" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\Siemens.SimaticIT.ProductionApp.MaterialBatchUpRecord.json" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\Siemens.SimaticIT.ProductionApp.PackingBG.json" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\Siemens.SimaticIT.ProductionApp.PrinterOrder.json" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\Siemens.SimaticIT.ProductionApp.PrinterWorkOrderBG.json" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\Siemens.SimaticIT.ProductionApp.TransferList.json" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\Siemens.SimaticIT.ProductionApp.OwnProduct.json" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\Siemens.SimaticIT.ProductionApp.AbrasiveOrder.json" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\Siemens.SimaticIT.ProductionApp.TransferCardResume.json" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\resources\PrintOrderTemp.xls" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\Siemens.SimaticIT.ProductionApp.PMPerformanceManage.json" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\Siemens.SimaticIT.ProductionApp.PMOperationPalletNum.json" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\Siemens.SimaticIT.ProductionApp.PMOwnSemiProductOrder.json" />
+    <None Include="Siemens.SimaticIT.ProductionApp\modules\Siemens.SimaticIT.ProductionApp.PMPostCoefficient.json" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\Siemens.SimaticIT.ProductionApp.PMProductPrice.json" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\resources\产品工价导入模板.xls" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\resources\绩效管理导入模板.xls" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\resources\工序物料托盘数量导入模板.xls" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\resources\自制半成品订单导入模板.xls" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\resources\生产报废记录导入模板.xls" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\modules\Siemens.SimaticIT.ProductionApp.WorkOrderBatch.json" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\resources\resources.json" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\resources\Siemens.SimaticIT.ProductionApp.vi-VN.json" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\resources\Siemens.SimaticIT.ProductionApp.zh-CN.json" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\resources\报废记录模板.xlsx" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\resources\自制半成品工单导入模板.xls" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\resources\Siemens.SimaticIT.ProductionApp.th-TH.json" />
+    <Content Include="Siemens.SimaticIT.ProductionApp\resources\Siemens.SimaticIT.ProductionApp.en-US.json" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="app.js" />
+    <Content Include="config.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="default.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="default-debug.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Siemens.SimaticIT.ProductionApp\module.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="scripts\_references.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Siemens.SimaticIT.ProductionApp\locales\locales.json" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Import Project="$(SITUnifiedVSToolingPlatformBin)\Siemens.SimaticIt.UI.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>59854</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:59854/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeCompile">
+  </Target>
+  <Target Name="AfterCompile">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,6 @@
+D:\New folder\CommonApp\CommonApp\CommonApp.ReadingFunctionHandler\bin\Debug\CCS.CommonApp.ReadingFunctionHandler.dll
+D:\New folder\CommonApp\CommonApp\CommonApp.ReadingFunctionHandler\bin\Debug\CCS.CommonApp.ReadingFunctionHandler.pdb
+D:\New folder\CommonApp\CommonApp\CommonApp.ReadingFunctionHandler\obj\Debug\CommonApp.ReadingFunctionHandler.csprojAssemblyReference.cache
+D:\New folder\CommonApp\CommonApp\CommonApp.ReadingFunctionHandler\obj\Debug\CommonApp.ReadingFunctionHandler.csproj.CoreCompileInputs.cache
+D:\New folder\CommonApp\CommonApp\CommonApp.ReadingFunctionHandler\obj\Debug\CCS.CommonApp.ReadingFunctionHandler.dll
+D:\New folder\CommonApp\CommonApp\CommonApp.ReadingFunctionHandler\obj\Debug\CCS.CommonApp.ReadingFunctionHandler.pdb

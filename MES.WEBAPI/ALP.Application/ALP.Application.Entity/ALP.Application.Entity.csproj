@@ -1,0 +1,394 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C10920FE-8C74-4993-A7F4-1DA189DA842C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ALP.Application.Entity</RootNamespace>
+    <AssemblyName>ALP.Application.Entity</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <DocumentationFile>bin\Debug\ALP.Application.Entity.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ALP.Util.WebControl, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\..\ALP.DLL\ALP.Util.WebControl.dll</HintPath>
+    </Reference>
+    <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\..\packages\Dapper.2.0.35\lib\net461\Dapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AccountEntity.cs" />
+    <Compile Include="AppManage\AppPassWordEntity.cs" />
+    <Compile Include="AppManage\AppRoleModelsEntity.cs" />
+    <Compile Include="AppManage\AppRolesConfEntity.cs" />
+    <Compile Include="AppManage\AppVersionEntity.cs" />
+    <Compile Include="AuthorizeManage\ModuleFormEntity.cs" />
+    <Compile Include="AuthorizeManage\ModuleFormInstanceEntity.cs" />
+    <Compile Include="AuthorizeManage\ViewModel\AuthorizeUrlModel.cs" />
+    <Compile Include="BaseEntity.cs" />
+    <Compile Include="BaseManage\BaseClipToolEntity.cs" />
+    <Compile Include="BaseManage\BaseSequenceEntity.cs" />
+    <Compile Include="BaseManage\BaseShiftEntity.cs" />
+    <Compile Include="BaseManage\BaseUserLineEntity.cs" />
+    <Compile Include="BaseManage\BaseVirtualSlotEntity.cs" />
+    <Compile Include="BaseManage\Base_ImagesEntity.cs" />
+    <Compile Include="BaseManage\Base_KeyParameterEntity.cs" />
+    <Compile Include="BaseManage\Base_KeyParameterItemEntity.cs" />
+    <Compile Include="BaseManage\Base_ReportGroupEntity.cs" />
+    <Compile Include="BaseManage\Base_ReportRecordEntity.cs" />
+    <Compile Include="BaseManage\Base_ReportRoleAuthorizeEntity.cs" />
+    <Compile Include="BaseManage\Base_ReportRoleEntity.cs" />
+    <Compile Include="BaseManage\Base_UpdateLogEntity.cs" />
+    <Compile Include="BaseManage\BsModelLevelEntity.cs" />
+    <Compile Include="BaseManage\BsModelLevelExtendFieldsEntity.cs" />
+    <Compile Include="BaseManage\BsModelResouceExtendInfoEntity.cs" />
+    <Compile Include="BaseManage\BsModelWithResouceEntity.cs" />
+    <Compile Include="BaseManage\BS_PeopleEntity.cs" />
+    <Compile Include="BaseManage\DepartmentEntity.cs" />
+    <Compile Include="BaseManage\F_FilesEntity.cs" />
+    <Compile Include="BaseManage\MainEntity.cs" />
+    <Compile Include="BaseManage\MaterialManageEntity.cs" />
+    <Compile Include="BaseManage\MESBaseAccountEntity.cs" />
+    <Compile Include="BaseManage\OrganizeEntity.cs" />
+    <Compile Include="BaseManage\RoleEntity.cs" />
+    <Compile Include="BaseManage\SubEntity.cs" />
+    <Compile Include="BaseManage\UploadManageEntity.cs" />
+    <Compile Include="BaseManage\UserEntity.cs" />
+    <Compile Include="BaseManage\UserRelationEntity.cs" />
+    <Compile Include="BaseManage\WebChatApplyConfigEntity.cs" />
+    <Compile Include="BaseManage\WebChatApplyUserEntity.cs" />
+    <Compile Include="Enum\SAPEnum.cs" />
+    <Compile Include="EquipmentManage\EP_EquipmentAttribEntity.cs" />
+    <Compile Include="EquipmentManage\EP_EquipmentCheckItemDetailEntity.cs" />
+    <Compile Include="EquipmentManage\EP_EquipmentMaintainTypeEntity.cs" />
+    <Compile Include="EquipmentManage\EP_EquipmentCheckItemMaintenanceTypeEntity.cs" />
+    <Compile Include="EquipmentManage\EP_EquipmentCheckItemMaintenanceEntity.cs" />
+    <Compile Include="EquipmentManage\EP_EquipmentCheckRecordEntity.cs" />
+    <Compile Include="EquipmentManage\EP_EquipmentCheckResultEntity.cs" />
+    <Compile Include="EquipmentManage\EP_EquipmentMaintainDetailEntity.cs" />
+    <Compile Include="EquipmentManage\EP_EquipmentMaintainEntity.cs" />
+    <Compile Include="EquipmentManage\EP_EquipmentMaintainResultEntity.cs" />
+    <Compile Include="EquipmentManage\EP_EquipmentMaintainTaskEntity.cs" />
+    <Compile Include="EquipmentManage\EP_EquipmentMalfunctionRepairEntity.cs" />
+    <Compile Include="EquipmentManage\EP_EquipmentManage.cs" />
+    <Compile Include="EquipmentManage\EP_EquipmentManageItemEntity.cs" />
+    <Compile Include="EquipmentManage\EP_EquipmentSparePartsEntity.cs" />
+    <Compile Include="EquipmentManage\EP_EquipmentToolEntity.cs" />
+    <Compile Include="EquipmentManage\V_EP_EquipmentManageEntity.cs" />
+    <Compile Include="HTTPEntity\SAPRequestDto.cs" />
+    <Compile Include="HTTPEntity\SAPResponseDataDto.cs" />
+    <Compile Include="HTTPEntity\SapHeadDto.cs" />
+    <Compile Include="HTTPEntity\SAPResponseDto.cs" />
+    <Compile Include="Log\MES_Log.cs" />
+    <Compile Include="MaterialManage\BaseProductOrderFileConEntity.cs" />
+    <Compile Include="MaterialManage\MMProductStockAdjustEntity.cs" />
+    <Compile Include="MaterialManage\MMRawMaterialDispatchDetailEntity.cs" />
+    <Compile Include="MaterialManage\MMRawMaterialDispatchEntity.cs" />
+    <Compile Include="MaterialManage\MMRawMaterialDispatchSubEntity.cs" />
+    <Compile Include="MaterialManage\MMSemiProductOutEntity.cs" />
+    <Compile Include="MaterialManage\MMSuperProductStockAdjustEntity.cs" />
+    <Compile Include="MaterialManage\MM_ProductDispatchBillEntity.cs" />
+    <Compile Include="MaterialManage\MM_ProductDispatchDetailEntity.cs" />
+    <Compile Include="MaterialManage\MM_ProductDispatchItemEntity.cs" />
+    <Compile Include="MaterialManage\MM_ProductOutEntity.cs" />
+    <Compile Include="MaterialManage\MM_ProductInEntity.cs" />
+    <Compile Include="MaterialManage\MM_ProductMoveRecordEntity.cs" />
+    <Compile Include="MaterialManage\MM_ProductReworkBGEntity.cs" />
+    <Compile Include="MaterialManage\MM_ProductReworkDetailEntity.cs" />
+    <Compile Include="MaterialManage\MM_ProductReworkEntity.cs" />
+    <Compile Include="MaterialManage\MM_ProductStockEntity.cs" />
+    <Compile Include="MaterialManage\MM_RawMaterialCodeBarEntity.cs" />
+    <Compile Include="MaterialManage\MM_RawMaterialOutEntity.cs" />
+    <Compile Include="MaterialManage\MM_RawMaterialStockEntity.cs" />
+    <Compile Include="MaterialManage\MM_ReceiptNoticeEntity.cs" />
+    <Compile Include="MaterialManage\MM_RawMaterialInEntity.cs" />
+    <Compile Include="MaterialManage\MM_SaleDomesticEntity.cs" />
+    <Compile Include="MaterialManage\MM_SaleDomesticInEntity.cs" />
+    <Compile Include="MaterialManage\MM_SaleDomesticOutDetailEntity.cs" />
+    <Compile Include="MaterialManage\MM_SaleDomesticOutEntity.cs" />
+    <Compile Include="MaterialManage\MM_SemiProductMoveRecordEntity.cs" />
+    <Compile Include="MaterialManage\MM_SuperProductStockEntity.cs" />
+    <Compile Include="MaterialManage\MM_SupProductStockTransferEntity.cs" />
+    <Compile Include="MaterialManage\MM_WarehouseSafetyStockEntity.cs" />
+    <Compile Include="MaterialManage\ViewModel\MarkChangeModel.cs" />
+    <Compile Include="Material\Base_DataFileConEntity.cs" />
+    <Compile Include="Material\Base_MaterialBindTempEntity.cs" />
+    <Compile Include="Material\Base_MaterialBindTempFacetEntity.cs" />
+    <Compile Include="Material\Base_MaterialEntity.cs" />
+    <Compile Include="Material\Base_MaterialFacetEntity.cs" />
+    <Compile Include="Material\Base_MaterialFactoryEntity.cs" />
+    <Compile Include="Material\Base_MaterialGroupBindMaterialEntity.cs" />
+    <Compile Include="Material\Base_MaterialGroupEntity.cs" />
+    <Compile Include="Material\Base_ProcessAttrEntity.cs" />
+    <Compile Include="Material\BS_ProcessOfOperationsAttrEntity.cs" />
+    <Compile Include="Material\Base_ProcessAttrItemEntity.cs" />
+    <Compile Include="Material\Base_SupplierBindMaterialGroupEntity.cs" />
+    <Compile Include="Material\Base_SupplierManageEntity.cs" />
+    <Compile Include="Material\BS_BOMEntity.cs" />
+    <Compile Include="Material\BS_BOMItemsEntity.cs" />
+    <Compile Include="Material\BS_ProcessEntity.cs" />
+    <Compile Include="Material\BS_ProcessOfOperationsEntity.cs" />
+    <Compile Include="Material\BS_TraitDetailsAttrEntity.cs" />
+    <Compile Include="Material\BS_TraitDetailsEntity.cs" />
+    <Compile Include="Material\BS_TraitManageEntity.cs" />
+    <Compile Include="Material\PL_MarkUploadEntity.cs" />
+    <Compile Include="PlanManage\PL_BOMEntity.cs" />
+    <Compile Include="PlanManage\PL_BOMItemsEntity.cs" />
+    <Compile Include="PlanManage\PL_ExeWorkOrderWearingLayerEntity.cs" />
+    <Compile Include="PlanManage\PL_FirstInspectionConfirmEntity.cs" />
+    <Compile Include="PlanManage\PL_AvoidProduceEntity.cs" />
+    <Compile Include="PlanManage\PL_ExeWorkOrderEntity.cs" />
+    <Compile Include="PlanManage\PL_InternalOrderEntity.cs" />
+    <Compile Include="PlanManage\PL_LoadingScheduleEntity.cs" />
+    <Compile Include="PlanManage\PL_MaterialEntity.cs" />
+    <Compile Include="PlanManage\PL_MaterialFacetEntity.cs" />
+    <Compile Include="PlanManage\PL_PlanStoreIssueEntity.cs" />
+    <Compile Include="PlanManage\PL_PrdOrderReqMaterialsEntity.cs" />
+    <Compile Include="PlanManage\PL_ProcessEntity.cs" />
+    <Compile Include="PlanManage\PL_ProcessOfOperationsAttrEntity.cs" />
+    <Compile Include="PlanManage\PL_ProcessOfOperationsEntity.cs" />
+    <Compile Include="PlanManage\PL_ProductionOrderEntity.cs" />
+    <Compile Include="PlanManage\PL_ProductRuleEntity.cs" />
+    <Compile Include="PlanManage\PL_PurchaseOrderEntity.cs" />
+    <Compile Include="PlanManage\PL_TransfersRecordEntity.cs" />
+    <Compile Include="PlanManage\PL_WorkOrderEntity.cs" />
+    <Compile Include="PlanManage\PL_WorkOrderSortRuleEntity.cs" />
+    <Compile Include="ProduceManage\PMOperationPalletNumEntity.cs" />
+    <Compile Include="ProduceManage\PMOwnSemiProductOrderEntity.cs" />
+    <Compile Include="ProduceManage\PMPerformanceManageEntity.cs" />
+    <Compile Include="ProduceManage\PMPostCoefficientEntity.cs" />
+    <Compile Include="ProduceManage\PMProductPriceEntity.cs" />
+    <Compile Include="ProduceManage\PMScrapRecordEntity.cs" />
+    <Compile Include="ProduceManage\PM_AbrasiveBGEntity.cs" />
+    <Compile Include="ProduceManage\PM_AbrasiveOrderEntity.cs" />
+    <Compile Include="ProduceManage\PM_BGBadRecordEntity.cs" />
+    <Compile Include="ProduceManage\PM_BGBadShareEntity.cs" />
+    <Compile Include="ProduceManage\PM_ExeWorkOrderSWEntity.cs" />
+    <Compile Include="ProduceManage\PM_FormulaRecordDetailEntity.cs" />
+    <Compile Include="ProduceManage\PM_FormulaRecordEntity.cs" />
+    <Compile Include="ProduceManage\PM_MaterialBatchConsumeRecordEntity.cs" />
+    <Compile Include="ProduceManage\PM_MaterialBatchUpRecordEntity.cs" />
+    <Compile Include="ProduceManage\PM_OwnProductBGEntity.cs" />
+    <Compile Include="ProduceManage\PM_OwnProductOrderEntity.cs" />
+    <Compile Include="ProduceManage\PM_OwnProductTransferEntity.cs" />
+    <Compile Include="ProduceManage\PM_PackingBGTransferCardEntity.cs" />
+    <Compile Include="ProduceManage\PM_PackingPrintMarkEntity.cs" />
+    <Compile Include="ProduceManage\PM_PackingRecordEntity.cs" />
+    <Compile Include="ProduceManage\PM_PrinterOrderEntity.cs" />
+    <Compile Include="ProduceManage\PM_PrinterWorkOrderBGEntity.cs" />
+    <Compile Include="ProduceManage\PM_PrinterWorkOrderEntity.cs" />
+    <Compile Include="ProduceManage\PM_ProcessBadEntity.cs" />
+    <Compile Include="ProduceManage\PM_ProcessBadItemEntity.cs" />
+    <Compile Include="ProduceManage\PM_ProductionFirstInspectionDetailEntity.cs" />
+    <Compile Include="ProduceManage\PM_ProductionFirstInspectionEntity.cs" />
+    <Compile Include="ProduceManage\PM_ReworkRecordEntity.cs" />
+    <Compile Include="ProduceManage\PM_ReworkRecord_DetailEntity.cs" />
+    <Compile Include="ProduceManage\PM_StartUpRecordEntity.cs" />
+    <Compile Include="ProduceManage\PM_TeamPersonEntity.cs" />
+    <Compile Include="ProduceManage\PM_TeamPerson_ItemsEntity.cs" />
+    <Compile Include="ProduceManage\PM_TranferCardBGRecordEntity.cs" />
+    <Compile Include="ProduceManage\PM_TransferBGPersonRecordEntity.cs" />
+    <Compile Include="ProduceManage\PM_TransferCardEntity.cs" />
+    <Compile Include="ProduceManage\PM_TransferCardResumeEntity.cs" />
+    <Compile Include="ProduceManage\PM_TransferCardScrapRecordEntity.cs" />
+    <Compile Include="QualityManage\QC_IPQCDetailEntity.cs" />
+    <Compile Include="QualityManage\QC_IPQCDetailResultEntity.cs" />
+    <Compile Include="QualityManage\QC_IQCQualityCheckEntity.cs" />
+    <Compile Include="QualityManage\QC_MaterialInventoryCheckEntity.cs" />
+    <Compile Include="QualityManage\QC_MaterialInventoryCheckItemEntity.cs" />
+    <Compile Include="QualityManage\QC_OQCCheckConfigEntity.cs" />
+    <Compile Include="QualityManage\QC_OQCCheckConfigItemEntity.cs" />
+    <Compile Include="QualityManage\QC_OQCCheckConfigMaterialEntity.cs" />
+    <Compile Include="QualityManage\QC_OQCQualityCheckEntity.cs" />
+    <Compile Include="QualityManage\QC_OQCQualityCheckItemEntity.cs" />
+    <Compile Include="QualityManage\QC_TestMethodMaterialEntity.cs" />
+    <Compile Include="QualityManage\QC_PollingDetailEntity.cs" />
+    <Compile Include="QualityManage\QC_PollingDetailResultEntity.cs" />
+    <Compile Include="QualityManage\QC_IQCQualityCheckItemEntity.cs" />
+    <Compile Include="QualityManage\QC_TestItemMaintenanceEntity.cs" />
+    <Compile Include="QualityManage\QC_TestMaintenanceEntity.cs" />
+    <Compile Include="QualityManage\QC_TestMethodItemMaintenanceEntity.cs" />
+    <Compile Include="QualityManage\QC_TestMethodMaintenanceEntity.cs" />
+    <Compile Include="QualityManage\QC_TestProcessMaintenanceEntity.cs" />
+    <Compile Include="SAPEntity\SAPBase_MaterialFactory.cs" />
+    <Compile Include="SAPEntity\SAPBS_BOMEntity.cs" />
+    <Compile Include="SAPEntity\SAPBS_Process.cs" />
+    <Compile Include="SAPEntity\SAPMM_ProductDispatchItemEntity.cs" />
+    <Compile Include="SAPEntity\SAPMM_RawMaterialOutEntity.cs" />
+    <Compile Include="SAPEntity\SAPPL_ProductionOrderEntity.cs" />
+    <Compile Include="SAPEntity\SAPresultEntity.cs" />
+    <Compile Include="SAPEntity\SAP_MaterialStock.cs" />
+    <Compile Include="SAPEntity\ToSAP\IF102.cs" />
+    <Compile Include="SAPEntity\ToSAP\IF106.cs" />
+    <Compile Include="SAPEntity\ToSAP\IF111.cs" />
+    <Compile Include="SAPEntity\ToSAP\IF121.cs" />
+    <Compile Include="SAPEntity\ToSAP\IF109.cs" />
+    <Compile Include="SAPEntity\ToSAP\IF110.cs" />
+    <Compile Include="SAPEntity\ToSAP\IF112.cs" />
+    <Compile Include="SAPEntity\ToSAP\IF116.cs" />
+    <Compile Include="SAPEntity\ToSAP\IF108.cs" />
+    <Compile Include="SAPEntity\MM_SelectRawMaterialOutEntity.cs" />
+    <Compile Include="SAPEntity\ToSAP\IF122.cs" />
+    <Compile Include="SAPEntity\ToSAP\IF126.cs" />
+    <Compile Include="SAPEntity\ToSAP\IF128.cs" />
+    <Compile Include="SAPEntity\ToSAP\IF135.cs" />
+    <Compile Include="SAPEntity\ToSAP\IF150.cs" />
+    <Compile Include="SAPEntity\ToSAP\IF152.cs" />
+    <Compile Include="SystemManage\UserInfoEntity.cs" />
+    <Compile Include="SystemManage\BsPeopleByPrintServerEntity.cs" />
+    <Compile Include="SystemManage\BsPrintServerEntity.cs" />
+    <Compile Include="Calendar\BS_BreakTimeManage.cs" />
+    <Compile Include="Calendar\BS_CalendarManage.cs" />
+    <Compile Include="Calendar\BS_HolidayManage.cs" />
+    <Compile Include="Calendar\BS_ShiftManage.cs" />
+    <Compile Include="Calendar\BS_ShiftOfCalendar.cs" />
+    <Compile Include="NetEntity\BaseHTTPResponseMessage.cs" />
+    <Compile Include="HTTPEntity\BasePagingRequestParms.cs" />
+    <Compile Include="HTTPEntity\BasePagingResponseResult.cs" />
+    <Compile Include="HTTPEntity\BaseRequestParms.cs" />
+    <Compile Include="HTTPEntity\BaseResponseResult.cs" />
+    <Compile Include="PublicInfoManage\ScheduleEntity.cs" />
+    <Compile Include="Redis\ACQModel.cs" />
+    <Compile Include="Redis\AcqPostionEnum.cs" />
+    <Compile Include="Redis\BarCodeEntity.cs" />
+    <Compile Include="Redis\BarCodeInfoEntity.cs" />
+    <Compile Include="Redis\BarCodeRedis.cs" />
+    <Compile Include="Redis\ReminderRedisEntity.cs" />
+    <Compile Include="Redis\ScheduleOrderRedis.cs" />
+    <Compile Include="Redis\TechnicalPathRedis.cs" />
+    <Compile Include="SystemManage\BSAppLogUserInfoEntity.cs" />
+    <Compile Include="SystemManage\APPRoleEntity.cs" />
+    <Compile Include="SystemManage\APPRoleFunctionEntity.cs" />
+    <Compile Include="SystemManage\APPRoleToFunctionEntity.cs" />
+    <Compile Include="SystemManage\DataSourceEntity.cs" />
+    <Compile Include="SystemManage\ExcelExportEntity.cs" />
+    <Compile Include="SystemManage\ExcelImportFiledEntity.cs" />
+    <Compile Include="SystemManage\CodeRuleEntity.cs" />
+    <Compile Include="SystemManage\CodeRuleFormatEntity.cs" />
+    <Compile Include="SystemManage\CodeRuleSeedEntity.cs" />
+    <Compile Include="PublicInfoManage\FileInfoEntity.cs" />
+    <Compile Include="PublicInfoManage\FileFolderEntity.cs" />
+    <Compile Include="PublicInfoManage\EmailAddresseeEntity.cs" />
+    <Compile Include="PublicInfoManage\EmailCategoryEntity.cs" />
+    <Compile Include="PublicInfoManage\EmailContentEntity.cs" />
+    <Compile Include="MessageManage\IMGroupModel.cs" />
+    <Compile Include="MessageManage\IMReadModel.cs" />
+    <Compile Include="MessageManage\IMReadNumModel.cs" />
+    <Compile Include="MessageManage\IMUserModel.cs" />
+    <Compile Include="MessageManage\IMContentEntity.cs" />
+    <Compile Include="MessageManage\IMGroupEntity.cs" />
+    <Compile Include="MessageManage\IMReadEntity.cs" />
+    <Compile Include="MessageManage\IMUserGroupEntity.cs" />
+    <Compile Include="AuthorizeManage\AuthorizeEntity.cs" />
+    <Compile Include="AuthorizeManage\AuthorizeDataEntity.cs" />
+    <Compile Include="PublicInfoManage\NewsEntity.cs" />
+    <Compile Include="SystemManage\DataBaseBackupEntity.cs" />
+    <Compile Include="SystemManage\DataBaseTableFieldEntity.cs" />
+    <Compile Include="SystemManage\DataBaseLinkEntity.cs" />
+    <Compile Include="AuthorizeManage\FilterIPEntity.cs" />
+    <Compile Include="AuthorizeManage\FilterTimeEntity.cs" />
+    <Compile Include="SystemManage\AreaEntity.cs" />
+    <Compile Include="AuthorizeManage\ModuleEntity.cs" />
+    <Compile Include="AuthorizeManage\ModuleButtonEntity.cs" />
+    <Compile Include="AuthorizeManage\ModuleColumnEntity.cs" />
+    <Compile Include="SystemManage\DataItemEntity.cs" />
+    <Compile Include="SystemManage\DataItemDetailEntity.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SystemManage\ExcelImportEntity.cs" />
+    <Compile Include="SystemManage\LogEntity.cs" />
+    <Compile Include="SystemManage\Sys_DataSegregateGroup.cs" />
+    <Compile Include="SystemManage\Sys_DataSegregateGroupToLabel.cs" />
+    <Compile Include="SystemManage\Sys_DataSegregateGroupToPerson.cs" />
+    <Compile Include="SystemManage\Sys_DataSegregateLabel.cs" />
+    <Compile Include="SystemManage\Sys_DepartmentEntity.cs" />
+    <Compile Include="SystemManage\Sys_PersonEntity.cs" />
+    <Compile Include="SystemManage\TreeExtendEntity.cs" />
+    <Compile Include="SystemManage\ViewModel\AppSystemModel.cs" />
+    <Compile Include="SystemManage\ViewModel\DataItemModel.cs" />
+    <Compile Include="SystemManage\WMSBaseSystemSettingEntity.cs" />
+    <Compile Include="SystemManage\WMSBaseWareHourseEntity.cs" />
+    <Compile Include="UserInfoModel.cs" />
+    <Compile Include="WebApp\appUserInfoModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\ALP.Application.UtilExtend\ALP.Application.UtilExtend.csproj">
+      <Project>{71ADBDBB-7D73-4766-8FE1-F8482A7BFFE3}</Project>
+      <Name>ALP.Application.UtilExtend</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ALP.Data\ALP.Data\ALP.Data.csproj">
+      <Project>{528f308b-d2cd-4bd1-a94f-bf94abef08d7}</Project>
+      <Name>ALP.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ALP.Application.Code\ALP.Application.Code.csproj">
+      <Project>{9b10db87-130c-41d3-8687-1fac877db74a}</Project>
+      <Name>ALP.Application.Code</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\" />
+    <Folder Include="MesENUM\" />
+    <Folder Include="MESManage\" />
+    <Folder Include="ProcessManage\" />
+    <Folder Include="ReportManage\" />
+    <Folder Include="StockOut\" />
+    <Folder Include="Technology\" />
+    <Folder Include="WMSManage\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

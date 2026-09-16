@@ -1,0 +1,6 @@
+D:\New folder\PlanApp\PlanApp\PlanApp.EventHandler\bin\Debug\Siemens.SimaticIT.PlanApp.EventHandler.dll
+D:\New folder\PlanApp\PlanApp\PlanApp.EventHandler\bin\Debug\Siemens.SimaticIT.PlanApp.EventHandler.pdb
+D:\New folder\PlanApp\PlanApp\PlanApp.EventHandler\obj\Debug\PlanApp.EventHandler.csprojAssemblyReference.cache
+D:\New folder\PlanApp\PlanApp\PlanApp.EventHandler\obj\Debug\PlanApp.EventHandler.csproj.CoreCompileInputs.cache
+D:\New folder\PlanApp\PlanApp\PlanApp.EventHandler\obj\Debug\Siemens.SimaticIT.PlanApp.EventHandler.dll
+D:\New folder\PlanApp\PlanApp\PlanApp.EventHandler\obj\Debug\Siemens.SimaticIT.PlanApp.EventHandler.pdb

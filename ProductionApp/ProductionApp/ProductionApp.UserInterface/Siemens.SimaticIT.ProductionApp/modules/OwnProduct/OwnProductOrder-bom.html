@@ -1,0 +1,23 @@
+﻿
+<div class="command-bar-side-panel">
+    <button ng-click="vm.cancel()" class="btn side-panel-button">{{'Siemens.SimaticIT.ProductionApp.OwnProductOrder.bom.Tips_1'|translate}}</button>
+    <button ng-click="vm.save()" class="btn side-panel-button">{{'Siemens.SimaticIT.ProductionApp.OwnProductOrder.bom.Tips_2'|translate}}</button>
+    <button ng-click="vm.deleteItemButtonHandler()" class="btn side-panel-button" ng-show="vm.isDetailButtonVisible">{{'Siemens.SimaticIT.ProductionApp.OwnProductOrder.bom.Tips_3'|translate}}</button>
+    <button ng-click="vm.editItemButtonHandler()" class="btn side-panel-button" ng-show="vm.isDetailButtonVisible">{{'Siemens.SimaticIT.ProductionApp.OwnProductOrder.bom.Tips_4'|translate}}</button>
+    <button ng-click="vm.addItemButtonHandler()" class="btn side-panel-button">{{'Siemens.SimaticIT.ProductionApp.OwnProductOrder.bom.Tips_5'|translate}}</button>
+    <button ng-click="vm.selectItemButtonHandler()" class="btn side-panel-button">{{'Siemens.SimaticIT.ProductionApp.OwnProductOrder.bom.Tips_6'|translate}}</button>
+</div>
+<div class="side-panel-property-area-body">
+    <div id="itemlist" class="content-area content-area-relative" style="width:100%; height: calc(100% - 120px) !important;">
+        <div class="row" style="height: 80px; margin-top: 0px;position: relative;">
+            <div id="listClass" style="width: 100%; height: 100%; padding:0px 6px 0 6px; margin-top: 0px; display: block;clear: both;position: absolute;z-index:2000;">
+                <div ui-grid="vm.gridOptions" ui-grid-selection ui-grid-resize-columns class="uigrid uigrid-edit" style="width:1600px; min-height: 80px;"></div>
+            </div>
+        </div>
+        <div class="row" style="height: calc(100% - 20px) !important;margin-top: 10px;display: block; clear: both; ">
+            <div id="listItem" style="width: 100%; height: 100%; padding:5px 6px 0 6px; margin-top: 0px; margin-bottom: 0px; clear: both;width: 1600px;">
+                <div ui-grid="vm.gridOptionsDetail" ui-grid-selection ui-grid-resize-columns ui-grid-auto-resize class="uigrid"></div>
+            </div>
+        </div>
+    </div>
+</div>

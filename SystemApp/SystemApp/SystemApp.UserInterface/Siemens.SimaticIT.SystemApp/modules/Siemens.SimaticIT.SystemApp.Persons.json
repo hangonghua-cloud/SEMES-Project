@@ -1,0 +1,19 @@
+﻿{
+  "name": "Siemens.SimaticIT.SystemApp.Persons",
+  "type": "standard",
+  "title": "Siemens.SimaticIT.SystemApp.Persons.Title",
+  "header": "",
+  "icon": "fa-folder",
+  "functionalBlock": "Siemens.SimaticIT.SystemApp",
+  "dependencies": [],
+  "states": [
+    {
+      "id": "home.Siemens_SimaticIT_SystemApp_Persons_Persons",
+      "title": "Siemens.SimaticIT.SystemApp.Persons.Title",
+      "header": "",
+      "securable": true,
+      "roles": []
+    }
+  ],
+  "manifestVersion": "01.01.00"
+}

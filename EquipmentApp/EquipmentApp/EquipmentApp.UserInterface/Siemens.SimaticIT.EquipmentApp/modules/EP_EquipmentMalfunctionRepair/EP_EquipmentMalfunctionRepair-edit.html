@@ -1,0 +1,69 @@
+﻿<!--
+    0.代码生成: UA单表一键生成前后端html、JS、API接口代码生成器 Ver 2.13 更新日期：2021-07-12  设计者：刘万军
+    1.功能描述: 设备故障报修
+    2.创建人员: 王坤
+    3.创建日期: 2021-08-05
+    4.修改人员:
+    5.修改日期:
+-->
+<style>
+    .row {
+        padding: 5px;
+        margin-top: 10px;
+    }
+</style>
+<div class="command-bar-side-panel">
+    <button ng-click="vm.cancel()" class="btn side-panel-button">{{'Siemens.SimaticIT.EquipmentApp.EP_EquipmentMalfunctionRepair.EP_EquipmentMalfunctionRepairedit.Tips_1'|translate}}</button>
+    <button ng-click="vm.save()" class="btn side-panel-button" ng-show="vm.validInputs">{{'Siemens.SimaticIT.EquipmentApp.EP_EquipmentMalfunctionRepair.EP_EquipmentMalfunctionRepairedit.Tips_2'|translate}}</button>
+</div>
+<div class="side-panel-property-area-body">
+    <sit-property-grid sit-id="edit_form" sit-layout="Vertical" sit-type="Fluid" sit-mode="edit" sit-columns="1">
+        <sit-property-grid sit-id="view_form" sit-layout="Horizontal" sit-type="Fixed" sit-mode="edit" sit-columns="1"
+                           style="margin-left: 4px;">
+            <!--<sit-property sit-widget="sit-text" sit-value="vm.currentItem.EquipmentId" sit-validation="{required: true}"
+                          sit-read-only="false">{{'Siemens.SimaticIT.EquipmentApp.EP_EquipmentMalfunctionRepair.EP_EquipmentMalfunctionRepairedit.Tips_3'|translate}}</sit-property>
+            <sit-property sit-widget="sit-select"
+                        sit-read-only="false"
+                        sit-options="vm.CodadConfig.options"
+                        sit-to-keep="'ResourceCode'" sit-validation="{required: true}"
+                        sit-value="vm.CodadConfig.selectedOption"
+                        sit-change="vm.selectCodad"
+                        sit-to-display="'ResourceName'">
+                {{'Siemens.SimaticIT.EquipmentApp.EP_EquipmentMalfunctionRepair.EP_EquipmentMalfunctionRepairedit.Tips_4'|translate}}
+            </sit-property>
+            <sit-property sit-widget="sit-select"
+                        sit-read-only="false"
+                        sit-options="vm.WorkshopConfig.options"
+                        sit-to-keep="'ResourceCode'" sit-validation="{required: true}"
+                        sit-value="vm.WorkshopConfig.selectedOption"
+                        sit-to-display="'ResourceName'">
+                {{'Siemens.SimaticIT.EquipmentApp.EP_EquipmentMalfunctionRepair.EP_EquipmentMalfunctionRepairedit.Tips_5'|translate}}
+            </sit-property>-->
+            <!-- <sit-property sit-widget="sit-alp-text-picker" sit-read-only="true" sit-validation="{required: true}"
+                sit-value="vm.currentItem.EquipmentId" ng-click="vm.SelectEquipmentModal()">
+                {{'Siemens.SimaticIT.EquipmentApp.EP_EquipmentMalfunctionRepair.EP_EquipmentMalfunctionRepairedit.Tips_3'|translate}}
+            </sit-property> -->
+            <sit-property sit-widget="sit-text" sit-value="vm.currentItem.FactoryName" sit-validation="{required: true}"
+                          sit-read-only="true">{{'Siemens.SimaticIT.EquipmentApp.EP_EquipmentMalfunctionRepair.EP_EquipmentMalfunctionRepairedit.Tips_6'|translate}}</sit-property>
+            <sit-property sit-widget="sit-text" sit-value="vm.currentItem.EquipmentId" sit-validation="{required: true}"
+                          sit-read-only="true">{{'Siemens.SimaticIT.EquipmentApp.EP_EquipmentMalfunctionRepair.EP_EquipmentMalfunctionRepairedit.Tips_3'|translate}}</sit-property>
+            <sit-property sit-widget="sit-text" sit-value="vm.currentItem.EquipmentName"
+                          sit-validation="{required: true}" sit-read-only="true">{{'Siemens.SimaticIT.EquipmentApp.EP_EquipmentMalfunctionRepair.EP_EquipmentMalfunctionRepairedit.Tips_7'|translate}}</sit-property>
+            <!--<sit-property sit-widget="sit-text" sit-value="vm.currentItem.RepairingType" sit-validation="{required: true}"
+                  sit-read-only="false">{{'Siemens.SimaticIT.EquipmentApp.EP_EquipmentMalfunctionRepair.EP_EquipmentMalfunctionRepairedit.Tips_8'|translate}}</sit-property>-->
+            <sit-property sit-widget="sit-select" sit-read-only="false" sit-options="vm.TypeConfig.options"
+                          sit-to-keep="'ItemValue'" sit-validation="{required: true}" sit-value="vm.TypeConfig.selectedOption"
+                          sit-to-display="'ItemName'">
+                {{'Siemens.SimaticIT.EquipmentApp.EP_EquipmentMalfunctionRepair.EP_EquipmentMalfunctionRepairedit.Tips_8'|translate}}
+            </sit-property>
+            <!--<sit-property sit-widget="sit-text" sit-value="vm.currentItem.RepairingPerson" sit-validation="{required: true}"
+                         sit-read-only="false">{{'Siemens.SimaticIT.EquipmentApp.EP_EquipmentMalfunctionRepair.EP_EquipmentMalfunctionRepairedit.Tips_9'|translate}}</sit-property>-->
+            <sit-property sit-widget="sit-alp-text-picker" sit-read-only="true" sit-validation="{required: true}"
+                          sit-value="vm.currentItem.CreatorName" ng-click="vm.SelectPeopleModal()">
+                {{'Siemens.SimaticIT.EquipmentApp.EP_EquipmentMalfunctionRepair.EP_EquipmentMalfunctionRepairedit.Tips_9'|translate}}
+            </sit-property>
+            <sit-property sit-widget="sit-textarea" sit-value="vm.currentItem.MalfunctionDescription"
+                          sit-validation="{required: false}" sit-read-only="false">{{'Siemens.SimaticIT.EquipmentApp.EP_EquipmentMalfunctionRepair.EP_EquipmentMalfunctionRepairedit.Tips_10'|translate}}</sit-property>
+        </sit-property-grid>
+    </sit-property-grid>
+</div>

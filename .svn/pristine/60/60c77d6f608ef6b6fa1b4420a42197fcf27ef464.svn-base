@@ -1,0 +1,23 @@
+﻿
+<div id="itemlist" class="content-area content-area-relative" style="height: calc(100%-10) !important">
+    <div class="col-md-40" style="margin-left: 10px;">
+        <!-- 存放按钮 -->
+        <sit-command-bar sit-vertical-autofixed="true" sit-type="Tool" :sit-label-align="right" sit-layout="vertical">
+            <!-- <sit-command-bar sit-type="Action">  >
+        <sit-command sit-icon="fa-search" sit-type="main" sit-name="com.siemens.customcommand.search"
+                    :sit-tooltip="{{'Siemens.SimaticIT.FactoryModelApp.ModelLevel.ModelLevellist.Tips_1'|translate}}" ng-click="vm.searchButtonHandler" :sit-label="{{'Siemens.SimaticIT.FactoryModelApp.ModelLevel.ModelLevellist.Tips_1'|translate}}"></sit-command-->
+
+            <sit-command sit-icon="fa-trash " sit-type="main" sit-name="com.siemens.customcommand.search"
+                         :sit-tooltip="{{'Siemens.SimaticIT.FactoryModelApp.ModelLevel.ModelLevellist.Tips_2'|translate}}" ng-click="vm.deleteButtonHandler" ng-show="vm.isButtonVisible" :sit-label="{{'Siemens.SimaticIT.FactoryModelApp.ModelLevel.ModelLevellist.Tips_2'|translate}}"></sit-command>
+            <sit-command sit-icon="fa-pencil-square-o " sit-type="main" sit-name="com.siemens.customcommand.search"
+                         :sit-tooltip="{{'Siemens.SimaticIT.FactoryModelApp.ModelLevel.ModelLevellist.Tips_3'|translate}}" ng-click="vm.editButtonHandler" ng-show="vm.isButtonVisible" :sit-label="{{'Siemens.SimaticIT.FactoryModelApp.ModelLevel.ModelLevellist.Tips_3'|translate}}"></sit-command>
+            <sit-command sit-icon="fa-plus " sit-type="main" sit-name="com.siemens.customcommand.search"
+                         :sit-tooltip="{{'Siemens.SimaticIT.FactoryModelApp.ModelLevel.ModelLevellist.Tips_4'|translate}}" ng-click="vm.addButtonHandler" ng-show="vm.is_addValueButtonHandler" :sit-label="{{'Siemens.SimaticIT.FactoryModelApp.ModelLevel.ModelLevellist.Tips_4'|translate}}"></sit-command>
+
+        </sit-command-bar>
+    </div>
+    <div class="col-md-40" style="height: calc(100%+2500px)">
+        <div ui-grid="vm.gridOptions" ui-grid-pinning ui-grid-auto-resize ui-grid-resize-columns ui-grid-selection ui-grid-pagination
+             class="grid" style="height: 850px;overflow: hidden;"></div>
+    </div>    
+</div>

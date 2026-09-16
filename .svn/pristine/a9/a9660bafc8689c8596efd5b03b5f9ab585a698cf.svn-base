@@ -1,0 +1,849 @@
+{
+  //公用
+  "Common": {
+    "Error": "操作失败，服务器异常",
+    "ErrorWithOther": "操作失败，{0}",
+    "Success": "操作成功",
+    "Success2": "操作成功：",
+    "SuccessWithOther": "操作成功，{0}",
+    "ExecutionSuccess": "执行成功",
+    "ExecutionSuccess2": "执行成功：",
+    "ExecutionSuccessWithOther": "执行成功，{0}",
+    "ExecutionError": "执行失败",
+    "ExecutionError2": "执行失败：",
+    "ExecutionErrorWithOther": "执行失败，{0}",
+
+    "ParamsNotNull": "参数不能为空",
+    "SearchParamsNotNull": "查询参数不能为空",
+    "Yes": "是",
+    "No": "否",
+    "Qua": "合格",
+    "UnQua": "不合格",
+    "ErrorNone": "未知原因",
+    "DeleteSuccess": "删除成功",
+    "DeleteSuccess2": "删除成功：",
+    "DeleteSuccessWithOther": "删除成功:{0}",
+    "DeleteError": "删除失败",
+    "DeleteError2": "删除失败：",
+    "DeleteErrorWithOther": "删除失败:{0}",
+    "SearchSuccess": "查询成功",
+    "SearchSuccess2": "查询成功：",
+    "SearchSuccessWithOther": "查询成功:{0}",
+    "SearchError": "查询失败",
+    "SearchError2": "查询失败：",
+    "SearchErrorWithOther": "查询失败:{0}"
+  },
+  "FileManage": {
+    "UploadFileController": {
+      "Tips_1": "上传成功",
+      "Tips_2": "上传文件[{0}]的格式不符合要求！",
+      "Tips_3": "上传文件[{0}]超过文件大小限制(100M)！",
+      "Tips_4": "上传文件写入失败:{0}",
+      "Tips_5": "没有选择上传文件!"
+    }
+  },
+  "SystemManage": {
+    "SysController": {},
+    "SystemController": {
+      //校验系统版本号，返回是否需要更新
+      "GetVersion": {
+        "Tips_1": "无法获取当前版本号！",
+        "Tips_2": "请更新系统！",
+        "Tips_3": "获取版本号失败:{0}"
+      },
+      //系统登录
+      "Login": {
+        "Tips_1": "登录成功！",
+        "Tips_2": "账号或密码格式不正确！",
+        "Tips_3": "登录失败:{0}",
+
+        "Data_1": "nickname--登录账号"
+      },
+      //修改密码
+      "UpdateAppPassword": {
+        "Tips_1": "修改成功！",
+        "Tips_2": "账号或密码格式不正确！",
+        "Tips_3": "登录失败:{0}"
+
+      }
+
+    }
+  },
+  "ProduceManage": { //生产管理
+    "ProduceController": {
+      //生产开工扫描
+      "GetPMStartInfo": {
+        "Tips_1": "流转卡编码不能为空",
+        "Tips_2": "当前流转卡不存在",
+        "Tips_3": "当前流转卡已报废",
+        "Tips_4": "工单不存在",
+        "Data_1": "整柜",
+        "Data_2": "单托"
+      },
+      //保存生产开工信息
+      "SavePMStartInfo": {
+        "Tips_1": "工单不存在",
+        "Tips_2": "工单已被冻结",
+        "Tips_3": "工单工艺-工序不存在",
+        "Tips_4": "工单工艺-属性不存在",
+        "Tips_5": "已开过工，不允许重复开工",
+        "Tips_6": "关联工艺路线维护格式不对",
+        "Tips_7": "工艺路线【{0}】不存在",
+        "Tips_8": "新BOM不存在",
+        "Tips_9": "关联工序【{0}】不存在",
+        "Tips_10": "关联工艺路线属性未维护",
+        "Tips_11": "关联工艺路线维护格式不对",
+        "Tips_12": "特征工艺路线[{0}]不存在",
+        "Tips_13": "操作工序[{0}]不在工艺路线里！",
+        "Tips_14": "工序[{0}]不存在",
+        "Tips_15": "工艺属性不存在",
+        "Tips_16": "操作工序[{0}]不需要开工！",
+        "Tips_17": "前工序[{0}]还未开工",
+        "Tips_18": "整柜流转需要选择所有流转卡",
+        "Tips_19": "所在工序[{0}]的流转卡[{1}]没有报工！",
+        "Tips_20": "还在养生周期内，不允许开工",
+        "Tips_21": "选择的流转卡不在同一道工序里",
+        "Tips_22": "选择的流转卡不是同一个业务类型",
+        "Tips_23": "所在工序[{0}]的流转卡未全部报工",
+        "Tips_24": "工序托盘数量未维护",
+        "Tips_25": "不允许往前工序操作",
+        "Tips_26": "外发不允许操作",
+        "Data_1": "包装",
+        "Data_2": "张"
+      },
+      //原料批次上机-机台扫描获取有效记录
+      "RawMBatchUpMachineScan": {
+        "Tips_1": "机台不能为空"
+      },
+      //原料批次上机-关键件条码扫描
+      "RawMBatchUpCodeBarScan": {
+        "Tips_1": "批次不能为空",
+        "Tips_2": "批次不存在"
+      },
+      //原料批次上机-保存
+      "RawMBatchUpCodeBarSave": {
+        "Tips_1": "机台不存在",
+        "Tips_2": "工序关联仓库未维护",
+        "Tips_3": "工序关联仓库[{0}]没有库存,不能上机"
+      },
+      // 流转卡报工-生产机台扫描
+      "TransferCardBGMachineScan": {
+        "Tips_1": "生产机台不能为空",
+        "Tips_2": "生产机台[{0}]不存在"
+      },
+      //流转卡报工-流转卡扫描
+      "TransferCardBGCardScan": {
+        "Tips_1": "流转卡编码不能为空",
+        "Tips_2": "当前流转卡不存在",
+        "Tips_3": "当前流转卡已报废",
+        "Tips_4": "当前流转卡返工中",
+        "Tips_5": "当前流转卡还未开始流转，不允许报工"
+
+      },
+      //流转卡报工-生产小组扫描
+      "TransferCardBGPTeamScan": {
+
+        "Tips_1": "生产小组不能为空",
+        "Tips_2": "当前生产小组不存在",
+        "Tips_3": "当前生产小组没有分配人员"
+      },
+      //流转卡报工-保存
+      "TransferCardBGSave": {
+        "Tips_1": "报工数量不能为0",
+        "Tips_2": "机台不存在",
+        "Tips_3": "执行工单不存在",
+        "Tips_4": "当前工序中没有该生产小组",
+        "Tips_5": "流转卡未质量首检，不可以报工",
+        "Tips_6": "工单[{0}]的Bom不存在",
+        "Tips_7": "工单[{0}]的工艺路线不存在",
+        "Tips_8": "当前工序不在工艺路线里，并且不可以报工",
+        "Tips_9": "包装请使用包装报工功能",
+        "Tips_10": "请先将超产品库存转出",
+        "Tips_11": "工艺属性不存在",
+        "Tips_12": "当前工序在工艺路线里，但不可以报工",
+        "Tips_13": "当前工序还没开工，不可以报工",
+        "Tips_14": "上一道工序[{0}]未报工",
+        "Tips_15": "不允许跨工序操作",
+        "Tips_16": "车间未首检，不可以报工",
+        "Tips_17": "车间首检不合格，无法报工",
+        "Tips_18": "车间主任未确认,无法报工",
+        "Tips_19": "车间{0}未首检，不可以报工",
+        "Tips_20": "车间{0}首检不合格，无法报工",
+        "Tips_21": "车间主任{0}未确认,无法报工",
+        "Tips_22": "物料[{0}{1}]没有上机记录",
+        "Tips_23": "物料[{0}{1}]、\r\n批次[{2}]\r\n没有可用的库存",
+        "Tips_24": "物料[{0}{1}]没有可用的库存",
+        "Tips_25": "允许超流转卡数量报工百分比属性不能为空",
+        "Tips_26": "报工数量不能大于{0}",
+        "Tips_27": "当前生产小组没有分配人员",
+        "Tips_28": "不良数量不能为空或者0",
+        "Tips_29": "[{0}]上机批次剩余库存不足",
+        "Tips_30": "工时系数未维护",
+        "Tips_31": "基本数量 属性未维护",
+        "Tips_32": "直接人工 属性未维护",
+        "Tips_33": "间接人工 属性未维护",
+        "Tips_34": "燃料动力 属性未维护",
+        "Tips_35": "折旧摊销 属性未维护",
+        "Tips_36": "备品备件 属性未维护",
+        "Tips_37": "其他费用 属性未维护",
+        "Tips_38": "物料[{0}]没有找到线边库位",
+        "Tips_39": "不允许第一次报工为负数",
+        "Data_1": "包装",
+        "Data_2": "张",
+        "Data_3": "片"
+      },
+      //自制半成品报工-流转卡扫描
+      "OwnProductBGCardScan": {
+        "Tips_1": "流转卡不能为空！",
+        "Tips_2": "当前流转卡不存在"
+
+      },
+      //自制半成品报工-获取卷码报工信息（CS端半成品报工使用）
+      "GetOwnProductBGList": {
+        "Tips_1": "流转卡不能为空！"
+      },
+      //自制半成品报工-修改单卷数量（CS端半成品报工使用）
+      "OwnProductBGEditRoallQty": {},
+      //自制半成品-报工
+      "OwnProductBGSave": {
+        "Tips_1": "报工数量不能为0",
+        "Tips_2": "当前流转卡不存在",
+        "Tips_3": "当前工序中没有该生产小组",
+        "Tips_4": "工单BOM不存在",
+        "Tips_5": "工单工艺路线-工序不存在",
+        "Tips_6": "报工工序不匹配",
+        "Tips_7": "报工库位属性未维护",
+        "Tips_8": "物料[{0}{1}]没有上机记录",
+        "Tips_9": "物料[{0}{1}]、批次[{2}]没有可用的库存",
+        "Tips_10": "物料[{0}{1}]没有可用的库存",
+        "Tips_11": "报工数量不能大于{0}",
+        "Tips_12": "当前生产小组没有分配人员",
+        "Tips_13": "卷码[{0}]已存在！",
+        "Tips_14": "不良数量不能为空或者0",
+        "Tips_15": "[{0}]上机批次剩余库存不足，\r\n报工数量不允许超过{1}{2}"
+
+      },
+      //流转卡报废-流转卡扫描
+      "TransferCardScrapScan": {
+        "Tips_1": "流转卡编码不能为空",
+        "Tips_2": "当前流转卡不存在"
+      },
+      //流转卡报废-保存
+      "TransferCardScrapSave": {
+        "Tips_1": "当前流转卡不存在",
+        "Tips_2": "报废成功"
+      },
+      //生产小组人员绑定-小组编码扫描
+      "PTeamCodeScan": {
+        "Tips_1": "生产小组编码不能为空",
+        "Tips_2": "当前生产小组不存在",
+        "Tips_3": "岗位信息没有维护"
+      },
+      //生产小组人员绑定-保存
+      "PTeamSave": {
+        "Tips_1": "生产小组编码不能为空",
+        "Tips_2": "人员列表不能为空",
+        "Tips_3": "请先维护岗位系数",
+        "Tips_4": "总岗位系数不能为0",
+        "Tips_5": "绑定成功"
+      },
+      //生产小组人员删除
+      "PTeamPersonDelete": {},
+      //返工任务-流转卡扫描
+      "ReworkCardScan": {
+        "Tips_1": "流转卡编码不能为空",
+        "Tips_2": "当前流转卡已报废",
+        "Tips_3": "无法找到当前流转卡工序",
+        "Tips_4": "工艺路线不存在",
+        "Tips_5": "当前流转卡不存在",
+        "Data_1": "未报工",
+        "Data_2": "已报工"
+      },
+      //返工任务-保存
+      "ReworkSave": {
+        "Tips_1": "扫描的流转卡不存在",
+        "Tips_2": "扫描的流转卡是待返工状态",
+        "Tips_3": "扫描的流转卡是返工中状态",
+        "Tips_4": "扫描的流转卡已报废",
+        "Tips_5": "返工工序不在工艺路线里",
+        "Tips_6": "返工的流转卡不在同一道工序",
+        "Tips_7": "当前流转卡不存在",
+        "Tips_8": "扫描的流转卡是返工中状态",
+        "Tips_9": "扫描的流转卡已报废",
+        "Data_1": "生产模块"
+      },
+      //返工任务-查询
+      "ReworkQuery": {},
+      //返工报工-返工任务查询
+      "ReworkBGTaskQuery": {},
+      //返工报工-返工任务明细查询
+      "ReworkBGTaskDetailQuery": {
+        "Tips_1": "id不能为空"
+      },
+      //返工报工-流转卡扫描
+      "ReworkBGCardScan": {
+        "Tips_1": "当前流转卡已报废",
+        "Tips_2": "流转履历不存在",
+        "Tips_3": "工艺路线不存在",
+        "Tips_4": "工艺路线中没有工序[{0}]",
+        "Tips_5": "下一道工序不存在",
+        "Tips_6": "工序[{0}]不允许返工报工",
+        "Tips_7": "当前流转卡已报废",
+        "Tips_8": "当前流转卡没有返工任务",
+        "Tips_9": "当前流转卡没有返工任务",
+        "Tips_10": "当前流转卡不存在"
+      },
+      //返工报工-生产小组扫描
+      "ReworkBGPTeamScan": {
+        "Tips_1": "生产小组不能为空",
+        "Tips_2": "当前生产小组不存在",
+        "Tips_3": "当前生产小组没有分配人员"
+      },
+      //返工报工-保存
+      "ReworkBGSave": {
+        "Tips_1": "报工数量不能为0",
+        "Tips_2": "流转履历不存在",
+        "Tips_3": "工艺路线不存在",
+        "Tips_4": "当前工序中没有该生产小组",
+        "Tips_5": "当前生产小组没有分配人员",
+        "Tips_6": "不良数量不能为空或者0",
+        "Tips_7": "当前返工任务没有该流转卡",
+        "Tips_8": "该生产小组不存在",
+        "Tips_9": "当前流转卡未到返工节点",
+        "Tips_10": "报工数量不能大于{0}",
+        "Tips_11": "不良数量不能为空或者0",
+        "Tips_12": "当前生产小组没有分配人员"
+      },
+      //返工报工-质量确认查询返工任务
+      "GetReworkRecordDetail": {
+        "Tips_1": "流转履历不存在",
+        "Tips_2": "质量已确认",
+        "Tips_3": "不在同一道工序里",
+        "Tips_4": "当前流转卡未开工",
+        "Tips_5": "没有可确认的质量异常单",
+        "Tips_6": "流转卡没有返工任务",
+        "Tips_7": "没有可确认的质量异常单",
+        "Tips_8": "流转卡没有返工记录",
+        "Tips_9": "当前流转卡不存在"
+      },
+      //返工报工-质量确认保存
+      "ReworkRecordQualityConfirmSave": {
+        "Tips_1": "返工没有完成，不允许确认",
+        "Tips_2": "质量已经确认,不允许二次确认",
+        "Tips_3": "工艺路线不存在",
+        "Tips_4": "工序【{0}】不在工艺路线里"
+      },
+      //车间/质量首检-流转卡扫描
+      "FirstInspectionCardScan": {
+        "Tips_1": "当前流转卡不存在",
+        "Tips_2": "当前流转卡已报废"
+      },
+      //车间首检-机台扫描
+      "FirstInspectionMachineScan": {
+        "Tips_1": "当前流转卡不存在",
+        "Tips_2": "当前流转卡已报废",
+        "Tips_3": "查询参数不能为空",
+        "Tips_4": "检测项目为空,请维护检测项目"
+      },
+      //车间首检-保存
+      "FirstInspectionSave": {
+        "Tips_1": "判定结果不能为空",
+        "Tips_2": "当前流转卡不存在",
+        "Tips_3": "当前流转卡已报废",
+        "Tips_4": "机台不能为空",
+        "Tips_5": "机台不存在",
+        "Data_1": "生产模块"
+
+      },
+      //车间首检-查询
+      "FirstInspectionQuery": {},
+      // 质量首检-查询
+      "FirstInspectionConfirmQuery": {},
+      //质量首检-根据流转卡获取流转履历表数据
+      "GetprocessList": {
+        "Tips_1": "请扫描流转卡",
+        "Tips_2": "流转履历中没有与该流转卡相关的工序！"
+      },
+      //质量首检-扫描机台
+      "FirstInspectionConfirmMachieScan": {
+        "Tips_1": "当前流转卡不在质量首检任务中",
+        "Tips_2": "没有查询到检测项目"
+      },
+      //质量首检-保存
+      "FirstInspectionConfirmSave": {
+        "Tips_1": "当前流转卡不在质量首检任务中",
+        "Tips_2": "没有查询到检测项目",
+        "Data_1": "生产模块"
+      },
+      //车间首检-查询检测结果
+      "FirstInspectionQueryResult": {},
+      //车间首检-最终判定保存
+      "FirstInspectionLastSave": {},
+      //生产首检-质量复检（录入界面呈现）
+      "FirstInspectionReCheck": {},
+      //生产首检-质量复检保存
+      "FirstInspectionReCheckSave": {},
+      //包装报工-流转卡扫描
+      "PackingBGCardScan": {
+        "Tips_1": "流转卡编码不能为空",
+        "Tips_2": "当前流转卡不存在",
+        "Tips_3": "当前流转卡已报废",
+        "Tips_4": "当前流转卡返工中，无法报工",
+        "Tips_5": "当前流转卡待返工，无法报工",
+        "Tips_6": "机台不存在",
+        "Tips_7": "请选择包装工序的机台",
+        "Tips_8": "工单[{0}]的工艺路线不存在",
+        "Tips_9": "当前工序不在工艺路线里",
+        "Tips_10": "上一道工序[{0}]没有报工",
+        "Tips_11": "柜号不存在",
+        "Data_1": "包装"
+      },
+      //包装报工-生产小组扫描
+      "PackingBGPTeamScan": {
+        "Tips_1": "生产小组不能为空",
+        "Tips_2": "当前生产小组不存在",
+        "Tips_3": "当前生产小组没有分配人员"
+      },
+      //包装报工-保存
+      "PackingBGSave": {
+        "Tips_1": "柜号不能为空",
+        "Tips_2": "报工数量不能为0",
+        "Tips_3": "柜号不存在",
+        "Tips_4": "请先将超产品库存转出",
+        "Tips_5": "当前工序中没有该生产小组",
+        "Tips_6": "工单[{0}]的Bom不存在",
+        "Tips_7": "工单[{0}]的工艺路线不存在",
+        "Tips_8": "当前工序不在工艺路线里，并且不可以报工",
+        "Tips_9": "当前工序在工艺路线里，但不可以报工",
+        "Tips_10": "当前工序还没开工，不可以报工",
+        "Tips_11": "流转卡未首检，不可以报工",
+        "Tips_12": "物料[{0}{1}]没有上机记录",
+        "Tips_13": "物料[{0}{1}]、批次[{2}]没有可用的库存",
+        "Tips_14": "物料[{0}{1}]没有可用的库存",
+        "Tips_15": "流转卡履历没有找到",
+        "Tips_16": "允许超流转卡数量报工百分比属性不能为空",
+        "Tips_17": "报工数量不能大于{0}",
+        "Tips_18": "当前生产小组没有分配人员",
+        "Tips_19": "报工数量超出下单数量",
+        "Tips_20": "不良数量不能为空或者0",
+        "Tips_21": "[{0}]上机批次剩余库存不足，\r\n报工数量不允许超过{1}{2}",
+        "Tips_22": "产品包装托盘数量不能为空或者0",
+        "Tips_23": "包装单盒片数没有值",
+        "Tips_24": "包装单盒数量没有值",
+        "Tips_25": "超出下单数量"
+      },
+      //包装报工-查询
+      "PackingBGQuery": {},
+      //扫一扫  流转卡/唛头
+      "CodeBarScan": {
+        "Tips_1": "条码不能为空",
+        "Tips_2": "条码无效"
+      },
+      // 查一查
+      "GetUserBGRecord": {
+        "Tips_1": "用户不能为空"
+      },
+      //单托开工-机台扫描
+      "PerPalletStartMachineScan": {
+        "Tips_1": "机台不能为空",
+        "Tips_2": "机台不存在"
+      },
+      //单托开工-流转卡扫描
+      "PerPalletStartCardScan": {
+        "Tips_1": "流转卡编码不能为空",
+        "Tips_2": "当前流转卡不存在",
+        "Tips_3": "当前流转卡已报废",
+        "Tips_4": "工单已被冻结",
+        "Tips_5": "流转卡所在工序[{0}]没有报工！",
+        "Tips_6": "还在养生周期内，不允许开工",
+        "Tips_7": "已开过工，不允许重复开工",
+        "Tips_8": "操作工序[{0}]不在工艺路线里！",
+        "Tips_9": "工艺属性不存在",
+        "Tips_10": "操作工序[{0}]不需要开工！",
+        "Tips_11": "操作工序[{0}]不可以单托开工！",
+        "Tips_12": "不允许跨工序操作"
+      },
+      //单托开工-保存
+      "PerPalletStartSave": {
+        "Tips_1": "选择的流转卡不在同一道工序里"
+      },
+      //分拣报工-生产机台扫描
+      "SortingBGMachineScan": {
+        "Tips_1": "生产机台不能为空",
+        "Tips_2": "生产机台[{0}]不存在"
+      },
+      //分拣报工-流转卡扫描
+      "SortingBGCardScan": {
+        "Tips_1": "流转卡编码不能为空",
+        "Tips_2": "当前流转卡不存在",
+        "Tips_3": "当前流转卡已报废",
+        "Tips_4": "当前流转卡返工中",
+        "Tips_5": "当前流转卡还未开始流转，不允许报工",
+        "Tips_6": "当前流转卡在工序[{0}]上，无法报工"
+      },
+      //分拣报工-生产小组扫描
+      "SortingBGPTeamScan": {
+        "Tips_1": "生产小组不能为空",
+        "Tips_2": "当前生产小组不存在",
+        "Tips_3": "当前生产小组没有分配人员"
+      },
+      //分拣报工-保存
+      "SortingBGSave": {
+        "Tips_1": "报工数量不能为0",
+        "Tips_2": "机台不存在",
+        "Tips_3": "分拣口不存在！",
+        "Tips_4": "执行工单不存在",
+        "Tips_5": "当前工序中没有该生产小组",
+        "Tips_6": "流转卡未质量首检，不可以报工",
+        "Tips_7": "工单[{0}]的Bom不存在",
+        "Tips_8": "工单[{0}]的工艺路线不存在",
+        "Tips_9": "当前工序不在工艺路线里，并且不可以报工",
+        "Tips_10": "请先将超产品库存转出",
+        "Tips_26": "工艺属性不存在",
+        "Tips_11": "当前工序在工艺路线里，但不可以报工",
+        "Tips_12": "当前工序还没开工，不可以报工",
+        "Tips_13": "上一道工序[{0}]未报工",
+        "Tips_14": "不允许跨工序操作",
+        "Tips_15": "车间未首检，不可以报工",
+        "Tips_16": "车间首检不合格，无法报工",
+        "Tips_17": "车间主任未确认,无法报工",
+        "Tips_18": "物料[{0}{1}]没有上机记录",
+        "Tips_19": "物料[{0}{1}]、批次[{2}]没有可用的库存",
+        "Tips_20": "物料[{0}{1}]没有可用的库存",
+        "Tips_21": "允许超流转卡数量报工百分比属性不能为空",
+        "Tips_22": "报工数量不能大于{0}",
+        "Tips_23": "当前生产小组没有分配人员",
+        "Tips_24": "不良数量不能为0",
+        "Tips_25": "[{0}]上机批次剩余库存不足，\r\n报工数量不允许超过{1}{2}",
+
+
+        "Data_1": "张",
+        "Data_2": "片"
+      },
+      //在机流转卡查询
+      "InMachineCardQuery": {
+        "Tips_1": "机台不能为空",
+        "Tips_2": "机台不存在"
+      },
+      //BOM查询
+      "BOMQuery": {
+        "Tips_1": "条码不能为空",
+        "Tips_2": "BOM不存在",
+        "Tips_3": "BOM明细不存在",
+        "Tips_4": "条码无效"
+
+      }
+    }
+  },
+  "Equipment": { //设备管理
+    "EquipmentController": {
+      //扫描设备编码 查找设备点检任务
+      "GetEquipmentCheckByCode": {
+        "Tips_1": "请扫描设备",
+        "Tips_2": "没有查询到点检任务"
+      },
+      //设备点检任务保存
+      "SaveEquipmentTackResult": {
+        "Tips_1": "设备[{0}]不存在！"
+      },
+      //设备点检查询
+      "GetDataTableCheckResult": {
+        "Tips_1": "请选择查询条件",
+        "Tips_2": "没有查询到检验记录"
+      },
+      //设备保修-根据设备编码获取设备信息
+      "GetEquipmentManageByCode": {
+        "Tips_1": "请扫描设备",
+        "Tips_2": "没有查到当前设备"
+      },
+      //设备故障报修- 设备故障报修保存
+      "SaveEquipmentMalfunctionRepair": {
+        "Tips_1": "设备[{0}]不存在！",
+        "Tips_2": "设备模块"
+      },
+      //设备故障报修- 获取设备报修记录
+      "GetEquipmentMalfunctionRepair": {
+        "Tips_1": "请选择查询条件",
+        "Tips_2": "没有查询到报修记录"
+      },
+      // 设备故障维修- 设备维修记录保存
+      "SaveEquipmentRepairRecord": {
+        "Tips_2": "设备模块"
+      },
+      //设备保养-获取设备保养任务
+      "GetEquipmentMaintainTask": {}
+    },
+    "EP_EquipmentMaintainTaskController": {
+      //根据时间范围和设备类别 获取未保养的任务
+      "GetEquipmentMaintainTaskByDateAndType": {
+        "Tips_1": "请选择查询条件",
+        "Tips_2": "没有查询到保养任务记录"
+      },
+      //保存表单（修改）, 保养项目数组\ 备件更换数组
+      "SaveEP_EquipmentMaintainTask": {
+        "Tips_1": "缺少Id参数!",
+        "Tips_2": "缺少保养设备编码!",
+        "Tips_3": "缺少保养设备名称!",
+        "Tips_4": "缺少保养人编码!",
+        "Tips_5": "缺少保养人姓名!",
+        "Tips_6": "缺少保养任务ID!",
+        "Tips_7": "缺少保养任务名称!",
+        "Tips_8": "缺少保养项目!",
+        "Tips_9": "缺少备件更换!",
+        "Tips_10": "缺少当前登录人编码!",
+        "Tips_11": "设备编号不能为空!",
+        "Tips_12": "保养任务编号不能为空!",
+        "Tips_13": "保养任务执行成功!",
+
+        "Data_1!": "已保养"
+
+      },
+      //根据保养任务编码查询保养项目
+      "GetEP_EquipmentMaintainDetailList": {
+        "Tips_1": "请选择查询条件",
+        "Tips_2": "没有查询到保养任务项目记录"
+      }
+    }
+  },
+  "BaseManage": {
+    "AccountController": {
+      //分页获取操作工账号集合接口
+      "GetAccountList": {
+        "Tips_1": "操作失败，请传递请求参数"
+      }
+    },
+    "BaseDataController": {
+      "Tips_1": "分页参数Pagination不能为空！",
+      //获取字典列表-PDA专用
+      "GetList_DataItem_PDA": {},
+      //获取字典列表子明细-PDA专用
+      "GetList_DataItemByFather_PDA": {},
+      //查询产线(产线的'产品类型'不为空)-PDA专用
+      "GetList_Lines_PDA": {},
+      //查询供应商
+      "GetList_Suppliers": {
+      },
+      //序列号
+      "GetSerialNo": {
+        "Tips_1": "seqCode参数不能为空！"
+      }
+    },
+    "BaseShiftController": {
+      "Tips_1": "分页参数Pagination不能为空！",
+      "Tips_2": "获取详情数据成功",
+      //删除数据
+      "GetSerialNo": {
+        "Tips_1": "用户名不能为空！"
+      },
+      //保存表单（新增、修改）
+      "Save": {
+        "Tips_1": "用户名不能为空！"
+      }
+
+    },
+    "BsModelLevelController": {}
+  },
+  "MaterialManage": {
+    "MaterialController": {
+      //成品入库-唛头码扫描
+      "ProductInMarkScan": {
+        "Tips_1": "唛头码不能为空",
+        "Tips_2": "当前唛头信息不存在",
+        "Tips_3": "当前唛头不是待入库状态，无法执行入库操作",
+        "Tips_4": "没有找到线边库上的唛头信息"
+      },
+      //成品入库-唛头码扫描
+      "ProductInLocationScan": {},
+      //成品入库-保存
+      "ProductInSave": {
+        "Tips_1": "没有要保存的数据"
+      },
+      //成品入库-记录查询
+      "ProductInQuery": {},
+      //成品发货-唛头码扫描
+      "ProductDispatchMarkScan": {
+        "Tips_1": "唛头码不能为空",
+        "Tips_2": "当前唛头信息不存在",
+        "Tips_3": "当前唛头未入库，无法发货",
+        "Tips_4": "当前唛头已作废，无法发货",
+        "Tips_5": "当前唛头没有发货单",
+        "Tips_6": "发货单不能为空",
+        "Tips_7": "当前唛头已发货"
+      },
+      //成品发货-发货详情展示
+      "ProductDispatchDetailShow": {
+        "Tips_1": "发货单不能为空",
+        "Tips_2": "柜号不能为空"
+      },
+      //成品发货-保存
+      "ProductDispatchSave": {
+        "Tips_1": "库存不存在",
+        "Tips_2": "客户型号[{0}]没有库存",
+        "Tips_3": "客户型号[{0}]库存不足",
+
+        "Data_1": "物料模块"
+      },
+      //成品发货-记录查询
+      "ProductDispatchQuery": {
+        "Tips_1": "请输入发货单号"
+      },
+      //成品发货-获取订单号
+      "ProductDispatchProductOrder": {},
+      //成品发货-获取柜号
+      "ProductDispatchContainerNO": {},
+      //成品发货-获取发货单详情
+      "ProductDispatchInfo": {
+        "Tips_1": "发货单不存在"
+      },
+      //半成品移库-流转卡扫描
+      "SemiProductMoveCardScan": {
+        "Tips_1": "流转卡编码不能为空",
+        "Tips_2": "当前流转卡不存在",
+        "Tips_3": "当前流转卡已报废",
+        "Tips_4": "当前流转卡没有库存"
+      },
+      //半成品移库-库位扫描
+      "SemiProductMoveLocationScan": {},
+      //半成品移库-保存
+      "SemiProductMoveSave": {
+        "Tips_1": "没有要保存的数据",
+        "Tips_2": "源仓库有多个，无法移库",
+        "Tips_3": "源仓库和目标仓库不一致，无法移库"
+      },
+      //半成品移库-记录查询
+      "SemiProductMoveQuery": {},
+      //成品移库-唛头码扫描
+      "ProductMoveMarkScan": {
+        "Tips_1": "唛头码不能为空",
+        "Tips_2": "当前唛头信息不存在",
+        "Tips_3": "当前唛头未入库",
+        "Tips_4": "当前唛头已作废",
+        "Tips_5": "当前唛头没有库存"
+      },
+      //成品移库-库位扫描
+      "ProductMoveLocationScan": {},
+      //成品移库-保存
+      "ProductMoveSave": {
+        "Tips_1": "没有要保存的数据",
+        "Tips_2": "源仓库有多个，无法移库",
+        "Tips_3": "源仓库和目标仓库不一致，无法移库"
+      },
+      //成品移库-记录查询
+      "ProductMoveQuery": {},
+
+
+
+      //唛头更换-唛头码扫描
+      "MarkChangeMarkScan": {
+        "Tips_1": "唛头码不能为空",
+        "Tips_2": "当前唛头信息不存在"
+      },
+      //唛头更换-保存
+      "MarkChangeSave": {
+        "Tips_1": "新唛头不能为空",
+        "Tips_2": "新旧唛头数量不一致"
+      },
+      //唛头更换-记录查询
+      "MarkChangeQuery": {},
+
+
+      //创建成品返工单-唛头码扫描
+      "ProductReWorkMarkScan": {
+        "Tips_1": "唛头码不能为空",
+        "Tips_2": "当前唛头信息不存在"
+      },
+      //创建成品返工单-保存
+      "ProductReWorkSave": {},
+
+      //成品返工报工-返工单查询
+      "ProductReworkBGOrderQuery": {},
+      //成品返工报工-返工单选择页面跳转后显示
+      "ProductReworkBGShow": {
+        "Tips_1": "返工单号不能为空",
+        "Tips_2": "当前返工单不存在"
+      },
+      //成品返工报工-生产小组扫描
+      "ProductReworkBGPTeamScan": {
+        "Tips_1": "生产小组不能为空",
+        "Tips_2": "当前生产小组不存在",
+        "Tips_3": "当前生产小组没有分配人员"
+      },
+      //成品返工报工-保存
+      "ProductReworkBGSave": {
+        "Tips_1": "该生产小组不存在"
+
+      },
+      //成品返工报工-查询
+      "ProductReworkBGQuery": {}
+    }
+  },
+  "QualityManage": {
+    "QualityController": {
+      //扫描流转卡获取信息
+      "GetQCTransferCardEntity": {
+        "Tips_1": "请扫描流转卡",
+        "Tips_2": "流转卡已报废！",
+        "Tips_3": "物料[{0}]没有物料组",
+        "Tips_4": "当前流转卡不存在"
+      },
+      //根据流转卡获取流转履历表数据
+      "GetprocessList": {
+        "Tips_1": "请扫描流转卡",
+        "Tips_2": "没有与该流转卡相关的工序！"
+      },
+      //获取检验方法
+      "GetQCTestMethodList": {
+        "Tips_1": "检测方法为空,请维护检测方法"
+      },
+      //获取检验项目
+      "GetQCTestItemList": {
+        "Tips_1": "检测方法为空,请维护检测方法"
+      },
+      //扫描流转卡获取信息
+      "SaveQCTestItemForm": {
+        "Tips_1": "检验方法不存在",
+        "Tips_2": "机台没有获取到值，请重新扫描",
+        "Data_1": "质量模块"
+      },
+      //检测记录查询
+      "GetQCTestRecordList": {},
+      //检测记录查询
+      "GetQCTestResultRecordList": {},
+      //巡检质量判定
+      "SavePollingDetailForm": {
+        "Tips_1": "没有这个检测记录"
+
+      },
+      //OQC根据唛头号查询订单信息
+      "GetOrderByTransferCode": {
+        "Tips_1": "没有找到相关的唛头订单信息"
+      },
+      //OQC根据检验方法获取检验项目
+      "GetOQCCheckConfigItem": {
+        "Tips_1": "没有获取到检验项目"
+
+      },
+      //OQC保存-检验记录
+      "SaveOQCCheckConfigForm": {
+
+        "Tips_1": "唛头不存在",
+
+        "Data_1": "质量模块"
+      },
+      //OQC检验记录查询
+      "GetOQCQualityCheckRecord": {},
+      //OQC成品检验单合批
+      "SaveOQCQualityChecInspectNo": {},
+      //OQC成品检验项目记录
+      "GetOQCQualityCheckItemRecord": {},
+      //OQC成品检验质量判定
+      "SaveOQCQualityCheckResult": {},
+      //原材料调拨
+      "RawMaterialAllocation": {
+        "Tips_1": "请选择工厂",
+        "Tips_2": "请选择库位",
+        "Tips_3": "请选择批次"
+      }
+    }
+  }
+}

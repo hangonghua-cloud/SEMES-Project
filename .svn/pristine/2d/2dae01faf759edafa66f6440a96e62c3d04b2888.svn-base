@@ -1,0 +1,54 @@
+﻿<style>
+    .row {
+        padding: 5px;
+        margin-top: 10px;
+    }
+
+    .canvas .property-area-container div.command-bar-side-panel {
+        padding-bottom: 40px;
+    }
+
+    .canvas .property-area-container > div.content .side-panel-property-area-body {
+        overflow: visible;
+        flex: none;
+    }
+</style>
+<div class="command-bar-side-panel">
+    <button ng-click="vm.cancel()"
+            class="btn side-panel-button">
+        {{'Siemens.SimaticIT.PlanApp.WorkOrderManage.select.Tips_1'|translate}}
+    </button>
+    <button ng-click="vm.save()"
+            class="btn side-panel-button">
+        {{'Siemens.SimaticIT.PlanApp.WorkOrderManage.select.Tips_2'|translate}}
+    </button>
+    <button ng-click="vm.deleteOperation()" ng-show="vm.isVisble"
+            class="btn side-panel-button">
+        {{'Siemens.SimaticIT.PlanApp.WorkOrderManage.select.Tips_3'|translate}}
+    </button>
+</div>
+
+<div id="itemlist"
+     style="width:calc(100% - 2px); height:30%;margin-top: 6px; padding:5px 16px 0 0px;clear: both; display: block;">
+    <div ui-grid="vm.gridOptionsItem" ui-grid-selection ui-grid-resize-columns ui-grid-auto-resize
+         class="uigrid gridItem"></div>
+</div>
+<div class="side-panel-property-area-body" style="height: calc(8% - 0px) !important">
+    <sit-property-grid sit-id="add_form" sit-layout="Horizontal" sit-type="Fixed" sit-mode="edit" sit-columns="5">
+
+        <sit-command-bar sit-type="action">
+
+            <sit-command sit-icon="fa-floppy-o" sit-type="main" sit-name="com.siemens.customcommand.saveAttr"
+                         :sit-tooltip="{{'Siemens.SimaticIT.PlanApp.WorkOrderManage.select.Tips_4'|translate}}"
+                         ng-click="vm.saveAttr"
+                         :sit-label="{{'Siemens.SimaticIT.PlanApp.WorkOrderManage.select.Tips_4'|translate}}">
+            </sit-command>
+
+        </sit-command-bar>
+    </sit-property-grid>
+</div>
+<div id="itemlist2"
+     style="width:calc(100% - 2px); height:50%;margin-top: 6px; padding:5px 16px 0 0px;clear: both; display: block;">
+    <div ui-grid="vm.gridOptionsItem2" ui-grid-selection ui-grid-resize-columns ui-grid-auto-resize
+         class="uigrid gridItem"></div>
+</div>

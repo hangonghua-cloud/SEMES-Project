@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Items>
+  <DatabaseInfo Id="54302333-3e2c-405a-8fff-b684ef538c0d">
+    <CommandTimeout>30000</CommandTimeout>
+    <ConnectionTimeout>15000</ConnectionTimeout>
+    <DataSource>UATEST-SERVER</DataSource>
+    <DatabaseType>MSSQLServer</DatabaseType>
+    <InitialCatalog>MES</InitialCatalog>
+    <NumberOfRetries>500</NumberOfRetries>
+    <RetriesDelay>500</RetriesDelay>
+    <Schema></Schema>
+    <ArchiveDatabase>054b2ac7-7dda-4079-aec2-bcf9960b15ee</ArchiveDatabase>
+    <Name>MOM</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DatabaseInfo>
+  <DatabaseInfo Id="35776ebd-0e73-439a-a351-03fc50f8efa4">
+    <CommandTimeout>30000</CommandTimeout>
+    <ConnectionTimeout>15000</ConnectionTimeout>
+    <DataSource>UATEST-SERVER</DataSource>
+    <DatabaseType>MSSQLServer</DatabaseType>
+    <InitialCatalog>FHMESDB</InitialCatalog>
+    <NumberOfRetries>50</NumberOfRetries>
+    <RetriesDelay>500</RetriesDelay>
+    <Schema></Schema>
+    <Name>Siemens.SimaticIT.ThirdPartyDBFBLib</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </DatabaseInfo>
+</Items>

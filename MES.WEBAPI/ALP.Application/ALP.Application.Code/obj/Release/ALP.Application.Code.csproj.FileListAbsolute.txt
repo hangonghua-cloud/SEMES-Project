@@ -1,0 +1,12 @@
+D:\New folder\MES.WEBAPI\ALP.Application\ALP.Application.Code\bin\Release\ALP.Application.Code.dll
+D:\New folder\MES.WEBAPI\ALP.Application\ALP.Application.Code\bin\Release\ALP.Application.Code.pdb
+D:\New folder\MES.WEBAPI\ALP.Application\ALP.Application.Code\bin\Release\ALP.Cache.dll
+D:\New folder\MES.WEBAPI\ALP.Application\ALP.Application.Code\bin\Release\ALP.Cache.Factory.dll
+D:\New folder\MES.WEBAPI\ALP.Application\ALP.Application.Code\bin\Release\ALP.Util.dll
+D:\New folder\MES.WEBAPI\ALP.Application\ALP.Application.Code\bin\Release\ALP.Util.Extension.dll
+D:\New folder\MES.WEBAPI\ALP.Application\ALP.Application.Code\bin\Release\ALP.Cache.Redis.dll
+D:\New folder\MES.WEBAPI\ALP.Application\ALP.Application.Code\obj\Release\ALP.Application.Code.csprojAssemblyReference.cache
+D:\New folder\MES.WEBAPI\ALP.Application\ALP.Application.Code\obj\Release\ALP.Application.Code.csproj.CoreCompileInputs.cache
+D:\New folder\MES.WEBAPI\ALP.Application\ALP.Application.Code\obj\Release\ALP.Application.Code.csproj.CopyComplete
+D:\New folder\MES.WEBAPI\ALP.Application\ALP.Application.Code\obj\Release\ALP.Application.Code.dll
+D:\New folder\MES.WEBAPI\ALP.Application\ALP.Application.Code\obj\Release\ALP.Application.Code.pdb

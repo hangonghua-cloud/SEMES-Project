@@ -1,0 +1,19 @@
+﻿{
+  "name": "Siemens.SimaticIT.BasicDataManageFBApp.BaseManage",
+  "type": "standard",
+  "title": "数据字典",
+  "header": "",
+  "icon": "fa-folder",
+  "functionalBlock": "Siemens.SimaticIT.BasicDataManageFBApp",
+  "dependencies": [],
+  "states": [
+    {
+      "id": "home.Siemens_SimaticIT_BasicDataManageFBApp_BaseManage_BaseManageScreen",
+      "title": "数据字典",
+      "header": "",
+      "securable": true,
+      "roles": []
+    }
+  ],
+  "manifestVersion": "01.01.00"
+}

@@ -1,0 +1,1036 @@
+﻿using System;
+using System.Net;
+using System.Net.Http;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System.Linq;
+using ALP.Util;
+using ALP.Util.WebControl;
+using ALP.Util.Extension;
+using ALP.Application.Entity.ProduceManage;
+using ALP.Application.Service.ProduceManage;
+using ALP.WebApi.Models;
+using ALP.Application.WebApi.Controllers.API;
+using ALP.WebApi.Filter;
+using System.Web.Http;
+using System.Text;
+using System.Collections.Generic;
+using ALP.Application.Busines.ProduceManage;
+using ALP.Application.Entity.MaterialManage;
+using ALP.Application.Busines.MaterialManage;
+using ALP.Application.UtilExtend.Util;
+using System.Transactions;
+using ALP.Application.Service.Material;
+using ALP.Application.Service.BaseManage;
+using ALP.Application.Service.Resources;
+using ALP.Application.Entity.SAPEntity.ToSAP;
+using ALP.Application.Entity.HTTPEntity;
+using ALP.Application.Entity.Enum;
+using ALP.Application.Service.Helper;
+
+namespace ALP.Application.WebApi.Controllers.ProduceManage
+{
+    /// <summary>
+    /// 1.创建日期: 2021-08-24
+    /// 2.创建作者: liyongguo
+    /// 3.功能描述: PM_FormulaRecordController 控制器 友情提示: 如果是移动APP接口使用请把[Auth]注释掉
+    /// 4.任务编号: 小料喂料记录
+    /// 5.最后修改日期: 
+    /// 6.最后修改作者: 
+    /// </summary>
+    [Auth]
+    [RoutePrefix("PM_FormulaRecord")]
+    public class PM_FormulaRecordController : ApiBaseController
+    {
+        private Base_KeyParameterItem_Service _keyParameterItemService = new Base_KeyParameterItem_Service();
+        private BsModelWithResourceService _bsModelWithResourceService = new BsModelWithResourceService();
+        private BsModelResourceExtendInfoService _bsModelWithResourceExtendService = new BsModelResourceExtendInfoService();
+        private Base_Material_Service _baseMaterialService = new Base_Material_Service();//物料基础数据
+        private Base_MaterialFactory_Service _baseMaterialFactoryService = new Base_MaterialFactory_Service();//物料工厂
+
+        private BS_BOM_Service _bsBOMService = new BS_BOM_Service(); //BOM主表
+        private BS_BOMItems_Service _bsBOMItemService = new BS_BOMItems_Service(); //BOM明细
+        private BS_Process_Service _bsProcessService = new BS_Process_Service();//基础数据工艺路线
+        private BS_ProcessOfOperations_Service _bsProcessOperationService = new BS_ProcessOfOperations_Service();//基础 工艺路线-工序
+        private BS_ProcessOfOperationsAttr_Service _bsProcessOperationAttrService = new BS_ProcessOfOperationsAttr_Service();//基础-工艺-工序属性
+
+        private PM_FormulaRecordBLL _FormulaRecordBLL = new PM_FormulaRecordBLL();
+        private PM_FormulaRecordDetailBLL _FormulaRecordDetailBLL = new PM_FormulaRecordDetailBLL();
+        private MM_RawMaterialStockBLL _RawMaterialStockBLL = new MM_RawMaterialStockBLL();
+        private MM_RawMaterialOutBLL _RawMaterialOutBLL = new MM_RawMaterialOutBLL();
+        private MM_RawMaterialInBLL _rawMaterialInBLL = new MM_RawMaterialInBLL();//物料入库
+
+
+        /// <summary>
+        /// 功能描述: 测试接口
+        /// 创　　建: liyongguo
+        /// 创建日期: 2021-08-24 09:50:55
+        /// 任务编号: 小料喂料记录
+        /// </summary>
+        [HttpGet]
+        [Route("test")]
+        public HttpResponseMessage test()
+        {
+            var result = new ResponseResult();
+            result.resultData = Language.GetText("ProduceManage.PM_FormulaRecordController.Tips_1") + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");//API接口测试正常！
+            result.success = true;
+            result.returnMsg = Language.GetText("ProduceManage.PM_FormulaRecordController.Tips_2");//测试成功
+            return Request.CreateResponse(HttpStatusCode.OK, result);
+        }
+
+        /// <summary>
+        /// 功能描述: 获取列表(分页) 数据支持查询与分页
+        /// 创　　建: liyongguo
+        /// 创建日期: 2021-08-24 09:50:55
+        /// 任务编号: 小料喂料记录
+        /// </summary>
+        /// <param name="jo">pagination 分页参数;queryJson 查询参数</param>
+        /// <returns>返回分页列表</returns>
+        [HttpPost]
+        [Route("PM_FormulaRecordPageList")]
+        public HttpResponseMessage PM_FormulaRecordPageList(JObject jo)
+        {
+            var result = new ResponseResult();
+            result.resultData = null;
+            try
+            {
+                Pagination pagination = new Pagination();
+                if (!jo["pagination"].IsEmpty())
+                {
+                    pagination = JsonConvert.DeserializeObject<Pagination>(getValue(jo, "pagination"));
+                }
+                else
+                {
+                    pagination = null;
+                    //result.success = false;
+                    //result.returnMsg = "分页参数Pagination不能为空！";
+                    //return Request.CreateResponse(HttpStatusCode.OK, result);
+                }
+                string queryJson = getValue(jo, "queryJson");
+                var watch = CommonHelper.TimerStart();
+
+                var data = _FormulaRecordBLL.GetPageList(pagination, queryJson);
+                var JsonData = new
+                {
+                    rows = data,
+                    total = pagination != null ? pagination.total : data.Count(),
+                    page = pagination != null ? pagination.total : data.Count(),
+                    records = pagination != null ? pagination.total : data.Count(),
+                    costtime = CommonHelper.TimerEnd(watch)
+                };
+
+                result.resultData = JsonData;
+                result.success = true;
+                result.returnMsg = Language.GetText("Common.SearchSuccess");//查询成功
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+            catch (Exception ex)
+            {
+                result.success = false;
+                result.returnMsg = Language.GetText("Common.SearchError2") + ex.Message;//查询失败：
+                result.statusCode = ((int)HttpStatusCode.InternalServerError).ToString();
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+        }
+
+        /// <summary>
+        /// 功能描述: 获取列表(分页) 数据支持查询与分页
+        /// 创　　建: liyongguo
+        /// 创建日期: 2021-08-24 09:50:55
+        /// 任务编号: 小料喂料记录
+        /// </summary>
+        /// <param name="jo">pagination 分页参数;queryJson 查询参数</param>
+        /// <returns>返回分页列表</returns>
+        [HttpPost]
+        [Route("PM_FormulaRecordPageDataTableList")]
+        public HttpResponseMessage PM_FormulaRecordPageDataTableList(JObject jo)
+        {
+            var result = new ResponseResult();
+            result.resultData = null;
+            try
+            {
+                Pagination pagination = new Pagination();
+                if (!jo["pagination"].IsEmpty())
+                {
+                    pagination = JsonConvert.DeserializeObject<Pagination>(getValue(jo, "pagination"));
+                }
+                else
+                {
+                    pagination = null;
+                    //result.success = false;
+                    //result.returnMsg = "分页参数Pagination不能为空！";
+                    //return Request.CreateResponse(HttpStatusCode.OK, result);
+                }
+                string queryJson = getValue(jo, "queryJson");
+                var watch = CommonHelper.TimerStart();
+
+                var data = _FormulaRecordBLL.GetPageDataTableList(pagination, queryJson);
+                var JsonData = new
+                {
+                    rows = data,
+                    total = pagination != null ? pagination.total : data.Rows.Count,
+                    page = pagination != null ? pagination.page : 1,
+                    records = pagination != null ? pagination.records : data.Rows.Count,
+                    costtime = CommonHelper.TimerEnd(watch)
+                };
+
+                result.resultData = JsonData;
+                result.success = true;
+                result.returnMsg = Language.GetText("Common.SearchSuccess");//查询成功
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+            catch (Exception ex)
+            {
+                result.success = false;
+                result.returnMsg = Language.GetText("Common.SearchError2") + ex.Message;//查询失败：
+                result.statusCode = ((int)HttpStatusCode.InternalServerError).ToString();
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+        }
+
+        /// <summary>
+        /// 功能描述: 获取所有列表, 不分页, 适用于下拉列表使用
+        /// 创　　建: liyongguo
+        /// 创建日期: 2021-08-24 09:50:55
+        /// 任务编号: 小料喂料记录
+        /// </summary>
+        /// <returns>返回列表</returns>
+        [HttpGet]
+        [Route("GetPM_FormulaRecordList")]
+        public HttpResponseMessage GetPM_FormulaRecordList(string checkType)
+        {
+            var result = new ResponseResult();
+            try
+            {
+
+                string msg = "";
+                var list = _FormulaRecordBLL.GetList(checkType, out msg);
+                result.resultData = list;
+                result.success = true;
+                result.returnMsg = Language.GetText("Common.SearchSuccess");//查询成功
+                if (msg != "")
+                {
+                    result.returnMsg = msg;
+                }
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+            catch (Exception ex)
+            {
+                result.success = false;
+                result.statusCode = ((int)HttpStatusCode.InternalServerError).ToString();
+                result.returnMsg = ex.Message.ToString();
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+        }
+
+        #region 喂料小料报工
+        /// <summary>
+        /// 功能描述: 喂料小料报工
+        /// 创　　建: liyongguo
+        /// 创建日期: 2021-08-24 09:50:55
+        /// 任务编号: 小料喂料记录
+        /// </summary>
+        /// <param name="jo">json参数, 包含keyValue 主键值, entity 实体对象 </param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("SavePM_FormulaRecord")]
+        public HttpResponseMessage SavePM_FormulaRecord(JObject jo)
+        {
+            var userCode = CurrentAccount.UserCode;
+            var userName = CurrentAccount.UserName;
+            var result = new ResponseResult<object>();
+            result.resultData = null;
+            string msg = "";
+            var flag = false;
+            if (jo == null)
+            {
+                result.success = false;
+                result.returnMsg = Language.GetText("ProduceManage.PM_FormulaRecordController.Tips_5");//参数不能为空！
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+
+            //判断主键内容是否为空, 为空新增, 有值修改
+            if (jo.SelectToken("KeyValue") == null)
+            {
+                result.success = false;
+                result.returnMsg = Language.GetText("ProduceManage.PM_FormulaRecordController.Tips_6");//缺少KeyValue参数！
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+
+            if (jo.SelectToken("Entity") == null)
+            {
+                result.success = false;
+                result.returnMsg = Language.GetText("ProduceManage.PM_FormulaRecordController.Tips_7");//缺少Entity参数！
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+
+            try
+            {
+                //业务服务类
+
+                PM_FormulaRecordEntity entity = JsonConvert.DeserializeObject<PM_FormulaRecordEntity>(getValue(jo, "Entity"));
+                var list = JsonConvert.DeserializeObject<List<PM_FormulaRecordDetailEntity>>(getValue(jo, "data"));
+
+                var inList = new List<MM_RawMaterialStockEntity>();
+                var upList = new List<MM_RawMaterialStockEntity>();
+                var outList = new List<MM_RawMaterialOutEntity>();
+
+                string keyValue = getValue(jo, "KeyValue");
+                string queryJson = getValue(jo, "Entity");
+
+                MM_RawMaterialStockEntity stockEntity = null;
+                MM_RawMaterialStockEntity targetEntity = null;
+                MM_RawMaterialInEntity rawInEntity = null;
+
+                entity.Id = Guid.NewGuid().ToString();
+                entity.CreateTime = DateTime.Now;
+                entity.Creator = userCode;
+
+                var bomId = entity.BOMId;
+                var bsBOMEntity = _bsBOMService.Get_ExpressionEntity(t => t.Id == bomId);
+                if (bsBOMEntity == null)
+                    return AjaxResult(false, Language.GetText("ProduceManage.PM_FormulaRecordController.Tips_8"));//BOM不存在！
+
+                var docNum = DateTime.Now.ToString("yyyyMMddHHmmss");
+                var materialEntity = _baseMaterialService.Get_ExpressionEntity(t => t.MaterialCode == bsBOMEntity.MaterialCode);
+                if (materialEntity == null)
+                    return AjaxResult(false, Language.GetText("ProduceManage.PM_FormulaRecordController.Tips_31", bsBOMEntity.MaterialCode));//物料{bsBOMEntity.MaterialCode}不存在
+
+                var bsProcessEntity = _bsProcessService.Get_ExpressionEntity(t => t.ProcessCode == bsBOMEntity.Process);
+                if (bsProcessEntity == null)
+                    return AjaxResult(false, Language.GetText("ProduceManage.PM_FormulaRecordController.Tips_32", bsBOMEntity.Process));//工艺路线{bsBOMEntity.Process}不存在！
+
+                var bsOperationEntity = _bsProcessOperationService.Get_ExpressionList(t => t.ProcessCode == bsProcessEntity.ProcessCode).FirstOrDefault();
+                if (bsOperationEntity == null)
+                    return AjaxResult(false, Language.GetText("ProduceManage.PM_FormulaRecordController.Tips_33"));//工艺路线-工序不存在
+
+                var bsAttrList = _bsProcessOperationAttrService.Get_ExpressionList(t => t.OperationsId == bsOperationEntity.Id).ToList();
+                var mLocationCode = bsAttrList.Find(t => t.AttrCode == "BGKW")?.AttrValue;
+                if (string.IsNullOrEmpty(mLocationCode))
+                    return AjaxResult(false, Language.GetText("ProduceManage.PM_FormulaRecordController.Tips_34"));//报工库位不能为空
+
+                var bsModel = _bsModelWithResourceService.GetEntity(t => t.ResourceCode == mLocationCode);//库位
+                if (bsModel == null)
+                {
+                    return AjaxResult(false, "库位不存在:" + mLocationCode);
+                }
+
+                #region 入库记录
+                rawInEntity = new MM_RawMaterialInEntity();
+                rawInEntity.Id = Guid.NewGuid().ToString();
+                rawInEntity.BusinessId = entity.Id;
+                rawInEntity.BusinessTable = "PM_FormulaRecord";
+                rawInEntity.FactoryCode = entity.FactoryCode;
+                rawInEntity.FactoryName = entity.FactoryName;
+                rawInEntity.DocNum = docNum;
+                rawInEntity.MaterialCode = bsBOMEntity.MaterialCode;
+                rawInEntity.MaterialName = bsBOMEntity.MaterialName;
+                rawInEntity.Spec = materialEntity.Spec;
+                rawInEntity.SmallClass = materialEntity.SmallClass;
+                rawInEntity.Unit = bsBOMEntity.UnitName;
+                // 是否启用批次管理
+                var materialFactoryEntity = _baseMaterialFactoryService.Get_ExpressionEntity(t => t.MaterialCode == bsBOMEntity.MaterialCode
+                    && t.FactoryCode == entity.FactoryCode);
+                if (materialFactoryEntity?.IsUsed == true)
+                    rawInEntity.BatchNo = "W" + docNum; //批次号
+
+                rawInEntity.SupplierCode = "";
+                rawInEntity.QualityStatus = "";
+                rawInEntity.Qty = list.Sum(t => t.ActQty);
+                rawInEntity.InType = "9";
+                rawInEntity.WhsCode = bsModel.ParentResource;
+                rawInEntity.LocationCode = bsModel.ResourceCode;
+                rawInEntity.Remark = "";
+                rawInEntity.Creator = userCode;
+                rawInEntity.CreateTime = DateTime.Now;
+                #endregion
+
+                #region 库存
+                if (materialFactoryEntity?.IsUsed == true)
+                    targetEntity = _RawMaterialStockBLL.Get_ExpressionEntity(t => t.WhsCode == bsModel.ParentResource && t.LocationCode == bsModel.ResourceCode
+                        && t.MaterialCode == rawInEntity.MaterialCode && t.BatchNo == rawInEntity.BatchNo);
+                else
+                    targetEntity = _RawMaterialStockBLL.Get_ExpressionEntity(t => t.WhsCode == bsModel.ParentResource && t.LocationCode == bsModel.ResourceCode
+                        && t.MaterialCode == rawInEntity.MaterialCode);
+
+                if (targetEntity == null)
+                {
+                    stockEntity = new MM_RawMaterialStockEntity();
+                    stockEntity.Id = Guid.NewGuid().ToString();
+                    stockEntity.FactoryCode = entity.FactoryCode;
+                    stockEntity.FactoryName = entity.FactoryName;
+                    stockEntity.MaterialCode = bsBOMEntity.MaterialCode;
+                    stockEntity.MaterialName = bsBOMEntity.MaterialName;
+                    if (materialFactoryEntity?.IsUsed == true)
+                        stockEntity.BatchNo = rawInEntity.BatchNo;
+
+                    stockEntity.Qty = rawInEntity.Qty;
+                    stockEntity.Unit = rawInEntity.Unit;
+                    stockEntity.SupplierCode = "";
+                    stockEntity.WhsCode = bsModel.ParentResource;
+                    stockEntity.LocationCode = bsModel.ResourceCode;
+                    stockEntity.IsFrozen = "0";
+                    stockEntity.Creator = userCode;
+                    stockEntity.CreateTime = DateTime.Now;
+                }
+                else
+                {
+                    targetEntity.Qty += rawInEntity.Qty;
+                    targetEntity.ModifyBy = userCode;
+                    targetEntity.ModifyTime = DateTime.Now;
+                }
+                #endregion
+
+                var bsBOMItemList = _bsBOMItemService.Get_ExpressionList(t => t.BOMId == bomId).ToList();
+                foreach (var item in list)
+                {
+                    item.Id = Guid.NewGuid().ToString();
+                    item.FormulaId = entity.Id;
+                    item.FactoryCode = entity.FactoryCode;
+                    item.FactoryName = entity.FactoryName;
+
+                    var bsBOMItemEntity = bsBOMItemList.Find(t => t.MaterialCode == item.MaterialCode);
+                    var whsCode = bsBOMItemEntity?.Warehouse;
+                    if (string.IsNullOrEmpty(whsCode))
+                        return AjaxResult(false, Language.GetText("ProduceManage.PM_FormulaRecordController.Tips_9", item.MaterialName));//物料[{item.MaterialName}]没维护仓库！
+
+                    var locationList = _bsModelWithResourceService.GetList(t => t.ParentResource == whsCode).ToList();
+                    var arrLocation = locationList.Select(t => t.ResourceCode).ToArray();
+                    //线边库
+                    var locationCode = _bsModelWithResourceExtendService.GetList(t => arrLocation.Contains(t.ResourceCode)
+                          && t.FieldCode == "GLFS" && t.FieldValue == "0").FirstOrDefault()?.ResourceCode;
+                    if (string.IsNullOrEmpty(locationCode))
+                        return AjaxResult(false, Language.GetText("ProduceManage.PM_FormulaRecordController.Tips_10", whsCode));//仓库【{whsCode}】没有线边库位
+
+                    //condition
+                    var expression = LinqExtensions.True<MM_RawMaterialStockEntity>();
+                    if (!string.IsNullOrEmpty(item.BatchNo))
+                    {
+                        expression = expression.And(t => t.BatchNo == item.BatchNo);
+                    }
+                    expression = expression.And(t => t.MaterialCode == item.MaterialCode && t.Qty > 0 && t.LocationCode == locationCode);
+                    var mEntity = _RawMaterialStockBLL.Get_ExpressionEntity(expression);
+                    if (mEntity != null && mEntity.Qty >= item.ActQty)
+                    {
+                        if (upList.Count > 0 && upList.Find(t => t.BatchNo == item.BatchNo && t.MaterialCode == item.MaterialCode) != null)
+                        {
+                            upList.Find(t => t.BatchNo == item.BatchNo && t.MaterialCode == item.MaterialCode).Qty -= item.ActQty;
+                        }
+                        else
+                        {
+                            mEntity.Qty -= item.ActQty;
+                            mEntity.ModifyBy = userCode;
+                            mEntity.ModifyTime = DateTime.Now;
+                            upList.Add(mEntity);
+                        }
+                    }
+                    else
+                    {
+                        msg += item.MaterialCode + "-" + item.MaterialName + ",";
+                        flag = true;
+                        break;
+                    }
+
+                    #region 出库记录
+                    outList.Add(new MM_RawMaterialOutEntity()
+                    {
+                        Id = Guid.NewGuid().ToString(),
+                        BusinessId = entity.Id,
+                        BusinessTable = "PM_FormulaRecord",
+                        BGType = "5",
+                        BGBatchNo = mEntity.BatchNo,
+                        MaterialCode = item.MaterialCode,
+                        MaterialName = item.MaterialName,
+                        Spec = mEntity.Spec,
+                        Qty = item.ActQty,
+                        WhsCode = mEntity.WhsCode,
+                        LocationCode = mEntity.LocationCode,
+                        SupplierCode = mEntity.SupplierCode,
+                        OutType = "1",
+                        Unit = bsBOMItemEntity.Unit,
+                        UnitName = bsBOMItemEntity.UnitName,
+                        Creator = userCode,
+                        CreateTime = DateTime.Now,
+                        FactoryCode = entity.FactoryCode,
+                        FactoryName = entity.FactoryName,
+                        BatchNo = item.BatchNo
+                    });
+                    #endregion
+                }
+
+                if (flag)
+                {
+                    result.success = false;
+                    result.returnMsg = msg + Language.GetText("ProduceManage.PM_FormulaRecordController.Tips_11");//没有库存或者库存数量不够
+                    return Request.CreateResponse(HttpStatusCode.OK, result);
+                }
+
+                #region 同步SAP
+                var factoryCode = entity.FactoryCode;
+
+                var SAPSyncSwitch = _keyParameterItemService.Get_ExpressionEntity(t => t.EnCode == "Switch" && t.ItemCode == "SAPSync"
+                    && t.Remark1 == factoryCode);
+                if (SAPSyncSwitch?.ItemValue == "1")
+                {
+                    var arrMaterialCode = outList.Select(t => t.MaterialCode).Distinct().ToArray();
+                    var materialList = _baseMaterialService.Get_ExpressionList(t => arrMaterialCode.Contains(t.MaterialCode)).ToList();
+
+                    IF121 sapRequest = new IF121();
+                    sapRequest.HEAD = new SapHeadDto();
+                    sapRequest.HEAD.INIF_ID = SAPInterface.IF121.ToString();
+
+                    sapRequest.RSQ_DATA = new IF121_RSQ_DATA();
+                    IF121_HEAD IF121_HEAD = new IF121_HEAD();
+                    IF121_HEAD.MATNR = materialEntity.SAPMaterialCode ?? "";
+                    IF121_HEAD.WERKS = factoryCode ?? "";
+                    IF121_HEAD.BOMCODE = bsBOMEntity.BOMCode ?? "";
+                    IF121_HEAD.BLDAT = DateTime.Now.ToString("yyyyMMdd");
+                    //过账日期：原配方生效时间（FormulaTime）改为当前时间 modify 2026-06-05 by dragon
+                    IF121_HEAD.BUDAT = DateTime.Now.ToString("yyyyMMdd");
+                    IF121_HEAD.ERFMG = rawInEntity.Qty.ToString() ?? "";
+                    IF121_HEAD.ALORT = rawInEntity.LocationCode ?? "";
+                    IF121_HEAD.CHARG = rawInEntity.BatchNo ?? "";
+                    sapRequest.RSQ_DATA.IS_HEAD = IF121_HEAD;
+
+                    List<IF121_ITEM> IT_ITEM = new List<IF121_ITEM>();
+                    foreach (var item in outList)
+                    {
+                        var matItem = materialList.Find(t => t.MaterialCode == item.MaterialCode);
+
+                        IF121_ITEM IF121_ITEM = new IF121_ITEM();
+                        IF121_ITEM.MATNR = matItem?.SAPMaterialCode ?? "";
+                        IF121_ITEM.WERKS = item.FactoryCode ?? "";
+                        IF121_ITEM.LGORT = item.LocationCode ?? "";
+                        IF121_ITEM.ERFMG_R = item.Qty.ToString() ?? "";
+                        IF121_ITEM.ERFME = item.Unit ?? "";
+                        IF121_ITEM.CHARG = item.BatchNo ?? "";
+                        IT_ITEM.Add(IF121_ITEM);
+                    }
+                    sapRequest.RSQ_DATA.IT_ITEM = IT_ITEM;
+
+                    var sapResult = SAPHelper.Instance.PostToSAP(sapRequest.HEAD.INIF_ID, sapRequest);
+                    if (!sapResult.Flag)
+                        return AjaxResult(false, sapResult.Msg);
+
+                    entity.IsPosted = sapResult.Flag ? "1" : "";
+                    entity.PostedMsg = sapResult.Msg;
+                    entity.PostedTime = DateTime.Now;
+                    entity.PostedUser = "SAP";
+                    entity.SAP_MBLNR = getValue(JObject.Parse(sapResult.Data), "EV_MBLNR");
+                }
+                #endregion
+
+                TransactionOptions transactionOption = new TransactionOptions();
+                //设置事务隔离级别
+                transactionOption.IsolationLevel = System.Transactions.IsolationLevel.ReadCommitted;
+                // 设置事务超时时间为60秒
+                transactionOption.Timeout = new TimeSpan(0, 0, 60);
+                using (var ts = new TransactionScope(TransactionScopeOption.Required, transactionOption))
+                //using (var ts = new TransactionScope())
+                {
+                    _FormulaRecordDetailBLL.SaveEntity_List(false, userCode, list, out msg);
+                    int isok = _FormulaRecordBLL.SaveEntity(keyValue, entity, out msg);
+                    if (inList.Count > 0) _RawMaterialStockBLL.SaveEntity_List(false, null, inList, out msg);
+                    if (upList.Count > 0) _RawMaterialStockBLL.SaveEntity_List(true, null, upList, out msg);
+                    _RawMaterialOutBLL.SaveEntity_List(false, null, outList, out msg);
+
+                    //报工入库
+                    if (rawInEntity != null)
+                        _rawMaterialInBLL.SaveEntity("", rawInEntity, out msg);
+
+                    if (targetEntity == null)
+                        _RawMaterialStockBLL.SaveEntity("", stockEntity, out msg);
+                    else
+                        _RawMaterialStockBLL.SaveEntity(targetEntity.Id, targetEntity, out msg);
+
+                    ts.Complete();
+                }
+
+                result.success = true;
+                result.returnMsg = Language.GetText("Common.Success");//操作成功
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+            catch (Exception ex)
+            {
+                result.success = false;
+                result.returnMsg = Language.GetText("Common.ErrorWithOther2") + ex.Message;//操作失败：
+                result.statusCode = ((int)HttpStatusCode.InternalServerError).ToString();
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+        }
+        #endregion
+
+        /// <summary>
+        /// 功能描述: 导入 保存表单（新增、修改）
+        /// 创　　建: liyongguo
+        /// 创建日期: 2021-08-24 09:50:55
+        /// 任务编号: 小料喂料记录
+        /// </summary>
+        /// <param name="jo">json参数, entity 实体对象数组</param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("SaveBatchPM_FormulaRecord")]
+        public HttpResponseMessage SaveBatchPM_FormulaRecord(JObject jo)
+        {
+            var userCode = CurrentAccount.UserCode;
+            var userName = CurrentAccount.UserName;
+            var result = new ResponseResult<object>();
+            result.resultData = null;
+
+            if (jo == null)
+            {
+                result.success = false;
+                result.returnMsg = Language.GetText("ProduceManage.PM_FormulaRecordController.Tips_5");//参数不能为空！
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+
+            //创建人编码 为空判断
+            if (jo.SelectToken("CreatedByCode") == null)
+            {
+                result.success = false;
+                result.returnMsg = Language.GetText("ProduceManage.PM_FormulaRecordController.Tips_14");//缺少CreatedByCode参数！
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+
+            //创建人姓名 为空判断
+            if (jo.SelectToken("CreatedByName") == null)
+            {
+                result.success = false;
+                result.returnMsg = Language.GetText("ProduceManage.PM_FormulaRecordController.Tips_15");//缺少CreatedByName参数！
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+
+            if (jo.SelectToken("Entity") == null)
+            {
+                result.success = false;
+                result.returnMsg = Language.GetText("ProduceManage.PM_FormulaRecordController.Tips_7");//缺少Entity参数！
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+
+            try
+            {
+                List<dynamic> upload_entity_list = JsonConvert.DeserializeObject<List<dynamic>>(getValue(jo, "Entity"));
+
+                string keyValue = getValue(jo, "KeyValue");
+                string CreatedByName = getValue(jo, "CreatedByName");
+                string CreatedByCode = getValue(jo, "CreatedByCode");
+
+
+                string msg = "";
+                int isok = 1;
+                //取出旧所有数据
+                var old_entity_list = _FormulaRecordBLL.GetList("", out msg);
+                //插入数组
+                List<PM_FormulaRecordEntity> Insert_entity_list = new List<PM_FormulaRecordEntity>();
+                //更新数组
+                List<PM_FormulaRecordEntity> Update_entity_list = new List<PM_FormulaRecordEntity>();
+                foreach (var item in upload_entity_list)
+                {
+                    try
+                    {
+                        PM_FormulaRecordEntity entity = new PM_FormulaRecordEntity();
+                        //工厂编码
+                        entity.FactoryCode = item[Language.GetText("ProduceManage.PM_FormulaRecordController.Tips_16")] == null ? "" : item[Language.GetText("ProduceManage.PM_FormulaRecordController.Tips_16")];//工厂编码
+                        //配方类型
+                        entity.FormulaType = item[Language.GetText("ProduceManage.PM_FormulaRecordController.Tips_17")] == null ? "" : item[Language.GetText("ProduceManage.PM_FormulaRecordController.Tips_17")];//配方类型
+                        //配方编码
+                        entity.FormulaCode = item[Language.GetText("ProduceManage.PM_FormulaRecordController.Tips_18")] == null ? "" : item[Language.GetText("ProduceManage.PM_FormulaRecordController.Tips_18")];//配方编码
+                        //配方名称
+                        entity.FormulaName = item[Language.GetText("ProduceManage.PM_FormulaRecordController.Tips_19")] == null ? "" : item[Language.GetText("ProduceManage.PM_FormulaRecordController.Tips_19")];//配方名称
+                        //配方生效时间
+                        entity.FormulaTime = item[Language.GetText("ProduceManage.PM_FormulaRecordController.Tips_20")] == null ? "" : item[Language.GetText("ProduceManage.PM_FormulaRecordController.Tips_20")];//配方生效时间
+                        //配料机台
+                        entity.FormulaMachine = item[Language.GetText("ProduceManage.PM_FormulaRecordController.Tips_21")] == null ? "" : item[Language.GetText("ProduceManage.PM_FormulaRecordController.Tips_21")];//配料机台
+                        //配料付数
+                        entity.FormulaNum = item[Language.GetText("ProduceManage.PM_FormulaRecordController.Tips_22")] == null ? "" : item[Language.GetText("ProduceManage.PM_FormulaRecordController.Tips_22")];//配料付数
+                        //报工班组
+                        entity.UserGroup = item[Language.GetText("ProduceManage.PM_FormulaRecordController.Tips_23")] == null ? "" : item[Language.GetText("ProduceManage.PM_FormulaRecordController.Tips_23")];//报工班组
+                        //状态(启用/停用)
+                        //entity.Status = item["状态"] == null ? "启用" : item["状态"];
+                        //创建日期// DateTime.Now;
+                        //entity.CreatedDateTime = DateTimeOffset.Now;
+                        ////是否删除
+                        //entity.IsDeleted = false;
+                        //entity.CreatedByCode = CreatedByCode;
+                        //entity.CreatedByName = CreatedByName;
+
+                        //取出相似编码， 提示： 此处换上表中唯一编码（不是主键）
+                        PM_FormulaRecordEntity old_entity = old_entity_list.FirstOrDefault(x => x.Id == entity.Id);
+                        //判断旧列表中是否存在此编码
+                        if (old_entity == null)
+                        {
+                            entity.Create();
+                            //保存数组
+                            Insert_entity_list.Add(entity);
+                        }
+                        else
+                        {
+                            entity.Id = old_entity.Id;
+                            Update_entity_list.Add(entity);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+
+                    }
+                }
+
+                if (Insert_entity_list.Count > 0)
+                {
+                    //批量新增
+                    isok = _FormulaRecordBLL.SaveEntity_List(false, CreatedByName, Insert_entity_list, out msg);
+                }
+                if (Update_entity_list.Count > 0)
+                {
+                    //批量修改
+                    isok = _FormulaRecordBLL.SaveEntity_List(true, CreatedByName, Update_entity_list, out msg);
+                }
+
+                result.success = isok > 0 ? true : false;
+                result.returnMsg = isok > 0 ? Language.GetText("Common.Success") : msg;//操作成功
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+            catch (Exception ex)
+            {
+                result.success = false;
+                result.returnMsg = Language.GetText("Common.ErrorWithOther2") + ex.Message;//操作失败：
+                result.statusCode = ((int)HttpStatusCode.InternalServerError).ToString();
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+        }
+
+        /// <summary>
+        /// 功能描述: 删除, 通过主键删除
+        /// 创　　建: liyongguo
+        /// 创建日期: 2021-08-24 09:50:55
+        /// 任务编号: 小料喂料记录
+        /// </summary>
+        /// <param name="jo">json参数</param>
+        [HttpPost]
+        [Route("DeletePM_FormulaRecord")]
+        public HttpResponseMessage DeletePM_FormulaRecord(JObject jo)
+        {
+            var result = new ResponseResult<object>();
+            result.resultData = null;
+
+            if (jo == null)
+            {
+                result.success = false;
+                result.returnMsg = Language.GetText("ProduceManage.PM_FormulaRecordController.Tips_5");//参数不能为空！
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+
+            try
+            {
+                var userCode = CurrentAccount.UserCode;
+                var userName = CurrentAccount.UserName;
+
+                if (jo.SelectToken("Entity") == null)
+                {
+                    result.success = false;
+                    result.returnMsg = Language.GetText("ProduceManage.PM_FormulaRecordController.Tips_7");//缺少Entity参数！
+                    return Request.CreateResponse(HttpStatusCode.OK, result);
+                }
+                //业务服务层
+
+                PM_FormulaRecordEntity entity = JsonConvert.DeserializeObject<PM_FormulaRecordEntity>(getValue(jo, "Entity"));
+                string Id = entity.Id;
+                PM_FormulaRecordEntity model = _FormulaRecordBLL.GetEntity(Id);
+                if (model == null)
+                {
+                    result.success = false;
+                    result.returnMsg = Id + " 对象不存在";//对象不存在
+                    return Request.CreateResponse(HttpStatusCode.OK, result);
+                }
+
+                //删除
+                string msg = "";
+                int isok = _FormulaRecordBLL.DeleteEntity(Id, out msg, userCode);
+                result.success = isok > 0 ? true : false;
+                if (isok > 0)
+                    result.returnMsg = Language.GetText("ProduceManage.PM_FormulaRecordController.Tips_27");//删除操作成功
+                else
+                    result.returnMsg = "删除操作失败: " + msg;//删除操作失败:
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+            catch (Exception ex)
+            {
+                result.success = false;
+                result.returnMsg = Language.GetText("Common.ErrorWithOther2") + ex.Message;//操作失败：
+                result.statusCode = ((int)HttpStatusCode.InternalServerError).ToString();
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+        }
+
+        /// <summary>
+        /// 功能描述: 假删除, 通过主键删除, 删除标记设置为0
+        /// 创　　建: liyongguo
+        /// 创建日期: 2021-08-24 09:50:55
+        /// 任务编号: 小料喂料记录
+        /// </summary>
+        /// <param name="jo">json参数</param>
+        [HttpPost]
+        [Route("RemovePM_FormulaRecord")]
+        public HttpResponseMessage RemovePM_FormulaRecord(JObject jo)
+        {
+            var result = new ResponseResult<object>();
+            result.resultData = null;
+
+            if (jo == null)
+            {
+                result.success = false;
+                result.returnMsg = Language.GetText("ProduceManage.PM_FormulaRecordController.Tips_5");//参数不能为空！
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+
+            try
+            {
+                var userCode = CurrentAccount.UserCode;
+                var userName = CurrentAccount.UserName;
+
+                if (jo.SelectToken("Entity") == null)
+                {
+                    result.success = false;
+                    result.returnMsg = Language.GetText("ProduceManage.PM_FormulaRecordController.Tips_7");//缺少Entity参数！
+                    return Request.CreateResponse(HttpStatusCode.OK, result);
+                }
+                //业务服务层
+
+                PM_FormulaRecordEntity entity = JsonConvert.DeserializeObject<PM_FormulaRecordEntity>(getValue(jo, "Entity"));
+                string Id = entity.Id;
+
+                //删除
+                _FormulaRecordDetailBLL.RemoveForm(t => t.FormulaId == Id);
+                int isok = _FormulaRecordBLL.RemoveForm(t => t.Id == Id);
+                result.success = isok > 0 ? true : false;
+                if (isok > 0)
+                    result.returnMsg = Language.GetText("ProduceManage.PM_FormulaRecordController.Tips_27");//删除操作成功
+                else
+                    result.returnMsg = Language.GetText("ProduceManage.PM_FormulaRecordController.Tips_29");//删除操作失败
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+            catch (Exception ex)
+            {
+                result.success = false;
+                result.returnMsg = Language.GetText("Common.ErrorWithOther2") + ex.Message;//操作失败：
+                result.statusCode = ((int)HttpStatusCode.InternalServerError).ToString();
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+        }
+
+        /// <summary>
+        /// 功能描述: 获取实体
+        /// 创　　建: liyongguo
+        /// 创建日期: 2021-08-24 09:50:55
+        /// 任务编号: 小料喂料记录
+        /// </summary>
+        /// <param name="keyValue">主键值</param>
+        /// <returns>PM_FormulaRecordEntity</returns>
+        [HttpGet]
+        [Route("GetFormJson")]
+        public HttpResponseMessage GetFormJson(string keyValue)
+        {
+            var result = new ResponseResult();
+
+            try
+            {
+                //业务服务层
+
+                var data = _FormulaRecordBLL.GetEntity(keyValue);
+                result.resultData = data;
+                result.success = true;
+                result.returnMsg = Language.GetText("ProduceManage.PM_FormulaRecordController.Tips_30");//获取详情数据成功
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+            catch (Exception ex)
+            {
+                result.success = false;
+                result.statusCode = ((int)HttpStatusCode.InternalServerError).ToString();
+                result.returnMsg = ex.Message.ToString();
+            }
+            return ToJson(result);
+        }
+
+        /// <summary>
+        /// 功能描述: 通过某字段(不是主键)查询对象
+        /// 创　　建: liyongguo
+        /// 创建日期: 2021-08-24 09:50:55
+        /// 任务编号: 小料喂料记录
+        /// </summary>
+        /// <param name="keyValue">主键值</param>
+        /// <returns>PM_FormulaRecordEntity</returns>
+        [HttpGet]
+        [Route("GetEntityByQuery")]
+        public HttpResponseMessage GetEntityByQuery(string keyValue)
+        {
+            var result = new ResponseResult();
+
+            try
+            {
+                //业务服务层
+
+                var data = _FormulaRecordBLL.GetEntityByQuery(keyValue);
+                result.resultData = data;
+                result.success = true;
+                result.returnMsg = Language.GetText("ProduceManage.PM_FormulaRecordController.Tips_30");//获取详情数据成功
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+            catch (Exception ex)
+            {
+                result.success = false;
+                result.statusCode = ((int)HttpStatusCode.InternalServerError).ToString();
+                result.returnMsg = ex.Message.ToString();
+            }
+            return ToJson(result);
+        }
+
+        /// <summary>
+        /// 功能描述: 通过N个字段拼写linq查询数组对象 参考
+        /// 创　　建: liyongguo
+        /// 创建日期: 2021-08-24 09:50:55
+        /// 任务编号: 小料喂料记录
+        /// </summary>
+        /// <param name="keyValue">条件值</param>
+        /// <param name="keyValue2">条件值</param>
+        /// <returns>返回列表</returns>
+        [HttpGet]
+        [Route("GetEntityByLinq")]
+        public HttpResponseMessage GetEntityByLinq(string keyValue, string keyValue2)
+        {
+            var result = new ResponseResult();
+
+            try
+            {
+                //业务服务层
+
+                var data = _FormulaRecordBLL.Get_ExpressionList(t => t.Id == keyValue && t.Id == keyValue2).OrderByDescending(t => t.Id).ToList();
+                result.resultData = data;
+                result.success = true;
+                result.returnMsg = Language.GetText("Common.SearchSuccess");//查询成功
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+            catch (Exception ex)
+            {
+                result.success = false;
+                result.statusCode = ((int)HttpStatusCode.InternalServerError).ToString();
+                result.returnMsg = ex.Message.ToString();
+            }
+            return ToJson(result);
+        }
+
+        /// <summary>
+        /// 功能描述: 查询列表, 不分页,返回不是当前实体,使用另一个实体进行返回 参考示例
+        /// 创　　建: liyongguo
+        /// 创建日期: 2021-08-24 09:50:55
+        /// 任务编号: 小料喂料记录
+        /// </summary>
+        /// <returns>返回列表</returns>
+        [HttpGet]
+        [Route("GetList_TestOtherEntity")]
+        public HttpResponseMessage GetList_TestOtherEntity(string checkType)
+        {
+            var result = new ResponseResult();
+            try
+            {
+
+                string OutMes = "";
+                var list = _FormulaRecordBLL.GetList_TestOtherEntity(checkType, out OutMes);
+                result.resultData = list;
+                result.success = true;
+                result.returnMsg = Language.GetText("Common.SearchSuccess");//查询成功
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+            catch (Exception ex)
+            {
+                result.success = false;
+                result.statusCode = ((int)HttpStatusCode.InternalServerError).ToString();
+                result.returnMsg = ex.Message.ToString();
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+        }
+
+        /// <summary>
+        /// 功能描述: 查询列表, 不分页,返回不是当前实体,使用另一个数据表进行返回 参考示例
+        /// 创　　建: liyongguo
+        /// 创建日期: 2021-08-24 09:50:55
+        /// 任务编号: 小料喂料记录
+        /// </summary>
+        /// <returns>返回列表</returns>
+        [HttpGet]
+        [Route("GetDataTable_TestOtherEntity")]
+        public HttpResponseMessage GetDataTable_TestOtherEntity(string checkType)
+        {
+            var result = new ResponseResult();
+            try
+            {
+
+                string OutMes = "";
+                var list = _FormulaRecordBLL.GetDataTable_TestOtherEntity(checkType, out OutMes);
+                result.resultData = list;
+                result.success = true;
+                result.returnMsg = Language.GetText("Common.SearchSuccess");//查询成功
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+            catch (Exception ex)
+            {
+                result.success = false;
+                result.statusCode = ((int)HttpStatusCode.InternalServerError).ToString();
+                result.returnMsg = ex.Message.ToString();
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+        }
+
+        /// <summary>
+        /// 功能描述: 导出 列表到EXCEL 
+        /// 创　　建: liyongguo
+        /// 创建日期: 2021-08-24 09:50:55
+        /// 任务编号: 小料喂料记录
+        /// </summary>
+        /// <param name="jo">queryJson 查询参数</param>
+        /// <returns>链接地址</returns>
+        [HttpPost]
+        [Route("PM_FormulaRecord_export")]
+        public HttpResponseMessage PM_FormulaRecord_export(JObject jo)
+        {
+            var result = new ResponseResult();
+            result.resultData = null;
+            try
+            {
+                if (jo.SelectToken("Entity") == null)
+                {
+                    result.success = false;
+                    result.returnMsg = Language.GetText("ProduceManage.PM_FormulaRecordController.Tips_7");//缺少Entity参数！
+                    return Request.CreateResponse(HttpStatusCode.OK, result);
+                }
+
+                string queryJson = getValue(jo, "Entity");
+                JObject queryParam = queryJson.ToJObject();
+
+
+                string msg = Language.GetText("Common.SearchSuccess");//查询成功
+                string CreatedByCode = "";
+                if (!queryParam["CreatedByCode"].IsEmpty())
+                {
+                    CreatedByCode = queryParam["CreatedByCode"].ToString();
+                }
+
+                //查询条件 默认是当前登录用户ID, 可传空 导出全部
+                var data = _FormulaRecordBLL.GetList_export(CreatedByCode, out msg);
+
+                result.resultData = data;
+                result.success = true;
+                result.returnMsg = msg;
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+            catch (Exception ex)
+            {
+                result.success = false;
+                result.returnMsg = Language.GetText("Common.SearchError2") + ex.Message;//查询失败：
+                result.statusCode = ((int)HttpStatusCode.InternalServerError).ToString();
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+        }
+
+
+    }
+}

@@ -1,0 +1,843 @@
+﻿{
+  //Ổ chung
+  "Common": {
+    "Error": "Thao tác thất bại, lỗi máy chủ",
+    "ErrorWithOther": "Thao tác thất bại，{0}",
+    "Success": "Thao tác thành công",
+    "Success2": "Thao tác thành công：",
+    "SuccessWithOther": "Thao tác thành công，{0}",
+    "ExecutionSuccess": "Thực hiện thành công",
+    "ExecutionSuccess2": "Thực hiện thành công：",
+    "ExecutionSuccessWithOther": "Thực hiện thành công，{0}",
+    "ExecutionError": "Thực hiện thất bại",
+    "ExecutionError2": "Thực hiện thất bại：",
+    "ExecutionErrorWithOther": "Thực hiện thất bại，{0}",
+
+    "ParamsNotNull": "Tham số không thể để trống",
+    "SearchParamsNotNull": "Tham số truy vấn không được để trống",
+    "Yes": "Có",
+    "No": "Không",
+    "Qua": "Hợp lệ",
+    "UnQua": "Không hợp lệ",
+    "ErrorNone": "Lỗi không rõ nguyên nhân",
+    "DeleteSuccess": "Xóa thành công",
+    "DeleteSuccess2": "Xóa thành công：",
+    "DeleteSuccessWithOther": "Xóa thành công:{0}",
+    "DeleteError": "Xóa thất bại",
+    "DeleteError2": "Xóa thất bại：",
+    "DeleteErrorWithOther": "Xóa thất bại:{0}",
+    "SearchSuccess": "Tìm kiếm thành công",
+    "SearchSuccess2": "Tìm kiếm thành công：",
+    "SearchSuccessWithOther": "Tìm kiếm thành công:{0}",
+    "SearchError": "Tìm kiếm thất bại",
+    "SearchError2": "Tìm kiếm thất bại：",
+    "SearchErrorWithOther": "Tìm kiếm thất bại:{0}"
+  },
+  "FileManage": {
+    "UploadFileController": {
+      "Tips_1": "Tải lên thành công",
+      "Tips_2": "Định dạng của tệp tải lên [{0}] không đáp ứng yêu cầu !",
+      "Tips_3": "Tệp đã tải lên [{0}] vượt quá giới hạn kích thước tệp (100M) !",
+      "Tips_4": "Không thể ghi tệp tải lên:{0}",
+      "Tips_5": "Không có tệp tải lên nào được chọn !"
+    }
+  },
+  "SystemManage": {
+    "SysController": {},
+    "SystemController": {
+      //Kiểm tra số phiên bản hệ thống và trả lại xem có cần cập nhật không
+      "GetVersion": {
+        "Tips_1": "Không thể lấy số phiên bản hiện tại !",
+        "Tips_2": "Vui lòng cập nhật hệ thống !",
+        "Tips_3": "Không lấy được số phiên bản:{0}"
+      },
+      //Đăng nhập hệ thống
+      "Login": {
+        "Tips_1": "Đăng nhập thành công !",
+        "Tips_2": "Định dạng tài khoản hoặc mật khẩu không chính xác !",
+        "Tips_3": "Đăng nhập thất bại:{0}",
+
+        "Data_1": "nickname--Đăng nhập tài khoản"
+      },
+      //Thay đổi mật khẩu
+      "UpdateAppPassword": {
+        "Tips_1": "Đã sửa thành công !",
+        "Tips_2": "Định dạng tài khoản hoặc mật khẩu không chính xác !",
+        "Tips_3": "Đăng nhập thất bại:{0}"
+
+      }
+
+    }
+  },
+  "ProduceManage": { //Quản lý sản xuất
+    "ProduceController": {
+      //Quét bắt đầu sản xuất
+      "GetPMStartInfo": {
+        "Tips_1": "Mã thẻ lưu trình không được để trống",
+        "Tips_2": "Thẻ lưu trình hiện tại không tồn tại",
+        "Tips_3": "Thẻ lưu trình hiện tại đã bị loại bỏ",
+        "Tips_4": "Đơn công việc không tồn tại",
+        "Data_1": "Toàn bộ container",
+        "Data_2": "Pallet đơn"
+      },
+      //Lưu thông tin bắt đầu sản xuất
+      "SavePMStartInfo": {
+        "Tips_1": "Công đơn không tồn tại",
+        "Tips_2": "Công đơn đã bị tạm ngưng",
+        "Tips_3": "Quy trình công đơn - Công đoạn không tồn tại",
+        "Tips_4": "Quy trình công đơn - Thuộc tính không tồn tại",
+        "Tips_5": "Đã bắt đầu, thao tác lặp lại không được phép",
+        "Tips_6": "Quy trình liên kết không được duy trì hoặc không chính xác",
+        "Tips_7": "Quy trình [{0}] không tồn tại",
+        "Tips_8": "BOM mới không tồn tại",
+        "Tips_9": "Công đoạn được liên kết [{0}] không tồn tại",
+        "Tips_10": "Thuộc tính liên kết quy trình không được duy trì",
+        "Tips_11": "Quy trình liên kết không được duy trì hoặc không chính xác",
+        "Tips_12": "Đặc trưng quy trình [{0}] không tồn tại",
+        "Tips_13": "Thao tác công đoạn [{0}] không có trong quy trình",
+        "Tips_14": "Công đoạn [{0}] không tồn tại",
+        "Tips_15": "Thuộc tính quy trình không tồn tại",
+        "Tips_16": "Thao tác công đoạn [{0}] không cần bắt đầu!",
+        "Tips_17": "Công đoạn trước đó [{0}] chưa bắt đầu",
+        "Tips_18": "Lưu trình Container cần chọn tất cả thẻ lưu trình",
+        "Tips_19": "Tất cả thẻ lưu trình [{1}] trong công đoạn [{0}] không có báo cáo !",
+        "Tips_20": "Vẫn trong thời gian nghỉ, không được phép bắt đầu",
+        "Tips_21": "Thẻ lưu trình đã chọn không cùng tiến trình",
+        "Tips_22": "Thẻ lưu trình đã chọn không cùng loại nghiệp vụ",
+        "Tips_23": "Tất cả thẻ lưu trình trong công đoạn [{0}] không được báo cáo toàn bộ",
+        "Tips_24": "Sô lượng pallet trong công đoạn không được duy trì",
+        "Tips_25": "Không được phép quay lại công đoạn trước thao tác",
+        "Tips_26": "Thao tác thuê ngoài không được phép",
+        "Data_1": "Đóng gói",
+        "Data_2": "Tấm"
+      },
+      //Lô nguyên liệu trên máy - quét máy để lấy hồ sơ hợp lệ
+      "RawMBatchUpMachineScan": {
+        "Tips_1": "Máy không được để trống"
+      },
+      //Lô nguyên liệu trên máy - Quét mã vạch phụ kiện quan trọng
+      "RawMBatchUpCodeBarScan": {
+        "Tips_1": "Số lô không được để trống",
+        "Tips_2": "Số lô không tồn tại"
+      },
+      //Lô nguyên liệu trên máy - Lưu
+      "RawMBatchUpCodeBarSave": {
+        "Tips_1": "Máy không tồn tại",
+        "Tips_2": "Công đoạn liên kết kho không được duy trì",
+        "Tips_3": "Quy trình liên kết kho [{0}] không có kho và không thể sử dụng trên máy"
+      },
+      // Báo cáo thẻ lưu trình - Quét máy sản xuất
+      "TransferCardBGMachineScan": {
+        "Tips_1": "Máy sản xuất không được để trống",
+        "Tips_2": "Máy sản xuất [{0}] không tồn tại"
+      },
+      //Báo cáo thẻ lưu trình - Quét thẻ lưu trình
+      "TransferCardBGCardScan": {
+        "Tips_1": "Mã thẻ lưu trình không được để trống",
+        "Tips_2": "Thẻ lưu trình hiện tại không tồn tại",
+        "Tips_3": "Thẻ lưu trình hiện tại đã bị loại bỏ",
+        "Tips_4": "Thẻ lưu trình làm lại hiện tại",
+        "Tips_5": "Thẻ lưu trình hiện tại chưa lưu hành, không được phép báo cáo"
+
+      },
+      //Báo cáo thẻ lưu trình - Quét tổ sản xuất
+      "TransferCardBGPTeamScan": {
+
+        "Tips_1": "Tổ sản xuất không được để trống",
+        "Tips_2": "Tổ sản xuất này không tồn tại",
+        "Tips_3": "Tổ sản xuất hiện tại chưa có nhân sự"
+      },
+      //Báo cáo thẻ lưu trình - Lưu
+      "TransferCardBGSave": {
+        "Tips_1": "Số lượng báo cáo không thể bằng 0",
+        "Tips_2": "Máy không tồn tại",
+        "Tips_3": "Lệnh thực hiện sản xuất không tồn tại",
+        "Tips_4": "Không có tổ sản xuất trong công đoạn hiện tại",
+        "Tips_5": "Thẻ lưu trình chưa qua kiểm tra chất lượng, không thể báo cáo",
+        "Tips_6": "BOM của lệnh sản xuất [{0}] không tồn tại",
+        "Tips_7": "Định tuyến cho lệnh sản xuất [{0}] không tồn tại",
+        "Tips_8": "Quá trình hiện tại không trong quy trình, không thể báo cáo",
+        "Tips_9": "Đối với đóng gói, vui lòng sử dụng chức năng báo cáo đóng gói",
+        "Tips_10": "Hãy chuyển kho sản phẩm trước",
+        "Tips_11": "Thuộc tính quy trình không tồn tại",
+        "Tips_12": "Quá trình hiện tại đang trong quy trình, nhưng không thể báo cáo",
+        "Tips_13": "Quy trình hiện tại vẫn chưa bắt đầu, không thể báo cáo",
+        "Tips_14": "Quy trình trước [{0}] không báo cáo",
+        "Tips_15": "Không được phép thao tác liên quy trình",
+        "Tips_16": "Chưa kiểm tra xưởng, không thể báo cáo",
+        "Tips_17": "Kiểm tra xưởng không hợp lệ, không thể báo cáo",
+        "Tips_18": "Quản đốc phân xưởng chưa xác nhận, không thể báo cáo",
+        "Tips_19": "ưởng {0} chưa được kiểm tra, không thể báo cáo",
+        "Tips_20": "Xưởng {0} kiểm tra không hợp lệ, không thể báo cáo",
+        "Tips_21": "Quản đốc xưởng {0} chưa xác nhận, không thể báo cáo",
+        "Tips_22": "Vật liệu [{0}{1}] không có bản ghi trên máy",
+        "Tips_23": "Vật liệu [{0}{1}],\r\n lô [{2}]\r\n không có tồn kho",
+        "Tips_24": "Vật liệu [{0}{1}] không có tồn kho",
+        "Tips_25": "Không được để trống thuộc tính tỷ lệ phần trăm báo cáo số lượng thẻ lưu trình",
+        "Tips_26": "Số lượng báo cáo không thể bằng 0",
+        "Tips_27": "Tổ sản xuất hiện tại chưa có nhân sự",
+        "Tips_28": "Số lượng NG không thể để trống hoặc bằng 0",
+        "Tips_29": "[{0}] Hàng tồn kho còn lại của lô trên máy không đủ",
+        "Tips_30": "Hệ số thời gian làm việc không được duy trì",
+        "Tips_31": "Thuộc tính số lượng cơ bản không được duy trì",
+        "Tips_32": "Thuộc tính lao động trực tiếp không được duy trì",
+        "Tips_33": "Thuộc tính lao động gián tiếp không được duy trì",
+        "Tips_34": "Thuộc tính năng lượng nhiên liệu không được duy trì",
+        "Tips_35": "Tính chất khấu hao và khấu hao không được duy trì",
+        "Tips_36": "Thuộc tính phụ tùng không được duy trì",
+        "Tips_37": "Thuộc tính phí sử dụng khác không được duy trì",
+        "Tips_38": "Vật liệu [{0}] không tìm thấy tại vị trí kho tạm",
+        "Tips_39": "Không cho phép số âm trong lần báo công đầu tiên",
+        "Data_1": "Đóng gói",
+        "Data_2": "Tấm",
+        "Data_3": "Miếng"
+      },
+      //Tự lập báo cáo bán thành phẩm - Quét thẻ lưu trình
+      "OwnProductBGCardScan": {
+        "Tips_1": "Thẻ lưu trình không được để trống !",
+        "Tips_2": "Thẻ lưu trình hiện tại không tồn tại"
+
+      },
+      //Báo cáo bán thành phẩm tự lập - Lấy thông tin báo cáo mã khối lượng (đối với báo cáo bán thành phẩm bên CS)
+      "GetOwnProductBGList": {
+        "Tips_1": "Thẻ lưu trình không được để trống !"
+      },
+      //Báo cáo bán thành phẩm tự lập - Sửa số lượng đơn hàng (đối với báo cáo bán thành phẩm bên CS)
+      "OwnProductBGEditRoallQty": {},
+      //Bán thành phẩm tự lập - Báo cáo
+      "OwnProductBGSave": {
+        "Tips_1": "Số lượng báo cáo không thể bằng 0",
+        "Tips_2": "Thẻ lưu trình hiện tại không tồn tại",
+        "Tips_3": "Không có tổ sản xuất trong công đoạn hiện tại",
+        "Tips_4": "BOM công đơn không tồn tại",
+        "Tips_5": "Định tuyến lệnh sản xuất - Công đoạn không tồn tại",
+        "Tips_6": "Quy trình báo cáo không phù hợp",
+        "Tips_7": "Báo cáo thuộc tính vị trí kho không duy trì",
+        "Tips_8": "Vật liệu [{0}{1}] không có bản ghi trên máy",
+        "Tips_9": "Vật liệu [{0}{1}], lô [{2}] không có tồn kho",
+        "Tips_10": "Vật liệu [{0}{1}] không có tồn kho",
+        "Tips_11": "Số lượng báo cáo không thể bằng 0",
+        "Tips_12": "Tổ sản xuất hiện tại chưa có nhân sự",
+        "Tips_13": "Mã số [{0}] đã tồn tại!",
+        "Tips_14": "Số lượng NG không thể để trống hoặc bằng 0",
+        "Tips_15": "[{0}] Hàng tồn kho còn lại của lô trên máy không đủ, \r\n Số lượng báo cáo không được phép vượt quá {1}{2}"
+
+      },
+      //Thẻ lưu trình báo hỏng - Quét thẻ lưu trình
+      "TransferCardScrapScan": {
+        "Tips_1": "Mã thẻ lưu trình không được để trống",
+        "Tips_2": "Thẻ lưu trình hiện tại không tồn tại"
+      },
+      //Thẻ lưu trình báo hỏng - Lưu
+      "TransferCardScrapSave": {
+        "Tips_1": "Thẻ lưu trình hiện tại không tồn tại",
+        "Tips_2": "Báo hỏng thành công"
+      },
+      //Quét mã tổ - Danh sách nhân viên tổ sản xuất
+      "PTeamCodeScan": {
+        "Tips_1": "Mã tổ sản xuất không được để trống",
+        "Tips_2": "Tổ sản xuất này không tồn tại",
+        "Tips_3": "Thông tin chức vụ không tồn tại"
+      },
+      //Lưu - Danh sách nhân viên tổ sản xuất
+      "PTeamSave": {
+        "Tips_1": "Mã tổ sản xuất không được để trống",
+        "Tips_2": "Danh sách nhân viên không được để trống",
+        "Tips_3": "Hãy chọn hệ số chức vụ",
+        "Tips_4": "Tổng hệ số chức vụ không được bằng 0",
+        "Tips_5": "Liên kết thành công"
+      },
+      //Xóa tổ nhân viên sản xuất
+      "PTeamPersonDelete": {},
+      //Nhiệm vụ làm lại - Quét thẻ lưu trình
+      "ReworkCardScan": {
+        "Tips_1": "Mã thẻ lưu trình không được để trống",
+        "Tips_2": "Thẻ lưu trình hiện tại đã bị loại bỏ",
+        "Tips_3": "Không tìm thấy quy trình thẻ lưu trình hiện tại",
+        "Tips_4": "Quy trình không tồn tại",
+        "Tips_5": "Thẻ lưu trình hiện tại không tồn tại",
+        "Data_1": "Không báo cáo",
+        "Data_2": "Đã báo cáo"
+      },
+      //Nhiệm vụ làm lại - Lưu
+      "ReworkSave": {
+        "Tips_1": "Thẻ lưu trình quét không tồn tại",
+        "Tips_2": "Thẻ lưu trình quét đang chờ làm lại",
+        "Tips_3": "Thẻ lưu trình quét đang trong quá trình làm lại",
+        "Tips_4": "Thẻ lưu trình quét đã báo hỏng",
+        "Tips_5": "Công đoạn làm lại không trong quy trình",
+        "Tips_6": "Thẻ lưu trình làm lại không cùng trong một quy trình",
+        "Tips_7": "Thẻ lưu trình hiện tại không tồn tại",
+        "Tips_8": "Thẻ lưu trình quét đang trong quá trình làm lại",
+        "Tips_9": "Thẻ lưu trình quét đã báo hỏng",
+        "Data_1": "Mô-đun sản xuất"
+      },
+      //Nhiệm vụ làm lại - Tìm kiếm
+      "ReworkQuery": {},
+      //Báo cáo làm lại - Truy vấn nhiệm vụ làm lại
+      "ReworkBGTaskQuery": {},
+      //Báo cáo làm lại - Truy vấn chi tiết nhiệm vụ làm lại
+      "ReworkBGTaskDetailQuery": {
+        "Tips_1": "ID không được để trống"
+      },
+      //Báo cáo làm lại - Quét thẻ lưu trình
+      "ReworkBGCardScan": {
+        "Tips_1": "Thẻ lưu trình hiện tại đã bị loại bỏ",
+        "Tips_2": "Lịch sử lưu trình không tồn tại",
+        "Tips_3": "Quy trình không tồn tại",
+        "Tips_4": "Trong quy trình không có công đoạn[{0}]",
+        "Tips_5": "Công đoạn tiếp theo không tồn tại",
+        "Tips_6": "Công đoạn [{0}] không được báo cáo làm lại",
+        "Tips_7": "Thẻ lưu trình hiện tại đã bị loại bỏ",
+        "Tips_8": "Không có nhiệm vụ làm lại cho thẻ lưu trình hiện tại",
+        "Tips_9": "Không có nhiệm vụ làm lại cho thẻ lưu trình hiện tại",
+        "Tips_10": "Thẻ lưu trình hiện tại không tồn tại"
+      },
+      //Báo cáo làm lại - Quét tổ sản xuất
+      "ReworkBGPTeamScan": {
+        "Tips_1": "Tổ sản xuất không được để trống",
+        "Tips_2": "Tổ sản xuất này không tồn tại",
+        "Tips_3": "Tổ sản xuất hiện tại chưa có nhân sự"
+      },
+      //Báo cáo làm lại - Lưu
+      "ReworkBGSave": {
+        "Tips_1": "Số lượng báo cáo không thể bằng 0",
+        "Tips_2": "Lịch sử lưu trình không tồn tại",
+        "Tips_3": "Quy trình không tồn tại",
+        "Tips_4": "Không có tổ sản xuất trong công đoạn hiện tại",
+        "Tips_5": "Tổ sản xuất hiện tại chưa có nhân sự",
+        "Tips_6": "Số lượng NG không thể để trống hoặc bằng 0",
+        "Tips_7": "Nhiệm vụ làm lại hiện tại không có thẻ lưu trình",
+        "Tips_8": "Tổ sản xuất không tồn tại",
+        "Tips_9": "Thẻ lưu trình hiện tại chưa đến nút làm lại",
+        "Tips_10": "Số lượng báo cáo không thể bằng 0",
+        "Tips_11": "Số lượng NG không thể để trống hoặc bằng 0",
+        "Tips_12": "Tổ sản xuất hiện tại chưa có nhân sự"
+      },
+      //Báo cáo làm lại - Xác nhận chất lượng nhiệm vụ làm lại
+      "GetReworkRecordDetail": {
+        "Tips_1": "Lịch sử lưu trình không tồn tại",
+        "Tips_2": "Chất lượng đã xác nhận",
+        "Tips_3": "Không cùng tiến trình",
+        "Tips_4": "Thẻ lưu trình hiện tại chưa được bắt đầu",
+        "Tips_5": "Không có xác nhận danh sách NG",
+        "Tips_6": "Không có nhiệm vụ làm lại cho thẻ lưu trình",
+        "Tips_7": "Không có xác nhận danh sách NG",
+        "Tips_8": "Không có hồ sơ làm lại cho thẻ lưu trình",
+        "Tips_9": "Thẻ lưu trình hiện tại không tồn tại"
+      },
+      //Báo cáo làm lại - Xác nhận chất lượng và Lưu
+      "ReworkRecordQualityConfirmSave": {
+        "Tips_1": "Làm lại chưa hoàn thành, không được phép xác nhận",
+        "Tips_2": "Chất lượng đã được xác nhận, không cho phép xác nhận thứ cấp",
+        "Tips_3": "Quy trình không tồn tại",
+        "Tips_4": "Công đoạn [{0}] không trong quy trình"
+      },
+      //Xưởng/Kiểm tra chất lượng - Quét thẻ lưu trình
+      "FirstInspectionCardScan": {
+        "Tips_1": "Thẻ lưu trình hiện tại không tồn tại",
+        "Tips_2": "Thẻ lưu trình hiện tại đã bị loại bỏ"
+      },
+      //Kiểm tra xưởng - Quét máy
+      "FirstInspectionMachineScan": {
+        "Tips_1": "Thẻ lưu trình hiện tại không tồn tại",
+        "Tips_2": "Thẻ lưu trình hiện tại đã bị loại bỏ",
+        "Tips_3": "Tham số truy vấn không được để trống",
+        "Tips_4": "Hạng mục kiểm tra trống, hãy duy trì hạng mục kiểm tra"
+      },
+      //Kiểm tra xưởng - Lưu
+      "FirstInspectionSave": {
+        "Tips_1": "Kết quả cuối cùng không được để trống",
+        "Tips_2": "Thẻ lưu trình hiện tại không tồn tại",
+        "Tips_3": "Thẻ lưu trình hiện tại đã bị loại bỏ",
+        "Tips_4": "Máy không được để trống",
+        "Tips_5": "Máy không tồn tại",
+        "Data_1": "Mô-đun sản xuất"
+
+      },
+      //Kiểm tra xưởng - Tìm kiếm
+      "FirstInspectionQuery": {},
+      // Kiểm tra chất lượng - Tìm kiếm
+      "FirstInspectionConfirmQuery": {},
+      //Kiểm tra chất lượng - Lấy dữ liệu thẻ lưu trình
+      "GetprocessList": {
+        "Tips_1": "Hãy quét thẻ lưu trình",
+        "Tips_2": "Không có quá trình liên quan đến thẻ lưu hành này trong lịch sử lưu hành !"
+      },
+      //Kiểm tra chất lượng - Quét máy
+      "FirstInspectionConfirmMachieScan": {
+        "Tips_1": "Thẻ lưu hành hiện tại không nằm trong nhiệm vụ kiểm tra chất lượng",
+        "Tips_2": "Không tìm thấy hạng mục nào"
+      },
+      //Kiểm tra chất lượng - Lưu
+      "FirstInspectionConfirmSave": {
+        "Tips_1": "Thẻ lưu hành hiện tại không nằm trong nhiệm vụ kiểm tra chất lượng",
+        "Tips_2": "Không tìm thấy hạng mục nào",
+        "Data_1": "Mô-đun sản xuất"
+      },
+      //Kiểm tra xưởng - Truy vấn kết quả kiểm tra
+      "FirstInspectionQueryResult": {},
+      //Kiểm tra xưởng - Lưu kết quả cuối cùng
+      "FirstInspectionLastSave": {},
+      //Kiểm tra sản xuất - Kiểm tra lại chất lượng (trình bày trên giao diện nhập liệu)
+      "FirstInspectionReCheck": {},
+      //Kiểm tra sản xuất - Kiểm tra lại chất lượng lưu kho
+      "FirstInspectionReCheckSave": {},
+      //Báo cáo đóng gói - Quét thẻ lưu trình
+      "PackingBGCardScan": {
+        "Tips_1": "Mã thẻ lưu trình không được để trống",
+        "Tips_2": "Thẻ lưu trình hiện tại không tồn tại",
+        "Tips_3": "Thẻ lưu trình hiện tại đã bị loại bỏ",
+        "Tips_4": "Thẻ lưu trình hiện tại đang được làm lại và không thể báo cáo",
+        "Tips_5": "Thẻ lưu trình hiện tại đang chờ làm lại và không thể báo cáo",
+        "Tips_6": "Máy không tồn tại",
+        "Tips_7": "Vui lòng chọn máy cho quy trình đóng gói",
+        "Tips_8": "Định tuyến cho lệnh sản xuất [{0}] không tồn tại",
+        "Tips_9": "Quy trình hiện tại không có trong định tuyến",
+        "Tips_10": "Công đoạn trước [{0}] không có báo cáo",
+        "Tips_11": "Mã Container không tồn tại",
+        "Data_1": "Đóng gói"
+      },
+      //Báo cáo đóng gói - Quét tổ sản xuất
+      "PackingBGPTeamScan": {
+        "Tips_1": "Tổ sản xuất không được để trống",
+        "Tips_2": "Tổ sản xuất này không tồn tại",
+        "Tips_3": "Tổ sản xuất hiện tại chưa có nhân sự"
+      },
+      //Báo cáo đóng gói - Lưu
+      "PackingBGSave": {
+        "Tips_1": "Mã Container không được để trống",
+        "Tips_2": "Số lượng báo cáo không thể bằng 0",
+        "Tips_3": "Mã Container không tồn tại",
+        "Tips_4": "Hãy chuyển kho sản phẩm trước",
+        "Tips_5": "Không có tổ sản xuất trong công đoạn hiện tại",
+        "Tips_6": "BOM của lệnh sản xuất [{0}] không tồn tại",
+        "Tips_7": "Định tuyến cho lệnh sản xuất [{0}] không tồn tại",
+        "Tips_8": "Quá trình hiện tại không trong quy trình, không thể báo cáo",
+        "Tips_9": "Quá trình hiện tại đang trong quy trình, nhưng không thể báo cáo",
+        "Tips_10": "Quy trình hiện tại vẫn chưa bắt đầu, không thể báo cáo",
+        "Tips_11": "Chưa kiểm tra thẻ lưu trình, không thể báo cáo",
+        "Tips_12": "Vật liệu [{0}{1}] không có bản ghi trên máy",
+        "Tips_13": "Vật liệu [{0}{1}], lô [{2}] không có tồn kho",
+        "Tips_14": "Vật liệu [{0}{1}] không có tồn kho",
+        "Tips_15": "Không tìm thấy lịch sử thẻ lưu trình",
+        "Tips_16": "Không được để trống thuộc tính tỷ lệ phần trăm báo cáo số lượng thẻ lưu trình",
+        "Tips_17": "Số lượng báo cáo không thể bằng 0",
+        "Tips_18": "Tổ sản xuất hiện tại chưa có nhân sự",
+        "Tips_19": "Số lượng báo cáo vượt quá số lượng đặt hàng",
+        "Tips_20": "Số lượng NG không thể để trống hoặc bằng 0",
+        "Tips_21": "[{0}] Hàng tồn kho còn lại của lô trên máy không đủ, \r\n Số lượng báo cáoc không được phép vượt quá {1}{2}",
+        "Tips_22": "Số lượng pallet sản phẩm đóng gói không được để trống hoặc bằng 0",
+        "Tips_23": "Không có số lượng tấm đóng gói",
+        "Tips_24": "Không có số lượng hộp đóng gói",
+        "Tips_25": "Vượt quá số lượng đặt hàng"
+      },
+      //Báo cáo đóng gói - Truy vấn
+      "PackingBGQuery": {},
+      //Quét thẻ lưu trình/nhãn hiệu
+      "CodeBarScan": {
+        "Tips_1": "Mã vạch không được để trống",
+        "Tips_2": "Mã vạch không hợp lệ"
+      },
+      // Tìm kiếm
+      "GetUserBGRecord": {
+        "Tips_1": "Người dùng không được để trống"
+      },
+      //Bắt đầu pallet đơn - Quét máy
+      "PerPalletStartMachineScan": {
+        "Tips_1": "Máy không được để trống",
+        "Tips_2": "Máy không tồn tại"
+      },
+      //Bắt đầu pallet đơn - Quét thẻ lưu trình
+      "PerPalletStartCardScan": {
+        "Tips_1": "Mã thẻ lưu trình không được để trống",
+        "Tips_2": "Thẻ lưu trình hiện tại không tồn tại",
+        "Tips_3": "Thẻ lưu trình hiện tại đã bị loại bỏ",
+        "Tips_4": "Công đơn đã bị tạm ngưng",
+        "Tips_5": "Tất cả thẻ lưu trình trong công đoạn [{0}] không có báo cáo !",
+        "Tips_6": "Vẫn trong thời gian nghỉ, không được phép bắt đầu",
+        "Tips_7": "Đã bắt đầu, thao tác lặp lại không được phép",
+        "Tips_8": "Thao tác công đoạn [{0}] không có trong quy trình",
+        "Tips_9": "Thuộc tính quy trình không tồn tại",
+        "Tips_10": "Thao tác công đoạn [{0}] không cần bắt đầu!",
+        "Tips_11": "Thao tác công đoạn [{0}] không thể bắt đầu pallet đơn",
+        "Tips_12": "Không được phép thao tác liên quy trình"
+      },
+      //Bắt đầu pallet đơn - Lưu
+      "PerPalletStartSave": {
+        "Tips_1": "Thẻ lưu trình đã chọn không cùng tiến trình"
+      },
+      //Báo cáo phân loại - Quét máy sản xuất
+      "SortingBGMachineScan": {
+        "Tips_1": "Máy sản xuất không được để trống",
+        "Tips_2": "Máy sản xuất [{0}] không tồn tại"
+      },
+      //Báo cáo phân loại - Quét thẻ lưu trình
+      "SortingBGCardScan": {
+        "Tips_1": "Mã thẻ lưu trình không được để trống",
+        "Tips_2": "Thẻ lưu trình hiện tại không tồn tại",
+        "Tips_3": "Thẻ lưu trình hiện tại đã bị loại bỏ",
+        "Tips_4": "Thẻ lưu trình làm lại hiện tại",
+        "Tips_5": "Thẻ lưu trình hiện tại chưa lưu hành, không được phép báo cáo",
+        "Tips_6": "Thẻ lưu trình đang trong công đoạn [{0}], không thể báo cáo"
+      },
+      //Báo cáo phân loại - Quét tổ sản xuất
+      "SortingBGPTeamScan": {
+        "Tips_1": "Tổ sản xuất không được để trống",
+        "Tips_2": "Tổ sản xuất này không tồn tại",
+        "Tips_3": "Tổ sản xuất hiện tại chưa có nhân sự"
+      },
+      //Báo cáo phân loại - Lưu
+      "SortingBGSave": {
+        "Tips_1": "Số lượng báo cáo không thể bằng 0",
+        "Tips_2": "Máy không tồn tại",
+        "Tips_3": "Cổng phân loại không tồn tại!",
+        "Tips_4": "Lệnh thực hiện sản xuất không tồn tại",
+        "Tips_5": "Không có tổ sản xuất trong công đoạn hiện tại",
+        "Tips_6": "Thẻ lưu trình chưa qua kiểm tra chất lượng, không thể báo cáo",
+        "Tips_7": "BOM của lệnh sản xuất [{0}] không tồn tại",
+        "Tips_8": "Định tuyến cho lệnh sản xuất [{0}] không tồn tại",
+        "Tips_9": "Quá trình hiện tại không trong quy trình, không thể báo cáo",
+        "Tips_10": "Hãy chuyển kho sản phẩm trước",
+        "Tips_26": "Thuộc tính quy trình không tồn tại",
+        "Tips_11": "Quá trình hiện tại đang trong quy trình, nhưng không thể báo cáo",
+        "Tips_12": "Quy trình hiện tại vẫn chưa bắt đầu, không thể báo cáo",
+        "Tips_13": "Quy trình trước [{0}] không báo cáo",
+        "Tips_14": "Không được phép thao tác liên quy trình",
+        "Tips_15": "Chưa kiểm tra xưởng, không thể báo cáo",
+        "Tips_16": "Kiểm tra xưởng không hợp lệ, không thể báo cáo",
+        "Tips_17": "Quản đốc phân xưởng chưa xác nhận, không thể báo cáo",
+        "Tips_18": "Vật liệu [{0}{1}] không có bản ghi trên máy",
+        "Tips_19": "Vật liệu [{0}{1}], lô [{2}] không có tồn kho",
+        "Tips_20": "Vật liệu [{0}{1}] không có tồn kho",
+        "Tips_21": "Không được để trống thuộc tính tỷ lệ phần trăm báo cáo số lượng thẻ lưu trình",
+        "Tips_22": "Số lượng báo cáo không thể bằng 0",
+        "Tips_23": "Tổ sản xuất hiện tại chưa có nhân sự",
+        "Tips_24": "Số lượng NG không được bằng 0",
+        "Tips_25": "[{0}] Hàng tồn kho còn lại của lô trên máy không đủ, \r\n Số lượng báo cáo không được phép vượt quá {1}{2}",
+
+
+        "Data_1": "Tấm",
+        "Data_2": "Miếng"
+      },
+      //Truy vấn thẻ lưu trình trong máy
+      "InMachineCardQuery": {
+        "Tips_1": "Máy không được để trống",
+        "Tips_2": "Máy không tồn tại"
+      },
+      //Tìm kiếm BOM
+      "BOMQuery": {
+        "Tips_1": "Mã vạch không được để trống",
+        "Tips_2": "BOM không tồn tại",
+        "Tips_3": "Chi tiết BOM không tồn tại",
+        "Tips_4": "Mã vạch không hợp lệ"
+
+      }
+    }
+  },
+  "Equipment": { //Quản lý thiết bị
+    "EquipmentController": {
+      //Quét mã thiết bị - Tìm các nhiệm vụ kiểm tra thiết bị
+      "GetEquipmentCheckByCode": {
+        "Tips_1": "Hãy quét thiết bị",
+        "Tips_2": "Không tìm thấy nhiệm vụ kiểm tra"
+      },
+      //Lưu nhiệm vụ kiểm tra thiết bị
+      "SaveEquipmentTackResult": {
+        "Tips_1": "Thiết bị [{0}] không tồn tại !"
+      },
+      //Truy vấn kiểm tra thiết bị
+      "GetDataTableCheckResult": {
+        "Tips_1": "Hãy chọn điều kiện truy vấn",
+        "Tips_2": "Không tìm thấy hồ sơ kiểm tra"
+      },
+      //Bảo dưỡng thiết bị - Lấy thông tin thiết bị theo mã thiết bị
+      "GetEquipmentManageByCode": {
+        "Tips_1": "Hãy quét thiết bị",
+        "Tips_2": "Không tìm thấy thiết bị hiện tại"
+      },
+      //Báo cáo lỗi thiết bị - Báo cáo lỗi thiết bị và bảo trì
+      "SaveEquipmentMalfunctionRepair": {
+        "Tips_1": "Thiết bị [{0}] không tồn tại !",
+        "Tips_2": "Mô-đun thiết bị"
+      },
+      //Báo cáo lỗi thiết bị - Lấy hồ sơ sửa chữa thiết bị
+      "GetEquipmentMalfunctionRepair": {
+        "Tips_1": "Hãy chọn điều kiện truy vấn",
+        "Tips_2": "Không tìm thấy hồ sơ sửa chữa"
+      },
+      // Bảo trì lỗi thiết bị - Lưu giữ hồ sơ bảo trì thiết bị
+      "SaveEquipmentRepairRecord": {
+        "Tips_2": "Mô-đun thiết bị"
+      },
+      //Bảo trì thiết bị - Nhận nhiệm vụ bảo trì thiết bị
+      "GetEquipmentMaintainTask": {}
+    },
+    "EP_EquipmentMaintainTaskController": {
+      //Nhận các tác vụ bảo trì dựa trên khung thời gian và danh mục thiết bị
+      "GetEquipmentMaintainTaskByDateAndType": {
+        "Tips_1": "Hãy chọn điều kiện truy vấn",
+        "Tips_2": "Không tìm thấy hồ sơ nhiệm vụ bảo trì"
+      },
+      //Lưu biểu mẫu (Sửa chữa), Mảng hạng mục bảo trì \ Mảng thay thế phụ tùng
+      "SaveEP_EquipmentMaintainTask": {
+        "Tips_1": "Thiếu tham số ID",
+        "Tips_2": "Thiếu mã thiết bị bảo trì !",
+        "Tips_3": "Thiếu tên thiết bị bảo trì !",
+        "Tips_4": "Thiếu mã nhân viên bảo trì !",
+        "Tips_5": "Thiếu tên nhân viên bảo trì !",
+        "Tips_6": "Thiếu ID nhiệm vụ bảo trì !",
+        "Tips_7": "Thiếu tên nhiệm vụ bảo trì !",
+        "Tips_8": "Thiếu hạng mục bảo trì !",
+        "Tips_9": "Thiếu linh kiện thay thế !",
+        "Tips_10": "Thiếu mã người đăng ký !",
+        "Tips_11": "Mã thiết bị không được để trống !",
+        "Tips_12": "Mã nhiệm vụ bảo trì không được để trống !",
+        "Tips_13": "Nhiệm vụ bảo trì được thực hiện thành công !",
+
+        "Data_1!": "Đã bảo trì"
+
+      },
+      //Truy vấn hạng mục bảo trì theo mã nhiệm vụ bảo trì
+      "GetEP_EquipmentMaintainDetailList": {
+        "Tips_1": "Hãy chọn điều kiện truy vấn",
+        "Tips_2": "Không tìm thấy bản ghi hạng mục nhiệm vụ bảo trì"
+      }
+    }
+  },
+  "BaseManage": {
+    "AccountController": {
+      //Giao diện thao tác, thu thập tài khoản
+      "GetAccountList": {
+        "Tips_1": "Thao tác thất bại，hãy chuyển tham số yêu cầu"
+      }
+    },
+    "BaseDataController": {
+      "Tips_1": "Tham số phân trang, số trang không được để trống!",
+      //Nhận danh sách từ điển - chỉ PDA
+      "GetList_DataItem_PDA": {},
+      //Nhận thông tin chi tiết của danh sách từ điển - chỉ PDA
+      "GetList_DataItemByFather_PDA": {},
+      //Truy vấn dây chuyền sản xuất ('loại sản phẩm' của dây chuyền sản xuất không được để trống)- Chỉ PDA
+      "GetList_Lines_PDA": {},
+      //Truy vấn nhà cung cấp
+      "GetList_Suppliers": {
+      },
+      //Số seri
+      "GetSerialNo": {
+        "Tips_1": "Tham số seqCode không được để trống!"
+      }
+    },
+    "BaseShiftController": {
+      "Tips_1": "Tham số phân trang Pagination không được để trống!",
+      "Tips_2": "Nhận dữ liệu chi tiết thành công",
+      //Xóa dữ liệu
+      "GetSerialNo": {
+        "Tips_1": "Tên người dùng không được để trống !"
+      },
+      //Lưu biểu mẫu (mới, sửa đổi)
+      "Save": {
+        "Tips_1": "Tên người dùng không được để trống !"
+      }
+
+    },
+    "BsModelLevelController": {}
+  },
+  "MaterialManage": {
+    "MaterialController": {
+      //Nhập kho thành phẩm - Quét mã nhãn hiệu
+      "ProductInMarkScan": {
+        "Tips_1": "Mã nhãn hiệu không được để trống",
+        "Tips_2": "Thông tin nhãn hiệu hiện tại không tồn tại",
+        "Tips_3": "Nhãn hiệu hiện tại không ở trạng thái nhập kho, không thể thực hiện thao tác nhập kho",
+        "Tips_4": "Không tìm thấy thông tin nhãn hiệu trên kho"
+      },
+      //Nhập kho thành phẩm - Quét mã nhãn hiệu
+      "ProductInLocationScan": {},
+      //Nhập kho thành phẩm - Lưu
+      "ProductInSave": {
+        "Tips_1": "Không có dữ liệu để lưu"
+      },
+      //Nhập kho thành phẩm - Truy vấn hồ sơ
+      "ProductInQuery": {},
+      //Giao hàng thành phẩm - Quét mã nhãn hiệu
+      "ProductDispatchMarkScan": {
+        "Tips_1": "Mã nhãn hiệu không được để trống",
+        "Tips_2": "Thông tin nhãn hiệu hiện tại không tồn tại",
+        "Tips_3": "Nhãn hiệu hiện tại không được nhập kho，không thể giao hàng",
+        "Tips_4": "Nhãn hiệu hiện tại đã hết hiệu lực，không thể giao hàng",
+        "Tips_5": "Mã nhãn hiệu hiện tại không có trong danh sách giao hàng",
+        "Tips_6": "Đơn phát hàng không được để trống",
+        "Tips_7": "Nhãn vận chuyển hiện tại đã được vận chuyển"
+      },
+      //Giao hàng thành phẩm - Chi tiết giao hàng
+      "ProductDispatchDetailShow": {
+        "Tips_1": "Đơn giao hàng không được để trống",
+        "Tips_2": "Mã Container không được để trống"
+      },
+      //Giao hàng thành phẩm - Lưu
+      "ProductDispatchSave": {
+        "Tips_1": "Không còn tồn kho",
+        "Tips_2": "Mẫu khách hàng [{0}] không tồn kho",
+        "Tips_3": "Mẫu khách hàng [{0}] đã hết hàng",
+
+        "Data_1": "Mô-đun vật liệu"
+      },
+      //Giao hàng thành phẩm - Truy vấn hồ sơ
+      "ProductDispatchQuery": {
+        "Tips_1": "Hãy nhập mã đơn giao hàng"
+      },
+      //Giao hàng thành phẩm - Lấy số đơn hàng
+      "ProductDispatchProductOrder": {},
+      //Giao hàng thành phẩm - Lấy số container
+      "ProductDispatchContainerNO": {},
+      //Giao hàng thành phẩm - Lấy chi tiết đơn giao hàng
+      "ProductDispatchInfo": {
+        "Tips_1": "Đơn giao hàng không tồn tại"
+      },
+      //Chuyển kho bán thành phẩm - Quét thẻ lưu trình
+      "SemiProductMoveCardScan": {
+        "Tips_1": "Mã thẻ lưu trình không được để trống",
+        "Tips_2": "Thẻ lưu trình hiện tại không tồn tại",
+        "Tips_3": "Thẻ lưu trình hiện tại đã bị loại bỏ",
+        "Tips_4": "Thẻ lưu trình hiện tại không có tồn kho"
+      },
+      //Chuyển kho bán thành phẩm - Quét vị trí kho
+      "SemiProductMoveLocationScan": {},
+      //Chuyển kho bán thành phẩm - Lưu
+      "SemiProductMoveSave": {
+        "Tips_1": "Không có dữ liệu để lưu",
+        "Tips_2": "Có nhiều kho nguồn, không thể chuyển kho",
+        "Tips_3": "Kho nguồn và kho mục tiêu không nhất quán, không thể di chuyển kho"
+      },
+      //Chuyển kho bán thành phẩm - Truy vấn hồ sơ
+      "SemiProductMoveQuery": {},
+      //Chuyển kho thành phẩm - Quét mã nhãn hiệu
+      "ProductMoveMarkScan": {
+        "Tips_1": "Mã nhãn hiệu không được để trống",
+        "Tips_2": "Thông tin nhãn hiệu hiện tại không tồn tại",
+        "Tips_3": "Nhãn hiệu hiện tại không được nhập kho",
+        "Tips_4": "Nhãn hiệu hiện tại đã hết hiệu lực",
+        "Tips_5": "Nhãn hiệu hiện tại không còn tồn kho"
+      },
+      //Chuyển kho thành phẩm - Quét vị trí kho
+      "ProductMoveLocationScan": {},
+      //Chuyển kho thành phẩm - Lưu
+      "ProductMoveSave": {
+        "Tips_1": "Không có dữ liệu để lưu",
+        "Tips_2": "Có nhiều kho nguồn, không thể chuyển kho",
+        "Tips_3": "Kho nguồn và kho mục tiêu không nhất quán, không thể di chuyển kho"
+      },
+      //Chuyển kho thành phẩm - Truy vấn hồ sơ
+      "ProductMoveQuery": {},
+
+
+
+      //Thay thế nhãn hiệu - Quét mã nhãn hiệu
+      "MarkChangeMarkScan": {
+        "Tips_1": "Mã nhãn hiệu không được để trống",
+        "Tips_2": "Thông tin nhãn hiệu hiện tại không tồn tại"
+      },
+      //Thay thế nhãn hiệu - Lưu
+      "MarkChangeSave": {
+        "Tips_1": "Nhãn hiệu mới không được để trống",
+        "Tips_2": "Số lượng nhãn hiệu cũ và mới không đồng nhất"
+      },
+      //Thay thế nhãn hiệu - Truy vấn hồ sơ
+      "MarkChangeQuery": {},
+
+
+      //Tạo lệnh làm lại thành phẩm - Quét mã nhãn hiệu
+      "ProductReWorkMarkScan": {
+        "Tips_1": "Mã nhãn hiệu không được để trống",
+        "Tips_2": "Thông tin nhãn hiệu hiện tại không tồn tại"
+      },
+      //Tạo lệnh làm lại thành phẩm - Lưu
+      "ProductReWorkSave": {},
+
+      //Báo cáo làm lại thành phẩm - Truy vấn đơn hàng làm lại
+      "ProductReworkBGOrderQuery": {},
+      //Báo cáo làm lại thành phẩm - Đơn hàng làm lại được hiển thị sau khi lựa chọn
+      "ProductReworkBGShow": {
+        "Tips_1": "Mã đơn hàng làm lại không được để trống",
+        "Tips_2": "Đơn hàng làm lại không tồn tại"
+      },
+      //Báo cáo làm lại thành phẩm - Quét tổ sản xuất
+      "ProductReworkBGPTeamScan": {
+        "Tips_1": "Tổ sản xuất không được để trống",
+        "Tips_2": "Tổ sản xuất này không tồn tại",
+        "Tips_3": "Tổ sản xuất hiện tại chưa có nhân sự"
+      },
+      //Báo cáo làm lại thành phẩm - Lưu
+      "ProductReworkBGSave": {
+        "Tips_1": "Tổ sản xuất không tồn tại"
+
+      },
+      //Báo cáo làm lại thành phẩm - Truy vấn
+      "ProductReworkBGQuery": {}
+    }
+  },
+  "QualityManage": {
+    "QualityController": {
+      //Lấy thông tin quét thẻ lưu trình
+      "GetQCTransferCardEntity": {
+        "Tips_1": "Hãy quét thẻ lưu trình",
+        "Tips_2": "Thẻ lưu trình đã báo hỏng",
+        "Tips_3": "Vật liệu [{0}] không có nhóm vật liệu",
+        "Tips_4": "Thẻ lưu trình hiện tại không tồn tại"
+      },
+      //Căn cứ thẻ lưu trình lấy lịch sử dữ liệu lưu trình
+      "GetprocessList": {
+        "Tips_1": "Hãy quét thẻ lưu trình",
+        "Tips_2": "Không có quá trình liên quan đến thẻ lưu hành này!"
+      },
+      //Lấy phương pháp kiểm tra
+      "GetQCTestMethodList": {
+        "Tips_1": "Phương pháp kiểm tra trống, hãy duy trì phương pháp kiểm tra"
+      },
+      //Lấy hạng mục kiểm tra
+      "GetQCTestItemList": {
+        "Tips_1": "Phương pháp kiểm tra trống, hãy duy trì phương pháp kiểm tra"
+      },
+      //Lấy thông tin quét thẻ lưu trình
+      "SaveQCTestItemForm": {
+        "Tips_1": "Phương pháp kiểm tra không tồn tại",
+        "Tips_2": "Máy không nhận được giá trị, vui lòng quét lại",
+        "Data_1": "Mô-đun chất lượng"
+      },
+      //Truy vấn hồ sơ kiểm tra
+      "GetQCTestRecordList": {},
+      //Truy vấn hồ sơ kiểm tra
+      "GetQCTestResultRecordList": {},
+      //Đánh giá chất lượng kiểm tra
+      "SavePollingDetailForm": {
+        "Tips_1": "Không có hồ sơ kiểm tra này"
+
+      },
+      //Truy vấn thông tin đặt hàng theo mã nhãn hiệu OQC
+      "GetOrderByTransferCode": {
+        "Tips_1": "Không tìm thấy thông tin đơn hàng của mã nhãn hiệu liên quan"
+      },
+      //Lấy hạng mục kiểm tra theo phương pháp kiểm tra OQC
+      "GetOQCCheckConfigItem": {
+        "Tips_1": "Không lấy được hạng mục kiểm tra"
+
+      },
+      //Hồ sơ kiểm tra OQC - Lưu
+      "SaveOQCCheckConfigForm": {
+
+        "Tips_1": "Nhãn hiệu không tồn tại",
+
+        "Data_1": "Mô-đun chất lượng"
+      },
+      //Truy vấn hồ sơ kiểm tra OQC
+      "GetOQCQualityCheckRecord": {},
+      //Danh sách kiểm tra lô thành phẩm OQC
+      "SaveOQCQualityChecInspectNo": {},
+      //Hồ sơ hạng mục kiểm tra thành phẩm OQC
+      "GetOQCQualityCheckItemRecord": {},
+      //Kiểm tra, đánh giá chất lượng thành phẩm OQC
+      "SaveOQCQualityCheckResult": {}
+    }
+  }
+}

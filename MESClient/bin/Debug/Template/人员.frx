@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="11/16/2021 21:12:22" ReportInfo.Modified="08/14/2023 15:09:44" ReportInfo.CreatorVersion="2014.4.8.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+
+
+//    private void Form1_Load(object sender, EventArgs e)
+//    {
+//        Report.SetParameterValue(&quot;Code&quot;,&quot;HL20343&quot;);
+//    }
+
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlqxfki+t8jnSxof6qn6ng9vZXyxJ29Vo8PhbFaOrHhCHgROOaG/q4zpcoYQe61tsOxaKWTscH6Ad1rABTy1kAs9dLOkZCIFkSPgtS3xo+Qd2I1vweO+bh9fU/O4XMGzx8XtIFJb67TJ4BRKzzmozO5UQpb9tCUGPeow9BQ0MTIwDeJ/j9L8W5nwyb3RVts9gSK9BsxIoBR4kZGPjmSdE4IEA==">
+      <TableDataSource Name="Table" Alias="People" DataType="System.Int32" Enabled="true" SelectCommand="EXEC dbo.Pro_PrintPeople @Code">
+        <Column Name="Code" DataType="System.String"/>
+        <Column Name="Name" DataType="System.String"/>
+        <CommandParameter Name="Code" DataType="22" Size="20000" Expression="[Code]"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+    <Parameter Name="Code" DataType="System.String"/>
+  </Dictionary>
+  <ReportPage Name="Page1" PaperWidth="60" PaperHeight="30" LeftMargin="0" TopMargin="0" RightMargin="0" BottomMargin="0">
+    <GroupHeaderBand Name="GroupHeader1" Width="226.8" Condition="[People.Code]">
+      <DataBand Name="Data1" Top="4" Width="226.8" Height="106.55" DataSource="Table">
+        <BarcodeObject Name="Barcode1" Left="122.51" Top="16.9" Width="66.15" Height="59.3" AutoSize="false" DataColumn="People.Code" ShowText="false" Barcode="QR Code" Barcode.ErrorCorrection="L" Barcode.Encoding="UTF8" Barcode.QuietZone="false"/>
+        <TextObject Name="Text1" Left="13.45" Top="23.35" Width="103.95" Height="18.9" Text="[People.Code]" HorzAlign="Center" Font="等线, 9pt"/>
+        <TextObject Name="Text2" Left="13.45" Top="46.25" Width="103.95" Height="37.8" Text="[People.Name]" HorzAlign="Center" Font="等线, 9pt"/>
+      </DataBand>
+      <GroupFooterBand Name="GroupFooter1" Top="114.55" Width="226.8"/>
+    </GroupHeaderBand>
+  </ReportPage>
+</Report>

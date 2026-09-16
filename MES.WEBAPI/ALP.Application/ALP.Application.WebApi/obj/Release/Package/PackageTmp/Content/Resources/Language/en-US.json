@@ -1,0 +1,313 @@
+{
+  // Common
+  "Common": {
+    "Error": "Operation failed, server exception",
+    "ErrorWithOther": "Operation failed, {0}",
+    "ErrorWithOther2": "Operation failed:",
+    "Success": "Operation successful",
+    "Success2": "Operation successful:",
+    "SuccessWithOther": "Operation successful, {0}",
+    "ExecutionSuccess": "Execution successful",
+    "ExecutionSuccess2": "Execution successful:",
+    "ExecutionSuccessWithOther": "Execution successful, {0}",
+    "ExecutionError": "Execution failed",
+    "ExecutionError2": "Execution failed:",
+    "ExecutionErrorWithOther": "Execution failed, {0}",
+    "ParamsNotNull": "Parameters cannot be null",
+    "SearchParamsNotNull": "Search parameters cannot be null",
+    "Yes": "Yes",
+    "No": "No",
+    "Qua": "Qualified",
+    "UnQua": "Not Qualified",
+    "ErrorNone": "Unknown reason",
+    "DeleteSuccess": "Deletion successful",
+    "DeleteSuccess2": "Deletion successful:",
+    "DeleteSuccessWithOther": "Deletion successful: {0}",
+    "DeleteError": "Deletion failed",
+    "DeleteError2": "Deletion failed:",
+    "DeleteErrorWithOther": "Deletion failed: {0}",
+    "SearchSuccess": "Search successful",
+    "SearchSuccess2": "Search successful:",
+    "SearchSuccessWithOther": "Search successful: {0}",
+    "SearchError": "Search failed",
+    "SearchError2": "Search failed:",
+    "SearchErrorWithOther": "Search failed: {0}"
+  },
+  "API": {
+    "DemoAPIController": {
+      "Tips_1": "Extended Composite",
+      "Tips_2": "Unwind",
+      "Tips_3": "Feed"
+    }
+  },
+  "BaseManage": {
+    "AccountController": {
+      "Tips_1": "Operation failed, please provide request parameters",
+      "Tips_2": "Account/List interface exception: {0}",
+      "Tips_4": "Account/SaveAccount interface request parameters {0}",
+      "Tips_5": "Account/SaveAccount interface exception: {0}"
+    },
+    "BaseDataController": {
+      "Tips_3": "Pagination parameter Pagination cannot be null!",
+      "Tips_4": "Duplicate code or name exists",
+      "Tips_5": "Duplicate name exists",
+      "Tips_6": "userId cannot be null!",
+      "Tips_7": "BtnNames cannot be null!"
+    },
+    "BaseReportController": {
+      "Tips_1": "User does not exist",
+      "Tips_2": "User permission does not exist",
+      "Tips_6": "Duplicate menu or report name exists"
+    },
+    "BaseReportGroupController": {
+      "Tips_3": "A role with the same name already exists"
+    },
+    "BaseReportRoleController": {
+      "Tips_4": "Data duplication"
+    },
+    "BaseShiftController": {
+      "Tips_2": "Pagination parameter Pagination cannot be null!",
+      "Tips_4": "Details data retrieval successful",
+      "Tips_5": "Username cannot be null!",
+      "Tips_8": "Missing KeyValue parameter!",
+      "Tips_9": "Missing Entity parameter!"
+    },
+    "Base_ImagesController": {
+      "Tips_1": "API interface test normal!",
+      "Tips_2": "Test successful",
+      "Tips_5": "Parameters cannot be null!",
+      "Tips_6": "Missing KeyValue parameter!",
+      "Tips_9": "Missing Entity parameter!",
+      "Tips_10": "Deletion operation successful",
+      "Tips_11": "Deletion operation failed:",
+      "Tips_12": "Object does not exist",
+      "Tips_13": "Deletion operation failed",
+      "Tips_14": "Details data retrieval successful"
+    },
+    "Base_KeyParameterController": {
+      "Tips_1": "API interface test normal!",
+      "Tips_2": "Test successful",
+      "Tips_3": "] data",
+      "Tips_4": "] data retrieval failed:",
+      "Tips_7": "Parameters cannot be null!",
+      "Tips_8": "Missing KeyValue parameter!",
+      "Tips_9": "Missing Entity parameter!",
+      "Tips_10": "Duplicate code or name exists",
+      "Tips_11": "Duplicate name exists",
+      "Tips_14": "Deletion operation successful",
+      "Tips_15": "Deletion operation failed",
+      "Tips_16": "Details data retrieval successful",
+      "Tips_17": "Missing Entity parameter!"
+    },
+    "Base_KeyParameterItemController": {
+      "Tips_1": "API interface test normal!",
+      "Tips_2": "Test successful",
+      "Tips_5": "Parameters cannot be null!",
+      "Tips_7": "Missing KeyValue parameter!",
+      "Tips_8": "Missing Entity parameter!",
+      "Tips_9": "Duplicate code or name exists",
+      "Tips_10": "Duplicate name exists",
+      "Tips_13": "Missing Entity parameter!",
+      "Tips_14": "Object does not exist",
+      "Tips_15": "Deletion operation successful",
+      "Tips_16": "Deletion operation failed:",
+      "Tips_17": "Deletion operation failed",
+      "Tips_18": "Details data retrieval successful"
+    },
+    "Base_UpdateLogController": {
+      "Tips_1": "API interface test normal!",
+      "Tips_2": "Test successful",
+      "Tips_5": "Parameters cannot be null!",
+      "Tips_6": "Missing KeyValue parameter!",
+      "Tips_7": "Missing Entity parameter!",
+      "Tips_8": "Business type cannot be null!",
+      "Tips_9": "Version number cannot be null!",
+      "Tips_12": "Missing CreatedByCode parameter!",
+      "Tips_13": "Missing CreatedByName parameter!",
+      "Tips_14": "Business Type",
+      "Tips_15": "Version Number",
+      "Tips_16": "Update Content",
+      "Tips_17": "Creator",
+      "Tips_18": "Creation Time",
+      "Tips_19": "Missing Entity parameter!",
+      "Tips_20": "Object does not exist",
+      "Tips_21": "Deletion operation successful",
+      "Tips_22": "Deletion operation failed:",
+      "Tips_23": "Deletion operation failed",
+      "Tips_24": "Details data retrieval successful"
+    },
+    "BsModelLevelController": {
+      "Tips_1": "Test successful 0001",
+      "Tips_2": "Retrieval successful",
+      "Tips_3": "Pagination parameter Pagination cannot be null!",
+      "Tips_6": "Details data retrieval successful",
+      "Tips_7": "Data retrieval successful",
+      "Tips_8": "User ID cannot be null!",
+      "Tips_11": "Missing KeyValue parameter!",
+      "Tips_12": "Missing Entity parameter!"
+    },
+    "BS_PeopleController": {
+      "Tips_1": "API interface test normal!",
+      "Tips_2": "Test successful",
+      "Tips_5": "Parameters cannot be null!",
+      "Tips_6": "Missing KeyValue parameter!",
+      "Tips_7": "Missing Entity parameter!",
+      "Tips_8": "Code cannot be null!",
+      "Tips_9": "Name cannot be null!",
+      "Tips_10": "Gender cannot be null!",
+      "Tips_11": "ID card cannot be null!",
+      "Tips_12": "Phone cannot be null!",
+      "Tips_13": "Department ID cannot be null!",
+      "Tips_14": "Position cannot be null!",
+      "Tips_15": "Duty cannot be null!",
+      "Tips_16": "Creator cannot be null!",
+      "Tips_17": "Last modifier cannot be null!",
+      "Tips_18": "Machine code cannot be null!",
+      "Tips_19": "Work Team code cannot be null!",
+      "Tips_22": "Missing CreatedByCode parameter!",
+      "Tips_23": "Missing CreatedByName parameter!",
+      "Tips_24": "Code",
+      "Tips_25": "Name",
+      "Tips_26": "Gender",
+      "Tips_27": "ID Card",
+      "Tips_28": "Phone",
+      "Tips_29": "Department ID",
+      "Tips_30": "Position",
+      "Tips_31": "Duty",
+      "Tips_32": "Creator",
+      "Tips_33": "Creation Time",
+      "Tips_34": "Last Modifier",
+      "Tips_35": "Last Modification Time",
+      "Tips_36": "Machine Code",
+      "Tips_37": "Work Team Code",
+      "Tips_38": "Missing Entity parameter!",
+      "Tips_39": "Object does not exist",
+      "Tips_40": "Deletion operation successful",
+      "Tips_41": "Deletion operation failed:",
+      "Tips_42": "Deletion operation failed",
+      "Tips_43": "Details data retrieval successful"
+    }
+  },
+  "DemoManage": {
+    "UIGridDemoController": {
+      "Tips_1": "Pagination parameter Pagination cannot be null!",
+      "Tips_4": "Details data retrieval successful",
+      "Tips_5": "Username cannot be null!",
+      "Tips_7": "Missing KeyValue parameter!",
+      "Tips_8": "Missing RoleEntity parameter!"
+    }
+  },
+  "FileManage": {
+    "UploadFileController": {
+      "Tips_1": "Upload successful",
+      "Tips_2": "Uploaded file [{0}] format is not acceptable!",
+      "Tips_3": "Uploaded file [{0}] exceeds file size limit!",
+      "Tips_4": "Failed to write uploaded file:",
+      "Tips_5": "No file selected for upload!"
+    }
+  },
+  "SystemManage": {
+    "BSAppLogUserInfoController": {
+      "Tips_1": "Pagination parameter Pagination cannot be null!",
+      "Tips_5": "Deletion failed, record not found",
+      "Tips_7": "Missing KeyValue parameter!",
+      "Tips_8": "Missing Entity parameter!",
+      "Tips_9": "Addition successful",
+      "Tips_10": "Modification successful",
+      "Tips_11": "Addition failed, user code duplicate, unable to insert data."
+    },
+    "BSAppRoleController": {
+      "Tips_1": "Pagination parameter Pagination cannot be null!",
+      "Tips_5": "Deletion failed, record not found",
+      "Tips_7": "Missing KeyValue parameter!",
+      "Tips_8": "Missing Entity parameter!",
+      "Tips_9": "Addition successful",
+      "Tips_10": "Modification successful",
+      "Tips_11": "Addition failed, role code duplicate, unable to insert data.",
+      "Tips_12": "Addition failed, permission code duplicate, unable to insert data.",
+      "Tips_13": "Missing role code parameter!",
+      "Tips_14": "Missing user code parameter!",
+      "Tips_15": "Missing function parameter!",
+      "Tips_16": "Addition failed, user code duplicate, unable to insert data."
+    },
+    "BsPeopleByPrintServerController": {
+      "Tips_1": "Pagination parameter Pagination cannot be null!",
+      "Tips_5": "Deletion failed, record not found",
+      "Tips_7": "Missing Jo parameter!",
+      "Tips_8": "Change successful!",
+      "Tips_9": "Change failed!",
+      "Tips_10": "Missing Entity parameter!",
+      "Tips_11": "Addition successful",
+      "Tips_12": "Modification successful",
+      "Tips_13": "Update successful."
+    },
+    "BsPrintServerController": {
+      "Tips_1": "Pagination parameter Pagination cannot be null!",
+      "Tips_5": "Deletion failed, record not found",
+      "Tips_7": "Missing KeyValue parameter!",
+      "Tips_8": "Missing Entity parameter!",
+      "Tips_9": "Addition successful",
+      "Tips_10": "Modification successful",
+      "Tips_11": "Addition failed, IP address duplicate, unable to insert data."
+    },
+    "DataItemController": {
+      "Tips_1": "] data",
+      "Tips_2": "] data retrieval failed:",
+      "Tips_3": "] data",
+      "Tips_4": "Details data retrieval successful",
+      "Tips_5": "Pagination parameter Pagination cannot be null!",
+      "Tips_8": "Username cannot be null! Please contact System Management.",
+      "Tips_11": "Creation successful",
+      "Tips_12": "Modification successful",
+      "Tips_13": "Dictionary code duplicate"
+    },
+    "DataItemDetailController": {
+      "Tips_1": "] data",
+      "Tips_2": "Failed to retrieve data dictionary details:",
+      "Tips_3": "] data",
+      "Tips_4": "--Please select--",
+      "Tips_5": "No related data found in the database",
+      "Tips_6": "Data retrieval successful",
+      "Tips_7": "Data retrieval failed:",
+      "Tips_8": "Username cannot be null! Please contact System Management.",
+      "Tips_11": "Addition successful",
+      "Tips_12": "Modification successful",
+      "Tips_13": "Addition failed, dictionary detail data code duplicate"
+    },
+    "SystemController": {
+      "Tips_1": "System/GetWorkShop interface exception: {0}",
+      "Tips_3": "System/GetYearMonth interface exception: {0}",
+      "Tips_6": "Parameters cannot be null!",
+      "Tips_7": "Query successful!",
+      "Tips_8": "Execution failed! Code does not exist!"
+    },
+    "Sys_DataSegregateGroupController": {
+      "Tips_1": "Pagination parameter Pagination cannot be null!",
+      "Tips_5": "Deletion failed, record not found",
+      "Tips_7": "Missing KeyValue parameter!",
+      "Tips_8": "Missing Entity parameter!",
+      "Tips_9": "Addition successful",
+      "Tips_10": "Modification successful",
+      "Tips_11": "Addition failed, group code duplicate"
+    },
+    "Sys_DataSegregateGroupToLabelController": {
+      "Tips_1": "Pagination parameter Pagination cannot be null!",
+      "Tips_4": "No value selected",
+      "Tips_5": "GroupCode cannot be null",
+      "Tips_7": "Deletion failed, record not found"
+    },
+    "Sys_DataSegregateGroupToPersonController": {
+      "Tips_1": "Pagination parameter Pagination cannot be null!",
+      "Tips_5": "Deletion failed, record not found",
+      "Tips_7": "Creation successful",
+      "Tips_8": "Creation failed"
+    },
+    "Sys_DataSegregateLabelController": {
+      "Tips_1": "Test successful 0001",
+      "Tips_2": "Pagination parameter Pagination cannot be null!",
+      "Tips_5": "Parameters cannot be null!",
+      "Tips_7": "Id cannot be null!",
+      "Tips_8": "userName cannot be null!"
+    }
+  }
+}

@@ -1,0 +1,127 @@
+{
+  // Common
+  "Common": {
+    "Error": "Operation failed, server exception",
+    "ErrorWithOther": "Operation failed, {0}",
+    "ErrorWithOther2": "Operation failed:",
+    "Success": "Operation successful",
+    "Success2": "Operation successful:",
+    "SuccessWithOther": "Operation successful, {0}",
+    "ExecutionSuccess": "Execution successful",
+    "ExecutionSuccess2": "Execution successful:",
+    "ExecutionSuccessWithOther": "Execution successful, {0}",
+    "ExecutionError": "Execution failed",
+    "ExecutionError2": "Execution failed:",
+    "ExecutionErrorWithOther": "Execution failed, {0}",
+    "ParamsNotNull": "Parameters cannot be null",
+    "SearchParamsNotNull": "Search parameters cannot be null",
+    "Yes": "Yes",
+    "No": "No",
+    "Qua": "Qualified",
+    "UnQua": "Unqualified",
+    "ErrorNone": "Unknown reason",
+    "DeleteSuccess": "Deletion successful",
+    "DeleteSuccess2": "Deletion successful:",
+    "DeleteSuccessWithOther": "Deletion successful:{0}",
+    "DeleteError": "Deletion failed",
+    "DeleteError2": "Deletion failed:",
+    "DeleteErrorWithOther": "Deletion failed:{0}",
+    "SearchSuccess": "Search successful",
+    "SearchSuccess2": "Search successful:",
+    "SearchSuccessWithOther": "Search successful:{0}",
+    "SearchError": "Search failed",
+    "SearchError2": "Search failed:",
+    "SearchErrorWithOther": "Search failed:{0}"
+  },
+  "BaseManage": {
+    "AccountController": {
+      "Tips_1": "Operation failed, please provide request parameters",
+      "Tips_2": "Account/List interface exception: {0}",
+      "Tips_4": "Account/SaveAccount interface request parameters {0}",
+      "Tips_5": "Account/SaveAccount interface exception: {0}"
+    },
+    "BaseShiftController": {
+      "Tips_2": "Pagination parameter Pagination cannot be null!",
+      "Tips_4": "Detail data retrieval successful",
+      "Tips_5": "Username cannot be null!",
+      "Tips_8": "Missing KeyValue parameter!",
+      "Tips_9": "Missing Entity parameter!"
+    }
+  },
+  "LevelManage": {
+    "BsModelLevelExtendFieldsController": {
+      "Tips_1": "Test successful 0001",
+      "Tips_2": "] data",
+      "Tips_3": "Search successful",
+      "Tips_4": "Pagination parameter Pagination cannot be null!",
+      "Tips_7": "Detail data retrieval successful",
+      "Tips_8": "User ID cannot be null!",
+      "Tips_11": "Missing KeyValue parameter!",
+      "Tips_12": "Missing Entity parameter!",
+      "Tips_14": "Addition failed: field code duplicate",
+      "Tips_15": "Addition failed: field name duplicate",
+      "Tips_16": "Modification successful",
+      "Tips_17": "The input field code already exists",
+      "Tips_18": "The input field name already exists"
+    },
+    "BsModelLevelsController": {
+      "Tips_1": "Test successful 0001",
+      "Tips_2": "Search successful",
+      "Tips_3": "Pagination parameter Pagination cannot be null!",
+      "Tips_6": "Detail data retrieval successful",
+      "Tips_7": "Data retrieval successful",
+      "Tips_8": "User ID cannot be null!",
+      "Tips_11": "Missing KeyValue parameter!",
+      "Tips_12": "Missing Entity parameter!",
+      "Tips_13": "Addition successful",
+      "Tips_14": "Modification successful",
+      "Tips_15": "Primary key duplicate, please re-enter level code",
+      "Tips_16": "The input level name already exists",
+      "Tips_17": "The input level already exists"
+    },
+    "BsModelResourceExtendInfoController": {
+      "Tips_1": "Test successful 0001",
+      "Tips_2": "Search successful",
+      "Tips_3": "Pagination parameter Pagination cannot be null!",
+      "Tips_6": "Detail data retrieval successful",
+      "Tips_7": "Resource code cannot be null!",
+      "Tips_10": "Missing KeyValue parameter!",
+      "Tips_11": "Missing Entity parameter!",
+      "Tips_13": "resourceCode parameter cannot be null!",
+      "Tips_14": "fieldCode parameter cannot be null"
+    },
+    "BsModelWithResourceController": {
+      "Tips_1": "Test successful 0001",
+      "Tips_2": "Search successful",
+      "Tips_3": "Pagination parameter Pagination cannot be null!",
+      "Tips_6": "Detail data retrieval successful",
+      "Tips_7": "Resource code cannot be null!",
+      "Tips_10": "Missing KeyValue parameter!",
+      "Tips_11": "Missing Entity parameter!",
+      "Tips_13": "Modification successful",
+      "Tips_14": "Operation failed, input code duplicate",
+      "Tips_15": "Operation failed, input name duplicate"
+    },
+    "LevelController": {
+      "Tips_1": "Test successful 0001",
+      "Tips_2": "] data",
+      "Tips_3": "] data retrieval failed:",
+      "Tips_6": "Parameters cannot be null!",
+      "Tips_7": "ResourceCode parameter cannot be null!",
+      "Tips_8": "LevelCode parameter cannot be null!",
+      "Tips_10": "Login person cannot be null!",
+      "Tips_11": "Factory parameter cannot be null!",
+      "Tips_12": "factoryCode parameter cannot be null!",
+      "Tips_13": "Operation failed:",
+      "Tips_14": "factoryCode, fieldCode, fieldValue parameters cannot be null!",
+      "Tips_15": "parentResource parameter cannot be null!",
+      "Tips_16": "ModelLeve parameter cannot be null!",
+      "Tips_17": "FieldCode parameter cannot be null!",
+      "Tips_18": "FieldValue parameter cannot be null!",
+      "Tips_19": "ResourceCode cannot be null!",
+      "Tips_20": "FieldCode cannot be null!",
+      "Tips_21": "FieldValue cannot be null!",
+      "Tips_22": "userName cannot be null!"
+    }
+  }
+}

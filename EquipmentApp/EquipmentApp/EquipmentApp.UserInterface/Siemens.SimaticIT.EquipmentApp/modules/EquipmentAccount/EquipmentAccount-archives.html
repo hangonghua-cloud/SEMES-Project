@@ -1,0 +1,295 @@
+﻿<style>
+    .radiogroup {
+        font-size: 12px;
+        width: 100px;
+        min-height: 20px !important;
+        height: 23px !important;
+        float: left;
+        padding-top: 0;
+        padding-bottom: 0;
+        margin-top: 0;
+    }
+
+    div.group-control .group-control-data {
+        padding-top: 0px;
+        vertical-align: bottom;
+    }
+
+    .property-grid-input-group input {
+        font-size: 12px;
+        vertical-align: text-bottom;
+        margin-top: 0;
+    }
+
+    .property-grid-span-group-block {
+        width: 100%;
+    }
+
+    .property-grid-input-group input {
+        font-size: 12px;
+    }
+
+    /* sit-radio样式 begin */
+
+    div.group-control .group-control-data span {
+        vertical-align: bottom;
+    }
+
+    div.group-control .group-control-data input[type="radio"] {
+        padding: 0;
+        vertical-align: text-bottom;
+    }
+
+    .sit-radio div.group-control .group-control-data {
+        padding-top: 2px;
+    }
+
+    /* sit-radio样式 end */
+
+    .label-property-grid-control-readonly {
+        display: block;
+        font-size: 12px;
+        color: #363636;
+        background-color: #f6f6f6;
+    }
+
+    a,
+    a:link,
+    a:hover,
+    a:active,
+    a:visited {
+        text-decoration: none;
+    }
+
+    .FlagRequired {
+        color: red;
+        padding: 3px;
+        font-size: 14px;
+        line-height: 22px;
+    }
+
+    .row .col_text {
+        text-align: right;
+    }
+
+    .canvas .property-area-container div.command-bar-side-panel {
+        padding-bottom: 40px;
+    }
+
+    .canvas .property-area-container>div.content .side-panel-property-area-body {
+        overflow-x: hidden;
+    }
+
+    canvas {
+        background-color: #f3f3f3;
+        -webkit-box-shadow: 3px 3px 3px 0 #e3e3e3;
+        -moz-box-shadow: 3px 3px 3px 0 #e3e3e3;
+        box-shadow: 3px 3px 3px 0 #e3e3e3;
+        border: 1px solid #c3c3c3;
+        margin: 6px 0 0 6px;
+    }
+
+    audio,
+    canvas,
+    video {
+        display: inline-block;
+    }
+
+    div.progress {
+        height: 20px;
+        border-radius: 0;
+        margin-top: 0px;
+        background-color: #ffffff;
+    }
+
+    a,
+    a:link,
+    a:hover,
+    a:active,
+    a:visited {
+        text-decoration: none;
+    }
+
+    .selectBox .label-property-grid-control-readonly {
+        display: block;
+    }
+
+
+    /** mask **/
+
+    .flyover .mask {
+        top: 0;
+        left: 0;
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        opacity: 0.5;
+        background: black;
+        z-index: 1049;
+    }
+
+    .flyover .alert {
+        left: 50%;
+        top: 50%;
+        position: fixed;
+        z-index: 1050;
+    }
+
+    .property-grid-input-group>textarea {
+        width: 101%;
+        height: 120px;
+    }
+
+    .boxUploadTitle .uploadTitle {
+        margin-left: 10px;
+        font-size: 16px;
+    }
+
+    .boxUploadTitle .num {
+        font-size: 12px;
+        margin-left: 10px;
+    }
+
+    .boxUploadTitle a {
+        margin-left: 10px;
+        height: 30px;
+        line-height: 30px;
+        position: relative;
+        cursor: pointer;
+        overflow: hidden;
+        display: inline-block;
+    }
+
+    .boxUploadTitle a input {
+        position: absolute;
+        left: 0;
+        top: 0;
+        opacity: 0;
+    }
+
+    .validator-control[disabled] {
+        color: #666666;
+    }
+
+    th {
+        font-size: 15px;
+    }
+</style>
+<div class="command-bar-side-panel">
+    <button ng-click="vm.cancel()" class="btn side-panel-button">{{'Siemens.SimaticIT.EquipmentApp.EquipmentAccount.EquipmentAccountarchives.Tips_3'|translate}}</button> 
+    <button ng-click="vm.save()" class="btn side-panel-button" ng-show="vm.validInputs">{{'Siemens.SimaticIT.EquipmentApp.EquipmentAccount.EquipmentAccountarchives.Tips_4'|translate}}</button>
+</div>
+<div class="side-panel-property-area-body" style="padding-right: 10px;">
+    <div class="col-md-54 col-lg-54">
+        <div class="row" style="margin-top: 10px;">
+            <div class="col-md-40" style="clear: both;">
+
+                <sit-property-grid sit-id="view_form" sit-layout="Horizontal" sit-type="Fixed" sit-mode="edit" sit-columns="2">
+                    <sit-property sit-id="EquipmentCategoryCode" sit-name="EquipmentCategoryCode" sit-widget="sit-text" sit-value="vm.currentItem.EquipmentCategoryCode" sit-read-only="false" sit-validation="{required: true}">{{'Siemens.SimaticIT.EquipmentApp.EquipmentAccount.EquipmentAccountarchives.Tips_5'|translate}}</sit-property>
+                    <sit-property sit-id="archives_fileType" sit-name="archives_fileType" sit-widget="sit-select" sit-value="vm.currentItem.archives_fileType.value" sit-options="vm.archives_fileType.options" sit-validation="{required: true}"
+                        sit-to-display="'ItemName'" sit-to-keep="'ItemValue'">
+                        {{'Siemens.SimaticIT.EquipmentApp.EquipmentAccount.EquipmentAccountarchives.Tips_6'|translate}}
+                    </sit-property>
+                    <sit-property sit-id="EquipmentName" sit-name="EquipmentName" sit-widget="sit-text" sit-value="vm.currentItem.EquipmentName" sit-read-only="true">{{'Siemens.SimaticIT.EquipmentApp.EquipmentAccount.EquipmentAccountarchives.Tips_7'|translate}}</sit-property>
+                    <sit-property sit-id="EquipmentCode" sit-name="EquipmentCode" sit-widget="sit-text" sit-value="vm.currentItem.EquipmentCode" sit-read-only="true">{{'Siemens.SimaticIT.EquipmentApp.EquipmentAccount.EquipmentAccountarchives.Tips_8'|translate}}</sit-property>
+                    <sit-property sit-id="Note" sit-name="Note"  sit-widget="sit-text" sit-value="vm.currentItem.Note" sit-read-only="false">{{'Siemens.SimaticIT.EquipmentApp.EquipmentAccount.EquipmentAccountarchives.Tips_9'|translate}}</sit-property>
+                </sit-property-grid>
+            </div>
+            <div class="col-md-40" style="margin-top: 1px">
+                <div class="boxUploadTitle" style="margin-bottom:10px;">
+                    <!--<span class="uploadTitle">{{'Siemens.SimaticIT.EquipmentApp.EquipmentAccount.EquipmentAccountarchives.Tips_10'|translate}}</span>-->
+                    <!-- Example: nv-file-select="" uploader="{Object}" options="{Object}" filters="{String}" -->
+                    <a href="javascript:void(0);" ng-click="vm.AddButtonHandler()" class="btn btn-primary">
+                        <i class="ace-icon fa fa-plus"></i>
+                        <input type="file" accept=".jpg,.png,.jpeg,.bmp,.gif,.doc,.docx,.xls,.xlsx,.ppt,.pptx,.pdf" nv-file-select="" uploader="uploader"
+                            multiple />{{'Siemens.SimaticIT.EquipmentApp.EquipmentAccount.EquipmentAccountarchives.Tips_11'|translate}}
+                    </a>
+                    <span class="num">{{'Siemens.SimaticIT.EquipmentApp.EquipmentAccount.EquipmentAccountarchives.Tips_12'|translate}}: {{ uploader.queue.length }}</span>
+                </div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>{{'Siemens.SimaticIT.EquipmentApp.EquipmentAccount.EquipmentAccountarchives.Tips_13'|translate}}</th>
+                            <th>{{'Siemens.SimaticIT.EquipmentApp.EquipmentAccount.EquipmentAccountarchives.Tips_14'|translate}}</th>
+                            <th ng-show="uploader.isHTML5">{{'Siemens.SimaticIT.EquipmentApp.EquipmentAccount.EquipmentAccountarchives.Tips_15'|translate}}</th>
+                            <th ng-show="uploader.isHTML5" nowrap style="display: none;">{{'Siemens.SimaticIT.EquipmentApp.EquipmentAccount.EquipmentAccountarchives.Tips_16'|translate}}</th>
+                            <th nowrap style="display: none;">{{'Siemens.SimaticIT.EquipmentApp.EquipmentAccount.EquipmentAccountarchives.Tips_17'|translate}}</th>
+                            <th style="display: none;">{{'Siemens.SimaticIT.EquipmentApp.EquipmentAccount.EquipmentAccountarchives.Tips_18'|translate}}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="item in uploader.queue">
+                            <td>
+                                <!-- Image preview -->
+                                <!--auto height-->
+                                <!--<div ng-thumb="{ file: item.file, width: 80 }"></div>-->
+                                <!--auto width-->
+                                <div ng-show="uploader.isHTML5" ng-thumb="{ file: item._file, height: 60 }"></div>
+                                <!--fixed width and height -->
+                                <!--<div ng-thumb="{ file: item.file, width: 80, height: 80 }"></div>-->
+                            </td>
+                            <td>
+                                <strong>{{ item._file.name }}</strong>
+                            </td>
+                            <td ng-show="uploader.isHTML5" nowrap>{{ item.file.size/1024/1024|number:2 }} MB</td>
+                            <td ng-show="uploader.isHTML5" style="display: none;">
+                                <div class="progress" style="margin-bottom: 0;">
+                                    <div class="progress-bar" role="progressbar" ng-style="{ 'width': item.progress + '%' }"></div>
+                                </div>
+                            </td>
+                            <td class="text-center" style="display: none;">
+                                <span ng-show="item.isSuccess">
+                                    <i class="glyphicon glyphicon-ok"></i>
+                                </span>
+                                <span ng-show="item.isCancel">
+                                    <i class="glyphicon glyphicon-ban-circle"></i>
+                                </span>
+                                <span ng-show="item.isError">
+                                    <i class="glyphicon glyphicon-remove"></i>
+                                </span>
+                            </td>
+                            <td nowrap >
+                                <button style="display: none;" type="button" class="btn btn-success btn-xs" ng-click="item.upload()" ng-disabled="item.isReady || item.isUploading || item.isSuccess">
+                                    <span class="glyphicon glyphicon-upload"></span> {{'Siemens.SimaticIT.EquipmentApp.EquipmentAccount.EquipmentAccountarchives.Tips_19'|translate}}
+                                </button>
+                                <button style="display: none;" type="button" class="btn btn-warning btn-xs" ng-click="item.cancel()" ng-disabled="!item.isUploading">
+                                    <span class="glyphicon glyphicon-ban-circle"></span> {{'Siemens.SimaticIT.EquipmentApp.EquipmentAccount.EquipmentAccountarchives.Tips_20'|translate}}
+                                </button>
+                                <button type="button" class="btn btn-danger btn-xs" ng-click="item.remove()">
+                                    <span class="glyphicon glyphicon-trash"></span> {{'Siemens.SimaticIT.EquipmentApp.EquipmentAccount.EquipmentAccountarchives.Tips_21'|translate}}
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- <div>
+                    <div>
+                        {{'Siemens.SimaticIT.EquipmentApp.EquipmentAccount.EquipmentAccountarchives.Tips_19'|translate}}序列进度:
+                        <div class="progress" style="">
+                            <div class="progress-bar" role="progressbar" ng-style="{ 'width': uploader.progress + '%' }"></div>
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-success btn-s" ng-click="uploader.uploadAll()" ng-disabled="!uploader.getNotUploadedItems().length">
+                        <span class="glyphicon glyphicon-upload"></span> {{'Siemens.SimaticIT.EquipmentApp.EquipmentAccount.EquipmentAccountarchives.Tips_19'|translate}}所有
+                    </button>
+                    <button type="button" class="btn btn-warning btn-s" ng-click="uploader.cancelAll()" ng-disabled="!uploader.isUploading">
+                        <span class="glyphicon glyphicon-ban-circle"></span> {{'Siemens.SimaticIT.EquipmentApp.EquipmentAccount.EquipmentAccountarchives.Tips_20'|translate}} 所有
+                    </button>
+                    <button type="button" class="btn btn-danger btn-s" ng-click="uploader.clearQueue()" ng-disabled="!uploader.queue.length">
+                        <span class="glyphicon glyphicon-trash"></span> {{'Siemens.SimaticIT.EquipmentApp.EquipmentAccount.EquipmentAccountarchives.Tips_21'|translate}} 所有
+                    </button>
+                </div> -->
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</div>
+<div class="loading" ng-show="vm.busy">
+    <i class="fa fa-spin fa-spinner fa-lg"></i>
+    loading ...
+</div>

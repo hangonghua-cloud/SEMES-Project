@@ -1,0 +1,121 @@
+﻿@import url("../../CCS.CommonApp/widgets/jstree/themes/default/style.min.css");
+@import url("../../CCS.CommonApp/widgets/ui-grid/ui-grid.min.css");
+/*UI Grid表格样式*/
+.uigrid {
+    width: 100%;
+    height: 100%;
+    min-width: 200px;
+    min-height: 150px;
+}
+/*可编辑UI Grid表格,支持下拉列表框和日期时间等控件完整显示*/
+.uigrid-edit .ui-grid-cell {
+    overflow: visible !important;
+}
+
+.uigrid-edit .ui-grid-viewport {
+    overflow: visible !important;
+}
+
+.uigrid-edit .multi-advanced-selection .dropdown, .multi-advanced-selection .dropup {
+    min-width: 0px !important;
+}
+/*可编辑UI Grid表格,下拉列表框和日期时间等控件若完整显示需要设置ui grid足够高*/
+.uigrid_edit .ui-grid-cell {
+    overflow: inherit;
+}
+
+.uigrid_edit .multi-advanced-selection .dropdown,
+.uigrid_edit .multi-advanced-selection .dropup {
+    min-width: 50px !important;
+}
+ 
+/*只读控件样式*/
+.label-property-grid-control-readonly {
+    display: block;
+    font-size: 12px;
+    color: #363636;
+    background-color: #f6f6f6;
+}
+/* sit-radio、sit-checkbox 样式 begin */
+.radiogroup {
+    font-size: 12px;
+    min-width:80px;
+    min-height: 20px !important;
+    height: 23px !important;
+    float: left;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: 0;
+}
+
+div.group-control .group-control-data {
+    padding-top: 0px;
+    vertical-align: bottom;
+}
+
+.property-grid-input-group input {
+    font-size: 12px;
+    vertical-align: text-bottom;
+    margin-top: 0;
+}
+
+.property-grid-span-group-block {
+    width: 100%;
+}
+
+.property-grid-input-group input {
+    font-size: 12px;
+}
+div.group-control .group-control-data span {
+    vertical-align: bottom;
+}
+
+div.group-control .group-control-data input[type="radio"] {
+    padding: 0;
+    vertical-align: text-bottom;
+}
+
+/*必填项星号*/
+.property-label .sup{
+    font-weight: 600;
+    font-size: 12.5pt;
+    line-height: 29px;
+    color: #005f87;
+    left: 3px;
+    vertical-align: top;
+    top: -0.3em;
+}
+
+/*隐藏PDF查看器的打印和下载按钮图标*/
+#toolbarViewerRight #print,#toolbarViewerRight #download{
+    display: none;
+}
+
+.side-panel-large-layout {
+    width: 600px !important;
+}
+
+.side-panel-wide-layout {
+    width: 1000px !important;
+}
+
+.serachPanel input[type=text], select {
+    width: 200px;
+    margin-right: 2px;
+}
+
+@media all and (min-width: 1282px) and (max-width: 1601px) {
+    .property-grid-horizontal-fluid-layout sit-property {
+        flex-basis: 10% !important;
+    }
+}
+.MainCommandActionButton {
+    margin-top: 15px!important;
+}
+/*行选择无法复制*/
+.ui-grid-disable-selection {
+    -moz-user-select: text;
+    -webkit-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+}

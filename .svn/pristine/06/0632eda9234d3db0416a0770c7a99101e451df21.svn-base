@@ -1,0 +1,243 @@
+﻿<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{197FC1C4-4214-489E-93FE-2660BAF5D720}</ProjectGuid>
+    <ProjectTypeGuids>{59ED0FD4-15A5-47D7-821B-139455AEDEF4};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Siemens.SimaticIT.ButtonAuthFBLib.CommandHandler</RootNamespace>
+    <AssemblyName>Siemens.SimaticIT.ButtonAuthFBLib.CommandHandler</AssemblyName>
+    <Name>ButtonAuthFBLib.CommandHandler</Name>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FunctionalBlockType>Library</FunctionalBlockType>
+    <FunctionalBlockVersion>01.00.00</FunctionalBlockVersion>
+    <FunctionalBlockName>ButtonAuthFBLib</FunctionalBlockName>
+    <FunctionalBlockPrefix>Siemens.SimaticIT</FunctionalBlockPrefix>
+    <SitPlatformVersion>4.1</SitPlatformVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <StartAction>Program</StartAction>
+    <StartProgram>$(SITUnifiedVSToolingPlatformBin)\Worker.exe</StartProgram>
+    <StartArguments>/name:"%COMPUTERNAME%.Default WorkerRoleDefinition (x64).0" /debug:true /debugPath:"$(SolutionDir)$(SolutionName)\$(SolutionName).Installer\bin\Debug"  /debugPathFile:"$(SolutionDir)$(SolutionName)Paths.xml" /registryPath:"$(SolutionDir)$(SolutionName)\$(SolutionName).Installer\bin\Debug\Debugger"</StartArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Siemens.SimaticIT.MasterData.ButtonAuthFBLib.MSModel, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ButtonAuthFBLib.MSModel\bin\Siemens.SimaticIT.MasterData.ButtonAuthFBLib.MSModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Siemens.SimaticIT.MasterData.ButtonAuthFBLib.MSModel.Commands, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ButtonAuthFBLib.MSModel\bin\Siemens.SimaticIT.MasterData.ButtonAuthFBLib.MSModel.Commands.dll</HintPath>
+    </Reference>
+    <Reference Include="Siemens.SimaticIT.MasterData.ButtonAuthFBLib.MSModel.ProjectionModel, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ButtonAuthFBLib.MSModel\bin\Siemens.SimaticIT.MasterData.ButtonAuthFBLib.MSModel.ProjectionModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Siemens.SimaticIT.MasterData.ButtonAuthFBLib.MSModel.Types, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ButtonAuthFBLib.MSModel\bin\Siemens.SimaticIT.MasterData.ButtonAuthFBLib.MSModel.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="Siemens.SimaticIT.MasterData.ButtonAuthFBLib.MSModel.Types.ProjectionModel, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ButtonAuthFBLib.MSModel\bin\Siemens.SimaticIT.MasterData.ButtonAuthFBLib.MSModel.Types.ProjectionModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Siemens.SimaticIT.MasterData.ButtonAuthFBLib.MSModel.Types.ReadingModel, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\ButtonAuthFBLib.MSModel\bin\Siemens.SimaticIT.MasterData.ButtonAuthFBLib.MSModel.Types.ReadingModel.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Siemens.SimaticIT.SystemData.Foundation">
+      <HintPath>$(SITUnifiedVSToolingPlatformBin)\Siemens.SimaticIT.SystemData.Foundation.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Siemens.SimaticIT.SystemData.Foundation.Types">
+      <HintPath>$(SITUnifiedVSToolingPlatformBin)\Siemens.SimaticIT.SystemData.Foundation.Types.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Siemens.SimaticIT.SystemData.Foundation.ProjectionModel">
+      <HintPath>$(SITUnifiedVSToolingPlatformBin)\Siemens.SimaticIT.SystemData.Foundation.ProjectionModel.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Siemens.SimaticIT.SystemData.Foundation.ReadingModel">
+      <HintPath>$(SITUnifiedVSToolingPlatformBin)\Siemens.SimaticIT.SystemData.Foundation.ReadingModel.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Siemens.SimaticIT.SystemData.Foundation.Types.ReadingModel">
+      <HintPath>$(SITUnifiedVSToolingPlatformBin)\Siemens.SimaticIT.SystemData.Foundation.Types.ReadingModel.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Siemens.SimaticIT.SystemData.Foundation.Types.ProjectionModel">
+      <HintPath>$(SITUnifiedVSToolingPlatformBin)\Siemens.SimaticIT.SystemData.Foundation.Types.ProjectionModel.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SimaticIT.Unified">
+      <HintPath>$(SITUnifiedVSToolingPlatformBin)\SimaticIT.Unified.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SimaticIT.Unified.Common">
+      <HintPath>$(SITUnifiedVSToolingPlatformBin)\SimaticIT.Unified.Common.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SimaticIT.Handler">
+      <HintPath>$(SITUnifiedVSToolingPlatformBin)\SimaticIT.Handler.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SimaticIT.DataModel">
+      <HintPath>$(SITUnifiedVSToolingPlatformBin)\SimaticIT.DataModel.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SimaticIT.SDK.Diagnostics">
+      <HintPath>$(SITUnifiedVSToolingPlatformBin)\SimaticIT.SDK.Diagnostics.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\BaseBOMAddDetailHandler.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\BaseBOMAddDetailHandlerExecution.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\BaseBOMAddHandler.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\BaseBOMAddHandlerExecution.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\BaseBOMCopyHandler.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\BaseBOMCopyHandlerExecution.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\BaseBOMDeleteDetailHandler.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\BaseBOMDeleteDetailHandlerExecution.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\BaseBOMDeleteHandler.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\BaseBOMDeleteHandlerExecution.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\BaseBOMEditDetailHandler.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\BaseBOMEditDetailHandlerExecution.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\BaseBOMEditHandler.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\BaseBOMEditHandlerExecution.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\BaseBOMPasteHandler.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\BaseBOMPasteHandlerExecution.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\BaseMaterialAddHandler.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\BaseMaterialAddHandlerExecution.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\BaseMaterialDeleteHandler.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\BaseMaterialDeleteHandlerExecution.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\BaseMaterialEditHandler.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\BaseMaterialEditHandlerExecution.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\OwnProductFinishCaseHandler.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\OwnProductFinishCaseHandlerExecution.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\ProductDispatchAddHandler.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\ProductDispatchAddHandlerExecution.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\ProductDispatchDeleteHandler.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\ProductDispatchDeleteHandlerExecution.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\ProductDispatchEditHandler.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\ProductDispatchEditHandlerExecution.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\ProductionOrderDelHandler.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\ProductionOrderDelHandlerExecution.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\ProductionOrderDelWOHandler.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\ProductionOrderDelWOHandlerExecution.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\ProductionOrderEditHandler.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\ProductionOrderEditHandlerExecution.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\ProductionOrderEditMaterialHandler.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\ProductionOrderEditMaterialHandlerExecution.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\ProductionOrderEditWOHandler.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\ProductionOrderEditWOHandlerExecution.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\ProductionOrderFrozenHandler.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\ProductionOrderFrozenHandlerExecution.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\ProductionOrderImportPrdHandler.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\ProductionOrderImportPrdHandlerExecution.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\ProductionOrderImportWOHandler.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\ProductionOrderImportWOHandlerExecution.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\ProductionOrderLoadHandler.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\ProductionOrderLoadHandlerExecution.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\ProductionOrderPublishHandler.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\ProductionOrderPublishHandlerExecution.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\ProductionOrderSapPublishHandler.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\ProductionOrderSapPublishHandlerExecution.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\ProductionOrderTransferHandler.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\ProductionOrderTransferHandlerExecution.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\ProductStockManageAdjustHandler.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\ProductStockManageAdjustHandlerExecution.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\ProductStockManageInWhsHandler.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\ProductStockManageInWhsHandlerExecution.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\PurchaseManageAddHandler.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\PurchaseManageAddHandlerExecution.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\PurchaseManageDeleteDetailHandler.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\PurchaseManageDeleteDetailHandlerExecution.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\PurchaseManageDeleteHandler.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\PurchaseManageDeleteHandlerExecution.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\PurchaseManageEditHandler.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\PurchaseManageEditHandlerExecution.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\RawMaterialStockManageAddHandler.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\RawMaterialStockManageAddHandlerExecution.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\RawMaterialStockManageAdjustHandler.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\RawMaterialStockManageAdjustHandlerExecution.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\RawMaterialStockManageBackupHandler.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\RawMaterialStockManageBackupHandlerExecution.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\RawMaterialStockManageMove2Handler.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\RawMaterialStockManageMove2HandlerExecution.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\RawMaterialStockManageMoveHandler.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\RawMaterialStockManageMoveHandlerExecution.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\RawMaterialStockManageOutWhs2Handler.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\RawMaterialStockManageOutWhs2HandlerExecution.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\RawMaterialStockManageOutWhsHandler.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\RawMaterialStockManageOutWhsHandlerExecution.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\ReceiptNoticeAddHandler.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\ReceiptNoticeAddHandlerExecution.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\ReceiptNoticeDeleteHandler.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\ReceiptNoticeDeleteHandlerExecution.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\ReceiptNoticeEditHandler.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\ReceiptNoticeEditHandlerExecution.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\ReworkDelHandler.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\ReworkDelHandlerExecution.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\ReworkQualityConfirmHandler.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\ReworkQualityConfirmHandlerExecution.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\WorkOrderAddPickHandler.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\WorkOrderAddPickHandlerExecution.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\WorkOrderAddSuppleHandler.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\WorkOrderAddSuppleHandlerExecution.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\WorkOrderDelHandler.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\WorkOrderDelHandlerExecution.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\WorkOrderDemandHandler.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\WorkOrderDemandHandlerExecution.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\WorkOrderEditBomHandler.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\WorkOrderEditBomHandlerExecution.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\WorkOrderEditPlanHandler.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\WorkOrderEditPlanHandlerExecution.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\WorkOrderEditProcessHandler.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\WorkOrderEditProcessHandlerExecution.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\WorkOrderEditQualityHandler.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\WorkOrderEditQualityHandlerExecution.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\WorkOrderFinishCaseHandler.cs" />
+    <Compile Include="ButtonAuthFBLib.MSModel\Commands\WorkOrderFinishCaseHandlerExecution.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CommandHandler.coutput">
+      <Visible>false</Visible>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeCompile">
+  </Target>
+  <Target Name="AfterCompile">
+  </Target>
+  -->
+</Project>

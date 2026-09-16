@@ -1,0 +1,354 @@
+物料工厂属性SaveSAPBase_MaterialFactory接口调用时间: 2026/5/16 17:22:46,参数{
+  "Entity": [
+    {
+      "MaterialFactoryEntity": {
+        "FactoryCode": "TH01",
+        "MaterialCode": "10000040",
+        "Warehouse": "",
+        "ProcessRoute": "TH-LLDEL",
+        "IsUsed": false,
+        "IsExemption": "0",
+        "SafeStock": 0,
+        "IsDeleted": true
+      },
+      "FacetEntitys": [
+        {
+          "AttrCode": "BARCODE",
+          "AttrName": "唛头条码",
+          "AttrType": "2",
+          "AttrValue": ""
+        },
+        {
+          "AttrCode": "KGPERBOX",
+          "AttrName": "千克/盒",
+          "AttrType": "2",
+          "AttrValue": ""
+        },
+        {
+          "AttrCode": "BCPBCODE",
+          "AttrName": "半成品条码",
+          "AttrType": "2",
+          "AttrValue": ""
+        },
+        {
+          "AttrCode": "ZYULIU5",
+          "AttrName": "预留字段5",
+          "AttrType": "2",
+          "AttrValue": ""
+        },
+        {
+          "AttrCode": "ZYULIU6",
+          "AttrName": "预留字段6",
+          "AttrType": "2",
+          "AttrValue": ""
+        },
+        {
+          "AttrCode": "ZYULIU4",
+          "AttrName": "预留字段4",
+          "AttrType": "2",
+          "AttrValue": ""
+        },
+        {
+          "AttrCode": "CAS",
+          "AttrName": "原材料的化学物质登记号",
+          "AttrType": "2",
+          "AttrValue": ""
+        },
+        {
+          "AttrCode": "PRODUCT_CODE",
+          "AttrName": "PRODUCT CODE",
+          "AttrType": "2",
+          "AttrValue": ""
+        },
+        {
+          "AttrCode": "PADR",
+          "AttrName": "PADR?O/PATTERN/CONTIENE",
+          "AttrType": "2",
+          "AttrValue": ""
+        },
+        {
+          "AttrCode": "ZYULIU3",
+          "AttrName": "预留字段3",
+          "AttrType": "2",
+          "AttrValue": ""
+        },
+        {
+          "AttrCode": "ZYULIU7",
+          "AttrName": "预留字段7",
+          "AttrType": "2",
+          "AttrValue": ""
+        },
+        {
+          "AttrCode": "ZYULIU10",
+          "AttrName": "预留字段10",
+          "AttrType": "2",
+          "AttrValue": ""
+        },
+        {
+          "AttrCode": "DESIGN",
+          "AttrName": "DESIGN",
+          "AttrType": "2",
+          "AttrValue": ""
+        },
+        {
+          "AttrCode": "ZYULIU8",
+          "AttrName": "预留字段8",
+          "AttrType": "2",
+          "AttrValue": ""
+        },
+        {
+          "AttrCode": "DWB",
+          "AttrName": "底纹板",
+          "AttrType": "2",
+          "AttrValue": ""
+        },
+        {
+          "AttrCode": "ZYULIU9",
+          "AttrName": "预留字段9",
+          "AttrType": "2",
+          "AttrValue": ""
+        },
+        {
+          "AttrCode": "ZYULIU2",
+          "AttrName": "预留字段2",
+          "AttrType": "2",
+          "AttrValue": ""
+        },
+        {
+          "AttrCode": "INPERBOX",
+          "AttrName": "英寸/盒",
+          "AttrType": "2",
+          "AttrValue": ""
+        },
+        {
+          "AttrCode": "MTMC",
+          "AttrName": "唛头名称",
+          "AttrType": "2",
+          "AttrValue": ""
+        },
+        {
+          "AttrCode": "KGPERPAL",
+          "AttrName": "千克/托",
+          "AttrType": "2",
+          "AttrValue": ""
+        },
+        {
+          "AttrCode": "COUNTRY_OF_ORIGIN",
+          "AttrName": "COUNTRY OF ORIGIN",
+          "AttrType": "2",
+          "AttrValue": ""
+        },
+        {
+          "AttrCode": "BCPMTBM",
+          "AttrName": "唛头编码(半成品)",
+          "AttrType": "2",
+          "AttrValue": ""
+        },
+        {
+          "AttrCode": "QUANTITY",
+          "AttrName": "QUANTITY",
+          "AttrType": "2",
+          "AttrValue": ""
+        },
+        {
+          "AttrCode": "MTBT",
+          "AttrName": "唛头表头",
+          "AttrType": "2",
+          "AttrValue": ""
+        },
+        {
+          "AttrCode": "EMBOSS",
+          "AttrName": "EMBOSS",
+          "AttrType": "2",
+          "AttrValue": ""
+        },
+        {
+          "AttrCode": "NOTE",
+          "AttrName": "说明书要求",
+          "AttrType": "2",
+          "AttrValue": ""
+        },
+        {
+          "AttrCode": "PRODUCT_STYLE",
+          "AttrName": "PRODUCT STYLE",
+          "AttrType": "2",
+          "AttrValue": ""
+        },
+        {
+          "AttrCode": "ZYULIU1",
+          "AttrName": "预留字段1",
+          "AttrType": "2",
+          "AttrValue": ""
+        },
+        {
+          "AttrCode": "NOMINAL2",
+          "AttrName": "NOMINAL2",
+          "AttrType": "2",
+          "AttrValue": ""
+        },
+        {
+          "AttrCode": "COLOR",
+          "AttrName": "COLOR",
+          "AttrType": "2",
+          "AttrValue": ""
+        },
+        {
+          "AttrCode": "DIMENSIONS",
+          "AttrName": "DIMENSIONS",
+          "AttrType": "2",
+          "AttrValue": ""
+        },
+        {
+          "AttrCode": "MTSPEC",
+          "AttrName": "唛头规格",
+          "AttrType": "2",
+          "AttrValue": ""
+        },
+        {
+          "AttrCode": "COLLECTION",
+          "AttrName": "COLLECTION",
+          "AttrType": "2",
+          "AttrValue": ""
+        },
+        {
+          "AttrCode": "NOMINAL1",
+          "AttrName": "NOMINAL1",
+          "AttrType": "2",
+          "AttrValue": ""
+        },
+        {
+          "AttrCode": "DESCRIPTION",
+          "AttrName": "DESCRIPTION",
+          "AttrType": "2",
+          "AttrValue": ""
+        },
+        {
+          "AttrCode": "MTXH",
+          "AttrName": "唛头型号",
+          "AttrType": "2",
+          "AttrValue": ""
+        },
+        {
+          "AttrCode": "MTBM",
+          "AttrName": "唛头编码(成品)",
+          "AttrType": "2",
+          "AttrValue": ""
+        },
+        {
+          "AttrCode": "TPGG",
+          "AttrName": "托盘规格",
+          "AttrType": "2",
+          "AttrValue": ""
+        },
+        {
+          "AttrCode": "CGDLXS",
+          "AttrName": "采购到料系数",
+          "AttrType": "2",
+          "AttrValue": ""
+        },
+        {
+          "AttrCode": "KCKX",
+          "AttrName": "开槽扣型",
+          "AttrType": "2",
+          "AttrValue": ""
+        },
+        {
+          "AttrCode": "RYD",
+          "AttrName": "软硬度",
+          "AttrType": "1",
+          "AttrValue": ""
+        },
+        {
+          "AttrCode": "SCTPSL",
+          "AttrName": "生产托盘数量",
+          "AttrType": "1",
+          "AttrValue": ""
+        },
+        {
+          "AttrCode": "SQPERBOX",
+          "AttrName": "平方/盒",
+          "AttrType": "2",
+          "AttrValue": "0.2662"
+        },
+        {
+          "AttrCode": "MMXH",
+          "AttrName": "面膜型号",
+          "AttrType": "2",
+          "AttrValue": "BL9063L-2"
+        },
+        {
+          "AttrCode": "DJ",
+          "AttrName": "倒角",
+          "AttrType": "2",
+          "AttrValue": "封边倒角"
+        },
+        {
+          "AttrCode": "JCWEIGHT",
+          "AttrName": "挤出吨数",
+          "AttrType": "1",
+          "AttrValue": "10.67"
+        },
+        {
+          "AttrCode": "XL",
+          "AttrName": "系列",
+          "AttrType": "2",
+          "AttrValue": "1.23"
+        },
+        {
+          "AttrCode": "JCGG",
+          "AttrName": "挤出规格",
+          "AttrType": "2",
+          "AttrValue": "980*1230*5*76s"
+        },
+        {
+          "AttrCode": "CPBZTPSL",
+          "AttrName": "成品每托片数",
+          "AttrType": "1",
+          "AttrValue": "50"
+        },
+        {
+          "AttrCode": "DXZH",
+          "AttrName": "大张转小片数量",
+          "AttrType": "1",
+          "AttrValue": "4"
+        },
+        {
+          "AttrCode": "UV",
+          "AttrName": "UV",
+          "AttrType": "2",
+          "AttrValue": "5-8"
+        },
+        {
+          "AttrCode": "BZDHSL",
+          "AttrName": "包装单盒数量",
+          "AttrType": "1",
+          "AttrValue": "5"
+        },
+        {
+          "AttrCode": "BZTPSL",
+          "AttrName": "成品每托盒数",
+          "AttrType": "1",
+          "AttrValue": "10"
+        },
+        {
+          "AttrCode": "BWXH",
+          "AttrName": "压纹",
+          "AttrType": "2",
+          "AttrValue": "BP"
+        },
+        {
+          "AttrCode": "MMKHL",
+          "AttrName": "面膜考核发膜系数",
+          "AttrType": "1",
+          "AttrValue": "1.26"
+        },
+        {
+          "AttrCode": "MMCJ",
+          "AttrName": "面膜厂家",
+          "AttrType": "2",
+          "AttrValue": "Blackrock"
+        }
+      ]
+    }
+  ]
+};

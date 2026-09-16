@@ -1,0 +1,19 @@
+﻿{
+  "name": "Siemens.SimaticIT.MaterialApp.MMRawMaterialDispatch",
+  "type": "standard",
+  "title": "Siemens.SimaticIT.MaterialApp.MMRawMaterialDispatch.Title",
+  "header": "",
+  "icon": "fa-folder",
+  "functionalBlock": "Siemens.SimaticIT.MaterialApp",
+  "dependencies": [],
+  "states": [
+    {
+      "id": "home.Siemens_SimaticIT_MaterialApp_MMRawMaterialDispatch_MMRawMaterialDispatch",
+      "title": "Siemens.SimaticIT.MaterialApp.MMRawMaterialDispatch.Title",
+      "header": "",
+      "securable": true,
+      "roles": []
+    }
+  ],
+  "manifestVersion": "01.01.00"
+}

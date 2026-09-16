@@ -1,0 +1,19 @@
+﻿{
+   "name": "Siemens.SimaticIT.MaterialApp.BSTraitManage",
+   "type": "standard",
+   "title": "Siemens.SimaticIT.MaterialApp.BS_TraitManage.Title",
+   "header": "",
+   "icon": "svg typeActionLongTerm48",
+   "functionalBlock": "Siemens.SimaticIT.MaterialApp",
+   "dependencies": [],
+   "states": [
+     {
+       "id": "home.Siemens_SimaticIT_MaterialApp_BSTraitManage_BS_TraitManage",
+       "title": "Siemens.SimaticIT.MaterialApp.BS_TraitManage.Title",
+       "header": "",
+       "securable": true,
+       "roles": []
+     }
+   ],
+   "manifestVersion": "01.01.00"
+}

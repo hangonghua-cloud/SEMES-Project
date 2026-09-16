@@ -1,0 +1,201 @@
+﻿<style>
+    .upload-container {
+        margin-top: 15px;
+        width: 40%;
+    }
+
+        .upload-container label {
+            font-size: 12px;
+            line-height: 19px;
+        }
+
+        .upload-container input {
+            display: none;
+        }
+
+        .upload-container #upload {
+            vertical-align: baseline;
+        }
+
+        .upload-container .files {
+            max-height: 150px;
+            overflow-y: auto;
+        }
+
+            .upload-container .files .item {
+                padding: 8px;
+                margin-bottom: 8px;
+                background: #ccc;
+                position: relative;
+            }
+
+                .upload-container .files .item .remove {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    font-size: 1.3em;
+                    cursor: pointer;
+                }
+
+    /*上传进度条样式*/
+    /*  外部容器样式*/
+    .container {
+        width: 300px;
+        height: 30px;
+        border: 1px solid lightgray;
+        border-radius: 15px;
+    }
+
+    /* 内部加载部分样式 */
+    #content {
+        height: 30px;
+        border-radius: 15px;
+        background-color: skyblue;
+        text-align: center;
+        line-height: 30px;
+    }
+</style>
+<div class="command-bar-side-panel">
+    <button ng-click="vm.cancel()" class="btn side-panel-button">
+        {{'Siemens.SimaticIT.PlanApp.PurchaseManage.in.Tips_1'|translate}}
+    </button>
+    <button ng-click="vm.save()" class="btn side-panel-button" ng-show="vm.validInputs">
+        {{'Siemens.SimaticIT.PlanApp.PurchaseManage.in.Tips_2'|translate}}
+    </button>
+</div>
+<div class="side-panel-property-area-body">
+    <sit-property-grid sit-id="edit_form" sit-layout="Horizontal" sit-type="Fixed" sit-mode="edit" sit-columns="4">
+
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.PurchaseOrder" sit-validation="{required: true}"
+                      sit-read-only="true">{{'Siemens.SimaticIT.PlanApp.PurchaseManage.in.Tips_3'|translate}}</sit-property>
+
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.ProductOrder" sit-validation="{required: false}"
+                      sit-read-only="true">{{'Siemens.SimaticIT.PlanApp.PurchaseManage.in.Tips_4'|translate}}</sit-property>
+
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.MaterialCode" sit-validation="{required: true}"
+                      sit-read-only="true">{{'Siemens.SimaticIT.PlanApp.PurchaseManage.in.Tips_5'|translate}}</sit-property>
+
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.MaterialName" sit-validation="{required: true}"
+                      sit-read-only="true">{{'Siemens.SimaticIT.PlanApp.PurchaseManage.in.Tips_6'|translate}}</sit-property>
+        <!-- <sit-property sit-widget="sit-text" sit-value="vm.currentItem.Unit" sit-validation="{required: true}"
+                      sit-read-only="true">{{'Siemens.SimaticIT.PlanApp.PurchaseManage.in.Tips_7'|translate}}</sit-property> -->
+
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.ArrivalQty" sit-validation="{required: true}"
+                      sit-read-only="true">{{'Siemens.SimaticIT.PlanApp.PurchaseManage.in.Tips_8'|translate}}</sit-property>
+
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.NoArrivalQty" sit-validation="{required: true}"
+                      sit-read-only="true">{{'Siemens.SimaticIT.PlanApp.PurchaseManage.in.Tips_9'|translate}}</sit-property>
+
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.SupplierName" sit-validation="{required: true}"
+                      sit-read-only="true">{{'Siemens.SimaticIT.PlanApp.PurchaseManage.in.Tips_10'|translate}}</sit-property>
+
+        <!-- <sit-property sit-widget="sit-alp-text-picker" sit-value="vm.currentItem.ManufacturerName"
+                      sit-validation="{required: false}" sit-read-only="false" ng-click="vm.manufacturerModal()">
+            {{'Siemens.SimaticIT.PlanApp.PurchaseManage.in.Tips_11'|translate}}
+        </sit-property> -->
+
+        <sit-property sit-widget="sit-alp-text-picker" sit-value="vm.currentItem.SupplierName2"
+                      sit-validation="{required: false}" sit-read-only="false" ng-click="vm.supplierClick('2')">
+            {{'Siemens.SimaticIT.PlanApp.PurchaseManage.in.Tips_23'|translate}}
+        </sit-property>
+
+        <sit-property sit-widget="sit-alp-text-picker" sit-value="vm.currentItem.SupplierName3"
+                      sit-validation="{required: false}" sit-read-only="false" ng-click="vm.supplierClick('3')">
+            {{'Siemens.SimaticIT.PlanApp.PurchaseManage.in.Tips_24'|translate}}
+        </sit-property>
+
+        <sit-property sit-widget="sit-alp-text-picker" sit-value="vm.currentItem.SupplierName4"
+                      sit-validation="{required: false}" sit-read-only="false" ng-click="vm.supplierClick('4')">
+            {{'Siemens.SimaticIT.PlanApp.PurchaseManage.in.Tips_25'|translate}}
+        </sit-property>
+
+        <sit-property sit-widget="sit-alp-text-picker" sit-value="vm.currentItem.SupplierName5"
+                      sit-validation="{required: false}" sit-read-only="false" ng-click="vm.supplierClick('5')">
+            {{'Siemens.SimaticIT.PlanApp.PurchaseManage.in.Tips_26'|translate}}
+        </sit-property>
+
+        <sit-property sit-widget="sit-alp-text-picker" sit-value="vm.currentItem.SupplierName6"
+                      sit-validation="{required: false}" sit-read-only="false" ng-click="vm.supplierClick('6')">
+            {{'Siemens.SimaticIT.PlanApp.PurchaseManage.in.Tips_27'|translate}}
+        </sit-property>
+
+        <sit-property sit-widget="sit-numeric" sit-value="vm.currentItem.Qty" sit-validation="{required: true, min: 0}"
+                      sit-read-only="false">{{'Siemens.SimaticIT.PlanApp.PurchaseManage.in.Tips_12'|translate}}</sit-property>
+
+        <sit-property sit-widget="sit-select" sit-value="vm.typeUnit.value" sit-validation="{required: true}"
+                      sit-options="vm.typeUnit.options" sit-to-display="'ItemName'" sit-to-keep="'ItemValue'"
+                      sit-read-only="false">
+            {{'Siemens.SimaticIT.PlanApp.PurchaseManage.in.Tips_28'|translate}}
+        </sit-property>
+
+        <sit-property sit-widget="sit-alp-text-picker" sit-value="vm.currentItem.WhsName"
+                      sit-validation="{required: true}" sit-read-only="false" ng-click="vm.selectClick1()">
+            {{'Siemens.SimaticIT.PlanApp.PurchaseManage.in.Tips_13'|translate}}
+        </sit-property>
+
+        <!-- <sit-property sit-widget="sit-select" sit-value="vm.typeWarehouse.value" sit-validation="{required: false}"
+                sit-options="vm.typeWarehouse.options" sit-to-display="'ResourceName'" sit-to-keep="'ResourceCode'" sit-read-only="true">
+                {{'Siemens.SimaticIT.PlanApp.PurchaseManage.in.Tips_13'|translate}}
+        </sit-property> -->
+
+        <sit-property sit-widget="sit-alp-text-picker" sit-value="vm.currentItem.LocationName"
+                      sit-validation="{required: true}" sit-read-only="false" ng-click="vm.selectClick2()">
+            {{'Siemens.SimaticIT.PlanApp.PurchaseManage.in.Tips_14'|translate}}
+        </sit-property>
+
+        <sit-property sit-widget="sit-select" sit-value="vm.IsMergeBatch.value" sit-validation="{required: false}"
+                      sit-options="vm.IsMergeBatch.options" sit-to-display="'ItemName'" sit-to-keep="'ItemValue'"
+                      sit-change="vm.IsMergeBatchChange" ng-show="vm.isVisible">
+            {{'Siemens.SimaticIT.PlanApp.PurchaseManage.in.Tips_15'|translate}}
+        </sit-property>
+
+        <sit-property sit-widget="sit-select" sit-value="vm.MergeBatch.value" sit-validation="{required: false}"
+                      sit-options="vm.MergeBatch.options" sit-to-display="'ItemName'" sit-to-keep="'ItemValue'"
+                      sit-change="vm.MergeBatchChange" ng-show="vm.isVisible">
+            {{'Siemens.SimaticIT.PlanApp.PurchaseManage.in.Tips_16'|translate}}
+        </sit-property>
+
+        <sit-property sit-widget="sit-datepicker" sit-value="vm.BatchDate" sit-validation="{required: false}"
+                      sit-format="'yyyy-MM-dd'" sit-read-only="false" sit-change="vm.BatchDateChange" ng-show="vm.isVisible">
+            {{'Siemens.SimaticIT.PlanApp.PurchaseManage.in.Tips_17'|translate}}
+        </sit-property>
+
+        <sit-property sit-widget="sit-numeric" sit-value="vm.currentItem.BatchCount"
+                      sit-validation="{required: true, min: 1}" sit-read-only="false">
+            批次{{'Siemens.SimaticIT.PlanApp.PurchaseManage.in.Tips_12'|translate}}
+        </sit-property>
+
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.BatchNo" sit-validation="{required: false}"
+                      sit-read-only="true" ng-show="vm.isVisible">
+            {{'Siemens.SimaticIT.PlanApp.PurchaseManage.in.Tips_19'|translate}}
+        </sit-property>
+
+        <sit-property sit-widget="sit-datepicker" sit-value="vm.PostDate" sit-format="'yyyy-MM-dd'"
+                      sit-read-only="false">
+            {{'Siemens.SimaticIT.MaterialApp.RawMaterialStock.RawMaterialStockManageout.Tips_15'|translate}}
+        </sit-property>
+
+        <sit-property sit-widget="sit-textarea" sit-value="vm.currentItem.Remark" sit-validation="{required: false}"
+                      sit-read-only="false">{{'Siemens.SimaticIT.PlanApp.PurchaseManage.in.Tips_20'|translate}}</sit-property>
+
+    </sit-property-grid>
+</div>
+<div class="upload-container">
+    <label>
+        {{'Siemens.SimaticIT.PlanApp.PurchaseManage.in.Tips_21'|translate}}
+        <div class="container">
+            <div id="content"></div>
+        </div>
+        <a href="javascript:void(0);" class="btn btn-primary upload-btn" ng-click="vm.doUpload()">
+            <i class="ace-icon fa fa-upload"></i>
+            <input id="upload" type="file" accept="" nv-file-select="" uploader="vm.uploader"
+                   multiple />{{'Siemens.SimaticIT.PlanApp.PurchaseManage.in.Tips_22'|translate}}
+        </a>
+    </label>
+    <div class="files">
+        <div class="item" ng-repeat="item in vm.fileList track by $index" ng-if="item">
+            {{item.name}}
+            <i class="fa fa-times-circle remove" aria-hidden="true" ng-click="vm.deleteFile(item.path)"></i>
+        </div>
+    </div>
+</div>

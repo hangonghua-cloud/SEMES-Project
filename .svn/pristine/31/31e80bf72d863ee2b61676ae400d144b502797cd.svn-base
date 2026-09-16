@@ -1,0 +1,19 @@
+﻿{
+  "name": "Siemens.SimaticIT.ProductionApp.WorkOrderBatch",
+  "type": "standard",
+  "title": "Siemens.SimaticIT.ProductionApp.WorkOrderBatch.Title",
+  "header": "",
+  "icon": "fa-folder",
+  "functionalBlock": "Siemens.SimaticIT.ProductionApp",
+  "dependencies": [],
+  "states": [
+    {
+      "id": "home.Siemens_SimaticIT_ProductionApp_WorkOrderBatch_WorkOrderBatch",
+      "title": "Siemens.SimaticIT.ProductionApp.WorkOrderBatch.Title",
+      "header": "",
+      "securable": true,
+      "roles": []
+    }
+  ],
+  "manifestVersion": "01.01.00"
+}

@@ -1,0 +1,37 @@
+﻿<div class="command-bar-side-panel">
+    <button ng-click="vm.cancel()" class="btn side-panel-button">{{'Siemens.SimaticIT.SystemApp.Persons.Personsadd.Tips_1'|translate}}</button>
+    <button ng-click="vm.save()" class="btn side-panel-button" ng-show="vm.validInputs">{{'Siemens.SimaticIT.SystemApp.Persons.Personsadd.Tips_2'|translate}}</button>
+</div>
+<div class="side-panel-property-area-body">
+    <sit-property-grid sit-id="add_form" sit-layout="Horizontal" sit-type="Fixed" sit-mode="edit" sit-columns="2">
+        <!-- TODO: Put here the properties of the entity managed by the service -->
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.Code" width:200 sit-validation="{required: true}"
+                      sit-read-only="false">{{'Siemens.SimaticIT.SystemApp.Persons.Personsadd.Tips_3'|translate}}</sit-property>
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.Name" width:200 sit-validation="{required: true}"
+                      sit-read-only="false">{{'Siemens.SimaticIT.SystemApp.Persons.Personsadd.Tips_4'|translate}}</sit-property>
+        <sit-property sit-widget="sit-select" sit-read-only="false" sit-options="vm.typeSexSelect.options"
+                      sit-validation="{required: true}" sit-to-keep="'ItemValue'" sit-value="vm.typeSexSelect.selectedOption"
+                      sit-to-display="'ItemName'">{{'Siemens.SimaticIT.SystemApp.Persons.Personsadd.Tips_5'|translate}}</sit-property>
+        <!-- <sit-property sit-widget="sit-text" sit-value="vm.currentItem.CertificateCode" width:200
+                      sit-validation="{required: false}"
+                      sit-read-only="false">{{'Siemens.SimaticIT.SystemApp.Persons.Personsadd.Tips_6'|translate}}</sit-property> -->
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.MobilePhone" width:200
+                      sit-validation="{required: false}" sit-read-only="false">{{'Siemens.SimaticIT.SystemApp.Persons.Personsadd.Tips_7'|translate}}</sit-property>
+        <sit-property sit-widget="sit-select" sit-read-only="false" sit-options="vm.typeDeptSelect.options"
+                      sit-validation="{required: true}" sit-to-keep="'ItemValue'" sit-value="vm.typeDeptSelect.selectedOption"
+                      sit-to-display="'ItemName'">{{'Siemens.SimaticIT.SystemApp.Persons.Personsadd.Tips_8'|translate}}</sit-property>
+        <sit-property sit-widget="sit-select" sit-read-only="false" sit-options="vm.typePositionSelect.options"
+                      sit-validation="{required: true}" sit-to-keep="'ItemValue'" sit-value="vm.typePositionSelect.selectedOption"
+                      sit-to-display="'ItemName'">{{'Siemens.SimaticIT.SystemApp.Persons.Personsadd.Tips_9'|translate}}</sit-property>
+        <sit-property sit-widget="sit-alp-select-picker" sit-value="vm.currentItem.FactoryName"
+                      sit-validation="{required: true}" sit-options="vm.typeFactory.options"
+                      sit-to-display="'ResourceName'" sit-to-keep="'ResourceCode'" sit-change="vm.typeFactoryChange">
+            {{'Siemens.SimaticIT.SystemApp.Persons.Personsadd.Tips_10'|translate}}
+        </sit-property>
+        <!-- <sit-property sit-id="mySelect" sit-widget="sit-multi-select" sit-selected-string="vm.typeFactory.value"
+            sit-options="vm.typeFactory.options" sit-split-list="'true'" sit-read-only="false">{{'Siemens.SimaticIT.SystemApp.Persons.Personsadd.Tips_11'|translate}}</sit-property> -->
+
+        <sit-property sit-widget="sit-checkbox" sit-value="vm.IsEnabled" sit-validation="{required: false}"
+                      ng-show="true">{{'Siemens.SimaticIT.SystemApp.Persons.Personsadd.Tips_12'|translate}}</sit-property>
+    </sit-property-grid>
+</div>

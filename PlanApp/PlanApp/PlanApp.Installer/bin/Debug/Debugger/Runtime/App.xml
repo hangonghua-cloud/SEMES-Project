@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Items>
+  <App Id="a1e34816-182a-4552-99f7-4c7351f9153f">
+    <Version>01.00.00</Version>
+    <Author>Siemens.SimaticIT</Author>
+    <CompanyName>Siemens.SimaticIT</CompanyName>
+    <Name>Siemens.SimaticIT.BaseDataApp</Name>
+    <ShortName>BaseDataApp</ShortName>
+    <Solution>448450b5-6b52-ec11-9663-c14b9740f55b</Solution>
+    <SystemAppLabel>Undefined</SystemAppLabel>
+    <IsSystemEntity>false</IsSystemEntity>
+  </App>
+  <App Id="e44db3f8-6feb-441f-9f10-04a79cd73f02">
+    <Version>04.00.00</Version>
+    <Author>Siemens.SimaticIT</Author>
+    <CompanyName>Siemens.SimaticIT</CompanyName>
+    <Name>Siemens.SimaticIT.BasicDataManageFBApp</Name>
+    <ShortName>BasicDataManageFBApp</ShortName>
+    <Solution>448450b5-6b52-ec11-9663-c14b9740f55b</Solution>
+    <SystemAppLabel>Undefined</SystemAppLabel>
+    <IsSystemEntity>false</IsSystemEntity>
+  </App>
+  <App Id="be29a523-b672-4073-a1ee-7154c56b8f3d">
+    <Version>01.00.00</Version>
+    <Author>Siemens.SimaticIT</Author>
+    <CompanyName>Siemens.SimaticIT</CompanyName>
+    <Name>Siemens.SimaticIT.PlanApp</Name>
+    <ShortName>PlanApp</ShortName>
+    <Solution>448450b5-6b52-ec11-9663-c14b9740f55b</Solution>
+    <SystemAppLabel>Undefined</SystemAppLabel>
+    <IsSystemEntity>false</IsSystemEntity>
+  </App>
+  <App Id="dfbf1c94-9d51-48ca-9506-59387d4e6936">
+    <Version>01.00.00</Version>
+    <Author>Siemens.SimaticIT</Author>
+    <CompanyName>Siemens.SimaticIT</CompanyName>
+    <Name>Siemens.SimaticIT.ProductionApp</Name>
+    <ShortName>ProductionApp</ShortName>
+    <Solution>448450b5-6b52-ec11-9663-c14b9740f55b</Solution>
+    <SystemAppLabel>Undefined</SystemAppLabel>
+    <IsSystemEntity>false</IsSystemEntity>
+  </App>
+  <App Id="843a8640-1ac3-4a40-b243-5f88dc5027fa">
+    <Version>01.00.00</Version>
+    <Author>Siemens.SimaticIT</Author>
+    <CompanyName>Siemens.SimaticIT</CompanyName>
+    <Name>Siemens.SimaticIT.QualityApp</Name>
+    <ShortName>QualityApp</ShortName>
+    <Solution>448450b5-6b52-ec11-9663-c14b9740f55b</Solution>
+    <SystemAppLabel>Undefined</SystemAppLabel>
+    <IsSystemEntity>false</IsSystemEntity>
+  </App>
+  <App Id="91c76733-4530-4863-b0eb-a5cb0c3aa86c">
+    <Version>01.00.00</Version>
+    <Author>Siemens.SimaticIT</Author>
+    <CompanyName>Siemens.SimaticIT</CompanyName>
+    <Name>Siemens.SimaticIT.SystemApp</Name>
+    <ShortName>SystemApp</ShortName>
+    <Solution>448450b5-6b52-ec11-9663-c14b9740f55b</Solution>
+    <SystemAppLabel>Undefined</SystemAppLabel>
+    <IsSystemEntity>false</IsSystemEntity>
+  </App>
+  <App Id="72123ce0-6bf8-4245-83dd-cdf779609086">
+    <Version>01.00.00</Version>
+    <Author>Siemens.SimaticIT</Author>
+    <CompanyName>Siemens.SimaticIT</CompanyName>
+    <Name>Siemens.SimaticIT.ButtonAuthFBApp</Name>
+    <ShortName>ButtonAuthFBApp</ShortName>
+    <Solution>448450b5-6b52-ec11-9663-c14b9740f55b</Solution>
+    <SystemAppLabel>Undefined</SystemAppLabel>
+    <IsSystemEntity>false</IsSystemEntity>
+  </App>
+  <App Id="72bdc30e-b9f5-40a3-886b-7a4f27b49f42">
+    <Version>01.06.00</Version>
+    <Author>Siemens.SimaticIT</Author>
+    <CompanyName>Siemens.SimaticIT</CompanyName>
+    <Name>Siemens.SimaticIT.System</Name>
+    <ShortName>System</ShortName>
+    <Solution>448450b5-6b52-ec11-9663-c14b9740f55b</Solution>
+    <SystemAppLabel>System</SystemAppLabel>
+    <IsSystemEntity>false</IsSystemEntity>
+  </App>
+  <App Id="6020b229-5ded-43c1-9e60-66ce9cfc1233">
+    <Version>01.00.00</Version>
+    <Author>CCS</Author>
+    <CompanyName>CCS</CompanyName>
+    <Name>CCS.CommonApp</Name>
+    <ShortName>CommonApp</ShortName>
+    <Solution>448450b5-6b52-ec11-9663-c14b9740f55b</Solution>
+    <SystemAppLabel>Undefined</SystemAppLabel>
+    <IsSystemEntity>false</IsSystemEntity>
+  </App>
+  <App Id="aad32beb-654d-436f-a76a-7ddb62c27b9d">
+    <Version>01.00.00</Version>
+    <Author>Siemens.SimaticIT</Author>
+    <CompanyName>Siemens.SimaticIT</CompanyName>
+    <Name>Siemens.SimaticIT.EquipmentApp</Name>
+    <ShortName>EquipmentApp</ShortName>
+    <Solution>448450b5-6b52-ec11-9663-c14b9740f55b</Solution>
+    <SystemAppLabel>Undefined</SystemAppLabel>
+    <IsSystemEntity>false</IsSystemEntity>
+  </App>
+  <App Id="46570efd-acf3-464f-ba7f-f9ea36abc2b9">
+    <Version>01.00.00</Version>
+    <Author>Siemens.SimaticIT</Author>
+    <CompanyName>Siemens.SimaticIT</CompanyName>
+    <Name>Siemens.SimaticIT.FactoryModelApp</Name>
+    <ShortName>FactoryModelApp</ShortName>
+    <Solution>448450b5-6b52-ec11-9663-c14b9740f55b</Solution>
+    <SystemAppLabel>Undefined</SystemAppLabel>
+    <IsSystemEntity>false</IsSystemEntity>
+  </App>
+  <App Id="6cc95896-f8d2-46c7-a825-4fe35d239605">
+    <Version>01.00.00</Version>
+    <Author>Siemens.SimaticIT</Author>
+    <CompanyName>Siemens.SimaticIT</CompanyName>
+    <Name>Siemens.SimaticIT.MaterialApp</Name>
+    <ShortName>MaterialApp</ShortName>
+    <Solution>448450b5-6b52-ec11-9663-c14b9740f55b</Solution>
+    <SystemAppLabel>Undefined</SystemAppLabel>
+    <IsSystemEntity>false</IsSystemEntity>
+  </App>
+  <App Id="ba05468a-33e0-45b2-a2d8-a04a778522c5">
+    <Version>02.03.00</Version>
+    <Author>Siemens.SimaticIT</Author>
+    <CompanyName>Siemens.SimaticIT</CompanyName>
+    <Name>Siemens.SimaticIT.Personnel</Name>
+    <ShortName>Personnel</ShortName>
+    <Solution>448450b5-6b52-ec11-9663-c14b9740f55b</Solution>
+    <SystemAppLabel>Undefined</SystemAppLabel>
+    <IsSystemEntity>false</IsSystemEntity>
+  </App>
+</Items>

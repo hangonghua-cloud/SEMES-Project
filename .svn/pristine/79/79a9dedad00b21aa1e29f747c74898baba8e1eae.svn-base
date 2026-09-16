@@ -1,0 +1,394 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+ 
+namespace ALP.Application.Entity.PlanManage
+{
+    /// <summary>
+    /// 1.创建日期: 2021-07-27
+    /// 2.创建作者: liyongguo
+    /// 3.功能描述: PL_WorkOrder实体
+    /// 4.任务编号: 生产工单表
+    /// 5.最后修改日期: 
+    /// 6.最后修改作者: 
+    /// </summary>
+    [Serializable]
+    public class PL_WorkOrderEntity : BaseEntity
+    { 
+        #region 表: PL_WorkOrder 实体类: PL_WorkOrder 
+ 
+        /// <summary>
+        /// Id
+        /// </summary>
+        public string Id {get; set; }
+ 
+        /// <summary>
+        /// 工厂编码
+        /// </summary>
+        public string FactoryCode {get; set; }
+        /// <summary>
+        /// 工厂名称
+        /// </summary>
+        public string FactoryName { get; set; }
+        /// <summary>
+        /// 订单编码
+        /// </summary>
+        public string ProductOrder {get; set; }
+ 
+        /// <summary>
+        /// 工单号
+        /// </summary>
+        public string WorkOrder {get; set; }
+ 
+        /// <summary>
+        /// 客户PO号
+        /// </summary>
+        public string CustomerPO {get; set; }
+ 
+        /// <summary>
+        /// 柜号
+        /// </summary>
+        public string ContainerNO {get; set; }
+ 
+        /// <summary>
+        /// 工单状态 1：创建 2：审核 3：发布 4：已发料 5：生产中 6：已完成 7：订单取消 8：工单报废 20：包装中 30：待包装 40：冻结 9：SAP结案
+        /// </summary>
+        public string OrderStatus {get; set; }
+        /// <summary>
+        /// 工单类型
+        /// </summary>
+        public string WorkOrderType { get; set; }
+        /// <summary>
+        /// PO号状态
+        /// </summary>
+        public string POStatus {get; set; }
+ 
+        /// <summary>
+        /// 物料编码
+        /// </summary>
+        public string MaterialCode {get; set; }
+ 
+        /// <summary>
+        /// 下单总片数
+        /// </summary>
+        public decimal? OrderPieces {get; set; }
+ 
+        /// <summary>
+        /// 下单总盒数
+        /// </summary>
+        public decimal? OrderBox {get; set; }
+ 
+        /// <summary>
+        /// 下单总托数
+        /// </summary>
+        public decimal? OrderPallet {get; set; }
+
+        /// <summary>
+        /// 下单结束托号
+        /// </summary>
+        [NotMapped]
+        public decimal? newOrderPallet { get; set; }
+
+        /// <summary>
+        /// 下单起始托号
+        /// </summary>
+        public decimal? OrderStartPallet {get; set; }
+
+        /// <summary>
+        /// 下单整柜总托数
+        /// </summary>
+        public decimal? OrderWholePallet { get; set; }
+
+        /// <summary>
+        /// 发货总片数
+        /// </summary>
+        public decimal? DeliveryPieces {get; set; }
+ 
+        /// <summary>
+        /// 发货总盒数
+        /// </summary>
+        public decimal? DeliveryBox {get; set; }
+ 
+        /// <summary>
+        /// 发货总托数
+        /// </summary>
+        public decimal? DeliveryPallet {get; set; }
+        /// <summary>
+        /// 唛头单托片数
+        /// </summary>
+        public decimal? PerPalletPieceQty { get; set; }
+        /// <summary>
+        /// 唛头单托盒数
+        /// </summary>
+        public decimal? PerPalletBoxQty { get; set; }
+
+        /// <summary>
+        /// 发货起始托号
+        /// </summary>
+        public decimal? DeliveryStartPallet {get; set; }
+
+        /// <summary>
+        /// 发货整柜总托数
+        /// </summary>
+        public decimal? DeliveryWholePallet { get; set; }
+
+        /// <summary>
+        /// 总张数
+        /// </summary>
+        public decimal? TotalSheets {get; set; }
+ 
+        /// <summary>
+        /// 良率
+        /// </summary>
+        public decimal? Yield {get; set; }
+ 
+        /// <summary>
+        /// 放量张数
+        /// </summary>
+        public decimal? ActualSheets {get; set; }
+ 
+        /// <summary>
+        /// 工艺路线
+        /// </summary>
+        public string Process {get; set; }
+ 
+        /// <summary>
+        /// 起始工序
+        /// </summary>
+        public string StartOperation {get; set; }
+ 
+        /// <summary>
+        /// 流转方式
+        /// </summary>
+        public string TransferBy {get; set; }
+ 
+        /// <summary>
+        /// 质量首检确认
+        /// </summary>
+        public bool? FirstInspectionConfirm {get; set; }
+
+        /// <summary>
+        /// 质量首检工序
+        /// </summary>
+        public string FirstInspectionOperation { get; set; }
+
+        /// <summary>
+        /// 免产标志
+        /// </summary>
+        public bool? AvoidProduce {get; set; }
+ 
+        /// <summary>
+        /// 冻结标记
+        /// </summary>
+        public bool? FreezeFlag {get; set; }
+ 
+        /// <summary>
+        /// 有效标记
+        /// </summary>
+        public bool? IsEnabled { get; set; }
+ 
+        /// <summary>
+        /// 要料状态
+        /// </summary>
+        public bool? DemandMaterial {get; set; }
+ 
+        /// <summary>
+        /// 创建人
+        /// </summary>
+        public string Creator {get; set; }
+ 
+        /// <summary>
+        /// 创建时间
+        /// </summary>
+        public DateTime? CreateTime {get; set; }
+ 
+        /// <summary>
+        /// 最后修改人
+        /// </summary>
+        public string ModifyBy {get; set; }
+ 
+        /// <summary>
+        /// 最后修改时间
+        /// </summary>
+        public DateTime? ModifyTime {get; set; }
+        /// <summary>
+        /// 备注
+        /// </summary>
+        public string Remark { get; set; }
+
+        /// <summary>
+        /// 交货日期
+        /// </summary>
+        public DateTime? GiveTime { get; set; }
+        /// <summary>
+        /// 包装托盘数
+        /// </summary>
+      
+        public string PackPalletNum { get; set; }
+        /// <summary>
+        /// 出口类型
+        /// </summary>
+        [NotMapped]
+        public string OrderType { get; set; }
+
+        /// <summary>
+        /// 柜数
+        /// </summary>
+        public decimal? OrderPiecesNum { get; set; }
+
+        /// <summary>
+        /// 柜总片数
+        /// </summary>
+        public decimal? OrderPiecesAll { get; set; }
+        /// <summary>
+        /// 包装状态 1：未包装 2：包装中 3：已完成
+        /// </summary>
+        public string PackingStatus { get; set; }
+        /// <summary>
+        /// 包装开始时间
+        /// </summary>
+        public DateTime? PackingStartTime { get; set; }
+        /// <summary>
+        /// 包装完成时间
+        /// </summary>
+        public DateTime? PackingEndTime { get; set; }
+        /// <summary>
+        /// 面膜型号 jpf 2022-11-17 add
+        /// </summary>
+        public string MMXH { get; set; }
+        /// <summary>
+        /// 规格 jpf 2022-11-17 add
+        /// </summary>
+        public string Spec { get; set; }
+        /// <summary>
+        /// UV jpf  2022-11-17 add
+        /// </summary>
+        public string UV { get; set; }
+        /// <summary>
+        /// 口型 202211-17 jpf add
+        /// </summary>
+        public string KCKX { get; set; }
+        /// <summary>
+        ///工单类型
+        /// </summary>
+        public bool? IsVC { get; set; }
+        /// <summary>
+        /// 合批工单号
+        /// </summary>
+        public string BatchWorkOrder { get; set; }
+        /// <summary>
+        /// 合批状态 0或NULL 未合批 1：合批 2：被合批
+        /// </summary>
+        public int? BatchStatus { get; set; }
+        /// <summary>
+        /// 发布人编码
+        /// </summary>
+        public string ReleaseBy { get; set; }
+        /// <summary>
+        /// 发布人名称
+        /// </summary>
+        public string ReleaseName { get; set; }
+
+        public DateTime? ReleaseTime { get; set; }
+        /// <summary>
+        /// 港口
+        /// </summary>
+        public string Harbour { get; set; }
+        /// <summary>
+        /// 派工状态
+        /// </summary>
+        public string AssignStatus { get; set; }
+        /// <summary>
+        /// 纸盒日期
+        /// </summary>
+        public DateTime? BoxDate { get; set; } 
+        /// <summary>
+        /// 唛头编码
+        /// </summary>
+        [NotMapped]
+        public string MTBM { get; set; }
+
+
+
+        /// <summary>
+        /// 板纹
+        /// </summary>
+        [NotMapped]
+        public string BW { get; set; }
+
+        /// <summary>
+        /// 是否过账 1：已过账
+        /// </summary>
+        public string IsPosted { get; set; }
+        /// <summary>
+        /// 过账消息
+        /// </summary>
+        public string PostedMsg { get; set; }
+        /// <summary>
+        /// 过账时间
+        /// </summary>
+        public DateTime? PostedTime { get; set; }
+        /// <summary>
+        /// 过账人员
+        /// </summary>
+        public string PostedUser { get; set; }
+        /// <summary>
+        /// SAP工单号
+        /// </summary>
+        public string SAP_AUFNR { get; set; }
+        /// <summary>
+        /// 订单行号
+        /// </summary>
+        public string Orderline { get; set; }
+
+        /// <summary>
+        /// 是否修改，作为SAP传的标识
+        /// </summary>
+        [NotMapped]
+        public string isUpdate { get; set; }
+
+        /// <summary>
+        /// 更新是否过账 1：已过账
+        /// </summary>
+        public string Update_IsPosted { get; set; }
+        /// <summary>
+        /// 更新过账消息
+        /// </summary>
+        public string Update_PostedMsg { get; set; }
+        /// <summary>
+        /// 更新过账时间
+        /// </summary>
+        public DateTime? Update_PostedTime { get; set; }
+        /// <summary>
+        /// 更新过账人员
+        /// </summary>
+        public string Update_PostedUser { get; set; }
+        /// <summary>
+        /// 订单关闭
+        /// </summary>
+        public string OrderClosed { get; set; }
+
+        #region 扩展操作
+        /// <summary>
+        /// 新增调用
+        /// </summary>
+        public override void Create()
+        {
+            this.Id = Guid.NewGuid().ToString();
+        }
+        /// <summary>
+        /// 编辑调用
+        /// </summary>
+        /// <param name="keyValue"></param>
+        public override void Modify(string keyValue)
+        {
+            this.Id = keyValue;
+        }
+        #endregion--
+ 
+        #endregion
+    }
+}

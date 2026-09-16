@@ -1,0 +1,89 @@
+﻿<style>
+    .MainCommandActionButton {
+        margin-top: 20px !important;
+    }
+
+    .ui-grid-disable-selection {
+        -moz-user-select: text;
+        -webkit-user-select: text;
+        -ms-user-select: text;
+        user-select: text;
+    }
+
+    .green {
+        color: rgb(38, 228, 31)
+    }
+
+    .red {
+        color: red
+    }
+</style>
+<div id="itemlist" class="content-area content-area-relative" style="height: calc(93% - 30px) !important">
+    <!--查询条件与功能按钮-->
+    <div class="col-md-40" style="margin-left: 15px;">
+        <div class="side-panel-property-area-body">
+            <sit-property-grid sit-id="add_form" sit-layout="Horizontal" sit-type="Fixed" sit-mode="edit"
+                               sit-columns="8">
+                <sit-property sit-widget="sit-select" sit-value="vm.typeFactory.value"
+                              sit-options="vm.typeFactory.options" sit-to-display="'ResourceName'" sit-to-keep="'ResourceCode'">
+                    {{'Siemens.SimaticIT.QualityApp.OQCManage.OQCCheckConfiglist.Tips_1'|translate}}
+                </sit-property>
+                <sit-property sit-widget="sit-text" sit-value="vm.searchParams.TestMethodCoading" sit-read-only="false"
+                              style="max-width:300px;">{{'Siemens.SimaticIT.QualityApp.OQCManage.OQCCheckConfiglist.Tips_2'|translate}}</sit-property>
+                <sit-property sit-widget="sit-text" sit-value="vm.searchParams.TestMethodName" sit-read-only="false"
+                              style="max-width:300px;">{{'Siemens.SimaticIT.QualityApp.OQCManage.OQCCheckConfiglist.Tips_3'|translate}}</sit-property>
+                <sit-property sit-widget="sit-select" sit-read-only="false" sit-options="vm.typeEnabled.options"
+                              sit-validation="{required: false}" sit-to-keep="'ItemValue'" sit-value="vm.typeEnabled.value"
+                              sit-to-display="'ItemName'">{{'Siemens.SimaticIT.QualityApp.OQCManage.OQCCheckConfiglist.Tips_4'|translate}}</sit-property>
+                <sit-command-bar sit-type="action">
+                    <sit-command sit-icon="fa-search" sit-type="main" sit-name="com.siemens.customcommand.search"
+                                 :sit-tooltip="{{'Siemens.SimaticIT.QualityApp.OQCManage.OQCCheckConfiglist.Tips_5'|translate}}" ng-click="vm.searchButtonHandler" :sit-label="{{'Siemens.SimaticIT.QualityApp.OQCManage.OQCCheckConfiglist.Tips_5'|translate}}">
+                    </sit-command>
+                </sit-command-bar>
+            </sit-property-grid>
+        </div>
+    </div>
+    <!--右侧功能按钮-->
+    <sit-command-bar sit-vertical-autofixed="true" sit-type="Tool" :sit-label-align="right" sit-layout="vertical">
+
+        <sit-command sit-icon="fa-plus-square " sit-name="com.siemens.customcommand.add" ng-click="vm.add3ButtonHandler"
+                     :sit-tooltip="{{'Siemens.SimaticIT.QualityApp.OQCManage.OQCCheckConfiglist.Tips_6'|translate}}" :sit-label="{{'Siemens.SimaticIT.QualityApp.OQCManage.OQCCheckConfiglist.Tips_6'|translate}}" ng-show="vm.isShowProcessVisible" sit-type="main"></sit-command>
+
+        <sit-command sit-icon="fa-trash-o" sit-name="com.siemens.customcommand.delete" :sit-tooltip="{{'Siemens.SimaticIT.QualityApp.OQCManage.OQCCheckConfiglist.Tips_7'|translate}}"
+                     ng-click="vm.delete2ButtonHandler" :sit-label="{{'Siemens.SimaticIT.QualityApp.OQCManage.OQCCheckConfiglist.Tips_7'|translate}}" ng-show="vm.isDetailButtonVisible" sit-type="main">
+        </sit-command>
+        <sit-command sit-icon="fa-pencil-square-o " sit-name="com.siemens.customcommand.edit" :sit-tooltip="{{'Siemens.SimaticIT.QualityApp.OQCManage.OQCCheckConfiglist.Tips_8'|translate}}"
+                     ng-click="vm.edit2ButtonHandler" :sit-label="{{'Siemens.SimaticIT.QualityApp.OQCManage.OQCCheckConfiglist.Tips_8'|translate}}" ng-show="vm.isDetailButtonVisible" sit-type="main">
+        </sit-command>
+        <sit-command sit-icon="fa-plus-square-o " sit-name="com.siemens.customcommand.add"
+                     ng-click="vm.add2ButtonHandler" :sit-tooltip="{{'Siemens.SimaticIT.QualityApp.OQCManage.OQCCheckConfiglist.Tips_9'|translate}}" :sit-label="{{'Siemens.SimaticIT.QualityApp.OQCManage.OQCCheckConfiglist.Tips_9'|translate}}" ng-show="vm.isShowDetailVisible"
+                     sit-type="main"></sit-command>
+        <sit-command sit-icon="fa-trash" sit-name="com.siemens.customcommand.delete" :sit-tooltip="{{'Siemens.SimaticIT.QualityApp.OQCManage.OQCCheckConfiglist.Tips_10'|translate}}"
+                     ng-click="vm.deleteButtonHandler" :sit-label="{{'Siemens.SimaticIT.QualityApp.OQCManage.OQCCheckConfiglist.Tips_10'|translate}}" ng-show="vm.isButtonVisible"></sit-command>
+        <sit-command sit-icon="fa-pencil" sit-name="com.siemens.customcommand.edit" :sit-tooltip="{{'Siemens.SimaticIT.QualityApp.OQCManage.OQCCheckConfiglist.Tips_11'|translate}}"
+                     ng-click="vm.editButtonHandler" :sit-label="{{'Siemens.SimaticIT.QualityApp.OQCManage.OQCCheckConfiglist.Tips_11'|translate}}" ng-show="vm.isButtonVisible"></sit-command>
+        <sit-command sit-icon="fa-plus" sit-name="com.siemens.customcommand.add" ng-click="vm.addButtonHandler"
+                     :sit-tooltip="{{'Siemens.SimaticIT.QualityApp.OQCManage.OQCCheckConfiglist.Tips_12'|translate}}" :sit-label="{{'Siemens.SimaticIT.QualityApp.OQCManage.OQCCheckConfiglist.Tips_12'|translate}}" sit-type="main"></sit-command>
+    </sit-command-bar>
+    <!-- grid列表 -->
+    <div id="listClass" style="width:100%; height: 40%; padding:0px 16px 0 16px; margin-top: 20px;">
+        <div ui-grid="vm.gridOptions" ui-grid-pinning ui-grid-auto-resize ui-grid-resize-columns ui-grid-selection
+             ui-grid-pagination class="uigrid"></div>
+    </div>
+
+    <div id="listClass2" class="col-md-40" style="width:100%; height: 56%; padding:0px 16px 0 16px; margin-top: 3px;">
+        <sit-tabset>
+            <sit-tab heading="{{'Siemens.SimaticIT.QualityApp.OQCManage.OQCCheckConfiglist.Tips_13'|translate}}" style="background-color: #204d74" select="vm.tabClick1()">
+                <div ui-grid="vm.gridOptionsDetail" ui-grid-pinning ui-grid-auto-resize ui-grid-selection
+                     ui-grid-pagination class="uigrid" style="height:98%"></div>
+                <!-- <div ui-grid="vm.gridPersonOptions" ui-grid-pinning ui-grid-auto-resize ui-grid-resize-columns ui-grid-selection ui-grid-pagination class="uigrid" style="height:99%"></div> -->
+            </sit-tab>
+            <sit-tab heading="{{'Siemens.SimaticIT.QualityApp.OQCManage.OQCCheckConfiglist.Tips_14'|translate}}" style="background-color: #204d74" select="vm.tabClick2()">
+                <div ui-grid="vm.gridOptionsProcess" ui-grid-pinning ui-grid-auto-resize ui-grid-selection
+                     ui-grid-pagination class="uigrid" style="height:98%"></div>
+                <!-- <div ui-grid="vm.gridOptionsDetail" ui-grid-pinning ui-grid-auto-resize ui-grid-selection ui-grid-pagination class="uigrid" style="height:99%"></div> -->
+            </sit-tab>
+
+        </sit-tabset>
+    </div>
+</div>

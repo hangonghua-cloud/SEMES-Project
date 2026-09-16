@@ -1,0 +1,10 @@
+MES->SAP接口调用时间: 2026/4/16 15:18:55,请求参数：{"RSQ_DATA":{"IT_HEAD":[{"AUFNR":"20000012","APRIO":null}]},"HEAD":{"INIF_ID":"IF128","MSG_ID":"123","SRC_SYSTEM":"MES","DEST_SYSTEMP":"SAP","SEND_TIME":"20260416","SAP_MSGID":"123"}};
+MES->SAP接口返回时间: 2026/4/16 15:21:13,返回参数：<HTML><HEAD>
+<TITLE>500 SAP Internal Server Error</TITLE>
+</HEAD><BODY>
+<H1>500 SAP Internal Server Error</H1>
+ERROR: Field symbol has not been assigned yet. (termination: RABAX_STATE)<P>
+</BODY></HTML>
+
+;
+MES->SAP接口调用时间: 2026/4/16 15:22:20,返回异常：过账异常：Unexpected character encountered while parsing value: <. Path '', line 0, position 0.;

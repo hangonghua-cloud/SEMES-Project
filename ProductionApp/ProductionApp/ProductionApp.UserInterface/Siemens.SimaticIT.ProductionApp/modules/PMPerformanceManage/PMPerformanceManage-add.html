@@ -1,0 +1,53 @@
+<style>
+    .row {
+        padding: 5px;
+        margin-top: 10px;
+    }
+</style>
+<div class="command-bar-side-panel">
+    <button ng-click="vm.cancel()" class="btn side-panel-button">{{'Siemens.SimaticIT.ProductionApp.PMPerformanceManage.add.Tips_1'|translate}}</button>
+    <button ng-click="vm.save()" class="btn side-panel-button" ng-show="vm.validInputs">{{'Siemens.SimaticIT.ProductionApp.PMPerformanceManage.add.Tips_2'|translate}}</button>
+</div>
+<div class="side-panel-property-area-body">
+    <sit-property-grid sit-id="add_form" sit-layout="Horizontal" sit-type="Fixed" sit-mode="edit" sit-columns="2">
+        <sit-property sit-widget="sit-select" sit-value="vm.typeFactory.value" sit-options="vm.typeFactory.options"
+                      sit-to-display="'ResourceName'" sit-to-keep="'ResourceCode'" sit-change="vm.typeFactoryChange"
+                      sit-validation="{required: true}">
+            {{'Siemens.SimaticIT.ProductionApp.PMPerformanceManage.add.Tips_3'|translate}}
+        </sit-property>
+        <sit-property sit-widget="sit-select" sit-value="vm.typeWorkShop.value" sit-options="vm.typeWorkShop.options"
+                      sit-to-display="'ResourceName'" sit-to-keep="'ResourceCode'" sit-change="vm.typeWorkShopChange"
+                      sit-validation="{required: true}">
+            {{'Siemens.SimaticIT.ProductionApp.PMPerformanceManage.add.Tips_4'|translate}}
+        </sit-property>
+        <sit-property sit-widget="sit-select" sit-value="vm.typeProcess.value" sit-options="vm.typeProcess.options"
+                      sit-to-display="'ResourceName'" sit-to-keep="'ResourceCode'" sit-change="vm.typeProcessChange"
+                      sit-validation="{required: true}">
+            {{'Siemens.SimaticIT.ProductionApp.PMPerformanceManage.add.Tips_5'|translate}}
+        </sit-property>
+        <sit-property sit-widget="sit-select" sit-value="vm.typePost.value" sit-options="vm.typePost.options"
+                      sit-to-display="'Col2'" sit-to-keep="'Col1'" sit-validation="{required: true}" sit-read-only="false">
+            {{'Siemens.SimaticIT.ProductionApp.PMPerformanceManage.add.Tips_6'|translate}}
+        </sit-property>
+
+        <sit-property sit-widget="sit-entity-picker" sit-id="vm.UserConfig.id" sit-datasource="vm.UserConfig.datasource"
+                      sit-limit="vm.UserConfig.limit" sit-placeholder="vm.UserConfig.placeholder"
+                      sit-selected-attribute-to-display="vm.UserConfig.attributetodisplay"
+                      sit-selected-object="vm.UserConfig.selectedObject" sit-wait-ms="vm.UserConfig.waitTime"
+                      sit-editable="vm.UserConfig.editable" sit-validation="vm.UserConfig.validation"
+                      sit-change="vm.UserConfig.changeEvent" ng-disabled="vm.UserConfig.disableEP"
+                      ng-readonly="vm.UserConfig.readOnly" sit-required="vm.UserConfig.required">{{'Siemens.SimaticIT.ProductionApp.PMPerformanceManage.add.Tips_7'|translate}}</sit-property>
+
+        <sit-property sit-widget="sit-datepicker" sit-value="vm.PayrollDate" sit-validation="{required: true}"
+                      sit-widget-attributes="{'sit-format':'yyyy-MM-dd','sit-show-meridian':'false'}" sit-read-only="false">
+            {{'Siemens.SimaticIT.ProductionApp.PMPerformanceManage.add.Tips_8'|translate}}
+        </sit-property>
+        <sit-property sit-widget="sit-numeric" sit-value="vm.currentItem.Salary" sit-validation="{required: true}"
+                      sit-read-only="false">{{'Siemens.SimaticIT.ProductionApp.PMPerformanceManage.add.Tips_9'|translate}}</sit-property>
+        <sit-property sit-widget="sit-textarea" sit-value="vm.currentItem.Description"
+                      sit-validation="{required: false}" sit-read-only="false">{{'Siemens.SimaticIT.ProductionApp.PMPerformanceManage.add.Tips_10'|translate}}</sit-property>
+
+        <sit-property sit-widget="sit-textarea" sit-value="vm.currentItem.Remark" sit-validation="{required: false}"
+                      sit-read-only="false">{{'Siemens.SimaticIT.ProductionApp.PMPerformanceManage.add.Tips_11'|translate}}</sit-property>
+    </sit-property-grid>
+</div>

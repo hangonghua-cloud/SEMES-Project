@@ -1,0 +1,19 @@
+﻿{
+  "name": "Siemens.SimaticIT.ProductionApp.ProductionFirstInspection",
+  "type": "standard",
+  "title": "Siemens.SimaticIT.ProductionApp.ProductionFirstInspection.Title",
+  "header": "",
+  "icon": "fa-folder",
+  "functionalBlock": "Siemens.SimaticIT.ProductionApp",
+  "dependencies": [],
+  "states": [
+    {
+      "id": "home.Siemens_SimaticIT_ProductionApp_ProductionFirstInspection_ProductionFirstInspection",
+      "title": "Siemens.SimaticIT.ProductionApp.ProductionFirstInspection.Title",
+      "header": "",
+      "securable": true,
+      "roles": []
+    }
+  ],
+  "manifestVersion": "01.01.00"
+}

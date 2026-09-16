@@ -1,0 +1,531 @@
+﻿{
+  "Siemens.SimaticIT.SystemApp": {
+    "APPRole": {
+      "APPRoleadd": {
+        "Tips_1": "Cancel",
+        "Tips_2": "Save",
+        "Tips_3": "Role Code:",
+        "Tips_4": "Role Name:",
+        "Tips_5": "Is Valid:"
+      },
+      "APPRoleedit": {
+        "Tips_1": "Cancel",
+        "Tips_2": "Save",
+        "Tips_3": "Role Code:",
+        "Tips_4": "Role Name:",
+        "Tips_5": "Is Valid:"
+      },
+      "APPRolelist": {
+        "Tips_1": "Role Code:",
+        "Tips_2": "Role Name:",
+        "Tips_3": "Search",
+        "Tips_4": "Authorize",
+        "Tips_5": "Delete",
+        "Tips_6": "Edit",
+        "Tips_7": "Add"
+      },
+      "APPRoleselect": {
+        "Tips_1": "Back",
+        "Tips_2": "Save"
+      },
+      "APPRoleaddctrl": {
+        "Tips_1": "Create Role",
+        "Tips_2": "Valid",
+        "Tips_3": "Save Successful!",
+        "Tips_4": "Operation Error"
+      },
+      "APPRoleeditctrl": {
+        "Tips_1": "Edit Role Information",
+        "Tips_2": "Valid",
+        "Tips_3": "Save Successful!",
+        "Tips_4": "Operation Error"
+      },
+      "APPRolelistctrl": {
+        "Tips_1": "Serial Number",
+        "Tips_2": "Primary Key",
+        "Tips_3": "Role Code",
+        "Tips_4": "Role Name",
+        "Tips_5": "Creator",
+        "Tips_6": "Creation Date",
+        "Tips_7": "Error Retrieving Data",
+        "Tips_8": "Are you sure you want to delete the record with Code",
+        "Tips_9": "?",
+        "Tips_10": "Delete Successful!",
+        "Tips_11": "Notice",
+        "Tips_12": "APP Role Management"
+      },
+      "APPRoleselectctrl": {
+        "Tips_1": "Role Authorization",
+        "Tips_2": "Serial Number",
+        "Tips_3": "Module Name",
+        "Tips_4": "Function Code",
+        "Tips_5": "Function Name",
+        "Tips_6": "Role Code cannot be empty!",
+        "Tips_7": "Please select a function!",
+        "Tips_8": "Error Retrieving Data",
+        "Tips_9": "Save Successful!",
+        "Tips_10": "Operation Error"
+      },
+      "Title": "APP Role Management"
+    },
+    "APPRoleFunction": {
+      "APPRoleFunctionadd": {
+        "Tips_1": "Cancel",
+        "Tips_2": "Save",
+        "Tips_3": "Module Name:",
+        "Tips_4": "Function Code:",
+        "Tips_5": "Function Name:",
+        "Tips_6": "Color:",
+        "Tips_7": "Icon:",
+        "Tips_8": "Category:",
+        "Tips_9": "Sort Number:",
+        "Tips_10": "Is Valid:"
+      },
+      "APPRoleFunctionedit": {
+        "Tips_1": "Cancel",
+        "Tips_2": "Save",
+        "Tips_3": "Module Name:",
+        "Tips_4": "Function Code:",
+        "Tips_5": "Function Name:",
+        "Tips_6": "Color:",
+        "Tips_7": "Icon:",
+        "Tips_8": "Category:",
+        "Tips_9": "Sort Number:",
+        "Tips_10": "Is Valid:"
+      },
+      "APPRoleFunctionlist": {
+        "Tips_1": "Function Code:",
+        "Tips_2": "Function Name:",
+        "Tips_3": "Search",
+        "Tips_4": "Authorize",
+        "Tips_5": "Delete",
+        "Tips_6": "Edit",
+        "Tips_7": "Add"
+      },
+      "APPRoleFunctionaddctrl": {
+        "Tips_1": "Create",
+        "Tips_2": "Valid",
+        "Tips_3": "Material Module",
+        "Tips_4": "Quality Module",
+        "Tips_5": "Equipment Module",
+        "Tips_6": "Process Module",
+        "Tips_7": "Please Select",
+        "Tips_8": "Page",
+        "Tips_9": "Button",
+        "Tips_10": "Save Successful!",
+        "Tips_11": "Operation Error"
+      },
+      "APPRoleFunctioneditctrl": {
+        "Tips_1": "Edit",
+        "Tips_2": "Valid",
+        "Tips_3": "Material Module",
+        "Tips_4": "Quality Module",
+        "Tips_5": "Equipment Module",
+        "Tips_6": "Process Module",
+        "Tips_7": "Please Select",
+        "Tips_8": "Page",
+        "Tips_9": "Button",
+        "Tips_10": "Save Successful!",
+        "Tips_11": "Operation Error"
+      },
+      "APPRoleFunctionlistctrl": {
+        "Tips_1": "Serial Number",
+        "Tips_2": "Primary Key",
+        "Tips_3": "Module Code",
+        "Tips_4": "Sort Number",
+        "Tips_5": "Module Name",
+        "Tips_6": "Function Code",
+        "Tips_7": "Function Name",
+        "Tips_8": "Creator",
+        "Tips_9": "Creation Date",
+        "Tips_10": "Error Retrieving Data",
+        "Tips_11": "Are you sure you want to delete the record with Code",
+        "Tips_12": "?",
+        "Tips_13": "Delete Successful!",
+        "Tips_14": "Notice",
+        "Tips_15": "APP Role Function Management"
+      },
+      "Title": "APP Functions"
+    },
+    "AppUserInfo": {
+      "AppUserInfoadd": {
+        "Tips_1": "Cancel",
+        "Tips_2": "Save",
+        "Tips_3": "User Code:",
+        "Tips_4": "Role:",
+        "Tips_5": "Password:",
+        "Tips_6": "Confirm Password:"
+      },
+      "AppUserInfoedit": {
+        "Tips_1": "Cancel",
+        "Tips_2": "Save",
+        "Tips_3": "User Code:",
+        "Tips_4": "Role:",
+        "Tips_5": "Password:",
+        "Tips_6": "Confirm Password:"
+      },
+      "AppUserInfolist": {
+        "Tips_1": "User Code:",
+        "Tips_2": "Search",
+        "Tips_3": "Delete",
+        "Tips_4": "Edit",
+        "Tips_5": "Add"
+      },
+      "AppUserInfoaddctrl": {
+        "Tips_1": "Create User",
+        "Tips_2": "Operation Error",
+        "Tips_3": "Passwords do not match, please re-enter",
+        "Tips_4": "Save Successful!"
+      },
+      "AppUserInfoeditctrl": {
+        "Tips_1": "Edit User",
+        "Tips_2": "Passwords do not match, please re-enter",
+        "Tips_3": "Operation Error",
+        "Tips_4": "Save Successful!"
+      },
+      "AppUserInfolistctrl": {
+        "Tips_1": "Serial Number",
+        "Tips_2": "Primary Key",
+        "Tips_3": "User Code",
+        "Tips_4": "APP Role",
+        "Tips_5": "Creator",
+        "Tips_6": "Creation Date",
+        "Tips_7": "Error Retrieving Data",
+        "Tips_8": "Are you sure you want to delete the record with Code",
+        "Tips_9": "?",
+        "Tips_10": "Delete Successful!",
+        "Tips_11": "Notice",
+        "Tips_12": "APP User Management"
+      },
+      "Title": "APP User Management"
+    },
+    "Departments": {
+      "Departmentsadd": {
+        "Tips_1": "Back",
+        "Tips_2": "Save",
+        "Tips_3": "Factory:",
+        "Tips_4": "Department Code:",
+        "Tips_5": "Department Name:"
+      },
+      "Departmentsedit": {
+        "Tips_1": "Back",
+        "Tips_2": "Save",
+        "Tips_3": "Factory Name:",
+        "Tips_4": "Department Code:",
+        "Tips_5": "Department Name:"
+      },
+      "Departmentslist": {
+        "Tips_1": "Factory:",
+        "Tips_2": "Department Code:",
+        "Tips_3": "Department Name:",
+        "Tips_4": "Search",
+        "Tips_5": "Synchronize U9 Data",
+        "Tips_6": "Delete",
+        "Tips_7": "Edit",
+        "Tips_8": "Add"
+      },
+      "Departmentsaddctrl": {
+        "Tips_1": "Add",
+        "Tips_2": "--Please Select--",
+        "Tips_3": "Saving, please wait...",
+        "Tips_4": "Operation Error"
+      },
+      "Departmentseditctrl": {
+        "Tips_1": "Edit",
+        "Tips_2": "Saving, please wait...",
+        "Tips_3": "Operation Error"
+      },
+      "Departmentslistctrl": {
+        "Tips_1": "--Please Select--",
+        "Tips_2": "Serial Number",
+        "Tips_3": "Factory Name",
+        "Tips_4": "Department Code",
+        "Tips_5": "Department Name",
+        "Tips_6": "Update Time",
+        "Tips_7": "Select Factory",
+        "Tips_8": "Error Retrieving Data",
+        "Tips_9": "Synchronization Successful!",
+        "Tips_10": "Please select attributes first",
+        "Tips_11": "Delete",
+        "Tips_12": "Are you sure you want to delete the selected data?",
+        "Tips_13": "Confirm",
+        "Tips_14": "Error Notice",
+        "Tips_15": "Operation Failed -",
+        "Tips_16": "Department Management"
+      },
+      "Title": "Department Management"
+    },
+    "Persons": {
+      "Personsadd": {
+        "Tips_1": "Cancel",
+        "Tips_2": "Save",
+        "Tips_3": "Employee Code:",
+        "Tips_4": "Employee Name:",
+        "Tips_5": "Gender:",
+        "Tips_6": "ID Number:",
+        "Tips_7": "Phone Number:",
+        "Tips_8": "Department:",
+        "Tips_9": "Position:",
+        "Tips_10": "Belonging Factory:",
+        "Tips_11": "Factory:",
+        "Tips_12": "Is Valid:"
+      },
+      "Personsedit": {
+        "Tips_1": "Back",
+        "Tips_2": "Save",
+        "Tips_3": "Employee Code:",
+        "Tips_4": "Employee Name:",
+        "Tips_5": "Gender:",
+        "Tips_6": "ID Number:",
+        "Tips_7": "Phone Number:",
+        "Tips_8": "Department:",
+        "Tips_9": "Position:",
+        "Tips_10": "Belonging Factory:",
+        "Tips_11": "Is Valid:"
+      },
+      "Personslist": {
+        "Tips_1": "Employee Code:",
+        "Tips_2": "Name:",
+        "Tips_3": "Department:",
+        "Tips_4": "Position:",
+        "Tips_5": "Factory:",
+        "Tips_6": "Search",
+        "Tips_7": "Printer Binding",
+        "Tips_8": "Set Permissions",
+        "Tips_9": "Synchronize U9 Data",
+        "Tips_10": "Delete",
+        "Tips_11": "Edit",
+        "Tips_12": "Add"
+      },
+      "PersonsModifyPermissions": {
+        "Tips_1": "Set Permissions",
+        "Tips_2": "Yes",
+        "Tips_3": "No",
+        "Tips_4": "(No print server found)",
+        "Tips_5": "Confirm",
+        "Tips_6": "Query Error",
+        "Tips_7": "Save Successful!",
+        "Tips_8": "Operation Error"
+      },
+      "Personsaddctrl": {
+        "Tips_1": "Add",
+        "Tips_2": "Valid",
+        "Tips_3": "Male",
+        "Tips_4": "Female",
+        "Tips_5": "--Please Select--",
+        "Tips_6": "(No department list found)",
+        "Tips_7": "Confirm",
+        "Tips_8": "Query Error",
+        "Tips_9": "Save Successful!",
+        "Tips_10": "Operation Error"
+      },
+      "Personseditctrl": {
+        "Tips_1": "Edit",
+        "Tips_2": "Valid",
+        "Tips_3": "Male",
+        "Tips_4": "Female",
+        "Tips_5": "--Please Select--",
+        "Tips_6": "(No department list found)",
+        "Tips_7": "Confirm",
+        "Tips_8": "Query Error",
+        "Tips_9": "Save Successful!",
+        "Tips_10": "Operation Error"
+      },
+      "Personslistctrl": {
+        "Tips_1": "--Please Select--",
+        "Tips_2": "(No department list found)",
+        "Tips_3": "Confirm",
+        "Tips_4": "Query Error",
+        "Tips_5": "Serial Number",
+        "Tips_6": "Employee Code",
+        "Tips_7": "Name",
+        "Tips_8": "Gender",
+        "Tips_9": "Department",
+        "Tips_10": "Position",
+        "Tips_11": "Job Title",
+        "Tips_12": "Phone",
+        "Tips_13": "Belonging Factory",
+        "Tips_14": "ID Number",
+        "Tips_15": "Is Valid",
+        "Tips_16": "Creation Time",
+        "Tips_17": "Error Retrieving Data",
+        "Tips_18": "Synchronization Successful!",
+        "Tips_19": "Please select a row of data",
+        "Tips_20": "Please select attributes first",
+        "Tips_21": "Delete",
+        "Tips_22": "Are you sure you want to delete the selected data?",
+        "Tips_23": "Error Notice",
+        "Tips_24": "Operation Failed -",
+        "Tips_25": "Personnel Management"
+      },
+      "Title": "Personnel Management"
+    },
+    "PrintServer": {
+      "PrintServeradd": {
+        "Tips_1": "Cancel",
+        "Tips_2": "Save",
+        "Tips_3": "Print Server Name:",
+        "Tips_4": "IP Address:",
+        "Tips_5": "Remarks:"
+      },
+      "PrintServeredit": {
+        "Tips_1": "Cancel",
+        "Tips_2": "Save",
+        "Tips_3": "Print Server Name:",
+        "Tips_4": "IP Address:",
+        "Tips_5": "Remarks:"
+      },
+      "PrintServerlist": {
+        "Tips_1": "Print Server Name:",
+        "Tips_2": "IP Address:",
+        "Tips_3": "Search",
+        "Tips_4": "Delete",
+        "Tips_5": "Edit",
+        "Tips_6": "Add"
+      },
+      "PrintServeraddctrl": {
+        "Tips_1": "Create",
+        "Tips_2": "The IP address entered is incorrect, please re-enter",
+        "Tips_3": "Save Successful!",
+        "Tips_4": "Operation Error"
+      },
+      "PrintServereditctrl": {
+        "Tips_1": "Edit",
+        "Tips_2": "The IP address entered is incorrect, please re-enter",
+        "Tips_3": "Save Successful!",
+        "Tips_4": "Operation Error"
+      },
+      "PrintServerlistctrl": {
+        "Tips_1": "Serial Number",
+        "Tips_2": "Primary Key",
+        "Tips_3": "Print Server",
+        "Tips_4": "IP Address",
+        "Tips_5": "Remarks",
+        "Tips_6": "Error Retrieving Data",
+        "Tips_7": "Are you sure you want to delete the record with IP Address",
+        "Tips_8": "?",
+        "Tips_9": "Delete Successful!",
+        "Tips_10": "Notice",
+        "Tips_11": "Print Services"
+      },
+      "Title": "Print Server"
+    },
+    "Sys_DataSegregateGroup": {
+      "Sys_DataSegregateGroupadd": {
+        "Tips_1": "Back",
+        "Tips_2": "Save",
+        "Tips_3": "Isolation Group Code:",
+        "Tips_4": "Isolation Group Name:",
+        "Tips_5": "Isolation Group Label:",
+        "Tips_6": "Remarks:"
+      },
+      "Sys_DataSegregateGroupedit": {
+        "Tips_1": "Back",
+        "Tips_2": "Save",
+        "Tips_3": "Isolation Group Code:",
+        "Tips_4": "Isolation Group Name:",
+        "Tips_5": "Isolation Group Label:",
+        "Tips_6": "Remarks:"
+      },
+      "Sys_DataSegregateGrouplable": {
+        "Tips_1": "Close",
+        "Tips_2": "Not Specified",
+        "Tips_3": "Specified"
+      },
+      "Sys_DataSegregateGrouplist": {
+        "Tips_1": "Isolation Group Code:",
+        "Tips_2": "Isolation Group Name:",
+        "Tips_3": "Search",
+        "Tips_4": "Assign Label",
+        "Tips_5": "Assign Personnel",
+        "Tips_6": "Delete Group",
+        "Tips_7": "Edit",
+        "Tips_8": "Add",
+        "Tips_9": "Group Assign Isolation Label",
+        "Tips_10": "Group Personnel"
+      },
+      "Sys_DataSegregateGroupperson": {
+        "Tips_1": "Back",
+        "Tips_2": "Department:",
+        "Tips_3": "Personnel Code",
+        "Tips_4": "Search"
+      },
+      "Sys_DataSegregateGroupaddctrl": {
+        "Tips_1": "Create Isolation Group"
+      },
+      "Sys_DataSegregateGroupeditctrl": {
+        "Tips_1": "Edit Data Isolation Group"
+      },
+      "Sys_DataSegregateGrouplablectrl": {
+        "Tips_1": "Assign Label",
+        "Tips_2": "Label Name",
+        "Tips_3": "Label Color",
+        "Tips_4": "Remarks",
+        "Tips_5": "No unassigned data found",
+        "Tips_6": "Error Retrieving Data",
+        "Tips_7": "No assigned data found",
+        "Tips_8": "Please select the data to operate",
+        "Tips_9": "Notice",
+        "Tips_10": "Operation Completed"
+      },
+      "Sys_DataSegregateGrouplistctrl": {
+        "Tips_1": "Serial Number",
+        "Tips_2": "Isolation Group Code",
+        "Tips_3": "Isolation Group Name",
+        "Tips_4": "Isolation Group Label Value",
+        "Tips_5": "Creator",
+        "Tips_6": "Creation Date",
+        "Tips_7": "Modifier",
+        "Tips_8": "Modification Date",
+        "Tips_9": "Label Value",
+        "Tips_10": "Label Color",
+        "Tips_11": "Member Code",
+        "Tips_12": "Member Name",
+        "Tips_13": "Error Retrieving Data",
+        "Tips_14": "Are you sure you want to delete the record with Isolation Group Code",
+        "Tips_15": "?",
+        "Tips_16": "Error Deleting Data",
+        "Tips_17": "This record has already been deleted, no need to delete it again",
+        "Tips_18": "Notice",
+        "Tips_19": "Data Isolation Group"
+      },
+      "Sys_DataSegregateGrouppersonctrl": {
+        "Tips_1": "Assign Personnel",
+        "Tips_2": "Member Code",
+        "Tips_3": "Member Name",
+        "Tips_4": "Primary Key",
+        "Tips_5": "Error Retrieving Data",
+        "Tips_6": "No assigned data found",
+        "Tips_7": "Query Error",
+        "Tips_8": "Assignment Completed",
+        "Tips_9": "Assignment Canceled"
+      },
+      "Title": "Data Isolation Groups"
+    },
+    "Sys_DataSegregateLabel": {
+      "Sys_DataSegregateLabellist": {
+        "Tips_1": "Delete"
+      },
+      "Sys_DataSegregateLabellistctrl": {
+        "Tips_1": "Serial Number",
+        "Tips_2": "Label Name",
+        "Tips_3": "Label Color",
+        "Tips_4": "Isolation Label Value",
+        "Tips_5": "Creator",
+        "Tips_6": "Creation Date",
+        "Tips_7": "Modifier",
+        "Tips_8": "Modification Date",
+        "Tips_9": "Remarks",
+        "Tips_10": "Error Retrieving Data",
+        "Tips_11": "Are you sure you want to delete",
+        "Tips_12": "Delete Successful!",
+        "Tips_13": "Notice",
+        "Tips_14": "Data Isolation Labels"
+      },
+      "Title": "Data Isolation Labels"
+    },
+    "UIModule1": {
+      "Title": "UIModule1"
+    }
+  }
+}

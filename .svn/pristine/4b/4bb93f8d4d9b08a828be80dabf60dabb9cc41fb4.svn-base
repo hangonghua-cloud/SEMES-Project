@@ -1,0 +1,19 @@
+﻿{
+  "name": "Siemens.SimaticIT.SystemApp.AppUserInfo",
+  "type": "standard",
+  "title": "Siemens.SimaticIT.SystemApp.AppUserInfo.Title",
+  "header": "",
+  "icon": "fa-folder",
+  "functionalBlock": "Siemens.SimaticIT.SystemApp",
+  "dependencies": [],
+  "states": [
+    {
+      "id": "home.Siemens_SimaticIT_SystemApp_AppUserInfo_AppUserInfo",
+      "title": "Siemens.SimaticIT.SystemApp.AppUserInfo.Title",
+      "header": "",
+      "securable": true,
+      "roles": []
+    }
+  ],
+  "manifestVersion": "01.01.00"
+}

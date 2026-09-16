@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/WcfMsgPushService.MesEntity" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/WcfMsgPushService.MesEntity" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://10.17.2.32:8084/MsgPushService.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="WeiXinDepartmentListInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="department" nillable="true" type="tns:ArrayOfDepartment" />
+      <xs:element minOccurs="0" name="errcode" type="xs:int" />
+      <xs:element minOccurs="0" name="errmsg" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="WeiXinDepartmentListInfo" nillable="true" type="tns:WeiXinDepartmentListInfo" />
+  <xs:complexType name="ArrayOfDepartment">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Department" nillable="true" type="tns:Department" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDepartment" nillable="true" type="tns:ArrayOfDepartment" />
+  <xs:complexType name="Department">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="xs:int" />
+      <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="order" type="xs:int" />
+      <xs:element minOccurs="0" name="parentid" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Department" nillable="true" type="tns:Department" />
+  <xs:complexType name="WeiXinUserListInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="errcode" type="xs:int" />
+      <xs:element minOccurs="0" name="errmsg" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="userlist" nillable="true" type="tns:ArrayOfUserlist" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="WeiXinUserListInfo" nillable="true" type="tns:WeiXinUserListInfo" />
+  <xs:complexType name="ArrayOfUserlist">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Userlist" nillable="true" type="tns:Userlist" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUserlist" nillable="true" type="tns:ArrayOfUserlist" />
+  <xs:complexType name="Userlist">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="department" nillable="true" type="q1:ArrayOfstring" />
+      <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="userid" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Userlist" nillable="true" type="tns:Userlist" />
+  <xs:complexType name="ArrayOfFirstPassYieldEntity">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="FirstPassYieldEntity" nillable="true" type="tns:FirstPassYieldEntity" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFirstPassYieldEntity" nillable="true" type="tns:ArrayOfFirstPassYieldEntity" />
+  <xs:complexType name="FirstPassYieldEntity">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AcqCount" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="JudgeResult" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PassYieldRate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PassYieldType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="QCNGAcqCount" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StandardPassYieldRate" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FirstPassYieldEntity" nillable="true" type="tns:FirstPassYieldEntity" />
+  <xs:complexType name="ArrayOfDefectTopThreeEntity">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DefectTopThreeEntity" nillable="true" type="tns:DefectTopThreeEntity" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDefectTopThreeEntity" nillable="true" type="tns:ArrayOfDefectTopThreeEntity" />
+  <xs:complexType name="DefectTopThreeEntity">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AcqPositionName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Top1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Top2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Top3" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DefectTopThreeEntity" nillable="true" type="tns:DefectTopThreeEntity" />
+  <xs:complexType name="ArrayOfGetMesDMaResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="GetMesDMaResponse" nillable="true" type="tns:GetMesDMaResponse" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfGetMesDMaResponse" nillable="true" type="tns:ArrayOfGetMesDMaResponse" />
+  <xs:complexType name="GetMesDMaResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="MaResNum" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="errMsg" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="factory" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="flag" type="xs:int" />
+      <xs:element minOccurs="0" name="maCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="mesNum" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="missNum" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="orderNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="pOrder" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="sNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="supplyCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="supplyDescr" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetMesDMaResponse" nillable="true" type="tns:GetMesDMaResponse" />
+  <xs:complexType name="ArrayOfDistSheetEntity">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DistSheetEntity" nillable="true" type="tns:DistSheetEntity" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDistSheetEntity" nillable="true" type="tns:ArrayOfDistSheetEntity" />
+  <xs:complexType name="DistSheetEntity">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DeliveryNum" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MRId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MRName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DistSheetEntity" nillable="true" type="tns:DistSheetEntity" />
+  <xs:complexType name="ArrayOfInWhExceptionFrozenEntity">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="InWhExceptionFrozenEntity" nillable="true" type="tns:InWhExceptionFrozenEntity" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfInWhExceptionFrozenEntity" nillable="true" type="tns:ArrayOfInWhExceptionFrozenEntity" />
+  <xs:complexType name="InWhExceptionFrozenEntity">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BarCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FrozenReason" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HappenTime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LineCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MaterialName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PrdOrderCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ScheduleCode" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InWhExceptionFrozenEntity" nillable="true" type="tns:InWhExceptionFrozenEntity" />
+  <xs:complexType name="ArrayOfEquipSpecialVerifiEntity">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EquipSpecialVerifiEntity" nillable="true" type="tns:EquipSpecialVerifiEntity" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEquipSpecialVerifiEntity" nillable="true" type="tns:ArrayOfEquipSpecialVerifiEntity" />
+  <xs:complexType name="EquipSpecialVerifiEntity">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EquipCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EquipName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LineCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PlanDate" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EquipSpecialVerifiEntity" nillable="true" type="tns:EquipSpecialVerifiEntity" />
+  <xs:complexType name="ArrayOfChangeMouldEntity">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ChangeMouldEntity" nillable="true" type="tns:ChangeMouldEntity" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfChangeMouldEntity" nillable="true" type="tns:ArrayOfChangeMouldEntity" />
+  <xs:complexType name="ChangeMouldEntity">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ClipId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EndDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LineCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NewMould" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NewProFactorDescr" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NewSlotId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OldMould" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OldProFactorDescr" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Remark" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StartDate" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ChangeMouldEntity" nillable="true" type="tns:ChangeMouldEntity" />
+  <xs:complexType name="ArrayOfSchedulingEntity">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SchedulingEntity" nillable="true" type="tns:SchedulingEntity" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSchedulingEntity" nillable="true" type="tns:ArrayOfSchedulingEntity" />
+  <xs:complexType name="SchedulingEntity">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BC" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ChangeStatus" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsMrPost" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsWindUp" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MaterialName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MesStatus" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PlanEndDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PlanQty" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PlanStartDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PrdorderCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ScheduleCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ScheduleOrder" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SchedulingEntity" nillable="true" type="tns:SchedulingEntity" />
+  <xs:complexType name="ArrayOfProFactorMaterialsEntity">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ProFactorMaterialsEntity" nillable="true" type="tns:ProFactorMaterialsEntity" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfProFactorMaterialsEntity" nillable="true" type="tns:ArrayOfProFactorMaterialsEntity" />
+  <xs:complexType name="ProFactorMaterialsEntity">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="MaterialCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MaterialName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ProFactorMaterialsEntity" nillable="true" type="tns:ProFactorMaterialsEntity" />
+  <xs:complexType name="ArrayOfEquipLineStopEntity">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EquipLineStopEntity" nillable="true" type="tns:EquipLineStopEntity" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEquipLineStopEntity" nillable="true" type="tns:ArrayOfEquipLineStopEntity" />
+  <xs:complexType name="EquipLineStopEntity">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ClassName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Downtime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LineName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LineSpotMark" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NowTime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StopDate" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EquipLineStopEntity" nillable="true" type="tns:EquipLineStopEntity" />
+  <xs:complexType name="ArrayOfJobWorkingResultEntity">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="JobWorkingResultEntity" nillable="true" type="tns:JobWorkingResultEntity" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfJobWorkingResultEntity" nillable="true" type="tns:ArrayOfJobWorkingResultEntity" />
+  <xs:complexType name="JobWorkingResultEntity">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Note" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PrdOrderCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ReportResult" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ReportTime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ScheduleCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="JobWorkingResultEntity" nillable="true" type="tns:JobWorkingResultEntity" />
+</xs:schema>

@@ -1,0 +1,5530 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>IconFont Demo</title>
+  <link rel="shortcut icon" href="//img.alicdn.com/imgextra/i2/O1CN01ZyAlrn1MwaMhqz36G_!!6000000001499-73-tps-64-64.ico" type="image/x-icon"/>
+  <link rel="icon" type="image/svg+xml" href="//img.alicdn.com/imgextra/i4/O1CN01EYTRnJ297D6vehehJ_!!6000000008020-55-tps-64-64.svg"/>
+  <link rel="stylesheet" href="https://g.alicdn.com/thx/cube/1.3.2/cube.min.css">
+  <link rel="stylesheet" href="demo.css">
+  <link rel="stylesheet" href="iconfont.css">
+  <script src="iconfont.js"></script>
+  <!-- jQuery -->
+  <script src="https://a1.alicdn.com/oss/uploads/2018/12/26/7bfddb60-08e8-11e9-9b04-53e73bb6408b.js"></script>
+  <!-- 代码高亮 -->
+  <script src="https://a1.alicdn.com/oss/uploads/2018/12/26/a3f714d0-08e6-11e9-8a15-ebf944d7534c.js"></script>
+</head>
+<body>
+  <div class="main">
+    <h1 class="logo"><a href="https://www.iconfont.cn/" title="iconfont 首页" target="_blank">&#xe86b;</a></h1>
+    <div class="nav-tabs">
+      <ul id="tabs" class="dib-box">
+        <li class="dib active"><span>Unicode</span></li>
+        <li class="dib"><span>Font class</span></li>
+        <li class="dib"><span>Symbol</span></li>
+      </ul>
+      
+      <a href="https://www.iconfont.cn/manage/index?manage_type=myprojects&projectId=2447134" target="_blank" class="nav-more">查看项目</a>
+      
+    </div>
+    <div class="tab-container">
+      <div class="content unicode" style="display: block;">
+          <ul class="icon_lists dib-box">
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe6d8;</span>
+                <div class="name">标签</div>
+                <div class="code-name">&amp;#xe6d8;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe6ea;</span>
+                <div class="name">仓库</div>
+                <div class="code-name">&amp;#xe6ea;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe6d9;</span>
+                <div class="name">成品入库与出库管理</div>
+                <div class="code-name">&amp;#xe6d9;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe6da;</span>
+                <div class="name">产成品入库转仓</div>
+                <div class="code-name">&amp;#xe6da;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe6db;</span>
+                <div class="name">物料组</div>
+                <div class="code-name">&amp;#xe6db;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe6dc;</span>
+                <div class="name">物料主数据</div>
+                <div class="code-name">&amp;#xe6dc;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe6dd;</span>
+                <div class="name">移库</div>
+                <div class="code-name">&amp;#xe6dd;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe6de;</span>
+                <div class="name">物料采购</div>
+                <div class="code-name">&amp;#xe6de;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe6df;</span>
+                <div class="name">原材料数据库</div>
+                <div class="code-name">&amp;#xe6df;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe6e0;</span>
+                <div class="name">出库</div>
+                <div class="code-name">&amp;#xe6e0;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe6e1;</span>
+                <div class="name">入库</div>
+                <div class="code-name">&amp;#xe6e1;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe6e2;</span>
+                <div class="name">1原片仓库</div>
+                <div class="code-name">&amp;#xe6e2;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe6e3;</span>
+                <div class="name">1成品仓库</div>
+                <div class="code-name">&amp;#xe6e3;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xeac9;</span>
+                <div class="name">仓库_中转出站</div>
+                <div class="code-name">&amp;#xeac9;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xeaca;</span>
+                <div class="name">仓库_到站</div>
+                <div class="code-name">&amp;#xeaca;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xeb51;</span>
+                <div class="name">仓库_到站_o</div>
+                <div class="code-name">&amp;#xeb51;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe6e4;</span>
+                <div class="name">原材料加工</div>
+                <div class="code-name">&amp;#xe6e4;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe6e5;</span>
+                <div class="name">物料管理</div>
+                <div class="code-name">&amp;#xe6e5;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe6eb;</span>
+                <div class="name">物料管理</div>
+                <div class="code-name">&amp;#xe6eb;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xeb1c;</span>
+                <div class="name">出库</div>
+                <div class="code-name">&amp;#xeb1c;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe6ec;</span>
+                <div class="name">成品库</div>
+                <div class="code-name">&amp;#xe6ec;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe6fd;</span>
+                <div class="name">仓库搭建</div>
+                <div class="code-name">&amp;#xe6fd;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe889;</span>
+                <div class="name">出库</div>
+                <div class="code-name">&amp;#xe889;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe6fe;</span>
+                <div class="name">物料投放</div>
+                <div class="code-name">&amp;#xe6fe;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe6ff;</span>
+                <div class="name">标签</div>
+                <div class="code-name">&amp;#xe6ff;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe700;</span>
+                <div class="name">标签</div>
+                <div class="code-name">&amp;#xe700;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe703;</span>
+                <div class="name">出库</div>
+                <div class="code-name">&amp;#xe703;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe704;</span>
+                <div class="name">出库</div>
+                <div class="code-name">&amp;#xe704;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe705;</span>
+                <div class="name">仓库-出</div>
+                <div class="code-name">&amp;#xe705;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe706;</span>
+                <div class="name">物料档案</div>
+                <div class="code-name">&amp;#xe706;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe707;</span>
+                <div class="name">-_中心仓库</div>
+                <div class="code-name">&amp;#xe707;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe708;</span>
+                <div class="name">出库单</div>
+                <div class="code-name">&amp;#xe708;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe709;</span>
+                <div class="name">仓库</div>
+                <div class="code-name">&amp;#xe709;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe7fd;</span>
+                <div class="name">出库管理</div>
+                <div class="code-name">&amp;#xe7fd;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe70a;</span>
+                <div class="name">出库</div>
+                <div class="code-name">&amp;#xe70a;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe70b;</span>
+                <div class="name">入库</div>
+                <div class="code-name">&amp;#xe70b;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xec0f;</span>
+                <div class="name">标签</div>
+                <div class="code-name">&amp;#xec0f;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe70c;</span>
+                <div class="name">出库管理</div>
+                <div class="code-name">&amp;#xe70c;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe70d;</span>
+                <div class="name">原材料巡检QA确认列表</div>
+                <div class="code-name">&amp;#xe70d;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe70e;</span>
+                <div class="name">原材料巡检QA确认列表</div>
+                <div class="code-name">&amp;#xe70e;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe70f;</span>
+                <div class="name">原材料出库</div>
+                <div class="code-name">&amp;#xe70f;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe710;</span>
+                <div class="name">原材料领料列表</div>
+                <div class="code-name">&amp;#xe710;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe711;</span>
+                <div class="name">原材料移库</div>
+                <div class="code-name">&amp;#xe711;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe712;</span>
+                <div class="name">成品入库确认</div>
+                <div class="code-name">&amp;#xe712;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe713;</span>
+                <div class="name">标签</div>
+                <div class="code-name">&amp;#xe713;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe714;</span>
+                <div class="name">其他仓库</div>
+                <div class="code-name">&amp;#xe714;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe715;</span>
+                <div class="name">出库out</div>
+                <div class="code-name">&amp;#xe715;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe716;</span>
+                <div class="name">成品最终检测记录表</div>
+                <div class="code-name">&amp;#xe716;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe717;</span>
+                <div class="name">01 主数据_客户物料</div>
+                <div class="code-name">&amp;#xe717;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe718;</span>
+                <div class="name">出库</div>
+                <div class="code-name">&amp;#xe718;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe719;</span>
+                <div class="name">移库</div>
+                <div class="code-name">&amp;#xe719;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe71c;</span>
+                <div class="name">出库管理</div>
+                <div class="code-name">&amp;#xe71c;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe71d;</span>
+                <div class="name">仓库管理</div>
+                <div class="code-name">&amp;#xe71d;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xf194;</span>
+                <div class="name">标签</div>
+                <div class="code-name">&amp;#xf194;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe71e;</span>
+                <div class="name">出库单</div>
+                <div class="code-name">&amp;#xe71e;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe71f;</span>
+                <div class="name">物料信息</div>
+                <div class="code-name">&amp;#xe71f;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe720;</span>
+                <div class="name">物料报备单</div>
+                <div class="code-name">&amp;#xe720;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe721;</span>
+                <div class="name">仓库管理</div>
+                <div class="code-name">&amp;#xe721;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe722;</span>
+                <div class="name">标签</div>
+                <div class="code-name">&amp;#xe722;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe6ed;</span>
+                <div class="name">盾</div>
+                <div class="code-name">&amp;#xe6ed;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe6ee;</span>
+                <div class="name">警告</div>
+                <div class="code-name">&amp;#xe6ee;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe6f0;</span>
+                <div class="name">分类</div>
+                <div class="code-name">&amp;#xe6f0;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe6f1;</span>
+                <div class="name">摄像头</div>
+                <div class="code-name">&amp;#xe6f1;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe6f2;</span>
+                <div class="name">浏览器</div>
+                <div class="code-name">&amp;#xe6f2;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe6f3;</span>
+                <div class="name">云锁</div>
+                <div class="code-name">&amp;#xe6f3;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe6f4;</span>
+                <div class="name">指纹</div>
+                <div class="code-name">&amp;#xe6f4;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe79d;</span>
+                <div class="name">008minus04</div>
+                <div class="code-name">&amp;#xe79d;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe79e;</span>
+                <div class="name">017check03</div>
+                <div class="code-name">&amp;#xe79e;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe79f;</span>
+                <div class="name">013cross02</div>
+                <div class="code-name">&amp;#xe79f;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe7a0;</span>
+                <div class="name">029cancel</div>
+                <div class="code-name">&amp;#xe7a0;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe7a1;</span>
+                <div class="name">025ban</div>
+                <div class="code-name">&amp;#xe7a1;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe7a2;</span>
+                <div class="name">003plus01</div>
+                <div class="code-name">&amp;#xe7a2;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe7a3;</span>
+                <div class="name">037trash</div>
+                <div class="code-name">&amp;#xe7a3;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe7a4;</span>
+                <div class="name">052expand</div>
+                <div class="code-name">&amp;#xe7a4;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe7a5;</span>
+                <div class="name">091under02</div>
+                <div class="code-name">&amp;#xe7a5;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe7a7;</span>
+                <div class="name">103bookTX</div>
+                <div class="code-name">&amp;#xe7a7;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe7a9;</span>
+                <div class="name">111image</div>
+                <div class="code-name">&amp;#xe7a9;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe7aa;</span>
+                <div class="name">133follow02</div>
+                <div class="code-name">&amp;#xe7aa;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe7ab;</span>
+                <div class="name">120menu02</div>
+                <div class="code-name">&amp;#xe7ab;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe7ac;</span>
+                <div class="name">131keyboard</div>
+                <div class="code-name">&amp;#xe7ac;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe7ad;</span>
+                <div class="name">130wifi</div>
+                <div class="code-name">&amp;#xe7ad;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe7ae;</span>
+                <div class="name">141send</div>
+                <div class="code-name">&amp;#xe7ae;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe7af;</span>
+                <div class="name">144message02</div>
+                <div class="code-name">&amp;#xe7af;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe7b0;</span>
+                <div class="name">197hourglass01</div>
+                <div class="code-name">&amp;#xe7b0;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe7b1;</span>
+                <div class="name">174txt</div>
+                <div class="code-name">&amp;#xe7b1;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe7b2;</span>
+                <div class="name">219shield05</div>
+                <div class="code-name">&amp;#xe7b2;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe7b3;</span>
+                <div class="name">229circlePY</div>
+                <div class="code-name">&amp;#xe7b3;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe7b8;</span>
+                <div class="name">259send01</div>
+                <div class="code-name">&amp;#xe7b8;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe7b4;</span>
+                <div class="name">247arrowXX05</div>
+                <div class="code-name">&amp;#xe7b4;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe7b6;</span>
+                <div class="name">246arrowXS06</div>
+                <div class="code-name">&amp;#xe7b6;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe7ba;</span>
+                <div class="name">289folder01</div>
+                <div class="code-name">&amp;#xe7ba;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe7bb;</span>
+                <div class="name">266pen01</div>
+                <div class="code-name">&amp;#xe7bb;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe7b9;</span>
+                <div class="name">240zhome03</div>
+                <div class="code-name">&amp;#xe7b9;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe7bc;</span>
+                <div class="name">244arrowXZ06</div>
+                <div class="code-name">&amp;#xe7bc;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe7bd;</span>
+                <div class="name">258choose01</div>
+                <div class="code-name">&amp;#xe7bd;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe7be;</span>
+                <div class="name">297textleft</div>
+                <div class="code-name">&amp;#xe7be;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe7bf;</span>
+                <div class="name">295rotate</div>
+                <div class="code-name">&amp;#xe7bf;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe7c0;</span>
+                <div class="name">248arrowXZ07</div>
+                <div class="code-name">&amp;#xe7c0;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe7c1;</span>
+                <div class="name">196calendar</div>
+                <div class="code-name">&amp;#xe7c1;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe7c2;</span>
+                <div class="name">325suspend</div>
+                <div class="code-name">&amp;#xe7c2;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe7c3;</span>
+                <div class="name">322annotation</div>
+                <div class="code-name">&amp;#xe7c3;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe7c4;</span>
+                <div class="name">327paixu</div>
+                <div class="code-name">&amp;#xe7c4;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe7c5;</span>
+                <div class="name">204phone</div>
+                <div class="code-name">&amp;#xe7c5;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe7c7;</span>
+                <div class="name">344</div>
+                <div class="code-name">&amp;#xe7c7;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe7c9;</span>
+                <div class="name">330</div>
+                <div class="code-name">&amp;#xe7c9;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe7ca;</span>
+                <div class="name">336min02</div>
+                <div class="code-name">&amp;#xe7ca;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe7cb;</span>
+                <div class="name">349</div>
+                <div class="code-name">&amp;#xe7cb;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe7cd;</span>
+                <div class="name">365</div>
+                <div class="code-name">&amp;#xe7cd;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe7ce;</span>
+                <div class="name">373</div>
+                <div class="code-name">&amp;#xe7ce;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe7c6;</span>
+                <div class="name">124notice</div>
+                <div class="code-name">&amp;#xe7c6;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe7c8;</span>
+                <div class="name">108share</div>
+                <div class="code-name">&amp;#xe7c8;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe602;</span>
+                <div class="name">保养</div>
+                <div class="code-name">&amp;#xe602;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe659;</span>
+                <div class="name">入库管理</div>
+                <div class="code-name">&amp;#xe659;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe60f;</span>
+                <div class="name">入库</div>
+                <div class="code-name">&amp;#xe60f;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe61f;</span>
+                <div class="name">入库管理</div>
+                <div class="code-name">&amp;#xe61f;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe638;</span>
+                <div class="name">备货单</div>
+                <div class="code-name">&amp;#xe638;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe641;</span>
+                <div class="name">生产领料与退料</div>
+                <div class="code-name">&amp;#xe641;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe642;</span>
+                <div class="name">来物料名称质检验</div>
+                <div class="code-name">&amp;#xe642;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe6e8;</span>
+                <div class="name">检验单</div>
+                <div class="code-name">&amp;#xe6e8;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe636;</span>
+                <div class="name">收货</div>
+                <div class="code-name">&amp;#xe636;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe617;</span>
+                <div class="name">车辆维修保养</div>
+                <div class="code-name">&amp;#xe617;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe607;</span>
+                <div class="name">入库清单</div>
+                <div class="code-name">&amp;#xe607;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe64c;</span>
+                <div class="name">投料</div>
+                <div class="code-name">&amp;#xe64c;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe657;</span>
+                <div class="name">入库业务</div>
+                <div class="code-name">&amp;#xe657;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe621;</span>
+                <div class="name">质量检验</div>
+                <div class="code-name">&amp;#xe621;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe626;</span>
+                <div class="name">检验批质量检验记录</div>
+                <div class="code-name">&amp;#xe626;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe632;</span>
+                <div class="name">质量检验</div>
+                <div class="code-name">&amp;#xe632;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe8e6;</span>
+                <div class="name">上料</div>
+                <div class="code-name">&amp;#xe8e6;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe608;</span>
+                <div class="name">入库C</div>
+                <div class="code-name">&amp;#xe608;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe622;</span>
+                <div class="name">半成品检验</div>
+                <div class="code-name">&amp;#xe622;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe65b;</span>
+                <div class="name">备货出库</div>
+                <div class="code-name">&amp;#xe65b;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe662;</span>
+                <div class="name">收货入库</div>
+                <div class="code-name">&amp;#xe662;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe610;</span>
+                <div class="name">收货-物流详情</div>
+                <div class="code-name">&amp;#xe610;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe62d;</span>
+                <div class="name">收货 收</div>
+                <div class="code-name">&amp;#xe62d;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe627;</span>
+                <div class="name">入库管理</div>
+                <div class="code-name">&amp;#xe627;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe614;</span>
+                <div class="name">汽车保养维修申请</div>
+                <div class="code-name">&amp;#xe614;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe634;</span>
+                <div class="name">入库管理</div>
+                <div class="code-name">&amp;#xe634;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe6c3;</span>
+                <div class="name">入库管理</div>
+                <div class="code-name">&amp;#xe6c3;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe604;</span>
+                <div class="name">标记</div>
+                <div class="code-name">&amp;#xe604;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe63c;</span>
+                <div class="name">成品检验</div>
+                <div class="code-name">&amp;#xe63c;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe644;</span>
+                <div class="name">入库管理</div>
+                <div class="code-name">&amp;#xe644;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe600;</span>
+                <div class="name">投料</div>
+                <div class="code-name">&amp;#xe600;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe6b8;</span>
+                <div class="name">上料确认</div>
+                <div class="code-name">&amp;#xe6b8;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe7d6;</span>
+                <div class="name">过程检验车间</div>
+                <div class="code-name">&amp;#xe7d6;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe88b;</span>
+                <div class="name">入库</div>
+                <div class="code-name">&amp;#xe88b;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe6c1;</span>
+                <div class="name">半成品检验</div>
+                <div class="code-name">&amp;#xe6c1;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe60c;</span>
+                <div class="name">入库</div>
+                <div class="code-name">&amp;#xe60c;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe606;</span>
+                <div class="name">过程检验</div>
+                <div class="code-name">&amp;#xe606;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe640;</span>
+                <div class="name">投料</div>
+                <div class="code-name">&amp;#xe640;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe615;</span>
+                <div class="name">成品检验</div>
+                <div class="code-name">&amp;#xe615;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe60a;</span>
+                <div class="name">入库</div>
+                <div class="code-name">&amp;#xe60a;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe623;</span>
+                <div class="name">MR标记</div>
+                <div class="code-name">&amp;#xe623;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe7dc;</span>
+                <div class="name">成品检验清单导入</div>
+                <div class="code-name">&amp;#xe7dc;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe663;</span>
+                <div class="name">入库单 goods/wh/inStock</div>
+                <div class="code-name">&amp;#xe663;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe628;</span>
+                <div class="name">入库</div>
+                <div class="code-name">&amp;#xe628;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe660;</span>
+                <div class="name">_入库</div>
+                <div class="code-name">&amp;#xe660;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe609;</span>
+                <div class="name">设备点检</div>
+                <div class="code-name">&amp;#xe609;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe666;</span>
+                <div class="name">设备点检</div>
+                <div class="code-name">&amp;#xe666;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe629;</span>
+                <div class="name">入库</div>
+                <div class="code-name">&amp;#xe629;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe601;</span>
+                <div class="name">车间退料交接</div>
+                <div class="code-name">&amp;#xe601;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe603;</span>
+                <div class="name">车间退料交接</div>
+                <div class="code-name">&amp;#xe603;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe605;</span>
+                <div class="name">车间退料交接</div>
+                <div class="code-name">&amp;#xe605;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe693;</span>
+                <div class="name">投料</div>
+                <div class="code-name">&amp;#xe693;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe6ef;</span>
+                <div class="name">成品检验</div>
+                <div class="code-name">&amp;#xe6ef;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe618;</span>
+                <div class="name">退料处理</div>
+                <div class="code-name">&amp;#xe618;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe631;</span>
+                <div class="name">设备点检</div>
+                <div class="code-name">&amp;#xe631;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe6a5;</span>
+                <div class="name">标记</div>
+                <div class="code-name">&amp;#xe6a5;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe763;</span>
+                <div class="name">过程检验</div>
+                <div class="code-name">&amp;#xe763;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe624;</span>
+                <div class="name">标注</div>
+                <div class="code-name">&amp;#xe624;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe619;</span>
+                <div class="name">入库管理</div>
+                <div class="code-name">&amp;#xe619;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe62a;</span>
+                <div class="name">入库管理</div>
+                <div class="code-name">&amp;#xe62a;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe680;</span>
+                <div class="name">过程检验_画板 1</div>
+                <div class="code-name">&amp;#xe680;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe60b;</span>
+                <div class="name">生产退料</div>
+                <div class="code-name">&amp;#xe60b;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe60d;</span>
+                <div class="name">工单</div>
+                <div class="code-name">&amp;#xe60d;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe60e;</span>
+                <div class="name">bill</div>
+                <div class="code-name">&amp;#xe60e;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe7a6;</span>
+                <div class="name">搜索</div>
+                <div class="code-name">&amp;#xe7a6;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe625;</span>
+                <div class="name">退出</div>
+                <div class="code-name">&amp;#xe625;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe62c;</span>
+                <div class="name">计划书</div>
+                <div class="code-name">&amp;#xe62c;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe66f;</span>
+                <div class="name">密码</div>
+                <div class="code-name">&amp;#xe66f;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe684;</span>
+                <div class="name">搜索</div>
+                <div class="code-name">&amp;#xe684;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe639;</span>
+                <div class="name">图标7</div>
+                <div class="code-name">&amp;#xe639;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe62b;</span>
+                <div class="name">密码</div>
+                <div class="code-name">&amp;#xe62b;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe611;</span>
+                <div class="name">生产任务单管理</div>
+                <div class="code-name">&amp;#xe611;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe65d;</span>
+                <div class="name">退出</div>
+                <div class="code-name">&amp;#xe65d;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe612;</span>
+                <div class="name">计划进度</div>
+                <div class="code-name">&amp;#xe612;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe633;</span>
+                <div class="name">用户</div>
+                <div class="code-name">&amp;#xe633;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe613;</span>
+                <div class="name">密码 #ffffff & 20px</div>
+                <div class="code-name">&amp;#xe613;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe616;</span>
+                <div class="name">电池</div>
+                <div class="code-name">&amp;#xe616;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe761;</span>
+                <div class="name">电池</div>
+                <div class="code-name">&amp;#xe761;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe62e;</span>
+                <div class="name">设置</div>
+                <div class="code-name">&amp;#xe62e;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe63a;</span>
+                <div class="name">计划</div>
+                <div class="code-name">&amp;#xe63a;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe61a;</span>
+                <div class="name">电池</div>
+                <div class="code-name">&amp;#xe61a;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe61b;</span>
+                <div class="name">用户群体-业务查询</div>
+                <div class="code-name">&amp;#xe61b;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe658;</span>
+                <div class="name">密码</div>
+                <div class="code-name">&amp;#xe658;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe61c;</span>
+                <div class="name">密码</div>
+                <div class="code-name">&amp;#xe61c;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe61d;</span>
+                <div class="name">删 除 </div>
+                <div class="code-name">&amp;#xe61d;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe61e;</span>
+                <div class="name">生产</div>
+                <div class="code-name">&amp;#xe61e;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe620;</span>
+                <div class="name">设置</div>
+                <div class="code-name">&amp;#xe620;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe685;</span>
+                <div class="name">医疗质量分析</div>
+                <div class="code-name">&amp;#xe685;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe62f;</span>
+                <div class="name">删 除</div>
+                <div class="code-name">&amp;#xe62f;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe630;</span>
+                <div class="name">筛选</div>
+                <div class="code-name">&amp;#xe630;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe635;</span>
+                <div class="name">copy 复制 标志 图标</div>
+                <div class="code-name">&amp;#xe635;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe637;</span>
+                <div class="name">搜索</div>
+                <div class="code-name">&amp;#xe637;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe643;</span>
+                <div class="name">电力、热力、燃气及水生产和供应业</div>
+                <div class="code-name">&amp;#xe643;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe63b;</span>
+                <div class="name">编辑</div>
+                <div class="code-name">&amp;#xe63b;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe63d;</span>
+                <div class="name">编辑</div>
+                <div class="code-name">&amp;#xe63d;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe63e;</span>
+                <div class="name">编辑</div>
+                <div class="code-name">&amp;#xe63e;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe6e6;</span>
+                <div class="name">质量</div>
+                <div class="code-name">&amp;#xe6e6;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe701;</span>
+                <div class="name">质量</div>
+                <div class="code-name">&amp;#xe701;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe63f;</span>
+                <div class="name">生产周报</div>
+                <div class="code-name">&amp;#xe63f;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe645;</span>
+                <div class="name">生产月报</div>
+                <div class="code-name">&amp;#xe645;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe646;</span>
+                <div class="name">图标5</div>
+                <div class="code-name">&amp;#xe646;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe647;</span>
+                <div class="name">生产日报</div>
+                <div class="code-name">&amp;#xe647;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe68a;</span>
+                <div class="name">筛 选</div>
+                <div class="code-name">&amp;#xe68a;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe648;</span>
+                <div class="name">搜索</div>
+                <div class="code-name">&amp;#xe648;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe649;</span>
+                <div class="name">图标</div>
+                <div class="code-name">&amp;#xe649;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe64a;</span>
+                <div class="name">删 除 </div>
+                <div class="code-name">&amp;#xe64a;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe71a;</span>
+                <div class="name">计划上传</div>
+                <div class="code-name">&amp;#xe71a;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe64b;</span>
+                <div class="name">密码</div>
+                <div class="code-name">&amp;#xe64b;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe64d;</span>
+                <div class="name">密码</div>
+                <div class="code-name">&amp;#xe64d;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe64e;</span>
+                <div class="name">设 置</div>
+                <div class="code-name">&amp;#xe64e;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe67d;</span>
+                <div class="name">删 除 (1)</div>
+                <div class="code-name">&amp;#xe67d;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe67c;</span>
+                <div class="name">计划下载</div>
+                <div class="code-name">&amp;#xe67c;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe64f;</span>
+                <div class="name">退出</div>
+                <div class="code-name">&amp;#xe64f;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe6a8;</span>
+                <div class="name">筛选</div>
+                <div class="code-name">&amp;#xe6a8;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe650;</span>
+                <div class="name">菜单-生产管理</div>
+                <div class="code-name">&amp;#xe650;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe686;</span>
+                <div class="name">设置</div>
+                <div class="code-name">&amp;#xe686;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe651;</span>
+                <div class="name">质量管理</div>
+                <div class="code-name">&amp;#xe651;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe6cd;</span>
+                <div class="name">删 除</div>
+                <div class="code-name">&amp;#xe6cd;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe652;</span>
+                <div class="name">计划说明书</div>
+                <div class="code-name">&amp;#xe652;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xf030;</span>
+                <div class="name">筛选</div>
+                <div class="code-name">&amp;#xf030;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe83b;</span>
+                <div class="name">计划</div>
+                <div class="code-name">&amp;#xe83b;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe653;</span>
+                <div class="name">编辑</div>
+                <div class="code-name">&amp;#xe653;</div>
+              </li>
+          
+          </ul>
+          <div class="article markdown">
+          <h2 id="unicode-">Unicode 引用</h2>
+          <hr>
+
+          <p>Unicode 是字体在网页端最原始的应用方式，特点是：</p>
+          <ul>
+            <li>兼容性最好，支持 IE6+，及所有现代浏览器。</li>
+            <li>支持按字体的方式去动态调整图标大小，颜色等等。</li>
+            <li>但是因为是字体，所以不支持多色。只能使用平台里单色的图标，就算项目里有多色图标也会自动去色。</li>
+          </ul>
+          <blockquote>
+            <p>注意：新版 iconfont 支持多色图标，这些多色图标在 Unicode 模式下将不能使用，如果有需求建议使用symbol 的引用方式</p>
+          </blockquote>
+          <p>Unicode 使用步骤如下：</p>
+          <h3 id="-font-face">第一步：拷贝项目下面生成的 <code>@font-face</code></h3>
+<pre><code class="language-css"
+>@font-face {
+  font-family: 'iconfont';
+  src: url('iconfont.eot');
+  src: url('iconfont.eot?#iefix') format('embedded-opentype'),
+      url('iconfont.woff2') format('woff2'),
+      url('iconfont.woff') format('woff'),
+      url('iconfont.ttf') format('truetype'),
+      url('iconfont.svg#iconfont') format('svg');
+}
+</code></pre>
+          <h3 id="-iconfont-">第二步：定义使用 iconfont 的样式</h3>
+<pre><code class="language-css"
+>.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+</code></pre>
+          <h3 id="-">第三步：挑选相应图标并获取字体编码，应用于页面</h3>
+<pre>
+<code class="language-html"
+>&lt;span class="iconfont"&gt;&amp;#x33;&lt;/span&gt;
+</code></pre>
+          <blockquote>
+            <p>"iconfont" 是你项目下的 font-family。可以通过编辑项目查看，默认是 "iconfont"。</p>
+          </blockquote>
+          </div>
+      </div>
+      <div class="content font-class">
+        <ul class="icon_lists dib-box">
+          
+          <li class="dib">
+            <span class="icon iconfont iconshengqian"></span>
+            <div class="name">
+              标签
+            </div>
+            <div class="code-name">.iconshengqian
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconcangku"></span>
+            <div class="name">
+              仓库
+            </div>
+            <div class="code-name">.iconcangku
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconchengpinrukuyuchukuguanli"></span>
+            <div class="name">
+              成品入库与出库管理
+            </div>
+            <div class="code-name">.iconchengpinrukuyuchukuguanli
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconchanchengpinrukuzhuancang"></span>
+            <div class="name">
+              产成品入库转仓
+            </div>
+            <div class="code-name">.iconchanchengpinrukuzhuancang
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconicon-p_wuliaozu"></span>
+            <div class="name">
+              物料组
+            </div>
+            <div class="code-name">.iconicon-p_wuliaozu
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconicon-p_wuliaozhushuju"></span>
+            <div class="name">
+              物料主数据
+            </div>
+            <div class="code-name">.iconicon-p_wuliaozhushuju
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconyiku"></span>
+            <div class="name">
+              移库
+            </div>
+            <div class="code-name">.iconyiku
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconwuliaocaigou"></span>
+            <div class="name">
+              物料采购
+            </div>
+            <div class="code-name">.iconwuliaocaigou
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconyuancailiaoshujuku"></span>
+            <div class="name">
+              原材料数据库
+            </div>
+            <div class="code-name">.iconyuancailiaoshujuku
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconchuku"></span>
+            <div class="name">
+              出库
+            </div>
+            <div class="code-name">.iconchuku
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconruku6"></span>
+            <div class="name">
+              入库
+            </div>
+            <div class="code-name">.iconruku6
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconyuanpiancangku"></span>
+            <div class="name">
+              1原片仓库
+            </div>
+            <div class="code-name">.iconyuanpiancangku
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconchengpincangku"></span>
+            <div class="name">
+              1成品仓库
+            </div>
+            <div class="code-name">.iconchengpincangku
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconcangku_zhongzhuanchuzhan"></span>
+            <div class="name">
+              仓库_中转出站
+            </div>
+            <div class="code-name">.iconcangku_zhongzhuanchuzhan
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconcangku_daozhan"></span>
+            <div class="name">
+              仓库_到站
+            </div>
+            <div class="code-name">.iconcangku_daozhan
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconcangku_daozhan_o"></span>
+            <div class="name">
+              仓库_到站_o
+            </div>
+            <div class="code-name">.iconcangku_daozhan_o
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconyuancailiaojiagong"></span>
+            <div class="name">
+              原材料加工
+            </div>
+            <div class="code-name">.iconyuancailiaojiagong
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconwuliaoguanli"></span>
+            <div class="name">
+              物料管理
+            </div>
+            <div class="code-name">.iconwuliaoguanli
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconwuliaoguanli-"></span>
+            <div class="name">
+              物料管理
+            </div>
+            <div class="code-name">.iconwuliaoguanli-
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconchuku1"></span>
+            <div class="name">
+              出库
+            </div>
+            <div class="code-name">.iconchuku1
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont icontubiao_chengpinku"></span>
+            <div class="name">
+              成品库
+            </div>
+            <div class="code-name">.icontubiao_chengpinku
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconcangkudajian"></span>
+            <div class="name">
+              仓库搭建
+            </div>
+            <div class="code-name">.iconcangkudajian
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconicon_function_chuku"></span>
+            <div class="name">
+              出库
+            </div>
+            <div class="code-name">.iconicon_function_chuku
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconwuliaotoufang"></span>
+            <div class="name">
+              物料投放
+            </div>
+            <div class="code-name">.iconwuliaotoufang
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconicon-test2"></span>
+            <div class="name">
+              标签
+            </div>
+            <div class="code-name">.iconicon-test2
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconbiaoqian"></span>
+            <div class="name">
+              标签
+            </div>
+            <div class="code-name">.iconbiaoqian
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconchuku2"></span>
+            <div class="name">
+              出库
+            </div>
+            <div class="code-name">.iconchuku2
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconchuku3"></span>
+            <div class="name">
+              出库
+            </div>
+            <div class="code-name">.iconchuku3
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconcangku-chu"></span>
+            <div class="name">
+              仓库-出
+            </div>
+            <div class="code-name">.iconcangku-chu
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconwuliaodangan"></span>
+            <div class="name">
+              物料档案
+            </div>
+            <div class="code-name">.iconwuliaodangan
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont icon-_zhongxincangku"></span>
+            <div class="name">
+              -_中心仓库
+            </div>
+            <div class="code-name">.icon-_zhongxincangku
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconchukudan"></span>
+            <div class="name">
+              出库单
+            </div>
+            <div class="code-name">.iconchukudan
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconcangku1"></span>
+            <div class="name">
+              仓库
+            </div>
+            <div class="code-name">.iconcangku1
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconchukuguanli"></span>
+            <div class="name">
+              出库管理
+            </div>
+            <div class="code-name">.iconchukuguanli
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconchuku4"></span>
+            <div class="name">
+              出库
+            </div>
+            <div class="code-name">.iconchuku4
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconruku7"></span>
+            <div class="name">
+              入库
+            </div>
+            <div class="code-name">.iconruku7
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconbiaoqian1"></span>
+            <div class="name">
+              标签
+            </div>
+            <div class="code-name">.iconbiaoqian1
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconchukuguanli1"></span>
+            <div class="name">
+              出库管理
+            </div>
+            <div class="code-name">.iconchukuguanli1
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconyuancailiaoxunjianQAquerenliebiao"></span>
+            <div class="name">
+              原材料巡检QA确认列表
+            </div>
+            <div class="code-name">.iconyuancailiaoxunjianQAquerenliebiao
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconyuancailiaoxunjianQAquerenliebiao1"></span>
+            <div class="name">
+              原材料巡检QA确认列表
+            </div>
+            <div class="code-name">.iconyuancailiaoxunjianQAquerenliebiao1
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconyuancailiaochuku"></span>
+            <div class="name">
+              原材料出库
+            </div>
+            <div class="code-name">.iconyuancailiaochuku
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconyuancailiaolingliaoliebiao"></span>
+            <div class="name">
+              原材料领料列表
+            </div>
+            <div class="code-name">.iconyuancailiaolingliaoliebiao
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconyuancailiaoyiku"></span>
+            <div class="name">
+              原材料移库
+            </div>
+            <div class="code-name">.iconyuancailiaoyiku
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconchengpinrukuqueren"></span>
+            <div class="name">
+              成品入库确认
+            </div>
+            <div class="code-name">.iconchengpinrukuqueren
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconbiaoqian2"></span>
+            <div class="name">
+              标签
+            </div>
+            <div class="code-name">.iconbiaoqian2
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconotherWarehouses"></span>
+            <div class="name">
+              其他仓库
+            </div>
+            <div class="code-name">.iconotherWarehouses
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconchukuout"></span>
+            <div class="name">
+              出库out
+            </div>
+            <div class="code-name">.iconchukuout
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconchengpinzuizhongjiancejilubiao"></span>
+            <div class="name">
+              成品最终检测记录表
+            </div>
+            <div class="code-name">.iconchengpinzuizhongjiancejilubiao
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont icon01zhushuju_kehuwuliao"></span>
+            <div class="name">
+              01 主数据_客户物料
+            </div>
+            <div class="code-name">.icon01zhushuju_kehuwuliao
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconicon-svg-07"></span>
+            <div class="name">
+              出库
+            </div>
+            <div class="code-name">.iconicon-svg-07
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconicon-svg-08"></span>
+            <div class="name">
+              移库
+            </div>
+            <div class="code-name">.iconicon-svg-08
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconchukuguanli2"></span>
+            <div class="name">
+              出库管理
+            </div>
+            <div class="code-name">.iconchukuguanli2
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont icon39cangkuguanli"></span>
+            <div class="name">
+              仓库管理
+            </div>
+            <div class="code-name">.icon39cangkuguanli
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconbiaoqian3"></span>
+            <div class="name">
+              标签
+            </div>
+            <div class="code-name">.iconbiaoqian3
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconchukudan1"></span>
+            <div class="name">
+              出库单
+            </div>
+            <div class="code-name">.iconchukudan1
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconwuliaoxinxi"></span>
+            <div class="name">
+              物料信息
+            </div>
+            <div class="code-name">.iconwuliaoxinxi
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconwuliaobaobeidan"></span>
+            <div class="name">
+              物料报备单
+            </div>
+            <div class="code-name">.iconwuliaobaobeidan
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconcangkuguanli"></span>
+            <div class="name">
+              仓库管理
+            </div>
+            <div class="code-name">.iconcangkuguanli
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconbiaoqian4"></span>
+            <div class="name">
+              标签
+            </div>
+            <div class="code-name">.iconbiaoqian4
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont icondun"></span>
+            <div class="name">
+              盾
+            </div>
+            <div class="code-name">.icondun
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconjinggao"></span>
+            <div class="name">
+              警告
+            </div>
+            <div class="code-name">.iconjinggao
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconfenlei"></span>
+            <div class="name">
+              分类
+            </div>
+            <div class="code-name">.iconfenlei
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconshexiangtou"></span>
+            <div class="name">
+              摄像头
+            </div>
+            <div class="code-name">.iconshexiangtou
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconliulanqi"></span>
+            <div class="name">
+              浏览器
+            </div>
+            <div class="code-name">.iconliulanqi
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconyunsuo"></span>
+            <div class="name">
+              云锁
+            </div>
+            <div class="code-name">.iconyunsuo
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconzhiwen"></span>
+            <div class="name">
+              指纹
+            </div>
+            <div class="code-name">.iconzhiwen
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont icon008minus04"></span>
+            <div class="name">
+              008minus04
+            </div>
+            <div class="code-name">.icon008minus04
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont icon017check03"></span>
+            <div class="name">
+              017check03
+            </div>
+            <div class="code-name">.icon017check03
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont icon013cross02"></span>
+            <div class="name">
+              013cross02
+            </div>
+            <div class="code-name">.icon013cross02
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont icon029cancel"></span>
+            <div class="name">
+              029cancel
+            </div>
+            <div class="code-name">.icon029cancel
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont icon025ban"></span>
+            <div class="name">
+              025ban
+            </div>
+            <div class="code-name">.icon025ban
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont icon003plus01"></span>
+            <div class="name">
+              003plus01
+            </div>
+            <div class="code-name">.icon003plus01
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont icon037trash"></span>
+            <div class="name">
+              037trash
+            </div>
+            <div class="code-name">.icon037trash
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont icon052expand"></span>
+            <div class="name">
+              052expand
+            </div>
+            <div class="code-name">.icon052expand
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont icon091under02"></span>
+            <div class="name">
+              091under02
+            </div>
+            <div class="code-name">.icon091under02
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont icon103bookTX"></span>
+            <div class="name">
+              103bookTX
+            </div>
+            <div class="code-name">.icon103bookTX
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont icon111image"></span>
+            <div class="name">
+              111image
+            </div>
+            <div class="code-name">.icon111image
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont icon133follow02"></span>
+            <div class="name">
+              133follow02
+            </div>
+            <div class="code-name">.icon133follow02
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont icon120menu02"></span>
+            <div class="name">
+              120menu02
+            </div>
+            <div class="code-name">.icon120menu02
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont icon131keyboard"></span>
+            <div class="name">
+              131keyboard
+            </div>
+            <div class="code-name">.icon131keyboard
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont icon130wifi"></span>
+            <div class="name">
+              130wifi
+            </div>
+            <div class="code-name">.icon130wifi
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont icon141send"></span>
+            <div class="name">
+              141send
+            </div>
+            <div class="code-name">.icon141send
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont icon144message02"></span>
+            <div class="name">
+              144message02
+            </div>
+            <div class="code-name">.icon144message02
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont icon197hourglass01"></span>
+            <div class="name">
+              197hourglass01
+            </div>
+            <div class="code-name">.icon197hourglass01
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont icon174txt"></span>
+            <div class="name">
+              174txt
+            </div>
+            <div class="code-name">.icon174txt
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont icon219shield05"></span>
+            <div class="name">
+              219shield05
+            </div>
+            <div class="code-name">.icon219shield05
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont icon229circlePY"></span>
+            <div class="name">
+              229circlePY
+            </div>
+            <div class="code-name">.icon229circlePY
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont icon259send01"></span>
+            <div class="name">
+              259send01
+            </div>
+            <div class="code-name">.icon259send01
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont icon247arrowXX05"></span>
+            <div class="name">
+              247arrowXX05
+            </div>
+            <div class="code-name">.icon247arrowXX05
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont icon246arrowXS06"></span>
+            <div class="name">
+              246arrowXS06
+            </div>
+            <div class="code-name">.icon246arrowXS06
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont icon289folder01"></span>
+            <div class="name">
+              289folder01
+            </div>
+            <div class="code-name">.icon289folder01
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont icon266pen01"></span>
+            <div class="name">
+              266pen01
+            </div>
+            <div class="code-name">.icon266pen01
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont icon240zhome03"></span>
+            <div class="name">
+              240zhome03
+            </div>
+            <div class="code-name">.icon240zhome03
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont icon244arrowXZ06"></span>
+            <div class="name">
+              244arrowXZ06
+            </div>
+            <div class="code-name">.icon244arrowXZ06
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont icon258choose01"></span>
+            <div class="name">
+              258choose01
+            </div>
+            <div class="code-name">.icon258choose01
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont icon297textleft"></span>
+            <div class="name">
+              297textleft
+            </div>
+            <div class="code-name">.icon297textleft
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont icon295rotate"></span>
+            <div class="name">
+              295rotate
+            </div>
+            <div class="code-name">.icon295rotate
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont icon248arrowXZ07"></span>
+            <div class="name">
+              248arrowXZ07
+            </div>
+            <div class="code-name">.icon248arrowXZ07
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont icon196calendar"></span>
+            <div class="name">
+              196calendar
+            </div>
+            <div class="code-name">.icon196calendar
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont icon325suspend"></span>
+            <div class="name">
+              325suspend
+            </div>
+            <div class="code-name">.icon325suspend
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont icon322annotation"></span>
+            <div class="name">
+              322annotation
+            </div>
+            <div class="code-name">.icon322annotation
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont icon327paixu"></span>
+            <div class="name">
+              327paixu
+            </div>
+            <div class="code-name">.icon327paixu
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont icon204phone"></span>
+            <div class="name">
+              204phone
+            </div>
+            <div class="code-name">.icon204phone
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont icon344"></span>
+            <div class="name">
+              344
+            </div>
+            <div class="code-name">.icon344
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont icon330"></span>
+            <div class="name">
+              330
+            </div>
+            <div class="code-name">.icon330
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont icon336min02"></span>
+            <div class="name">
+              336min02
+            </div>
+            <div class="code-name">.icon336min02
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont icon349"></span>
+            <div class="name">
+              349
+            </div>
+            <div class="code-name">.icon349
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont icon365"></span>
+            <div class="name">
+              365
+            </div>
+            <div class="code-name">.icon365
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont icon373"></span>
+            <div class="name">
+              373
+            </div>
+            <div class="code-name">.icon373
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont icon124notice"></span>
+            <div class="name">
+              124notice
+            </div>
+            <div class="code-name">.icon124notice
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont icon108share"></span>
+            <div class="name">
+              108share
+            </div>
+            <div class="code-name">.icon108share
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconbaoyang"></span>
+            <div class="name">
+              保养
+            </div>
+            <div class="code-name">.iconbaoyang
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconrukuguanli"></span>
+            <div class="name">
+              入库管理
+            </div>
+            <div class="code-name">.iconrukuguanli
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconruku"></span>
+            <div class="name">
+              入库
+            </div>
+            <div class="code-name">.iconruku
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconrukuguanli1"></span>
+            <div class="name">
+              入库管理
+            </div>
+            <div class="code-name">.iconrukuguanli1
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconbeihuodan"></span>
+            <div class="name">
+              备货单
+            </div>
+            <div class="code-name">.iconbeihuodan
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconshengchanlingliaoyutuiliao"></span>
+            <div class="name">
+              生产领料与退料
+            </div>
+            <div class="code-name">.iconshengchanlingliaoyutuiliao
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconlailiaopinzhijianyan"></span>
+            <div class="name">
+              来物料名称质检验
+            </div>
+            <div class="code-name">.iconlailiaopinzhijianyan
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconjianyandan"></span>
+            <div class="name">
+              检验单
+            </div>
+            <div class="code-name">.iconjianyandan
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconshouhuo"></span>
+            <div class="name">
+              收货
+            </div>
+            <div class="code-name">.iconshouhuo
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconcheliangweixiubaoyang"></span>
+            <div class="name">
+              车辆维修保养
+            </div>
+            <div class="code-name">.iconcheliangweixiubaoyang
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconrukuqingdan"></span>
+            <div class="name">
+              入库清单
+            </div>
+            <div class="code-name">.iconrukuqingdan
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont icontouliao"></span>
+            <div class="name">
+              投料
+            </div>
+            <div class="code-name">.icontouliao
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconnavicon-rkyw"></span>
+            <div class="name">
+              入库业务
+            </div>
+            <div class="code-name">.iconnavicon-rkyw
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconzhiliangjianyan"></span>
+            <div class="name">
+              质量检验
+            </div>
+            <div class="code-name">.iconzhiliangjianyan
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconjianyanpizhiliangjianyanjilu"></span>
+            <div class="name">
+              检验批质量检验记录
+            </div>
+            <div class="code-name">.iconjianyanpizhiliangjianyanjilu
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconzhiliangjianyan1"></span>
+            <div class="name">
+              质量检验
+            </div>
+            <div class="code-name">.iconzhiliangjianyan1
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconshangliao"></span>
+            <div class="name">
+              上料
+            </div>
+            <div class="code-name">.iconshangliao
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconrukuC"></span>
+            <div class="name">
+              入库C
+            </div>
+            <div class="code-name">.iconrukuC
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconbanchengpinjianyan"></span>
+            <div class="name">
+              半成品检验
+            </div>
+            <div class="code-name">.iconbanchengpinjianyan
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconbeihuochuku"></span>
+            <div class="name">
+              备货出库
+            </div>
+            <div class="code-name">.iconbeihuochuku
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconshouhuoruku"></span>
+            <div class="name">
+              收货入库
+            </div>
+            <div class="code-name">.iconshouhuoruku
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconshouhuo1"></span>
+            <div class="name">
+              收货-物流详情
+            </div>
+            <div class="code-name">.iconshouhuo1
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconshouhuoshou--"></span>
+            <div class="name">
+              收货 收
+            </div>
+            <div class="code-name">.iconshouhuoshou--
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconrukuguanli2"></span>
+            <div class="name">
+              入库管理
+            </div>
+            <div class="code-name">.iconrukuguanli2
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconqichebaoyangweixiushenqing"></span>
+            <div class="name">
+              汽车保养维修申请
+            </div>
+            <div class="code-name">.iconqichebaoyangweixiushenqing
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconrukuguanli-"></span>
+            <div class="name">
+              入库管理
+            </div>
+            <div class="code-name">.iconrukuguanli-
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconRectangleCopy"></span>
+            <div class="name">
+              入库管理
+            </div>
+            <div class="code-name">.iconRectangleCopy
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconbiaoji"></span>
+            <div class="name">
+              标记
+            </div>
+            <div class="code-name">.iconbiaoji
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconchengpinjianyan"></span>
+            <div class="name">
+              成品检验
+            </div>
+            <div class="code-name">.iconchengpinjianyan
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconrukuguanli3"></span>
+            <div class="name">
+              入库管理
+            </div>
+            <div class="code-name">.iconrukuguanli3
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont icontouliao2"></span>
+            <div class="name">
+              投料
+            </div>
+            <div class="code-name">.icontouliao2
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconshangliaoqueren"></span>
+            <div class="name">
+              上料确认
+            </div>
+            <div class="code-name">.iconshangliaoqueren
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconguochengjianyanchejian"></span>
+            <div class="name">
+              过程检验车间
+            </div>
+            <div class="code-name">.iconguochengjianyanchejian
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconicon_function_ruku"></span>
+            <div class="name">
+              入库
+            </div>
+            <div class="code-name">.iconicon_function_ruku
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconbanchengpinjianyan1"></span>
+            <div class="name">
+              半成品检验
+            </div>
+            <div class="code-name">.iconbanchengpinjianyan1
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconruku1"></span>
+            <div class="name">
+              入库
+            </div>
+            <div class="code-name">.iconruku1
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconguochengjianyan"></span>
+            <div class="name">
+              过程检验
+            </div>
+            <div class="code-name">.iconguochengjianyan
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont icontouliao3"></span>
+            <div class="name">
+              投料
+            </div>
+            <div class="code-name">.icontouliao3
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconchengpinjianyan1"></span>
+            <div class="name">
+              成品检验
+            </div>
+            <div class="code-name">.iconchengpinjianyan1
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconruku2"></span>
+            <div class="name">
+              入库
+            </div>
+            <div class="code-name">.iconruku2
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconzu-"></span>
+            <div class="name">
+              MR标记
+            </div>
+            <div class="code-name">.iconzu-
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconchengpinjianyanqingdandaoru"></span>
+            <div class="name">
+              成品检验清单导入
+            </div>
+            <div class="code-name">.iconchengpinjianyanqingdandaoru
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont icongoodswhinStock"></span>
+            <div class="name">
+              入库单 goods/wh/inStock
+            </div>
+            <div class="code-name">.icongoodswhinStock
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconruku3"></span>
+            <div class="name">
+              入库
+            </div>
+            <div class="code-name">.iconruku3
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconlunkuohua22_ruku"></span>
+            <div class="name">
+              _入库
+            </div>
+            <div class="code-name">.iconlunkuohua22_ruku
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconshebeidianjian"></span>
+            <div class="name">
+              设备点检
+            </div>
+            <div class="code-name">.iconshebeidianjian
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconshebeidianjian1"></span>
+            <div class="name">
+              设备点检
+            </div>
+            <div class="code-name">.iconshebeidianjian1
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconruku4"></span>
+            <div class="name">
+              入库
+            </div>
+            <div class="code-name">.iconruku4
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconchejiantuiliaojiaojie"></span>
+            <div class="name">
+              车间退料交接
+            </div>
+            <div class="code-name">.iconchejiantuiliaojiaojie
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconchejiantuiliaojiaojie1"></span>
+            <div class="name">
+              车间退料交接
+            </div>
+            <div class="code-name">.iconchejiantuiliaojiaojie1
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconchejiantuiliaojiaojie2"></span>
+            <div class="name">
+              车间退料交接
+            </div>
+            <div class="code-name">.iconchejiantuiliaojiaojie2
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont icontouliao4"></span>
+            <div class="name">
+              投料
+            </div>
+            <div class="code-name">.icontouliao4
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconchengpinjianyan2"></span>
+            <div class="name">
+              成品检验
+            </div>
+            <div class="code-name">.iconchengpinjianyan2
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont icontubiaozhizuomoban-68"></span>
+            <div class="name">
+              退料处理
+            </div>
+            <div class="code-name">.icontubiaozhizuomoban-68
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont icontubiaozhizuomoban-133"></span>
+            <div class="name">
+              设备点检
+            </div>
+            <div class="code-name">.icontubiaozhizuomoban-133
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconbiaoji1"></span>
+            <div class="name">
+              标记
+            </div>
+            <div class="code-name">.iconbiaoji1
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconguochengjianyan1"></span>
+            <div class="name">
+              过程检验
+            </div>
+            <div class="code-name">.iconguochengjianyan1
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconbiaozhu"></span>
+            <div class="name">
+              标注
+            </div>
+            <div class="code-name">.iconbiaozhu
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconrukuguanli4"></span>
+            <div class="name">
+              入库管理
+            </div>
+            <div class="code-name">.iconrukuguanli4
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconrukuguanli5"></span>
+            <div class="name">
+              入库管理
+            </div>
+            <div class="code-name">.iconrukuguanli5
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconguochengjianyan_huaban1"></span>
+            <div class="name">
+              过程检验_画板 1
+            </div>
+            <div class="code-name">.iconguochengjianyan_huaban1
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconshengchantuiliaobeifen2x"></span>
+            <div class="name">
+              生产退料
+            </div>
+            <div class="code-name">.iconshengchantuiliaobeifen2x
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont icongongdan"></span>
+            <div class="name">
+              工单
+            </div>
+            <div class="code-name">.icongongdan
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconbill"></span>
+            <div class="name">
+              bill
+            </div>
+            <div class="code-name">.iconbill
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconsousuo"></span>
+            <div class="name">
+              搜索
+            </div>
+            <div class="code-name">.iconsousuo
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont icontuichu"></span>
+            <div class="name">
+              退出
+            </div>
+            <div class="code-name">.icontuichu
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconjihuashu"></span>
+            <div class="name">
+              计划书
+            </div>
+            <div class="code-name">.iconjihuashu
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconmima"></span>
+            <div class="name">
+              密码
+            </div>
+            <div class="code-name">.iconmima
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconsousuo1"></span>
+            <div class="name">
+              搜索
+            </div>
+            <div class="code-name">.iconsousuo1
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont icontubiao7"></span>
+            <div class="name">
+              图标7
+            </div>
+            <div class="code-name">.icontubiao7
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconmima1"></span>
+            <div class="name">
+              密码
+            </div>
+            <div class="code-name">.iconmima1
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconshengchanrenwudanguanli"></span>
+            <div class="name">
+              生产任务单管理
+            </div>
+            <div class="code-name">.iconshengchanrenwudanguanli
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont icontuichu1"></span>
+            <div class="name">
+              退出
+            </div>
+            <div class="code-name">.icontuichu1
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconjihuajindu"></span>
+            <div class="name">
+              计划进度
+            </div>
+            <div class="code-name">.iconjihuajindu
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconyonghu"></span>
+            <div class="name">
+              用户
+            </div>
+            <div class="code-name">.iconyonghu
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconmimaffffffpx"></span>
+            <div class="name">
+              密码 #ffffff & 20px
+            </div>
+            <div class="code-name">.iconmimaffffffpx
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont icondianchi"></span>
+            <div class="name">
+              电池
+            </div>
+            <div class="code-name">.icondianchi
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconbattery"></span>
+            <div class="name">
+              电池
+            </div>
+            <div class="code-name">.iconbattery
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconicon-test"></span>
+            <div class="name">
+              设置
+            </div>
+            <div class="code-name">.iconicon-test
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconjihua"></span>
+            <div class="name">
+              计划
+            </div>
+            <div class="code-name">.iconjihua
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont icondianchi1"></span>
+            <div class="name">
+              电池
+            </div>
+            <div class="code-name">.icondianchi1
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconyonghu1"></span>
+            <div class="name">
+              用户群体-业务查询
+            </div>
+            <div class="code-name">.iconyonghu1
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconmima2"></span>
+            <div class="name">
+              密码
+            </div>
+            <div class="code-name">.iconmima2
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconmima3"></span>
+            <div class="name">
+              密码
+            </div>
+            <div class="code-name">.iconmima3
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconshanchu"></span>
+            <div class="name">
+              删 除 
+            </div>
+            <div class="code-name">.iconshanchu
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconshengchan-"></span>
+            <div class="name">
+              生产
+            </div>
+            <div class="code-name">.iconshengchan-
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconshezhi"></span>
+            <div class="name">
+              设置
+            </div>
+            <div class="code-name">.iconshezhi
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconyiliaozhiliangfenxi"></span>
+            <div class="name">
+              医疗质量分析
+            </div>
+            <div class="code-name">.iconyiliaozhiliangfenxi
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconshanchu1"></span>
+            <div class="name">
+              删 除
+            </div>
+            <div class="code-name">.iconshanchu1
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconshaixuan"></span>
+            <div class="name">
+              筛选
+            </div>
+            <div class="code-name">.iconshaixuan
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconcopy"></span>
+            <div class="name">
+              copy 复制 标志 图标
+            </div>
+            <div class="code-name">.iconcopy
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconsousuo2"></span>
+            <div class="name">
+              搜索
+            </div>
+            <div class="code-name">.iconsousuo2
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconnengliangzhi"></span>
+            <div class="name">
+              电力、热力、燃气及水生产和供应业
+            </div>
+            <div class="code-name">.iconnengliangzhi
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconbianji"></span>
+            <div class="name">
+              编辑
+            </div>
+            <div class="code-name">.iconbianji
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconbianji1"></span>
+            <div class="name">
+              编辑
+            </div>
+            <div class="code-name">.iconbianji1
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconbianji2"></span>
+            <div class="name">
+              编辑
+            </div>
+            <div class="code-name">.iconbianji2
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconziyuan142"></span>
+            <div class="name">
+              质量
+            </div>
+            <div class="code-name">.iconziyuan142
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconzhiliang"></span>
+            <div class="name">
+              质量
+            </div>
+            <div class="code-name">.iconzhiliang
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconshengchanzhoubao"></span>
+            <div class="name">
+              生产周报
+            </div>
+            <div class="code-name">.iconshengchanzhoubao
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconshengchanyuebao"></span>
+            <div class="name">
+              生产月报
+            </div>
+            <div class="code-name">.iconshengchanyuebao
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont icontubiao5"></span>
+            <div class="name">
+              图标5
+            </div>
+            <div class="code-name">.icontubiao5
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont icon6"></span>
+            <div class="name">
+              生产日报
+            </div>
+            <div class="code-name">.icon6
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconshaixuan1"></span>
+            <div class="name">
+              筛 选
+            </div>
+            <div class="code-name">.iconshaixuan1
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconsousuo3"></span>
+            <div class="name">
+              搜索
+            </div>
+            <div class="code-name">.iconsousuo3
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont icontubiao"></span>
+            <div class="name">
+              图标
+            </div>
+            <div class="code-name">.icontubiao
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconcangpeitubiao_shanchu"></span>
+            <div class="name">
+              删 除 
+            </div>
+            <div class="code-name">.iconcangpeitubiao_shanchu
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconjihuashangchuan"></span>
+            <div class="name">
+              计划上传
+            </div>
+            <div class="code-name">.iconjihuashangchuan
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconmima4"></span>
+            <div class="name">
+              密码
+            </div>
+            <div class="code-name">.iconmima4
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconmima5"></span>
+            <div class="name">
+              密码
+            </div>
+            <div class="code-name">.iconmima5
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconshezhi01"></span>
+            <div class="name">
+              设 置
+            </div>
+            <div class="code-name">.iconshezhi01
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconshanchu11"></span>
+            <div class="name">
+              删 除 (1)
+            </div>
+            <div class="code-name">.iconshanchu11
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconjihuaxiazai"></span>
+            <div class="name">
+              计划下载
+            </div>
+            <div class="code-name">.iconjihuaxiazai
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont icontuichu2"></span>
+            <div class="name">
+              退出
+            </div>
+            <div class="code-name">.icontuichu2
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconshaixuan2"></span>
+            <div class="name">
+              筛选
+            </div>
+            <div class="code-name">.iconshaixuan2
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconshengchanguanli"></span>
+            <div class="name">
+              菜单-生产管理
+            </div>
+            <div class="code-name">.iconshengchanguanli
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconshezhi1"></span>
+            <div class="name">
+              设置
+            </div>
+            <div class="code-name">.iconshezhi1
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconzhiliangguanli"></span>
+            <div class="name">
+              质量管理
+            </div>
+            <div class="code-name">.iconzhiliangguanli
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconshanchu2"></span>
+            <div class="name">
+              删 除
+            </div>
+            <div class="code-name">.iconshanchu2
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconjihuashuomingshu"></span>
+            <div class="name">
+              计划说明书
+            </div>
+            <div class="code-name">.iconjihuashuomingshu
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconshaixuan3"></span>
+            <div class="name">
+              筛选
+            </div>
+            <div class="code-name">.iconshaixuan3
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconjihua1"></span>
+            <div class="name">
+              计划
+            </div>
+            <div class="code-name">.iconjihua1
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont iconbianji3"></span>
+            <div class="name">
+              编辑
+            </div>
+            <div class="code-name">.iconbianji3
+            </div>
+          </li>
+          
+        </ul>
+        <div class="article markdown">
+        <h2 id="font-class-">font-class 引用</h2>
+        <hr>
+
+        <p>font-class 是 Unicode 使用方式的一种变种，主要是解决 Unicode 书写不直观，语意不明确的问题。</p>
+        <p>与 Unicode 使用方式相比，具有如下特点：</p>
+        <ul>
+          <li>兼容性良好，支持 IE8+，及所有现代浏览器。</li>
+          <li>相比于 Unicode 语意明确，书写更直观。可以很容易分辨这个 icon 是什么。</li>
+          <li>因为使用 class 来定义图标，所以当要替换图标时，只需要修改 class 里面的 Unicode 引用。</li>
+          <li>不过因为本质上还是使用的字体，所以多色图标还是不支持的。</li>
+        </ul>
+        <p>使用步骤如下：</p>
+        <h3 id="-fontclass-">第一步：引入项目下面生成的 fontclass 代码：</h3>
+<pre><code class="language-html">&lt;link rel="stylesheet" href="./iconfont.css"&gt;
+</code></pre>
+        <h3 id="-">第二步：挑选相应图标并获取类名，应用于页面：</h3>
+<pre><code class="language-html">&lt;span class="iconfont iconxxx"&gt;&lt;/span&gt;
+</code></pre>
+        <blockquote>
+          <p>"
+            iconfont" 是你项目下的 font-family。可以通过编辑项目查看，默认是 "iconfont"。</p>
+        </blockquote>
+      </div>
+      </div>
+      <div class="content symbol">
+          <ul class="icon_lists dib-box">
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconshengqian"></use>
+                </svg>
+                <div class="name">标签</div>
+                <div class="code-name">#iconshengqian</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconcangku"></use>
+                </svg>
+                <div class="name">仓库</div>
+                <div class="code-name">#iconcangku</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconchengpinrukuyuchukuguanli"></use>
+                </svg>
+                <div class="name">成品入库与出库管理</div>
+                <div class="code-name">#iconchengpinrukuyuchukuguanli</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconchanchengpinrukuzhuancang"></use>
+                </svg>
+                <div class="name">产成品入库转仓</div>
+                <div class="code-name">#iconchanchengpinrukuzhuancang</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconicon-p_wuliaozu"></use>
+                </svg>
+                <div class="name">物料组</div>
+                <div class="code-name">#iconicon-p_wuliaozu</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconicon-p_wuliaozhushuju"></use>
+                </svg>
+                <div class="name">物料主数据</div>
+                <div class="code-name">#iconicon-p_wuliaozhushuju</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconyiku"></use>
+                </svg>
+                <div class="name">移库</div>
+                <div class="code-name">#iconyiku</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconwuliaocaigou"></use>
+                </svg>
+                <div class="name">物料采购</div>
+                <div class="code-name">#iconwuliaocaigou</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconyuancailiaoshujuku"></use>
+                </svg>
+                <div class="name">原材料数据库</div>
+                <div class="code-name">#iconyuancailiaoshujuku</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconchuku"></use>
+                </svg>
+                <div class="name">出库</div>
+                <div class="code-name">#iconchuku</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconruku6"></use>
+                </svg>
+                <div class="name">入库</div>
+                <div class="code-name">#iconruku6</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconyuanpiancangku"></use>
+                </svg>
+                <div class="name">1原片仓库</div>
+                <div class="code-name">#iconyuanpiancangku</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconchengpincangku"></use>
+                </svg>
+                <div class="name">1成品仓库</div>
+                <div class="code-name">#iconchengpincangku</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconcangku_zhongzhuanchuzhan"></use>
+                </svg>
+                <div class="name">仓库_中转出站</div>
+                <div class="code-name">#iconcangku_zhongzhuanchuzhan</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconcangku_daozhan"></use>
+                </svg>
+                <div class="name">仓库_到站</div>
+                <div class="code-name">#iconcangku_daozhan</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconcangku_daozhan_o"></use>
+                </svg>
+                <div class="name">仓库_到站_o</div>
+                <div class="code-name">#iconcangku_daozhan_o</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconyuancailiaojiagong"></use>
+                </svg>
+                <div class="name">原材料加工</div>
+                <div class="code-name">#iconyuancailiaojiagong</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconwuliaoguanli"></use>
+                </svg>
+                <div class="name">物料管理</div>
+                <div class="code-name">#iconwuliaoguanli</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconwuliaoguanli-"></use>
+                </svg>
+                <div class="name">物料管理</div>
+                <div class="code-name">#iconwuliaoguanli-</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconchuku1"></use>
+                </svg>
+                <div class="name">出库</div>
+                <div class="code-name">#iconchuku1</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#icontubiao_chengpinku"></use>
+                </svg>
+                <div class="name">成品库</div>
+                <div class="code-name">#icontubiao_chengpinku</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconcangkudajian"></use>
+                </svg>
+                <div class="name">仓库搭建</div>
+                <div class="code-name">#iconcangkudajian</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconicon_function_chuku"></use>
+                </svg>
+                <div class="name">出库</div>
+                <div class="code-name">#iconicon_function_chuku</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconwuliaotoufang"></use>
+                </svg>
+                <div class="name">物料投放</div>
+                <div class="code-name">#iconwuliaotoufang</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconicon-test2"></use>
+                </svg>
+                <div class="name">标签</div>
+                <div class="code-name">#iconicon-test2</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconbiaoqian"></use>
+                </svg>
+                <div class="name">标签</div>
+                <div class="code-name">#iconbiaoqian</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconchuku2"></use>
+                </svg>
+                <div class="name">出库</div>
+                <div class="code-name">#iconchuku2</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconchuku3"></use>
+                </svg>
+                <div class="name">出库</div>
+                <div class="code-name">#iconchuku3</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconcangku-chu"></use>
+                </svg>
+                <div class="name">仓库-出</div>
+                <div class="code-name">#iconcangku-chu</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconwuliaodangan"></use>
+                </svg>
+                <div class="name">物料档案</div>
+                <div class="code-name">#iconwuliaodangan</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#icon-_zhongxincangku"></use>
+                </svg>
+                <div class="name">-_中心仓库</div>
+                <div class="code-name">#icon-_zhongxincangku</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconchukudan"></use>
+                </svg>
+                <div class="name">出库单</div>
+                <div class="code-name">#iconchukudan</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconcangku1"></use>
+                </svg>
+                <div class="name">仓库</div>
+                <div class="code-name">#iconcangku1</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconchukuguanli"></use>
+                </svg>
+                <div class="name">出库管理</div>
+                <div class="code-name">#iconchukuguanli</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconchuku4"></use>
+                </svg>
+                <div class="name">出库</div>
+                <div class="code-name">#iconchuku4</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconruku7"></use>
+                </svg>
+                <div class="name">入库</div>
+                <div class="code-name">#iconruku7</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconbiaoqian1"></use>
+                </svg>
+                <div class="name">标签</div>
+                <div class="code-name">#iconbiaoqian1</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconchukuguanli1"></use>
+                </svg>
+                <div class="name">出库管理</div>
+                <div class="code-name">#iconchukuguanli1</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconyuancailiaoxunjianQAquerenliebiao"></use>
+                </svg>
+                <div class="name">原材料巡检QA确认列表</div>
+                <div class="code-name">#iconyuancailiaoxunjianQAquerenliebiao</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconyuancailiaoxunjianQAquerenliebiao1"></use>
+                </svg>
+                <div class="name">原材料巡检QA确认列表</div>
+                <div class="code-name">#iconyuancailiaoxunjianQAquerenliebiao1</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconyuancailiaochuku"></use>
+                </svg>
+                <div class="name">原材料出库</div>
+                <div class="code-name">#iconyuancailiaochuku</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconyuancailiaolingliaoliebiao"></use>
+                </svg>
+                <div class="name">原材料领料列表</div>
+                <div class="code-name">#iconyuancailiaolingliaoliebiao</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconyuancailiaoyiku"></use>
+                </svg>
+                <div class="name">原材料移库</div>
+                <div class="code-name">#iconyuancailiaoyiku</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconchengpinrukuqueren"></use>
+                </svg>
+                <div class="name">成品入库确认</div>
+                <div class="code-name">#iconchengpinrukuqueren</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconbiaoqian2"></use>
+                </svg>
+                <div class="name">标签</div>
+                <div class="code-name">#iconbiaoqian2</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconotherWarehouses"></use>
+                </svg>
+                <div class="name">其他仓库</div>
+                <div class="code-name">#iconotherWarehouses</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconchukuout"></use>
+                </svg>
+                <div class="name">出库out</div>
+                <div class="code-name">#iconchukuout</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconchengpinzuizhongjiancejilubiao"></use>
+                </svg>
+                <div class="name">成品最终检测记录表</div>
+                <div class="code-name">#iconchengpinzuizhongjiancejilubiao</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#icon01zhushuju_kehuwuliao"></use>
+                </svg>
+                <div class="name">01 主数据_客户物料</div>
+                <div class="code-name">#icon01zhushuju_kehuwuliao</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconicon-svg-07"></use>
+                </svg>
+                <div class="name">出库</div>
+                <div class="code-name">#iconicon-svg-07</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconicon-svg-08"></use>
+                </svg>
+                <div class="name">移库</div>
+                <div class="code-name">#iconicon-svg-08</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconchukuguanli2"></use>
+                </svg>
+                <div class="name">出库管理</div>
+                <div class="code-name">#iconchukuguanli2</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#icon39cangkuguanli"></use>
+                </svg>
+                <div class="name">仓库管理</div>
+                <div class="code-name">#icon39cangkuguanli</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconbiaoqian3"></use>
+                </svg>
+                <div class="name">标签</div>
+                <div class="code-name">#iconbiaoqian3</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconchukudan1"></use>
+                </svg>
+                <div class="name">出库单</div>
+                <div class="code-name">#iconchukudan1</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconwuliaoxinxi"></use>
+                </svg>
+                <div class="name">物料信息</div>
+                <div class="code-name">#iconwuliaoxinxi</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconwuliaobaobeidan"></use>
+                </svg>
+                <div class="name">物料报备单</div>
+                <div class="code-name">#iconwuliaobaobeidan</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconcangkuguanli"></use>
+                </svg>
+                <div class="name">仓库管理</div>
+                <div class="code-name">#iconcangkuguanli</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconbiaoqian4"></use>
+                </svg>
+                <div class="name">标签</div>
+                <div class="code-name">#iconbiaoqian4</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#icondun"></use>
+                </svg>
+                <div class="name">盾</div>
+                <div class="code-name">#icondun</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconjinggao"></use>
+                </svg>
+                <div class="name">警告</div>
+                <div class="code-name">#iconjinggao</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconfenlei"></use>
+                </svg>
+                <div class="name">分类</div>
+                <div class="code-name">#iconfenlei</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconshexiangtou"></use>
+                </svg>
+                <div class="name">摄像头</div>
+                <div class="code-name">#iconshexiangtou</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconliulanqi"></use>
+                </svg>
+                <div class="name">浏览器</div>
+                <div class="code-name">#iconliulanqi</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconyunsuo"></use>
+                </svg>
+                <div class="name">云锁</div>
+                <div class="code-name">#iconyunsuo</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconzhiwen"></use>
+                </svg>
+                <div class="name">指纹</div>
+                <div class="code-name">#iconzhiwen</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#icon008minus04"></use>
+                </svg>
+                <div class="name">008minus04</div>
+                <div class="code-name">#icon008minus04</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#icon017check03"></use>
+                </svg>
+                <div class="name">017check03</div>
+                <div class="code-name">#icon017check03</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#icon013cross02"></use>
+                </svg>
+                <div class="name">013cross02</div>
+                <div class="code-name">#icon013cross02</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#icon029cancel"></use>
+                </svg>
+                <div class="name">029cancel</div>
+                <div class="code-name">#icon029cancel</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#icon025ban"></use>
+                </svg>
+                <div class="name">025ban</div>
+                <div class="code-name">#icon025ban</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#icon003plus01"></use>
+                </svg>
+                <div class="name">003plus01</div>
+                <div class="code-name">#icon003plus01</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#icon037trash"></use>
+                </svg>
+                <div class="name">037trash</div>
+                <div class="code-name">#icon037trash</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#icon052expand"></use>
+                </svg>
+                <div class="name">052expand</div>
+                <div class="code-name">#icon052expand</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#icon091under02"></use>
+                </svg>
+                <div class="name">091under02</div>
+                <div class="code-name">#icon091under02</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#icon103bookTX"></use>
+                </svg>
+                <div class="name">103bookTX</div>
+                <div class="code-name">#icon103bookTX</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#icon111image"></use>
+                </svg>
+                <div class="name">111image</div>
+                <div class="code-name">#icon111image</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#icon133follow02"></use>
+                </svg>
+                <div class="name">133follow02</div>
+                <div class="code-name">#icon133follow02</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#icon120menu02"></use>
+                </svg>
+                <div class="name">120menu02</div>
+                <div class="code-name">#icon120menu02</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#icon131keyboard"></use>
+                </svg>
+                <div class="name">131keyboard</div>
+                <div class="code-name">#icon131keyboard</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#icon130wifi"></use>
+                </svg>
+                <div class="name">130wifi</div>
+                <div class="code-name">#icon130wifi</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#icon141send"></use>
+                </svg>
+                <div class="name">141send</div>
+                <div class="code-name">#icon141send</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#icon144message02"></use>
+                </svg>
+                <div class="name">144message02</div>
+                <div class="code-name">#icon144message02</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#icon197hourglass01"></use>
+                </svg>
+                <div class="name">197hourglass01</div>
+                <div class="code-name">#icon197hourglass01</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#icon174txt"></use>
+                </svg>
+                <div class="name">174txt</div>
+                <div class="code-name">#icon174txt</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#icon219shield05"></use>
+                </svg>
+                <div class="name">219shield05</div>
+                <div class="code-name">#icon219shield05</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#icon229circlePY"></use>
+                </svg>
+                <div class="name">229circlePY</div>
+                <div class="code-name">#icon229circlePY</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#icon259send01"></use>
+                </svg>
+                <div class="name">259send01</div>
+                <div class="code-name">#icon259send01</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#icon247arrowXX05"></use>
+                </svg>
+                <div class="name">247arrowXX05</div>
+                <div class="code-name">#icon247arrowXX05</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#icon246arrowXS06"></use>
+                </svg>
+                <div class="name">246arrowXS06</div>
+                <div class="code-name">#icon246arrowXS06</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#icon289folder01"></use>
+                </svg>
+                <div class="name">289folder01</div>
+                <div class="code-name">#icon289folder01</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#icon266pen01"></use>
+                </svg>
+                <div class="name">266pen01</div>
+                <div class="code-name">#icon266pen01</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#icon240zhome03"></use>
+                </svg>
+                <div class="name">240zhome03</div>
+                <div class="code-name">#icon240zhome03</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#icon244arrowXZ06"></use>
+                </svg>
+                <div class="name">244arrowXZ06</div>
+                <div class="code-name">#icon244arrowXZ06</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#icon258choose01"></use>
+                </svg>
+                <div class="name">258choose01</div>
+                <div class="code-name">#icon258choose01</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#icon297textleft"></use>
+                </svg>
+                <div class="name">297textleft</div>
+                <div class="code-name">#icon297textleft</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#icon295rotate"></use>
+                </svg>
+                <div class="name">295rotate</div>
+                <div class="code-name">#icon295rotate</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#icon248arrowXZ07"></use>
+                </svg>
+                <div class="name">248arrowXZ07</div>
+                <div class="code-name">#icon248arrowXZ07</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#icon196calendar"></use>
+                </svg>
+                <div class="name">196calendar</div>
+                <div class="code-name">#icon196calendar</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#icon325suspend"></use>
+                </svg>
+                <div class="name">325suspend</div>
+                <div class="code-name">#icon325suspend</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#icon322annotation"></use>
+                </svg>
+                <div class="name">322annotation</div>
+                <div class="code-name">#icon322annotation</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#icon327paixu"></use>
+                </svg>
+                <div class="name">327paixu</div>
+                <div class="code-name">#icon327paixu</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#icon204phone"></use>
+                </svg>
+                <div class="name">204phone</div>
+                <div class="code-name">#icon204phone</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#icon344"></use>
+                </svg>
+                <div class="name">344</div>
+                <div class="code-name">#icon344</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#icon330"></use>
+                </svg>
+                <div class="name">330</div>
+                <div class="code-name">#icon330</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#icon336min02"></use>
+                </svg>
+                <div class="name">336min02</div>
+                <div class="code-name">#icon336min02</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#icon349"></use>
+                </svg>
+                <div class="name">349</div>
+                <div class="code-name">#icon349</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#icon365"></use>
+                </svg>
+                <div class="name">365</div>
+                <div class="code-name">#icon365</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#icon373"></use>
+                </svg>
+                <div class="name">373</div>
+                <div class="code-name">#icon373</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#icon124notice"></use>
+                </svg>
+                <div class="name">124notice</div>
+                <div class="code-name">#icon124notice</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#icon108share"></use>
+                </svg>
+                <div class="name">108share</div>
+                <div class="code-name">#icon108share</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconbaoyang"></use>
+                </svg>
+                <div class="name">保养</div>
+                <div class="code-name">#iconbaoyang</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconrukuguanli"></use>
+                </svg>
+                <div class="name">入库管理</div>
+                <div class="code-name">#iconrukuguanli</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconruku"></use>
+                </svg>
+                <div class="name">入库</div>
+                <div class="code-name">#iconruku</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconrukuguanli1"></use>
+                </svg>
+                <div class="name">入库管理</div>
+                <div class="code-name">#iconrukuguanli1</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconbeihuodan"></use>
+                </svg>
+                <div class="name">备货单</div>
+                <div class="code-name">#iconbeihuodan</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconshengchanlingliaoyutuiliao"></use>
+                </svg>
+                <div class="name">生产领料与退料</div>
+                <div class="code-name">#iconshengchanlingliaoyutuiliao</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconlailiaopinzhijianyan"></use>
+                </svg>
+                <div class="name">来物料名称质检验</div>
+                <div class="code-name">#iconlailiaopinzhijianyan</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconjianyandan"></use>
+                </svg>
+                <div class="name">检验单</div>
+                <div class="code-name">#iconjianyandan</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconshouhuo"></use>
+                </svg>
+                <div class="name">收货</div>
+                <div class="code-name">#iconshouhuo</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconcheliangweixiubaoyang"></use>
+                </svg>
+                <div class="name">车辆维修保养</div>
+                <div class="code-name">#iconcheliangweixiubaoyang</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconrukuqingdan"></use>
+                </svg>
+                <div class="name">入库清单</div>
+                <div class="code-name">#iconrukuqingdan</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#icontouliao"></use>
+                </svg>
+                <div class="name">投料</div>
+                <div class="code-name">#icontouliao</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconnavicon-rkyw"></use>
+                </svg>
+                <div class="name">入库业务</div>
+                <div class="code-name">#iconnavicon-rkyw</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconzhiliangjianyan"></use>
+                </svg>
+                <div class="name">质量检验</div>
+                <div class="code-name">#iconzhiliangjianyan</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconjianyanpizhiliangjianyanjilu"></use>
+                </svg>
+                <div class="name">检验批质量检验记录</div>
+                <div class="code-name">#iconjianyanpizhiliangjianyanjilu</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconzhiliangjianyan1"></use>
+                </svg>
+                <div class="name">质量检验</div>
+                <div class="code-name">#iconzhiliangjianyan1</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconshangliao"></use>
+                </svg>
+                <div class="name">上料</div>
+                <div class="code-name">#iconshangliao</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconrukuC"></use>
+                </svg>
+                <div class="name">入库C</div>
+                <div class="code-name">#iconrukuC</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconbanchengpinjianyan"></use>
+                </svg>
+                <div class="name">半成品检验</div>
+                <div class="code-name">#iconbanchengpinjianyan</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconbeihuochuku"></use>
+                </svg>
+                <div class="name">备货出库</div>
+                <div class="code-name">#iconbeihuochuku</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconshouhuoruku"></use>
+                </svg>
+                <div class="name">收货入库</div>
+                <div class="code-name">#iconshouhuoruku</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconshouhuo1"></use>
+                </svg>
+                <div class="name">收货-物流详情</div>
+                <div class="code-name">#iconshouhuo1</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconshouhuoshou--"></use>
+                </svg>
+                <div class="name">收货 收</div>
+                <div class="code-name">#iconshouhuoshou--</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconrukuguanli2"></use>
+                </svg>
+                <div class="name">入库管理</div>
+                <div class="code-name">#iconrukuguanli2</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconqichebaoyangweixiushenqing"></use>
+                </svg>
+                <div class="name">汽车保养维修申请</div>
+                <div class="code-name">#iconqichebaoyangweixiushenqing</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconrukuguanli-"></use>
+                </svg>
+                <div class="name">入库管理</div>
+                <div class="code-name">#iconrukuguanli-</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconRectangleCopy"></use>
+                </svg>
+                <div class="name">入库管理</div>
+                <div class="code-name">#iconRectangleCopy</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconbiaoji"></use>
+                </svg>
+                <div class="name">标记</div>
+                <div class="code-name">#iconbiaoji</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconchengpinjianyan"></use>
+                </svg>
+                <div class="name">成品检验</div>
+                <div class="code-name">#iconchengpinjianyan</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconrukuguanli3"></use>
+                </svg>
+                <div class="name">入库管理</div>
+                <div class="code-name">#iconrukuguanli3</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#icontouliao2"></use>
+                </svg>
+                <div class="name">投料</div>
+                <div class="code-name">#icontouliao2</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconshangliaoqueren"></use>
+                </svg>
+                <div class="name">上料确认</div>
+                <div class="code-name">#iconshangliaoqueren</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconguochengjianyanchejian"></use>
+                </svg>
+                <div class="name">过程检验车间</div>
+                <div class="code-name">#iconguochengjianyanchejian</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconicon_function_ruku"></use>
+                </svg>
+                <div class="name">入库</div>
+                <div class="code-name">#iconicon_function_ruku</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconbanchengpinjianyan1"></use>
+                </svg>
+                <div class="name">半成品检验</div>
+                <div class="code-name">#iconbanchengpinjianyan1</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconruku1"></use>
+                </svg>
+                <div class="name">入库</div>
+                <div class="code-name">#iconruku1</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconguochengjianyan"></use>
+                </svg>
+                <div class="name">过程检验</div>
+                <div class="code-name">#iconguochengjianyan</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#icontouliao3"></use>
+                </svg>
+                <div class="name">投料</div>
+                <div class="code-name">#icontouliao3</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconchengpinjianyan1"></use>
+                </svg>
+                <div class="name">成品检验</div>
+                <div class="code-name">#iconchengpinjianyan1</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconruku2"></use>
+                </svg>
+                <div class="name">入库</div>
+                <div class="code-name">#iconruku2</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconzu-"></use>
+                </svg>
+                <div class="name">MR标记</div>
+                <div class="code-name">#iconzu-</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconchengpinjianyanqingdandaoru"></use>
+                </svg>
+                <div class="name">成品检验清单导入</div>
+                <div class="code-name">#iconchengpinjianyanqingdandaoru</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#icongoodswhinStock"></use>
+                </svg>
+                <div class="name">入库单 goods/wh/inStock</div>
+                <div class="code-name">#icongoodswhinStock</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconruku3"></use>
+                </svg>
+                <div class="name">入库</div>
+                <div class="code-name">#iconruku3</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconlunkuohua22_ruku"></use>
+                </svg>
+                <div class="name">_入库</div>
+                <div class="code-name">#iconlunkuohua22_ruku</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconshebeidianjian"></use>
+                </svg>
+                <div class="name">设备点检</div>
+                <div class="code-name">#iconshebeidianjian</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconshebeidianjian1"></use>
+                </svg>
+                <div class="name">设备点检</div>
+                <div class="code-name">#iconshebeidianjian1</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconruku4"></use>
+                </svg>
+                <div class="name">入库</div>
+                <div class="code-name">#iconruku4</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconchejiantuiliaojiaojie"></use>
+                </svg>
+                <div class="name">车间退料交接</div>
+                <div class="code-name">#iconchejiantuiliaojiaojie</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconchejiantuiliaojiaojie1"></use>
+                </svg>
+                <div class="name">车间退料交接</div>
+                <div class="code-name">#iconchejiantuiliaojiaojie1</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconchejiantuiliaojiaojie2"></use>
+                </svg>
+                <div class="name">车间退料交接</div>
+                <div class="code-name">#iconchejiantuiliaojiaojie2</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#icontouliao4"></use>
+                </svg>
+                <div class="name">投料</div>
+                <div class="code-name">#icontouliao4</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconchengpinjianyan2"></use>
+                </svg>
+                <div class="name">成品检验</div>
+                <div class="code-name">#iconchengpinjianyan2</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#icontubiaozhizuomoban-68"></use>
+                </svg>
+                <div class="name">退料处理</div>
+                <div class="code-name">#icontubiaozhizuomoban-68</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#icontubiaozhizuomoban-133"></use>
+                </svg>
+                <div class="name">设备点检</div>
+                <div class="code-name">#icontubiaozhizuomoban-133</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconbiaoji1"></use>
+                </svg>
+                <div class="name">标记</div>
+                <div class="code-name">#iconbiaoji1</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconguochengjianyan1"></use>
+                </svg>
+                <div class="name">过程检验</div>
+                <div class="code-name">#iconguochengjianyan1</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconbiaozhu"></use>
+                </svg>
+                <div class="name">标注</div>
+                <div class="code-name">#iconbiaozhu</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconrukuguanli4"></use>
+                </svg>
+                <div class="name">入库管理</div>
+                <div class="code-name">#iconrukuguanli4</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconrukuguanli5"></use>
+                </svg>
+                <div class="name">入库管理</div>
+                <div class="code-name">#iconrukuguanli5</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconguochengjianyan_huaban1"></use>
+                </svg>
+                <div class="name">过程检验_画板 1</div>
+                <div class="code-name">#iconguochengjianyan_huaban1</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconshengchantuiliaobeifen2x"></use>
+                </svg>
+                <div class="name">生产退料</div>
+                <div class="code-name">#iconshengchantuiliaobeifen2x</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#icongongdan"></use>
+                </svg>
+                <div class="name">工单</div>
+                <div class="code-name">#icongongdan</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconbill"></use>
+                </svg>
+                <div class="name">bill</div>
+                <div class="code-name">#iconbill</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconsousuo"></use>
+                </svg>
+                <div class="name">搜索</div>
+                <div class="code-name">#iconsousuo</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#icontuichu"></use>
+                </svg>
+                <div class="name">退出</div>
+                <div class="code-name">#icontuichu</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconjihuashu"></use>
+                </svg>
+                <div class="name">计划书</div>
+                <div class="code-name">#iconjihuashu</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconmima"></use>
+                </svg>
+                <div class="name">密码</div>
+                <div class="code-name">#iconmima</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconsousuo1"></use>
+                </svg>
+                <div class="name">搜索</div>
+                <div class="code-name">#iconsousuo1</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#icontubiao7"></use>
+                </svg>
+                <div class="name">图标7</div>
+                <div class="code-name">#icontubiao7</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconmima1"></use>
+                </svg>
+                <div class="name">密码</div>
+                <div class="code-name">#iconmima1</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconshengchanrenwudanguanli"></use>
+                </svg>
+                <div class="name">生产任务单管理</div>
+                <div class="code-name">#iconshengchanrenwudanguanli</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#icontuichu1"></use>
+                </svg>
+                <div class="name">退出</div>
+                <div class="code-name">#icontuichu1</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconjihuajindu"></use>
+                </svg>
+                <div class="name">计划进度</div>
+                <div class="code-name">#iconjihuajindu</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconyonghu"></use>
+                </svg>
+                <div class="name">用户</div>
+                <div class="code-name">#iconyonghu</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconmimaffffffpx"></use>
+                </svg>
+                <div class="name">密码 #ffffff & 20px</div>
+                <div class="code-name">#iconmimaffffffpx</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#icondianchi"></use>
+                </svg>
+                <div class="name">电池</div>
+                <div class="code-name">#icondianchi</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconbattery"></use>
+                </svg>
+                <div class="name">电池</div>
+                <div class="code-name">#iconbattery</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconicon-test"></use>
+                </svg>
+                <div class="name">设置</div>
+                <div class="code-name">#iconicon-test</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconjihua"></use>
+                </svg>
+                <div class="name">计划</div>
+                <div class="code-name">#iconjihua</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#icondianchi1"></use>
+                </svg>
+                <div class="name">电池</div>
+                <div class="code-name">#icondianchi1</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconyonghu1"></use>
+                </svg>
+                <div class="name">用户群体-业务查询</div>
+                <div class="code-name">#iconyonghu1</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconmima2"></use>
+                </svg>
+                <div class="name">密码</div>
+                <div class="code-name">#iconmima2</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconmima3"></use>
+                </svg>
+                <div class="name">密码</div>
+                <div class="code-name">#iconmima3</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconshanchu"></use>
+                </svg>
+                <div class="name">删 除 </div>
+                <div class="code-name">#iconshanchu</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconshengchan-"></use>
+                </svg>
+                <div class="name">生产</div>
+                <div class="code-name">#iconshengchan-</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconshezhi"></use>
+                </svg>
+                <div class="name">设置</div>
+                <div class="code-name">#iconshezhi</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconyiliaozhiliangfenxi"></use>
+                </svg>
+                <div class="name">医疗质量分析</div>
+                <div class="code-name">#iconyiliaozhiliangfenxi</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconshanchu1"></use>
+                </svg>
+                <div class="name">删 除</div>
+                <div class="code-name">#iconshanchu1</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconshaixuan"></use>
+                </svg>
+                <div class="name">筛选</div>
+                <div class="code-name">#iconshaixuan</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconcopy"></use>
+                </svg>
+                <div class="name">copy 复制 标志 图标</div>
+                <div class="code-name">#iconcopy</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconsousuo2"></use>
+                </svg>
+                <div class="name">搜索</div>
+                <div class="code-name">#iconsousuo2</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconnengliangzhi"></use>
+                </svg>
+                <div class="name">电力、热力、燃气及水生产和供应业</div>
+                <div class="code-name">#iconnengliangzhi</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconbianji"></use>
+                </svg>
+                <div class="name">编辑</div>
+                <div class="code-name">#iconbianji</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconbianji1"></use>
+                </svg>
+                <div class="name">编辑</div>
+                <div class="code-name">#iconbianji1</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconbianji2"></use>
+                </svg>
+                <div class="name">编辑</div>
+                <div class="code-name">#iconbianji2</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconziyuan142"></use>
+                </svg>
+                <div class="name">质量</div>
+                <div class="code-name">#iconziyuan142</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconzhiliang"></use>
+                </svg>
+                <div class="name">质量</div>
+                <div class="code-name">#iconzhiliang</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconshengchanzhoubao"></use>
+                </svg>
+                <div class="name">生产周报</div>
+                <div class="code-name">#iconshengchanzhoubao</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconshengchanyuebao"></use>
+                </svg>
+                <div class="name">生产月报</div>
+                <div class="code-name">#iconshengchanyuebao</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#icontubiao5"></use>
+                </svg>
+                <div class="name">图标5</div>
+                <div class="code-name">#icontubiao5</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#icon6"></use>
+                </svg>
+                <div class="name">生产日报</div>
+                <div class="code-name">#icon6</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconshaixuan1"></use>
+                </svg>
+                <div class="name">筛 选</div>
+                <div class="code-name">#iconshaixuan1</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconsousuo3"></use>
+                </svg>
+                <div class="name">搜索</div>
+                <div class="code-name">#iconsousuo3</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#icontubiao"></use>
+                </svg>
+                <div class="name">图标</div>
+                <div class="code-name">#icontubiao</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconcangpeitubiao_shanchu"></use>
+                </svg>
+                <div class="name">删 除 </div>
+                <div class="code-name">#iconcangpeitubiao_shanchu</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconjihuashangchuan"></use>
+                </svg>
+                <div class="name">计划上传</div>
+                <div class="code-name">#iconjihuashangchuan</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconmima4"></use>
+                </svg>
+                <div class="name">密码</div>
+                <div class="code-name">#iconmima4</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconmima5"></use>
+                </svg>
+                <div class="name">密码</div>
+                <div class="code-name">#iconmima5</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconshezhi01"></use>
+                </svg>
+                <div class="name">设 置</div>
+                <div class="code-name">#iconshezhi01</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconshanchu11"></use>
+                </svg>
+                <div class="name">删 除 (1)</div>
+                <div class="code-name">#iconshanchu11</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconjihuaxiazai"></use>
+                </svg>
+                <div class="name">计划下载</div>
+                <div class="code-name">#iconjihuaxiazai</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#icontuichu2"></use>
+                </svg>
+                <div class="name">退出</div>
+                <div class="code-name">#icontuichu2</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconshaixuan2"></use>
+                </svg>
+                <div class="name">筛选</div>
+                <div class="code-name">#iconshaixuan2</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconshengchanguanli"></use>
+                </svg>
+                <div class="name">菜单-生产管理</div>
+                <div class="code-name">#iconshengchanguanli</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconshezhi1"></use>
+                </svg>
+                <div class="name">设置</div>
+                <div class="code-name">#iconshezhi1</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconzhiliangguanli"></use>
+                </svg>
+                <div class="name">质量管理</div>
+                <div class="code-name">#iconzhiliangguanli</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconshanchu2"></use>
+                </svg>
+                <div class="name">删 除</div>
+                <div class="code-name">#iconshanchu2</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconjihuashuomingshu"></use>
+                </svg>
+                <div class="name">计划说明书</div>
+                <div class="code-name">#iconjihuashuomingshu</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconshaixuan3"></use>
+                </svg>
+                <div class="name">筛选</div>
+                <div class="code-name">#iconshaixuan3</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconjihua1"></use>
+                </svg>
+                <div class="name">计划</div>
+                <div class="code-name">#iconjihua1</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#iconbianji3"></use>
+                </svg>
+                <div class="name">编辑</div>
+                <div class="code-name">#iconbianji3</div>
+            </li>
+          
+          </ul>
+          <div class="article markdown">
+          <h2 id="symbol-">Symbol 引用</h2>
+          <hr>
+
+          <p>这是一种全新的使用方式，应该说这才是未来的主流，也是平台目前推荐的用法。相关介绍可以参考这篇<a href="">文章</a>
+            这种用法其实是做了一个 SVG 的集合，与另外两种相比具有如下特点：</p>
+          <ul>
+            <li>支持多色图标了，不再受单色限制。</li>
+            <li>通过一些技巧，支持像字体那样，通过 <code>font-size</code>, <code>color</code> 来调整样式。</li>
+            <li>兼容性较差，支持 IE9+，及现代浏览器。</li>
+            <li>浏览器渲染 SVG 的性能一般，还不如 png。</li>
+          </ul>
+          <p>使用步骤如下：</p>
+          <h3 id="-symbol-">第一步：引入项目下面生成的 symbol 代码：</h3>
+<pre><code class="language-html">&lt;script src="./iconfont.js"&gt;&lt;/script&gt;
+</code></pre>
+          <h3 id="-css-">第二步：加入通用 CSS 代码（引入一次就行）：</h3>
+<pre><code class="language-html">&lt;style&gt;
+.icon {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+}
+&lt;/style&gt;
+</code></pre>
+          <h3 id="-">第三步：挑选相应图标并获取类名，应用于页面：</h3>
+<pre><code class="language-html">&lt;svg class="icon" aria-hidden="true"&gt;
+  &lt;use xlink:href="#icon-xxx"&gt;&lt;/use&gt;
+&lt;/svg&gt;
+</code></pre>
+          </div>
+      </div>
+
+    </div>
+  </div>
+  <script>
+  $(document).ready(function () {
+      $('.tab-container .content:first').show()
+
+      $('#tabs li').click(function (e) {
+        var tabContent = $('.tab-container .content')
+        var index = $(this).index()
+
+        if ($(this).hasClass('active')) {
+          return
+        } else {
+          $('#tabs li').removeClass('active')
+          $(this).addClass('active')
+
+          tabContent.hide().eq(index).fadeIn()
+        }
+      })
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="11/15/2021 19:52:55" ReportInfo.Modified="12/21/2023 16:28:07" ReportInfo.CreatorVersion="2014.4.8.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+
+    private void btnOk_Click(object sender, EventArgs e)
+    {
+      //Report.SetParameterValue(&quot;CardCode&quot;,&quot;VN23-0040#Z0053-Z01-48C18-03&quot;);
+    }
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlqHwzMSgwTFaHpjtG3vsOj8QqA6yNJ3tAoKp9uU1I2VqOsSbjrbGTxIXaPXcgiscftmkn91z828HIgzbqCudmpKfkthzJTimu1oUpBoYn45Ccv9kQgCjtReG+TB4DhS4LWVcQB5MbjPADhamCo1Z8xI4gRXTwbuxiDg8KewKXjsMHB5elpeFDtdNNIdruhAvghBZroyJGXpQqdfBo0obF3AA==">
+      <TableDataSource Name="Table" Alias="Card" DataType="System.Int32" Enabled="true" SelectCommand="EXEC dbo.Pro_TransferCardPrint @CardCode">
+        <Column Name="Id" DataType="System.String"/>
+        <Column Name="ProductOrder" DataType="System.String"/>
+        <Column Name="WorkOrder" DataType="System.String"/>
+        <Column Name="WorkOrderType" DataType="System.String"/>
+        <Column Name="ExeWorkOrder" DataType="System.String"/>
+        <Column Name="CardCode" DataType="System.String"/>
+        <Column Name="CardName" DataType="System.String"/>
+        <Column Name="CardType" DataType="System.String"/>
+        <Column Name="ContainerNO" DataType="System.String"/>
+        <Column Name="BJGY" DataType="System.String"/>
+        <Column Name="WorkOrderRemark" DataType="System.String"/>
+        <Column Name="MaterialCode" DataType="System.String"/>
+        <Column Name="Spec" DataType="System.String"/>
+        <Column Name="MMXH" DataType="System.String"/>
+        <Column Name="JCGG" DataType="System.String"/>
+        <Column Name="BWXH" DataType="System.String"/>
+        <Column Name="SCTPSL" DataType="System.Decimal"/>
+        <Column Name="SCTPSLP" DataType="System.Decimal"/>
+        <Column Name="BZTPSL" DataType="System.Decimal"/>
+        <Column Name="KCKX" DataType="System.String"/>
+        <Column Name="UV" DataType="System.String"/>
+        <Column Name="TotalSheets" DataType="System.Decimal"/>
+        <Column Name="ActualSheets" DataType="System.Decimal"/>
+        <Column Name="OrderPieces" DataType="System.Decimal"/>
+        <Column Name="ProductPieces" DataType="System.Decimal"/>
+        <Column Name="TPGG" DataType="System.String"/>
+        <Column Name="OrderPallet" DataType="System.Decimal"/>
+        <Column Name="PerPallerBox" DataType="System.Decimal"/>
+        <Column Name="BZDHSL" DataType="System.Decimal"/>
+        <Column Name="Description" DataType="System.String"/>
+        <Column Name="PalletNum" DataType="System.String"/>
+        <Column Name="PaperBoxModel" DataType="System.String"/>
+        <Column Name="BoxDate" DataType="System.String"/>
+        <Column Name="CardStatus" DataType="System.String"/>
+        <Column Name="PrintStatus" DataType="System.String"/>
+        <Column Name="Creator" DataType="System.String"/>
+        <Column Name="CreateTime" DataType="System.DateTime"/>
+        <Column Name="ModifyBy" DataType="System.String"/>
+        <Column Name="ModifyTime" DataType="System.DateTime"/>
+        <Column Name="IsEnabled" DataType="System.Boolean" BindableControl="CheckBox"/>
+        <Column Name="PalletQty" DataType="System.Decimal"/>
+        <Column Name="NewType" DataType="System.String"/>
+        <Column Name="StartProcess" DataType="System.String"/>
+        <Column Name="TransferBy" DataType="System.String"/>
+        <Column Name="SerialNumber" DataType="System.String"/>
+        <Column Name="PieceQty" DataType="System.Decimal"/>
+        <Column Name="CardTypeName" DataType="System.String"/>
+        <Column Name="NewCardName" DataType="System.String"/>
+        <Column Name="ShowPalletQty" DataType="System.String"/>
+        <Column Name="MaterialName" DataType="System.String"/>
+        <CommandParameter Name="CardCode" DataType="22" Size="10000" Expression="[CardCode]"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+    <Parameter Name="CardCode" DataType="System.String"/>
+  </Dictionary>
+  <ReportPage Name="Page1" PaperWidth="100" PaperHeight="130" LeftMargin="0" TopMargin="0" RightMargin="0" Guides="9.45">
+    <GroupHeaderBand Name="GroupHeader1" Width="378" Condition="[Card.CardName]">
+      <DataBand Name="Data1" Top="3.04" Width="378" Height="453.6" DataSource="Table">
+        <TextObject Name="Text1" Left="198.45" Top="9.45" Width="179.55" Height="47.25" Text="[Card.ProductOrder]" Font="等线, 36pt, style=Bold"/>
+        <TextObject Name="Text2" Left="198.45" Top="66.15" Width="179.55" Height="47.25" Text="[Card.ContainerNO][Card.CardTypeName]" Font="等线, 36pt, style=Bold"/>
+        <TextObject Name="Text3" Left="198.45" Top="122.85" Width="179.55" Height="37.8" Text="[Card.NewCardName] [Card.BJGY]" Font="等线, 26.25pt, style=Bold"/>
+        <TextObject Name="Text5" Left="65.85" Top="170.25" Width="302.7" Height="28.35" Text="[Card.Spec]" Font="等线, 10.5pt"/>
+        <TextObject Name="Text6" Left="9.45" Top="170.1" Width="75.6" Height="28.5" Text="规格&#13;&#10;Quy cách：" Font="等线, 8pt"/>
+        <BarcodeObject Name="Barcode1" Left="9.45" Top="-9.3" Width="198.45" Height="179.4" AutoSize="false" DataColumn="Card.CardCode" ShowText="false" Barcode="QR Code" Barcode.ErrorCorrection="L" Barcode.Encoding="UTF8" Barcode.QuietZone="true"/>
+        <TextObject Name="Text7" Left="9.45" Top="198.45" Width="94.8" Height="28.5" Text="面膜&#13;&#10;Hoa văn:" Font="等线, 9pt"/>
+        <TextObject Name="Text8" Left="9.45" Top="226.8" Width="133.2" Height="28.5" Text="挤出规格&#13;&#10;Quy cách ép đùn:" Font="等线, 9pt"/>
+        <TextObject Name="Text9" Left="9.45" Top="255.15" Width="114" Height="28.5" Text="托盘数量&#13;&#10;Số lượng pallet:" Font="等线, 9pt, style=Bold"/>
+        <TextObject Name="Text10" Left="9.45" Top="283.5" Width="104.4" Height="28.5" Text="订单数量&#13;&#10;Số lượng đơn:" Font="等线, 9pt, style=Bold"/>
+        <TextObject Name="Text11" Left="65.85" Top="198.45" Width="302.7" Height="18.9" Text="[Card.MaterialName]" Font="等线, 10.5pt"/>
+        <TextObject Name="Text12" Left="113.85" Top="226.8" Width="254.7" Height="18.9" Text="[Card.JCGG]" Font="等线, 10.5pt"/>
+        <TextObject Name="Text13" Left="104.25" Top="264.75" Width="84.75" Height="18.9" Text="[Card.ShowPalletQty]" Font="等线, 10.5pt, style=Bold"/>
+        <TextObject Name="Text14" Left="189" Top="245.55" Width="94.5" Height="28.5" Text="压纹&#13;&#10;Dập nổi:" Font="等线, 9pt"/>
+        <TextObject Name="Text15" Left="283.5" Top="255.15" Width="85.05" Height="18.9" Text="[Card.BWXH]" Font="等线, 10.5pt"/>
+        <TextObject Name="Text16" Left="94.65" Top="293.1" Width="103.95" Height="18.9" Text="[Card.TotalSheets]/[Card.OrderPieces]" Font="等线, 10.5pt, style=Bold"/>
+        <TextObject Name="Text17" Left="312.3" Top="283.5" Width="56.25" Height="18.9" Text="[Card.BZTPSL]" Font="等线, 10.5pt"/>
+        <TextObject Name="Text18" Left="189" Top="273.9" Width="161.7" Height="28.5" Text="包装托盘数量&#13;&#10;Số lượng đóng gói:" Font="等线, 9pt"/>
+        <TextObject Name="Text19" Left="85.05" Top="311.85" Width="103.95" Height="18.9" Text="[Card.UV]" Font="等线, 10.5pt"/>
+        <TextObject Name="Text20" Left="312.3" Top="311.85" Width="65.85" Height="18.9" Text="[Card.ActualSheets]" Font="等线, 10.5pt, style=Bold"/>
+        <TextObject Name="Text21" Left="189" Top="302.25" Width="142.5" Height="28.5" Text="生产数量&#13;&#10;Số lượng sản xuất:" Font="等线, 9pt, style=Bold"/>
+        <TextObject Name="Text22" Left="9.45" Top="311.85" Width="75.6" Height="18.9" Text="UV:" Font="等线, 10.5pt"/>
+        <TextObject Name="Text23" Left="66.3" Top="330.6" Width="122.7" Height="37.95" Text="[Card.KCKX]" Font="等线, 9pt"/>
+        <TextObject Name="Text24" Left="274.35" Top="340.2" Width="103.65" Height="18.9" Text="[Card.MaterialCode]" Font="等线, 10.5pt"/>
+        <TextObject Name="Text25" Left="9.45" Top="330.6" Width="83.65" Height="28.5" Text="扣型&#13;&#10;Loại khoá:" Font="等线, 9pt"/>
+        <TextObject Name="Text26" Left="189" Top="330.6" Width="94.8" Height="28.5" Text="纸盒型号&#13;&#10;Mã thùng giấy:" Font="等线, 9pt"/>
+        <TextObject Name="Text27" Left="264.3" Top="368.55" Width="104.25" Height="18.9" Text="[Card.BoxDate]" Font="等线, 10.5pt"/>
+        <TextObject Name="Text28" Left="9.45" Top="358.95" Width="75.6" Height="28.5" Text="托盘编号&#13;&#10;Mã pallet:" Font="等线, 9pt"/>
+        <TextObject Name="Text29" Left="189" Top="358.95" Width="75.3" Height="28.5" Text="纸盒&#13;&#10;Thùng giấy:" Font="等线, 9pt"/>
+        <TextObject Name="Text30" Left="85.05" Top="358.95" Width="103.95" Height="18.9" Text="[Card.PalletNum]" Font="等线, 10.5pt"/>
+        <TextObject Name="Text31" Left="283.5" Top="396.9" Width="85.05" Height="18.9" Text="[Card.PerPallerBox]/[Card.BZDHSL]" Font="等线, 10.5pt"/>
+        <TextObject Name="Text32" Left="9.45" Top="387.3" Width="114" Height="28.5" Text="托盘规格&#13;&#10;Quy cách pallet:" Font="等线, 9pt"/>
+        <TextObject Name="Text33" Left="189" Top="387.3" Width="113.7" Height="28.5" Text="盒/片数&#13;&#10;thùng/số tấm:" Font="等线, 9pt"/>
+        <TextObject Name="Text34" Left="94.65" Top="396.9" Width="103.95" Height="18.9" Text="[Card.TPGG]" Font="等线, 10.5pt"/>
+        <TextObject Name="Text35" Left="9.45" Top="415.65" Width="190.8" Height="28.5" Text="是否淋膜&#13;&#10;Có hay không có phủ bóng:" Font="等线, 9pt"/>
+        <CheckBoxObject Name="CheckBox1" Left="161.85" Top="425.25" Width="18.9" Height="18.9" Border.Lines="All" Checked="false"/>
+        <TextObject Name="Text36" Left="190.2" Top="423.36" Width="187.8" Height="18.9" Text="[Card.WorkOrderRemark]" Font="等线, 8pt, style=Bold"/>
+      </DataBand>
+      <GroupFooterBand Name="GroupFooter1" Top="459.69" Width="378"/>
+    </GroupHeaderBand>
+  </ReportPage>
+</Report>

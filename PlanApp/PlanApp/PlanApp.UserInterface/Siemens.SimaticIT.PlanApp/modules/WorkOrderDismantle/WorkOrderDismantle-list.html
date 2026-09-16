@@ -1,0 +1,143 @@
+﻿<style>
+    .MainCommandActionButton {
+        margin-top: 20px !important;
+    }
+
+
+    .green {
+        color: rgb(38, 228, 31)
+    }
+
+    .red {
+        color: red
+    }
+
+    /*#dropdownMenuAdvanced {
+        max-width: 130px;
+    }*/
+</style>
+<div id="itemlist" class="content-area content-area-relative" style="height: calc(20% - 10px) !important;">
+    <!--查询条件与功能按钮-->
+    <div class="col-md-40" style="margin-left: 15px;">
+        <div class="side-panel-property-area-body">
+            <sit-property-grid sit-id="add_form" sit-layout="Horizontal" sit-type="Fixed" sit-mode="edit"
+                               sit-columns="8">
+                <sit-property sit-widget="sit-select" sit-value="vm.typeFactory.value"
+                              sit-options="vm.typeFactory.options" sit-to-display="'ResourceName'" sit-to-keep="'ResourceCode'">
+                    {{'Siemens.SimaticIT.PlanApp.WorkOrderDismantle.Tips_1'|translate}}
+                </sit-property>
+                <sit-property sit-widget="sit-text" sit-value="vm.searchParams.ProductOrder" sit-read-only="false"
+                              style="max-width:100px;">
+                    {{'Siemens.SimaticIT.PlanApp.WorkOrderDismantle.Tips_2'|translate}}
+                </sit-property>
+                <sit-property sit-widget="sit-text" sit-value="vm.searchParams.MaterialCode" sit-read-only="false"
+                              style="max-width:100px;">
+                    {{'Siemens.SimaticIT.PlanApp.WorkOrderDismantle.Tips_3'|translate}}
+                </sit-property>
+                <sit-property sit-widget="sit-text" sit-value="vm.searchParams.MaterialName" sit-read-only="false"
+                              style="max-width:100px;">
+                    {{'Siemens.SimaticIT.PlanApp.WorkOrderDismantle.Tips_4'|translate}}
+                </sit-property>
+                <sit-property sit-widget="sit-text" sit-value="vm.searchParams.ContainerNO" sit-read-only="false"
+                              style="max-width:100px;">
+                    {{'Siemens.SimaticIT.PlanApp.WorkOrderDismantle.Tips_5'|translate}}
+                </sit-property>
+                <sit-property sit-widget="sit-alp-text-picker" sit-value="vm.searchParams.OrderStatusName"
+                              sit-validation="{required: false}" sit-read-only="false" ng-click="vm.SelectErpArrivalCodeModal()"
+                              style="max-width:100px;">
+                    {{'Siemens.SimaticIT.PlanApp.WorkOrderDismantle.Tips_6'|translate}}
+                </sit-property>
+                <sit-property sit-widget="sit-select" sit-value="vm.typeDemandMaterial.value"
+                              sit-validation="{required: false}" sit-options="vm.typeDemandMaterial.options"
+                              sit-to-display="'ItemName'" sit-to-keep="'ItemValue'" style="max-width:100px;">
+                    {{'Siemens.SimaticIT.PlanApp.WorkOrderDismantle.Tips_7'|translate}}
+                </sit-property>
+                <sit-property sit-widget="sit-select" sit-value="vm.typeStoreIssue.value"
+                              sit-validation="{required: false}" sit-options="vm.typeStoreIssue.options"
+                              sit-to-display="'ItemName'" sit-to-keep="'ItemValue'" style="max-width:100px;">
+                    {{'Siemens.SimaticIT.PlanApp.WorkOrderDismantle.Tips_8'|translate}}
+                </sit-property>
+                <sit-property sit-widget="sit-select" sit-value="vm.typeSupe.value" sit-validation="{required: false}"
+                              sit-options="vm.typeSupe.options" sit-to-display="'ItemName'" sit-to-keep="'ItemValue'"
+                              style="max-width:100px;">
+                    {{'Siemens.SimaticIT.PlanApp.WorkOrderDismantle.Tips_9'|translate}}
+                </sit-property>
+                <sit-property sit-widget="sit-select" sit-value="vm.typeMaterialSmall.value"
+                              sit-validation="{required: false}" sit-options="vm.typeMaterialSmall.options"
+                              sit-to-display="'ItemName'" sit-to-keep="'ItemValue'" style="max-width:100px;">
+                    {{'Siemens.SimaticIT.PlanApp.WorkOrderDismantle.Tips_10'|translate}}
+                </sit-property>
+                <sit-property sit-widget="sit-select" sit-value="vm.typeWorkOrder.value"
+                              sit-validation="{required: false}" sit-options="vm.typeWorkOrder.options"
+                              sit-to-display="'ItemName'" sit-to-keep="'ItemValue'" style="max-width:100px;">
+                    {{'Siemens.SimaticIT.PlanApp.WorkOrderDismantle.Tips_11'|translate}}
+                </sit-property>
+                <sit-property sit-widget="sit-text" sit-value="vm.searchParams.StoreIssueNo" sit-read-only="false"
+                              style="max-width:100px;">
+                    {{'Siemens.SimaticIT.PlanApp.WorkOrderDismantle.Tips_12'|translate}}
+                </sit-property>
+                <sit-property sit-widget="sit-text" sit-value="vm.searchParams.Spec" sit-read-only="false"
+                              style="max-width:100px;">
+                    {{'Siemens.SimaticIT.PlanApp.WorkOrderDismantle.Tips_13'|translate}}
+                </sit-property>
+                <sit-command-bar sit-type="action">
+                    <sit-command sit-icon="fa-search" sit-type="main" sit-name="com.siemens.customcommand.search"
+                                 :sit-tooltip="{{'Siemens.SimaticIT.PlanApp.WorkOrderDismantle.Tips_14'|translate}}"
+                                 ng-click="vm.searchButtonHandler"
+                                 :sit-label="{{'Siemens.SimaticIT.PlanApp.WorkOrderDismantle.Tips_14'|translate}}">
+                    </sit-command>
+                </sit-command-bar>
+            </sit-property-grid>
+        </div>
+    </div>
+    <!--右侧功能按钮-->
+    <sit-command-bar sit-vertical-autofixed="true" sit-type="Tool" :sit-label-align="right" sit-layout="vertical">
+        <sit-command sit-icon="fa-print" sit-name="com.siemens.customcommand.print" ng-click="vm.printButtonHandler"
+                     :sit-tooltip="{{'Siemens.SimaticIT.PlanApp.WorkOrderDismantle.Tips_15'|translate}}"
+                     :sit-label="{{'Siemens.SimaticIT.PlanApp.WorkOrderDismantle.Tips_15'|translate}}"
+                     ng-show="vm.isDetailButtonVisible" sit-type="main"></sit-command>
+
+        <sit-command sit-icon="fa-trash-o" sit-name="com.siemens.customcommand.delete" ng-click="vm.deleteSuperProduct"
+                     :sit-tooltip="{{'Siemens.SimaticIT.PlanApp.WorkOrderDismantle.Tips_16'|translate}}"
+                     :sit-label="{{'Siemens.SimaticIT.PlanApp.WorkOrderDismantle.Tips_16'|translate}}"
+                     ng-show="vm.isDetailButtonVisible" sit-type="main"></sit-command>
+
+        <sit-command sit-icon="fa-pencil-square-o" sit-name="com.siemens.customcommand.edit"
+                     ng-click="vm.editSuperProduct"
+                     :sit-tooltip="{{'Siemens.SimaticIT.PlanApp.WorkOrderDismantle.Tips_17'|translate}}"
+                     :sit-label="{{'Siemens.SimaticIT.PlanApp.WorkOrderDismantle.Tips_17'|translate}}"
+                     ng-show="vm.isDetailButtonVisible" sit-type="main"></sit-command>
+
+        <sit-command sit-icon="fa-sign-out" sit-name="com.siemens.customcommand.reissue"
+                     :sit-tooltip="{{'Siemens.SimaticIT.PlanApp.WorkOrderDismantle.Tips_18'|translate}}"
+                     ng-click="vm.reissueDismantle"
+                     :sit-label="{{'Siemens.SimaticIT.PlanApp.WorkOrderDismantle.Tips_18'|translate}}"
+                     ng-show="vm.isDetailButtonVisible"></sit-command>
+
+        <!-- <sit-command sit-icon="fa-arrow-right" sit-name="com.siemens.customcommand.add" ng-click="vm.editConsume" :sit-tooltip="{{'Siemens.SimaticIT.PlanApp.WorkOrderDismantle.Tips_19'|translate}}"
+         :sit-label="{{'Siemens.SimaticIT.PlanApp.WorkOrderDismantle.Tips_19'|translate}}" ng-show="vm.isButtonVisible" sit-type="main"></sit-command> -->
+
+        <sit-command sit-icon="fa-arrow-left " sit-name="com.siemens.customcommand.edit"
+                     :sit-tooltip="{{'Siemens.SimaticIT.PlanApp.WorkOrderDismantle.Tips_20'|translate}}"
+                     ng-click="vm.editCancellingStocks"
+                     :sit-label="{{'Siemens.SimaticIT.PlanApp.WorkOrderDismantle.Tips_20'|translate}}"
+                     ng-show="vm.isDetailButtonVisible"></sit-command>
+
+        <sit-command sit-icon="fa-building" sit-name="com.siemens.customcommand.edit"
+                     :sit-tooltip="{{'Siemens.SimaticIT.PlanApp.WorkOrderDismantle.Tips_21'|translate}}"
+                     ng-click="vm.editDismantle"
+                     :sit-label="{{'Siemens.SimaticIT.PlanApp.WorkOrderDismantle.Tips_21'|translate}}"
+                     ng-show="vm.isButtonVisible"></sit-command>
+    </sit-command-bar>
+    <!-- grid列表 -->
+
+</div>
+<div id="listClass" style="width:100%; height: 50%; padding:0px 16px 0 16px; margin-top: 3px;">
+    <div ui-grid="vm.gridOptions" ui-grid-pinning ui-grid-auto-resize ui-grid-resize-columns ui-grid-selection
+         ui-grid-pagination class="uigrid"></div>
+</div>
+
+<div id="listClass2" class="col-md-40" style="width:100%; height: 30%; padding:0px 16px 0 16px; margin-top: 3px;">
+    <div ui-grid="vm.gridOptionsDetail" ui-grid-pinning ui-grid-auto-resize ui-grid-resize-columns ui-grid-selection
+         ui-grid-pagination class="uigrid"></div>
+</div>

@@ -1,0 +1,6 @@
+D:\New folder\MaterialApp\MaterialApp\MaterialApp.EventHandler\bin\Debug\Siemens.SimaticIT.MaterialApp.EventHandler.dll
+D:\New folder\MaterialApp\MaterialApp\MaterialApp.EventHandler\bin\Debug\Siemens.SimaticIT.MaterialApp.EventHandler.pdb
+D:\New folder\MaterialApp\MaterialApp\MaterialApp.EventHandler\obj\Debug\MaterialApp.EventHandler.csprojAssemblyReference.cache
+D:\New folder\MaterialApp\MaterialApp\MaterialApp.EventHandler\obj\Debug\MaterialApp.EventHandler.csproj.CoreCompileInputs.cache
+D:\New folder\MaterialApp\MaterialApp\MaterialApp.EventHandler\obj\Debug\Siemens.SimaticIT.MaterialApp.EventHandler.dll
+D:\New folder\MaterialApp\MaterialApp\MaterialApp.EventHandler\obj\Debug\Siemens.SimaticIT.MaterialApp.EventHandler.pdb

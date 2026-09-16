@@ -1,0 +1,110 @@
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>80bf7920-0cd8-4354-a35b-2c901e22ad11</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Siemens.SimaticIT.ButtonAuthFBApp.ButtonAuthFBApp.BAPOMModel</RootNamespace>
+    <AssemblyName>Siemens.SimaticIT.ButtonAuthFBApp.ButtonAuthFBApp.BAPOMModel</AssemblyName>
+    <Name>ButtonAuthFBApp.BAPOMModel</Name>
+    <FunctionalBlockType>Project</FunctionalBlockType>
+    <FunctionalBlockVersion>01.00.00</FunctionalBlockVersion>
+    <FunctionalBlockName>ButtonAuthFBApp</FunctionalBlockName>
+    <FunctionalBlockDomain>ButtonAuthFBApp</FunctionalBlockDomain>
+    <FunctionalBlockPrefix>Siemens.SimaticIT</FunctionalBlockPrefix>
+    <SitPlatformVersion>4.1</SitPlatformVersion>
+    <DocumentationFolder>
+    </DocumentationFolder>
+    <DocumentationCompilerOption>True</DocumentationCompilerOption>
+    <ParallelCompilerOption>False</ParallelCompilerOption>
+    <FunctionalBlockDomainPrefix>BA</FunctionalBlockDomainPrefix>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU'  ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="Diagrams\" />
+    <Folder Include="Properties" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Model" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Model\Project.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Model\DataSource.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Model\Command" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Model\Command\Command.ul" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Model\DataModel" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Model\DataModel\DataModel.ul" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Model\Event" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Model\Event\Event.ul" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Model\ReadingFunction" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Model\ReadingFunction\ReadingFunction.ul" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Model\Security" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Model\Security\Security.ul" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Model\Alias" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Model\Alias\Alias.ul" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Model\Type" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Model\Type\Type.ul" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Diagrams\Siemens_SimaticIT_BA_ButtonAuthFBApp.dm" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Siemens_SimaticIT_MS_ButtonAuthFBLib.um">
+      <Name>Siemens_SimaticIT_MS_ButtonAuthFBLib.um</Name>
+      <FileModelName>Siemens_SimaticIT_MS_ButtonAuthFBLib.um</FileModelName>
+      <HintPath>..\..\SimaticITPackages\Siemens.SimaticIT.ButtonAuthFBLib_01.00.00\model\manufacturingModel\Siemens_SimaticIT_MS_ButtonAuthFBLib.um</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <Import Project="$(SITUnifiedVSToolingPlatformBin)\Siemens.SimaticIt.DSL.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,19 @@
+﻿{
+  "name": "Siemens.SimaticIT.QualityApp.QC_IPQCDetail",
+  "type": "standard",
+  "title": "Siemens.SimaticIT.QualityApp.QC_IPQCDetail.Title",
+  "header": "",
+  "icon": "svg typeActionLongTerm48",
+  "functionalBlock": "Siemens.SimaticIT.QualityApp",
+  "dependencies": [],
+  "states": [
+    {
+      "id": "home.Siemens_SimaticIT_QualityApp_QC_IPQCDetail_QC_IPQCDetail",
+      "title": "Siemens.SimaticIT.QualityApp.QC_IPQCDetail.Title",
+      "header": "",
+      "securable": true,
+      "roles": []
+    }
+  ],
+  "manifestVersion": "01.01.00"
+}

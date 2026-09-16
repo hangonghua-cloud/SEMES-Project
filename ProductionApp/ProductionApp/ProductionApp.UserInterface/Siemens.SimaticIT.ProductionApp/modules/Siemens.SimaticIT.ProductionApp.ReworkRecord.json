@@ -1,0 +1,19 @@
+﻿{
+  "name": "Siemens.SimaticIT.ProductionApp.ReworkRecord",
+  "type": "standard",
+  "title": "Siemens.SimaticIT.ProductionApp.ReworkRecord.Title",
+  "header": "",
+  "icon": "fa-folder",
+  "functionalBlock": "Siemens.SimaticIT.ProductionApp",
+  "dependencies": [],
+  "states": [
+    {
+      "id": "home.Siemens_SimaticIT_ProductionApp_ReworkRecord_ReworkRecord",
+      "title": "Siemens.SimaticIT.ProductionApp.ReworkRecord.Title",
+      "header": "",
+      "securable": true,
+      "roles": []
+    }
+  ],
+  "manifestVersion": "01.01.00"
+}

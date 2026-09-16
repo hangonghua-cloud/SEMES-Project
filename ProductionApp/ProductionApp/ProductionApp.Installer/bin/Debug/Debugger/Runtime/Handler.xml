@@ -1,0 +1,2295 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Items>
+  <Handler Id="41ffc052-fc43-4074-94cc-1a3421c8093c">
+    <AssemblyName>SimaticIT.Administration.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Administration.StartHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="8d922787-d9b8-49d6-9f3a-0e112b809995">
+    <AssemblyName>SimaticIT.Administration.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Administration.StopHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="15e6b32e-29e6-4498-bcee-d57bbd4a5a4f">
+    <AssemblyName>SimaticIT.Administration.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Administration.EnableHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="f1616c31-1f8b-44ff-84fa-657938de8a3b">
+    <AssemblyName>SimaticIT.Administration.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Administration.DisableHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="eb66f981-f230-43cd-8d8e-c00618390fd2">
+    <AssemblyName>SimaticIT.Administration.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Administration.DeployHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="fe0763d2-58a0-43f8-9771-f6238b312799">
+    <AssemblyName>SimaticIT.Administration.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Administration.ScaffoldDatabaseHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="76dab68b-a418-4e3c-ba4f-0f527c93af35">
+    <AssemblyName>SimaticIT.Administration.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Administration.GetCurrentSolutionPackageToDeployInfoHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="dd9c32a3-d425-4e11-9850-851b476269d2">
+    <AssemblyName>SimaticIT.Administration.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Administration.GetSysGovernancePackageHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="badcea4f-3d42-4b76-b2f1-58bf999e70ab">
+    <AssemblyName>SimaticIT.Administration.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Administration.GetHostsInfoHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="34801091-8bf7-4f5e-aa62-1790b3fc31cc">
+    <AssemblyName>SimaticIT.Administration.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Administration.GetCurrentIdentityClaimsHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="93f576d2-e592-466e-93d4-1868fe9cbb8e">
+    <AssemblyName>SimaticIT.Administration.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Administration.GetNodeStatusHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="7e824d55-bfec-4c82-a363-a15ab0eaa019">
+    <AssemblyName>SimaticIT.Administration.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Administration.CreateHostHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="ea92d5d1-0a40-4bc4-ae20-2598b5478367">
+    <AssemblyName>SimaticIT.Administration.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Administration.DeleteHostHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="1a847d8f-face-410c-96b9-d46485902801">
+    <AssemblyName>SimaticIT.Administration.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Administration.UpdateHostHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="3587ec2a-8454-4ed7-bffa-1ea03dc441e8">
+    <AssemblyName>SimaticIT.Administration.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Administration.GetLicenseStatusHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="83716677-430e-495c-bb71-f4ddeb0c7e55">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.CreateWorkerRoleHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="ba18fa05-db81-4276-8abb-6a22a8e802fb">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.UpdateWorkerRoleHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="781b5b9f-d21c-4ec4-a1d8-855b6a1b2fad">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.DeleteWorkerRoleHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="4bb78ca3-2285-431c-afd9-ed0835671ec0">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.AddCommandToWorkerRoleHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="082ddc9b-81d6-49bf-a8af-3c8ced470d2d">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.AddCommandsToWorkerRoleHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="46c8a01e-0b0c-41e9-9360-45f2bb5dcf4b">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.AddWorkerRoleToHostRoleHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="7bbb8e96-7cb0-4032-afd1-5577b2e82f00">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.RemoveWorkerRoleFromHostRoleHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="7c3d1e88-3a03-4df0-a15c-2fd53d905bd4">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.RemoveCommandFromWorkerRoleHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="f140cd3d-99c3-4f83-a561-780facc521b8">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.RemoveCommandsFromWorkerRoleHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="b9f3b744-0c11-4682-8dd3-cffce13c52c7">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.ApplyUMACHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="a28a4a87-7c9c-4b95-a6b2-8551749273fa">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.PublicApplyUMACHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="6103277b-98c9-48e5-a5d1-a9e47df6e0c3">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.AddSubscriptionToWorkerRoleHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="d0f0bdac-356a-4861-b93c-8c5d1d04acd9">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.RemoveSubscriptionFromWorkerRoleHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="a890cb43-c70c-4763-bce3-68a3fc4458bc">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.CreateEventSubscriptionHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="385711b5-fb79-4360-bc8e-647f28c424d9">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.AddFilterToEventSubscriptionHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="80878dd0-1d90-40ad-b575-974c1f65d265">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.UpdateFilterInEventSubscriptionHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="b86d5795-eb80-410c-8e33-d17f3a274ab8">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.RemoveFilterFromEventSubscriptionHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="a9d39111-79cf-40bb-8f84-edb72c00c1b8">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.UpdateEventSubscriptionHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="c23920cb-ee8a-4cf5-9707-47640fd10ee1">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.DeleteEventSubscriptionHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="26351372-8248-45c3-a718-29643e504d4f">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.RenameEventSubscriptionHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="6f021691-83ec-4ca1-80ea-96e672779ee6">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.CreateRoleHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="1568b793-5abb-48cc-89a2-f1c5678a2681">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.UpdateRoleHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="c68e4f98-4830-4b05-a3c0-3c8ad5fc93e1">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.DeleteRoleHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="2615e7c0-48a9-4774-9dc3-76b88a4bd636">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.CreateDomainHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="b125d75d-d301-43b0-b366-32a5fa392943">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.UpdateDomainHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="1b282f67-83af-4363-833e-f79442b0fe42">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.DeleteDomainHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="ea3d82e3-3c33-4c49-9fef-9e583a663973">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.CreateUserRoleAssociationHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="b1f91fc9-f737-442c-9b15-c674143e478d">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.PublicCreateUserRoleAssociationHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="23ca5ecd-bd53-41c3-baed-63781ab13275">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.DeleteUserRoleAssociationHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="d7cfb3d2-f904-4837-affb-d7687c70bd05">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.PublicDeleteUserRoleAssociationHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="ee733370-d485-4654-a5fe-7ec96be7ed83">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.CreateGroupRoleAssociationHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="47fd099c-33e1-4fa9-aa5a-2d8dfb9e877e">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.PublicCreateGroupRoleAssociationHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="3a6d95db-7c72-416d-8fe9-fc142f0feb17">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.DeleteGroupRoleAssociationHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="25eba209-237e-4ddb-b4da-998c3d963d60">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.PublicDeleteGroupRoleAssociationHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="c3a750a4-d7ef-4815-b95f-a4afc29f32ee">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.AddFunctionRightToRoleHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="5424a2f9-ba31-4d57-96ff-5f43dcedc1a9">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.RemoveFunctionRightFromRoleHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="6397f588-1a13-4187-aa9a-35007abfa175">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.CreateUIModuleHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="e9e22d73-5fb5-492b-9b9b-01be49ade819">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.DeleteUIModuleHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="a9805662-f3ec-41c1-be57-60719708b76e">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.UpdateUIModuleHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="a52ca3f7-10bb-4646-985a-31ec395d76b4">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.ReadUIModuleManifestHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="9cb65240-eee4-4625-ab38-19b0b921e776">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.ReadUIComponentManifestHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="f135aef1-91ca-47b5-97ba-38e30f1df222">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.UpdateDataProviderHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="22a9dbd3-21f2-4082-9965-8665ab4676d8">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.GenerateUIModuleHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="f84c481b-b44f-41ae-8d3d-60a2f387caef">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.CreateUIApplicationHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="b6cb1660-559e-469f-9744-6f81e1f7e1cc">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.DeleteUIApplicationHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="df7e02f5-01c6-46ff-a44f-28afad50af80">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.UpdateUIApplicationHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="fb716d29-ac85-4b67-bfe6-2eaf0d31e805">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.ReadUIApplicationManifestHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="57e88fd9-62c2-4742-b1aa-04e878469003">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.DeployUIApplicationHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="0b0256da-03fb-4904-bd9e-b2e089f7d620">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.RetrieveAppListHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="f61a87d9-a3b9-4e41-b6fd-f43617d5ef02">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.UpdateWorkerRoleToHostRoleHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="2fa80de4-44c3-475d-a72f-8d83a806ba70">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.GenerateDebugRegistryHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="3070ec21-16df-4899-8250-29005181bc86">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.CreateSolutionHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="1daf38f7-5ad2-41c7-b2a5-96b643433456">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.UpdateSolutionHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="fbc5573f-0ba1-47d3-a71c-062d0952ac01">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.DeleteSolutionHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="a5f166bc-714c-4235-971e-93ebe063eac0">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.AddUIAppToSolutionPackageHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="c1a579c0-b687-4b8c-91e6-f6668c5a6848">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.RemoveUIAppFromSolutionPackageHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="91f42957-ac0e-49e9-8d12-8d15dbe480e6">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.BuildSolutionPackageHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="f2aa0a6f-4bc1-4168-b0b1-e45f82486c87">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.BackupSolutionHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="f9d5f207-cae5-4e22-a580-c98f29289309">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.RestoreSolutionHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="9b6518e5-63a1-4131-b7dc-03a62c4fc669">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.RetrieveSolutionBackupPackagesHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="599d1408-a679-4b8d-891f-cfb2507761ed">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.CreateSWACComponentHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="d6d6c6cd-2f6e-4d2b-bd7a-67c39a1c0721">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.DeleteSWACComponentHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="86af34b6-c6e5-4ea4-aa6e-e233992d386e">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.AddSolutionAppHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="a1561319-bedf-44b2-acae-1b43909a1d45">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.UpdateSolutionAppHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="8e58bfbf-0104-486e-97a4-93f6936c1c89">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.ReloadSolutionAppHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="0fead0bc-52a6-4e7f-9464-4b2da088afce">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.RemoveSolutionAppHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="aef92741-78d2-44ad-a853-bb93e36338d0">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.RemoveFunctionRightsFromRoleHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="4c2be095-b80f-4f9e-aa9f-7e2bf3211ad6">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.AddFunctionRightsToRoleHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="a89ee6bc-c42a-4a2d-9a1d-11506db5622d">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.UpdateCommandsHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="fb8d54dd-aebe-461a-9163-677d4f78116b">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.RetrieveSolutionAppsHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="94ba2f32-77a5-4173-9b4f-2ebef20f3f54">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.DeleteEventSubscriptionsHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="94925a05-75fa-4eb9-80f3-10d7b75a69e2">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.UpdateEventSubscriptionsHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="6d87dafa-9442-404d-882a-acdb8fd53752">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.DeployDiagramsHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="54558402-3424-4f21-95e6-30d0beabbf27">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.CopyRoleHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="8d0df815-48fd-4b0c-8947-e0cb8637716d">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.RefreshAppCatalogHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="96190a2e-9b45-48e2-8d13-09f8142f871c">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.AddAppExtensionHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="3a98ade4-6776-4a08-a0ec-03f60cde018d">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.UpdateAppExtensionHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="e0015b45-6ef0-4163-be27-24f9c4ce5643">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.RemoveAppExtensionHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="a03e98d8-577e-4611-afee-88a71679d205">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.ReloadAppExtensionHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="0efff935-7114-471a-a04f-94fd0811da45">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.CreateATConfigurationHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="543f0047-aca4-428b-948a-2d81de6d2ead">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.UpdateATConfigurationHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="bca078b8-0da4-4fda-8e25-2656a3d4cfd0">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.DeleteATConfigurationHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="6c107feb-af36-4b49-b034-04875c4b42e8">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.SetATConfigurationHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="276df79b-7102-4ad6-9dcc-5cee7a5686b5">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.EnableAuditTrailHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="1142a368-db89-4589-b79d-4f51c00a5c28">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.DisableAuditTrailHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="52bd811a-6751-421f-b0e5-dbeb5be76990">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.ApplyATConfigurationHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="88e5c055-0ab4-4288-a6ac-cbb3a969c337">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.ExportATConfigurationHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="0e122ddc-ca2d-4252-bf86-711ae1ab0764">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.ImportATConfigurationHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="d4c9dc22-96a4-4cbe-8011-77841b44f1e6">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.RetrieveExportedATConfigurationListHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="68368c17-e50c-4e1b-b871-a8dcf513c087">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.CreateMTConfigurationHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="539ef4fe-3330-4fa2-8297-ffa8e0d9cc99">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.UpdateMTConfigurationHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="a6a8dcfb-1bba-4f7e-954e-fd0ddb24ec8e">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.DeleteMTConfigurationHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="c3eccbcc-fd99-439e-ada7-34df06d92540">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.CreateMTCleaningConditionHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="de25ff3b-d1e2-463f-ad52-af1c997c1fe9">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.UpdateMTCleaningConditionHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="d6d4e3b3-6158-43cd-94dd-dec1a7ae53f9">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.DeleteMTCleaningConditionHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="b70e6c29-e509-4ff1-8dc3-3e79f048d648">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.CreateMTScheduleHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="8bf9224c-a545-4af7-b9b4-f09720189d85">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.UpdateMTScheduleHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="f3bc500a-9bde-49e6-8c28-b478bad4a9b7">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.DeleteMTScheduleHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="b319926b-4ddf-4745-905b-c75e43ee4a2e">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.CreateMTRuleHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="ef01402c-58c7-4f44-b64e-f8cda6f31cbc">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.SetMTRulesHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="7b4ea783-33b2-4a36-bfb1-ad2faf958f95">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.DeleteMTRulesHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="640e903a-2075-42c2-8c87-72f26c1d0e77">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.EnableMaintenanceHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="996a3112-db0e-4631-a9cc-e01df4dcb854">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.DisableMaintenanceHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="a59885dc-30db-430d-813e-f671961f844d">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.GetTimeZonesHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="503bb219-f226-49ca-88ee-3f301eeb6b90">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.UpdateArchiveDatabaseInfoHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="353f19b2-14c7-4f35-8412-0748d36bc000">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.CreateMTCopyScheduleHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="b3672172-6df5-4fc3-8f4b-595fa621e9d7">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.UpdateMTCopyScheduleHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="e11e74d4-f5c2-4974-aa60-6451c6e569a4">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.DeleteMTCopyScheduleHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="bb9ef26f-07f5-427e-85a7-527a1d71a623">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.UpdatePreCheckConfigurationHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="1f4d15eb-4618-4fde-8685-25d9c12066e7">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.SuspendArchivingHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="62d6b580-554e-4f15-a0ef-8b71630fc184">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.ResumeArchivingHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="65a883f0-9783-4abd-bdd1-ffbf3a23fa42">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.PurgeHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="e81d6c60-0b75-443b-b963-77ad289a8cca">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.UpdateCommandActionConfigurationHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="eb688d46-7a1c-4ec4-9102-e3105d96d6a0">
+    <AssemblyName>SimaticIT.Engineering.Handlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Unified.Engineering.ReloadResourcePackagesHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </Handler>
+  <Handler Id="588550b5-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.SITUASys.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.SystemData.SITUASys.SDModel.Commands.CreateOperationHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="5aa13bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.UDM_RF.UOM_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.ReferenceData.UDM_RF.RFModel.Commands.HideUoMHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="83a23bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.UDM_RF.UOM_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.ReferenceData.UDM_RF.RFModel.Commands.UnfreezeUoMDimensionHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="aca33bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.EQU_MS.EQU_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.EQU_MS.MSModel.Commands.UpdateEquipmentTypeHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="d5a43bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.EQU_MS.EQU_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.EQU_MS.MSModel.Commands.DeleteEquipmentConfigurationPropertyHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="9ba53bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.EQU_OP.EQU_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.OperationalData.EQU_OP.OPModel.Commands.UpdateEquipmentHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="7c785fdf-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.PRM_MS.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.PRM_MS.MSModel.Commands.ImportUsersHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="06524788-55fe-ec11-9668-f42bdd9eb577">
+    <AssemblyName>Siemens.SimaticIT.ButtonAuthFBLib.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.ButtonAuthFBLib.MSModel.Commands.RawMaterialStockManageOutWhsHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="92ec2ad2-b9a6-ed11-9669-b2c997e47311">
+    <AssemblyName>Siemens.SimaticIT.ButtonAuthFBLib.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.ButtonAuthFBLib.MSModel.Commands.ProductionOrderTransferHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="1ad411db-c0e6-ee11-9679-eabeef809a67">
+    <AssemblyName>Siemens.SimaticIT.ButtonAuthFBLib.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.ButtonAuthFBLib.MSModel.Commands.RawMaterialStockManageOutWhs2HandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="adb6b371-65f6-ee11-9679-eabeef809a67">
+    <AssemblyName>Siemens.SimaticIT.ButtonAuthFBLib.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.ButtonAuthFBLib.MSModel.Commands.ProductDispatchEditHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="d28450b5-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.System.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.System.System.SAPOMModel.Commands.ExportHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="dc8450b5-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.System.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.System.System.SAPOMModel.Commands.ImportHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="e68450b5-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.SITUASys.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.SystemData.SITUASys.SDModel.Commands.RecoveryOperationHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="f08450b5-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.SITUASys.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.SystemData.SITUASys.SDModel.Commands.ResetUserPreferenceHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="fa8450b5-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.SITUASys.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.SystemData.SITUASys.SDModel.Commands.AbortOperationHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="048550b5-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.SITUASys.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.SystemData.SITUASys.SDModel.Commands.SetUserPreferenceHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="278550b5-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.SITUASys.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.SystemData.SITUASys.SDModel.Commands.CreateExportOperationHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="308550b5-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.SITUASys.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.SystemData.SITUASys.SDModel.Commands.StartOperationHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="468550b5-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.SITUASys.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.SystemData.SITUASys.SDModel.Commands.CompleteExportOperationHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="4f8550b5-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.SITUASys.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.SystemData.SITUASys.SDModel.Commands.ExecuteExportHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="b7b6b371-65f6-ee11-9679-eabeef809a67">
+    <AssemblyName>Siemens.SimaticIT.ButtonAuthFBLib.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.ButtonAuthFBLib.MSModel.Commands.ProductStockManageInWhsHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="c1b6b371-65f6-ee11-9679-eabeef809a67">
+    <AssemblyName>Siemens.SimaticIT.ButtonAuthFBLib.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.ButtonAuthFBLib.MSModel.Commands.ProductStockManageAdjustHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="cbb6b371-65f6-ee11-9679-eabeef809a67">
+    <AssemblyName>Siemens.SimaticIT.ButtonAuthFBLib.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.ButtonAuthFBLib.MSModel.Commands.ProductDispatchAddHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="d5b6b371-65f6-ee11-9679-eabeef809a67">
+    <AssemblyName>Siemens.SimaticIT.ButtonAuthFBLib.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.ButtonAuthFBLib.MSModel.Commands.ProductDispatchDeleteHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="84e3c5b8-d6fa-ee11-9679-eabeef809a67">
+    <AssemblyName>Siemens.SimaticIT.ButtonAuthFBLib.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.ButtonAuthFBLib.MSModel.Commands.OwnProductFinishCaseHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="8ee3c5b8-d6fa-ee11-9679-eabeef809a67">
+    <AssemblyName>Siemens.SimaticIT.ButtonAuthFBLib.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.ButtonAuthFBLib.MSModel.Commands.WorkOrderFinishCaseHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="9b528763-bff0-ee11-9679-eabeef809a67">
+    <AssemblyName>Siemens.SimaticIT.ButtonAuthFBLib.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.ButtonAuthFBLib.MSModel.Commands.ReceiptNoticeDeleteHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="a5528763-bff0-ee11-9679-eabeef809a67">
+    <AssemblyName>Siemens.SimaticIT.ButtonAuthFBLib.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.ButtonAuthFBLib.MSModel.Commands.PurchaseManageEditHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="af528763-bff0-ee11-9679-eabeef809a67">
+    <AssemblyName>Siemens.SimaticIT.ButtonAuthFBLib.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.ButtonAuthFBLib.MSModel.Commands.PurchaseManageDeleteHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="b9528763-bff0-ee11-9679-eabeef809a67">
+    <AssemblyName>Siemens.SimaticIT.ButtonAuthFBLib.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.ButtonAuthFBLib.MSModel.Commands.ReceiptNoticeEditHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="c3528763-bff0-ee11-9679-eabeef809a67">
+    <AssemblyName>Siemens.SimaticIT.ButtonAuthFBLib.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.ButtonAuthFBLib.MSModel.Commands.PurchaseManageDeleteDetailHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="cd528763-bff0-ee11-9679-eabeef809a67">
+    <AssemblyName>Siemens.SimaticIT.ButtonAuthFBLib.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.ButtonAuthFBLib.MSModel.Commands.PurchaseManageAddHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="d7528763-bff0-ee11-9679-eabeef809a67">
+    <AssemblyName>Siemens.SimaticIT.ButtonAuthFBLib.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.ButtonAuthFBLib.MSModel.Commands.ReceiptNoticeAddHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="390cd95f-1df0-ee11-9679-eabeef809a67">
+    <AssemblyName>Siemens.SimaticIT.ButtonAuthFBLib.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.ButtonAuthFBLib.MSModel.Commands.ProductionOrderSapPublishHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="10524788-55fe-ec11-9668-f42bdd9eb577">
+    <AssemblyName>Siemens.SimaticIT.ButtonAuthFBLib.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.ButtonAuthFBLib.MSModel.Commands.ProductionOrderImportPrdHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="1a524788-55fe-ec11-9668-f42bdd9eb577">
+    <AssemblyName>Siemens.SimaticIT.ButtonAuthFBLib.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.ButtonAuthFBLib.MSModel.Commands.WorkOrderEditPlanHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="24524788-55fe-ec11-9668-f42bdd9eb577">
+    <AssemblyName>Siemens.SimaticIT.ButtonAuthFBLib.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.ButtonAuthFBLib.MSModel.Commands.ProductionOrderLoadHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="2e524788-55fe-ec11-9668-f42bdd9eb577">
+    <AssemblyName>Siemens.SimaticIT.ButtonAuthFBLib.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.ButtonAuthFBLib.MSModel.Commands.ReworkDelHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="38524788-55fe-ec11-9668-f42bdd9eb577">
+    <AssemblyName>Siemens.SimaticIT.ButtonAuthFBLib.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.ButtonAuthFBLib.MSModel.Commands.WorkOrderEditProcessHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="42524788-55fe-ec11-9668-f42bdd9eb577">
+    <AssemblyName>Siemens.SimaticIT.ButtonAuthFBLib.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.ButtonAuthFBLib.MSModel.Commands.WorkOrderDemandHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="4c524788-55fe-ec11-9668-f42bdd9eb577">
+    <AssemblyName>Siemens.SimaticIT.ButtonAuthFBLib.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.ButtonAuthFBLib.MSModel.Commands.ProductionOrderEditMaterialHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="56524788-55fe-ec11-9668-f42bdd9eb577">
+    <AssemblyName>Siemens.SimaticIT.ButtonAuthFBLib.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.ButtonAuthFBLib.MSModel.Commands.RawMaterialStockManageAddHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="60524788-55fe-ec11-9668-f42bdd9eb577">
+    <AssemblyName>Siemens.SimaticIT.ButtonAuthFBLib.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.ButtonAuthFBLib.MSModel.Commands.ProductionOrderImportWOHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="6a524788-55fe-ec11-9668-f42bdd9eb577">
+    <AssemblyName>Siemens.SimaticIT.ButtonAuthFBLib.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.ButtonAuthFBLib.MSModel.Commands.ProductionOrderDelHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="63a13bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.UDM_RF.STM_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.ReferenceData.UDM_RF.RFModel.Commands.CreateStateMachineHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="6ca13bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.UDM_RF.STM_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.ReferenceData.UDM_RF.RFModel.Commands.UpdateStateMachineHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="75a13bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.UDM_RF.STM_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.ReferenceData.UDM_RF.RFModel.Commands.HideStateMachineHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="7ea13bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.UDM_RF.STM_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.ReferenceData.UDM_RF.RFModel.Commands.UnhideStateMachineHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="87a13bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.UDM_RF.STM_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.ReferenceData.UDM_RF.RFModel.Commands.DeleteStateMachineHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="90a13bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.UDM_RF.STM_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.ReferenceData.UDM_RF.RFModel.Commands.FreezeStateMachineHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="99a13bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.UDM_RF.STM_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.ReferenceData.UDM_RF.RFModel.Commands.UnfreezeStateMachineHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="a2a13bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.UDM_RF.STM_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.ReferenceData.UDM_RF.RFModel.Commands.CreateStatusHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="aba13bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.UDM_RF.UOM_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.ReferenceData.UDM_RF.RFModel.Commands.UnhideUoMHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="b4a13bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.UDM_RF.STM_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.ReferenceData.UDM_RF.RFModel.Commands.DeleteStatusHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="8ca23bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.UDM_RF.UOM_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.ReferenceData.UDM_RF.RFModel.Commands.UnhideUoMDimensionHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="95a23bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.UDM_RF.UOM_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.ReferenceData.UDM_RF.RFModel.Commands.UpdateUoMDimensionHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="9ea23bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.UDM_RF.STM_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.ReferenceData.UDM_RF.RFModel.Commands.SetStatusAsInitialHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="a7a23bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.UDM_RF.CIS_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.ReferenceData.UDM_RF.RFModel.Commands.CreateNumberingPatternHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="b0a23bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.UDM_RF.CIS_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.ReferenceData.UDM_RF.RFModel.Commands.UpdateNumberingPatternPartHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="b9a23bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.UDM_RF.CIS_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.ReferenceData.UDM_RF.RFModel.Commands.DeleteNumberingPatternPartHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="c2a23bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.UDM_RF.CIS_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.ReferenceData.UDM_RF.RFModel.Commands.UpdateNumberingPatternHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="cba23bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.UDM_RF.CIS_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.ReferenceData.UDM_RF.RFModel.Commands.DeleteNumberingPatternHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="d4a23bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.UDM_RF.CIS_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.ReferenceData.UDM_RF.RFModel.Commands.CreateCounterHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="dda23bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.UDM_RF.CIS_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.ReferenceData.UDM_RF.RFModel.Commands.UpdateCounterHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="b5a33bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.EQU_MS.EQU_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.EQU_MS.MSModel.Commands.CreateEquipmentConfigurationHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="bea33bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.EQU_MS.EQU_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.EQU_MS.MSModel.Commands.DeleteEquipmentConfigurationHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="c7a33bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.EQU_MS.EQU_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.EQU_MS.MSModel.Commands.UpdateEquipmentConfigurationHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="d0a33bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.EQU_MS.EQU_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.EQU_MS.MSModel.Commands.FreezeEquipmentConfigurationHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="d9a33bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.EQU_MS.EQU_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.EQU_MS.MSModel.Commands.UnfreezeEquipmentConfigurationHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="e2a33bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.EQU_MS.EQU_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.EQU_MS.MSModel.Commands.CreateEquipmentGroupConfigurationHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="eba33bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.EQU_MS.EQU_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.EQU_MS.MSModel.Commands.DeleteEquipmentGroupConfigurationHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="f4a33bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.EQU_MS.EQU_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.EQU_MS.MSModel.Commands.AssociateEquipmentConfigurationsWithEquipmentGroupConfigurationHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="fda33bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.EQU_MS.EQU_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.EQU_MS.MSModel.Commands.AssociateEquipmentGroupConfigurationsWithEquipmentConfigurationHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="06a43bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.EQU_MS.EQU_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.EQU_MS.MSModel.Commands.SetEquipmentTypeAsDefaultHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="dea43bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.EQU_MS.EQU_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.EQU_MS.MSModel.Commands.DeleteEquipmentTypeStateMachineHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="e7a43bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.EQU_MS.EQU_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.EQU_MS.MSModel.Commands.AddEquipmentTypeStateMachinesHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="f0a43bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.EQU_MS.EQU_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.EQU_MS.MSModel.Commands.AddEquipmentConfigurationStateMachinesHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="f9a43bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.EQU_MS.EQU_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.EQU_MS.MSModel.Commands.DeleteEquipmentConfigurationStateMachineHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="02a53bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.EQU_MS.EQU_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.EQU_MS.MSModel.Commands.FreezeEquipmentGroupConfigurationHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="0ba53bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.EQU_MS.EQU_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.EQU_MS.MSModel.Commands.UnfreezeEquipmentGroupConfigurationHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="14a53bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.EQU_MS.EQU_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.EQU_MS.MSModel.Commands.AssociateChildrenEquipmentGroupConfWithEquipmentGroupConfHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="1da53bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.EQU_MS.EQU_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.EQU_MS.MSModel.Commands.AssociateParentsEquipmentGroupConfWithEquipmentGroupConfHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="26a53bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.EQU_MS.EQU_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.EQU_MS.MSModel.Commands.DisassociateChildrenEquipmentGroupConfFromEquipmentGroupConfHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="2fa53bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.EQU_MS.EQU_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.EQU_MS.MSModel.Commands.DisassociateParentsEquipmentGroupConfFromEquipmentGroupConfHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="a4a53bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.EQU_OP.EQU_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.OperationalData.EQU_OP.OPModel.Commands.UpdateEquipmentPropertyHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="ada53bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.EQU_OP.EQU_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.OperationalData.EQU_OP.OPModel.Commands.FreezeEquipmentHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="b6a53bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.EQU_OP.EQU_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.OperationalData.EQU_OP.OPModel.Commands.UnfreezeEquipmentHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="bfa53bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.EQU_OP.EQU_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.OperationalData.EQU_OP.OPModel.Commands.UpdateEquipmentGroupHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="c8a53bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.EQU_OP.EQU_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.OperationalData.EQU_OP.OPModel.Commands.UpdateEquipmentGraphNodeHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="d1a53bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.EQU_OP.EQU_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.OperationalData.EQU_OP.OPModel.Commands.UpdateEquipmentGraphLinkHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="daa53bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.EQU_OP.EQU_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.OperationalData.EQU_OP.OPModel.Commands.UpdateEquipmentPropertyAttributeHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="e3a53bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.EQU_OP.EQU_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.OperationalData.EQU_OP.OPModel.Commands.UpdateEquipmentGraphHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="eca53bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.EQU_OP.EQU_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.OperationalData.EQU_OP.OPModel.Commands.DeleteEquipmentStateMachineHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="f5a53bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.EQU_OP.EQU_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.OperationalData.EQU_OP.OPModel.Commands.CreateEquipmentStateMachinesHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="f69068c2-f3bb-ed11-9669-b2c997e47311">
+    <AssemblyName>Siemens.SimaticIT.ButtonAuthFBLib.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.ButtonAuthFBLib.MSModel.Commands.RawMaterialStockManageBackupHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="6e637879-57ae-ed11-9669-b2c997e47311">
+    <AssemblyName>Siemens.SimaticIT.ButtonAuthFBLib.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.ButtonAuthFBLib.MSModel.Commands.BaseBOMEditDetailHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="78637879-57ae-ed11-9669-b2c997e47311">
+    <AssemblyName>Siemens.SimaticIT.ButtonAuthFBLib.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.ButtonAuthFBLib.MSModel.Commands.BaseMaterialDeleteHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="82637879-57ae-ed11-9669-b2c997e47311">
+    <AssemblyName>Siemens.SimaticIT.ButtonAuthFBLib.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.ButtonAuthFBLib.MSModel.Commands.BaseBOMCopyHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="8c637879-57ae-ed11-9669-b2c997e47311">
+    <AssemblyName>Siemens.SimaticIT.ButtonAuthFBLib.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.ButtonAuthFBLib.MSModel.Commands.BaseBOMPasteHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="96637879-57ae-ed11-9669-b2c997e47311">
+    <AssemblyName>Siemens.SimaticIT.ButtonAuthFBLib.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.ButtonAuthFBLib.MSModel.Commands.BaseBOMEditHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="a0637879-57ae-ed11-9669-b2c997e47311">
+    <AssemblyName>Siemens.SimaticIT.ButtonAuthFBLib.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.ButtonAuthFBLib.MSModel.Commands.BaseMaterialAddHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="aa637879-57ae-ed11-9669-b2c997e47311">
+    <AssemblyName>Siemens.SimaticIT.ButtonAuthFBLib.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.ButtonAuthFBLib.MSModel.Commands.BaseBOMAddHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="b4637879-57ae-ed11-9669-b2c997e47311">
+    <AssemblyName>Siemens.SimaticIT.ButtonAuthFBLib.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.ButtonAuthFBLib.MSModel.Commands.BaseBOMDeleteDetailHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="be637879-57ae-ed11-9669-b2c997e47311">
+    <AssemblyName>Siemens.SimaticIT.ButtonAuthFBLib.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.ButtonAuthFBLib.MSModel.Commands.BaseBOMAddDetailHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="c8637879-57ae-ed11-9669-b2c997e47311">
+    <AssemblyName>Siemens.SimaticIT.ButtonAuthFBLib.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.ButtonAuthFBLib.MSModel.Commands.BaseMaterialEditHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="6e8550b5-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.SITUASys.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.SystemData.SITUASys.SDModel.Commands.CreateImportOperationHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="778550b5-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.SITUASys.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.SystemData.SITUASys.SDModel.Commands.CompleteImportOperationHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="808550b5-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.SITUASys.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.SystemData.SITUASys.SDModel.Commands.ExecuteImportHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="bda13bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.UDM_RF.STM_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.ReferenceData.UDM_RF.RFModel.Commands.UpdateStatusHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="e6a23bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.UDM_RF.CIS_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.ReferenceData.UDM_RF.RFModel.Commands.DeleteCounterHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="0fa43bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.EQU_MS.EQU_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.EQU_MS.MSModel.Commands.DisassociateEquipmentConfigurationsFromEquipmentGroupConfigurationHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="38a53bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.EQU_MS.EQU_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.EQU_MS.MSModel.Commands.CreateEquipmentLevelHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="fea53bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.EQU_OP.EQU_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.OperationalData.EQU_OP.OPModel.Commands.SetEquipmentPropertyValueHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="74524788-55fe-ec11-9668-f42bdd9eb577">
+    <AssemblyName>Siemens.SimaticIT.ButtonAuthFBLib.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.ButtonAuthFBLib.MSModel.Commands.RawMaterialStockManageMove2HandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="d2637879-57ae-ed11-9669-b2c997e47311">
+    <AssemblyName>Siemens.SimaticIT.ButtonAuthFBLib.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.ButtonAuthFBLib.MSModel.Commands.BaseBOMDeleteHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="8fa03bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.BasicDataManageFBLib.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.BasicDataManageFBLib.MSModel.Commands.DataItemUpdateCmdHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="99a03bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.BasicDataManageFBLib.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.BasicDataManageFBLib.MSModel.Commands.DataItemCategoryDelCmdHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="a3a03bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.BasicDataManageFBLib.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.BasicDataManageFBLib.MSModel.Commands.UpdateAppModelCmdHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="ada03bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.BasicDataManageFBLib.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.BasicDataManageFBLib.MSModel.Commands.GetUAUsersCmdHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="b7a03bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.BasicDataManageFBLib.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.BasicDataManageFBLib.MSModel.Commands.SaveAppRolesConfiCmdHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="c1a03bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.BasicDataManageFBLib.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.BasicDataManageFBLib.MSModel.Commands.GetAppUserRolesCmdHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="cba03bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.BasicDataManageFBLib.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.BasicDataManageFBLib.MSModel.Commands.UpdateAppUserCmdHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="d5a03bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.BasicDataManageFBLib.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.BasicDataManageFBLib.MSModel.Commands.DataItemCategoryAddCmdHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="dfa03bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.BasicDataManageFBLib.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.BasicDataManageFBLib.MSModel.Commands.DataItemAddCmdHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="e9a03bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.BasicDataManageFBLib.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.BasicDataManageFBLib.MSModel.Commands.UpdateAppPasswordCmdHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="c6a13bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.UDM_RF.STM_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.ReferenceData.UDM_RF.RFModel.Commands.CreateStatusDefinitionHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="cfa13bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.UDM_RF.STM_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.ReferenceData.UDM_RF.RFModel.Commands.UnhideStatusDefinitionHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="d8a13bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.UDM_RF.STM_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.ReferenceData.UDM_RF.RFModel.Commands.FreezeStatusDefinitionHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="e1a13bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.UDM_RF.STM_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.ReferenceData.UDM_RF.RFModel.Commands.HideStatusDefinitionHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="eaa13bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.UDM_RF.STM_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.ReferenceData.UDM_RF.RFModel.Commands.UnfreezeStatusDefinitionHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="f3a13bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.UDM_RF.STM_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.ReferenceData.UDM_RF.RFModel.Commands.DeleteStatusDefinitionHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="fca13bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.UDM_RF.STM_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.ReferenceData.UDM_RF.RFModel.Commands.UpdateStatusDefinitionHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="05a23bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.UDM_RF.STM_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.ReferenceData.UDM_RF.RFModel.Commands.CreateStatusTransitionHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="0ea23bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.UDM_RF.STM_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.ReferenceData.UDM_RF.RFModel.Commands.DeleteStatusTransitionHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="17a23bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.UDM_RF.STM_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.ReferenceData.UDM_RF.RFModel.Commands.UpdateStatusTransitionHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="efa23bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.UDM_RF.CIS_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.ReferenceData.UDM_RF.RFModel.Commands.ResetCounterHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="f8a23bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.UDM_RF.CIS_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.ReferenceData.UDM_RF.RFModel.Commands.IncrementCounterHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="01a33bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.UDM_RF.CIS_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.ReferenceData.UDM_RF.RFModel.Commands.MoveNumberingPatternPartHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="0aa33bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.UDM_RF.CIS_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.ReferenceData.UDM_RF.RFModel.Commands.FreezeCounterHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="13a33bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.UDM_RF.CIS_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.ReferenceData.UDM_RF.RFModel.Commands.UnfreezeCounterHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="1ca33bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.UDM_RF.CIS_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.ReferenceData.UDM_RF.RFModel.Commands.FreezeNumberingPatternHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="25a33bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.UDM_RF.CIS_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.ReferenceData.UDM_RF.RFModel.Commands.UnfreezeNumberingPatternHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="2ea33bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.UDM_RF.CIS_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.ReferenceData.UDM_RF.RFModel.Commands.HideCounterHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="37a33bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.UDM_RF.CIS_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.ReferenceData.UDM_RF.RFModel.Commands.UnhideCounterHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="40a33bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.UDM_RF.STM_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.ReferenceData.UDM_RF.RFModel.Commands.CreateStatusBehaviorDefinitionHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="18a43bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.EQU_MS.EQU_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.EQU_MS.MSModel.Commands.DisassociateEquipmentGroupConfigurationsFromEquipmentConfigurationHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="21a43bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.EQU_MS.EQU_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.EQU_MS.MSModel.Commands.CreateEquipmentConfigurationByDefaultEquipmentTypeHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="2aa43bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.EQU_MS.EQU_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.EQU_MS.MSModel.Commands.CreateEquipmentGraphTypeHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="33a43bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.EQU_MS.EQU_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.EQU_MS.MSModel.Commands.UpdateEquipmentGraphTypeHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="3ca43bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.EQU_MS.EQU_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.EQU_MS.MSModel.Commands.DeleteEquipmentGraphTypeHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="45a43bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.EQU_MS.EQU_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.EQU_MS.MSModel.Commands.CreateEquipmentGraphConfigurationHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="4ea43bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.EQU_MS.EQU_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.EQU_MS.MSModel.Commands.UpdateEquipmentGraphConfigurationHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="57a43bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.EQU_MS.EQU_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.EQU_MS.MSModel.Commands.DeleteEquipmentGraphConfigurationHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="60a43bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.EQU_MS.EQU_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.EQU_MS.MSModel.Commands.CreateEquipmentGraphNodeConfigurationHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="69a43bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.EQU_MS.EQU_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.EQU_MS.MSModel.Commands.DeleteEquipmentGraphNodeConfigurationHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="41a53bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.EQU_MS.EQU_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.EQU_MS.MSModel.Commands.UpdateEquipmentLevelHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="4aa53bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.EQU_MS.EQU_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.EQU_MS.MSModel.Commands.DeleteEquipmentLevelHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="53a53bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.EQU_MS.EQU_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.EQU_MS.MSModel.Commands.FreezeEquipmentLevelHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="5ca53bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.EQU_MS.EQU_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.EQU_MS.MSModel.Commands.UnfreezeEquipmentLevelHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="65a53bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.EQU_MS.EQU_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.EQU_MS.MSModel.Commands.DeleteEquipmentTypePropertyAttributeHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="6ea53bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.EQU_MS.EQU_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.EQU_MS.MSModel.Commands.DeleteEquipmentConfigurationPropertyAttributeHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="77a53bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.EQU_OP.EQU_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.OperationalData.EQU_OP.OPModel.Commands.CreateEquipmentHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="80a53bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.EQU_OP.EQU_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.OperationalData.EQU_OP.OPModel.Commands.DeleteEquipmentHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="89a53bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.EQU_OP.EQU_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.OperationalData.EQU_OP.OPModel.Commands.ForceEquipmentStatusHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="92a53bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.EQU_OP.EQU_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.OperationalData.EQU_OP.OPModel.Commands.SetEquipmentStatusHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="07a63bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.EQU_OP.EQU_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.OperationalData.EQU_OP.OPModel.Commands.SetEquipmentPropertyAttributeValueHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="10a63bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.EQU_OP.EQU_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.OperationalData.EQU_OP.OPModel.Commands.FreezeEquipmentGroupHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="19a63bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.EQU_OP.EQU_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.OperationalData.EQU_OP.OPModel.Commands.UnfreezeEquipmentGroupHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="22a63bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.EQU_OP.EQU_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.OperationalData.EQU_OP.OPModel.Commands.DeleteEquipmentPropertyAttributeHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="2ba63bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.EQU_OP.EQU_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.OperationalData.EQU_OP.OPModel.Commands.SynchronizeEquipmentHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="34a63bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.EQU_OP.EQU_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.OperationalData.EQU_OP.OPModel.Commands.SynchronizeEquipmentGroupHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="3da63bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.EQU_OP.EQU_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.OperationalData.EQU_OP.OPModel.Commands.SynchronizeEquipmentGraphHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="94a63bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.BasicDataManageFBLib.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.BasicDataManageFBLib.MSModel.Commands.GetTreeDataCmdHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="9da63bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.BasicDataManageFBLib.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.BasicDataManageFBLib.MSModel.Commands.GetFactoryModelCmdHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="7e524788-55fe-ec11-9668-f42bdd9eb577">
+    <AssemblyName>Siemens.SimaticIT.ButtonAuthFBLib.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.ButtonAuthFBLib.MSModel.Commands.ProductionOrderDelWOHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="88524788-55fe-ec11-9668-f42bdd9eb577">
+    <AssemblyName>Siemens.SimaticIT.ButtonAuthFBLib.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.ButtonAuthFBLib.MSModel.Commands.RawMaterialStockManageMoveHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="92524788-55fe-ec11-9668-f42bdd9eb577">
+    <AssemblyName>Siemens.SimaticIT.ButtonAuthFBLib.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.ButtonAuthFBLib.MSModel.Commands.WorkOrderEditQualityHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="9c524788-55fe-ec11-9668-f42bdd9eb577">
+    <AssemblyName>Siemens.SimaticIT.ButtonAuthFBLib.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.ButtonAuthFBLib.MSModel.Commands.WorkOrderAddPickHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="a6524788-55fe-ec11-9668-f42bdd9eb577">
+    <AssemblyName>Siemens.SimaticIT.ButtonAuthFBLib.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.ButtonAuthFBLib.MSModel.Commands.ProductionOrderPublishHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="b0524788-55fe-ec11-9668-f42bdd9eb577">
+    <AssemblyName>Siemens.SimaticIT.ButtonAuthFBLib.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.ButtonAuthFBLib.MSModel.Commands.RawMaterialStockManageAdjustHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="ba524788-55fe-ec11-9668-f42bdd9eb577">
+    <AssemblyName>Siemens.SimaticIT.ButtonAuthFBLib.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.ButtonAuthFBLib.MSModel.Commands.WorkOrderEditBomHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="c4524788-55fe-ec11-9668-f42bdd9eb577">
+    <AssemblyName>Siemens.SimaticIT.ButtonAuthFBLib.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.ButtonAuthFBLib.MSModel.Commands.WorkOrderAddSuppleHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="ce524788-55fe-ec11-9668-f42bdd9eb577">
+    <AssemblyName>Siemens.SimaticIT.ButtonAuthFBLib.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.ButtonAuthFBLib.MSModel.Commands.ProductionOrderEditWOHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="d8524788-55fe-ec11-9668-f42bdd9eb577">
+    <AssemblyName>Siemens.SimaticIT.ButtonAuthFBLib.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.ButtonAuthFBLib.MSModel.Commands.WorkOrderDelHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="49775fdf-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.PRM_MS.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.PRM_MS.MSModel.Commands.DisassociatePersonsFromPersonGroupHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="53775fdf-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.PRM_MS.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.PRM_MS.MSModel.Commands.UpdatePersonGroupHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="5d775fdf-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.PRM_MS.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.PRM_MS.MSModel.Commands.DeletePersonHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="67775fdf-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.PRM_MS.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.PRM_MS.MSModel.Commands.AssignUserToPersonHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="71775fdf-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.PRM_MS.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.PRM_MS.MSModel.Commands.UnassignUserFromPersonHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="7b775fdf-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.PRM_MS.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.PRM_MS.MSModel.Commands.CreatePersonGroupHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="85775fdf-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.PRM_MS.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.PRM_MS.MSModel.Commands.SetCanViewUnsegregatedDataHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="8f775fdf-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.PRM_MS.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.PRM_MS.MSModel.Commands.DeletePersonGroupHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="99775fdf-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.PRM_MS.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.PRM_MS.MSModel.Commands.ManageSegregationTagsToPersonGroupsAssociationHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="a3775fdf-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.PRM_MS.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.PRM_MS.MSModel.Commands.ManageSegregationTagsToPersonsAssociationHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="46555ebf-68be-ed11-9669-b2c997e47311">
+    <AssemblyName>Siemens.SimaticIT.ButtonAuthFBLib.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.ButtonAuthFBLib.MSModel.Commands.ReworkQualityConfirmHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="f3a03bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.BasicDataManageFBLib.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.BasicDataManageFBLib.MSModel.Commands.DataItemDelCmdHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="20a23bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.UDM_RF.UOM_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.ReferenceData.UDM_RF.RFModel.Commands.ConvertQuantityHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="49a33bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.UDM_RF.STM_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.ReferenceData.UDM_RF.RFModel.Commands.AssociateStatusBehaviorDefinitionsWithStatusHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="72a43bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.EQU_MS.EQU_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.EQU_MS.MSModel.Commands.CreateEquipmentGraphLinkConfigurationHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="ad775fdf-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.PRM_MS.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.PRM_MS.MSModel.Commands.ImportUsersByGroupHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="e2524788-55fe-ec11-9668-f42bdd9eb577">
+    <AssemblyName>Siemens.SimaticIT.ButtonAuthFBLib.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.ButtonAuthFBLib.MSModel.Commands.ProductionOrderEditHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="fda03bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.BasicDataManageFBLib.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.BasicDataManageFBLib.MSModel.Commands.DataItemCategoryUpdateCmdHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="07a13bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.BasicDataManageFBLib.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.BasicDataManageFBLib.MSModel.Commands.DelAppModelCmdHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="11a13bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.BasicDataManageFBLib.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.BasicDataManageFBLib.MSModel.Commands.AddAppModelCmdHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="1ba13bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.BasicDataManageFBLib.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.BasicDataManageFBLib.MSModel.Commands.ResetAppPwdCmdHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="24a13bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.UDM_RF.UOM_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.ReferenceData.UDM_RF.RFModel.Commands.CreateUoMHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="2da13bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.UDM_RF.UOM_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.ReferenceData.UDM_RF.RFModel.Commands.DeleteUoMHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="36a13bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.UDM_RF.UOM_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.ReferenceData.UDM_RF.RFModel.Commands.UpdateUoMHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="3fa13bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.UDM_RF.UOM_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.ReferenceData.UDM_RF.RFModel.Commands.CreateUoMFactorHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="48a13bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.UDM_RF.UOM_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.ReferenceData.UDM_RF.RFModel.Commands.UpdateUoMFactorHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="51a13bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.UDM_RF.UOM_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.ReferenceData.UDM_RF.RFModel.Commands.DeleteUoMFactorHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="29a23bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.UDM_RF.STM_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.ReferenceData.UDM_RF.RFModel.Commands.CreateStatusTransitionDefinitionHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="32a23bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.UDM_RF.STM_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.ReferenceData.UDM_RF.RFModel.Commands.DeleteStatusTransitionDefinitionHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="3ba23bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.UDM_RF.STM_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.ReferenceData.UDM_RF.RFModel.Commands.HideStatusTransitionDefinitionHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="44a23bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.UDM_RF.STM_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.ReferenceData.UDM_RF.RFModel.Commands.UnhideStatusTransitionDefinitionHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="4da23bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.UDM_RF.STM_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.ReferenceData.UDM_RF.RFModel.Commands.FreezeStatusTransitionDefinitionHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="56a23bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.UDM_RF.STM_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.ReferenceData.UDM_RF.RFModel.Commands.UnfreezeStatusTransitionDefinitionHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="5fa23bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.UDM_RF.UOM_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.ReferenceData.UDM_RF.RFModel.Commands.CreateUoMDimensionHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="68a23bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.UDM_RF.UOM_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.ReferenceData.UDM_RF.RFModel.Commands.DeleteUoMDimensionHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="71a23bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.UDM_RF.UOM_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.ReferenceData.UDM_RF.RFModel.Commands.FreezeUoMDimensionHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="7aa23bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.UDM_RF.UOM_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.ReferenceData.UDM_RF.RFModel.Commands.HideUoMDimensionHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="52a33bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.UDM_RF.STM_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.ReferenceData.UDM_RF.RFModel.Commands.DeleteStatusBehaviorDefinitionHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="5ba33bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.UDM_RF.STM_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.ReferenceData.UDM_RF.RFModel.Commands.DisassociateStatusBehaviorDefinitionsFromStatusHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="64a33bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.UDM_RF.STM_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.ReferenceData.UDM_RF.RFModel.Commands.UpdateStatusBehaviorDefinitionHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="6da33bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.EQU_MS.EQU_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.EQU_MS.MSModel.Commands.UpdateEquipmentTypePropertyHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="76a33bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.EQU_MS.EQU_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.EQU_MS.MSModel.Commands.DeleteEquipmentTypePropertyHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="7fa33bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.EQU_MS.EQU_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.EQU_MS.MSModel.Commands.UpdateEquipmentConfigurationPropertyHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="88a33bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.EQU_MS.EQU_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.EQU_MS.MSModel.Commands.CreateEquipmentTypeHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="91a33bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.EQU_MS.EQU_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.EQU_MS.MSModel.Commands.DeleteEquipmentTypeHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="9aa33bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.EQU_MS.EQU_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.EQU_MS.MSModel.Commands.FreezeEquipmentTypeHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="a3a33bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.EQU_MS.EQU_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.EQU_MS.MSModel.Commands.UnfreezeEquipmentTypeHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="7ba43bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.EQU_MS.EQU_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.EQU_MS.MSModel.Commands.UpdateEquipmentGraphLinkConfigurationHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="84a43bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.EQU_MS.EQU_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.EQU_MS.MSModel.Commands.DeleteEquipmentGraphLinkConfigurationHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="8da43bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.EQU_MS.EQU_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.EQU_MS.MSModel.Commands.CreateHierarchyEquipmentNodeConfigurationsHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="96a43bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.EQU_MS.EQU_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.EQU_MS.MSModel.Commands.UpdateHierarchyEquipmentNodeConfigurationHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="9fa43bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.EQU_MS.EQU_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.EQU_MS.MSModel.Commands.DeleteHierarchyEquipmentNodeConfigurationHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="a8a43bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.EQU_MS.EQU_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.EQU_MS.MSModel.Commands.UpdateEquipmentTypePropertyAttributeHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="b1a43bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.EQU_MS.EQU_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.EQU_MS.MSModel.Commands.UpdateEquipmentConfigurationPropertyAttributeHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="baa43bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.EQU_MS.EQU_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.EQU_MS.MSModel.Commands.BulkImportEquipmentGraphConfigurationHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="c3a43bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.EQU_MS.EQU_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.EQU_MS.MSModel.Commands.UpdateEquipmentGroupConfigurationHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="cca43bc9-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.EQU_MS.EQU_CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.EQU_MS.MSModel.Commands.BulkImportEquipmentHierarchyHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="ec524788-55fe-ec11-9668-f42bdd9eb577">
+    <AssemblyName>Siemens.SimaticIT.ButtonAuthFBLib.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.ButtonAuthFBLib.MSModel.Commands.ProductionOrderFrozenHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="b7775fdf-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.PRM_MS.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.PRM_MS.MSModel.Commands.CreatePersonHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="c1775fdf-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.PRM_MS.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.PRM_MS.MSModel.Commands.UpdatePersonHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="cb775fdf-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.PRM_MS.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.PRM_MS.MSModel.Commands.AssociatePersonsWithPersonGroupHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="d5775fdf-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.PRM_MS.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.PRM_MS.MSModel.Commands.ImportUsersByUserListHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="de775fdf-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.DSG_SD.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.SystemData.DSG_SD.SDModel.Commands.CreateSegregationTagHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="e7775fdf-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.DSG_SD.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.SystemData.DSG_SD.SDModel.Commands.UpdateSegregationTagHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="f0775fdf-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.DSG_SD.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.SystemData.DSG_SD.SDModel.Commands.DeleteSegregationTagHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="f9775fdf-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.DSG_SD.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.SystemData.DSG_SD.SDModel.Commands.SetSessionSegregationTagsSelectionHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="02785fdf-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.DSG_SD.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.SystemData.DSG_SD.SDModel.Commands.ReplaceSegregationTagAssociationHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+  <Handler Id="66785fdf-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.PRM_MS.CommandHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.MasterData.PRM_MS.MSModel.Commands.PopulateSessionSegregationTagHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Handler>
+</Items>

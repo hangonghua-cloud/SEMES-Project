@@ -1,0 +1,34 @@
+﻿<!--
+    0.代码生成: UADM单表一键生成前后端html、JS、API接口代码生成器 Ver 2.01 发布日期：2021-04-18  设计师：刘万军
+    1.功能描述: 唛头配置
+    2.创建人员: jpf
+    3.创建日期: 2022-12-03
+    4.修改人员:
+    5.修改日期:
+-->
+<style>
+    .row {
+        padding: 5px;
+        margin-top: 10px;
+    }
+</style>
+<div class="command-bar-side-panel">
+    <button ng-click="vm.cancel()" class="btn side-panel-button">{{'Siemens.SimaticIT.MaterialApp.PL_MarkUpload.PL_MarkUploadedit.Tips_1'|translate}}</button>
+    <button ng-click="vm.save()" class="btn side-panel-button">{{'Siemens.SimaticIT.MaterialApp.PL_MarkUpload.PL_MarkUploadedit.Tips_2'|translate}}</button>
+</div>
+<div class="side-panel-property-area-body">
+    <sit-property-grid sit-id="edit_form"
+                       sit-layout="Vertical"
+                       sit-type="Fluid"
+                       sit-mode="edit"
+                       sit-columns="1">
+        <sit-property-grid sit-id="view_form" sit-layout="Horizontal" sit-type="Fixed" sit-mode="edit" sit-columns="1" style="margin-left: 4px;">
+            <sit-property sit-widget="sit-text" sit-value="vm.currentItem.MarkCode" sit-validation="{required: true}"
+                          sit-read-only="true">{{'Siemens.SimaticIT.MaterialApp.PL_MarkUpload.PL_MarkUploadedit.Tips_3'|translate}}</sit-property>
+            <sit-property sit-widget="sit-text" sit-value="vm.currentItem.MarkName" sit-validation="{required: true}"
+                          sit-read-only="true">{{'Siemens.SimaticIT.MaterialApp.PL_MarkUpload.PL_MarkUploadedit.Tips_4'|translate}}</sit-property>
+            <sit-property sit-widget="sit-radio" sit-value="vm.IsEnabled.value" sit-options="vm.IsEnabled.options"
+                          sit-change="" sit-read-only="false">{{'Siemens.SimaticIT.MaterialApp.PL_MarkUpload.PL_MarkUploadedit.Tips_5'|translate}}</sit-property>
+        </sit-property-grid>
+    </sit-property-grid>
+</div>

@@ -1,0 +1,543 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8DAE7329-9AB0-4A29-BAAA-5D0EB51EED3C}</ProjectGuid>
+    <ProjectTypeGuids>{D45F378E-08AA-4766-880A-1AF4180CC2F8};{349c5851-65df-11da-9384-00065b846f21};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Siemens.SimaticIT.MaterialApp.UserInterface</RootNamespace>
+    <AssemblyName>Siemens.SimaticIT.MaterialApp.UserInterface</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <Name>MaterialApp.UserInterface</Name>
+    <FunctionalBlockType>Project</FunctionalBlockType>
+    <FunctionalBlockVersion>01.00.00</FunctionalBlockVersion>
+    <FunctionalBlockName>MaterialApp</FunctionalBlockName>
+    <FunctionalBlockPrefix>Siemens.SimaticIT</FunctionalBlockPrefix>
+    <SitPlatformVersion>4.1</SitPlatformVersion>
+    <Use64BitIISExpress />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Siemens.SimaticIT.MaterialApp\components\" />
+    <Folder Include="Siemens.SimaticIT.MaterialApp\config\" />
+    <Folder Include="Siemens.SimaticIT.MaterialApp\fonts\" />
+    <Folder Include="Siemens.SimaticIT.MaterialApp\images\" />
+    <Folder Include="Siemens.SimaticIT.MaterialApp\scripts\" />
+    <Folder Include="Siemens.SimaticIT.MaterialApp\services\" />
+    <Folder Include="Siemens.SimaticIT.MaterialApp\styles\" />
+    <Folder Include="Siemens.SimaticIT.MaterialApp\swac\" />
+    <Folder Include="Siemens.SimaticIT.MaterialApp\widgets\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\Base_DataFileCon\Base_DataFileCon-add-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\Base_DataFileCon\Base_DataFileCon-add.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\Base_DataFileCon\Base_DataFileCon-edit-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\Base_DataFileCon\Base_DataFileCon-edit.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\Base_DataFileCon\Base_DataFileCon-list-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\Base_DataFileCon\Base_DataFileCon-list.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\Base_DataFileCon\Base_DataFileCon-srv.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\BOM\BOM-import.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\BOM\BOM-import-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\BOM\BOM-addDetail.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\BOM\BOM-addDetail-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\BOM\BOM-add-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\BOM\BOM-add.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\BOM\BOM-editDetail.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\BOM\BOM-editDetail-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\BOM\BOM-edit-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\BOM\BOM-edit.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\BOM\BOM-list-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\BOM\BOM-list.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\BOM\BOM-select-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\BOM\BOM-select.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\BOM\BOM-srv.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\BOM\module.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\BSTraitManage\BSTraitManage-add-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\BSTraitManage\BSTraitManage-add.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\BSTraitManage\BSTraitManage-addAttr-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\BSTraitManage\BSTraitManage-addAttr.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\BSTraitManage\BSTraitManage-addDetail-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\BSTraitManage\BSTraitManage-addDetail.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\BSTraitManage\BSTraitManage-edit-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\BSTraitManage\BSTraitManage-edit.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\BSTraitManage\BSTraitManage-editAttr-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\BSTraitManage\BSTraitManage-editAttr.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\BSTraitManage\BSTraitManage-editDetail-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\BSTraitManage\BSTraitManage-editDetail.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\BSTraitManage\BSTraitManage-import-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\BSTraitManage\BSTraitManage-import.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\BSTraitManage\BSTraitManage-list-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\BSTraitManage\BSTraitManage-list.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\BSTraitManage\BSTraitManage-srv.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\ImportData\ImportData-add-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\ImportData\ImportData-add.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\ImportData\ImportData-edit-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\ImportData\ImportData-edit.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\ImportData\ImportData-list-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\ImportData\ImportData-list.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\ImportData\ImportData-select-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\ImportData\ImportData-select.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\ImportData\ImportData-srv.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\ImportData\module.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MaterialBindTemp\MaterialBindTemp-add-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MaterialBindTemp\MaterialBindTemp-add.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MaterialBindTemp\MaterialBindTemp-addDetail-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MaterialBindTemp\MaterialBindTemp-addDetail.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MaterialBindTemp\MaterialBindTemp-edit-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MaterialBindTemp\MaterialBindTemp-edit.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MaterialBindTemp\MaterialBindTemp-editDetail-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MaterialBindTemp\MaterialBindTemp-editDetail.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MaterialBindTemp\MaterialBindTemp-list-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MaterialBindTemp\MaterialBindTemp-list.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MaterialBindTemp\MaterialBindTemp-select-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MaterialBindTemp\MaterialBindTemp-select.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MaterialBindTemp\MaterialBindTemp-srv.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MaterialBindTemp\module.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MaterialGroup\MaterialGroup-addSpec.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MaterialGroup\MaterialGroup-addSpec-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MaterialGroup\MaterialGroup-addDetail.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MaterialGroup\MaterialGroup-addDetail-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MaterialGroup\MaterialGroup-add-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MaterialGroup\MaterialGroup-add.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MaterialGroup\MaterialGroup-editDetail.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MaterialGroup\MaterialGroup-editDetail-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MaterialGroup\MaterialGroup-edit-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MaterialGroup\MaterialGroup-edit.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MaterialGroup\MaterialGroup-list-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MaterialGroup\MaterialGroup-list.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MaterialGroup\MaterialGroup-select-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MaterialGroup\MaterialGroup-select.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MaterialGroup\MaterialGroup-srv.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MaterialGroup\module.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MaterialMain\FactoryMaterial-addDetail.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MaterialMain\FactoryMaterial-addDetail-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MaterialMain\FactoryMaterial-add-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MaterialMain\FactoryMaterial-add.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MaterialMain\FactoryMaterial-editDetail.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MaterialMain\FactoryMaterial-editDetail-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MaterialMain\FactoryMaterial-edit-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MaterialMain\FactoryMaterial-edit.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MaterialMain\FactoryMaterial-list-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MaterialMain\FactoryMaterial-list.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MaterialMain\FactoryMaterial-select-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MaterialMain\FactoryMaterial-select.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MaterialMain\FactoryMaterial-srv.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MaterialMain\MaterialMain-import.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MaterialMain\MaterialMain-import-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MaterialMain\MaterialMain-addDetail.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MaterialMain\MaterialMain-addDetail-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MaterialMain\MaterialMain-add-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MaterialMain\MaterialMain-add.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MaterialMain\MaterialMain-editDetail.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MaterialMain\MaterialMain-editDetail-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MaterialMain\MaterialMain-edit-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MaterialMain\MaterialMain-edit.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MaterialMain\MaterialMain-list-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MaterialMain\MaterialMain-list.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MaterialMain\MaterialMain-select-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MaterialMain\MaterialMain-select.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MaterialMain\MaterialMain-srv.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MaterialMain\module.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MMRawMaterialDispatch\MMRawMaterialDispatch-add-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MMRawMaterialDispatch\MMRawMaterialDispatch-add.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MMRawMaterialDispatch\MMRawMaterialDispatch-edit-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MMRawMaterialDispatch\MMRawMaterialDispatch-edit.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MMRawMaterialDispatch\MMRawMaterialDispatch-list-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MMRawMaterialDispatch\MMRawMaterialDispatch-list.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MMRawMaterialDispatch\MMRawMaterialDispatch-delivery-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MMRawMaterialDispatch\MMRawMaterialDispatch-delivery.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MMRawMaterialDispatch\MMRawMaterialDispatch-srv.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MMRawMaterialDispatch\module.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MMReceiptNotice\module.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MMReceiptNotice\ReceiptNotice-add-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MMReceiptNotice\ReceiptNotice-add.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MMReceiptNotice\ReceiptNotice-addDetail.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MMReceiptNotice\ReceiptNotice-addDetail-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MMReceiptNotice\ReceiptNotice-editDetail.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MMReceiptNotice\ReceiptNotice-editDetail-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MMReceiptNotice\ReceiptNotice-edit-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MMReceiptNotice\ReceiptNotice-edit.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MMReceiptNotice\ReceiptNotice-list-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MMReceiptNotice\ReceiptNotice-list.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MMReceiptNotice\ReceiptNotice-select-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MMReceiptNotice\ReceiptNotice-select.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MMReceiptNotice\ReceiptNotice-srv.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MMSaleDomestic\module.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MMSaleDomestic\SaleDomestic-add-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MMSaleDomestic\SaleDomestic-add.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MMSaleDomestic\SaleDomestic-edit-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MMSaleDomestic\SaleDomestic-edit.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MMSaleDomestic\SaleDomestic-list-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MMSaleDomestic\SaleDomestic-list.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MMSaleDomestic\SaleDomestic-select-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MMSaleDomestic\SaleDomestic-select.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MMSaleDomestic\SaleDomestic-srv.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MMSaleDomestic\SaleDomesticOut-add-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MMSaleDomestic\SaleDomesticOut-add.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MMSaleDomestic\SaleDomesticOut-edit-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MMSaleDomestic\SaleDomesticOut-edit.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MMSaleDomestic\SaleDomesticOut-list-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MMSaleDomestic\SaleDomesticOut-list.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MMSaleDomestic\SaleDomesticOut-select-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MMSaleDomestic\SaleDomesticOut-select.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MMSaleDomestic\SaleDomesticOut-srv.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MM_WarehouseSafetyStock\MM_WarehouseSafetyStock-add-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MM_WarehouseSafetyStock\MM_WarehouseSafetyStock-add.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MM_WarehouseSafetyStock\MM_WarehouseSafetyStock-edit-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MM_WarehouseSafetyStock\MM_WarehouseSafetyStock-edit.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MM_WarehouseSafetyStock\MM_WarehouseSafetyStock-list-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MM_WarehouseSafetyStock\MM_WarehouseSafetyStock-list.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\MM_WarehouseSafetyStock\MM_WarehouseSafetyStock-srv.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\PL_MarkUpload\PL_MarkUpload-add-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\PL_MarkUpload\PL_MarkUpload-add.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\PL_MarkUpload\PL_MarkUpload-edit-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\PL_MarkUpload\PL_MarkUpload-edit.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\PL_MarkUpload\PL_MarkUpload-list-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\PL_MarkUpload\PL_MarkUpload-list.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\PL_MarkUpload\PL_MarkUpload-srv.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\Process\module.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\Process\ProcessAttr-addDetail.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\Process\ProcessAttr-addDetail-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\Process\ProcessAttr-add-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\Process\ProcessAttr-add.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\Process\ProcessAttr-editDetail.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\Process\ProcessAttr-editDetail-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\Process\ProcessAttr-edit-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\Process\ProcessAttr-edit.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\Process\ProcessAttr-list-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\Process\ProcessAttr-list.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\Process\ProcessAttr-select-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\Process\ProcessAttr-select.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\Process\ProcessAttr-srv.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\Process\ProcessOperation-addAttr.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\Process\ProcessOperation-addAttr-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\Process\ProcessOperation-addDetail.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\Process\ProcessOperation-addDetail-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\Process\ProcessOperation-add-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\Process\ProcessOperation-add.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\Process\ProcessOperation-editAttr.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\Process\ProcessOperation-editAttr-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\Process\ProcessOperation-editDetail.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\Process\ProcessOperation-editDetail-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\Process\ProcessOperation-edit-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\Process\ProcessOperation-edit.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\Process\ProcessOperation-list-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\Process\ProcessOperation-list.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\Process\ProcessOperation-select-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\Process\ProcessOperation-select.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\Process\ProcessOperation-srv.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\ProductDatafile\module.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\ProductDatafile\ProductDatafile-add-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\ProductDatafile\ProductDatafile-add.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\ProductDatafile\ProductDatafile-edit-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\ProductDatafile\ProductDatafile-edit.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\ProductDatafile\ProductDatafile-list-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\ProductDatafile\ProductDatafile-list.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\ProductDatafile\ProductDatafile-select-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\ProductDatafile\ProductDatafile-select.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\ProductDatafile\ProductDatafile-srv.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\ProductDispatch\module.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\ProductDispatch\ProductDispatch-takeoff.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\ProductDispatch\ProductDispatch-takeoff-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\ProductDispatch\ProductDispatch-edit.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\ProductDispatch\ProductDispatch-add-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\ProductDispatch\ProductDispatch-add.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\ProductDispatch\ProductDispatch-edit-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\ProductDispatch\ProductDispatch-list-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\ProductDispatch\ProductDispatch-list.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\ProductDispatch\ProductDispatch-select-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\ProductDispatch\ProductDispatch-select.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\ProductDispatch\ProductDispatch-srv.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\ProductStock\module.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\ProductStock\PackingTransferStock-add-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\ProductStock\PackingTransferStock-add.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\ProductStock\PackingTransferStock-edit-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\ProductStock\PackingTransferStock-edit.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\ProductStock\PackingTransferStock-list-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\ProductStock\PackingTransferStock-list.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\ProductStock\PackingTransferStock-select-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\ProductStock\PackingTransferStock-select.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\ProductStock\PackingTransferStock-srv.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\ProductStock\ProductStock-add-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\ProductStock\ProductStock-add.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\ProductStock\ProductStock-adjust.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\ProductStock\ProductStock-adjust-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\ProductStock\ProductStock-editDetail-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\ProductStock\ProductStock-edit-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\ProductStock\ProductStock-edit.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\ProductStock\ProductStock-editDetail.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\ProductStock\ProductStock-list-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\ProductStock\ProductStock-list.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\ProductStock\ProductStock-select-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\ProductStock\ProductStock-select.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\ProductStock\ProductStock-srv.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\RawMaterialOut\module.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\RawMaterialOut\RawMaterialConsumption-add-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\RawMaterialOut\RawMaterialConsumption-add.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\RawMaterialOut\RawMaterialConsumption-edit-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\RawMaterialOut\RawMaterialConsumption-edit.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\RawMaterialOut\RawMaterialConsumption-list-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\RawMaterialOut\RawMaterialConsumption-list.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\RawMaterialOut\RawMaterialConsumption-select-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\RawMaterialOut\RawMaterialConsumption-select.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\RawMaterialOut\RawMaterialConsumption-srv.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\RawMaterialStock\module.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\RawMaterialStock\RawMaterialStock-add-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\RawMaterialStock\RawMaterialStock-add.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\RawMaterialStock\RawMaterialStock-edit-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\RawMaterialStock\RawMaterialStock-edit.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\RawMaterialStock\RawMaterialStock-list-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\RawMaterialStock\RawMaterialStock-list.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\RawMaterialStock\RawMaterialStock-select-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\RawMaterialStock\RawMaterialStock-select.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\RawMaterialStock\RawMaterialStock-srv.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\RawMaterialStock\RawMaterialStockManage-add-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\RawMaterialStock\RawMaterialStockManage-add.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\RawMaterialStock\RawMaterialStockManage-addDetail-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\RawMaterialStock\RawMaterialStockManage-addDetail.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\RawMaterialStock\RawMaterialStockManage-Newadd-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\RawMaterialStock\RawMaterialStockManage-Newadd.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\RawMaterialStock\RawMaterialStockManage-Newedit-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\RawMaterialStock\RawMaterialStockManage-Newedit.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\RawMaterialStock\RawMaterialStockManage-merge.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\RawMaterialStock\RawMaterialStockManage-merge-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\RawMaterialStock\RawMaterialStockManage-tuiku.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\RawMaterialStock\RawMaterialStockManage-tuiku-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\RawMaterialStock\RawMaterialStockManage-out2.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\RawMaterialStock\RawMaterialStockManage-out2-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\RawMaterialStock\RawMaterialStockManage-out.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\RawMaterialStock\RawMaterialStockManage-out-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\RawMaterialStock\RawMaterialStockManage-adjust.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\RawMaterialStock\RawMaterialStockManage-adjust-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\RawMaterialStock\RawMaterialStockManage-edit-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\RawMaterialStock\RawMaterialStockManage-edit.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\RawMaterialStock\RawMaterialStockManage-list-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\RawMaterialStock\RawMaterialStockManage-list.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\RawMaterialStock\RawMaterialStockManage-select-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\RawMaterialStock\RawMaterialStockManage-select.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\RawMaterialStock\RawMaterialStockManage-srv.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\RawMaterialStock\RawMaterialStockManage-Transfer-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\RawMaterialStock\RawMaterialStockManage-Transfer.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\SuperProductStock\module.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\SuperProductStock\SuperProductStock-add-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\SuperProductStock\SuperProductStock-add.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\SuperProductStock\SuperProductStock-edit-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\SuperProductStock\SuperProductStock-edit.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\SuperProductStock\SuperProductStock-list-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\SuperProductStock\SuperProductStock-list.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\SuperProductStock\SuperProductStock-select-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\SuperProductStock\SuperProductStock-select.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\SuperProductStock\SuperProductStock-srv.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\SuperProductStock\SuperProductStockManage-add-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\SuperProductStock\SuperProductStockManage-add.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\SuperProductStock\SuperProductStockManage-adjust.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\SuperProductStock\SuperProductStockManage-adjust-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\SuperProductStock\SuperProductStockManage-edit-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\SuperProductStock\SuperProductStockManage-edit.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\SuperProductStock\SuperProductStockManage-list-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\SuperProductStock\SuperProductStockManage-list.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\SuperProductStock\SuperProductStockManage-select-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\SuperProductStock\SuperProductStockManage-select.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\SuperProductStock\SuperProductStockManage-srv.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\SupplierManage\module.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\SupplierManage\SupplierManage-addDetail.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\SupplierManage\SupplierManage-addDetail-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\SupplierManage\SupplierManage-add-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\SupplierManage\SupplierManage-add.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\SupplierManage\SupplierManage-editDetail.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\SupplierManage\SupplierManage-editDetail-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\SupplierManage\SupplierManage-edit-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\SupplierManage\SupplierManage-edit.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\SupplierManage\SupplierManage-list-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\SupplierManage\SupplierManage-list.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\SupplierManage\SupplierManage-select-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\SupplierManage\SupplierManage-select.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\SupplierManage\SupplierManage-srv.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\SupProductStockTransfer\module.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\SupProductStockTransfer\SupProductStockTransfer-add-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\SupProductStockTransfer\SupProductStockTransfer-add.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\SupProductStockTransfer\SupProductStockTransfer-edit-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\SupProductStockTransfer\SupProductStockTransfer-edit.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\SupProductStockTransfer\SupProductStockTransfer-list-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\SupProductStockTransfer\SupProductStockTransfer-list.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\SupProductStockTransfer\SupProductStockTransfer-select-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\SupProductStockTransfer\SupProductStockTransfer-select.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\SupProductStockTransfer\SupProductStockTransfer-srv.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\TraitBOM\module.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\TraitBOM\TraitBOM-add-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\TraitBOM\TraitBOM-add.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\TraitBOM\TraitBOM-addDetail-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\TraitBOM\TraitBOM-addDetail.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\TraitBOM\TraitBOM-edit-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\TraitBOM\TraitBOM-edit.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\TraitBOM\TraitBOM-editDetail-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\TraitBOM\TraitBOM-editDetail.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\TraitBOM\TraitBOM-list-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\TraitBOM\TraitBOM-list.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\TraitBOM\TraitBOM-select-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\TraitBOM\TraitBOM-select.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\TraitBOM\TraitBOM-srv.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\TraitProcess\module.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\TraitProcess\TraitProcessOperation-addAttr-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\TraitProcess\TraitProcessOperation-addAttr.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\TraitProcess\TraitProcessOperation-addDetail-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\TraitProcess\TraitProcessOperation-addDetail.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\TraitProcess\TraitProcessOperation-editAttr-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\TraitProcess\TraitProcessOperation-editAttr.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\TraitProcess\TraitProcessOperation-editDetail-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\TraitProcess\TraitProcessOperation-editDetail.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\TraitProcess\TraitProcessOperation-add-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\TraitProcess\TraitProcessOperation-add.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\TraitProcess\TraitProcessOperation-edit-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\TraitProcess\TraitProcessOperation-edit.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\TraitProcess\TraitProcessOperation-list-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\TraitProcess\TraitProcessOperation-list.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\TraitProcess\TraitProcessOperation-select-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\TraitProcess\TraitProcessOperation-select.html" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\TraitProcess\TraitProcessOperation-srv.js" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\Siemens.SimaticIT.MaterialApp.MaterialBindTemp.json" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\Siemens.SimaticIT.MaterialApp.MaterialGroup.json" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\Siemens.SimaticIT.MaterialApp.MaterialMain.json" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\Siemens.SimaticIT.MaterialApp.SupplierManage.json" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\Siemens.SimaticIT.MaterialApp.Process.json" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\Siemens.SimaticIT.MaterialApp.BOM.json" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\Siemens.SimaticIT.MaterialApp.MMReceiptNotice.json" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\Siemens.SimaticIT.MaterialApp.RawMaterialStock.json" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\Siemens.SimaticIT.MaterialApp.RawMaterialOut.json" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\Siemens.SimaticIT.MaterialApp.SuperProductStock.json" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\Siemens.SimaticIT.MaterialApp.SupProductStockTransfer.json" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\Siemens.SimaticIT.MaterialApp.ProductStock.json" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\Siemens.SimaticIT.MaterialApp.ProductDispatch.json" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\Siemens.SimaticIT.MaterialApp.MMSaleDomestic.json" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\Siemens.SimaticIT.MaterialApp.ImportData.json" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\resources\BaseBomTemp.xls" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\resources\BaseMaterialTemp.xls" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\Siemens.SimaticIT.MaterialApp.BSTraitManage.json" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\Siemens.SimaticIT.MaterialApp.TraitBOM.json" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\Siemens.SimaticIT.MaterialApp.TraitProcess.json" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\resources\BSTraitValue.xls" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\Siemens.SimaticIT.MaterialApp.PL_MarkUpload.json" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\Siemens.SimaticIT.MaterialApp.MM_WarehouseSafetyStock.json" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\Siemens.SimaticIT.MaterialApp.ProductDatafile.json" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\Siemens.SimaticIT.MaterialApp.Base_DataFileCon.json" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\resources\BaseMaterialFactoryTemp.xls" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\resources\resources.json" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\resources\Siemens.SimaticIT.MaterialApp.vi-VN.json" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\resources\Siemens.SimaticIT.MaterialApp.zh-CN.json" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\modules\Siemens.SimaticIT.MaterialApp.MMRawMaterialDispatch.json" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\resources\Siemens.SimaticIT.MaterialApp.th-TH.json" />
+    <Content Include="Siemens.SimaticIT.MaterialApp\resources\Siemens.SimaticIT.MaterialApp.en-US.json" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="app.js" />
+    <Content Include="config.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="default.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="default-debug.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Siemens.SimaticIT.MaterialApp\module.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="scripts\_references.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Siemens.SimaticIT.MaterialApp\locales\locales.json" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Import Project="$(SITUnifiedVSToolingPlatformBin)\Siemens.SimaticIt.UI.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>59854</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:59854/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeCompile">
+  </Target>
+  <Target Name="AfterCompile">
+  </Target>
+  -->
+</Project>

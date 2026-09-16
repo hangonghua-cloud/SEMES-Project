@@ -1,0 +1,38 @@
+﻿<style>
+    .row {
+        padding: 5px;
+        margin-top: 10px;
+    }
+
+    .canvas .property-area-container > div.content .side-panel-property-area-body {
+        overflow-y: visible;
+    }
+</style>
+<div class="command-bar-side-panel">
+    <button ng-click="vm.cancel()" class="btn side-panel-button">{{'Siemens.SimaticIT.PlanApp.WorkOrderManage.edit.Tips_1'|translate}}</button>
+    <button ng-click="vm.save()" class="btn side-panel-button" ng-show="vm.validInputs">{{'Siemens.SimaticIT.PlanApp.WorkOrderManage.edit.Tips_2'|translate}}</button>
+</div>
+<div class="side-panel-property-area-body" style="margin-left: 18px;">
+    <sit-property-grid sit-id="edit_form"
+                       sit-layout="Horizontal"
+                       sit-type="Fixed"
+                       sit-mode="edit"
+                       sit-columns="4">
+        <!-- TODO: Put here the properties of the entity managed by the service -->
+        <!-- <sit-property sit-widget="sit-select" sit-value="vm.typeProcessOperation.value" sit-validation="{required: false}" sit-options="vm.typeProcessOperation.options"
+                      sit-to-display="'ProcessName'" sit-to-keep="'ProcessCode'">{{'Siemens.SimaticIT.PlanApp.WorkOrderManage.edit.Tips_3'|translate}}</sit-property>
+        <sit-property sit-widget="sit-select" sit-value="vm.typeStartProcess.value" sit-validation="{required: false}"
+                      sit-options="vm.typeStartProcess.options" sit-to-display="'ResourceName'" sit-to-keep="'ResourceCode'"
+                      sit-read-only="false">{{'Siemens.SimaticIT.PlanApp.WorkOrderManage.edit.Tips_4'|translate}}</sit-property> -->
+        <sit-property sit-widget="sit-select" sit-value="vm.typeTransfer.value" sit-validation="{required: false}" sit-options="vm.typeTransfer.options"
+                      sit-to-display="'ItemName'" sit-to-keep="'ItemValue'">{{'Siemens.SimaticIT.PlanApp.WorkOrderManage.edit.Tips_5'|translate}}</sit-property>
+        <sit-property sit-widget="sit-numeric"
+                      sit-value="vm.currentItem.YieldNum"
+                      sit-validation="{required: false,min:0,max:1}"
+                      sit-read-only="vm.isReadYield">{{'Siemens.SimaticIT.PlanApp.WorkOrderManage.edit.Tips_6'|translate}}</sit-property>
+    </sit-property-grid>
+</div>
+<div id="itemlist" style="width:calc(100% - 2px); height: calc(100% - 150px);margin-top: 6px; padding:5px 16px 0 16px;clear: both; display: block;overflow-y: auto;">
+    <div ui-grid="vm.gridOptionsItem" ui-grid-selection ui-grid-resize-columns ui-grid-auto-resize class="uigrid  gridItem"></div>
+</div>
+

@@ -1,0 +1,73 @@
+﻿<!--
+    0.代码生成: UA单表一键生成前后端html、JS、API接口代码生成器 Ver 2.13 更新日期：2021-07-12  设计者：刘万军
+    1.功能描述: 巡检检验记录表
+    2.创建人员: 丁零
+    3.创建日期: 2021-08-23
+    4.修改人员: 
+    5.修改日期: 
+-->
+<style>
+    .row {
+        padding: 5px;
+        margin-top: 10px;
+    }
+</style>
+<div class="command-bar-side-panel">
+    <button ng-click="vm.cancel()" class="btn side-panel-button">{{'Siemens.SimaticIT.QualityApp.QC_PollingDetail.QC_PollingDetailaddresult.Tips_1'|translate}}</button>
+    <button ng-click="vm.save()" class="btn side-panel-button" ng-show="vm.validInputs">{{'Siemens.SimaticIT.QualityApp.QC_PollingDetail.QC_PollingDetailaddresult.Tips_2'|translate}}</button>
+</div>
+<div class="side-panel-property-area-body">
+    <sit-property-grid sit-id="add_form"
+                       sit-layout="Vertical"
+                       sit-type="Fluid"
+                       sit-mode="edit"
+                       sit-columns="1">
+        <sit-property-grid sit-id="view_form" sit-layout="Horizontal" sit-type="Fixed" sit-mode="edit" sit-columns="2" style="margin-left: 4px;">
+            <!--<sit-property sit-widget="sit-alp-text-picker"
+                    sit-read-only="false"
+                    sit-validation="{required: true}"
+                    sit-value="vm.currentResultItem.EquipmentTaskName"
+                    ng-click="vm.SelectTaskModal()">
+                    {{'Siemens.SimaticIT.QualityApp.QC_PollingDetail.QC_PollingDetailaddresult.Tips_3'|translate}}
+            </sit-property>-->
+            <sit-property sit-widget="sit-text" sit-value="vm.currentItem.TestProcessName" sit-validation="{required: true}"
+                          sit-read-only="true">{{'Siemens.SimaticIT.QualityApp.QC_PollingDetail.QC_PollingDetailaddresult.Tips_4'|translate}}</sit-property>
+            <sit-property sit-widget="sit-text" sit-value="vm.currentItem.ProductionMachineName" sit-validation="{required: true}"
+                          sit-read-only="true">{{'Siemens.SimaticIT.QualityApp.QC_PollingDetail.QC_PollingDetailaddresult.Tips_5'|translate}}</sit-property>
+            <sit-property sit-widget="sit-text" sit-value="vm.currentItem.CalibrationMethodName" sit-validation="{required: true}"
+                          sit-read-only="true">{{'Siemens.SimaticIT.QualityApp.QC_PollingDetail.QC_PollingDetailaddresult.Tips_6'|translate}}</sit-property>
+            <sit-property sit-widget="sit-alp-text-picker"
+                          sit-read-only="true"
+                          sit-validation="{required: true}"
+                          sit-value="vm.currentItem.InspectorName"
+                          ng-click="vm.SelectPeopleModal()">
+                {{'Siemens.SimaticIT.QualityApp.QC_PollingDetail.QC_PollingDetailaddresult.Tips_7'|translate}}
+            </sit-property>
+            <sit-property sit-widget="sit-datepicker" sit-value="vm.currentItem.InspectionTimeStr" sit-validation="{required: true}"
+                          sit-widget-attributes="{'sit-format':'yyyy-MM-dd','sit-show-meridian':'false'}" sit-read-only="">{{'Siemens.SimaticIT.QualityApp.QC_PollingDetail.QC_PollingDetailaddresult.Tips_8'|translate}}</sit-property>
+            <sit-property sit-widget="sit-select"
+                    sit-read-only="false" ng-show="vm.isQualityButtonVisible"
+                    sit-options="vm.DeterminationConfig.options"
+                    sit-to-keep="'ItemValue'" sit-validation="{required: false}"
+                    sit-value="vm.DeterminationConfig.selectedOption"
+                    sit-change="vm.selectProcess"
+                    sit-to-display="'ItemName'">
+                    {{'Siemens.SimaticIT.QualityApp.QC_PollingDetail.QC_PollingDetailaddresult.Tips_9'|translate}}
+            </sit-property>
+            <sit-property sit-widget="sit-select"
+                    sit-read-only="false"ng-show="false"
+                    sit-options="vm.LaboratoryConfig.options" style="max-width:300px;"
+                    sit-to-keep="'ItemValue'" sit-validation="{required: false}"
+                    sit-value="vm.LaboratoryConfig.selectedOption"
+                    sit-change="vm.selectProcess"
+                    sit-to-display="'ItemName'">
+                    {{'Siemens.SimaticIT.QualityApp.QC_PollingDetail.QC_PollingDetailaddresult.Tips_10'|translate}}
+            </sit-property>
+        </sit-property-grid>
+    </sit-property-grid>
+    <div id="itemlist" style="width:calc(100% - 5px); height: calc(100% - 100px); margin-top:20px;margin-left:20px;padding-right:20px;overflow: auto;">
+        <div ui-grid="vm.gridOptions" ui-grid-pagination ui-grid-pinning ui-grid-selection ui-grid-exporter ui-grid-resize-columns
+             ui-grid-auto-resize class="uigrid uigrid-edit"></div>
+
+    </div>
+</div>

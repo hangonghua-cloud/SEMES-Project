@@ -1,0 +1,19 @@
+﻿{
+  "name": "Siemens.SimaticIT.FactoryModelApp.ModelManage",
+  "type": "standard",
+  "title": "Siemens.SimaticIT.FactoryModelApp.ModelManage.Title",
+  "header": "",
+  "icon": "fa-folder",
+  "functionalBlock": "Siemens.SimaticIT.FactoryModelApp",
+  "dependencies": [],
+  "states": [
+    {
+      "id": "home.Siemens_SimaticIT_FactoryModelApp_ModelManage_ModelManage",
+      "title": "Siemens.SimaticIT.FactoryModelApp.ModelManage.Title",
+      "header": "",
+      "securable": true,
+      "roles": []
+    }
+  ],
+  "manifestVersion": "01.01.00"
+}

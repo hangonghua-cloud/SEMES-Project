@@ -1,0 +1,157 @@
+﻿<!--
+    0.代码生成: UA主子表一键生成前后端html、JS、API接口代码生成器 Ver 1.11 更新日期：2021-07-14  设计者：刘万军
+    1.功能描述: 特征工艺路线管理
+    2.创建人员: jpf
+    3.创建日期: 2022-11-15
+    4.修改人员:
+    5.修改日期:
+-->
+<style>
+    .MainCommandActionButton {
+        margin-top: 20px !important;
+    }
+</style>
+<div id="itemlist" class="content-area content-area-relative" style="height: calc(93% - 30px) !important">
+    <!--查询条件与功能按钮-->
+    <div class="col-md-40" style="margin-left: 15px;height: calc(14% - 10px)">
+        <div class="side-panel-property-area-body">
+            <sit-property-grid sit-id="add_form" sit-layout="Horizontal" sit-type="Fixed" sit-mode="edit"
+                               sit-columns="8">
+
+                <sit-property sit-widget="sit-select" sit-value="vm.typeFactory.value"
+                              sit-validation="{required: false}" sit-options="vm.typeFactory.options"
+                              sit-to-display="'ResourceName'" sit-to-keep="'ResourceCode'" sit-read-only="false">
+                    {{'Siemens.SimaticIT.MaterialApp.TraitProcess.TraitProcessOperationlist.Tips_1'|translate}}
+                </sit-property>
+
+                <sit-property sit-widget="sit-text" sit-value="vm.searchParams.ProcessCode" sit-read-only="false"
+                              style="max-width:300px;">
+                    {{'Siemens.SimaticIT.MaterialApp.TraitProcess.TraitProcessOperationlist.Tips_2'|translate}}
+                </sit-property>
+
+                <sit-property sit-widget="sit-text" sit-value="vm.searchParams.ProcessName" sit-read-only="false"
+                              style="max-width:300px;">
+                    {{'Siemens.SimaticIT.MaterialApp.TraitProcess.TraitProcessOperationlist.Tips_3'|translate}}
+                </sit-property>
+
+                <sit-property sit-widget="sit-text" sit-value="vm.searchParams.MaterialClass" sit-read-only="false"
+                              style="max-width:300px;">
+                    {{'Siemens.SimaticIT.MaterialApp.TraitProcess.TraitProcessOperationlist.Tips_4'|translate}}
+                </sit-property>
+
+                <sit-property sit-widget="sit-text" sit-value="vm.searchParams.SmallClass" sit-read-only="false"
+                              style="max-width:300px;">
+                    {{'Siemens.SimaticIT.MaterialApp.TraitProcess.TraitProcessOperationlist.Tips_5'|translate}}
+                </sit-property>
+
+                <!-- <sit-property sit-widget="sit-select" sit-value="vm.MaterialClass.value"
+                              sit-options="vm.MaterialClass.options" sit-to-display="'ItemName'" sit-to-keep="'ItemValue'"
+                              style="max-width:300px;">{{'Siemens.SimaticIT.MaterialApp.TraitProcess.TraitProcessOperationlist.Tips_6'|translate}}</sit-property>
+                <sit-property sit-widget="sit-select" sit-value="vm.SmallClass.value"
+                              sit-options="vm.SmallClass.options" sit-to-display="'ItemName'" sit-to-keep="'ItemValue'"
+                              style="max-width:300px;">{{'Siemens.SimaticIT.MaterialApp.TraitProcess.TraitProcessOperationlist.Tips_7'|translate}}</sit-property> -->
+
+                <sit-command-bar sit-type="action">
+                    <sit-command sit-icon="fa-search" sit-type="main" sit-name="com.siemens.customcommand.search"
+                                 :sit-tooltip="{{'Siemens.SimaticIT.MaterialApp.TraitProcess.TraitProcessOperationlist.Tips_8'|translate}}"
+                                 ng-click="vm.searchButtonHandler"
+                                 :sit-label="{{'Siemens.SimaticIT.MaterialApp.TraitProcess.TraitProcessOperationlist.Tips_8'|translate}}">
+                    </sit-command>
+                </sit-command-bar>
+
+            </sit-property-grid>
+        </div>
+    </div>
+    <!--右侧功能按钮-->
+    <sit-command-bar sit-vertical-autofixed="true" sit-type="Tool" :sit-label-align="right" sit-layout="vertical">
+
+        <sit-command sit-icon="fa-minus-square " sit-name="com.siemens.customcommand.delete"
+                     :sit-tooltip="{{'Siemens.SimaticIT.MaterialApp.TraitProcess.TraitProcessOperationlist.Tips_9'|translate}}"
+                     ng-click="vm.delete3ButtonHandler"
+                     :sit-label="{{'Siemens.SimaticIT.MaterialApp.TraitProcess.TraitProcessOperationlist.Tips_9'|translate}}"
+                     ng-show="vm.isAttrButtonVisible" sit-type="main">
+        </sit-command>
+
+        <sit-command sit-icon="fa-pencil-square" sit-name="com.siemens.customcommand.edit"
+                     :sit-tooltip="{{'Siemens.SimaticIT.MaterialApp.TraitProcess.TraitProcessOperationlist.Tips_10'|translate}}"
+                     ng-click="vm.edit3ButtonHandler"
+                     :sit-label="{{'Siemens.SimaticIT.MaterialApp.TraitProcess.TraitProcessOperationlist.Tips_10'|translate}}"
+                     ng-show="vm.isAttrButtonVisible" sit-type="main">
+        </sit-command>
+
+        <sit-command sit-icon="fa-plus-square" sit-name="com.siemens.customcommand.add" ng-click="vm.add3ButtonHandler"
+                     :sit-tooltip="{{'Siemens.SimaticIT.MaterialApp.TraitProcess.TraitProcessOperationlist.Tips_11'|translate}}"
+                     :sit-label="{{'Siemens.SimaticIT.MaterialApp.TraitProcess.TraitProcessOperationlist.Tips_11'|translate}}"
+                     ng-show="vm.isAddAttrButtonVisible" sit-type="main"></sit-command>
+
+        <sit-command sit-icon="fa-paste" sit-name="com.siemens.customcommand.delete"
+                     :sit-tooltip="{{'Siemens.SimaticIT.MaterialApp.TraitProcess.TraitProcessOperationlist.Tips_12'|translate}}"
+                     ng-click="vm.stickButtonHandler"
+                     :sit-label="{{'Siemens.SimaticIT.MaterialApp.TraitProcess.TraitProcessOperationlist.Tips_12'|translate}}"
+                     ng-show="vm.isButtonVisible"></sit-command>
+
+        <sit-command sit-icon="fa-copy" sit-name="com.siemens.customcommand.copy"
+                     :sit-tooltip="{{'Siemens.SimaticIT.MaterialApp.TraitProcess.TraitProcessOperationlist.Tips_13'|translate}}"
+                     ng-click="vm.CopyButtonHandler"
+                     :sit-label="{{'Siemens.SimaticIT.MaterialApp.TraitProcess.TraitProcessOperationlist.Tips_13'|translate}}"
+                     ng-show="vm.isButtonVisible"></sit-command>
+
+        <sit-command sit-icon="fa-trash-o" sit-name="com.siemens.customcommand.delete"
+                     :sit-tooltip="{{'Siemens.SimaticIT.MaterialApp.TraitProcess.TraitProcessOperationlist.Tips_14'|translate}}"
+                     ng-click="vm.delete2ButtonHandler"
+                     :sit-label="{{'Siemens.SimaticIT.MaterialApp.TraitProcess.TraitProcessOperationlist.Tips_14'|translate}}"
+                     ng-show="vm.isDetailButtonVisible" sit-type="main">
+        </sit-command>
+
+        <sit-command sit-icon="fa-pencil-square-o" sit-name="com.siemens.customcommand.edit"
+                     :sit-tooltip="{{'Siemens.SimaticIT.MaterialApp.TraitProcess.TraitProcessOperationlist.Tips_15'|translate}}"
+                     ng-click="vm.edit2ButtonHandler"
+                     :sit-label="{{'Siemens.SimaticIT.MaterialApp.TraitProcess.TraitProcessOperationlist.Tips_15'|translate}}"
+                     ng-show="vm.isDetailButtonVisible" sit-type="main">
+        </sit-command>
+
+        <sit-command sit-icon="fa-plus-square-o" sit-name="com.siemens.customcommand.add"
+                     ng-click="vm.add2ButtonHandler"
+                     :sit-tooltip="{{'Siemens.SimaticIT.MaterialApp.TraitProcess.TraitProcessOperationlist.Tips_16'|translate}}"
+                     :sit-label="{{'Siemens.SimaticIT.MaterialApp.TraitProcess.TraitProcessOperationlist.Tips_16'|translate}}"
+                     ng-show="vm.isButtonVisible" sit-type="main"></sit-command>
+
+        <sit-command sit-icon="fa-trash" sit-name="com.siemens.customcommand.delete"
+                     :sit-tooltip="{{'Siemens.SimaticIT.MaterialApp.TraitProcess.TraitProcessOperationlist.Tips_17'|translate}}"
+                     ng-click="vm.deleteButtonHandler"
+                     :sit-label="{{'Siemens.SimaticIT.MaterialApp.TraitProcess.TraitProcessOperationlist.Tips_17'|translate}}"
+                     ng-show="vm.isButtonVisible"></sit-command>
+
+        <sit-command sit-icon="fa-pencil" sit-name="com.siemens.customcommand.edit"
+                     :sit-tooltip="{{'Siemens.SimaticIT.MaterialApp.TraitProcess.TraitProcessOperationlist.Tips_18'|translate}}"
+                     ng-click="vm.editButtonHandler"
+                     :sit-label="{{'Siemens.SimaticIT.MaterialApp.TraitProcess.TraitProcessOperationlist.Tips_18'|translate}}"
+                     ng-show="vm.isButtonVisible"></sit-command>
+
+        <sit-command sit-icon="fa-plus" sit-name="com.siemens.customcommand.add" ng-click="vm.addButtonHandler"
+                     :sit-tooltip="{{'Siemens.SimaticIT.MaterialApp.TraitProcess.TraitProcessOperationlist.Tips_19'|translate}}"
+                     :sit-label="{{'Siemens.SimaticIT.MaterialApp.TraitProcess.TraitProcessOperationlist.Tips_19'|translate}}"
+                     sit-type="main"></sit-command>
+
+        <sit-command sit-icon="fa-upload" sit-name="com.siemens.customcommand.add" ng-click="vm.selectButtonHandler"
+                     :sit-tooltip="导入" :sit-label="导入" sit-type="main"></sit-command>
+
+    </sit-command-bar>
+    <!-- grid列表 -->
+    <div id="listClass" style="width:100%; height: 47%; padding:0px 16px 0 16px; margin-top: 3px;">
+        <div ui-grid="vm.gridOptions" ui-grid-pinning ui-grid-auto-resize ui-grid-resize-columns ui-grid-selection
+             ui-grid-pagination class="uigrid"></div>
+    </div>
+    <div class="row" style="width:100%; height: 46%; padding:0px 16px 0 16px; margin-top: 3px;">
+        <div class="col-md-20">
+            <div ui-grid="vm.gridOptionsDetail" ui-grid-auto-resize ui-grid-resize-columns ui-grid-selection
+                 ui-grid-pagination class="uigrid"></div>
+        </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-19">
+            <div ui-grid="vm.gridOptionsAttr" ui-grid-auto-resize ui-grid-resize-columns ui-grid-selection
+                 ui-grid-pagination class="uigrid"></div>
+        </div>
+    </div>
+
+</div>

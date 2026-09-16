@@ -1,0 +1,327 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{42234E7A-B484-479D-B1C1-08A08A59C935}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ALP.Application.Mapping</RootNamespace>
+    <AssemblyName>ALP.Application.Mapping</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AccountMap.cs" />
+    <Compile Include="AppManage\AppVersionMap.cs" />
+    <Compile Include="AuthorizeManage\ModuleFormInstanceMap.cs" />
+    <Compile Include="AuthorizeManage\ModuleFormMap.cs" />
+    <Compile Include="BaseManage\BaseSequenceMap.cs" />
+    <Compile Include="BaseManage\BaseShiftMap.cs" />
+    <Compile Include="BaseManage\BaseVirtualSlotMap.cs" />
+    <Compile Include="BaseManage\Base_Images_MAP.cs" />
+    <Compile Include="BaseManage\Base_KeyParameterItem_MAP.cs" />
+    <Compile Include="BaseManage\Base_KeyParameter_MAP.cs" />
+    <Compile Include="BaseManage\Base_ReportGroup_MAP.cs" />
+    <Compile Include="BaseManage\Base_ReportRecord_MAP.cs" />
+    <Compile Include="BaseManage\Base_ReportRoleAuthorize_MAP.cs" />
+    <Compile Include="BaseManage\Base_ReportRole_MAP.cs" />
+    <Compile Include="BaseManage\Base_UpdateLog_MAP.cs" />
+    <Compile Include="BaseManage\BsModelWithResourceMap.cs" />
+    <Compile Include="BaseManage\BsModelResourceExtendInfoMap.cs" />
+    <Compile Include="BaseManage\BsModelLevelExtendFieldsMap.cs" />
+    <Compile Include="BaseManage\BsModelLevelMap.cs" />
+    <Compile Include="BaseManage\BS_People_MAP.cs" />
+    <Compile Include="BaseManage\F_FilesMap.cs" />
+    <Compile Include="EquipmentManage\EP_EquipmentAttrib_MAP.cs" />
+    <Compile Include="EquipmentManage\EP_EquipmentCheckItemDetail_MAP.cs" />
+    <Compile Include="EquipmentManage\EP_EquipmentMaintainTypeMAP.cs" />
+    <Compile Include="EquipmentManage\EP_EquipmentCheckItemMaintenanceTypeMAP.cs" />
+    <Compile Include="EquipmentManage\EP_EquipmentCheckItemMaintenance_MAP.cs" />
+    <Compile Include="EquipmentManage\EP_EquipmentCheckRecord_MAP.cs" />
+    <Compile Include="EquipmentManage\EP_EquipmentCheckResult_MAP.cs" />
+    <Compile Include="EquipmentManage\EP_EquipmentMaintainDetail_MAP.cs" />
+    <Compile Include="EquipmentManage\EP_EquipmentMaintainResult_MAP.cs" />
+    <Compile Include="EquipmentManage\EP_EquipmentMaintainTask_MAP.cs" />
+    <Compile Include="EquipmentManage\EP_EquipmentMaintain_MAP.cs" />
+    <Compile Include="EquipmentManage\EP_EquipmentMalfunctionRepair_MAP.cs" />
+    <Compile Include="EquipmentManage\EP_EquipmentManageItem_MAP.cs" />
+    <Compile Include="EquipmentManage\EP_EquipmentManageMap.cs" />
+    <Compile Include="EquipmentManage\EP_EquipmentSpareParts_MAP.cs" />
+    <Compile Include="EquipmentManage\EP_EquipmentTool_MAP.cs" />
+    <Compile Include="EquipmentManage\V_EP_EquipmentManage_MAP.cs" />
+    <Compile Include="MaterialManage\BaseProductOrderFileConMap.cs" />
+    <Compile Include="MaterialManage\MMProductStockAdjustMap.cs" />
+    <Compile Include="MaterialManage\MMRawMaterialDispatchDetailMap.cs" />
+    <Compile Include="MaterialManage\MMRawMaterialDispatchMap.cs" />
+    <Compile Include="MaterialManage\MMRawMaterialDispatchSubMap.cs" />
+    <Compile Include="MaterialManage\MMSemiProductOutMap.cs" />
+    <Compile Include="MaterialManage\MMSuperProductStockAdjustMap.cs" />
+    <Compile Include="MaterialManage\MM_ProductDispatchBill_MAP.cs" />
+    <Compile Include="MaterialManage\MM_ProductDispatchDetail_MAP.cs" />
+    <Compile Include="MaterialManage\MM_ProductDispatchItem_MAP.cs" />
+    <Compile Include="MaterialManage\MM_ProductOut_MAP.cs" />
+    <Compile Include="MaterialManage\MM_ProductIn_MAP.cs" />
+    <Compile Include="MaterialManage\MM_ProductMoveRecord_MAP.cs" />
+    <Compile Include="MaterialManage\MM_ProductReworkBG_MAP.cs" />
+    <Compile Include="MaterialManage\MM_ProductReworkDetail_MAP.cs" />
+    <Compile Include="MaterialManage\MM_ProductRework_MAP.cs" />
+    <Compile Include="MaterialManage\MM_ProductStock_MAP.cs" />
+    <Compile Include="MaterialManage\MM_RawMaterialCodeBar_MAP.cs" />
+    <Compile Include="MaterialManage\MM_RawMaterialOut_MAP.cs" />
+    <Compile Include="MaterialManage\MM_RawMaterialStock_MAP.cs" />
+    <Compile Include="MaterialManage\MM_ReceiptNotice_MAP.cs" />
+    <Compile Include="MaterialManage\MM_RawMaterialIn_MAP.cs" />
+    <Compile Include="MaterialManage\MM_SaleDomesticIn_MAP.cs" />
+    <Compile Include="MaterialManage\MM_SaleDomesticOutDetail_MAP.cs" />
+    <Compile Include="MaterialManage\MM_SaleDomesticOut_MAP.cs" />
+    <Compile Include="MaterialManage\MM_SaleDomestic_MAP.cs" />
+    <Compile Include="MaterialManage\MM_SemiProductMoveRecord_MAP.cs" />
+    <Compile Include="MaterialManage\MM_SuperProductStock_MAP.cs" />
+    <Compile Include="MaterialManage\MM_SupProductStockTransfer_MAP.cs" />
+    <Compile Include="MaterialManage\MM_WarehouseSafetyStock_MAP.cs" />
+    <Compile Include="Material\Base_DataFileCon_MAP.cs" />
+    <Compile Include="Material\Base_MaterialBindTempFacet_MAP.cs" />
+    <Compile Include="Material\Base_MaterialBindTemp_MAP.cs" />
+    <Compile Include="Material\Base_MaterialFacet_MAP.cs" />
+    <Compile Include="Material\Base_MaterialFactory_MAP.cs" />
+    <Compile Include="Material\Base_MaterialGroupBindMaterial_MAP.cs" />
+    <Compile Include="Material\Base_MaterialGroup_MAP.cs" />
+    <Compile Include="Material\Base_Material_MAP.cs" />
+    <Compile Include="Material\Base_ProcessAttrItem_MAP.cs" />
+    <Compile Include="Material\Base_ProcessAttr_MAP.cs" />
+    <Compile Include="Material\Base_SupplierBindMaterialGroup_MAP.cs" />
+    <Compile Include="Material\Base_SupplierManage_MAP.cs" />
+    <Compile Include="Material\BS_BOMItems_MAP.cs" />
+    <Compile Include="Material\BS_BOM_MAP.cs" />
+    <Compile Include="Material\BS_ProcessOfOperationsAttr_MAP.cs" />
+    <Compile Include="Material\BS_ProcessOfOperations_MAP.cs" />
+    <Compile Include="Material\BS_Process_MAP.cs" />
+    <Compile Include="Material\BS_TraitDetailsAttr_MAP.cs" />
+    <Compile Include="Material\BS_TraitDetails_MAP.cs" />
+    <Compile Include="Material\BS_TraitManage_MAP.cs" />
+    <Compile Include="Material\PL_MarkUpload_MAP.cs" />
+    <Compile Include="PlanManage\PL_BOMItems_MAP.cs" />
+    <Compile Include="PlanManage\PL_BOM_MAP.cs" />
+    <Compile Include="PlanManage\PL_ExeWorkOrderWearingLayer_MAP.cs" />
+    <Compile Include="PlanManage\PL_FirstInspectionConfirm_MAP.cs" />
+    <Compile Include="PlanManage\PL_AvoidProduce_MAP.cs" />
+    <Compile Include="PlanManage\PL_ExeWorkOrder_MAP.cs" />
+    <Compile Include="PlanManage\PL_InternalOrder_MAP.cs" />
+    <Compile Include="PlanManage\PL_LoadingSchedule_MAP.cs" />
+    <Compile Include="PlanManage\PL_MaterialFacet_MAP.cs" />
+    <Compile Include="PlanManage\PL_Material_MAP.cs" />
+    <Compile Include="PlanManage\PL_PlanStoreIssue_MAP.cs" />
+    <Compile Include="PlanManage\PL_PrdOrderReqMaterials_MAP.cs" />
+    <Compile Include="PlanManage\PL_ProcessOfOperationsAttr_MAP.cs" />
+    <Compile Include="PlanManage\PL_ProcessOfOperations_MAP.cs" />
+    <Compile Include="PlanManage\PL_Process_MAP.cs" />
+    <Compile Include="PlanManage\PL_ProductionOrder_MAP.cs" />
+    <Compile Include="PlanManage\PL_ProductRule_MAP.cs" />
+    <Compile Include="PlanManage\PL_PurchaseOrder_MAP.cs" />
+    <Compile Include="PlanManage\PL_TransfersRecord_MAP.cs" />
+    <Compile Include="PlanManage\PL_WorkOrderSortRule_MAP.cs" />
+    <Compile Include="PlanManage\PL_WorkOrder_MAP.cs" />
+    <Compile Include="ProduceManage\PMOperationPalletNumMap.cs" />
+    <Compile Include="ProduceManage\PMOwnSemiProductOrderMap.cs" />
+    <Compile Include="ProduceManage\PMPerformanceManageMap.cs" />
+    <Compile Include="ProduceManage\PMPostCoefficientMap.cs" />
+    <Compile Include="ProduceManage\PMProductPriceMap.cs" />
+    <Compile Include="ProduceManage\PMScrapRecordMap.cs" />
+    <Compile Include="ProduceManage\PM_AbrasiveBG_MAP.cs" />
+    <Compile Include="ProduceManage\PM_AbrasiveOrder_MAP.cs" />
+    <Compile Include="ProduceManage\PM_BGBadRecord_MAP.cs" />
+    <Compile Include="ProduceManage\PM_BGBadShare_MAP.cs" />
+    <Compile Include="ProduceManage\PM_ExeWorkOrderSW_MAP.cs" />
+    <Compile Include="ProduceManage\PM_FormulaRecordDetail_MAP.cs" />
+    <Compile Include="ProduceManage\PM_FormulaRecord_MAP.cs" />
+    <Compile Include="ProduceManage\PM_MaterialBatchConsumeRecord_MAP.cs" />
+    <Compile Include="ProduceManage\PM_MaterialBatchUpRecord_MAP.cs" />
+    <Compile Include="ProduceManage\PM_OwnProductBG_MAP.cs" />
+    <Compile Include="ProduceManage\PM_OwnProductOrder_MAP.cs" />
+    <Compile Include="ProduceManage\PM_OwnProductTransfer_MAP.cs" />
+    <Compile Include="ProduceManage\PM_PackingBGTransferCard_MAP.cs" />
+    <Compile Include="ProduceManage\PM_PackingPrintMark_MAP.cs" />
+    <Compile Include="ProduceManage\PM_PackingRecord_MAP.cs" />
+    <Compile Include="ProduceManage\PM_PrinterOrder_MAP.cs" />
+    <Compile Include="ProduceManage\PM_PrinterWorkOrderBG_MAP.cs" />
+    <Compile Include="ProduceManage\PM_PrinterWorkOrder_MAP.cs" />
+    <Compile Include="ProduceManage\PM_ProcessBadItem_MAP.cs" />
+    <Compile Include="ProduceManage\PM_ProcessBad_MAP.cs" />
+    <Compile Include="ProduceManage\PM_ProductionFirstInspectionDetail_MAP.cs" />
+    <Compile Include="ProduceManage\PM_ProductionFirstInspection_MAP.cs" />
+    <Compile Include="ProduceManage\PM_ReworkRecord_Detail_MAP.cs" />
+    <Compile Include="ProduceManage\PM_ReworkRecord_MAP.cs" />
+    <Compile Include="ProduceManage\PM_StartUpRecord_MAP.cs" />
+    <Compile Include="ProduceManage\PM_TeamPerson_Items_MAP.cs" />
+    <Compile Include="ProduceManage\PM_TeamPerson_MAP.cs" />
+    <Compile Include="ProduceManage\PM_TranferCardBGRecord_MAP.cs" />
+    <Compile Include="ProduceManage\PM_TransferBGPersonRecord_MAP.cs" />
+    <Compile Include="ProduceManage\PM_TransferCardResume_MAP.cs" />
+    <Compile Include="ProduceManage\PM_TransferCardScrapRecord_MAP.cs" />
+    <Compile Include="ProduceManage\PM_TransferCard_MAP.cs" />
+    <Compile Include="QualityManage\QC_IPQCDetailResult_MAP.cs" />
+    <Compile Include="QualityManage\QC_IPQCDetail_MAP.cs" />
+    <Compile Include="QualityManage\QC_IQCQualityCheck_MAP.cs" />
+    <Compile Include="QualityManage\QC_MaterialInventoryCheckItem_MAP.cs" />
+    <Compile Include="QualityManage\QC_MaterialInventoryCheck_MAP.cs" />
+    <Compile Include="QualityManage\QC_OQCCheckConfigItem_MAP.cs" />
+    <Compile Include="QualityManage\QC_OQCCheckConfigMaterial_MAP.cs" />
+    <Compile Include="QualityManage\QC_OQCCheckConfig_MAP.cs" />
+    <Compile Include="QualityManage\QC_OQCQualityCheckItem_MAP.cs" />
+    <Compile Include="QualityManage\QC_OQCQualityCheck_MAP.cs" />
+    <Compile Include="QualityManage\QC_PollingDetailResult_MAP.cs" />
+    <Compile Include="QualityManage\QC_PollingDetail_MAP.cs" />
+    <Compile Include="QualityManage\QC_TestMethodMaterial_MAP.cs" />
+    <Compile Include="QualityManage\QC_IQCQualityCheckItem_MAP.cs" />
+    <Compile Include="QualityManage\QC_TestItemMaintenance_MAP.cs" />
+    <Compile Include="QualityManage\QC_TestMaintenance_MAP.cs" />
+    <Compile Include="QualityManage\QC_TestMethodItemMaintenance_MAP.cs" />
+    <Compile Include="QualityManage\QC_TestMethodMaintenance_MAP.cs" />
+    <Compile Include="QualityManage\QC_TestProcessMaintenance_MAP.cs" />
+    <Compile Include="SystemManage\BsPeopleByPrintServerMap.cs" />
+    <Compile Include="SystemManage\BsPrintServerMap.cs" />
+    <Compile Include="BaseManage\MainMap.cs" />
+    <Compile Include="BaseManage\MaterialManageMap.cs" />
+    <Compile Include="BaseManage\MESBaseAccountMap.cs" />
+    <Compile Include="BaseManage\WebChatApplyConfigMap.cs" />
+    <Compile Include="BaseManage\WebChatApplyUserMap.cs" />
+    <Compile Include="BaseManage\SubMap.cs" />
+    <Compile Include="BaseManage\UploadManageMap.cs" />
+    <Compile Include="Calendar\BS_BreakTimeManageMap.cs" />
+    <Compile Include="Calendar\BS_CalendarManageMap.cs" />
+    <Compile Include="Calendar\BS_HolidayManageMap.cs" />
+    <Compile Include="Calendar\BS_ShiftManageMap.cs" />
+    <Compile Include="Calendar\BS_ShiftOfCalendarMap.cs" />
+    <Compile Include="PublicInfoManage\ScheduleMap.cs" />
+    <Compile Include="BaseManage\BaseUserLineMap.cs" />
+    <Compile Include="SystemManage\APPRoleFunctionMap.cs" />
+    <Compile Include="SystemManage\APPRoleMap.cs" />
+    <Compile Include="SystemManage\APPRoleToFunctionMap.cs" />
+    <Compile Include="SystemManage\BSAppLogUserInfoMap.cs" />
+    <Compile Include="SystemManage\DataSourceMap.cs" />
+    <Compile Include="SystemManage\ExcelExportMap.cs" />
+    <Compile Include="SystemManage\ExcelImportFiledMap.cs" />
+    <Compile Include="SystemManage\CodeRuleMap.cs" />
+    <Compile Include="SystemManage\CodeRuleSeedMap.cs" />
+    <Compile Include="PublicInfoManage\FileFolderMap.cs" />
+    <Compile Include="PublicInfoManage\FileInfoMap.cs" />
+    <Compile Include="MessageManage\IMContentMap.cs" />
+    <Compile Include="MessageManage\IMGroupMap.cs" />
+    <Compile Include="MessageManage\IMReadMap.cs" />
+    <Compile Include="MessageManage\IMUserGroupMap.cs" />
+    <Compile Include="AuthorizeManage\AuthorizeMap.cs" />
+    <Compile Include="PublicInfoManage\EmailAddresseeMap.cs" />
+    <Compile Include="PublicInfoManage\NewsMap.cs" />
+    <Compile Include="SystemManage\DataBaseBackupMap.cs" />
+    <Compile Include="AuthorizeManage\FilterIPMap.cs" />
+    <Compile Include="AuthorizeManage\FilterTimeMap.cs" />
+    <Compile Include="SystemManage\DataBaseLinkMap.cs" />
+    <Compile Include="SystemManage\AreaMap.cs" />
+    <Compile Include="AuthorizeManage\ModuleMap.cs" />
+    <Compile Include="AuthorizeManage\ModuleButtonMap.cs" />
+    <Compile Include="AuthorizeManage\ModuleColumnMap.cs" />
+    <Compile Include="BaseManage\DepartmentMap.cs" />
+    <Compile Include="BaseManage\OrganizeMap.cs" />
+    <Compile Include="BaseManage\UserMap.cs" />
+    <Compile Include="SystemManage\DataItemDetailMap.cs" />
+    <Compile Include="SystemManage\DataItemMap.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="BaseManage\RoleMap.cs" />
+    <Compile Include="BaseManage\UserRelationMap.cs" />
+    <Compile Include="AuthorizeManage\AuthorizeDataMap.cs" />
+    <Compile Include="PublicInfoManage\EmailCategoryMap.cs" />
+    <Compile Include="PublicInfoManage\EmailContentMap.cs" />
+    <Compile Include="SystemManage\ExcelImportMap.cs" />
+    <Compile Include="SystemManage\LogMap.cs" />
+    <Compile Include="SystemManage\Sys_DataSegregateGroupMap.cs" />
+    <Compile Include="SystemManage\Sys_DataSegregateGroupToLabelMap.cs" />
+    <Compile Include="SystemManage\Sys_DataSegregateGroupToPersonMap.cs" />
+    <Compile Include="SystemManage\Sys_DataSegregateLabelMap.cs" />
+    <Compile Include="SystemManage\Sys_DepartmentMap.cs" />
+    <Compile Include="SystemManage\WMSBaseSystemSettingMap.cs" />
+    <Compile Include="SystemManage\WMSBaseWareHourseMap.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ALP.Application.Entity\ALP.Application.Entity.csproj">
+      <Project>{c10920fe-8c74-4993-a7f4-1da189da842c}</Project>
+      <Name>ALP.Application.Entity</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ProcessManage\" />
+    <Folder Include="Technology\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+    <Error Condition="!Exists('..\..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

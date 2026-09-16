@@ -1,0 +1,19 @@
+﻿{
+  "name": "Siemens.SimaticIT.MaterialApp.RawMaterialOut",
+  "type": "standard",
+  "title": "Siemens.SimaticIT.MaterialApp.RawMaterialOut.Title",
+  "header": "",
+  "icon": "fa-folder",
+  "functionalBlock": "Siemens.SimaticIT.MaterialApp",
+  "dependencies": [],
+  "states": [
+    {
+      "id": "home.Siemens_SimaticIT_MaterialApp_RawMaterialOut_RawMaterialConsumption",
+      "title": "Siemens.SimaticIT.MaterialApp.RawMaterialConsumption.Title",
+      "header": "",
+      "securable": true,
+      "roles": []
+    }
+  ],
+  "manifestVersion": "01.01.00"
+}

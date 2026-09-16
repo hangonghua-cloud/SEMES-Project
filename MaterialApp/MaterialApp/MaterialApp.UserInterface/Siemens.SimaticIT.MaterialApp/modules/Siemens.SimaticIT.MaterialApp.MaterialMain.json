@@ -1,0 +1,26 @@
+﻿{
+  "name": "Siemens.SimaticIT.MaterialApp.MaterialMain",
+  "type": "standard",
+  "title": "Siemens.SimaticIT.MaterialApp.MaterialMain.Title",
+  "header": "",
+  "icon": "fa-folder",
+  "functionalBlock": "Siemens.SimaticIT.MaterialApp",
+  "dependencies": [],
+  "states": [
+    {
+      "id": "home.Siemens_SimaticIT_MaterialApp_MaterialMain_MaterialMain",
+      "title": "Siemens.SimaticIT.MaterialApp.MaterialMain.Title",
+      "header": "",
+      "securable": true,
+      "roles": []
+    },
+    {
+      "id": "home.Siemens_SimaticIT_MaterialApp_MaterialMain_FactoryMaterial",
+      "title": "Siemens.SimaticIT.MaterialApp.FactoryMaterial.Title",
+      "header": "",
+      "securable": true,
+      "roles": []
+    }
+  ],
+  "manifestVersion": "01.01.00"
+}

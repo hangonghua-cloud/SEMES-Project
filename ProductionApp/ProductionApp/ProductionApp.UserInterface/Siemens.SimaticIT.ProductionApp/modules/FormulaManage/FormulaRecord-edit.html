@@ -1,0 +1,63 @@
+﻿
+<style>
+    .row {
+        padding: 5px;
+        margin-top: 10px;
+    }
+
+    .ui-grid-cell {
+        overflow: inherit;
+    }
+
+    .multi-advanced-selection .dropdown,
+    .multi-advanced-selection .dropup {
+        min-width: 50px !important;
+    }
+
+    .canvas .property-area-container > div.content .side-panel-property-area-body {
+        overflow-y: visible;
+    }
+</style>
+<div class="command-bar-side-panel">
+    <button ng-click="vm.cancel()" class="btn side-panel-button">{{'Siemens.SimaticIT.ProductionApp.FormulaRecord.edit.Tips_1'|translate}}</button>
+    <button ng-click="vm.save()" class="btn side-panel-button" ng-show="vm.validInputs">{{'Siemens.SimaticIT.ProductionApp.FormulaRecord.edit.Tips_2'|translate}}</button>
+</div>
+<div class="side-panel-property-area-body">
+    <sit-property-grid sit-id="add_form"
+                       sit-layout="Horizontal"
+                       sit-type="Fixed"
+                       sit-mode="edit"
+                       sit-columns="6">
+        <!-- <sit-property sit-widget="sit-numeric" sit-value="vm.currentItem.TotalNum"
+                      sit-read-only="true">{{'Siemens.SimaticIT.ProductionApp.FormulaRecord.edit.Tips_3'|translate}}</sit-property> -->
+
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.FormulaName" sit-validation="{required: true}"
+                      sit-read-only="true">{{'Siemens.SimaticIT.ProductionApp.FormulaRecord.edit.Tips_4'|translate}}</sit-property>
+
+        <sit-property sit-widget="sit-datepicker" sit-value="vm.currentItem.FormulaTime" sit-validation="{required: true}"
+                      sit-widget-attributes="{'sit-format':'yyyy-MM-dd','sit-show-meridian':'false'}" sit-read-only="false">{{'Siemens.SimaticIT.ProductionApp.FormulaRecord.edit.Tips_5'|translate}}</sit-property>
+
+        <sit-property sit-widget="sit-select" sit-value="vm.typeUserGroup.value" sit-validation="{required: true}" sit-options="vm.typeUserGroup.options"
+                      sit-to-display="'PTeamName'" sit-to-keep="'PTeamCode'" sit-change="vm.userGroupChange">{{'Siemens.SimaticIT.ProductionApp.FormulaRecord.edit.Tips_6'|translate}}</sit-property>
+
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.UserName" sit-validation="{required: true}"
+                      sit-read-only="true">{{'Siemens.SimaticIT.ProductionApp.FormulaRecord.edit.Tips_7'|translate}}</sit-property>
+
+        <sit-property sit-widget="sit-select" sit-value="vm.typeMachine.value" sit-validation="{required: true}"
+                      sit-options="vm.typeMachine.options"
+                      sit-to-display="'ResourceName'" sit-to-keep="'ResourceCode'" sit-read-only="false">{{'Siemens.SimaticIT.ProductionApp.FormulaRecord.edit.Tips_8'|translate}}</sit-property>
+
+        <sit-property sit-widget="sit-numeric" sit-value="vm.currentItem.FormulaNum" sit-validation="{required: true}"
+                      sit-read-only="false" sit-change="vm.formulachange">{{'Siemens.SimaticIT.ProductionApp.FormulaRecord.edit.Tips_9'|translate}}</sit-property>
+        <!-- <sit-property sit-widget="sit-numeric" sit-value="vm.currentItem.DeductionNum" sit-validation="{required: false,min:0}"
+                      sit-read-only="false">{{'Siemens.SimaticIT.ProductionApp.FormulaRecord.edit.Tips_10'|translate}}</sit-property>
+
+        <sit-property sit-widget="sit-select" sit-value="vm.Process.value" sit-validation="{required: false}"
+                      sit-options="vm.Process.options" sit-to-display="'ResourceName'" sit-to-keep="'ResourceCode'"
+                      sit-read-only="false">{{'Siemens.SimaticIT.ProductionApp.FormulaRecord.edit.Tips_11'|translate}}</sit-property> -->
+    </sit-property-grid>
+</div>
+<div id="itemlist1" style="width:calc(100% - 2px); height: calc(100% - 100px);margin-top: 6px; padding:5px 16px 0 16px;clear: both; display: block;">
+    <div ui-grid="vm.gridOptionsItem1" ui-grid-selection ui-grid-resize-columns ui-grid-auto-resize class="uigrid uigrid-edit gridItem" style="max-height: 450px;"></div>
+</div>
+

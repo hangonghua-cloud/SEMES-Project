@@ -1,0 +1,2444 @@
+﻿using System;
+using System.Net;
+using System.Net.Http;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System.Linq;
+using ALP.Util;
+using ALP.Util.WebControl;
+using ALP.Util.Extension;
+using ALP.Application.Entity.MaterialManage;
+using ALP.WebApi.Models;
+using ALP.Application.WebApi.Controllers.API;
+using ALP.WebApi.Filter;
+using System.Web.Http;
+using System.Text;
+using System.Collections.Generic;
+using ALP.Application.Busines.MaterialManage;
+using System.Transactions;
+using ALP.Application.WebApi.Common;
+using ALP.Application.Service.MaterialManage;
+using ALP.Application.Service.Resources;
+using ALP.Application.Service.BaseManage;
+using ALP.Application.Entity.SAPEntity.ToSAP;
+using ALP.Application.Entity.HTTPEntity;
+using ALP.Application.Entity.Enum;
+using ALP.Application.Service.Helper;
+using ALP.Application.Service.Material;
+using ALP.Application.UtilExtend.Util;
+using ALP.Application.Service.SystemManage;
+
+namespace ALP.Application.WebApi.Controllers.MaterialManage
+{
+    /// <summary>
+    /// 1.创建日期: 2021-08-20
+    /// 2.创建作者: liyongguo
+    /// 3.功能描述: MM_RawMaterialStockController 控制器 友情提示: 如果是移动APP接口使用请把[Auth]注释掉
+    /// 4.任务编号: 原材料库存详表
+    /// 5.最后修改日期: 
+    /// 6.最后修改作者: 
+    /// </summary>
+    [Auth]
+    [RoutePrefix("MM_RawMaterialStock")]
+    public class MM_RawMaterialStockController : ApiBaseController
+    {
+        private Base_KeyParameterItem_Service _keyParameterItemService = new Base_KeyParameterItem_Service();
+        private Base_Material_Service _materialService = new Base_Material_Service();
+        private DataItemDetailService _dataItemDetailService = new DataItemDetailService();
+
+        private MM_RawMaterialOutBLL _rawMaterialOutBLL = new MM_RawMaterialOutBLL();
+        private MM_RawMaterialInBLL _rawMaterialInBLL = new MM_RawMaterialInBLL();
+        private MM_RawMaterialStock_Service _rawMaterialStockService = new MM_RawMaterialStock_Service();
+
+        /// <summary>
+        /// 功能描述: 测试接口
+        /// 创　　建: liyongguo
+        /// 创建日期: 2021-08-20 15:42:02
+        /// 任务编号: 原材料库存详表
+        /// </summary>
+        [HttpGet]
+        [Route("test")]
+        public HttpResponseMessage test()
+        {
+            var result = new ResponseResult();
+            result.resultData = Language.GetText("MaterialManage.MM_RawMaterialStockController.Tips_1") + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");//API接口测试正常！
+            result.success = true;
+            result.returnMsg = Language.GetText("MaterialManage.MM_RawMaterialStockController.Tips_2");//测试成功
+            return Request.CreateResponse(HttpStatusCode.OK, result);
+        }
+
+        /// <summary>
+        /// 功能描述: 获取列表(分页) 数据支持查询与分页
+        /// 创　　建: liyongguo
+        /// 创建日期: 2021-08-20 15:42:02
+        /// 任务编号: 原材料库存详表
+        /// </summary>
+        /// <param name="jo">pagination 分页参数;queryJson 查询参数</param>
+        /// <returns>返回分页列表</returns>
+        [HttpPost]
+        [Route("MM_RawMaterialStockPageList")]
+        public HttpResponseMessage MM_RawMaterialStockPageList(JObject jo)
+        {
+            var result = new ResponseResult();
+            result.resultData = null;
+            try
+            {
+                Pagination pagination = new Pagination();
+                if (!jo["pagination"].IsEmpty())
+                {
+                    pagination = JsonConvert.DeserializeObject<Pagination>(getValue(jo, "pagination"));
+                }
+                else
+                {
+                    pagination = null;
+                    //result.success = false;
+                    //result.returnMsg = "分页参数Pagination不能为空！";
+                    //return Request.CreateResponse(HttpStatusCode.OK, result);
+                }
+                string queryJson = getValue(jo, "queryJson");
+                var watch = CommonHelper.TimerStart();
+
+                var data = _rawMaterialStockService.GetPageList(pagination, queryJson);
+                var JsonData = new
+                {
+                    rows = data,
+                    total = pagination != null ? pagination.total : data.Count(),
+                    page = pagination != null ? pagination.total : data.Count(),
+                    records = pagination != null ? pagination.total : data.Count(),
+                    costtime = CommonHelper.TimerEnd(watch)
+                };
+
+                result.resultData = JsonData;
+                result.success = true;
+                result.returnMsg = Language.GetText("Common.SearchSuccess");//查询成功
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+            catch (Exception ex)
+            {
+                result.success = false;
+                result.returnMsg = Language.GetText("Common.SearchError2") + ex.Message;//查询失败：
+                result.statusCode = ((int)HttpStatusCode.InternalServerError).ToString();
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+        }
+        /// <summary>
+        /// 功能描述: 获取列表(分页) 数据支持查询与分页
+        /// 创　　建: jpf
+        /// 创建日期: 2022-12-15 
+        /// 任务编号: 耐磨层发料数据源
+        /// </summary>
+        /// <param name="jo">pagination 分页参数;queryJson 查询参数</param>
+        /// <returns>返回分页列表</returns>
+        [HttpPost]
+        [Route("NewMM_RawMaterialStockPageDataTableList")]
+        public HttpResponseMessage NewMM_RawMaterialStockPageDataTableList(JObject jo)
+        {
+            var result = new ResponseResult();
+            result.resultData = null;
+            try
+            {
+                Pagination pagination = new Pagination();
+                if (!jo["pagination"].IsEmpty())
+                {
+                    pagination = JsonConvert.DeserializeObject<Pagination>(getValue(jo, "pagination"));
+                }
+                else
+                {
+                    pagination = null;
+                    //result.success = false;
+                    //result.returnMsg = "分页参数Pagination不能为空！";
+                    //return Request.CreateResponse(HttpStatusCode.OK, result);
+                }
+                string queryJson = getValue(jo, "queryJson");
+                var watch = CommonHelper.TimerStart();
+
+                var data = new MM_RawMaterialStock_Service().GetPageDataTableListNew(pagination, queryJson);
+                var JsonData = new
+                {
+                    rows = data,
+                    total = pagination != null ? pagination.total : data.Rows.Count,
+                    page = pagination != null ? pagination.page : 1,
+                    records = pagination != null ? pagination.records : data.Rows.Count,
+                    costtime = CommonHelper.TimerEnd(watch)
+                };
+
+                result.resultData = JsonData;
+                result.success = true;
+                result.returnMsg = Language.GetText("Common.SearchSuccess");//查询成功
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+            catch (Exception ex)
+            {
+                result.success = false;
+                result.returnMsg = Language.GetText("Common.SearchError2") + ex.Message;//查询失败：
+                result.statusCode = ((int)HttpStatusCode.InternalServerError).ToString();
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+        }
+
+        /// <summary>
+        /// 功能描述: 获取列表(分页) 数据支持查询与分页
+        /// 创　　建: liyongguo
+        /// 创建日期: 2021-08-20 15:42:02
+        /// 任务编号: 原材料库存详表
+        /// </summary>
+        /// <param name="jo">pagination 分页参数;queryJson 查询参数</param>
+        /// <returns>返回分页列表</returns>
+        [HttpPost]
+        [Route("MM_RawMaterialStockPageDataTableList")]
+        public HttpResponseMessage MM_RawMaterialStockPageDataTableList(JObject jo)
+        {
+            var result = new ResponseResult();
+            result.resultData = null;
+            try
+            {
+                Pagination pagination = new Pagination();
+                if (!jo["pagination"].IsEmpty())
+                {
+                    pagination = JsonConvert.DeserializeObject<Pagination>(getValue(jo, "pagination"));
+                }
+                else
+                {
+                    pagination = null;
+                    //result.success = false;
+                    //result.returnMsg = "分页参数Pagination不能为空！";
+                    //return Request.CreateResponse(HttpStatusCode.OK, result);
+                }
+                string queryJson = getValue(jo, "queryJson");
+                var watch = CommonHelper.TimerStart();
+
+                var data = _rawMaterialStockService.GetPageDataTableList(pagination, queryJson);
+                var JsonData = new
+                {
+                    rows = data,
+                    total = pagination != null ? pagination.total : data.Rows.Count,
+                    page = pagination != null ? pagination.page : 1,
+                    records = pagination != null ? pagination.records : data.Rows.Count,
+                    costtime = CommonHelper.TimerEnd(watch)
+                };
+
+                result.resultData = JsonData;
+                result.success = true;
+                result.returnMsg = Language.GetText("Common.SearchSuccess");//查询成功
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+            catch (Exception ex)
+            {
+                result.success = false;
+                result.returnMsg = Language.GetText("Common.SearchError2") + ex.Message;//查询失败：
+                result.statusCode = ((int)HttpStatusCode.InternalServerError).ToString();
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+        }
+        /// <summary>
+        /// 面膜 耐磨层发料查询库存
+        /// </summary>
+        /// <param name="jo"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("GetRawMaterialStock")]
+        public HttpResponseMessage GetRawMaterialStock(JObject jo)
+        {
+            var result = new ResponseResult();
+            result.resultData = null;
+            try
+            {
+
+                string queryJson = getValue(jo, "queryJson");
+                var watch = CommonHelper.TimerStart();
+
+                var data = _rawMaterialStockService.GetRawMaterialStock(queryJson);
+                var JsonData = new
+                {
+                    rows = data,
+                    costtime = CommonHelper.TimerEnd(watch)
+                };
+
+                result.resultData = JsonData;
+                result.success = true;
+                result.returnMsg = Language.GetText("Common.SearchSuccess");//查询成功
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+            catch (Exception ex)
+            {
+                result.success = false;
+                result.returnMsg = Language.GetText("Common.SearchError2") + ex.Message;//查询失败：
+                result.statusCode = ((int)HttpStatusCode.InternalServerError).ToString();
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+        }
+
+        /// <summary>
+        /// 功能描述: 获取所有列表, 不分页, 适用于下拉列表使用
+        /// 创　　建: liyongguo
+        /// 创建日期: 2021-08-20 15:42:02
+        /// 任务编号: 原材料库存详表
+        /// </summary>
+        /// <returns>返回列表</returns>
+        [HttpGet]
+        [Route("GetMM_RawMaterialStockList")]
+        public HttpResponseMessage GetMM_RawMaterialStockList(JObject jo)
+        {
+            var result = new ResponseResult();
+            try
+            {
+                Dictionary<string, object> dic = new Dictionary<string, object>();
+                string msg = "";
+                var list = _rawMaterialStockService.GetList(dic, out msg);
+                result.resultData = list;
+                result.success = true;
+                result.returnMsg = Language.GetText("Common.SearchSuccess");//查询成功
+                if (msg != "")
+                {
+                    result.returnMsg = msg;
+                }
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+            catch (Exception ex)
+            {
+                result.success = false;
+                result.statusCode = ((int)HttpStatusCode.InternalServerError).ToString();
+                result.returnMsg = ex.Message.ToString();
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+        }
+
+        /// <summary>
+        /// 功能描述: 保存表单（新增、修改）
+        /// 创　　建: liyongguo
+        /// 创建日期: 2021-08-20 15:42:02
+        /// 任务编号: 原材料库存详表
+        /// </summary>
+        /// <param name="jo">json参数, 包含keyValue 主键值, entity 实体对象 </param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("SaveMM_RawMaterialStock")]
+        public HttpResponseMessage SaveMM_RawMaterialStock(JObject jo)
+        {
+            var userCode = CurrentAccount.UserCode;
+            var userName = CurrentAccount.UserName;
+            var result = new ResponseResult<object>();
+            result.resultData = null;
+
+            if (jo == null)
+            {
+                result.success = false;
+                result.returnMsg = Language.GetText("MaterialManage.MM_RawMaterialStockController.Tips_5");//参数不能为空！
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+
+            //判断主键内容是否为空, 为空新增, 有值修改
+            if (jo.SelectToken("KeyValue") == null)
+            {
+                result.success = false;
+                result.returnMsg = Language.GetText("MaterialManage.MM_RawMaterialStockController.Tips_6");//缺少KeyValue参数！
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+
+            if (jo.SelectToken("Entity") == null)
+            {
+                result.success = false;
+                result.returnMsg = Language.GetText("MaterialManage.MM_RawMaterialStockController.Tips_7");//缺少Entity参数！
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+
+            string keyValue = getValue(jo, "KeyValue");
+            string queryJson = getValue(jo, "Entity");
+            try
+            {
+
+                MM_RawMaterialStockEntity entity = JsonConvert.DeserializeObject<MM_RawMaterialStockEntity>(getValue(jo, "Entity"));
+
+
+
+
+                string msg = "";
+                int isok = _rawMaterialStockService.SaveEntity(keyValue, entity, out msg);
+                result.success = isok > 0 ? true : false;
+                result.returnMsg = isok > 0 ? Language.GetText("Common.Success") : msg;//操作成功
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+            catch (Exception ex)
+            {
+                result.success = false;
+                result.returnMsg = Language.GetText("Common.ErrorWithOther2") + ex.Message;//操作失败：
+                result.statusCode = ((int)HttpStatusCode.InternalServerError).ToString();
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+        }
+
+        /// <summary>
+        /// 功能描述: 导入 保存表单（新增、修改）
+        /// 创　　建: liyongguo
+        /// 创建日期: 2021-08-20 15:42:02
+        /// 任务编号: 原材料库存详表
+        /// </summary>
+        /// <param name="jo">json参数, entity 实体对象数组</param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("SaveBatchMM_RawMaterialStock")]
+        public HttpResponseMessage SaveBatchMM_RawMaterialStock(JObject jo)
+        {
+            var userCode = CurrentAccount.UserCode;
+            var userName = CurrentAccount.UserName;
+            var result = new ResponseResult<object>();
+            result.resultData = null;
+
+            if (jo == null)
+            {
+                result.success = false;
+                result.returnMsg = Language.GetText("MaterialManage.MM_RawMaterialStockController.Tips_5");//参数不能为空！
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+
+            //创建人编码 为空判断
+            if (jo.SelectToken("CreatedByCode") == null)
+            {
+                result.success = false;
+                result.returnMsg = Language.GetText("MaterialManage.MM_RawMaterialStockController.Tips_10");//缺少CreatedByCode参数！
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+
+            //创建人姓名 为空判断
+            if (jo.SelectToken("CreatedByName") == null)
+            {
+                result.success = false;
+                result.returnMsg = Language.GetText("MaterialManage.MM_RawMaterialStockController.Tips_11");//缺少CreatedByName参数！
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+
+            if (jo.SelectToken("Entity") == null)
+            {
+                result.success = false;
+                result.returnMsg = Language.GetText("MaterialManage.MM_RawMaterialStockController.Tips_7");//缺少Entity参数！
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+
+            try
+            {
+                List<dynamic> upload_entity_list = JsonConvert.DeserializeObject<List<dynamic>>(getValue(jo, "Entity"));
+
+                string keyValue = getValue(jo, "KeyValue");
+                string CreatedByName = getValue(jo, "CreatedByName");
+                string CreatedByCode = getValue(jo, "CreatedByCode");
+
+
+                string msg = "";
+                int isok = 1;
+                Dictionary<string, object> dic = new Dictionary<string, object>();
+                //取出旧所有数据
+                var old_entity_list = _rawMaterialStockService.GetList(dic, out msg);
+                //插入数组
+                List<MM_RawMaterialStockEntity> Insert_entity_list = new List<MM_RawMaterialStockEntity>();
+                //更新数组
+                List<MM_RawMaterialStockEntity> Update_entity_list = new List<MM_RawMaterialStockEntity>();
+                foreach (var item in upload_entity_list)
+                {
+                    try
+                    {
+                        MM_RawMaterialStockEntity entity = new MM_RawMaterialStockEntity();
+                        //物料编码
+                        entity.MaterialCode = item[Language.GetText("MaterialManage.MM_RawMaterialStockController.Tips_12")] == null ? "" : item[Language.GetText("MaterialManage.MM_RawMaterialStockController.Tips_12")];//物料编码
+                        //物料名称
+                        entity.MaterialName = item[Language.GetText("MaterialManage.MM_RawMaterialStockController.Tips_13")] == null ? "" : item[Language.GetText("MaterialManage.MM_RawMaterialStockController.Tips_13")];//物料名称
+                        //批次号
+                        entity.BatchNo = item[Language.GetText("MaterialManage.MM_RawMaterialStockController.Tips_14")] == null ? "" : item[Language.GetText("MaterialManage.MM_RawMaterialStockController.Tips_14")];//批次号
+                        //数量
+                        entity.Qty = item[Language.GetText("MaterialManage.MM_RawMaterialStockController.Tips_15")] == null ? "" : item[Language.GetText("MaterialManage.MM_RawMaterialStockController.Tips_15")];//数量
+                        //单位
+                        entity.Unit = item[Language.GetText("MaterialManage.MM_RawMaterialStockController.Tips_16")] == null ? "" : item[Language.GetText("MaterialManage.MM_RawMaterialStockController.Tips_16")];//单位
+                        //供应商
+                        entity.SupplierCode = item[Language.GetText("MaterialManage.MM_RawMaterialStockController.Tips_17")] == null ? "" : item[Language.GetText("MaterialManage.MM_RawMaterialStockController.Tips_17")];//供应商
+                        //仓库
+                        entity.WhsCode = item[Language.GetText("MaterialManage.MM_RawMaterialStockController.Tips_18")] == null ? "" : item[Language.GetText("MaterialManage.MM_RawMaterialStockController.Tips_18")];//仓库
+                        //库位
+                        entity.LocationCode = item[Language.GetText("MaterialManage.MM_RawMaterialStockController.Tips_19")] == null ? "" : item[Language.GetText("MaterialManage.MM_RawMaterialStockController.Tips_19")];//库位
+                        //创建人
+                        entity.Creator = item[Language.GetText("MaterialManage.MM_RawMaterialStockController.Tips_20")] == null ? "" : item[Language.GetText("MaterialManage.MM_RawMaterialStockController.Tips_20")];//创建人
+                        //创建时间
+                        entity.CreateTime = item[Language.GetText("MaterialManage.MM_RawMaterialStockController.Tips_21")] == null ? "" : item[Language.GetText("MaterialManage.MM_RawMaterialStockController.Tips_21")];//创建时间
+                        //修改人
+                        entity.ModifyBy = item[Language.GetText("MaterialManage.MM_RawMaterialStockController.Tips_22")] == null ? "" : item[Language.GetText("MaterialManage.MM_RawMaterialStockController.Tips_22")];//修改人
+                        //修改时间
+                        entity.ModifyTime = item[Language.GetText("MaterialManage.MM_RawMaterialStockController.Tips_23")] == null ? "" : item[Language.GetText("MaterialManage.MM_RawMaterialStockController.Tips_23")];//修改时间
+                        //状态(启用/停用)
+                        //entity.Status = item["状态"] == null ? "启用" : item["状态"];
+                        //创建日期// DateTime.Now;
+                        //entity.CreatedDateTime = DateTimeOffset.Now;
+                        ////是否删除
+                        //entity.IsDeleted = false;
+                        //entity.CreatedByCode = CreatedByCode;
+                        //entity.CreatedByName = CreatedByName;
+
+                        //取出相似编码， 提示： 此处换上表中唯一编码（不是主键）
+                        MM_RawMaterialStockEntity old_entity = old_entity_list.FirstOrDefault(x => x.Id == entity.Id);
+                        //判断旧列表中是否存在此编码
+                        if (old_entity == null)
+                        {
+                            entity.Create();
+                            //保存数组
+                            Insert_entity_list.Add(entity);
+                        }
+                        else
+                        {
+                            entity.Id = old_entity.Id;
+                            Update_entity_list.Add(entity);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+
+                    }
+                }
+
+                if (Insert_entity_list.Count > 0)
+                {
+                    //批量新增
+                    isok = _rawMaterialStockService.SaveEntity_List(false, CreatedByName, Insert_entity_list, out msg);
+                }
+                if (Update_entity_list.Count > 0)
+                {
+                    //批量修改
+                    isok = _rawMaterialStockService.SaveEntity_List(true, CreatedByName, Update_entity_list, out msg);
+                }
+
+                result.success = isok > 0 ? true : false;
+                result.returnMsg = isok > 0 ? Language.GetText("Common.Success") : msg;//操作成功
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+            catch (Exception ex)
+            {
+                result.success = false;
+                result.returnMsg = Language.GetText("Common.ErrorWithOther2") + ex.Message;//操作失败：
+                result.statusCode = ((int)HttpStatusCode.InternalServerError).ToString();
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+        }
+
+        /// <summary>
+        /// 功能描述: 删除, 通过主键删除
+        /// 创　　建: liyongguo
+        /// 创建日期: 2021-08-20 15:42:02
+        /// 任务编号: 原材料库存详表
+        /// </summary>
+        /// <param name="jo">json参数</param>
+        [HttpPost]
+        [Route("DeleteMM_RawMaterialStock")]
+        public HttpResponseMessage DeleteMM_RawMaterialStock(JObject jo)
+        {
+            var result = new ResponseResult<object>();
+            result.resultData = null;
+
+            if (jo == null)
+            {
+                result.success = false;
+                result.returnMsg = Language.GetText("MaterialManage.MM_RawMaterialStockController.Tips_5");//参数不能为空！
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+
+            try
+            {
+                var userCode = CurrentAccount.UserCode;
+                var userName = CurrentAccount.UserName;
+
+                if (jo.SelectToken("Entity") == null)
+                {
+                    result.success = false;
+                    result.returnMsg = Language.GetText("MaterialManage.MM_RawMaterialStockController.Tips_7");//缺少Entity参数！
+                    return Request.CreateResponse(HttpStatusCode.OK, result);
+                }
+                //业务服务层
+
+                MM_RawMaterialStockEntity entity = JsonConvert.DeserializeObject<MM_RawMaterialStockEntity>(getValue(jo, "Entity"));
+                string Id = entity.Id;
+                MM_RawMaterialStockEntity model = _rawMaterialStockService.GetEntity(Id);
+                if (model == null)
+                {
+                    result.success = false;
+                    result.returnMsg = Id + " 对象不存在";//对象不存在
+                    return Request.CreateResponse(HttpStatusCode.OK, result);
+                }
+
+                //删除
+                string msg = "";
+                int isok = _rawMaterialStockService.DeleteEntity(Id, out msg, userCode);
+                result.success = isok > 0 ? true : false;
+                if (isok > 0)
+                    result.returnMsg = Language.GetText("MaterialManage.MM_RawMaterialStockController.Tips_26");//删除操作成功
+                else
+                    result.returnMsg = "删除操作失败: " + msg;//删除操作失败:
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+            catch (Exception ex)
+            {
+                result.success = false;
+                result.returnMsg = Language.GetText("Common.ErrorWithOther2") + ex.Message;//操作失败：
+                result.statusCode = ((int)HttpStatusCode.InternalServerError).ToString();
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+        }
+
+        /// <summary>
+        /// 功能描述: 假删除, 通过主键删除, 删除标记设置为0
+        /// 创　　建: liyongguo
+        /// 创建日期: 2021-08-20 15:42:02
+        /// 任务编号: 原材料库存详表
+        /// </summary>
+        /// <param name="jo">json参数</param>
+        [HttpPost]
+        [Route("RemoveMM_RawMaterialStock")]
+        public HttpResponseMessage RemoveMM_RawMaterialStock(JObject jo)
+        {
+            var result = new ResponseResult<object>();
+            result.resultData = null;
+
+            if (jo == null)
+            {
+                result.success = false;
+                result.returnMsg = Language.GetText("MaterialManage.MM_RawMaterialStockController.Tips_5");//参数不能为空！
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+
+            try
+            {
+                var userCode = CurrentAccount.UserCode;
+                var userName = CurrentAccount.UserName;
+
+                if (jo.SelectToken("Entity") == null)
+                {
+                    result.success = false;
+                    result.returnMsg = Language.GetText("MaterialManage.MM_RawMaterialStockController.Tips_7");//缺少Entity参数！
+                    return Request.CreateResponse(HttpStatusCode.OK, result);
+                }
+                //业务服务层
+
+                MM_RawMaterialStockEntity entity = JsonConvert.DeserializeObject<MM_RawMaterialStockEntity>(getValue(jo, "Entity"));
+
+
+                //删除
+                int isok = _rawMaterialStockService.RemoveForm(t => t.Id == entity.Id);
+                result.success = isok > 0 ? true : false;
+                if (isok > 0)
+                    result.returnMsg = Language.GetText("MaterialManage.MM_RawMaterialStockController.Tips_26");//删除操作成功
+                else
+                    result.returnMsg = Language.GetText("MaterialManage.MM_RawMaterialStockController.Tips_28");//删除操作失败
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+            catch (Exception ex)
+            {
+                result.success = false;
+                result.returnMsg = Language.GetText("Common.ErrorWithOther2") + ex.Message;//操作失败：
+                result.statusCode = ((int)HttpStatusCode.InternalServerError).ToString();
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+        }
+
+        /// <summary>
+        /// 功能描述: 获取实体
+        /// 创　　建: liyongguo
+        /// 创建日期: 2021-08-20 15:42:02
+        /// 任务编号: 原材料库存详表
+        /// </summary>
+        /// <param name="keyValue">主键值</param>
+        /// <returns>MM_RawMaterialStockEntity</returns>
+        [HttpGet]
+        [Route("GetFormJson")]
+        public HttpResponseMessage GetFormJson(string keyValue)
+        {
+            var result = new ResponseResult();
+
+            try
+            {
+                //业务服务层
+
+                var data = _rawMaterialStockService.GetEntity(keyValue);
+                result.resultData = data;
+                result.success = true;
+                result.returnMsg = Language.GetText("MaterialManage.MM_RawMaterialStockController.Tips_29");//获取详情数据成功
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+            catch (Exception ex)
+            {
+                result.success = false;
+                result.statusCode = ((int)HttpStatusCode.InternalServerError).ToString();
+                result.returnMsg = ex.Message.ToString();
+            }
+            return ToJson(result);
+        }
+
+        /// <summary>
+        /// 功能描述: 通过某字段(不是主键)查询对象
+        /// 创　　建: liyongguo
+        /// 创建日期: 2021-08-20 15:42:02
+        /// 任务编号: 原材料库存详表
+        /// </summary>
+        /// <param name="keyValue">主键值</param>
+        /// <returns>MM_RawMaterialStockEntity</returns>
+        [HttpGet]
+        [Route("GetEntityByQuery")]
+        public HttpResponseMessage GetEntityByQuery(string keyValue)
+        {
+            var result = new ResponseResult();
+
+            try
+            {
+                //业务服务层
+
+                var data = _rawMaterialStockService.GetEntityByQuery(keyValue);
+                result.resultData = data;
+                result.success = true;
+                result.returnMsg = Language.GetText("MaterialManage.MM_RawMaterialStockController.Tips_29");//获取详情数据成功
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+            catch (Exception ex)
+            {
+                result.success = false;
+                result.statusCode = ((int)HttpStatusCode.InternalServerError).ToString();
+                result.returnMsg = ex.Message.ToString();
+            }
+            return ToJson(result);
+        }
+
+        /// <summary>
+        /// 功能描述: 通过N个字段拼写linq查询数组对象 参考
+        /// 创　　建: liyongguo
+        /// 创建日期: 2021-08-20 15:42:02
+        /// 任务编号: 原材料库存详表
+        /// </summary>
+        /// <param name="keyValue">条件值</param>
+        /// <param name="keyValue2">条件值</param>
+        /// <returns>返回列表</returns>
+        [HttpGet]
+        [Route("GetEntityByLinq")]
+        public HttpResponseMessage GetEntityByLinq(string keyValue, string keyValue2)
+        {
+            var result = new ResponseResult();
+
+            try
+            {
+                //业务服务层
+
+                var data = _rawMaterialStockService.Get_ExpressionList(t => t.Id == keyValue && t.Id == keyValue2).OrderByDescending(t => t.Id).ToList();
+                result.resultData = data;
+                result.success = true;
+                result.returnMsg = Language.GetText("Common.SearchSuccess");//查询成功
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+            catch (Exception ex)
+            {
+                result.success = false;
+                result.statusCode = ((int)HttpStatusCode.InternalServerError).ToString();
+                result.returnMsg = ex.Message.ToString();
+            }
+            return ToJson(result);
+        }
+
+        /// <summary>
+        /// 功能描述:  
+        /// 创　　建: liyongguo
+        /// 创建日期: 2021-08-20 15:42:02
+        /// 任务编号: 原材料库存详表
+        /// </summary>
+        /// <returns>返回列表</returns>
+        [HttpGet]
+        [Route("GetList_TestOtherEntity")]
+        public HttpResponseMessage GetList_TestOtherEntity(string checkType)
+        {
+            var result = new ResponseResult();
+            try
+            {
+
+                string OutMes = "";
+                var list = _rawMaterialStockService.GetList_TestOtherEntity(checkType, out OutMes);
+                result.resultData = list;
+                result.success = true;
+                result.returnMsg = Language.GetText("Common.SearchSuccess");//查询成功
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+            catch (Exception ex)
+            {
+                result.success = false;
+                result.statusCode = ((int)HttpStatusCode.InternalServerError).ToString();
+                result.returnMsg = ex.Message.ToString();
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+        }
+
+        /// <summary>
+        /// 创　　建: liyongguo
+        /// 创建日期: 2021-08-20 15:42:02
+        /// 任务编号: 查询批次
+        /// </summary>
+        /// <returns>返回列表</returns>
+        [HttpGet]
+        [Route("GetDynamic_TestOtherEntity")]
+        public HttpResponseMessage GetDynamic_TestOtherEntity(string checkType)
+        {
+            var result = new ResponseResult();
+            try
+            {
+
+                string OutMes = "";
+                var list = _rawMaterialStockService.GetDynamic_TestOtherEntity(checkType, out OutMes);
+                result.resultData = list;
+                result.success = true;
+                result.returnMsg = Language.GetText("Common.SearchSuccess");//查询成功
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+            catch (Exception ex)
+            {
+                result.success = false;
+                result.statusCode = ((int)HttpStatusCode.InternalServerError).ToString();
+                result.returnMsg = ex.Message.ToString();
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+        }
+
+        /// <summary>
+        /// 获取喂料小料报工批次
+        /// </summary>
+        /// <param name="materialCode"></param>
+        /// <param name="whsCode"></param>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("GetWeiLiaoBatchNo")]
+        public HttpResponseMessage GetWeiLiaoBatchNo(string materialCode, string whsCode)
+        {
+            var result = new ResponseResult();
+            try
+            {
+
+                var data = _rawMaterialStockService.GetWeiLiaoBatchNo(materialCode, whsCode);
+                result.resultData = data;
+                result.success = true;
+                result.returnMsg = Language.GetText("Common.SearchSuccess");//查询成功
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+            catch (Exception ex)
+            {
+                result.success = false;
+                result.statusCode = ((int)HttpStatusCode.InternalServerError).ToString();
+                result.returnMsg = ex.Message.ToString();
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+        }
+
+        /// <summary>
+        /// 功能描述: 导出 列表到EXCEL 
+        /// 创　　建: liyongguo
+        /// 创建日期: 2021-08-20 15:42:02
+        /// 任务编号: 原材料库存详表
+        /// </summary>
+        /// <param name="jo">queryJson 查询参数</param>
+        /// <returns>链接地址</returns>
+        [HttpPost]
+        [Route("MM_RawMaterialStock_export")]
+        public HttpResponseMessage MM_RawMaterialStock_export(JObject jo)
+        {
+            var result = new ResponseResult();
+            result.resultData = null;
+            try
+            {
+                if (jo.SelectToken("Entity") == null)
+                {
+                    result.success = false;
+                    result.returnMsg = Language.GetText("MaterialManage.MM_RawMaterialStockController.Tips_7");//缺少Entity参数！
+                    return Request.CreateResponse(HttpStatusCode.OK, result);
+                }
+
+                string queryJson = getValue(jo, "Entity");
+                JObject queryParam = queryJson.ToJObject();
+
+
+                string msg = Language.GetText("Common.SearchSuccess");//查询成功
+                string CreatedByCode = "";
+                if (!queryParam["CreatedByCode"].IsEmpty())
+                {
+                    CreatedByCode = queryParam["CreatedByCode"].ToString();
+                }
+
+                //查询条件 默认是当前登录用户ID, 可传空 导出全部
+                var data = _rawMaterialStockService.GetList_export(CreatedByCode, out msg);
+
+                result.resultData = data;
+                result.success = true;
+                result.returnMsg = msg;
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+            catch (Exception ex)
+            {
+                result.success = false;
+                result.returnMsg = Language.GetText("Common.SearchError2") + ex.Message;//查询失败：
+                result.statusCode = ((int)HttpStatusCode.InternalServerError).ToString();
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+        }
+
+        #region 原材料库存汇总-主信息
+        /// <summary>
+        /// 功能描述: 获取列表(分页) 数据支持查询与分页
+        /// 创　　建: admin
+        /// 创建日期: 2021-08-20 15:42:02
+        /// 任务编号: 原材料库存汇总查询
+        /// </summary>
+        /// <param name="jo">pagination 分页参数;queryJson 查询参数</param>
+        /// <returns>返回分页列表</returns>
+        [HttpPost]
+        [Route("GetPageDataTableMList")]
+        public HttpResponseMessage GetPageDataTableMList(JObject jo)
+        {
+            var result = new ResponseResult();
+            result.resultData = null;
+            try
+            {
+                Pagination pagination = new Pagination();
+                if (!jo["pagination"].IsEmpty())
+                {
+                    pagination = JsonConvert.DeserializeObject<Pagination>(getValue(jo, "pagination"));
+                }
+                else
+                {
+                    pagination = null;
+                }
+                string queryJson = getValue(jo, "queryJson");
+                var watch = CommonHelper.TimerStart();
+
+                var data = _rawMaterialStockService.GetPageDataTableMList(pagination, queryJson);
+                var JsonData = new
+                {
+                    rows = data,
+                    total = pagination != null ? pagination.total : data.Rows.Count,
+                    page = pagination != null ? pagination.page : 1,
+                    records = pagination != null ? pagination.records : data.Rows.Count,
+                    costtime = CommonHelper.TimerEnd(watch)
+                };
+
+                result.resultData = JsonData;
+                result.success = true;
+                result.returnMsg = Language.GetText("Common.SearchSuccess");//查询成功
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+            catch (Exception ex)
+            {
+                result.success = false;
+                result.returnMsg = Language.GetText("Common.SearchError2") + ex.Message;//查询失败：
+                result.statusCode = ((int)HttpStatusCode.InternalServerError).ToString();
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+        }
+        #endregion
+
+        #region 原材料库存汇总-明细
+        /// <summary>
+        /// 功能描述: 获取列表(分页) 数据支持查询与分页
+        /// 创　　建: admin
+        /// 创建日期: 2021-08-20 15:42:02
+        /// 任务编号: 原材料库存详情查询
+        /// </summary>
+        /// <param name="jo">pagination 分页参数;queryJson 查询参数</param>
+        /// <returns>返回分页列表</returns>
+        [HttpPost]
+        [Route("GetPageDataTableDList")]
+        public HttpResponseMessage GetPageDataTableDList(JObject jo)
+        {
+            var result = new ResponseResult();
+            result.resultData = null;
+            try
+            {
+                Pagination pagination = new Pagination();
+                if (!jo["pagination"].IsEmpty())
+                {
+                    pagination = JsonConvert.DeserializeObject<Pagination>(getValue(jo, "pagination"));
+                }
+                else
+                {
+                    pagination = null;
+                }
+                string queryJson = getValue(jo, "queryJson");
+                var watch = CommonHelper.TimerStart();
+
+                var data = _rawMaterialStockService.GetPageDataTableDList(pagination, queryJson);
+                var JsonData = new
+                {
+                    rows = data,
+                    total = pagination != null ? pagination.total : data.Rows.Count,
+                    page = pagination != null ? pagination.page : 1,
+                    records = pagination != null ? pagination.records : data.Rows.Count,
+                    costtime = CommonHelper.TimerEnd(watch)
+                };
+
+                result.resultData = JsonData;
+                result.success = true;
+                result.returnMsg = Language.GetText("Common.SearchSuccess");//查询成功
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+            catch (Exception ex)
+            {
+                result.success = false;
+                result.returnMsg = Language.GetText("Common.SearchError2") + ex.Message;//查询失败：
+                result.statusCode = ((int)HttpStatusCode.InternalServerError).ToString();
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+        }
+        #endregion
+
+        #region 原材料库存汇总-冻结
+        /// <summary>
+        /// 功能描述: 冻结
+        /// 创　　建: liyongguo
+        /// 创建日期: 2021-08-20 15:42:02
+        /// 任务编号: 原材料库存详表
+        /// </summary>
+        /// <param name="jo">json参数</param>
+        [HttpPost]
+        [Route("RawMaterialStockFrozen")]
+        public HttpResponseMessage RawMaterialStockFrozen(JObject jo)
+        {
+            var result = new ResponseResult<object>();
+            result.resultData = null;
+
+            if (jo == null)
+            {
+                result.success = false;
+                result.returnMsg = Language.GetText("MaterialManage.MM_RawMaterialStockController.Tips_5");//参数不能为空！
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+
+            try
+            {
+                var userCode = CurrentAccount.UserCode;
+                var userName = CurrentAccount.UserName;
+
+                if (jo.SelectToken("Entity") == null)
+                {
+                    result.success = false;
+                    result.returnMsg = Language.GetText("MaterialManage.MM_RawMaterialStockController.Tips_7");//缺少Entity参数！
+                    return Request.CreateResponse(HttpStatusCode.OK, result);
+                }
+                //业务服务层
+                var status = getValue(jo, "status");
+                List<MM_RawMaterialStockEntity> lstEntity = JsonConvert.DeserializeObject<List<MM_RawMaterialStockEntity>>(getValue(jo, "Entity"));
+
+                var stockList = _rawMaterialStockService.GetList(t => true);
+                var query = from a in stockList
+                            join b in lstEntity on new { a.WhsCode, a.MaterialCode, a.BatchNo } equals new { b.WhsCode, b.MaterialCode, b.BatchNo }
+                            select new MM_RawMaterialStockEntity()
+                            {
+                                Id = a.Id,
+                                IsFrozen = status,
+                                ModifyBy = userCode,
+                                ModifyTime = DateTime.Now
+                            };
+                var updateList = query.ToList();
+
+                string msg = "";
+                int isok = _rawMaterialStockService.SaveEntity_List(true, userName, updateList, out msg);
+                result.success = isok > 0 ? true : false;
+                if (isok > 0)
+                    result.returnMsg = Language.GetText("MaterialManage.MM_RawMaterialStockController.Tips_31");//冻结操作成功
+                else
+                    result.returnMsg = Language.GetText("MaterialManage.MM_RawMaterialStockController.Tips_32");//冻结操作失败
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+            catch (Exception ex)
+            {
+                result.success = false;
+                result.returnMsg = Language.GetText("Common.ErrorWithOther2") + ex.Message;//操作失败：
+                result.statusCode = ((int)HttpStatusCode.InternalServerError).ToString();
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+        }
+        #endregion
+
+        #region 原材料库存管理
+        /// <summary>
+        /// 功能描述：物料跨工厂调拨
+        /// 创建：jpf
+        /// 时间：2022-12-8 
+        /// </summary>
+        /// <param name="jo"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("RawMaterialStocktransfer")]
+        public HttpResponseMessage RawMaterialStocktransfer(JObject jo)
+        {
+            var result = new ResponseResult<object>();
+            result.resultData = null;
+            string msg = "";
+
+            if (jo == null)
+            {
+                result.success = false;
+                result.returnMsg = Language.GetText("MaterialManage.MM_RawMaterialStockController.Tips_5");//参数不能为空！
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+
+            try
+            {
+                var userCode = CurrentAccount.UserCode;
+                var userName = CurrentAccount.UserName;
+                if (jo.SelectToken("receiveFactoryCode") == null)
+                {
+                    result.success = false;
+                    result.returnMsg = Language.GetText("MaterialManage.MM_RawMaterialStockController.Tips_33");//缺少接收工厂参数！
+                    return Request.CreateResponse(HttpStatusCode.OK, result);
+                }
+                if (jo.SelectToken("receiveWhsName") == null)
+                {
+                    result.success = false;
+                    result.returnMsg = Language.GetText("MaterialManage.MM_RawMaterialStockController.Tips_34");//缺少接收库位参数！
+                    return Request.CreateResponse(HttpStatusCode.OK, result);
+                }
+                if (jo.SelectToken("Entity") == null)
+                {
+                    result.success = false;
+                    result.returnMsg = Language.GetText("MaterialManage.MM_RawMaterialStockController.Tips_7");//缺少Entity参数！
+                    return Request.CreateResponse(HttpStatusCode.OK, result);
+                }
+                var receiveFactoryCode = getValue(jo, "receiveFactoryCode");
+                var receiveFactoryName = getValue(jo, "receiveFactoryName");
+                var receiveWhsName = getValue(jo, "receiveWhsName");
+                var receiveWhsCode = getValue(jo, "receiveWhsCode");
+                var receiveLocationName = getValue(jo, "receiveLocationName");
+                var receiveLocationCode = getValue(jo, "receiveLocationCode");
+                var remak = getValue(jo, "remak");
+                var entity = JsonConvert.DeserializeObject<List<dynamic>>(getValue(jo, "Entity"));
+                List<MM_RawMaterialStockEntity> OldmM_RawMaterials = new List<MM_RawMaterialStockEntity>();
+                List<MM_RawMaterialStockEntity> NewmM_RawMaterials = new List<MM_RawMaterialStockEntity>();
+                List<MM_RawMaterialOutEntity> MM_RawMaterialOut = new List<MM_RawMaterialOutEntity>();
+                List<MM_RawMaterialInEntity> MM_RawMaterialIn = new List<MM_RawMaterialInEntity>();
+                foreach (var item in entity)
+                {
+                    //处理发起调拨数据
+                    var sourceEntity = _rawMaterialStockService.GetEntity(item.Id.ToString());
+                    if (Convert.ToDecimal(item.transferNumber) > sourceEntity.Qty)
+                    {
+                        result.success = false;
+                        result.returnMsg = sourceEntity.MaterialCode + Language.GetText("MaterialManage.MM_RawMaterialStockController.Tips_35");//调拨数量大于库存数量不允许调拨
+                        return Request.CreateResponse(HttpStatusCode.OK, result);
+                    }
+                    sourceEntity.Qty = sourceEntity.Qty - Convert.ToDecimal(item.transferNumber);
+                    sourceEntity.ModifyBy = userCode;
+                    sourceEntity.ModifyTime = DateTime.Now;
+                    OldmM_RawMaterials.Add(sourceEntity);
+                    //库存数据
+                    var MM_RawMaterialStock = new MM_RawMaterialStockEntity();
+                    MM_RawMaterialStock.Id = Guid.NewGuid().ToString();
+                    MM_RawMaterialStock.FactoryCode = receiveFactoryCode;
+                    MM_RawMaterialStock.FactoryName = receiveFactoryName;
+                    MM_RawMaterialStock.MaterialCode = item.MaterialCode;
+                    MM_RawMaterialStock.MaterialName = item.MaterialName;
+                    MM_RawMaterialStock.Spec = item.Spec;
+                    MM_RawMaterialStock.SmallClass = item.SmallClass;
+                    MM_RawMaterialStock.BatchNo = item.BatchNo ?? "";
+                    MM_RawMaterialStock.SupplierCode = item.SupplierCode ?? "";
+                    MM_RawMaterialStock.Qty = item.transferNumber;
+                    MM_RawMaterialStock.Unit = item.Unit;
+                    MM_RawMaterialStock.WhsCode = receiveWhsCode;
+                    MM_RawMaterialStock.LocationCode = receiveLocationCode;
+                    MM_RawMaterialStock.Creator = userCode;
+                    MM_RawMaterialStock.CreateTime = DateTime.Now;
+                    NewmM_RawMaterials.Add(MM_RawMaterialStock);
+                    //创建出库记录
+                    var MM_RawMaterialOutEntity = new MM_RawMaterialOutEntity();
+                    MM_RawMaterialOutEntity.Id = Guid.NewGuid().ToString();
+                    MM_RawMaterialOutEntity.FactoryCode = item.FactoryCode;
+                    MM_RawMaterialOutEntity.FactoryName = item.FactoryName;
+                    MM_RawMaterialOutEntity.WhsCode = item.WhsCode;
+                    MM_RawMaterialOutEntity.LocationCode = item.LocationCode;
+                    MM_RawMaterialOutEntity.MaterialCode = item.MaterialCode;
+                    MM_RawMaterialOutEntity.MaterialName = item.MaterialName;
+                    MM_RawMaterialOutEntity.SmallClass = item.SmallClass;
+                    MM_RawMaterialOutEntity.SupplierCode = item.SupplierCode ?? "";
+                    MM_RawMaterialOutEntity.BatchNo = item.BatchNo ?? "";
+                    MM_RawMaterialOutEntity.OutType = "7";
+                    MM_RawMaterialOutEntity.Qty = item.transferNumber;
+                    MM_RawMaterialOutEntity.Unit = item.Unit;
+                    MM_RawMaterialOutEntity.Creator = userCode;
+                    MM_RawMaterialOutEntity.CreatorName = userName;
+                    MM_RawMaterialOutEntity.CreateTime = DateTime.Now;
+                    MM_RawMaterialOut.Add(MM_RawMaterialOutEntity);
+                    //创建入库记录
+                    var MM_RawMaterialInEntity = new MM_RawMaterialInEntity();
+                    MM_RawMaterialInEntity.Id = Guid.NewGuid().ToString();
+                    MM_RawMaterialInEntity.FactoryCode = receiveFactoryCode;
+                    MM_RawMaterialInEntity.FactoryName = receiveFactoryName;
+                    MM_RawMaterialInEntity.MaterialCode = item.MaterialCode;
+                    MM_RawMaterialInEntity.MaterialName = item.MaterialName;
+                    MM_RawMaterialInEntity.SmallClass = item.SmallClass;
+                    MM_RawMaterialInEntity.SupplierCode = item.SupplierCode;
+                    MM_RawMaterialInEntity.Spec = item.Spec;
+                    MM_RawMaterialInEntity.Unit = item.Unit;
+                    MM_RawMaterialInEntity.BatchNo = item.BatchNo;
+                    MM_RawMaterialInEntity.Qty = item.transferNumber;
+                    MM_RawMaterialInEntity.InType = "8"; //跨工厂调拨
+                    MM_RawMaterialInEntity.WhsCode = receiveWhsCode;
+                    MM_RawMaterialInEntity.LocationCode = receiveLocationCode;
+                    MM_RawMaterialInEntity.Creator = userCode;
+                    MM_RawMaterialInEntity.CreatorName = userName;
+                    MM_RawMaterialInEntity.CreateTime = DateTime.Now;
+                    MM_RawMaterialIn.Add(MM_RawMaterialInEntity);
+                }
+                TransactionOptions transactionOption = new TransactionOptions();
+                //设置事务隔离级别
+                transactionOption.IsolationLevel = System.Transactions.IsolationLevel.ReadCommitted;
+                // 设置事务超时时间为60秒
+                transactionOption.Timeout = new TimeSpan(0, 0, 60);
+                using (var ts = new TransactionScope(TransactionScopeOption.Required, transactionOption))
+                //using (var ts = new TransactionScope())
+                {
+                    //_rawMaterialStockService.SaveEntity(sourceEntity.Id, sourceEntity, out msg);
+
+                    //if (targetEntity == null) _rawMaterialStockService.SaveEntity("", newEntity, out msg);
+                    //else _rawMaterialStockService.SaveEntity(targetEntity.Id, targetEntity, out msg);
+
+                    //_rawMaterialOutBLL.SaveEntity("", outEntity, out msg);
+                    //_rawMaterialInBLL.SaveEntity("", inEntity, out msg);
+                    //原库存数量减少
+                    _rawMaterialStockService.SaveEntity_List(true, userName, OldmM_RawMaterials, out msg);
+                    //新增库存数量
+                    _rawMaterialStockService.SaveEntity_List(false, userName, NewmM_RawMaterials, out msg);
+                    //创建出库记录
+                    _rawMaterialOutBLL.SaveEntity_List(false, userName, MM_RawMaterialOut, out msg);
+                    //创建入库记录
+                    _rawMaterialInBLL.SaveEntity_List(false, userName, MM_RawMaterialIn, out msg);
+                    ts.Complete();
+                }
+
+                result.success = true;
+                result.returnMsg = Language.GetText("MaterialManage.MM_RawMaterialStockController.Tips_36");//跨工厂调拨成功
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+            catch (Exception ex)
+            {
+                result.success = false;
+                result.returnMsg = Language.GetText("Common.ErrorWithOther2") + ex.Message;//操作失败：
+                result.statusCode = ((int)HttpStatusCode.InternalServerError).ToString();
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+        }
+
+        /// <summary>
+        /// 功能描述: 批量操作调拨移库
+        /// 创　　建: jpf
+        /// 创建日期: 2023-2-23 15:08:28
+        /// </summary>
+        /// <param name="jo"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("RawMaterialStockMoveList")]
+        public HttpResponseMessage RawMaterialStockMoveList(JObject jo)
+        {
+            var result = new ResponseResult<object>();
+            result.resultData = null;
+            string msg = "";
+
+            if (jo == null)
+            {
+                result.success = false;
+                result.returnMsg = Language.GetText("MaterialManage.MM_RawMaterialStockController.Tips_5");//参数不能为空！
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+
+            try
+            {
+                var userCode = CurrentAccount.UserCode;
+                var userName = CurrentAccount.UserName;
+                var data = JsonConvert.DeserializeObject<List<dynamic>>(getValue(jo, "data"));
+                var associateNo = DateTime.Now.ToString("yyyyMMddHHmmss");//移库关联
+                                                                          //源库位
+
+                List<MM_RawMaterialStockEntity> yRawMaterialStockList = new List<MM_RawMaterialStockEntity>();
+                //目标库存
+
+                List<MM_RawMaterialStockEntity> ObjRawMaterialStockList = new List<MM_RawMaterialStockEntity>();
+                //目标库存已存在
+
+                List<MM_RawMaterialStockEntity> ObjyRawMaterialStockList = new List<MM_RawMaterialStockEntity>();
+                //出库记录
+                List<MM_RawMaterialOutEntity> rawMaterialOutList = new List<MM_RawMaterialOutEntity>();
+                //入库记录
+                List<MM_RawMaterialInEntity> rawMaterialInList = new List<MM_RawMaterialInEntity>();
+                if (data.Any())
+                {
+                    bool isRepeat = data.GroupBy(t => new { t.MaterialCode, t.LocationCode, t.BatchNo }).Where(g => g.Count() > 1).Count() > 0;
+                    if (isRepeat)
+                        return AjaxResult(false, Language.GetText("MaterialManage.MM_RawMaterialStockController.Tips_42"));//存在重复数据
+
+                    int i = 1;
+                    foreach (var item in data)
+                    {
+                        //处理更新原库位库存
+                        MM_RawMaterialStockEntity yRawMaterialStock = new MM_RawMaterialStockEntity();
+                        string id = item.Id;
+                        yRawMaterialStock = _rawMaterialStockService.GetEntity(id);
+                        yRawMaterialStock.Qty -= Convert.ToDecimal(item.Qty);
+                        yRawMaterialStock.ModifyBy = userCode;
+                        yRawMaterialStock.ModifyTime = DateTime.Now;
+                        yRawMaterialStockList.Add(yRawMaterialStock);
+                        //更新目标库位库存
+                        MM_RawMaterialStockEntity ObjyRawMaterialStock = new MM_RawMaterialStockEntity();
+                        string WhsCode = item.WhsCode;
+                        string LocationCode = item.LocationCode;
+                        string MaterialCode = item.MaterialCode;
+                        string BatchNo = item.BatchNo;
+                        ObjyRawMaterialStock = _rawMaterialStockService.Get_ExpressionEntity(t => t.WhsCode == WhsCode
+                            && t.LocationCode == LocationCode && t.MaterialCode == MaterialCode && t.BatchNo == BatchNo);
+                        if (ObjyRawMaterialStock == null) //不存在新增
+                        {
+                            MM_RawMaterialStockEntity ObjRawMaterialStock = new MM_RawMaterialStockEntity();
+                            ObjRawMaterialStock = PubFunction.DeepCopyByReflection(yRawMaterialStock);
+                            ObjRawMaterialStock.Id = Guid.NewGuid().ToString();
+                            ObjRawMaterialStock.WhsCode = WhsCode;
+                            ObjRawMaterialStock.LocationCode = LocationCode;
+                            ObjRawMaterialStock.Qty = Convert.ToDecimal(item.Qty);
+                            ObjRawMaterialStock.Creator = userCode;
+                            ObjRawMaterialStock.CreateTime = DateTime.Now;
+                            ObjRawMaterialStock.BatchNo = ObjRawMaterialStock.BatchNo ?? "";
+                            ObjRawMaterialStock.SupplierCode = ObjRawMaterialStock.SupplierCode ?? "";
+                            ObjRawMaterialStockList.Add(ObjRawMaterialStock);
+                        }
+                        else
+                        {
+                            ObjyRawMaterialStock.Qty += Convert.ToDecimal(item.Qty.Value);
+                            ObjyRawMaterialStock.ModifyBy = userCode;
+                            ObjyRawMaterialStock.ModifyTime = DateTime.Now;
+                            ObjyRawMaterialStock.BatchNo = ObjyRawMaterialStock.BatchNo ?? "";
+                            ObjyRawMaterialStock.SupplierCode = ObjyRawMaterialStock.SupplierCode ?? "";
+                            ObjyRawMaterialStockList.Add(ObjyRawMaterialStock);
+                        }
+
+                        #region 出库记录
+                        MM_RawMaterialOutEntity outEntity = new MM_RawMaterialOutEntity();
+                        outEntity.FactoryCode = yRawMaterialStock.FactoryCode;
+                        outEntity.FactoryName = yRawMaterialStock.FactoryName;
+                        outEntity.Id = Guid.NewGuid().ToString();
+                        outEntity.WhsCode = yRawMaterialStock.WhsCode;
+                        outEntity.LocationCode = yRawMaterialStock.LocationCode;
+                        outEntity.MaterialCode = yRawMaterialStock.MaterialCode;
+                        outEntity.MaterialName = yRawMaterialStock.MaterialName;
+                        outEntity.Spec = yRawMaterialStock.Spec;
+                        outEntity.SmallClass = yRawMaterialStock.SmallClass;
+                        outEntity.BatchNo = yRawMaterialStock.BatchNo ?? "";
+                        outEntity.SupplierCode = yRawMaterialStock.SupplierCode ?? "";
+                        //outEntity.OutType = "2";//移库
+                        outEntity.OutType = (yRawMaterialStock.WhsCode == WhsCode) ? "2" : "3";  //2：移库 3：调拨
+                        outEntity.Qty = item.Qty;
+                        outEntity.Unit = yRawMaterialStock.Unit;
+                        outEntity.Creator = userCode;
+                        outEntity.CreateTime = DateTime.Now;
+                        outEntity.AssociateNo = associateNo + i.ToString();//移库关联
+                        outEntity.PostDate = item.PostDate;
+                        rawMaterialOutList.Add(outEntity);
+                        #endregion
+
+                        #region 入库记录
+                        MM_RawMaterialInEntity inEntity = new MM_RawMaterialInEntity();
+                        inEntity.Id = Guid.NewGuid().ToString();
+                        inEntity.FactoryCode = yRawMaterialStock.FactoryCode;
+                        inEntity.FactoryName = yRawMaterialStock.FactoryName;
+                        inEntity.MaterialCode = yRawMaterialStock.MaterialCode;
+                        inEntity.MaterialName = yRawMaterialStock.MaterialName;
+                        inEntity.Spec = yRawMaterialStock.Spec;
+                        inEntity.SmallClass = yRawMaterialStock.SmallClass;
+                        inEntity.Unit = yRawMaterialStock.Unit;
+                        inEntity.BatchNo = yRawMaterialStock.BatchNo ?? "";
+                        inEntity.SupplierCode = yRawMaterialStock.SupplierCode ?? "";
+                        inEntity.Qty = item.Qty;
+                        //inEntity.InType = "2";//移库
+                        inEntity.InType = (yRawMaterialStock.WhsCode == WhsCode) ? "2" : "3"; //2：移库 3：调拨
+                        inEntity.WhsCode = WhsCode;
+                        inEntity.LocationCode = LocationCode;
+                        inEntity.Creator = userCode;
+                        inEntity.CreateTime = DateTime.Now;
+                        inEntity.AssociateNo = associateNo + i.ToString();//移库关联
+                        inEntity.PostDate = item.PostDate;
+                        rawMaterialInList.Add(inEntity);
+                        #endregion
+
+                        i += 1;
+                    }
+                }
+
+                #region 同步SAP
+                var factoryCode = rawMaterialOutList.First().FactoryCode;
+
+                var SAPSyncSwitch = _keyParameterItemService.Get_ExpressionEntity(t => t.EnCode == "Switch" && t.ItemCode == "SAPSync"
+                     && t.Remark1 == factoryCode);
+                if (SAPSyncSwitch?.ItemValue == "1")
+                {
+                    var postDate = rawMaterialOutList.First().PostDate;
+                    //获取物料信息
+                    var arrMaterialCode = rawMaterialOutList.Select(t => t.MaterialCode).Distinct().ToArray();
+                    var materialList = _materialService.Get_ExpressionList(t => arrMaterialCode.Contains(t.MaterialCode)).ToList();
+
+                    IF102 sapRequest = new IF102();
+                    sapRequest.HEAD = new SapHeadDto();
+                    sapRequest.HEAD.INIF_ID = SAPInterface.IF102.ToString();
+
+                    sapRequest.RSQ_DATA = new IF102_RSQ_DATA();
+                    IF102_HEAD IF102_HEAD = new IF102_HEAD();
+                    IF102_HEAD.BLDAT = DateTime.Now.ToString("yyyyMMdd");
+                    IF102_HEAD.BUDAT = postDate.Value.ToString("yyyyMMdd");
+                    sapRequest.RSQ_DATA.IS_HEAD = IF102_HEAD;
+
+                    List<IF102_ITEM> IT_ITEM = new List<IF102_ITEM>();
+                    foreach (var item in rawMaterialOutList)
+                    {
+                        var rawInEntity = rawMaterialInList.Find(t => t.AssociateNo == item.AssociateNo);
+
+                        IF102_ITEM IF102_ITEM = new IF102_ITEM();
+                        IF102_ITEM.BWART = "311";
+                        IF102_ITEM.MATNR = materialList.Find(t => t.MaterialCode == item.MaterialCode)?.SAPMaterialCode ?? "";
+                        IF102_ITEM.WERKS = item.FactoryCode ?? "";
+                        IF102_ITEM.LGORT = item.LocationCode ?? "";
+                        IF102_ITEM.CHARG = item.BatchNo ?? "";
+                        IF102_ITEM.ERFMG = item.Qty.ToString() ?? "";
+                        IF102_ITEM.ERFME = item.Unit ?? "";
+                        IF102_ITEM.UMWRK = rawInEntity?.FactoryCode ?? "";
+                        IF102_ITEM.UMLGO = rawInEntity?.LocationCode ?? "";
+                        IF102_ITEM.UMCHA = rawInEntity?.BatchNo ?? "";
+                        IT_ITEM.Add(IF102_ITEM);
+                    }
+                    sapRequest.RSQ_DATA.IT_ITEM = IT_ITEM;
+
+                    var sapResult = SAPHelper.Instance.PostToSAP(sapRequest.HEAD.INIF_ID, sapRequest);
+                    if (!sapResult.Flag)
+                        return AjaxResult(false, sapResult.Msg);
+
+                    foreach (var item in rawMaterialOutList)
+                    {
+                        item.IsPosted = sapResult.Flag ? "1" : ""; ;
+                        item.PostedMsg = sapResult.Msg;
+                        item.PostedTime = DateTime.Now;
+                        item.PostedUser = "SAP";
+                        item.SAP_MBLNR = getValue(JObject.Parse(sapResult.Data), "EV_MBLNR");
+                    }
+                    foreach (var item in rawMaterialInList)
+                    {
+                        item.IsPosted = sapResult.Flag ? "1" : ""; ;
+                        item.PostedMsg = sapResult.Msg;
+                        item.PostedTime = DateTime.Now;
+                        item.PostedUser = CurrentAccount.UserCode + "-" + CurrentAccount.UserName;
+                        item.SAP_MBLNR = getValue(JObject.Parse(sapResult.Data), "EV_MBLNR");
+                    }
+                }
+                #endregion
+
+                TransactionOptions transactionOption = new TransactionOptions();
+                //设置事务隔离级别
+                transactionOption.IsolationLevel = System.Transactions.IsolationLevel.ReadCommitted;
+                // 设置事务超时时间为60秒
+                transactionOption.Timeout = new TimeSpan(0, 0, 60);
+                using (var ts = new TransactionScope(TransactionScopeOption.Required, transactionOption))
+                //using (var ts = new TransactionScope())
+                {
+                    _rawMaterialStockService.SaveEntity_List(true, "", yRawMaterialStockList, out msg);
+
+                    if (ObjyRawMaterialStockList.Count > 0) //存在则修改
+                        _rawMaterialStockService.SaveEntity_List(true, "", ObjyRawMaterialStockList, out msg);
+
+                    if (ObjRawMaterialStockList.Count > 0) //不存在，新增
+                        _rawMaterialStockService.SaveEntity_List(false, "", ObjRawMaterialStockList, out msg);
+
+                    _rawMaterialOutBLL.SaveEntity_List(false, "", rawMaterialOutList, out msg);
+                    _rawMaterialInBLL.SaveEntity_List(false, "", rawMaterialInList, out msg);
+
+                    ts.Complete();
+                }
+                result.success = true;
+                result.returnMsg = Language.GetText("MaterialManage.MM_RawMaterialStockController.Tips_37");//移库成功
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+            catch (Exception ex)
+            {
+                result.success = false;
+                result.returnMsg = Language.GetText("Common.ErrorWithOther2") + ex.Message;//操作失败：
+                result.statusCode = ((int)HttpStatusCode.InternalServerError).ToString();
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+        }
+
+        /// <summary>
+        /// 功能描述: 移库
+        /// 创　　建: admin
+        /// 创建日期: 2021-08-20 15:42:02
+        /// </summary>
+        /// <param name="jo">json参数</param>
+        [HttpPost]
+        [Route("RawMaterialStockMove")]
+        public HttpResponseMessage RawMaterialStockMove(JObject jo)
+        {
+            var result = new ResponseResult<object>();
+            result.resultData = null;
+            string msg = "";
+
+            if (jo == null)
+            {
+                result.success = false;
+                result.returnMsg = Language.GetText("MaterialManage.MM_RawMaterialStockController.Tips_5");//参数不能为空！
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+
+            try
+            {
+                var userCode = CurrentAccount.UserCode;
+                var userName = CurrentAccount.UserName;
+
+                if (jo.SelectToken("Entity") == null)
+                {
+                    result.success = false;
+                    result.returnMsg = Language.GetText("MaterialManage.MM_RawMaterialStockController.Tips_7");//缺少Entity参数！
+                    return Request.CreateResponse(HttpStatusCode.OK, result);
+                }
+                //业务服务层
+                var keyValue = getValue(jo, "KeyValue");
+                var entity = JsonConvert.DeserializeObject<dynamic>(getValue(jo, "Entity"));
+                var associateNo = DateTime.Now.ToString("yyyyMMddHHmmss");//移库关联
+
+                #region 1、更新原库位库存
+                var sourceEntity = _rawMaterialStockService.GetEntity(keyValue);
+                sourceEntity.Qty -= Convert.ToDecimal(entity.TargetQty);
+                sourceEntity.ModifyBy = userCode;
+                sourceEntity.ModifyTime = DateTime.Now;
+                #endregion
+
+                #region 2.更新目标库位库存
+                MM_RawMaterialStockEntity newEntity = new MM_RawMaterialStockEntity();
+                string targetWhsCode = entity.TargetWhsCode;
+                string targetLocationCode = entity.TargetLocationCode;
+                var targetEntity = _rawMaterialStockService.Get_ExpressionEntity(t => t.WhsCode == targetWhsCode
+                    && t.LocationCode == targetLocationCode && t.MaterialCode == sourceEntity.MaterialCode
+                    && t.BatchNo == sourceEntity.BatchNo);
+                if (targetEntity == null) //不存在新增
+                {
+                    newEntity = PubFunction.DeepCopyByReflection(sourceEntity);
+                    newEntity.Id = Guid.NewGuid().ToString();
+                    newEntity.WhsCode = targetWhsCode;
+                    newEntity.LocationCode = targetLocationCode;
+                    newEntity.Qty = Convert.ToDecimal(entity.TargetQty);
+                    newEntity.Creator = userCode;
+                    newEntity.CreateTime = DateTime.Now;
+                    newEntity.BatchNo = newEntity.BatchNo ?? "";
+                    newEntity.SupplierCode = newEntity.SupplierCode ?? "";
+                }
+                else
+                {
+                    targetEntity.Qty += Convert.ToDecimal(entity.TargetQty);
+                    targetEntity.ModifyBy = userCode;
+                    targetEntity.ModifyTime = DateTime.Now;
+                    targetEntity.BatchNo = targetEntity.BatchNo ?? "";
+                    targetEntity.SupplierCode = targetEntity.SupplierCode ?? "";
+                }
+                #endregion
+
+                #region 3.新增出库记录
+                MM_RawMaterialOutEntity outEntity = new MM_RawMaterialOutEntity();
+                outEntity.FactoryCode = sourceEntity.FactoryCode;
+                outEntity.FactoryName = sourceEntity.FactoryName;
+                outEntity.Id = Guid.NewGuid().ToString();
+                outEntity.WhsCode = sourceEntity.WhsCode;
+                outEntity.LocationCode = sourceEntity.LocationCode;
+                outEntity.MaterialCode = sourceEntity.MaterialCode;
+                outEntity.MaterialName = sourceEntity.MaterialName;
+                outEntity.Spec = sourceEntity.Spec;
+                outEntity.SmallClass = sourceEntity.SmallClass;
+                outEntity.BatchNo = sourceEntity.BatchNo ?? "";
+                outEntity.SupplierCode = sourceEntity.SupplierCode ?? "";
+                outEntity.OutType = "2";//移库
+                outEntity.Qty = entity.TargetQty;
+                outEntity.Unit = sourceEntity.Unit;
+                outEntity.Creator = userCode;
+                outEntity.CreateTime = DateTime.Now;
+                outEntity.AssociateNo = associateNo;//移库关联
+                #endregion
+
+                #region 4.新增入库记录
+                MM_RawMaterialInEntity inEntity = new MM_RawMaterialInEntity();
+                inEntity.Id = Guid.NewGuid().ToString();
+                inEntity.FactoryCode = sourceEntity.FactoryCode;
+                inEntity.FactoryName = sourceEntity.FactoryName;
+                inEntity.MaterialCode = sourceEntity.MaterialCode;
+                inEntity.MaterialName = sourceEntity.MaterialName;
+                inEntity.Spec = sourceEntity.Spec;
+                inEntity.SmallClass = sourceEntity.SmallClass;
+                inEntity.Unit = sourceEntity.Unit;
+                inEntity.BatchNo = sourceEntity.BatchNo ?? "";
+                inEntity.SupplierCode = sourceEntity.SupplierCode ?? "";
+                inEntity.Qty = entity.TargetQty;
+                inEntity.InType = "2";//移库
+                inEntity.WhsCode = entity.TargetWhsCode;
+                inEntity.LocationCode = entity.TargetLocationCode;
+                inEntity.Creator = userCode;
+                inEntity.CreateTime = DateTime.Now;
+                inEntity.AssociateNo = associateNo;//移库关联
+                #endregion
+
+                TransactionOptions transactionOption = new TransactionOptions();
+                //设置事务隔离级别
+                transactionOption.IsolationLevel = System.Transactions.IsolationLevel.ReadCommitted;
+                // 设置事务超时时间为60秒
+                transactionOption.Timeout = new TimeSpan(0, 0, 60);
+                using (var ts = new TransactionScope(TransactionScopeOption.Required, transactionOption))
+                //using (var ts = new TransactionScope())
+                {
+                    _rawMaterialStockService.SaveEntity(sourceEntity.Id, sourceEntity, out msg);
+
+                    if (targetEntity == null) _rawMaterialStockService.SaveEntity("", newEntity, out msg);
+                    else _rawMaterialStockService.SaveEntity(targetEntity.Id, targetEntity, out msg);
+
+                    _rawMaterialOutBLL.SaveEntity("", outEntity, out msg);
+                    _rawMaterialInBLL.SaveEntity("", inEntity, out msg);
+
+                    ts.Complete();
+                }
+
+                result.success = true;
+                result.returnMsg = Language.GetText("MaterialManage.MM_RawMaterialStockController.Tips_37");//移库成功
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+            catch (Exception ex)
+            {
+                result.success = false;
+                result.returnMsg = Language.GetText("Common.ErrorWithOther2") + ex.Message;//操作失败：
+                result.statusCode = ((int)HttpStatusCode.InternalServerError).ToString();
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+        }
+        #endregion
+
+        #region 原材料库存管理-库存校准
+        /// <summary>
+        /// 功能描述: 库存校准
+        /// 创　　建: admin
+        /// 创建日期: 2021-08-20 15:42:02
+        /// </summary>
+        /// <param name="jo">json参数</param>
+        [HttpPost]
+        [Route("RawMaterialStockAdjust")]
+        public HttpResponseMessage RawMaterialStockAdjust(JObject jo)
+        {
+            var result = new ResponseResult<object>();
+            result.resultData = null;
+            string msg = "";
+
+            if (jo == null)
+            {
+                result.success = false;
+                result.returnMsg = Language.GetText("MaterialManage.MM_RawMaterialStockController.Tips_5");//参数不能为空！
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+
+            try
+            {
+                var userCode = CurrentAccount.UserCode;
+                var userName = CurrentAccount.UserName;
+
+                if (jo.SelectToken("Entity") == null)
+                {
+                    result.success = false;
+                    result.returnMsg = Language.GetText("MaterialManage.MM_RawMaterialStockController.Tips_7");//缺少Entity参数！
+                    return Request.CreateResponse(HttpStatusCode.OK, result);
+                }
+                //业务服务层
+                var keyValue = getValue(jo, "KeyValue");
+                var entity = JsonConvert.DeserializeObject<dynamic>(getValue(jo, "Entity"));
+
+                #region 1、更新校准库位库存
+                var sourceEntity = _rawMaterialStockService.GetEntity(keyValue);
+                sourceEntity.Qty = entity.AdjustQty;
+                sourceEntity.ModifyBy = userCode;
+                sourceEntity.ModifyTime = DateTime.Now;
+                #endregion
+
+                #region 2.新增出入库记录
+                MM_RawMaterialOutEntity outEntity = new MM_RawMaterialOutEntity();
+                MM_RawMaterialInEntity inEntity = new MM_RawMaterialInEntity();
+                var takeQty = entity.Qty - entity.AdjustQty;
+                if (takeQty > 0)//盘亏
+                {
+                    outEntity = new MM_RawMaterialOutEntity();
+                    outEntity.Id = Guid.NewGuid().ToString();
+                    outEntity.FactoryCode = sourceEntity.FactoryCode;
+                    outEntity.FactoryName = sourceEntity.FactoryName;
+                    outEntity.WhsCode = sourceEntity.WhsCode;
+                    outEntity.LocationCode = sourceEntity.LocationCode;
+                    outEntity.MaterialCode = sourceEntity.MaterialCode;
+                    outEntity.MaterialName = sourceEntity.MaterialName;
+                    outEntity.Spec = sourceEntity.Spec;
+                    outEntity.SmallClass = sourceEntity.SmallClass;
+                    outEntity.BatchNo = sourceEntity.BatchNo ?? "";
+                    outEntity.SupplierCode = sourceEntity.SupplierCode ?? "";
+                    outEntity.OutType = "4";//盘点
+                    outEntity.Qty = takeQty;
+                    outEntity.Unit = sourceEntity.Unit;
+                    outEntity.Creator = userCode;
+                    outEntity.CreateTime = DateTime.Now;
+                    outEntity.Remark = entity.Remark;
+                }
+                else//盘盈
+                {
+                    inEntity = new MM_RawMaterialInEntity();
+                    inEntity.Id = Guid.NewGuid().ToString();
+                    inEntity.FactoryCode = sourceEntity.FactoryCode;
+                    inEntity.FactoryName = sourceEntity.FactoryName;
+                    inEntity.MaterialCode = sourceEntity.MaterialCode;
+                    inEntity.MaterialName = sourceEntity.MaterialName;
+                    inEntity.Spec = sourceEntity.Spec;
+                    inEntity.SmallClass = sourceEntity.SmallClass;
+                    inEntity.Unit = sourceEntity.Unit;
+                    inEntity.BatchNo = sourceEntity.BatchNo ?? "";
+                    inEntity.SupplierCode = sourceEntity.SupplierCode ?? "";
+                    inEntity.Qty = Math.Abs(Convert.ToDecimal(takeQty));
+                    inEntity.InType = "4";//盘库
+                    inEntity.WhsCode = sourceEntity.WhsCode;
+                    inEntity.LocationCode = entity.TargetLocationCode;
+                    inEntity.Creator = userCode;
+                    inEntity.CreateTime = DateTime.Now;
+                    inEntity.Remark = entity.Remark;
+                }
+                #endregion
+
+                TransactionOptions transactionOption = new TransactionOptions();
+                //设置事务隔离级别
+                transactionOption.IsolationLevel = System.Transactions.IsolationLevel.ReadCommitted;
+                // 设置事务超时时间为60秒
+                transactionOption.Timeout = new TimeSpan(0, 0, 60);
+                using (var ts = new TransactionScope(TransactionScopeOption.Required, transactionOption))
+                //using (var ts = new TransactionScope())
+                {
+                    _rawMaterialStockService.SaveEntity(sourceEntity.Id, sourceEntity, out msg);
+
+                    if (takeQty > 0) _rawMaterialOutBLL.SaveEntity("", outEntity, out msg);
+                    else _rawMaterialInBLL.SaveEntity("", inEntity, out msg);
+
+                    ts.Complete();
+                }
+
+                result.success = true;
+                result.returnMsg = Language.GetText("MaterialManage.MM_RawMaterialStockController.Tips_38");//库存校准成功
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+            catch (Exception ex)
+            {
+                result.success = false;
+                result.returnMsg = Language.GetText("Common.ErrorWithOther2") + ex.Message;//操作失败：
+                result.statusCode = ((int)HttpStatusCode.InternalServerError).ToString();
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+        }
+        #endregion
+
+        #region 原材料库存管理-出库
+        /// <summary>
+        /// 功能描述: 
+        /// 创　　建: admin
+        /// 创建日期: 2021-09-07 15:42:02
+        /// </summary>
+        /// <param name="jo">json参数</param>
+        [HttpPost]
+        [Route("RawMaterialStockOut")]
+        public HttpResponseMessage RawMaterialStockOut(JObject jo)
+        {
+            var result = new ResponseResult<object>();
+            result.resultData = null;
+            string msg = "";
+
+            if (jo == null)
+            {
+                result.success = false;
+                result.returnMsg = Language.GetText("MaterialManage.MM_RawMaterialStockController.Tips_5");//参数不能为空！
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+
+            try
+            {
+                var userCode = CurrentAccount.UserCode;
+                var userName = CurrentAccount.UserName;
+
+                if (jo.SelectToken("Entity") == null)
+                {
+                    result.success = false;
+                    result.returnMsg = Language.GetText("MaterialManage.MM_RawMaterialStockController.Tips_7");//缺少Entity参数！
+                    return Request.CreateResponse(HttpStatusCode.OK, result);
+                }
+                //业务服务层
+                var lstOutEntity = JsonConvert.DeserializeObject<List<MM_RawMaterialOutEntity>>(getValue(jo, "Entity"));
+
+                var docNum = DateTime.Now.ToString("yyyyMMddHHmmss");
+                var arrMaterialCode = lstOutEntity.Select(t => t.MaterialCode).ToArray();
+                var materialList = _materialService.Get_ExpressionList(t => arrMaterialCode.Contains(t.MaterialCode)).ToList();
+                #region 1、新增出库记录
+                foreach (var item in lstOutEntity)
+                {
+                    var materialEntity = materialList.Find(t => t.MaterialCode == item.MaterialCode);
+
+                    item.Id = item.GenGuid().ToString();
+                    item.DocNum = docNum;
+                    item.Creator = userCode;
+                    item.CreateTime = DateTime.Now;
+                    item.Spec = materialEntity?.Spec;
+                    item.SmallClass = materialEntity?.SmallClass;
+                }
+                #endregion
+
+                #region 2、扣减库存
+                var stockList = _rawMaterialStockService.GetList(t => t.Qty > 0);
+                var query = from a in stockList
+                            join b in lstOutEntity on new { a.WhsCode, a.LocationCode, a.MaterialCode, a.BatchNo } equals new { b.WhsCode, b.LocationCode, b.MaterialCode, b.BatchNo }
+                            select new MM_RawMaterialStockEntity()
+                            {
+                                Id = a.Id,
+                                Qty = a.Qty - b.Qty,
+                                ModifyBy = userCode,
+                                ModifyTime = DateTime.Now
+                            };
+                var updateList = query.ToList();
+                #endregion
+
+                #region 同步SAP
+                var factoryCode = lstOutEntity.First().FactoryCode;
+
+                var SAPSyncSwitch = _keyParameterItemService.Get_ExpressionEntity(t => t.EnCode == "Switch" && t.ItemCode == "SAPSync"
+                    && t.Remark1 == factoryCode);
+                if (SAPSyncSwitch?.ItemValue == "1")
+                {
+                    IF116 sapRequest = new IF116();
+                    sapRequest.HEAD = new SapHeadDto();
+                    sapRequest.HEAD.INIF_ID = SAPInterface.IF116.ToString();
+
+                    sapRequest.RSQ_DATA = new IF116_RSQ_DATA();
+                    IF116_HEAD IF116_HEAD = new IF116_HEAD();
+                    IF116_HEAD.BLDAT = DateTime.Now.ToString("yyyyMMdd");
+                    IF116_HEAD.BUDAT = DateTime.Now.ToString("yyyyMMdd");
+                    sapRequest.RSQ_DATA.IS_HEAD = IF116_HEAD;
+
+                    List<IF116_ITEM> IT_ITEM = new List<IF116_ITEM>();
+                    foreach (var item in lstOutEntity)
+                    {
+                        var matItem = materialList.Find(t => t.MaterialCode == item.MaterialCode);
+
+                        IF116_ITEM IF116_ITEM = new IF116_ITEM();
+                        IF116_ITEM.BWART = item.MoveType ?? "";
+                        IF116_ITEM.MATNR = matItem?.SAPMaterialCode ?? "";
+                        IF116_ITEM.WERKS = item.FactoryCode ?? "";
+                        IF116_ITEM.LGORT = item.LocationCode ?? "";
+                        IF116_ITEM.CHARG = item.BatchNo ?? "";
+                        IF116_ITEM.ERFMG = item.Qty.ToString() ?? "";
+                        IF116_ITEM.ERFME = item.Unit ?? "";
+                        if (item.MoveType == "Z03") //内部订单
+                        {
+                            IF116_ITEM.KOSTL = "";
+                            IF116_ITEM.AUFNR = item.WorkShopCode ?? "";
+                        }
+                        else //成本中心
+                        {
+                            IF116_ITEM.KOSTL = item.WorkShopCode ?? "";
+                            IF116_ITEM.AUFNR = item.ProductOrder ?? "";
+                        }
+                        IF116_ITEM.SGTXT = "";
+                        IT_ITEM.Add(IF116_ITEM);
+                    }
+                    sapRequest.RSQ_DATA.IT_ITEM = IT_ITEM;
+
+                    var sapResult = SAPHelper.Instance.PostToSAP(sapRequest.HEAD.INIF_ID, sapRequest);
+                    if (!sapResult.Flag)
+                        return AjaxResult(false, sapResult.Msg);
+
+                    foreach (var item in lstOutEntity)
+                    {
+                        item.IsPosted = sapResult.Flag ? "1" : "";
+                        item.PostedMsg = sapResult.Msg;
+                        item.PostedTime = DateTime.Now;
+                        item.PostedUser = CurrentAccount.UserCode + "-" + CurrentAccount.UserName;
+                        item.SAP_MBLNR = getValue(JObject.Parse(sapResult.Data), "EV_MBLNR");
+                        item.SAP_MJAHR = getValue(JObject.Parse(sapResult.Data), "EV_MJAHR");
+                    }
+                }
+                #endregion
+
+                TransactionOptions transactionOption = new TransactionOptions();
+                //设置事务隔离级别
+                transactionOption.IsolationLevel = System.Transactions.IsolationLevel.ReadCommitted;
+                // 设置事务超时时间为60秒
+                transactionOption.Timeout = new TimeSpan(0, 0, 60);
+                using (var ts = new TransactionScope(TransactionScopeOption.Required, transactionOption))
+                //using (var ts = new TransactionScope())
+                {
+                    _rawMaterialOutBLL.SaveEntity_List(false, userName, lstOutEntity, out msg);
+                    _rawMaterialStockService.SaveEntity_List(true, userName, updateList, out msg);
+
+                    ts.Complete();
+                }
+
+                result.success = true;
+                result.returnMsg = Language.GetText("MaterialManage.MM_RawMaterialStockController.Tips_39");//出库成功
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+            catch (Exception ex)
+            {
+                result.success = false;
+                result.returnMsg = Language.GetText("Common.ErrorWithOther2") + ex.Message;//操作失败：
+                result.statusCode = ((int)HttpStatusCode.InternalServerError).ToString();
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+        }
+        #endregion
+
+        #region 原材料库存检验查询 
+        /// <summary>
+        /// 原材料库存检验查询
+        /// </summary>
+        /// <param name="jo"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("GetPageDataTableCheck")]
+        public HttpResponseMessage GetPageDataTableCheck(JObject jo)
+        {
+            var result = new ResponseResult();
+            result.resultData = null;
+            try
+            {
+                Pagination pagination = new Pagination();
+                if (!jo["pagination"].IsEmpty())
+                {
+                    pagination = JsonConvert.DeserializeObject<Pagination>(getValue(jo, "pagination"));
+                }
+                else
+                {
+                    pagination = null;
+                    //result.success = false;
+                    //result.returnMsg = "分页参数Pagination不能为空！";
+                    //return Request.CreateResponse(HttpStatusCode.OK, result);
+                }
+                string queryJson = getValue(jo, "queryJson");
+                var watch = CommonHelper.TimerStart();
+
+                var data = _rawMaterialStockService.GetPageDataTableCheck(pagination, queryJson);
+                var JsonData = new
+                {
+                    rows = data,
+                    total = pagination != null ? pagination.total : data.Rows.Count,
+                    page = pagination != null ? pagination.total : 1,
+                    records = pagination != null ? pagination.total : data.Rows.Count,
+                    costtime = CommonHelper.TimerEnd(watch)
+                };
+
+                result.resultData = JsonData;
+                result.success = true;
+                result.returnMsg = Language.GetText("Common.SearchSuccess");//查询成功
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+            catch (Exception ex)
+            {
+                result.success = false;
+                result.returnMsg = Language.GetText("Common.SearchError2") + ex.Message;//查询失败：
+                result.statusCode = ((int)HttpStatusCode.InternalServerError).ToString();
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+        }
+        #endregion
+
+        #region 新增 原材料库存
+        /// <summary>
+        ///新增 原材料库存
+        /// </summary>
+        /// <returns></returns>
+        /// 
+        [HttpPost]
+        [Route("SaveData")]
+        public HttpResponseMessage SaveData(JObject jo)
+        {
+
+            var userCode = CurrentAccount.UserCode;
+            var userName = CurrentAccount.UserName;
+            var result = new ResponseResult<object>();
+            result.resultData = null;
+
+            if (jo == null)
+            {
+                result.success = false;
+                result.returnMsg = Language.GetText("MaterialManage.MM_RawMaterialStockController.Tips_5");//参数不能为空！
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+
+            if (jo.SelectToken("Entity") == null)
+            {
+                result.success = false;
+                result.returnMsg = Language.GetText("MaterialManage.MM_RawMaterialStockController.Tips_7");//缺少Entity参数！
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+            try
+            {
+                string FactoryCode = getValue(jo, "FactoryCode");
+                string FactoryName = getValue(jo, "FactoryName");
+                string MaterialCode = getValue(jo, "MaterialCode");
+                string MaterialName = getValue(jo, "MaterialName");
+                string Spec = getValue(jo, "Spec");
+                string SmallClass = getValue(jo, "SmallClass");
+                string BatchNo = getValue(jo, "BatchNo");
+                string BatchDate = getValue(jo, "BatchDate");
+                string Qty = getValue(jo, "Qty");
+                string Unit = getValue(jo, "Unit");
+                string SupplierCode = getValue(jo, "SupplierCode");
+
+                string WhsCode = getValue(jo, "WhsCode");
+
+                string LocationCode = getValue(jo, "LocationCode");
+
+                #region 原材料库存
+                MM_RawMaterialStockEntity entity = JsonConvert.DeserializeObject<MM_RawMaterialStockEntity>(getValue(jo, "Entity"));
+                entity.FactoryCode = FactoryCode;
+                entity.FactoryName = FactoryName;
+                entity.MaterialCode = MaterialCode;
+                entity.MaterialName = MaterialName;
+                entity.Spec = Spec;
+                entity.SmallClass = SmallClass;
+                entity.BatchNo = BatchNo ?? "";
+                entity.BatchDate = BatchDate.ToDateTime();
+                entity.Qty = Qty.ToDecimal();
+                entity.Unit = Unit;
+                entity.SupplierCode = SupplierCode ?? "";
+                entity.WhsCode = WhsCode;
+                entity.LocationCode = LocationCode;
+                entity.IsFrozen = "0";
+                entity.Creator = userCode;
+                entity.CreateTime = DateTime.Now;
+                #endregion
+
+                #region 原材料入库记录
+                MM_RawMaterialInEntity inEntity = new MM_RawMaterialInEntity();
+                inEntity.Id = Guid.NewGuid().ToString();
+                inEntity.InType = "7";//新增入库
+                inEntity.FactoryCode = FactoryCode;
+                inEntity.FactoryName = FactoryName;
+                inEntity.MaterialCode = MaterialCode;
+                inEntity.MaterialName = MaterialName;
+                inEntity.Spec = Spec;
+                inEntity.SmallClass = SmallClass;
+                inEntity.BatchNo = BatchNo ?? "";
+                inEntity.BatchDate = BatchDate.ToDateTime();
+                inEntity.Qty = Qty.ToDecimal();
+                inEntity.Unit = Unit;
+                inEntity.SupplierCode = SupplierCode ?? "";
+                inEntity.WhsCode = WhsCode;
+                inEntity.LocationCode = LocationCode;
+                inEntity.Creator = userCode;
+                inEntity.CreateTime = DateTime.Now;
+                inEntity.Remark = entity.Remark;
+                #endregion
+
+                var msg = "";
+                TransactionOptions transactionOption = new TransactionOptions();
+                //设置事务隔离级别
+                transactionOption.IsolationLevel = System.Transactions.IsolationLevel.ReadCommitted;
+                // 设置事务超时时间为60秒
+                transactionOption.Timeout = new TimeSpan(0, 0, 60);
+                using (var ts = new TransactionScope(TransactionScopeOption.Required, transactionOption))
+                //using (var ts = new TransactionScope())
+                {
+                    _rawMaterialStockService.SaveEntity("", entity, out msg);
+                    _rawMaterialInBLL.SaveEntity("", inEntity, out msg);
+                    ts.Complete();
+                }
+                result.returnMsg = Language.GetText("Common.Success");//操作成功
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+
+            }
+            catch (Exception ex)
+            {
+
+                result.success = false;
+                result.returnMsg = Language.GetText("Common.ErrorWithOther2") + ex.Message;//操作失败：
+                result.statusCode = ((int)HttpStatusCode.InternalServerError).ToString();
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+        }
+        #endregion
+
+        #region 采购订单 -库存采购查询
+        /// <summary>
+        /// 采购订单 -库存采购查询
+        /// </summary>
+        /// <param name="jo"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("GetMaterialStockTable")]
+        public HttpResponseMessage GetMaterialStockTable(JObject jo)
+        {
+            var result = new ResponseResult();
+            result.resultData = null;
+            try
+            {
+                string queryJson = getValue(jo, "queryJson");
+                var data = _rawMaterialStockService.GetMaterialStockTable(queryJson);
+
+                result.resultData = data;
+                result.success = true;
+                result.returnMsg = Language.GetText("Common.SearchSuccess");//查询成功
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+            catch (Exception ex)
+            {
+                result.success = false;
+                result.returnMsg = Language.GetText("Common.SearchError2") + ex.Message;//查询失败：
+                result.statusCode = ((int)HttpStatusCode.InternalServerError).ToString();
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+        }
+        #endregion
+
+        #region 采购订单 -订单库存采购查询
+        /// <summary>
+        /// 采购订单 -订单库存采购查询
+        /// </summary>
+        /// <param name="jo"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("GetMaterialOrderStockTable")]
+        public HttpResponseMessage GetMaterialOrderStockTable(JObject jo)
+        {
+            var result = new ResponseResult();
+            result.resultData = null;
+            try
+            {
+                string queryJson = getValue(jo, "queryJson");
+                var data = _rawMaterialStockService.GetMaterialOrderStockTable(queryJson);
+
+                result.resultData = data;
+                result.success = true;
+                result.returnMsg = Language.GetText("Common.SearchSuccess");//查询成功
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+            catch (Exception ex)
+            {
+                result.success = false;
+                result.returnMsg = Language.GetText("Common.SearchError2") + ex.Message;//查询失败：
+                result.statusCode = ((int)HttpStatusCode.InternalServerError).ToString();
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+        }
+        #endregion
+
+        #region 原材料库存备份
+        /// <summary>
+        /// 原材料库存备份
+        /// </summary>
+        /// <param name="jo"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("StockBackup")]
+        public HttpResponseMessage StockBackup(JObject jo)
+        {
+            var result = new ResponseResult();
+            result.resultData = null;
+            try
+            {
+                _rawMaterialStockService.StockBackup();
+
+                return AjaxResult(true, Language.GetText("MaterialManage.MM_RawMaterialStockController.Tips_41"));//操作成功！
+            }
+            catch (Exception ex)
+            {
+                return AjaxResult(false, ex.Message);
+            }
+        }
+        #endregion
+
+        #region 合批
+        [HttpPost]
+        [Route("RawMaterialStockMerge")]
+        public HttpResponseMessage RawMaterialStockMerge(JObject jo)
+        {
+            try
+            {
+                var qty = getValue(jo, "Qty");
+                var locationCode = getValue(jo, "LocationCode");
+                var batchNo = getValue(jo, "BatchNo");
+                var data = JsonConvert.DeserializeObject<List<MM_RawMaterialStockEntity>>(getValue(jo, "data"));
+
+                //合批业务
+                string associateNo = DateTime.Now.ToString("yyyyMMddHHmmss");
+
+                #region 出库
+                List<MM_RawMaterialOutEntity> lstOutEntity = new List<MM_RawMaterialOutEntity>();
+                foreach (var item in data)
+                {
+                    var outEntity = Tools.Mapper<MM_RawMaterialOutEntity>(item);
+                    outEntity.Id = Guid.NewGuid().ToString();
+                    outEntity.OutType = "12";
+                    outEntity.Creator = CurrentAccount.UserCode;
+                    outEntity.CreateTime = DateTime.Now;
+                    outEntity.ModifyBy = CurrentAccount.UserCode;
+                    outEntity.ModifyTime = DateTime.Now;
+                    outEntity.AssociateNo = associateNo;
+                    lstOutEntity.Add(outEntity);
+                }
+                #endregion
+
+                #region 入库
+                var inEntity = Tools.Mapper<MM_RawMaterialInEntity>(data.First());
+                inEntity.Id = Guid.NewGuid().ToString();
+                inEntity.InType = "12";
+                inEntity.LocationCode = locationCode;
+                inEntity.BatchNo = batchNo ?? "";
+                inEntity.Qty = qty.ToDecimal();
+                inEntity.Creator = CurrentAccount.UserCode;
+                inEntity.CreateTime = DateTime.Now;
+                inEntity.ModifyBy = CurrentAccount.UserCode;
+                inEntity.ModifyTime = DateTime.Now;
+                inEntity.AssociateNo = associateNo;
+                inEntity.SupplierCode = inEntity.SupplierCode ?? "";
+                #endregion
+
+                #region 库存
+                var stockEntity = Tools.Clone(data.Find(t => t.BatchNo == batchNo));
+                stockEntity.Id = Guid.NewGuid().ToString();
+                stockEntity.LocationCode = locationCode;
+                stockEntity.BatchNo = batchNo ?? "";
+                stockEntity.SupplierCode = stockEntity.SupplierCode ?? "";
+                stockEntity.Qty = qty.ToDecimal();
+                stockEntity.Creator = CurrentAccount.UserCode;
+                stockEntity.CreateTime = DateTime.Now;
+                stockEntity.ModifyBy = CurrentAccount.UserCode;
+                stockEntity.ModifyTime = DateTime.Now;
+                stockEntity.IsFrozen = "0";
+                #endregion
+
+                #region 同步SAP
+                var factoryCode = inEntity.FactoryCode;
+
+                var SAPSyncSwitch = _keyParameterItemService.Get_ExpressionEntity(t => t.EnCode == "Switch" && t.ItemCode == "SAPSync"
+                     && t.Remark1 == factoryCode);
+                if (SAPSyncSwitch?.ItemValue == "1")
+                {
+                    //获取物料信息
+                    var arrMaterialCode = lstOutEntity.Select(t => t.MaterialCode).Distinct().ToArray();
+                    var materialList = _materialService.Get_ExpressionList(t => arrMaterialCode.Contains(t.MaterialCode)).ToList();
+
+                    IF102 sapRequest = new IF102();
+                    sapRequest.HEAD = new SapHeadDto();
+                    sapRequest.HEAD.INIF_ID = SAPInterface.IF102.ToString();
+
+                    sapRequest.RSQ_DATA = new IF102_RSQ_DATA();
+                    IF102_HEAD IF102_HEAD = new IF102_HEAD();
+                    IF102_HEAD.BLDAT = DateTime.Now.ToString("yyyyMMdd");
+                    IF102_HEAD.BUDAT = DateTime.Now.ToString("yyyyMMdd");
+                    sapRequest.RSQ_DATA.IS_HEAD = IF102_HEAD;
+
+                    List<IF102_ITEM> IT_ITEM = new List<IF102_ITEM>();
+                    foreach (var item in lstOutEntity)
+                    {
+                        IF102_ITEM IF102_ITEM = new IF102_ITEM();
+                        IF102_ITEM.BWART = "311";
+                        IF102_ITEM.MATNR = materialList.Find(t => t.MaterialCode == item.MaterialCode)?.SAPMaterialCode;
+                        IF102_ITEM.WERKS = item.FactoryCode;
+                        IF102_ITEM.LGORT = item.LocationCode;
+                        IF102_ITEM.CHARG = item.BatchNo;
+                        IF102_ITEM.ERFMG = item.Qty.ToString();
+                        IF102_ITEM.ERFME = item.Unit;
+                        IF102_ITEM.UMWRK = inEntity?.FactoryCode;
+                        IF102_ITEM.UMLGO = inEntity?.LocationCode;
+                        IF102_ITEM.UMCHA = inEntity?.BatchNo;
+                        IT_ITEM.Add(IF102_ITEM);
+                    }
+                    sapRequest.RSQ_DATA.IT_ITEM = IT_ITEM;
+
+                    var sapResult = SAPHelper.Instance.PostToSAP(sapRequest.HEAD.INIF_ID, sapRequest);
+                    if (!sapResult.Flag)
+                        return AjaxResult(false, sapResult.Msg);
+
+                    foreach (var item in lstOutEntity)
+                    {
+                        item.IsPosted = sapResult.Flag ? "1" : ""; ;
+                        item.PostedMsg = sapResult.Msg;
+                        item.PostedTime = DateTime.Now;
+                        item.PostedUser = CurrentAccount.UserCode + "-" + CurrentAccount.UserName;
+                        item.SAP_MBLNR = getValue(JObject.Parse(sapResult.Data), "EV_MBLNR");
+                    }
+
+                    inEntity.IsPosted = sapResult.Flag ? "1" : ""; ;
+                    inEntity.PostedMsg = sapResult.Msg;
+                    inEntity.PostedTime = DateTime.Now;
+                    inEntity.PostedUser = CurrentAccount.UserCode + "-" + CurrentAccount.UserName;
+                    inEntity.SAP_MBLNR = getValue(JObject.Parse(sapResult.Data), "EV_MBLNR");
+                }
+                #endregion
+
+                string msg = "";
+                TransactionOptions transactionOption = new TransactionOptions();
+                //设置事务隔离级别
+                transactionOption.IsolationLevel = System.Transactions.IsolationLevel.ReadCommitted;
+                // 设置事务超时时间为60秒
+                transactionOption.Timeout = new TimeSpan(0, 0, 60);
+                using (var ts = new TransactionScope(TransactionScopeOption.Required, transactionOption))
+                //using (var ts = new TransactionScope())
+                {
+                    _rawMaterialOutBLL.SaveEntity_List(false, "", lstOutEntity, out msg); //新增出库记录
+                    _rawMaterialInBLL.SaveEntity("", inEntity, out msg); //新增入库记录
+                    _rawMaterialStockService.Delete(data);//删除原库存
+                    _rawMaterialStockService.SaveEntity("", stockEntity, out msg); //新增合批库存
+
+                    ts.Complete();
+                }
+
+                return AjaxResult(true, Language.GetText("MaterialManage.MM_RawMaterialStockController.Tips_41"));//操作成功
+            }
+            catch (Exception ex)
+            {
+                return AjaxResult(false, Language.GetText("Common.ErrorWithOther2") + ex.Message);//操作失败
+            }
+        }
+
+        #endregion
+
+        #region 原材料库存管理-退库
+        /// <summary>
+        /// 功能描述: 
+        /// 创　　建: Dragon
+        /// 创建日期: 2024-04-09
+        /// </summary>
+        /// <param name="jo">json参数</param>
+        [HttpPost]
+        [Route("RawMaterialStockTuiKu")]
+        public HttpResponseMessage RawMaterialStockTuiKu(JObject jo)
+        {
+            try
+            {
+                //业务服务层
+                var lstInEntity = JsonConvert.DeserializeObject<List<MM_RawMaterialInEntity>>(getValue(jo, "data"));
+                if (lstInEntity == null || lstInEntity.Count == 0)
+                    return AjaxResult(false, Language.GetText("MaterialManage.MM_RawMaterialStockController.Tips_43"));//没有要保存的行
+
+                var docNum = DateTime.Now.ToString("yyyyMMddHHmmss");
+                #region 1、新增入库记录
+                var dicList = _dataItemDetailService.GetDataItemList("TuiKuMode").ToList();
+                foreach (var item in lstInEntity)
+                {
+                    item.Id = item.GenGuid().ToString();
+                    item.DocNum = docNum;
+                    item.Creator = CurrentAccount.UserCode;
+                    item.CreateTime = DateTime.Now;
+                    item.MoveType = dicList.Find(t => t.Description == item.MoveType)?.ItemValue; //对应退库的移动类型
+                    item.IsDeleted = false;
+                }
+                #endregion
+
+                #region 2、新增库存
+                List<MM_RawMaterialStockEntity> insertStockList = new List<MM_RawMaterialStockEntity>();
+                List<MM_RawMaterialStockEntity> updateStockList = new List<MM_RawMaterialStockEntity>();
+                foreach (var item in lstInEntity)
+                {
+                    var stockEntity = _rawMaterialStockService.Get_ExpressionEntity(t => t.FactoryCode == item.FactoryCode
+                         && t.MaterialCode == item.MaterialCode && t.LocationCode == item.LocationCode && t.BatchNo == item.BatchNo);
+                    if (stockEntity == null) //新增
+                    {
+                        stockEntity = Tools.Mapper<MM_RawMaterialStockEntity>(item);
+                        stockEntity.Id = Guid.NewGuid().ToString();
+                        stockEntity.IsFrozen = "0";
+                        stockEntity.Creator = CurrentAccount.UserCode;
+                        stockEntity.CreateTime = DateTime.Now;
+                        stockEntity.ModifyBy = CurrentAccount.UserCode;
+                        stockEntity.ModifyTime = DateTime.Now;
+                        stockEntity.BatchNo = stockEntity.BatchNo ?? "";
+                        stockEntity.SupplierCode = stockEntity.SupplierCode ?? "";
+                        insertStockList.Add(stockEntity);
+                    }
+                    else
+                    {
+                        stockEntity.Qty += item.Qty;
+                        stockEntity.ModifyBy = CurrentAccount.UserCode;
+                        stockEntity.ModifyTime = DateTime.Now;
+                        stockEntity.BatchNo = stockEntity.BatchNo ?? "";
+                        stockEntity.SupplierCode = stockEntity.SupplierCode ?? "";
+                        updateStockList.Add(stockEntity);
+                    }
+                }
+                #endregion
+
+                #region 同步SAP
+                var factoryCode = lstInEntity.First().FactoryCode;
+
+                var SAPSyncSwitch = _keyParameterItemService.Get_ExpressionEntity(t => t.EnCode == "Switch" && t.ItemCode == "SAPSync"
+                    && t.Remark1 == factoryCode);
+                if (SAPSyncSwitch?.ItemValue == "1")
+                {
+                    var arrMaterialCode = lstInEntity.Select(t => t.MaterialCode).Distinct().ToArray();
+                    var materialList = _materialService.Get_ExpressionList(t => arrMaterialCode.Contains(t.MaterialCode)).ToList();
+
+                    IF116 sapRequest = new IF116();
+                    sapRequest.HEAD = new SapHeadDto();
+                    sapRequest.HEAD.INIF_ID = SAPInterface.IF116.ToString();
+
+                    sapRequest.RSQ_DATA = new IF116_RSQ_DATA();
+                    IF116_HEAD IF116_HEAD = new IF116_HEAD();
+                    IF116_HEAD.BLDAT = DateTime.Now.ToString("yyyyMMdd");
+                    IF116_HEAD.BUDAT = DateTime.Now.ToString("yyyyMMdd");
+                    sapRequest.RSQ_DATA.IS_HEAD = IF116_HEAD;
+
+                    List<IF116_ITEM> IT_ITEM = new List<IF116_ITEM>();
+                    foreach (var item in lstInEntity)
+                    {
+                        var matItem = materialList.Find(t => t.MaterialCode == item.MaterialCode);
+
+                        IF116_ITEM IF116_ITEM = new IF116_ITEM();
+                        IF116_ITEM.BWART = item.MoveType ?? "";
+                        IF116_ITEM.MATNR = matItem?.SAPMaterialCode ?? "";
+                        IF116_ITEM.WERKS = item.FactoryCode ?? "";
+                        IF116_ITEM.LGORT = item.LocationCode ?? "";
+                        IF116_ITEM.CHARG = item.BatchNo ?? "";
+                        IF116_ITEM.ERFMG = item.Qty.ToString() ?? "";
+                        IF116_ITEM.ERFME = item.Unit ?? "";
+                        IF116_ITEM.KOSTL = item.WorkShopCode ?? "";
+                        IF116_ITEM.AUFNR = "";
+                        IF116_ITEM.SGTXT = "";
+                        IT_ITEM.Add(IF116_ITEM);
+                    }
+                    sapRequest.RSQ_DATA.IT_ITEM = IT_ITEM;
+
+                    var sapResult = SAPHelper.Instance.PostToSAP(sapRequest.HEAD.INIF_ID, sapRequest);
+                    if (!sapResult.Flag)
+                        return AjaxResult(false, sapResult.Msg);
+
+                    foreach (var item in lstInEntity)
+                    {
+                        item.IsPosted = sapResult.Flag ? "1" : "";
+                        item.PostedMsg = sapResult.Msg;
+                        item.PostedTime = DateTime.Now;
+                        item.PostedUser = CurrentAccount.UserCode + "-" + CurrentAccount.UserName;
+                        item.SAP_MBLNR = getValue(JObject.Parse(sapResult.Data), "EV_MBLNR");
+                        item.SAP_MJAHR = getValue(JObject.Parse(sapResult.Data), "EV_MJAHR");
+                    }
+                }
+                #endregion
+
+                string msg = "";
+                TransactionOptions transactionOption = new TransactionOptions();
+                //设置事务隔离级别
+                transactionOption.IsolationLevel = System.Transactions.IsolationLevel.ReadCommitted;
+                // 设置事务超时时间为60秒
+                transactionOption.Timeout = new TimeSpan(0, 0, 60);
+                using (var ts = new TransactionScope(TransactionScopeOption.Required, transactionOption))
+                //using (var ts = new TransactionScope())
+                {
+                    _rawMaterialInBLL.SaveEntity_List(false, "", lstInEntity, out msg);
+
+                    if (insertStockList.Count > 0)
+                        _rawMaterialStockService.SaveEntity_List(false, "", insertStockList, out msg);
+
+                    if (updateStockList.Count > 0)
+                        _rawMaterialStockService.SaveEntity_List(true, "", updateStockList, out msg);
+
+                    ts.Complete();
+                }
+
+                return AjaxResult(true, Language.GetText("Common.Success"));//操作成功
+            }
+            catch (Exception ex)
+            {
+                return AjaxResult(false, Language.GetText("Common.ErrorWithOther2") + ex.Message);//操作失败
+            }
+        }
+        #endregion
+    }
+}

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Items>
+  <DatabaseResourceInfo Id="cad6b3e6-e87c-41a7-86bf-6c719aaaacbf">
+    <DataSource>UATEST-SERVER</DataSource>
+    <DatabaseType>MSSQLServer</DatabaseType>
+    <InitialCatalog></InitialCatalog>
+    <IsSystemResource>true</IsSystemResource>
+    <IsWindowsAuthentication>false</IsWindowsAuthentication>
+    <AdminUser>sa</AdminUser>
+    <AdminPassword>gqs8tNfzrEe0wpd6WqYG4DFAczcbS35W3LKPmQY9AnMu6oQjNWifNyFkbN9vF9hE</AdminPassword>
+    <WriteUser>sa</WriteUser>
+    <WritePassword>gqs8tNfzrEe0wpd6WqYG4DFAczcbS35W3LKPmQY9AnMu6oQjNWifNyFkbN9vF9hE</WritePassword>
+    <ReadUser>sa</ReadUser>
+    <ReadPassword>gqs8tNfzrEe0wpd6WqYG4DFAczcbS35W3LKPmQY9AnMu6oQjNWifNyFkbN9vF9hE</ReadPassword>
+    <Name>MSSQLServer$UATEST-SERVER</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </DatabaseResourceInfo>
+</Items>

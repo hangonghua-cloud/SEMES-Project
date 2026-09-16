@@ -1,0 +1,21 @@
+﻿<div id="itemlist" class="content-area content-area-relative" style="height: calc(100% - 30px) !important">
+    <sit-command-bar sit-vertical-autofixed="true" sit-type="Tool" sit-label-align="right" sit-layout="vertical">
+        <sit-command sit-icon="fa-edit" sit-name="com.siemens.customcommand.edit" sit-tooltip="配置" ng-click="vm.editButtonHandler"
+            sit-label="配置" ng-show="vm.isButtonVisible"></sit-command>
+        <!--<sit-command sit-icon="fa-trash"
+                     sit-name="com.siemens.customcommand.delete"
+                     sit-tooltip="Delete"
+                     ng-click="vm.deleteButtonHandler"
+                     sit-label="Delete"
+                     ng-show="vm.isButtonVisible"></sit-command>-->
+        <!--<sit-command sit-icon="fa-plus"
+                     sit-name="com.siemens.customcommand.add"
+                     ng-click="vm.addButtonHandler"
+                     sit-tooltip="Add"
+                     sit-label="Add"
+                     sit-type="main"></sit-command>-->
+    </sit-command-bar>
+    <div class="sit-uagrid">
+        <sit-item-collection-viewer sit-data="vm.viewerData" sit-options="vm.viewerOptions"></sit-item-collection-viewer>
+    </div>
+</div>

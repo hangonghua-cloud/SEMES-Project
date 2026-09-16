@@ -1,0 +1,19 @@
+﻿{
+  "name": "Siemens.SimaticIT.ProductionApp.ProcessBad",
+  "type": "standard",
+  "title": "Siemens.SimaticIT.ProductionApp.ProcessBad.Title",
+  "header": "",
+  "icon": "fa-folder",
+  "functionalBlock": "Siemens.SimaticIT.ProductionApp",
+  "dependencies": [],
+  "states": [
+    {
+      "id": "home.Siemens_SimaticIT_ProductionApp_ProcessBad_ProcessBad",
+      "title": "Siemens.SimaticIT.ProductionApp.ProcessBad.Title",
+      "header": "",
+      "securable": true,
+      "roles": []
+    }
+  ],
+  "manifestVersion": "01.01.00"
+}

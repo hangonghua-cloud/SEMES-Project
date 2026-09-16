@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="01/11/2023 19:11:19" ReportInfo.Modified="05/19/2023 14:24:34" ReportInfo.CreatorVersion="2014.4.8.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+//    private void btnOk_Click(object sender, EventArgs e)
+//    {
+//      Report.SetParameterValue(&quot;RollCode&quot;,&quot;Z2304030095-02&quot;);
+//    }
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlqxfki+t8jnSxof6qn6ng9vZXyxJ29Vo8PhbFaOrHhCHgROOaG/q4zpcoYQe61tsOxaKWTscH6Ad1rABTy1kAs9dLOkZCIFkSPgtS3xo+Qd2I1vweO+bh9fU/O4XMGzx8XtIFJb67TJ4BRKzzmozO5USMnTU+BVsfcVYRfleWN7PgHb2pv83dp1wwngJCwNsyBsIzalvFgPSG6BQDgTAb1hA==">
+      <TableDataSource Name="Table" DataType="System.Int32" Enabled="true" SelectCommand="exec [dbo].[Pro_PrintSemiRollCode] @RollCode">
+        <Column Name="BGSfit" DataType="System.String"/>
+        <Column Name="Spec" DataType="System.String"/>
+        <Column Name="RollCode" DataType="System.String"/>
+        <Column Name="BGCreate" DataType="System.String"/>
+        <Column Name="BGWeight" DataType="System.Decimal"/>
+        <Column Name="RYD" DataType="System.String"/>
+        <Column Name="UserGroup" DataType="System.String"/>
+        <Column Name="BCPBarCode" DataType="System.String"/>
+        <CommandParameter Name="RollCode" DataType="22" Size="10000" Expression="[RollCode]"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+    <Parameter Name="RollCode" DataType="System.String"/>
+  </Dictionary>
+  <ReportPage Name="Page2" Landscape="true" PaperWidth="130" PaperHeight="100" LeftMargin="0" TopMargin="0" RightMargin="0" BottomMargin="0" FirstPageSource="1" OtherPagesSource="1">
+    <GroupHeaderBand Name="GroupHeader1" Width="491.4" Condition="[Table.RollCode]">
+      <DataBand Name="Data2" Top="3.2" Width="491.4" Height="378" DataSource="Table">
+        <BarcodeObject Name="Barcode1" Left="85.05" Top="113.4" Width="291.25" Height="94.5" Text="[Table.BCPBarCode]" AllowExpressions="true" Barcode="Code128" Barcode.AutoEncode="true"/>
+      </DataBand>
+      <GroupFooterBand Name="GroupFooter1" Top="384.4" Width="491.4"/>
+    </GroupHeaderBand>
+  </ReportPage>
+</Report>

@@ -1,0 +1,93 @@
+﻿<style>
+    #itemlist {
+        margin: 30px;
+        width: 100%;
+    }
+</style>
+<div id="itemlist" class="content-area content-area-relative">
+    <div class="row">
+        <div class="col-md-10">
+            <sit-property-grid sit-id="add_form" sit-layout="Vertical" sit-type="Fluid" sit-mode="edit"
+                               sit-columns="1">
+                <sit-property sit-id="File" sit-widget="sit-file-uploader" sit-value="vm.file1"
+                              sit-validation="{ required: true }" sit-change="vm.changeFile1"
+                              sit-widget-attributes="{'accept':'.xls,.xlsx','sit-min-size': '1KB', 'sit-max-size': '10MB'}">
+                    (<a href="Siemens.SimaticIT.MaterialApp/resources/BaseMaterialTemp.xls">{{'Siemens.SimaticIT.MaterialApp.ImportData.ImportDatalist.Tips_1'|translate}}</a>):
+                </sit-property>
+            </sit-property-grid>
+        </div>
+        <div class="col-md-10">
+            <sit-command-bar sit-type="action">
+                <sit-command sit-icon="fa-add" sit-type="main" sit-name="com.siemens.customcommand.search"
+                             :sit-tooltip="{{'Siemens.SimaticIT.MaterialApp.ImportData.ImportDatalist.Tips_2'|translate}}" ng-click="vm.save1ButtonHandler" :sit-label="{{'Siemens.SimaticIT.MaterialApp.ImportData.ImportDatalist.Tips_2'|translate}}">
+                </sit-command>
+            </sit-command-bar>
+        </div>
+        <div class="col-md-38">
+            <sit-tabset>
+                <sit-tab heading="{{'Siemens.SimaticIT.MaterialApp.ImportData.ImportDatalist.Tips_3'|translate}}">
+                    <div id="sittab1" style="overflow: hidden;overflow:auto;white-space: nowrap;height: 300px;"></div>
+                </sit-tab>
+
+            </sit-tabset>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10">
+            <sit-property-grid sit-id="add_form" sit-layout="Vertical" sit-type="Fluid" sit-mode="edit"
+                               sit-columns="1">
+                <sit-property sit-id="File" sit-widget="sit-file-uploader" sit-value="vm.file13"
+                              sit-validation="{ required: true }" sit-change="vm.changeFile13"
+                              sit-widget-attributes="{'accept':'.xls,.xlsx','sit-min-size': '1KB', 'sit-max-size': '10MB'}">
+                    (<a href="Siemens.SimaticIT.MaterialApp/resources/BaseMaterialFactoryTemp.xls">{{'Siemens.SimaticIT.MaterialApp.ImportData.ImportDatalist.Tips_4'|translate}}</a>):
+                </sit-property>
+            </sit-property-grid>
+        </div>
+        <div class="col-md-10">
+            <sit-command-bar sit-type="action">
+                <sit-command sit-icon="fa-add" sit-type="main" sit-name="com.siemens.customcommand.search"
+                             :sit-tooltip="{{'Siemens.SimaticIT.MaterialApp.ImportData.ImportDatalist.Tips_2'|translate}}" ng-click="vm.save13ButtonHandler" :sit-label="{{'Siemens.SimaticIT.MaterialApp.ImportData.ImportDatalist.Tips_2'|translate}}">
+                </sit-command>
+            </sit-command-bar>
+        </div>
+        <div class="col-md-38">
+            <sit-tabset>
+                <sit-tab heading="{{'Siemens.SimaticIT.MaterialApp.ImportData.ImportDatalist.Tips_5'|translate}}">
+                    <div id="sittab13" style="overflow: hidden;overflow:auto;white-space: nowrap;height: 300px;"></div>
+                </sit-tab>
+                <sit-tab heading="{{'Siemens.SimaticIT.MaterialApp.ImportData.ImportDatalist.Tips_6'|translate}}">
+                    <div id="sittab2" style="overflow: hidden;overflow:auto;white-space: nowrap;height: 300px;"></div>
+                </sit-tab>
+            </sit-tabset>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10">
+            <sit-property-grid sit-id="add_form" sit-layout="Vertical" sit-type="Fluid" sit-mode="edit"
+                               sit-columns="1">
+                <sit-property sit-id="File" sit-widget="sit-file-uploader" sit-value="vm.file2"
+                              sit-validation="{ required: true }" sit-change="vm.changeFile2"
+                              sit-widget-attributes="{'accept':'.xls,.xlsx','sit-min-size': '1KB', 'sit-max-size': '10MB'}">
+                    (<a href="Siemens.SimaticIT.MaterialApp/resources/BaseBomTemp.xls">{{'Siemens.SimaticIT.MaterialApp.ImportData.ImportDatalist.Tips_7'|translate}}</a>):
+                </sit-property>
+            </sit-property-grid>
+        </div>
+        <div class="col-md-10">
+            <sit-command-bar sit-type="action">
+                <sit-command sit-icon="fa-add" sit-type="main" sit-name="com.siemens.customcommand.search"
+                             :sit-tooltip="{{'Siemens.SimaticIT.MaterialApp.ImportData.ImportDatalist.Tips_2'|translate}}" ng-click="vm.save2ButtonHandler" :sit-label="{{'Siemens.SimaticIT.MaterialApp.ImportData.ImportDatalist.Tips_2'|translate}}">
+                </sit-command>
+            </sit-command-bar>
+        </div>
+        <div class="col-md-38">
+            <sit-tabset>
+                <sit-tab heading="BOM">
+                    <div id="sittab4" style="overflow: hidden;overflow:auto;white-space: nowrap;height: 300px;"></div>
+                </sit-tab>
+                <sit-tab heading="{{'Siemens.SimaticIT.MaterialApp.ImportData.ImportDatalist.Tips_8'|translate}}">
+                    <div id="sittab5" style="overflow: hidden;overflow:auto;white-space: nowrap;height: 300px;"></div>
+                </sit-tab>
+            </sit-tabset>
+        </div>
+    </div>
+</div>

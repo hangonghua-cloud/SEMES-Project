@@ -1,0 +1,444 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D6B8ABEA-C923-4605-99A9-B7ACA5DE4D8A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ALP.Application.Service</RootNamespace>
+    <AssemblyName>ALP.Application.Service</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <DocumentationFile>bin\Debug\ALP.Application.Service.xml</DocumentationFile>
+    <NoWarn>1591</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ALP.Util">
+      <HintPath>..\..\ALP.DLL\ALP.Util.dll</HintPath>
+    </Reference>
+    <Reference Include="ALP.Util.Extension">
+      <HintPath>..\..\ALP.DLL\ALP.Util.Extension.dll</HintPath>
+    </Reference>
+    <Reference Include="ALP.Util.FlowWork">
+      <HintPath>..\..\ALP.DLL\ALP.Util.FlowWork.dll</HintPath>
+    </Reference>
+    <Reference Include="ALP.Util.WebControl">
+      <HintPath>..\..\ALP.DLL\ALP.Util.WebControl.dll</HintPath>
+    </Reference>
+    <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Dapper.2.0.35\lib\net461\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=1.2.0.246, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SharpZipLib.1.2.0\lib\net45\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Owin.4.1.0\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Owin.Host.SystemWeb.4.1.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Owin.Security.4.1.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI, Version=2.4.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\NPOI.2.4.1\lib\net45\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OOXML, Version=2.4.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\NPOI.2.4.1\lib\net45\NPOI.OOXML.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXml4Net, Version=2.4.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\NPOI.2.4.1\lib\net45\NPOI.OpenXml4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXmlFormats, Version=2.4.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\NPOI.2.4.1\lib\net45\NPOI.OpenXmlFormats.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="RedisHelp, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\ALP.Data.Redis\bin\Debug\RedisHelp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="StackExchange.Redis, Version=1.1.608.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\StackExchange.Redis.1.1.608\lib\net45\StackExchange.Redis.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AccountService.cs" />
+    <Compile Include="AppManage\AppModelService.cs" />
+    <Compile Include="AppManage\AppVersionService.cs" />
+    <Compile Include="AuthorizeManage\AuthorizeService.T.cs" />
+    <Compile Include="AuthorizeManage\AuthorizeService.cs" />
+    <Compile Include="AuthorizeManage\BaseSAPService.cs" />
+    <Compile Include="AuthorizeManage\ModuleFormInstanceService.cs" />
+    <Compile Include="AuthorizeManage\ModuleFormService.cs" />
+    <Compile Include="BaseManage\BaseAccountService.cs" />
+    <Compile Include="BaseManage\BaseClipToolService.cs" />
+    <Compile Include="BaseManage\BaseSequenceService.cs" />
+    <Compile Include="BaseManage\BaseShiftService.cs" />
+    <Compile Include="BaseManage\BaseVirtualSlotService.cs" />
+    <Compile Include="BaseManage\Base_Images_Service.cs" />
+    <Compile Include="BaseManage\Base_KeyParameterItem_Service.cs" />
+    <Compile Include="BaseManage\Base_KeyParameter_Service.cs" />
+    <Compile Include="BaseManage\Base_ReportGroupService.cs" />
+    <Compile Include="BaseManage\Base_UpdateLog_Service.cs" />
+    <Compile Include="BaseManage\BsModelLevelExtendFieldsService.cs" />
+    <Compile Include="BaseManage\BsModelResourceExtendInfoService.cs" />
+    <Compile Include="BaseManage\BsModelWithResourceService.cs" />
+    <Compile Include="BaseManage\BsModelLevelService.cs" />
+    <Compile Include="BaseManage\BS_People_Service.cs" />
+    <Compile Include="BaseManage\F_FilesService.cs" />
+    <Compile Include="BaseManage\Base_ReportRecordService.cs" />
+    <Compile Include="BaseManage\Base_ReportRoleAuthorizeService.cs" />
+    <Compile Include="BaseManage\Base_ReportRoleService.cs" />
+    <Compile Include="BaseManage\SerialNOService.cs" />
+    <Compile Include="BaseManage\CommonService.cs" />
+    <Compile Include="BaseManage\MainService.cs" />
+    <Compile Include="BaseManage\WebChatApplyConfigService.cs" />
+    <Compile Include="BaseManage\WebChatApplyUserService.cs" />
+    <Compile Include="BaseManage\UploadManageService.cs" />
+    <Compile Include="BaseService.cs" />
+    <Compile Include="Calendar\BS_BreakTimeManageService.cs" />
+    <Compile Include="Calendar\BS_CalendarManageService.cs" />
+    <Compile Include="Calendar\BS_HolidayManageService.cs" />
+    <Compile Include="Calendar\BS_ShiftManageService.cs" />
+    <Compile Include="Calendar\BS_ShiftOfCalendarService.cs" />
+    <Compile Include="Common\CommService.cs" />
+    <Compile Include="EquipmentManage\EP_EquipmentAttrib_Service.cs" />
+    <Compile Include="EquipmentManage\EP_EquipmentCheckItemDetail_Service.cs" />
+    <Compile Include="EquipmentManage\EP_EquipmentCheckItemMaintenanceType_Service.cs" />
+    <Compile Include="EquipmentManage\EP_EquipmentCheckItemMaintenance_Service.cs" />
+    <Compile Include="EquipmentManage\EP_EquipmentCheckRecord_Service.cs" />
+    <Compile Include="EquipmentManage\EP_EquipmentCheckResult_Service.cs" />
+    <Compile Include="EquipmentManage\EP_EquipmentMaintainDetail_Service.cs" />
+    <Compile Include="EquipmentManage\EP_EquipmentMaintainResult_Service.cs" />
+    <Compile Include="EquipmentManage\EP_EquipmentMaintainTask_Service.cs" />
+    <Compile Include="EquipmentManage\EP_EquipmentMaintain_Service.cs" />
+    <Compile Include="EquipmentManage\EP_EquipmentMalfunctionRepair_Service.cs" />
+    <Compile Include="EquipmentManage\EP_EquipmentManageItem_Service.cs" />
+    <Compile Include="EquipmentManage\EP_EquipmentManage_Service.cs" />
+    <Compile Include="EquipmentManage\EP_EquipmentSpareParts_Service.cs" />
+    <Compile Include="EquipmentManage\EP_EquipmentTool_Service.cs" />
+    <Compile Include="EquipmentManage\V_EP_EquipmentManage_Service.cs" />
+    <Compile Include="MaterialManage\BaseProductOrderFileConService.cs" />
+    <Compile Include="MaterialManage\MMProductStockAdjustService.cs" />
+    <Compile Include="MaterialManage\MMRawMaterialDispatchDetailService.cs" />
+    <Compile Include="MaterialManage\MMRawMaterialDispatchService.cs" />
+    <Compile Include="MaterialManage\MMRawMaterialDispatchSubService.cs" />
+    <Compile Include="MaterialManage\MMSemiProductOutService.cs" />
+    <Compile Include="MaterialManage\MMSuperProductStockAdjustService.cs" />
+    <Compile Include="MaterialManage\MM_ProductDispatchBill_Service.cs" />
+    <Compile Include="MaterialManage\MM_ProductDispatchDetail_Service.cs" />
+    <Compile Include="MaterialManage\MM_ProductDispatchItem_Service.cs" />
+    <Compile Include="MaterialManage\MM_ProductOut_Service.cs" />
+    <Compile Include="MaterialManage\MM_ProductIn_Service.cs" />
+    <Compile Include="MaterialManage\MM_ProductMoveRecord_Service.cs" />
+    <Compile Include="MaterialManage\MM_ProductReworkBG_Service.cs" />
+    <Compile Include="MaterialManage\MM_ProductReworkDetail_Service.cs" />
+    <Compile Include="MaterialManage\MM_ProductRework_Service.cs" />
+    <Compile Include="MaterialManage\MM_ProductStock_Service.cs" />
+    <Compile Include="MaterialManage\MM_RawMaterialCodeBar_Service.cs" />
+    <Compile Include="MaterialManage\MM_RawMaterialOut_Service.cs" />
+    <Compile Include="MaterialManage\MM_ReceiptNotice_Service.cs" />
+    <Compile Include="MaterialManage\MM_RawMaterialIn_Service.cs" />
+    <Compile Include="MaterialManage\MM_SaleDomesticIn_Service.cs" />
+    <Compile Include="MaterialManage\MM_SaleDomesticOutDetail_Service.cs" />
+    <Compile Include="MaterialManage\MM_SaleDomesticOut_Service.cs" />
+    <Compile Include="MaterialManage\MM_SaleDomestic_Service.cs" />
+    <Compile Include="MaterialManage\MM_SemiProductMoveRecord_Service.cs" />
+    <Compile Include="MaterialManage\MM_SuperProductStock_Service.cs" />
+    <Compile Include="MaterialManage\MM_SupProductStockTransfer_Service.cs" />
+    <Compile Include="MaterialManage\MM_WarehouseSafetyStock_Service.cs" />
+    <Compile Include="Material\Base_DataFileCon_Service.cs" />
+    <Compile Include="Material\Base_MaterialBindTempFacet_Service.cs" />
+    <Compile Include="Material\Base_MaterialBindTemp_Service.cs" />
+    <Compile Include="Material\Base_MaterialFacet_Service.cs" />
+    <Compile Include="Material\Base_MaterialFactory_Service.cs" />
+    <Compile Include="Material\Base_MaterialGroupBindMaterial_Service.cs" />
+    <Compile Include="Material\Base_MaterialGroup_Service.cs" />
+    <Compile Include="Material\Base_Material_Service.cs" />
+    <Compile Include="Material\BS_ProcessOfOperationsAttr_Service.cs" />
+    <Compile Include="Material\Base_ProcessAttrItem_Service.cs" />
+    <Compile Include="Material\Base_ProcessAttr_Service.cs" />
+    <Compile Include="Material\Base_SupplierBindMaterialGroup_Service.cs" />
+    <Compile Include="Material\Base_SupplierManage_Service.cs" />
+    <Compile Include="Material\BS_BOMItems_Service.cs" />
+    <Compile Include="Material\BS_BOM_Service.cs" />
+    <Compile Include="Material\BS_ProcessOfOperations_Service.cs" />
+    <Compile Include="Material\BS_Process_Service.cs" />
+    <Compile Include="MaterialManage\MM_RawMaterialStock_Service.cs" />
+    <Compile Include="Material\BS_TraitDetailsAttr_Service.cs" />
+    <Compile Include="Material\BS_TraitDetails_Service.cs" />
+    <Compile Include="Material\BS_TraitManage_Service.cs" />
+    <Compile Include="Material\PL_MarkUpload_Service.cs" />
+    <Compile Include="ModelLevel\LeverService.cs" />
+    <Compile Include="PlanManage\PL_AvoidProduce_Service.cs" />
+    <Compile Include="PlanManage\PL_BOMItems_Service.cs" />
+    <Compile Include="PlanManage\PL_BOM_Service.cs" />
+    <Compile Include="PlanManage\PL_ExeWorkOrderWearingLayer_Service.cs" />
+    <Compile Include="PlanManage\PL_ExeWorkOrder_Service.cs" />
+    <Compile Include="PlanManage\PL_FirstInspectionConfirm_Service.cs" />
+    <Compile Include="PlanManage\PL_InternalOrder_Service.cs" />
+    <Compile Include="PlanManage\PL_MaterialFacet_Service.cs" />
+    <Compile Include="PlanManage\PL_LoadingSchedule_Service.cs" />
+    <Compile Include="PlanManage\PL_Material_Service.cs" />
+    <Compile Include="PlanManage\PL_PlanStoreIssue_Service.cs" />
+    <Compile Include="PlanManage\PL_PrdOrderReqMaterials_Service.cs" />
+    <Compile Include="PlanManage\PL_ProcessOfOperationsAttr_Service.cs" />
+    <Compile Include="PlanManage\PL_ProcessOfOperations_Service.cs" />
+    <Compile Include="PlanManage\PL_Process_Service.cs" />
+    <Compile Include="PlanManage\PL_ProductionOrder_Service.cs" />
+    <Compile Include="PlanManage\PL_ProductRule_Service.cs" />
+    <Compile Include="PlanManage\PL_PurchaseOrder_Service.cs" />
+    <Compile Include="PlanManage\PL_TransfersRecord_Service.cs" />
+    <Compile Include="PlanManage\PL_WorkOrderSortRule_Service.cs" />
+    <Compile Include="PlanManage\PL_WorkOrder_Service.cs" />
+    <Compile Include="ProduceManage\PMOperationPalletNumService.cs" />
+    <Compile Include="ProduceManage\PMOwnSemiProductOrderService.cs" />
+    <Compile Include="ProduceManage\PMPerformanceManageService.cs" />
+    <Compile Include="ProduceManage\PMPostCoefficientService.cs" />
+    <Compile Include="ProduceManage\PMProductPriceService.cs" />
+    <Compile Include="ProduceManage\PMScrapRecordService.cs" />
+    <Compile Include="ProduceManage\PM_AbrasiveBG_Service.cs" />
+    <Compile Include="ProduceManage\PM_AbrasiveOrder_Service.cs" />
+    <Compile Include="ProduceManage\PM_BGBadRecord_Service.cs" />
+    <Compile Include="ProduceManage\PM_BGBadShare_Service.cs" />
+    <Compile Include="ProduceManage\PM_ExeWorkOrderSW_Service.cs" />
+    <Compile Include="ProduceManage\PM_FormulaRecordDetail_Service.cs" />
+    <Compile Include="ProduceManage\PM_FormulaRecord_Service.cs" />
+    <Compile Include="ProduceManage\PM_MaterialBatchConsumeRecord_Service.cs" />
+    <Compile Include="ProduceManage\PM_MaterialBatchUpRecord_Service.cs" />
+    <Compile Include="ProduceManage\PM_OwnProductBG_Service.cs" />
+    <Compile Include="ProduceManage\PM_OwnProductOrder_Service.cs" />
+    <Compile Include="ProduceManage\PM_OwnProductTransfer_Service.cs" />
+    <Compile Include="ProduceManage\PM_PackingBGTransferCard_Service.cs" />
+    <Compile Include="ProduceManage\PM_PackingPrintMark_Service.cs" />
+    <Compile Include="ProduceManage\PM_PackingRecord_Service.cs" />
+    <Compile Include="ProduceManage\PM_PrinterOrder_Service.cs" />
+    <Compile Include="ProduceManage\PM_PrinterWorkOrderBG_Service.cs" />
+    <Compile Include="ProduceManage\PM_PrinterWorkOrder_Service.cs" />
+    <Compile Include="ProduceManage\PM_ProcessBadItem_Service.cs" />
+    <Compile Include="ProduceManage\PM_ProcessBad_Service.cs" />
+    <Compile Include="ProduceManage\PM_ProductionFirstInspectionDetail_Service.cs" />
+    <Compile Include="ProduceManage\PM_ProductionFirstInspection_Service.cs" />
+    <Compile Include="ProduceManage\PM_ReworkRecord_Detail_Service.cs" />
+    <Compile Include="ProduceManage\PM_ReworkRecord_Service.cs" />
+    <Compile Include="ProduceManage\PM_StartUpRecord_Service.cs" />
+    <Compile Include="ProduceManage\PM_TeamPerson_Items_Service.cs" />
+    <Compile Include="ProduceManage\PM_TeamPerson_Service.cs" />
+    <Compile Include="ProduceManage\PM_TranferCardBGRecord_Service.cs" />
+    <Compile Include="ProduceManage\PM_TransferBGPersonRecord_Service.cs" />
+    <Compile Include="ProduceManage\PM_TransferCardResume_Service.cs" />
+    <Compile Include="ProduceManage\PM_TransferCardScrapRecord_Service.cs" />
+    <Compile Include="ProduceManage\PM_TransferCard_Service.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="BaseManage\BaseUserLineService.cs" />
+    <Compile Include="PublicInfoManage\EmailCategoryService.cs" />
+    <Compile Include="PublicInfoManage\EmailContentService.cs" />
+    <Compile Include="PublicInfoManage\FileFolderService.cs" />
+    <Compile Include="PublicInfoManage\FileInfoService.cs" />
+    <Compile Include="PublicInfoManage\NewsService.cs" />
+    <Compile Include="PublicInfoManage\NoticeService.cs" />
+    <Compile Include="PublicInfoManage\ScheduleService.cs" />
+    <Compile Include="QualityManage\QC_IPQCDetailResult_Service.cs" />
+    <Compile Include="QualityManage\QC_IPQCDetail_Service.cs" />
+    <Compile Include="QualityManage\QC_IQCQualityCheck_Service.cs" />
+    <Compile Include="QualityManage\QC_MaterialInventoryCheckItem_Service.cs" />
+    <Compile Include="QualityManage\QC_MaterialInventoryCheck_Service.cs" />
+    <Compile Include="QualityManage\QC_OQCCheckConfigItem_Service.cs" />
+    <Compile Include="QualityManage\QC_OQCCheckConfigMaterial_Service.cs" />
+    <Compile Include="QualityManage\QC_OQCCheckConfig_Service.cs" />
+    <Compile Include="QualityManage\QC_OQCQualityCheckItem_Service.cs" />
+    <Compile Include="QualityManage\QC_OQCQualityCheck_Service.cs" />
+    <Compile Include="QualityManage\QC_PollingDetailResult_Service.cs" />
+    <Compile Include="QualityManage\QC_PollingDetail_Service.cs" />
+    <Compile Include="QualityManage\QC_IQCQualityCheckItem_Service.cs" />
+    <Compile Include="QualityManage\QC_TestItemMaintenance_Service.cs" />
+    <Compile Include="QualityManage\QC_TestMaintenance_Service.cs" />
+    <Compile Include="QualityManage\QC_TestMethodItemMaintenance_Service.cs" />
+    <Compile Include="QualityManage\QC_TestMethodMaintenance_Service.cs" />
+    <Compile Include="QualityManage\QC_TestMethodMaterial_Service.cs" />
+    <Compile Include="QualityManage\QC_TestProcessMaintenance_Service.cs" />
+    <Compile Include="Resources\Language.cs" />
+    <Compile Include="SystemHandler.cs" />
+    <Compile Include="SystemManage\BSAppLogUserInfoService.cs" />
+    <Compile Include="SystemManage\BSAppRoleService.cs" />
+    <Compile Include="SystemManage\BsPeopleByPrintServerService.cs" />
+    <Compile Include="SystemManage\BsPrintServerService.cs" />
+    <Compile Include="SystemManage\DataSourceService.cs" />
+    <Compile Include="SystemManage\ExcelExportService.cs" />
+    <Compile Include="SystemManage\ExcelImportService.cs" />
+    <Compile Include="SystemManage\LogService.cs" />
+    <Compile Include="SystemManage\CodeRuleService.cs" />
+    <Compile Include="SystemManage\DataBaseBackupService.cs" />
+    <Compile Include="AuthorizeManage\FilterIPService.cs" />
+    <Compile Include="AuthorizeManage\FilterTimeService.cs" />
+    <Compile Include="SystemManage\DataBaseLinkService.cs" />
+    <Compile Include="SystemManage\DataBaseTableService.cs" />
+    <Compile Include="SystemManage\AreaService.cs" />
+    <Compile Include="AuthorizeManage\ModuleButtonService.cs" />
+    <Compile Include="AuthorizeManage\ModuleColumnService.cs" />
+    <Compile Include="AuthorizeManage\ModuleService.cs" />
+    <Compile Include="AuthorizeManage\PermissionService.cs" />
+    <Compile Include="BaseManage\DepartmentService.cs" />
+    <Compile Include="BaseManage\OrganizeService.cs" />
+    <Compile Include="BaseManage\RoleService.cs" />
+    <Compile Include="BaseManage\UserService.cs" />
+    <Compile Include="BaseManage\PostService.cs" />
+    <Compile Include="BaseManage\JobService.cs" />
+    <Compile Include="BaseManage\UserGroupService.cs" />
+    <Compile Include="SystemManage\DataItemDetailService.cs" />
+    <Compile Include="SystemManage\DataItemService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SystemManage\SystemService.cs" />
+    <Compile Include="SystemManage\Sys_DataSegregateGroupService.cs" />
+    <Compile Include="SystemManage\Sys_DataSegregateGroupToLabelService.cs" />
+    <Compile Include="SystemManage\Sys_DataSegregateGroupToPersonService.cs" />
+    <Compile Include="SystemManage\Sys_DataSegregateLabel_Service.cs" />
+    <Compile Include="SystemManage\Sys_DepartmentService.cs" />
+    <Compile Include="SystemManage\Sys_PersonService.cs" />
+    <Compile Include="Tool\BarCodeHelper.cs" />
+    <Compile Include="Tool\SAPHelper.cs" />
+    <Compile Include="ToSAP\ToSAPService.cs" />
+    <Compile Include="Web References\WebReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\ALP.Application.UtilExtend\ALP.Application.UtilExtend.csproj">
+      <Project>{71adbdbb-7d73-4766-8fe1-f8482a7bffe3}</Project>
+      <Name>ALP.Application.UtilExtend</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ALP.Data\ALP.Data.Dapper\ALP.Data.Dapper.csproj">
+      <Project>{f4e0fd13-ccd7-425e-af02-fa270c283447}</Project>
+      <Name>ALP.Data.Dapper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ALP.Data\ALP.Data.Repository\ALP.Data.Repository.csproj">
+      <Project>{1751a2dd-0f00-4c76-b180-97e8f72fe078}</Project>
+      <Name>ALP.Data.Repository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ALP.Data\ALP.Data\ALP.Data.csproj">
+      <Project>{528f308b-d2cd-4bd1-a94f-bf94abef08d7}</Project>
+      <Name>ALP.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ALP.Application.Code\ALP.Application.Code.csproj">
+      <Project>{9b10db87-130c-41d3-8687-1fac877db74a}</Project>
+      <Name>ALP.Application.Code</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ALP.Application.Entity\ALP.Application.Entity.csproj">
+      <Project>{c10920fe-8c74-4993-a7f4-1da189da842c}</Project>
+      <Name>ALP.Application.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ALP.Application.IService\ALP.Application.IService.csproj">
+      <Project>{6ce11ff9-1cb7-494e-89c7-5f06bea94211}</Project>
+      <Name>ALP.Application.IService</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\WebReference\MES2SAP.wsdl" />
+    <None Include="Web References\WebReference\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://10.18.1.145:8002/ServicePackages/SAP/MES2SAP.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\WebReference\</RelPath>
+      <UpdateFromURL>http://10.18.1.145:8002/ServicePackages/SAP/MES2SAP.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>ALP_Application_Service_WebReference_MES2SAP</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\WebReference\MES2SAP.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Plan\" />
+    <Folder Include="ProcessManage\" />
+    <Folder Include="ReportManage\" />
+    <Folder Include="Technology\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

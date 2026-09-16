@@ -1,0 +1,26 @@
+﻿{
+  "name": "Siemens.SimaticIT.ProductionApp.FormulaManage",
+  "type": "standard",
+  "title": "Siemens.SimaticIT.ProductionApp.FormulaManage.Title",
+  "header": "",
+  "icon": "fa-folder",
+  "functionalBlock": "Siemens.SimaticIT.ProductionApp",
+  "dependencies": [],
+  "states": [
+    {
+      "id": "home.Siemens_SimaticIT_ProductionApp_FormulaManage_FormulaRecord",
+      "title": "Siemens.SimaticIT.ProductionApp.FormulaRecord.Title",
+      "header": "",
+      "securable": true,
+      "roles": []
+    },
+    {
+      "id": "home.Siemens_SimaticIT_ProductionApp_FormulaManage_FormulaBG",
+      "title": "Siemens.SimaticIT.ProductionApp.FormulaBG.Title",
+      "header": "",
+      "securable": true,
+      "roles": []
+    }
+  ],
+  "manifestVersion": "01.01.00"
+}

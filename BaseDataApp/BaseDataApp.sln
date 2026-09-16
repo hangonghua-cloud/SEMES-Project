@@ -1,0 +1,60 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.757
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaseDataApp.CommandHandler", "BaseDataApp\BaseDataApp.CommandHandler\BaseDataApp.CommandHandler.csproj", "{1255B745-CB2F-4BFA-9246-CC082BEE9A03}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaseDataApp.EventHandler", "BaseDataApp\BaseDataApp.EventHandler\BaseDataApp.EventHandler.csproj", "{E8452C74-3329-45F1-A4AC-E2BAAE7637B9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaseDataApp.ReadingFunctionHandler", "BaseDataApp\BaseDataApp.ReadingFunctionHandler\BaseDataApp.ReadingFunctionHandler.csproj", "{38C28D44-D4C4-4C6E-81A9-1EFEF475A308}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaseDataApp.UserInterface", "BaseDataApp\BaseDataApp.UserInterface\BaseDataApp.UserInterface.csproj", "{49534084-0857-4D3E-B33A-511ED14F336F}"
+EndProject
+Project("{DA7C07C8-D9F3-4A79-840F-611D1C5950A5}") = "BaseDataApp.Installer", "BaseDataApp\BaseDataApp.Installer\BaseDataApp.Installer.iproj", "{FBAD4B1F-2154-4164-93F0-C973B3D0547F}"
+EndProject
+Project("{CA2279AF-CA6F-4B4B-98B3-8D49B8D38547}") = "BaseDataApp.BDPOMModel", "BaseDataApp\BaseDataApp.BDPOMModel\BaseDataApp.BDPOMModel.pmproj", "{7631CAA3-A20C-46F3-A7E0-3548DE32D757}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2D7253B7-123A-4936-83A8-5EF3D786E898}"
+	ProjectSection(SolutionItems) = preProject
+		packages.reference = packages.reference
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1255B745-CB2F-4BFA-9246-CC082BEE9A03}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1255B745-CB2F-4BFA-9246-CC082BEE9A03}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1255B745-CB2F-4BFA-9246-CC082BEE9A03}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1255B745-CB2F-4BFA-9246-CC082BEE9A03}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8452C74-3329-45F1-A4AC-E2BAAE7637B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8452C74-3329-45F1-A4AC-E2BAAE7637B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8452C74-3329-45F1-A4AC-E2BAAE7637B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8452C74-3329-45F1-A4AC-E2BAAE7637B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38C28D44-D4C4-4C6E-81A9-1EFEF475A308}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38C28D44-D4C4-4C6E-81A9-1EFEF475A308}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38C28D44-D4C4-4C6E-81A9-1EFEF475A308}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38C28D44-D4C4-4C6E-81A9-1EFEF475A308}.Release|Any CPU.Build.0 = Release|Any CPU
+		{49534084-0857-4D3E-B33A-511ED14F336F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49534084-0857-4D3E-B33A-511ED14F336F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49534084-0857-4D3E-B33A-511ED14F336F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49534084-0857-4D3E-B33A-511ED14F336F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FBAD4B1F-2154-4164-93F0-C973B3D0547F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBAD4B1F-2154-4164-93F0-C973B3D0547F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBAD4B1F-2154-4164-93F0-C973B3D0547F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBAD4B1F-2154-4164-93F0-C973B3D0547F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7631CAA3-A20C-46F3-A7E0-3548DE32D757}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7631CAA3-A20C-46F3-A7E0-3548DE32D757}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7631CAA3-A20C-46F3-A7E0-3548DE32D757}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7631CAA3-A20C-46F3-A7E0-3548DE32D757}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F8833E92-7552-4461-967A-1CCBAD15529D}
+	EndGlobalSection
+EndGlobal

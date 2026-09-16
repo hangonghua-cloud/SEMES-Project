@@ -1,0 +1,1677 @@
+﻿<link rel="stylesheet" href="./CCS.CommonApp/widgets/layui/css/layui.css" media="all">
+<link rel="stylesheet" href="./CCS.CommonApp/widgets/appico/cube.min.css">
+<link rel="stylesheet" href="./CCS.CommonApp/widgets/appico/demo.css">
+<link rel="stylesheet" href="./CCS.CommonApp/widgets/appico/iconfont.css">
+<script src="./CCS.CommonApp/widgets/appico/iconfont.js"></script>
+<!-- jQuery -->
+<script src="./CCS.CommonApp/widgets/appico/jq1.js"></script>
+<!-- 代码高亮 -->
+<script src="./CCS.CommonApp/widgets/appico/jq2.js"></script>
+<style>
+    .codeHide {
+        display: none;
+    }
+
+    .modal-content {
+        border: 0;
+        border-radius: 5px 5px 0 0;
+    }
+
+    .side-panel-header {
+        display: flex;
+        align-items: center;
+        height: 48px;
+        line-height: 48px;
+        background-color: #005f87;
+        color: #FFF;
+        padding: 8px;
+        border-radius: 5px 5px 0 0;
+    }
+
+    .modal-body {
+        position: relative;
+        flex: 1 1 auto;
+        padding: 0.4rem;
+    }
+</style>
+<div id="itemlist" class="content-area content-area-relative" style="height: calc(100% - 30px) !important">
+    <div class="side-panel-header">
+        图标列表
+    </div>
+    <div class="" style="height: 500px;margin-left: 5%;overflow-y:auto">
+        <div class="nav-tabs" style="display: none;">
+            <ul id="tabs" class="dib-box">
+                <li class="dib">
+                    <span></span>
+                </li>
+            </ul>
+        </div>
+        <div class="content font-class">
+            <ul class="icon_lists dib-box">
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont icondun"></span>
+                    <div class="name">
+                        盾
+                    </div>
+                    <div class="code-name codeHide">.icondun
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconjinggao"></span>
+                    <div class="name">
+                        警告
+                    </div>
+                    <div class="code-name codeHide">.iconjinggao
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconfenlei"></span>
+                    <div class="name">
+                        分类
+                    </div>
+                    <div class="code-name codeHide">.iconfenlei
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconshexiangtou"></span>
+                    <div class="name">
+                        摄像头
+                    </div>
+                    <div class="code-name codeHide">.iconshexiangtou
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconliulanqi"></span>
+                    <div class="name">
+                        浏览器
+                    </div>
+                    <div class="code-name codeHide">.iconliulanqi
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconyunsuo"></span>
+                    <div class="name">
+                        云锁
+                    </div>
+                    <div class="code-name codeHide">.iconyunsuo
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconzhiwen"></span>
+                    <div class="name">
+                        指纹
+                    </div>
+                    <div class="code-name codeHide">.iconzhiwen
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont icon008minus04"></span>
+                    <div class="name">
+                        008minus04
+                    </div>
+                    <div class="code-name codeHide">.icon008minus04
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont icon017check03"></span>
+                    <div class="name">
+                        017check03
+                    </div>
+                    <div class="code-name codeHide">.icon017check03
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont icon013cross02"></span>
+                    <div class="name">
+                        013cross02
+                    </div>
+                    <div class="code-name codeHide">.icon013cross02
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont icon029cancel"></span>
+                    <div class="name">
+                        029cancel
+                    </div>
+                    <div class="code-name codeHide">.icon029cancel
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont icon025ban"></span>
+                    <div class="name">
+                        025ban
+                    </div>
+                    <div class="code-name codeHide">.icon025ban
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont icon003plus01"></span>
+                    <div class="name">
+                        003plus01
+                    </div>
+                    <div class="code-name codeHide">.icon003plus01
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont icon037trash"></span>
+                    <div class="name">
+                        037trash
+                    </div>
+                    <div class="code-name codeHide">.icon037trash
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont icon052expand"></span>
+                    <div class="name">
+                        052expand
+                    </div>
+                    <div class="code-name codeHide">.icon052expand
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont icon091under02"></span>
+                    <div class="name">
+                        091under02
+                    </div>
+                    <div class="code-name codeHide">.icon091under02
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont icon103bookTX"></span>
+                    <div class="name">
+                        103bookTX
+                    </div>
+                    <div class="code-name codeHide">.icon103bookTX
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont icon111image"></span>
+                    <div class="name">
+                        111image
+                    </div>
+                    <div class="code-name codeHide">.icon111image
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont icon133follow02"></span>
+                    <div class="name">
+                        133follow02
+                    </div>
+                    <div class="code-name codeHide">.icon133follow02
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont icon120menu02"></span>
+                    <div class="name">
+                        120menu02
+                    </div>
+                    <div class="code-name codeHide">.icon120menu02
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont icon131keyboard"></span>
+                    <div class="name">
+                        131keyboard
+                    </div>
+                    <div class="code-name codeHide">.icon131keyboard
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont icon130wifi"></span>
+                    <div class="name">
+                        130wifi
+                    </div>
+                    <div class="code-name codeHide">.icon130wifi
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont icon141send"></span>
+                    <div class="name">
+                        141send
+                    </div>
+                    <div class="code-name codeHide">.icon141send
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont icon144message02"></span>
+                    <div class="name">
+                        144message02
+                    </div>
+                    <div class="code-name codeHide">.icon144message02
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont icon197hourglass01"></span>
+                    <div class="name">
+                        197hourglass01
+                    </div>
+                    <div class="code-name codeHide">.icon197hourglass01
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont icon174txt"></span>
+                    <div class="name">
+                        174txt
+                    </div>
+                    <div class="code-name codeHide">.icon174txt
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont icon219shield05"></span>
+                    <div class="name">
+                        219shield05
+                    </div>
+                    <div class="code-name codeHide">.icon219shield05
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont icon229circlePY"></span>
+                    <div class="name">
+                        229circlePY
+                    </div>
+                    <div class="code-name codeHide">.icon229circlePY
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont icon259send01"></span>
+                    <div class="name">
+                        259send01
+                    </div>
+                    <div class="code-name codeHide">.icon259send01
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont icon247arrowXX05"></span>
+                    <div class="name">
+                        247arrowXX05
+                    </div>
+                    <div class="code-name codeHide">.icon247arrowXX05
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont icon246arrowXS06"></span>
+                    <div class="name">
+                        246arrowXS06
+                    </div>
+                    <div class="code-name codeHide">.icon246arrowXS06
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont icon289folder01"></span>
+                    <div class="name">
+                        289folder01
+                    </div>
+                    <div class="code-name codeHide">.icon289folder01
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont icon266pen01"></span>
+                    <div class="name">
+                        266pen01
+                    </div>
+                    <div class="code-name codeHide">.icon266pen01
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont icon240zhome03"></span>
+                    <div class="name">
+                        240zhome03
+                    </div>
+                    <div class="code-name codeHide">.icon240zhome03
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont icon244arrowXZ06"></span>
+                    <div class="name">
+                        244arrowXZ06
+                    </div>
+                    <div class="code-name codeHide">.icon244arrowXZ06
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont icon258choose01"></span>
+                    <div class="name">
+                        258choose01
+                    </div>
+                    <div class="code-name codeHide">.icon258choose01
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont icon297textleft"></span>
+                    <div class="name">
+                        297textleft
+                    </div>
+                    <div class="code-name codeHide">.icon297textleft
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont icon295rotate"></span>
+                    <div class="name">
+                        295rotate
+                    </div>
+                    <div class="code-name codeHide">.icon295rotate
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont icon248arrowXZ07"></span>
+                    <div class="name">
+                        248arrowXZ07
+                    </div>
+                    <div class="code-name codeHide">.icon248arrowXZ07
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont icon196calendar"></span>
+                    <div class="name">
+                        196calendar
+                    </div>
+                    <div class="code-name codeHide">.icon196calendar
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont icon325suspend"></span>
+                    <div class="name">
+                        325suspend
+                    </div>
+                    <div class="code-name codeHide">.icon325suspend
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont icon322annotation"></span>
+                    <div class="name">
+                        322annotation
+                    </div>
+                    <div class="code-name codeHide">.icon322annotation
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont icon327paixu"></span>
+                    <div class="name">
+                        327paixu
+                    </div>
+                    <div class="code-name codeHide">.icon327paixu
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont icon204phone"></span>
+                    <div class="name">
+                        204phone
+                    </div>
+                    <div class="code-name codeHide">.icon204phone
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont icon344"></span>
+                    <div class="name">
+                        344
+                    </div>
+                    <div class="code-name codeHide">.icon344
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont icon330"></span>
+                    <div class="name">
+                        330
+                    </div>
+                    <div class="code-name codeHide">.icon330
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont icon336min02"></span>
+                    <div class="name">
+                        336min02
+                    </div>
+                    <div class="code-name codeHide">.icon336min02
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont icon349"></span>
+                    <div class="name">
+                        349
+                    </div>
+                    <div class="code-name codeHide">.icon349
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont icon365"></span>
+                    <div class="name">
+                        365
+                    </div>
+                    <div class="code-name codeHide">.icon365
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont icon373"></span>
+                    <div class="name">
+                        373
+                    </div>
+                    <div class="code-name codeHide">.icon373
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont icon124notice"></span>
+                    <div class="name">
+                        124notice
+                    </div>
+                    <div class="code-name codeHide">.icon124notice
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont icon108share"></span>
+                    <div class="name">
+                        108share
+                    </div>
+                    <div class="code-name codeHide">.icon108share
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconbaoyang"></span>
+                    <div class="name">
+                        保养
+                    </div>
+                    <div class="code-name codeHide">.iconbaoyang
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconrukuguanli"></span>
+                    <div class="name">
+                        入库管理
+                    </div>
+                    <div class="code-name codeHide">.iconrukuguanli
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconruku"></span>
+                    <div class="name">
+                        入库
+                    </div>
+                    <div class="code-name codeHide">.iconruku
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconrukuguanli1"></span>
+                    <div class="name">
+                        入库管理
+                    </div>
+                    <div class="code-name codeHide">.iconrukuguanli1
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconbeihuodan"></span>
+                    <div class="name">
+                        备货单
+                    </div>
+                    <div class="code-name codeHide">.iconbeihuodan
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconshengchanlingliaoyutuiliao"></span>
+                    <div class="name">
+                        生产领料与退料
+                    </div>
+                    <div class="code-name codeHide">.iconshengchanlingliaoyutuiliao
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconlailiaopinzhijianyan"></span>
+                    <div class="name">
+                        来料品质检验
+                    </div>
+                    <div class="code-name codeHide">.iconlailiaopinzhijianyan
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconjianyandan"></span>
+                    <div class="name">
+                        检验单
+                    </div>
+                    <div class="code-name codeHide">.iconjianyandan
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconshouhuo"></span>
+                    <div class="name">
+                        收货
+                    </div>
+                    <div class="code-name codeHide">.iconshouhuo
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconcheliangweixiubaoyang"></span>
+                    <div class="name">
+                        车辆维修保养
+                    </div>
+                    <div class="code-name codeHide">.iconcheliangweixiubaoyang
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconrukuqingdan"></span>
+                    <div class="name">
+                        入库清单
+                    </div>
+                    <div class="code-name codeHide">.iconrukuqingdan
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont icontouliao"></span>
+                    <div class="name">
+                        投料
+                    </div>
+                    <div class="code-name codeHide">.icontouliao
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconnavicon-rkyw"></span>
+                    <div class="name">
+                        入库业务
+                    </div>
+                    <div class="code-name codeHide">.iconnavicon-rkyw
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconzhiliangjianyan"></span>
+                    <div class="name">
+                        质量检验
+                    </div>
+                    <div class="code-name codeHide">.iconzhiliangjianyan
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconjianyanpizhiliangjianyanjilu"></span>
+                    <div class="name">
+                        检验批质量检验记录
+                    </div>
+                    <div class="code-name codeHide">.iconjianyanpizhiliangjianyanjilu
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconzhiliangjianyan1"></span>
+                    <div class="name">
+                        质量检验
+                    </div>
+                    <div class="code-name codeHide">.iconzhiliangjianyan1
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconshangliao"></span>
+                    <div class="name">
+                        上料
+                    </div>
+                    <div class="code-name codeHide">.iconshangliao
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconrukuC"></span>
+                    <div class="name">
+                        入库C
+                    </div>
+                    <div class="code-name codeHide">.iconrukuC
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconbanchengpinjianyan"></span>
+                    <div class="name">
+                        半成品检验
+                    </div>
+                    <div class="code-name codeHide">.iconbanchengpinjianyan
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconbeihuochuku"></span>
+                    <div class="name">
+                        备货出库
+                    </div>
+                    <div class="code-name codeHide">.iconbeihuochuku
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconshouhuoruku"></span>
+                    <div class="name">
+                        收货入库
+                    </div>
+                    <div class="code-name codeHide">.iconshouhuoruku
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconshouhuo1"></span>
+                    <div class="name">
+                        收货-物流详情
+                    </div>
+                    <div class="code-name codeHide">.iconshouhuo1
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconshouhuoshou--"></span>
+                    <div class="name">
+                        收货 收
+                    </div>
+                    <div class="code-name codeHide">.iconshouhuoshou--
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconrukuguanli2"></span>
+                    <div class="name">
+                        入库管理
+                    </div>
+                    <div class="code-name codeHide">.iconrukuguanli2
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconqichebaoyangweixiushenqing"></span>
+                    <div class="name">
+                        汽车保养维修申请
+                    </div>
+                    <div class="code-name codeHide">.iconqichebaoyangweixiushenqing
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconrukuguanli-"></span>
+                    <div class="name">
+                        入库管理
+                    </div>
+                    <div class="code-name codeHide">.iconrukuguanli-
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconRectangleCopy"></span>
+                    <div class="name">
+                        入库管理
+                    </div>
+                    <div class="code-name codeHide">.iconRectangleCopy
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconbiaoji"></span>
+                    <div class="name">
+                        标记
+                    </div>
+                    <div class="code-name codeHide">.iconbiaoji
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconchengpinjianyan"></span>
+                    <div class="name">
+                        成品检验
+                    </div>
+                    <div class="code-name codeHide">.iconchengpinjianyan
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconrukuguanli3"></span>
+                    <div class="name">
+                        入库管理
+                    </div>
+                    <div class="code-name codeHide">.iconrukuguanli3
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont icontouliao2"></span>
+                    <div class="name">
+                        投料
+                    </div>
+                    <div class="code-name codeHide">.icontouliao2
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconshangliaoqueren"></span>
+                    <div class="name">
+                        上料确认
+                    </div>
+                    <div class="code-name codeHide">.iconshangliaoqueren
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconguochengjianyanchejian"></span>
+                    <div class="name">
+                        过程检验车间
+                    </div>
+                    <div class="code-name codeHide">.iconguochengjianyanchejian
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconicon_function_ruku"></span>
+                    <div class="name">
+                        入库
+                    </div>
+                    <div class="code-name codeHide">.iconicon_function_ruku
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconbanchengpinjianyan1"></span>
+                    <div class="name">
+                        半成品检验
+                    </div>
+                    <div class="code-name codeHide">.iconbanchengpinjianyan1
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconruku1"></span>
+                    <div class="name">
+                        入库
+                    </div>
+                    <div class="code-name codeHide">.iconruku1
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconguochengjianyan"></span>
+                    <div class="name">
+                        过程检验
+                    </div>
+                    <div class="code-name codeHide">.iconguochengjianyan
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont icontouliao3"></span>
+                    <div class="name">
+                        投料
+                    </div>
+                    <div class="code-name codeHide">.icontouliao3
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconchengpinjianyan1"></span>
+                    <div class="name">
+                        成品检验
+                    </div>
+                    <div class="code-name codeHide">.iconchengpinjianyan1
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconruku2"></span>
+                    <div class="name">
+                        入库
+                    </div>
+                    <div class="code-name codeHide">.iconruku2
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconzu-"></span>
+                    <div class="name">
+                        MR标记
+                    </div>
+                    <div class="code-name codeHide">.iconzu-
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconchengpinjianyanqingdandaoru"></span>
+                    <div class="name">
+                        成品检验清单导入
+                    </div>
+                    <div class="code-name codeHide">.iconchengpinjianyanqingdandaoru
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont icongoodswhinStock"></span>
+                    <div class="name">
+                        入库单 goods/wh/inStock
+                    </div>
+                    <div class="code-name codeHide">.icongoodswhinStock
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconruku3"></span>
+                    <div class="name">
+                        入库
+                    </div>
+                    <div class="code-name codeHide">.iconruku3
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconlunkuohua22_ruku"></span>
+                    <div class="name">
+                        _入库
+                    </div>
+                    <div class="code-name codeHide">.iconlunkuohua22_ruku
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconshebeidianjian"></span>
+                    <div class="name">
+                        设备点检
+                    </div>
+                    <div class="code-name codeHide">.iconshebeidianjian
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconshebeidianjian1"></span>
+                    <div class="name">
+                        设备点检
+                    </div>
+                    <div class="code-name codeHide">.iconshebeidianjian1
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconruku4"></span>
+                    <div class="name">
+                        入库
+                    </div>
+                    <div class="code-name codeHide">.iconruku4
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconchejiantuiliaojiaojie"></span>
+                    <div class="name">
+                        车间退料交接
+                    </div>
+                    <div class="code-name codeHide">.iconchejiantuiliaojiaojie
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconchejiantuiliaojiaojie1"></span>
+                    <div class="name">
+                        车间退料交接
+                    </div>
+                    <div class="code-name codeHide">.iconchejiantuiliaojiaojie1
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconchejiantuiliaojiaojie2"></span>
+                    <div class="name">
+                        车间退料交接
+                    </div>
+                    <div class="code-name codeHide">.iconchejiantuiliaojiaojie2
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont icontouliao4"></span>
+                    <div class="name">
+                        投料
+                    </div>
+                    <div class="code-name codeHide">.icontouliao4
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconchengpinjianyan2"></span>
+                    <div class="name">
+                        成品检验
+                    </div>
+                    <div class="code-name codeHide">.iconchengpinjianyan2
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont icontubiaozhizuomoban-68"></span>
+                    <div class="name">
+                        退料处理
+                    </div>
+                    <div class="code-name codeHide">.icontubiaozhizuomoban-68
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont icontubiaozhizuomoban-133"></span>
+                    <div class="name">
+                        设备点检
+                    </div>
+                    <div class="code-name codeHide">.icontubiaozhizuomoban-133
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconbiaoji1"></span>
+                    <div class="name">
+                        标记
+                    </div>
+                    <div class="code-name codeHide">.iconbiaoji1
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconguochengjianyan1"></span>
+                    <div class="name">
+                        过程检验
+                    </div>
+                    <div class="code-name codeHide">.iconguochengjianyan1
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconbiaozhu"></span>
+                    <div class="name">
+                        标注
+                    </div>
+                    <div class="code-name codeHide">.iconbiaozhu
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconrukuguanli4"></span>
+                    <div class="name">
+                        入库管理
+                    </div>
+                    <div class="code-name codeHide">.iconrukuguanli4
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconrukuguanli5"></span>
+                    <div class="name">
+                        入库管理
+                    </div>
+                    <div class="code-name codeHide">.iconrukuguanli5
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconguochengjianyan_huaban1"></span>
+                    <div class="name">
+                        过程检验_画板 1
+                    </div>
+                    <div class="code-name codeHide">.iconguochengjianyan_huaban1
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconshengchantuiliaobeifen2x"></span>
+                    <div class="name">
+                        生产退料
+                    </div>
+                    <div class="code-name codeHide">.iconshengchantuiliaobeifen2x
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont icongongdan"></span>
+                    <div class="name">
+                        工单
+                    </div>
+                    <div class="code-name codeHide">.icongongdan
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconbill"></span>
+                    <div class="name">
+                        bill
+                    </div>
+                    <div class="code-name codeHide">.iconbill
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconsousuo"></span>
+                    <div class="name">
+                        搜索
+                    </div>
+                    <div class="code-name codeHide">.iconsousuo
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont icontuichu"></span>
+                    <div class="name">
+                        退出
+                    </div>
+                    <div class="code-name codeHide">.icontuichu
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconjihuashu"></span>
+                    <div class="name">
+                        计划书
+                    </div>
+                    <div class="code-name codeHide">.iconjihuashu
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconmima"></span>
+                    <div class="name">
+                        密码
+                    </div>
+                    <div class="code-name codeHide">.iconmima
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconsousuo1"></span>
+                    <div class="name">
+                        搜索
+                    </div>
+                    <div class="code-name codeHide">.iconsousuo1
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont icontubiao7"></span>
+                    <div class="name">
+                        图标7
+                    </div>
+                    <div class="code-name codeHide">.icontubiao7
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconmima1"></span>
+                    <div class="name">
+                        密码
+                    </div>
+                    <div class="code-name codeHide">.iconmima1
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconshengchanrenwudanguanli"></span>
+                    <div class="name">
+                        生产任务单管理
+                    </div>
+                    <div class="code-name codeHide">.iconshengchanrenwudanguanli
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont icontuichu1"></span>
+                    <div class="name">
+                        退出
+                    </div>
+                    <div class="code-name codeHide">.icontuichu1
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconjihuajindu"></span>
+                    <div class="name">
+                        计划进度
+                    </div>
+                    <div class="code-name codeHide">.iconjihuajindu
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconyonghu"></span>
+                    <div class="name">
+                        用户
+                    </div>
+                    <div class="code-name codeHide">.iconyonghu
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconmimaffffffpx"></span>
+                    <div class="name">
+                        密码 #ffffff & 20px
+                    </div>
+                    <div class="code-name codeHide">.iconmimaffffffpx
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont icondianchi"></span>
+                    <div class="name">
+                        电池
+                    </div>
+                    <div class="code-name codeHide">.icondianchi
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconbattery"></span>
+                    <div class="name">
+                        电池
+                    </div>
+                    <div class="code-name codeHide">.iconbattery
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconicon-test"></span>
+                    <div class="name">
+                        设置
+                    </div>
+                    <div class="code-name codeHide">.iconicon-test
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconjihua"></span>
+                    <div class="name">
+                        计划
+                    </div>
+                    <div class="code-name codeHide">.iconjihua
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont icondianchi1"></span>
+                    <div class="name">
+                        电池
+                    </div>
+                    <div class="code-name codeHide">.icondianchi1
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconyonghu1"></span>
+                    <div class="name">
+                        用户群体-业务查询
+                    </div>
+                    <div class="code-name codeHide">.iconyonghu1
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconmima2"></span>
+                    <div class="name">
+                        密码
+                    </div>
+                    <div class="code-name codeHide">.iconmima2
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconmima3"></span>
+                    <div class="name">
+                        密码
+                    </div>
+                    <div class="code-name codeHide">.iconmima3
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconshanchu"></span>
+                    <div class="name">
+                        删 除
+                    </div>
+                    <div class="code-name codeHide">.iconshanchu
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconshengchan-"></span>
+                    <div class="name">
+                        生产
+                    </div>
+                    <div class="code-name codeHide">.iconshengchan-
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconshezhi"></span>
+                    <div class="name">
+                        设置
+                    </div>
+                    <div class="code-name codeHide">.iconshezhi
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconyiliaozhiliangfenxi"></span>
+                    <div class="name">
+                        医疗质量分析
+                    </div>
+                    <div class="code-name codeHide">.iconyiliaozhiliangfenxi
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconshanchu1"></span>
+                    <div class="name">
+                        删 除
+                    </div>
+                    <div class="code-name codeHide">.iconshanchu1
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconshaixuan"></span>
+                    <div class="name">
+                        筛选
+                    </div>
+                    <div class="code-name codeHide">.iconshaixuan
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconcopy"></span>
+                    <div class="name">
+                        copy 复制 标志 图标
+                    </div>
+                    <div class="code-name codeHide">.iconcopy
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconsousuo2"></span>
+                    <div class="name">
+                        搜索
+                    </div>
+                    <div class="code-name codeHide">.iconsousuo2
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconnengliangzhi"></span>
+                    <div class="name">
+                        电力、热力、燃气及水生产和供应业
+                    </div>
+                    <div class="code-name codeHide">.iconnengliangzhi
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconbianji"></span>
+                    <div class="name">
+                        编辑
+                    </div>
+                    <div class="code-name codeHide">.iconbianji
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconbianji1"></span>
+                    <div class="name">
+                        编辑
+                    </div>
+                    <div class="code-name codeHide">.iconbianji1
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconbianji2"></span>
+                    <div class="name">
+                        编辑
+                    </div>
+                    <div class="code-name codeHide">.iconbianji2
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconziyuan142"></span>
+                    <div class="name">
+                        质量
+                    </div>
+                    <div class="code-name codeHide">.iconziyuan142
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconzhiliang"></span>
+                    <div class="name">
+                        质量
+                    </div>
+                    <div class="code-name codeHide">.iconzhiliang
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconshengchanzhoubao"></span>
+                    <div class="name">
+                        生产周报
+                    </div>
+                    <div class="code-name codeHide">.iconshengchanzhoubao
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconshengchanyuebao"></span>
+                    <div class="name">
+                        生产月报
+                    </div>
+                    <div class="code-name codeHide">.iconshengchanyuebao
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont icontubiao5"></span>
+                    <div class="name">
+                        图标5
+                    </div>
+                    <div class="code-name codeHide">.icontubiao5
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont icon6"></span>
+                    <div class="name">
+                        生产日报
+                    </div>
+                    <div class="code-name codeHide">.icon6
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconshaixuan1"></span>
+                    <div class="name">
+                        筛 选
+                    </div>
+                    <div class="code-name codeHide">.iconshaixuan1
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconsousuo3"></span>
+                    <div class="name">
+                        搜索
+                    </div>
+                    <div class="code-name codeHide">.iconsousuo3
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont icontubiao"></span>
+                    <div class="name">
+                        图标
+                    </div>
+                    <div class="code-name codeHide">.icontubiao
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconcangpeitubiao_shanchu"></span>
+                    <div class="name">
+                        删 除
+                    </div>
+                    <div class="code-name codeHide">.iconcangpeitubiao_shanchu
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconjihuashangchuan"></span>
+                    <div class="name">
+                        计划上传
+                    </div>
+                    <div class="code-name codeHide">.iconjihuashangchuan
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconmima4"></span>
+                    <div class="name">
+                        密码
+                    </div>
+                    <div class="code-name codeHide">.iconmima4
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconmima5"></span>
+                    <div class="name">
+                        密码
+                    </div>
+                    <div class="code-name codeHide">.iconmima5
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconshezhi01"></span>
+                    <div class="name">
+                        设 置
+                    </div>
+                    <div class="code-name codeHide">.iconshezhi01
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconshanchu11"></span>
+                    <div class="name">
+                        删 除 (1)
+                    </div>
+                    <div class="code-name codeHide">.iconshanchu11
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconjihuaxiazai"></span>
+                    <div class="name">
+                        计划下载
+                    </div>
+                    <div class="code-name codeHide">.iconjihuaxiazai
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont icontuichu2"></span>
+                    <div class="name">
+                        退出
+                    </div>
+                    <div class="code-name codeHide">.icontuichu2
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconshaixuan2"></span>
+                    <div class="name">
+                        筛选
+                    </div>
+                    <div class="code-name codeHide">.iconshaixuan2
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconshengchanguanli"></span>
+                    <div class="name">
+                        菜单-生产管理
+                    </div>
+                    <div class="code-name codeHide">.iconshengchanguanli
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconshezhi1"></span>
+                    <div class="name">
+                        设置
+                    </div>
+                    <div class="code-name codeHide">.iconshezhi1
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconzhiliangguanli"></span>
+                    <div class="name">
+                        质量管理
+                    </div>
+                    <div class="code-name codeHide">.iconzhiliangguanli
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconshanchu2"></span>
+                    <div class="name">
+                        删 除
+                    </div>
+                    <div class="code-name codeHide">.iconshanchu2
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconjihuashuomingshu"></span>
+                    <div class="name">
+                        计划说明书
+                    </div>
+                    <div class="code-name codeHide">.iconjihuashuomingshu
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconshaixuan3"></span>
+                    <div class="name">
+                        筛选
+                    </div>
+                    <div class="code-name codeHide">.iconshaixuan3
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconjihua1"></span>
+                    <div class="name">
+                        计划
+                    </div>
+                    <div class="code-name codeHide">.iconjihua1
+                    </div>
+                </li>
+
+                <li class="dib" onclick="selectedIco(this)">
+                    <span class="icon iconfont iconbianji3"></span>
+                    <div class="name">
+                        编辑
+                    </div>
+                    <div class="code-name codeHide">.iconbianji3
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div>
+        <div style="float: left;">
+            <div style="margin: 20px 20px 20px 50px;">
+                <div style="float:left;margin-top: 70px !important;">您选择的图标是：</div>
+                <div style="float:left;margin-left: 5px;border: 1px solid #ccc8c6;padding-left:18px;">
+                    <ul class="icon_lists dib-box">
+                        <li class="dib">
+                            <span class="icon iconfont icondun" id="icoClass"></span>
+                            <div class="name" id="selectedName">盾</div>
+                            <div class="code-name codeHide" id="icoName">.icondun</div>
+                        </li>
+                    </ul>
+                </div>
+                <div style="clear:both;"></div>
+            </div>
+        </div>
+        <div class="" style="float: left;margin: 18% 0 0 38%;">
+            <div class="col-md-40">
+                <sit-property-grid sit-id="add_form" sit-layout="Horizontal" sit-type="Fixed" sit-mode="edit" sit-columns="2" style="text-align:right;">
+                    <button class="btn btn-primary" type="button" ng-click="vm.save()">确定</button>
+                    <button class="btn btn-default" type="button" ng-click="vm.cancel()">取消</button>
+                </sit-property-grid>
+            </div>
+        </div>
+        <div style="clear:both;"></div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('.tab-container .content:first').show()
+        $('#tabs li').click(function (e) {
+            var tabContent = $('.tab-container .content')
+            var index = $(this).index()
+
+            if ($(this).hasClass('active')) {
+                return
+            } else {
+                $('#tabs li').removeClass('active')
+                $(this).addClass('active')
+
+                tabContent.hide().eq(index).fadeIn()
+            }
+        })
+    })
+    function selectedIco(t) {
+        var str = $.trim($($(t).find('.code-name')[0]).html());
+        // re = $.trim('customicon ' + str.substring(1, str.length));
+
+        var name = $.trim($($(t).find('.name')[0]).html());
+        $('#selectedName').html(name);
+
+        $('#icoClass').attr('class', ($(t).find('span')[0]).className);
+
+        $('#icoName').html(str);
+
+        console.log($('#icoName').html());
+    }
+</script>

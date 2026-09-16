@@ -1,0 +1,1364 @@
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.Common;
+using System.Linq;
+using System.Linq.Expressions;
+using System.Data.SqlClient;
+using System.Text;
+using System.Threading.Tasks;
+using ALP.Application.Entity.PlanManage;
+using ALP.Data.Repository;
+using ALP.Util;
+using ALP.Util.Extension;
+using ALP.Util.WebControl;
+using Newtonsoft.Json.Linq;
+using ALP.Application.Service.Common;
+using System.IO;
+using ALP.Application.IService.PlanManage;
+using ALP.Application.UtilExtend.Offices;
+using ALP.Data;
+using ALP.Application.Service.SystemManage;
+
+namespace ALP.Application.Service.PlanManage
+{
+    /// <summary>
+    /// 1.创建日期: 2021-07-27
+    /// 2.创建作者: liyongguo
+    /// 3.功能描述: PL_PurchaseOrderService 业务服务类
+    /// 4.任务编号: 采购订单
+    /// 5.最后修改日期: 
+    /// 6.最后修改作者: 
+    /// </summary>
+    public class PL_PurchaseOrder_Service : RepositoryFactory<PL_PurchaseOrderEntity>, PL_PurchaseOrderIService
+    {
+        /// <summary>
+        /// 功能描述: 查询分页列表
+        /// 创　　建: liyongguo
+        /// 创建日期: 2021-07-27 16:28:16
+        /// 任务编号: 采购订单
+        /// </summary>
+        /// <param name="pagination">分页</param>
+        /// <param name="queryJson">查询参数</param>
+        /// <returns>返回分页列表</returns>
+        public IEnumerable<PL_PurchaseOrderEntity> GetPageList(Pagination pagination, string queryJson)
+        {
+            StringBuilder sql = new StringBuilder();
+            sql.Append(@"SELECT 
+                      [Id],FactoryCode
+                      ,[PurchaseOrder]
+                      ,[OrderType]
+                      ,[ProductOrder]
+                      ,Coefficient
+                      ,[ProductDeliveryDate]
+                      ,[MaterialCode]
+                      ,[MaterialName]
+                      ,[Unit]
+                      ,[Supplier]
+                      ,[PurchaseNum]
+                      ,[OrderNum]
+                      ,[PurchaseDeliveryDate]
+                      ,[ArrivalStatus]
+                      ,[Creator]
+                      ,[CreateTime]
+                      ,[ModifyBy]
+                      ,[ModifyTime]
+                  FROM [dbo].[PL_PurchaseOrder] where 1=1  ");
+            var parameter = new List<DbParameter>();
+            if (!string.IsNullOrEmpty(queryJson))
+            {
+                JObject queryParam = queryJson.ToJObject();
+                //查询条件 
+                //Id 是否为空进行查询
+                if (!queryParam["Id"].IsEmpty())
+                {
+                    //sql.Append($" AND Id = N'{queryParam["Id"]}'");
+                    sql.Append($" AND Id like N'%{queryParam["Id"]}%'");
+                }
+                //采购订单号 是否为空进行查询
+                if (!queryParam["PurchaseOrder"].IsEmpty())
+                {
+                    //sql.Append($" AND PurchaseOrder = N'{queryParam["PurchaseOrder"]}'");
+                    sql.Append($" AND PurchaseOrder like N'%{queryParam["PurchaseOrder"]}%'");
+                }
+                //采购类型 是否为空进行查询
+                if (!queryParam["OrderType"].IsEmpty())
+                {
+                    //sql.Append($" AND OrderType = N'{queryParam["OrderType"]}'");
+                    sql.Append($" AND OrderType like N'%{queryParam["OrderType"]}%'");
+                }
+                //生产订单 是否为空进行查询
+                if (!queryParam["ProductOrder"].IsEmpty())
+                {
+                    //sql.Append($" AND ProductOrder = N'{queryParam["ProductOrder"]}'");
+                    sql.Append($" AND ProductOrder like N'%{queryParam["ProductOrder"]}%'");
+                }
+                //成品交货日期 是否为空进行查询
+                if (!queryParam["ProductDeliveryDate"].IsEmpty())
+                {
+                    //sql.Append($" AND ProductDeliveryDate = N'{queryParam["ProductDeliveryDate"]}'");
+                    sql.Append($" AND ProductDeliveryDate like N'%{queryParam["ProductDeliveryDate"]}%'");
+                }
+                //物料编码 是否为空进行查询
+                if (!queryParam["MaterialCode"].IsEmpty())
+                {
+                    //sql.Append($" AND MaterialCode = N'{queryParam["MaterialCode"]}'");
+                    sql.Append($" AND MaterialCode like N'%{queryParam["MaterialCode"]}%'");
+                }
+                //物料名称 是否为空进行查询
+                if (!queryParam["MaterialName"].IsEmpty())
+                {
+                    //sql.Append($" AND MaterialName = N'{queryParam["MaterialName"]}'");
+                    sql.Append($" AND MaterialName like N'%{queryParam["MaterialName"]}%'");
+                }
+                //单位 是否为空进行查询
+                if (!queryParam["Unit"].IsEmpty())
+                {
+                    //sql.Append($" AND Unit = N'{queryParam["Unit"]}'");
+                    sql.Append($" AND Unit like N'%{queryParam["Unit"]}%'");
+                }
+                //供应商 是否为空进行查询
+                if (!queryParam["Supplier"].IsEmpty())
+                {
+                    //sql.Append($" AND Supplier = N'{queryParam["Supplier"]}'");
+                    sql.Append($" AND Supplier like N'%{queryParam["Supplier"]}%'");
+                }
+                //应采购数量 是否为空进行查询
+                if (!queryParam["PurchaseNum"].IsEmpty())
+                {
+                    //sql.Append($" AND PurchaseNum = N'{queryParam["PurchaseNum"]}'");
+                    sql.Append($" AND PurchaseNum like N'%{queryParam["PurchaseNum"]}%'");
+                }
+                //下单数量 是否为空进行查询
+                if (!queryParam["OrderNum"].IsEmpty())
+                {
+                    //sql.Append($" AND OrderNum = N'{queryParam["OrderNum"]}'");
+                    sql.Append($" AND OrderNum like N'%{queryParam["OrderNum"]}%'");
+                }
+                //采购交货期 是否为空进行查询
+                if (!queryParam["PurchaseDeliveryDate"].IsEmpty())
+                {
+                    //sql.Append($" AND PurchaseDeliveryDate = N'{queryParam["PurchaseDeliveryDate"]}'");
+                    sql.Append($" AND PurchaseDeliveryDate like N'%{queryParam["PurchaseDeliveryDate"]}%'");
+                }
+                //到货状态 是否为空进行查询
+                if (!queryParam["ArrivalStatus"].IsEmpty())
+                {
+                    //sql.Append($" AND ArrivalStatus = N'{queryParam["ArrivalStatus"]}'");
+                    sql.Append($" AND ArrivalStatus like N'%{queryParam["ArrivalStatus"]}%'");
+                }
+                //创建人 是否为空进行查询
+                if (!queryParam["Creator"].IsEmpty())
+                {
+                    //sql.Append($" AND Creator = N'{queryParam["Creator"]}'");
+                    sql.Append($" AND Creator like N'%{queryParam["Creator"]}%'");
+                }
+                //创建时间 是否为空进行查询
+                if (!queryParam["CreateTime"].IsEmpty())
+                {
+                    //sql.Append($" AND CreateTime = N'{queryParam["CreateTime"]}'");
+                    sql.Append($" AND CreateTime like N'%{queryParam["CreateTime"]}%'");
+                }
+                //最后修改人 是否为空进行查询
+                if (!queryParam["ModifyBy"].IsEmpty())
+                {
+                    //sql.Append($" AND ModifyBy = N'{queryParam["ModifyBy"]}'");
+                    sql.Append($" AND ModifyBy like N'%{queryParam["ModifyBy"]}%'");
+                }
+                //最后修改时间 是否为空进行查询
+                if (!queryParam["ModifyTime"].IsEmpty())
+                {
+                    //sql.Append($" AND ModifyTime = N'{queryParam["ModifyTime"]}'");
+                    sql.Append($" AND ModifyTime like N'%{queryParam["ModifyTime"]}%'");
+                }
+                //queryName(选择弹窗关键名称) 是否为空进行查询
+                if (!queryParam["queryName"].IsEmpty())
+                {
+                    //sql.Append($" AND 关键名称 = '{queryParam["queryName"]}'");
+                    //sql.Append($" AND 关键名称 like N'%{queryParam["queryName"]}%'");
+                }
+                //queryCode(选择弹窗关键编码) 是否为空进行查询
+                if (!queryParam["queryCode"].IsEmpty())
+                {
+                    //sql.Append($" AND 关键编码 = N'{queryParam["queryCode"]}'");
+                    //sql.Append($" AND 关键编码 like N'%{queryParam["queryCode"]}%'");
+                }
+            }
+            try
+            {
+                if (pagination == null)
+                {
+                    return this.BaseRepository().FindList(sql.ToString());
+                }
+                else
+                {
+                    return this.BaseRepository().FindList(sql.ToString(), parameter.ToArray(), pagination);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// 功能描述: 查询分页列表(DataTable)
+        /// 创　　建: liyongguo
+        /// 创建日期: 2021-07-27 16:28:16
+        /// 任务编号: 采购订单
+        /// </summary>
+        /// <param name="pagination">分页</param>
+        /// <param name="queryJson">查询参数</param>
+        /// <returns>返回分页列表</returns>
+        public DataTable GetPageDataTableList(Pagination pagination, string queryJson)
+        {
+            StringBuilder sql = new StringBuilder();
+            sql.Append(@"SELECT PU.[Id],
+                               PU.FactoryCode,
+                               PU.FactoryName,
+                               PU.Coefficient,
+                               PU.[PurchaseOrder],
+                               PU.[OrderType],
+                               PU.[ProductOrder],
+                               PO.DeliveryDate [ProductDeliveryDate],
+                               PU.[MaterialCode],
+                               PU.[MaterialName],
+                               PU.Spec,
+                               PU.SmallClass,
+                               PU.MaterialClass,
+                               PU.[Unit],
+                               PU.[Supplier],
+                               PU.[PurchaseNum],
+                               PU.[PurchaseNum] - (CASE
+                                                       WHEN ISNULL(rm.InQty, 0) = 0 THEN
+                                                           PU.InQty
+                                                       ELSE
+                                                           ISNULL(rm.InQty, 0)
+                                                   END
+                                                  ) NoArrivalQty,
+                               CASE
+                                   WHEN ISNULL(rm.InQty, 0) = 0 THEN
+                                       PU.InQty
+                                   ELSE
+                                       ISNULL(rm.InQty, 0)
+                               END ArrivalQty,
+                               PU.[OrderNum],
+                               PU.[PurchaseDeliveryDate],
+                               PU.[ArrivalStatus],
+                               PU.[Creator],
+                               b.[Name] CreatorName,
+                               PU.[CreateTime],
+                               PU.[ModifyBy],
+                               PU.Remark,
+                               PU.[ModifyTime],
+                               BS.Abbr,
+                               BS.SupplierName,
+                               PU.ContractNo,
+                               PU.InvoiceNo,
+                               a.IsUsed,
+                               PU.SupplierCode2,
+                               PU.SupplierName2,
+                               PU.SupplierCode3,
+                               PU.SupplierName3,
+                               PU.SupplierCode4,
+                               PU.SupplierName4,
+                               PU.SupplierCode5,
+                               PU.SupplierName5,
+                               PU.SupplierCode6,
+                               PU.SupplierName6
+                        FROM [dbo].[PL_PurchaseOrder] PU
+                            LEFT JOIN dbo.Base_SupplierManage BS
+                                ON BS.SupplierCode = PU.Supplier
+                            LEFT JOIN
+                            (
+                                SELECT re1.PurchaseId,
+                                       re2.MaterialCode,
+                                       SUM(re2.Qty) InQty
+                                FROM dbo.MM_ReceiptNotice re1
+                                    INNER JOIN dbo.MM_RawMaterialIn re2
+                                        ON re1.Id = re2.BusinessId
+								WHERE re2.IsDeleted=0
+                                GROUP BY re1.PurchaseId,
+                                         re2.MaterialCode
+                            ) rm
+                                ON PU.Id = rm.PurchaseId
+                                   AND PU.MaterialCode = rm.MaterialCode
+                            LEFT JOIN dbo.PL_ProductionOrder PO
+                                ON PO.ProductOrder = PU.ProductOrder
+                            LEFT JOIN dbo.BS_People b
+                                ON PU.Creator = b.Code
+                            LEFT JOIN dbo.Base_MaterialFactory a
+                                ON PU.FactoryCode = a.FactoryCode
+                                   AND PU.MaterialCode = a.MaterialCode
+                        WHERE ISNULL(PU.IsDeleted, 0) = 0 ");
+
+            var parameter = new List<DbParameter>();
+            if (!string.IsNullOrEmpty(queryJson))
+            {
+                JObject queryParam = queryJson.ToJObject();
+                //查询条件 
+                //采购订单号 是否为空进行查询
+                if (!queryParam["FactoryCode"].IsEmpty())
+                {
+                    sql.Append($" AND PU.FactoryCode = N'{queryParam["FactoryCode"]}'");
+                }
+                //物料 是否为空进行查询
+                if (!queryParam["Material"].IsEmpty())
+                {
+                    //sql.Append($" AND Id = N'{queryParam["Id"]}'");
+                    sql.Append($" AND (PU.MaterialCode like N'%{queryParam["Material"]}%' OR PU.MaterialName like N'%{queryParam["Material"]}%')");
+                }
+                //采购订单号 是否为空进行查询
+                if (!queryParam["PurchaseOrder"].IsEmpty())
+                {
+                    //sql.Append($" AND PurchaseOrder = N'{queryParam["PurchaseOrder"]}'");
+                    sql.Append($" AND PurchaseOrder like N'%{queryParam["PurchaseOrder"]}%'");
+                }
+                //采购类型 是否为空进行查询
+                if (!queryParam["OrderType"].IsEmpty())
+                {
+                    sql.Append($" AND PU.OrderType = N'{queryParam["OrderType"]}'");
+                }
+                //生产订单 是否为空进行查询
+                if (!queryParam["ProductOrder"].IsEmpty())
+                {
+                    //sql.Append($" AND ProductOrder = N'{queryParam["ProductOrder"]}'");
+                    sql.Append($" AND PU.ProductOrder like N'%{queryParam["ProductOrder"]}%'");
+                }
+
+                if (!queryParam["SmallClass"].IsEmpty())
+                {
+                    //sql.Append($" AND ProductOrder = N'{queryParam["ProductOrder"]}'");
+                    sql.Append($" AND PU.SmallClass like N'%{queryParam["SmallClass"]}%'");
+                }
+
+                if (!queryParam["StartPurchase"].IsEmpty())
+                {
+                    sql.Append($" AND PurchaseDeliveryDate >= N'{queryParam["StartPurchase"]}'");
+                }
+                if (!queryParam["EndPurchase"].IsEmpty())
+                {
+                    sql.Append($" AND PurchaseDeliveryDate <= N'{queryParam["EndPurchase"]}'");
+                }
+
+                //物料编码 是否为空进行查询
+                if (!queryParam["MaterialCode"].IsEmpty())
+                {
+                    //sql.Append($" AND MaterialCode = N'{queryParam["MaterialCode"]}'");
+                    sql.Append($" AND MaterialCode like N'%{queryParam["MaterialCode"]}%'");
+                }
+                //物料名称 是否为空进行查询
+                if (!queryParam["MaterialName"].IsEmpty())
+                {
+                    //sql.Append($" AND MaterialName = N'{queryParam["MaterialName"]}'");
+                    sql.Append($" AND MaterialName like N'%{queryParam["MaterialName"]}%'");
+                }
+                //单位 是否为空进行查询
+                if (!queryParam["Unit"].IsEmpty())
+                {
+                    //sql.Append($" AND Unit = N'{queryParam["Unit"]}'");
+                    sql.Append($" AND Unit like N'%{queryParam["Unit"]}%'");
+                }
+                //供应商 是否为空进行查询
+                if (!queryParam["Supplier"].IsEmpty())
+                {
+                    //sql.Append($" AND Supplier = N'{queryParam["Supplier"]}'");
+                    sql.Append($" AND (PU.Supplier LIKE '%{queryParam["Supplier"]}%' OR BS.SupplierName LIKE '%{queryParam["Supplier"]}%') ");
+                }
+                //应采购数量 是否为空进行查询
+                if (!queryParam["PurchaseNum"].IsEmpty())
+                {
+                    //sql.Append($" AND PurchaseNum = N'{queryParam["PurchaseNum"]}'");
+                    sql.Append($" AND PurchaseNum like N'%{queryParam["PurchaseNum"]}%'");
+                }
+                //下单数量 是否为空进行查询
+                if (!queryParam["OrderNum"].IsEmpty())
+                {
+                    //sql.Append($" AND OrderNum = N'{queryParam["OrderNum"]}'");
+                    sql.Append($" AND OrderNum like N'%{queryParam["OrderNum"]}%'");
+                }
+                if (!queryParam["StartProduct"].IsEmpty())
+                {
+                    sql.Append($" AND ProductDeliveryDate >= N'{queryParam["StartProduct"]}'");
+                }
+                if (!queryParam["EndProduct"].IsEmpty())
+                {
+                    sql.Append($" AND ProductDeliveryDate <= N'{queryParam["EndProduct"]}'");
+                }
+                //到货状态 是否为空进行查询
+                if (!queryParam["ArrivalStatus"].IsEmpty())
+                {
+                    sql.Append($" AND ArrivalStatus = N'{queryParam["ArrivalStatus"]}'");
+                }
+
+                if (!queryParam["LowerLimit"].IsEmpty())
+                {
+                    sql.Append($" AND PU.[PurchaseNum]-ISNULL(rm.ArrivalQty,0) >= N'{queryParam["LowerLimit"]}'");
+                }
+                if (!queryParam["UpperLimit"].IsEmpty())
+                {
+                    sql.Append($" AND PU.[PurchaseNum]-ISNULL(rm.ArrivalQty,0) <= N'{queryParam["UpperLimit"]}'");
+                }
+                //queryCode(选择弹窗关键编码) 是否为空进行查询
+                if (!queryParam["ArrivalStatusStr"].IsEmpty())
+                {
+                    sql.Append($" AND PU.ArrivalStatus IN('1','2') ");
+                }
+                if (!queryParam["StartTime"].IsEmpty())
+                {
+                    sql.Append($" AND CONVERT(VARCHAR(10),PU.CreateTime,120) >= N'{queryParam["StartTime"]}'");
+                }
+                if (!queryParam["EndTime"].IsEmpty())
+                {
+                    sql.Append($" AND CONVERT(VARCHAR(10),PU.CreateTime,120) <= N'{queryParam["EndTime"]}'");
+                }
+                if (!queryParam["Creator"].IsEmpty())
+                {
+                    sql.Append($" AND (pu.Creator LIKE '%{queryParam["Creator"]}%' OR b.Name LIKE '%{queryParam["Creator"]}%') ");
+                }
+                //合同号 是否为空进行查询
+                if (!queryParam["ContractNo"].IsEmpty())
+                {
+                    sql.Append($" AND PU.ContractNo like N'%{queryParam["ContractNo"]}%'");
+                }
+                //发票号 是否为空进行查询
+                if (!queryParam["InvoiceNo"].IsEmpty())
+                {
+                    sql.Append($" AND PU.InvoiceNo like N'%{queryParam["InvoiceNo"]}%'");
+                }
+            }
+            try
+            {
+                if (pagination == null)
+                {
+                    return this.BaseRepository().FindTable(sql.ToString());
+                }
+                else
+                {
+                    return this.BaseRepository().FindTable(sql.ToString(), parameter.ToArray(), pagination);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// 功能描述: 查询分页列表(DataTable)
+        /// 创　　建: liyongguo
+        /// 创建日期: 2021-07-27 16:28:16
+        /// 任务编号: 新建收料通知单时使用
+        /// </summary>
+        /// <param name="pagination">分页</param>
+        /// <param name="queryJson">查询参数</param>
+        /// <returns>返回分页列表</returns>
+        public DataTable GetPageDataTableListByReceiptNotice(Pagination pagination, string queryJson)
+        {
+            StringBuilder sql = new StringBuilder();
+            sql.Append(@" SELECT PU.Id,
+                               PU.FactoryCode,
+							   PU.FactoryName,
+                               PU.[PurchaseOrder],
+                                pu.Coefficient,
+                               PU.[OrderType],
+                               PU.[ProductOrder],
+                               PO.DeliveryDate [ProductDeliveryDate],
+                               PU.[MaterialCode],
+                               PU.[MaterialName],
+                               PU.Spec,
+                               PU.SmallClass,
+                               PU.MaterialClass,
+                               PU.[Unit],
+                               PU.[Supplier],
+                               PU.[PurchaseNum],
+                               PU.[PurchaseNum] - ISNULL(rm.ArrivalQty, 0) NoArrivalQty,
+                               rm.ArrivalQty,
+                               PU.[OrderNum],
+                               PU.[PurchaseDeliveryDate],
+                               PU.[ArrivalStatus],
+							   PU.CreateTime,
+                               BS.Abbr,
+                               BS.SupplierName,
+                               A.FirstQty,
+							   pu.ContractNo
+                        FROM [dbo].[PL_PurchaseOrder] PU
+                            LEFT JOIN dbo.Base_SupplierManage BS
+                                ON BS.SupplierCode = PU.Supplier
+                            LEFT JOIN
+                            (
+                                SELECT re1.PurchaseId,
+                                       re2.MaterialCode,
+                                       SUM(re2.Qty) ArrivalQty
+                                FROM dbo.MM_ReceiptNotice re1
+                                    INNER JOIN dbo.MM_RawMaterialIn re2
+                                        ON re1.Id = re2.BusinessId
+                                GROUP BY re1.PurchaseId,
+                                         re2.MaterialCode
+                            ) rm
+                                ON PU.Id = rm.PurchaseId
+                                   AND PU.MaterialCode = rm.MaterialCode
+                            LEFT JOIN
+                            (
+                                SELECT PE.ProductOrder,
+                                       PBI.MaterialCode,
+                                       PBI.MaterialName,
+                                       CAST(SUM(PT.Qty * 1.0 * PMA.DXZH * (PBI.Num / PB.UnitNum)) AS DECIMAL(10, 1)) FirstQty
+                                FROM dbo.PM_TranferCardBGRecord PT
+                                    INNER JOIN dbo.PM_TransferCard PE
+                                        ON PE.CardCode = PT.CardCode
+                                           AND PT.ProcessCode = PE.StartProcess
+                                    LEFT JOIN dbo.fn_GetMaterialAttrs() PMA
+                                        ON PMA.WorkOrder = PE.WorkOrder
+                                    LEFT JOIN dbo.PL_BOM PB
+                                        ON PB.WorkOrder = PE.WorkOrder
+                                    LEFT JOIN dbo.PL_BOMItems PBI
+                                        ON PBI.BOMId = PB.Id
+                                GROUP BY PE.ProductOrder,
+                                         PBI.MaterialCode,
+                                         PBI.MaterialName
+                            ) A
+                                ON A.MaterialCode = PU.MaterialCode
+                                   AND A.ProductOrder = PU.ProductOrder
+                            LEFT JOIN dbo.PL_ProductionOrder PO
+                                ON PO.ProductOrder = PU.ProductOrder
+                        WHERE 1=1 ");
+
+            var parameter = new List<DbParameter>();
+            if (!string.IsNullOrEmpty(queryJson))
+            {
+                JObject queryParam = queryJson.ToJObject();
+                //查询条件 
+                //工厂 是否为空进行查询
+                if (!queryParam["FactoryCode"].IsEmpty())
+                {
+                    sql.Append($" AND PU.FactoryCode = N'{queryParam["FactoryCode"]}'");
+                }
+                //物料 是否为空进行查询
+                if (!queryParam["Material"].IsEmpty())
+                {
+                    //sql.Append($" AND Id = N'{queryParam["Id"]}'");
+                    sql.Append($" AND (PU.MaterialCode like N'%{queryParam["Material"]}%' OR PU.MaterialName like N'%{queryParam["Material"]}%')");
+                }
+                //采购订单号 是否为空进行查询
+                if (!queryParam["PurchaseOrder"].IsEmpty())
+                {
+                    //sql.Append($" AND PurchaseOrder = N'{queryParam["PurchaseOrder"]}'");
+                    sql.Append($" AND PurchaseOrder like N'%{queryParam["PurchaseOrder"]}%'");
+                }
+                //生产订单 是否为空进行查询
+                if (!queryParam["ProductOrder"].IsEmpty())
+                {
+                    //sql.Append($" AND ProductOrder = N'{queryParam["ProductOrder"]}'");
+                    sql.Append($" AND PU.ProductOrder like N'%{queryParam["ProductOrder"]}%'");
+                }
+                if (!queryParam["StartTime"].IsEmpty())
+                {
+                    sql.Append($" AND PU.CreateTime >= N'{queryParam["StartTime"]}'");
+                }
+                if (!queryParam["EndTime"].IsEmpty())
+                {
+                    sql.Append($" AND PU.CreateTime <= N'{queryParam["EndTime"]} 23:59:59'");
+                }
+                //供应商 是否为空进行查询
+                if (!queryParam["Supplier"].IsEmpty())
+                {
+                    //sql.Append($" AND Supplier = N'{queryParam["Supplier"]}'");
+                    sql.Append($" AND (PU.Supplier LIKE '%{queryParam["Supplier"]}%' OR BS.SupplierName LIKE '%{queryParam["Supplier"]}%') ");
+                }
+                //未到货数量
+                if (!queryParam["LowerLimit"].IsEmpty())
+                {
+                    sql.Append($" AND PU.[PurchaseNum]-ISNULL(rm.ArrivalQty,0) >= N'{queryParam["LowerLimit"]}'");
+                }
+                if (!queryParam["UpperLimit"].IsEmpty())
+                {
+                    sql.Append($" AND PU.[PurchaseNum]-ISNULL(rm.ArrivalQty,0) <= N'{queryParam["UpperLimit"]}'");
+                }
+            }
+            try
+            {
+                if (pagination == null)
+                {
+                    return this.BaseRepository().FindTable(sql.ToString());
+                }
+                else
+                {
+                    return this.BaseRepository().FindTable(sql.ToString(), parameter.ToArray(), pagination);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// 功能描述: 查询列表, 不分页, 适用于下拉列表使用
+        /// 创　　建: liyongguo
+        /// 创建日期: 2021-07-27 16:28:16
+        /// 任务编号: 采购订单
+        /// </summary>
+        /// <param name="checkType">查询条件</param>
+        /// <returns>返回分页列表</returns>
+        public IEnumerable<PL_PurchaseOrderEntity> GetList(string checkType, out string msg)
+        {
+            StringBuilder sql = new StringBuilder();
+            sql.Append(@"SELECT 
+                      [Id],FactoryCode
+                      ,[PurchaseOrder]
+                      ,[OrderType]
+                      ,[ProductOrder]
+                      ,[ProductDeliveryDate]
+                      ,[MaterialCode]
+                      ,[MaterialName]
+                      ,[Unit]
+                      ,[Supplier]
+                      ,[PurchaseNum]
+                      ,[OrderNum]
+                      ,[PurchaseDeliveryDate]
+                      ,[ArrivalStatus]
+                      ,[Creator]
+                      ,[CreateTime]
+                      ,[ModifyBy]
+                      ,[ModifyTime]
+                  FROM [dbo].[PL_PurchaseOrder] where 1=1  ");
+            if (!checkType.IsEmpty())
+            {
+                //sql.Append($@" and Id = N'{checkType}' ");
+            }
+            msg = "";
+            try
+            {
+                return this.BaseRepository().FindList(sql.ToString());
+            }
+            catch (Exception ex)
+            {
+                msg = ex.Message;
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// 功能描述: 保存表单（新增、修改）
+        /// 创　　建: liyongguo
+        /// 创建日期: 2021-07-27 16:28:16
+        /// 任务编号: 采购订单
+        /// </summary>
+        /// <param name="keyValue">主键值</param>
+        /// <param name="entity">实体对象</param>
+        /// <param name="msg">输出错误内容</param>
+        /// <returns>返回int 成功1, 失败0 </returns>
+        public int SaveEntity(string keyValue, PL_PurchaseOrderEntity entity, out string msg)
+        {
+            int n = 0;
+            msg = "";
+            try
+            {
+                if (!string.IsNullOrEmpty(keyValue))
+                {
+                    entity.Modify(keyValue);
+                    n = this.BaseRepository().Update(entity);
+                }
+                else
+                {
+                    if (string.IsNullOrEmpty(entity.Id))
+                    {
+                        entity.Create();
+                    }
+                    n = this.BaseRepository().Insert(entity);
+                }
+            }
+            catch (Exception ex)
+            {
+                msg = ex.Message;
+            }
+            return n;
+        }
+
+        /// <summary>
+        /// 功能描述: 导入 保存表单（新增、修改）
+        /// 创　　建: liyongguo
+        /// 创建日期: 2021-07-27 16:28:16
+        /// 任务编号: 采购订单
+        /// </summary>
+        /// <param name="IsUpdate">是否更新</param>
+        /// <param name="CreatedByName">创建人</param>
+        /// <param name="List<PL_PurchaseOrderEntity>">实体对象数组</param>
+        /// <param name="msg">输出错误内容</param>
+        /// <returns>返回int 成功1, 失败0 </returns>
+        public int SaveEntity_List(bool IsUpdate, string CreatedByName, List<PL_PurchaseOrderEntity> entity_list, out string msg)
+        {
+            int n = 0;
+            msg = "";
+            try
+            {
+                if (IsUpdate)
+                {
+                    //n = this.BaseRepository().Update(entity_list);
+                    StringBuilder sql = new StringBuilder();
+                    if (entity_list.Count > 0)
+                    {
+                        foreach (var Save_obj in entity_list)
+                        {
+                            StringBuilder sql_temp = new StringBuilder();
+                            sql_temp.Append("UPDATE [dbo].[PL_PurchaseOrder] set ");
+                            string keyValue = "";
+                            //循环实体
+                            Save_obj.GetType().GetProperties().ToList().ForEach(x =>
+                            {
+                                if (x.Name == "Id")
+                                {
+                                    keyValue = x.GetValue(Save_obj, null).ToString();
+                                }
+                                else
+                                {
+                                    if (x.Name == "IsDeleted")
+                                    {
+                                        if (x.GetValue(Save_obj, null) != null)
+                                        {
+                                            sql_temp.Append(x.Name + "=" + (x.GetValue(Save_obj, null) == null ? 0 : (x.GetValue(Save_obj, null).ToString() == "true" ? 1 : 0)) + ",");
+                                        }
+                                    }
+                                    else
+                                    {
+                                        if (x.GetValue(Save_obj, null) != null && x.GetValue(Save_obj, null).ToString() != "")
+                                        {
+                                            sql_temp.Append(x.Name + "=N'" + (x.GetValue(Save_obj, null) == null ? "" : x.GetValue(Save_obj, null).ToString()) + "',");
+                                        }
+                                    }
+                                }
+
+                            });
+                            sql.Append(sql_temp.ToString().TrimEnd(',') + $" WHERE Id='{keyValue}';");
+                        }
+                    }
+                    //批量执行更新语句
+                    n = this.BaseRepository().ExecuteBySql(sql.ToString());
+                }
+                else
+                {
+                    n = this.BaseRepository().Insert(entity_list);
+                }
+            }
+            catch (Exception ex)
+            {
+                msg = ex.Message;
+            }
+            return n;
+        }
+
+        /// <summary>
+        /// 功能描述: 删除, 通过主键删除
+        /// 创　　建: liyongguo
+        /// 创建日期: 2021-07-27 16:28:16
+        /// 任务编号: 采购订单
+        /// </summary>
+        /// <param name="keyValue">主键值</param>
+        /// <param name="msg">输出错误内容</param>
+        /// <param name="UpdateByName">删除操作人</param>
+        /// <returns>返回int 成功1, 失败0 </returns>
+        public int DeleteEntity(string keyValue, out string msg, string UpdateByName = "")
+        {
+            int n = 0;
+            msg = "";
+            try
+            {
+                //删除
+                n = this.BaseRepository().Delete(keyValue);
+            }
+            catch (Exception ex)
+            {
+                msg = ex.Message;
+            }
+            return n;
+        }
+
+        /// <summary>
+        /// 功能描述: 假删除, 通过主键删除, 删除标记设置为0
+        /// 创　　建: liyongguo
+        /// 创建日期: 2021-07-27 16:28:16
+        /// 任务编号: 采购订单
+        /// </summary>
+        /// <param name="keyValue">主键值</param>
+        /// <param name="UpdateByName">删除操作人</param>
+        /// <returns>返回int 成功1, 失败0 </returns>
+        public int RemoveForm(string keyValue, string UpdateByName = "")
+        {
+            return this.BaseRepository().Delete(keyValue);
+        }
+
+        /// <summary>
+        /// 功能描述: 删除, 通过主键删除, 使用SQL方式, 更新也可以使用
+        /// 创　　建: liyongguo
+        /// 创建日期: 2021-07-27 16:28:16
+        /// 任务编号: 采购订单
+        /// </summary>
+        /// <param name="keyValue">主键值</param>
+        /// <param name="msg">输出错误内容</param>
+        /// <returns>返回int 成功1, 失败0 </returns>
+        public int Delete_SQL(string keyValue, out string msg)
+        {
+            int n = 0;
+            msg = "";
+            try
+            {
+                StringBuilder sql = new StringBuilder();
+                sql.Append($@"DELETE FROM [dbo].[PL_PurchaseOrder] WHERE Id=N'{keyValue}'");
+                n = this.BaseRepository().ExecuteBySql(sql.ToString());
+            }
+            catch (Exception ex)
+            {
+                msg = ex.Message;
+            }
+            return n;
+        }
+
+        /// <summary>
+        /// 功能描述: 根据主键得到一个实体对象
+        /// 创　　建: liyongguo
+        /// 创建日期: 2021-07-27 16:28:16
+        /// 任务编号: 采购订单
+        /// </summary>
+        /// <param name="keyValue">主键值</param>
+        /// <returns>返回PL_PurchaseOrderEntity</returns>
+        public PL_PurchaseOrderEntity GetEntity(string keyValue)
+        {
+            return this.BaseRepository().FindEntity(keyValue);
+        }
+
+        /// <summary>
+        /// 功能描述: 通过某字段(不是主键)查询对象
+        /// 创　　建: liyongguo
+        /// 创建日期: 2021-07-27 16:28:16
+        /// 任务编号: 采购订单
+        /// </summary>
+        /// <param name="QueryField">查询条件字段内容</param>
+        /// <returns>返回PL_PurchaseOrderEntity</returns>
+        public PL_PurchaseOrderEntity GetEntityByQuery(string QueryField)
+        {
+            // 根据实际情况更换某字段, 这个字段内容在列表是唯一值
+            return this.BaseRepository().FindEntity(t => t.Id == QueryField);
+        }
+
+        /// <summary>
+        /// 功能描述:  根据条件（linq）方法查询列表
+        /// 创　　建: liyongguo
+        /// 创建日期: 2021-07-27 16:28:16
+        /// 任务编号: 采购订单
+        /// </summary>
+        /// /// <param name="condition">Expression 条件</param>
+        /// <returns>返回PL_PurchaseOrderEntity 列表</returns>
+        public IEnumerable<PL_PurchaseOrderEntity> Get_ExpressionList(Expression<Func<PL_PurchaseOrderEntity, bool>> condition)
+        {
+            // 根据实际情况更换某字段, 这个字段内容在列表是唯一值
+            return this.BaseRepository().IQueryable(condition);
+            //调用示例 var data = _Service.Get_ExpressionList(t => t.PlanProTime == PlanProTime && t.Line == Line&& t.IsDeleted == false).OrderByDescending(t => t.PlanProNo).ToList();
+        }
+
+        ///// <summary>
+        ///// 删除主表数据并同步删除子表数据, 假删除更新删除标记
+        ///// </summary>
+        ///// <param name="keyValue"></param>
+        ///// <returns></returns>
+        //public int RemoveForm(string keyValue)
+        //{
+        //    int result = 0;
+        //    StringBuilder sql = new StringBuilder();
+        //    //子表服务类
+        //    RepositoryFactory<PL_PurchaseOrderEntity> bomService = new RepositoryFactory<PL_PurchaseOrderEntity>();
+
+        //    PL_PurchaseOrderEntity entity = this.BaseRepository().FindEntity(keyValue);
+        //    //根据主表在子表的ID与主表主键查找实体, 如果是多条,使用循环遍历删除
+        //    PL_PurchaseOrderDetailEntity bomEntity = bomService.BaseRepository().IQueryable(t => t.PL_PurchaseOrder_Id == entity.Id).FirstOrDefault();
+        //    if (entity != null)
+        //    {
+        //        //主表删除标记
+        //        entity.IsEnabled = false;
+        //        this.BaseRepository().Update(entity);
+        //        if (bomEntity != null)
+        //        {
+        //            //子表删除标记
+        //            bomEntity.IsEnabled = false;
+        //            bomService.BaseRepository().Update(bomEntity);
+        //        }
+        //        result = 1;
+        //    }
+
+        //    return result;
+        //}
+
+        /// <summary>
+        /// 功能描述: 查询列表, 不分页,返回不是当前实体,使用另一个实体进行返回 参考示例
+        /// 创　　建: liyongguo
+        /// 创建日期: 2021-07-27 16:28:16
+        /// 任务编号: 采购订单
+        /// </summary>
+        /// <param name="checkType">查询条件</param>
+        /// <param name="msg">错误消息输出</param>
+        /// <returns>返回分页列表</returns>
+        public IEnumerable<PL_PurchaseOrderEntity> GetList_TestOtherEntity(string checkType, out string msg)
+        {
+            StringBuilder sql = new StringBuilder();
+            sql.Append(@"SELECT getdate() as CreatedDateTime ");
+            if (string.IsNullOrEmpty(checkType) == false)
+            {
+                //sql.Append($@" and ID = '{checkType}'";
+            }
+            msg = "";
+            try
+            {
+                //执行 
+                Data.Dapper.SqlDatabase db2 = new Data.Dapper.SqlDatabase();
+                //实体映射查询
+                IEnumerable<PL_PurchaseOrderEntity> PL_PurchaseOrderEntity_list = db2.FindList<PL_PurchaseOrderEntity>(sql.ToString());
+                return PL_PurchaseOrderEntity_list;
+            }
+            catch (Exception ex)
+            {
+                msg = ex.Message;
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// 功能描述: 查询列表, 不分页,返回不是当前实体,使用一个未定义表进行返回 参考示例
+        /// 创　　建: liyongguo
+        /// 创建日期: 2021-07-27 16:28:16
+        /// 任务编号: 采购订单
+        /// </summary>
+        /// <param name="checkType">查询条件</param>
+        /// <param name="msg">错误消息输出</param>
+        /// <returns>返回分页列表</returns>
+        public DataTable GetDataTable_TestOtherEntity(string checkType, out string msg)
+        {
+            StringBuilder sql = new StringBuilder();
+            sql.Append(@"SELECT getdate() as CreatedDateTime ");
+            if (string.IsNullOrEmpty(checkType) == false)
+            {
+                //sql.Append($@" and ID = '{checkType}'";
+            }
+            msg = "";
+            try
+            {
+                //执行 
+                Data.Dapper.SqlDatabase db2 = new Data.Dapper.SqlDatabase();
+                //实体映射查询
+                DataTable PL_PurchaseOrderEntity_DataTable = db2.FindTable(sql.ToString());
+                return PL_PurchaseOrderEntity_DataTable;
+            }
+            catch (Exception ex)
+            {
+                msg = ex.Message;
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// 根据单据类型获取流水号 存储过程调用示例
+        /// </summary>
+        /// <param name="SeqCode">规则代码</param>
+        /// <param name="returnNum">返回的流水号</param>
+        /// <param name="messageCode">异常消息等</param>
+        /// <returns></returns>
+        public bool GetSerialNO(string SeqCode, out string returnNum, out string messageCode)
+        {
+            bool b = false;
+            returnNum = "";
+            messageCode = "";
+            //调用存储过程
+            SqlParameter[] parameters = {
+                new SqlParameter("@SeqCode", SqlDbType.VarChar,60),
+                new SqlParameter("@ReturnNum", SqlDbType.VarChar,40),
+                new SqlParameter("@MessageCode", SqlDbType.VarChar,800)
+            };
+            parameters[0].Value = SeqCode;
+            parameters[1].Direction = ParameterDirection.Output;
+            parameters[2].Direction = ParameterDirection.Output;
+
+            try
+            {
+                //执行存储过程
+                Data.Dapper.SqlDatabase db2 = new Data.Dapper.SqlDatabase();
+                db2.ExecuteProcedure("P_GetSerialNO", parameters);
+                //返回参数值
+                returnNum = parameters[1].Value.ToString();
+                messageCode = parameters[2].Value.ToString();
+                b = true;
+            }
+            catch (Exception ex)
+            {
+                messageCode = ex.Message;
+            }
+            return b;
+        }
+
+        /// <summary>
+        /// 功能描述: 导出 列表到EXCEL 
+        /// 创　　建: liyongguo
+        /// 创建日期: 2021-07-27 16:28:16
+        /// 任务编号: 采购订单
+        /// </summary>
+        /// <param name="queryJson">查询条件</param>
+        /// <returns>链接地址</returns>
+        public DataTable GetDataTableList_Export(string queryJson)
+        {
+            StringBuilder sql = new StringBuilder();
+            sql.Append(@" SELECT PU.FactoryName 工厂名称,
+                               PU.[Supplier] 供应商编码,
+                               BS.SupplierName 供应商名称,
+                               PU.[PurchaseOrder] 采购订单号,
+                               v1.ItemName 采购类型,
+                               PU.[ProductOrder] 生产订单,
+                               CONVERT(VARCHAR(10), PO.DeliveryDate, 120) 成品交货日期,
+                               PU.[MaterialCode] 物料编码,
+                               PU.[MaterialName] 物料名称,
+                               PU.[PurchaseNum] 下单数量,
+                               PU.[Unit] 单位,
+							   PU.ContractNo 合同号,
+							   pu.InvoiceNo 发票号,
+                               CONVERT(VARCHAR(10),PU.[CreateTime],120) 下单日期
+                        FROM [dbo].[PL_PurchaseOrder] PU
+                            LEFT JOIN dbo.Base_SupplierManage BS
+                                ON BS.SupplierCode = PU.Supplier
+                            LEFT JOIN dbo.V_DataDictionary v1
+                                ON v1.EnCode = 'ProcureType'
+                                   AND PU.OrderType = v1.ItemValue
+                            LEFT JOIN dbo.PL_ProductionOrder PO
+                                ON PO.ProductOrder = PU.ProductOrder
+                        WHERE 1 = 1 ");
+
+            var parameter = new List<DbParameter>();
+            if (!string.IsNullOrEmpty(queryJson))
+            {
+                JObject queryParam = queryJson.ToJObject();
+                //查询条件 
+                //采购订单号 是否为空进行查询
+                if (!queryParam["FactoryCode"].IsEmpty())
+                {
+                    sql.Append($" AND PU.FactoryCode = N'{queryParam["FactoryCode"]}'");
+                }
+                //物料 是否为空进行查询
+                if (!queryParam["Material"].IsEmpty())
+                {
+                    //sql.Append($" AND Id = N'{queryParam["Id"]}'");
+                    sql.Append($" AND (PU.MaterialCode like N'%{queryParam["Material"]}%' OR PU.MaterialName like N'%{queryParam["Material"]}%')");
+                }
+                //采购订单号 是否为空进行查询
+                if (!queryParam["PurchaseOrder"].IsEmpty())
+                {
+                    //sql.Append($" AND PurchaseOrder = N'{queryParam["PurchaseOrder"]}'");
+                    sql.Append($" AND PU.PurchaseOrder like N'%{queryParam["PurchaseOrder"]}%'");
+                }
+                //采购类型 是否为空进行查询
+                if (!queryParam["OrderType"].IsEmpty())
+                {
+                    sql.Append($" AND PU.OrderType = N'{queryParam["OrderType"]}'");
+                }
+                //生产订单 是否为空进行查询
+                if (!queryParam["ProductOrder"].IsEmpty())
+                {
+                    //sql.Append($" AND ProductOrder = N'{queryParam["ProductOrder"]}'");
+                    sql.Append($" AND PU.ProductOrder like N'%{queryParam["ProductOrder"]}%'");
+                }
+                if (!queryParam["SmallClass"].IsEmpty())
+                {
+                    //sql.Append($" AND ProductOrder = N'{queryParam["ProductOrder"]}'");
+                    sql.Append($" AND PU.SmallClass like N'%{queryParam["SmallClass"]}%'");
+                }
+                //供应商 是否为空进行查询
+                if (!queryParam["Supplier"].IsEmpty())
+                {
+                    //sql.Append($" AND Supplier = N'{queryParam["Supplier"]}'");
+                    sql.Append($" AND (PU.Supplier LIKE '%{queryParam["Supplier"]}%' OR BS.SupplierName LIKE '%{queryParam["Supplier"]}%') ");
+                }
+                //到货状态 是否为空进行查询
+                if (!queryParam["ArrivalStatus"].IsEmpty())
+                {
+                    sql.Append($" AND PU.ArrivalStatus = N'{queryParam["ArrivalStatus"]}'");
+                }
+                if (!queryParam["StartTime"].IsEmpty())
+                {
+                    sql.Append($" AND CONVERT(VARCHAR(10),PU.CreateTime,120) >= N'{queryParam["StartTime"]}'");
+                }
+                if (!queryParam["EndTime"].IsEmpty())
+                {
+                    sql.Append($" AND CONVERT(VARCHAR(10),PU.CreateTime,120) <= N'{queryParam["EndTime"]}'");
+                }
+                if (!queryParam["Creator"].IsEmpty())
+                {
+                    sql.Append($" AND (pu.Creator LIKE '%{queryParam["Creator"]}%' OR b.Name LIKE '%{queryParam["Creator"]}%') ");
+                }
+            }
+            return this.BaseRepository().FindTable(sql.ToString());
+        }
+
+        public PL_PurchaseOrderEntity Get_ExpressionEntity(Expression<Func<PL_PurchaseOrderEntity, bool>> condition)
+        {
+            return this.BaseRepository().FindEntity(condition);
+        }
+
+        /// <summary>
+        /// 功能描述: 查询分页列表(DataTable)
+        /// 创　　建: liyongguo
+        /// 创建日期: 2021-07-27 16:28:16
+        /// 任务编号: 按照库存采购数据源
+        /// </summary>
+        /// <param name="pagination">分页</param>
+        /// <param name="queryJson">查询参数</param>
+        /// <returns>返回分页列表</returns>
+        public DataTable GetPageDataTableListBySotck(Pagination pagination, string queryJson)
+        {
+            StringBuilder sql = new StringBuilder();
+            sql.Append(@"SELECT a.MaterialCode,
+                               a.MaterialName,
+                               a.Spec,
+                               a.SmallClass,
+                               v1.ItemName SmallClassName,
+                               a.Unit,
+                               a.Qty,
+                               b.SafeStock,
+                               CASE
+                                   WHEN a.Qty < ISNULL(b.SafeStock, 0) THEN
+                                       '是'
+                                   ELSE
+                                       '否'
+                               END IsDownSafe
+                        FROM
+                        (
+                            SELECT FactoryCode,
+                                   MaterialCode,
+                                   MaterialName,
+                                   Spec,
+                                   SmallClass,
+                                   Unit,
+                                   SUM(Qty) Qty
+                            FROM dbo.MM_RawMaterialStock
+                            GROUP BY FactoryCode,
+                                     MaterialCode,
+                                     MaterialName,
+                                     Spec,
+                                     SmallClass,
+                                     Unit
+                        ) a
+                            LEFT JOIN dbo.Base_MaterialFactory b
+                                ON a.FactoryCode = b.FactoryCode
+                                   AND a.MaterialCode = b.MaterialCode
+                            LEFT JOIN dbo.V_DataDictionary v1
+                                ON v1.EnCode = 'MaterialSmall'
+                                   AND a.SmallClass = v1.ItemValue
+                        WHERE 1 = 1 ");
+            var parameter = new List<DbParameter>();
+            if (!string.IsNullOrEmpty(queryJson))
+            {
+                JObject queryParam = queryJson.ToJObject();
+                //查询条件 
+                //物料 是否为空进行查询
+                if (!queryParam["Material"].IsEmpty())
+                {
+                    //sql.Append($" AND Id = N'{queryParam["Id"]}'");
+                    sql.Append($" AND (a.MaterialCode like N'%{queryParam["Material"]}%' OR a.MaterialName like N'%{queryParam["Material"]}%')");
+                }
+                //物料小类 是否为空进行查询
+                if (!queryParam["SmallClass"].IsEmpty())
+                {
+                    //sql.Append($" AND PurchaseOrder = N'{queryParam["PurchaseOrder"]}'");
+                    sql.Append($" AND a.SmallClass like N'%{queryParam["SmallClass"]}%'");
+                }
+                //采购类型 是否为空进行查询
+                if (!queryParam["IsDownSafe"].IsEmpty())
+                {
+                    if (queryParam["IsDownSafe"].ToString() == "1")
+                        sql.Append($" AND a.Qty < ISNULL(b.SafeStock, 0) ");
+                    else
+                        sql.Append($" AND a.Qty >= ISNULL(b.SafeStock, 0) ");
+                }
+
+            }
+            try
+            {
+                if (pagination == null)
+                {
+                    return this.BaseRepository().FindTable(sql.ToString());
+                }
+                else
+                {
+                    return this.BaseRepository().FindTable(sql.ToString(), parameter.ToArray(), pagination);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        #region SAP采购订单数据
+        public void SaveSAPPL_PurchaseOrder(List<PL_PurchaseOrderEntity> entity_list)
+        {
+            string msg = "";
+
+            //开启事务进行数据的插入
+            IDatabase db = DbFactory.UABase().BeginTrans();
+            try
+            {
+                //SAP单状态转为MES状态
+                var statusList = new DataItemDetailService().GetDataItemList("OrderArrivalStatus").ToList();
+
+                var arrPurchaseCode = entity_list.Select(t => t.PurchaseOrder).Distinct().ToArray();
+                var purchaseOrderList = new PL_PurchaseOrder_Service().Get_ExpressionList(t => arrPurchaseCode.Contains(t.PurchaseOrder)).ToList();
+                foreach (var item in entity_list)
+                {
+                    #region 数据校验
+                    if (string.IsNullOrEmpty(item.FactoryCode))
+                    {
+                        throw new Exception("工厂编码必须传！");
+                    }
+                    if (string.IsNullOrEmpty(item.FactoryName))
+                    {
+                        throw new Exception("工厂名称必须传！");
+                    }
+                    if (string.IsNullOrEmpty(item.PurchaseOrder))
+                    {
+                        throw new Exception("采购订单号必须传！");
+                    }
+                    if (string.IsNullOrEmpty(item.LineNum))
+                    {
+                        throw new Exception("行号必须传！");
+                    }
+                    if (string.IsNullOrEmpty(item.OrderType))
+                    {
+                        throw new Exception("采购订单类型必须传！");
+                    }
+                    //if (string.IsNullOrEmpty(item.ProductOrder))
+                    //{
+                    //    throw new Exception("销售订单号必须传！");
+                    //}
+                    if (string.IsNullOrEmpty(item.MaterialCode))
+                    {
+                        throw new Exception("物料编码必须传！");
+                    }
+
+                    if (string.IsNullOrEmpty(item.Unit))
+                    {
+                        throw new Exception("单位必须传！");
+                    }
+
+
+                    if (item.PurchaseNum == null)
+                    {
+                        throw new Exception("应采购数量必须传！");
+                    }
+                    //if (item.OrderNum == null)
+                    //{
+                    //    throw new Exception("下单数量必须传！");
+                    //}
+                    #endregion
+
+                    //将SAP物料编码转化为MES的物料编码
+                    var strSql = string.Format(@"select  * FROM Base_Material where SAPmaterialCode='{0}' and IsEnabled=1", item.MaterialCode);
+                    var dtMaterial = new RepositoryFactory().BaseRepository().FindTable(strSql);
+                    if (dtMaterial.Rows.Count == 0)
+                    {
+                        throw new Exception(item.MaterialCode + "物料编码未同步");
+                    }
+                    item.MaterialCode = dtMaterial.Rows[0]["MaterialCode"].ToString();
+                    item.MaterialName = dtMaterial.Rows[0]["MaterialName"].ToString();
+                    item.Spec = dtMaterial.Rows[0]["Spec"].ToString();
+                    item.MaterialClass = dtMaterial.Rows[0]["MaterialClass"].ToString();
+                    item.SmallClass = dtMaterial.Rows[0]["SmallClass"].ToString();
+
+                    // 将sap传过来的数据进行拆分
+                    if (!string.IsNullOrEmpty(item.SupplierName2))
+                    {
+                        var arrSupplierName = item.SupplierName2.Split(",");
+                        if (arrSupplierName.Length > 0)
+                        {
+                            item.SupplierName2 = arrSupplierName[0];
+                        }
+                        if (arrSupplierName.Length > 1)
+                        {
+                            item.SupplierName3 = arrSupplierName[1];
+                        }
+                        if (arrSupplierName.Length > 2)
+                        {
+                            item.SupplierName4 = arrSupplierName[2];
+                        }
+                        if (arrSupplierName.Length > 3)
+                        {
+                            item.SupplierName5 = arrSupplierName[3];
+                        }
+                        if (arrSupplierName.Length > 4)
+                        {
+                            item.SupplierName6 = arrSupplierName[4];
+                        }
+                    }
+                    //判断采购订单是否存在通过工厂、采购订单、物料编码判断
+                    var purchaseOrderEntity = purchaseOrderList.Find(t => t.FactoryCode == item.FactoryCode && t.PurchaseOrder == item.PurchaseOrder && t.MaterialCode == item.MaterialCode && t.LineNum == item.LineNum);
+                    if (item.IsDeleted == false)
+                    {
+                        if (purchaseOrderEntity == null)
+                        {
+                            item.CreateTime = DateTime.Now;
+                            item.Create();
+                            item.Creator = "SAP";
+                            item.ArrivalStatus = statusList.Find(t => t.Description == item.ArrivalStatus)?.ItemValue;
+                            db.Insert(item);
+                        }
+                        else
+                        {
+                            //修改逻辑
+                            purchaseOrderEntity.LineNum = item.LineNum;
+                            purchaseOrderEntity.OrderType = item.OrderType;
+                            purchaseOrderEntity.ProductOrder = item.ProductOrder;
+                            purchaseOrderEntity.Unit = item.Unit;
+                            purchaseOrderEntity.PurchaseNum = item.PurchaseNum;
+                            purchaseOrderEntity.OrderNum = item.OrderNum;
+                            purchaseOrderEntity.Coefficient = item.Coefficient;
+                            purchaseOrderEntity.Supplier = item.Supplier;
+                            purchaseOrderEntity.PurchaseDeliveryDate = item.PurchaseDeliveryDate;
+                            purchaseOrderEntity.SupplierName2 = item.SupplierName2;
+                            purchaseOrderEntity.SupplierName3 = item.SupplierName3;
+                            purchaseOrderEntity.SupplierName4 = item.SupplierName4;
+                            purchaseOrderEntity.SupplierName5 = item.SupplierName5;
+                            purchaseOrderEntity.SupplierName6 = item.SupplierName6;
+                            purchaseOrderEntity.ModifyTime = DateTime.Now;
+                            purchaseOrderEntity.ArrivalStatus = statusList.Find(t => t.Description == item.ArrivalStatus)?.ItemValue;
+                            db.Update(purchaseOrderEntity);
+                        }
+                    }
+                    else
+                    {
+                        //删除的逻辑
+                        //if (purchaseOrderEntity == null)
+                        //{
+                        //    throw new Exception(item.PurchaseOrder + "采购订单不存在无法进行删除");
+
+                        //}
+                        //else
+                        //{
+                        //    db.Delete(purchaseOrderEntity);
+                        //}
+                        // 改为存在才删除 modify 2026-06-16 by dragon
+                        if (purchaseOrderEntity != null)
+                        {
+                            db.Delete(purchaseOrderEntity);
+                        }
+                    }
+                }
+
+                db.Commit();
+            }
+            catch (Exception)
+            {
+                db.Rollback();
+                throw;
+            }
+            finally
+            {
+                db.Close();
+            }
+        }
+
+        #endregion
+    }
+}

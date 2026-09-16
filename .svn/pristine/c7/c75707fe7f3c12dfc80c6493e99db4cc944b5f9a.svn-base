@@ -1,0 +1,19 @@
+﻿{
+  "name": "Siemens.SimaticIT.PlanApp.OrderMaterial",
+  "type": "standard",
+  "title": "Siemens.SimaticIT.PlanApp.OrderMaterial.Title",
+  "header": "",
+  "icon": "fa-folder",
+  "functionalBlock": "Siemens.SimaticIT.PlanApp",
+  "dependencies": [],
+  "states": [
+    {
+      "id": "home.Siemens_SimaticIT_PlanApp_OrderMaterial_OrderMaterial",
+      "title": "Siemens.SimaticIT.PlanApp.OrderMaterial.Title",
+      "header": "",
+      "securable": true,
+      "roles": []
+    }
+  ],
+  "manifestVersion": "01.01.00"
+}

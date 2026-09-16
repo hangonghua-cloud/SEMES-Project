@@ -1,0 +1,191 @@
+﻿<link rel="stylesheet" href="./CCS.CommonApp/widgets/layui/css/layui.css" media="all">
+<link rel="stylesheet" href="./CCS.CommonApp/widgets/appico/cube.min.css">
+<link rel="stylesheet" href="./CCS.CommonApp/widgets/appico/demo.css">
+<link rel="stylesheet" href="./CCS.CommonApp/widgets/appico/iconfont.css">
+<script src="./CCS.CommonApp/widgets/appico/iconfont.js"></script>
+<!-- jQuery -->
+<script src="./CCS.CommonApp/widgets/appico/jq1.js"></script>
+<!-- 代码高亮 -->
+<script src="./CCS.CommonApp/widgets/appico/jq2.js"></script>
+<style>
+    .layui-input,
+    .layui-select,
+    .layui-textarea {
+        border-width: 0px !important;
+        /* background-color: #f6f6f6 !important; */
+        margin: -5px 0 0 -8px;
+        height: 30px !important;
+        padding-left: 4px;
+        z-index: -1 !important;
+    }
+
+    .layui-colorpicker {
+        width: 40px;
+        height: 35px;
+        border: none;
+    }
+
+    .codeHide {
+        display: none;
+    }
+</style>
+<div class="command-bar-side-panel">
+    <button ng-click="vm.cancel()" class="btn side-panel-button">取消</button>
+    <button ng-click="vm.save()" class="btn side-panel-button" ng-show="vm.validInputs">保存</button>
+</div>
+<div class="side-panel-property-area-body">
+    <sit-property-grid sit-id="add_form" sit-layout="Vertical" sit-type="Fluid" sit-mode="edit" sit-columns="1">
+        <!-- TODO: Put here the properties of the entity managed by the service -->
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.ModelCode" sit-validation="{required: true}" sit-read-only="false">功能编号:</sit-property>
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.ModelName" sit-validation="{required: true}" sit-read-only="false">功能名称:</sit-property>
+        <sit-property sit-widget="sit-select" sit-value="vm.currentItem.ModelType" sit-validation="{required: true}" sit-options="vm.ModelTypeList"
+            sit-to-display="'ItemName'" sit-to-keep="'ItemCode'" sit-change="vm.ModelTypeChange">功能类型:</sit-property>
+        <sit-property sit-widget="sit-select" sit-value="vm.currentItem.OwnedPage" sit-validation="{required: true}" sit-options="vm.OwnedPageList"
+            sit-to-display="'ItemName'" sit-to-keep="'ItemCode'" sit-change="">所属模块:</sit-property>
+        <!-- <sit-property sit-widget="sit-text" sit-value="vm.currentItem.OwnedPage" sit-validation="{required: true}" sit-read-only="false">所属页面:</sit-property> -->
+        <sit-property sit-widget="sit-numeric" sit-value="vm.currentItem.OrderByNum" sit-read-only="false">排序值:</sit-property>
+        <div ng-model="modelPage" ng-show="vm.isPage">
+            <div style="height: 30px !important;">
+                <div class="vertical-property-label vertical-property-grid-control-label" style="color: #464646;font-weight: 600;font-size: 12px;line-height: 19px;">模块颜色:</div>
+                <div style="margin: 8px !important;">
+                    <form class="layui-form" action="">
+                        <div class="layui-form-item">
+                            <div class="layui-input-inline" style="width: 85% !important;">
+                                <input type="text" value="" placeholder="" readonly="" class="layui-input" style="border: 1px solid #969696 !important;margin: -5px 0 0 -8px;height: 30px !important;padding-left: 4px;z-index: -1 !important;"
+                                    id="test-form-input">
+                            </div>
+                            <div class="layui-inline" style="left: -11px;top: -8px;">
+                                <div id="test-form"></div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div style="margin-top: 30px !important;">
+                <div class="vertical-property-label vertical-property-grid-control-label" style="color: #464646;font-weight: 600;font-size: 12px;line-height: 19px;">功能图标:(请点击图片选择)</div>
+                <div style="height: 50px;">
+                    <div style="border:1px solid #969696 !important;padding-left:18px;" ng-click="vm.selectIco()">
+                        <ul class="icon_lists dib-box" style="padding-left: 40%;">
+                            <li class="dib">
+                                <span class="icon iconfont icondun" id="icoClass1"></span>
+                                <div class="name" id="selectedName1">盾</div>
+                                <div class="code-name codeHide" id="icoName1">.icondun</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </sit-property-grid>
+</div>
+<script>
+    layui.use('colorpicker', function () {
+        var $ = layui.$
+            , colorpicker = layui.colorpicker;
+        //常规使用
+        colorpicker.render({
+            elem: '#test1' //绑定元素
+            , change: function (color) { //颜色改变的回调
+                layer.tips('选择了：' + color, this.elem, {
+                    tips: 1
+                });
+            }
+        });
+
+        //初始色值
+        colorpicker.render({
+            elem: '#test2'
+            , color: '#2ec770' //设置默认色
+            , done: function (color) {
+                layer.tips('选择了：' + color, this.elem);
+            }
+        });
+
+        //表单赋值
+        colorpicker.render({
+            elem: '#test-form'
+            , color: '#1c97f5'
+            , done: function (color) {
+                $('#test-form-input').val(color);
+            }
+        });
+
+        //RGB 、RGBA
+        colorpicker.render({
+            elem: '#test3'
+            , color: 'rgb(68,66,66)'
+            , format: 'rgb' //默认为 hex
+        });
+        colorpicker.render({
+            elem: '#test4'
+            , color: 'rgba(68,66,66,0.5)'
+            , format: 'rgb'
+            , alpha: true //开启透明度滑块
+        });
+
+        //开启透明度
+        colorpicker.render({
+            elem: '#test5'
+            , color: '#009688' //hex
+            , alpha: true //开启透明度
+            , format: 'rgb'
+        });
+        colorpicker.render({
+            elem: '#test6'
+            , color: 'rgb(0,150,136,0.6)' //rgba
+            , alpha: true
+            , format: 'rgb'
+        });
+        colorpicker.render({ //无初始色值时
+            elem: '#test7'
+            , alpha: true
+            , format: 'rgb'
+        });
+
+        //预定义颜色项
+        colorpicker.render({
+            elem: '#test8'
+            , color: '#c71585'
+            , predefine: true // 开启预定义颜色
+        });
+        colorpicker.render({
+            elem: '#test9'
+            , color: '#9d8a0e'
+            , predefine: true // 开启预定义颜色
+            , colors: ['#ff8c00', '#00ced1', '#9d8a0e'] //自定义预定义颜色项
+        });
+
+        //开启全功能
+        colorpicker.render({
+            elem: '#test-all'
+            , color: 'rgba(7, 155, 140, 1)'
+            , format: 'rgb'
+            , predefine: true
+            , alpha: true
+            , done: function (color) {
+                $('#test-all-input').val(color); //向隐藏域赋值
+                layer.tips('给指定隐藏域设置了颜色值：' + color, this.elem);
+
+                color || this.change(color); //清空时执行 change
+            }
+            , change: function (color) {
+                //给当前页面头部和左侧设置主题色
+                $('.header-demo,.layui-side .layui-nav').css('background-color', color);
+            }
+        });
+
+        //设定颜色框尺寸
+        colorpicker.render({
+            elem: '#test10'
+            , size: 'lg' //大号下拉框
+        });
+        colorpicker.render({
+            elem: '#test11'
+            //,size: 'sm' //默认 sm
+        });
+        colorpicker.render({
+            elem: '#test12'
+            , size: 'xs' //mini下拉框
+        });
+    });
+</script>

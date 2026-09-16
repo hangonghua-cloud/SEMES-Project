@@ -1,0 +1,35 @@
+﻿<!--
+    0.代码生成: UA单表一键生成前后端html、JS、API接口代码生成器 Ver 2.14 更新日期：2021-07-21  设计者：刘万军
+    1.功能描述: 升级日志
+    2.创建人员: admin
+    3.创建日期: 2021-11-27
+    4.修改人员:
+    5.修改日期:
+-->
+<style>
+    .row {
+        padding: 5px;
+        margin-top: 10px;
+    }
+    textarea {
+        height: 200px;
+    }
+</style>
+<div class="command-bar-side-panel">
+    <button ng-click="vm.cancel()" class="btn side-panel-button">{{'Siemens.SimaticIT.BaseDataApp.UpdateLog.UpdateLogedit.Tips_1'|translate}}</button>
+    <button ng-click="vm.save()" class="btn side-panel-button">{{'Siemens.SimaticIT.BaseDataApp.UpdateLog.UpdateLogedit.Tips_2'|translate}}</button>
+</div>
+<div class="side-panel-property-area-body">
+
+    <sit-property-grid sit-id="view_form" sit-layout="Horizontal" sit-type="Fixed" sit-mode="edit" sit-columns="1"
+                       style="margin-left: 4px;">
+        <sit-property sit-widget="sit-select" sit-value="vm.BusinessType.value" sit-validation="{required: false}"
+                      sit-options="vm.BusinessType.options" sit-to-display="'ItemName'" sit-to-keep="'ItemValue'"
+                      sit-read-only="false">{{'Siemens.SimaticIT.BaseDataApp.UpdateLog.UpdateLogedit.Tips_3'|translate}}</sit-property>
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.Version" sit-validation="{required: true}"
+                      sit-read-only="false">{{'Siemens.SimaticIT.BaseDataApp.UpdateLog.UpdateLogedit.Tips_4'|translate}}</sit-property>
+        <sit-property sit-widget="sit-textarea" sit-value="vm.currentItem.Content" sit-validation="{required: true}"
+                      sit-read-only="false">{{'Siemens.SimaticIT.BaseDataApp.UpdateLog.UpdateLogedit.Tips_5'|translate}}</sit-property>
+
+    </sit-property-grid>
+</div>

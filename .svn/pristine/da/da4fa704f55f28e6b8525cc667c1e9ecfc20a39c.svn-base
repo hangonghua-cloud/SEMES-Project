@@ -1,0 +1,66 @@
+﻿<div class="command-bar-side-panel">
+    <button ng-click="vm.cancel()" class="btn side-panel-button">{{'Siemens.SimaticIT.MaterialApp.MaterialGroup.MaterialGroupaddSpec.Tips_1'|translate}}</button>
+    <button ng-click="vm.save()" class="btn side-panel-button">{{'Siemens.SimaticIT.MaterialApp.MaterialGroup.MaterialGroupaddSpec.Tips_2'|translate}}</button>
+    <button ng-click="vm.search()" class="btn side-panel-button">{{'Siemens.SimaticIT.MaterialApp.MaterialGroup.MaterialGroupaddSpec.Tips_3'|translate}}</button>
+</div>
+<style>
+    .selectBox .label-property-grid-control-readonly {
+        display: block;
+    }
+
+    .lbl_text {
+        font-size: 15px;
+        line-height: 30px;
+        padding-left: 2px;
+    }
+
+    .navbar {
+        margin-bottom: 2px;
+        padding: 0 6px 0 6px;
+        /* border: 1px solid transparent; */
+        border: none;
+    }
+
+    .navbar-default {
+        /* background-color: #f8f8f8;*/
+        border-color: #e7e7e7;
+        background-color: transparent;
+        /* border-color: transparent; */
+    }
+
+        .navbar-default .navbar-brand {
+            height: 40px;
+            color: #333;
+            font-size: 16px;
+        }
+
+        .navbar-default .navbar-text {
+            margin-top: 15px;
+            margin-bottom: 10px;
+        }
+
+    a,
+    a:link,
+    a:hover,
+    a:active,
+    a:visited {
+        text-decoration: none;
+    }
+
+    .canvas .property-area-container > div.content .side-panel-property-area-body {
+        overflow-y: visible;
+    }
+</style>
+<div class="side-panel-property-area-body">
+    <sit-property-grid sit-id="add_form" sit-layout="Horizontal" sit-type="Fixed" sit-mode="edit" sit-columns="4">
+
+        <sit-property sit-widget="sit-text" sit-value="vm.requestparam.TraitValue" sit-validation="{required: false}"
+                      sit-read-only="false">
+            {{'Siemens.SimaticIT.MaterialApp.MaterialGroup.MaterialGroupaddSpec.Tips_4'|translate}}
+        </sit-property>
+
+    </sit-property-grid>
+</div>
+<div id="itemlist" style="width:calc(100% - 2px); height: calc(100% - 100px);margin-top: 6px; padding:5px 16px 0 16px;clear: both; display: block;overflow-y: auto;">
+    <div ui-grid="vm.gridOptionsDetail" ui-grid-selection ui-grid-resize-columns ui-grid-auto-resize class="uigrid gridItem"></div>
+</div>

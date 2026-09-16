@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="11/18/2021 16:51:52" ReportInfo.Modified="12/04/2021 14:28:40" ReportInfo.CreatorVersion="2014.4.8.0">
+  <ScriptText>using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows.Forms;
+using System.Drawing;
+using System.Data;
+using FastReport;
+using FastReport.Data;
+using FastReport.Dialog;
+using FastReport.Barcode;
+using FastReport.Table;
+using FastReport.Utils;
+
+namespace FastReport
+{
+  public class ReportScript
+  {
+
+         
+   
+
+  }
+}
+</ScriptText>
+  <Dictionary>
+    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlqxfki+t8jnSxof6qn6ng9vZXyxJ29Vo8PhbFaOrHhCHgROOaG/q4zpcoYQe61tsOxaKWTscH6Ad1rABTy1kAs9dLOkZCIFkSPgtS3xo+Qd2I1vweO+bh9fU/O4XMGzx8XtIFJb67TJ4BRKzzmozO5USMnTU+BVsfcVYRfleWN7PgHb2pv83dp1wwngJCwNsyBPr/yQtmEMdv/ioKZN9ne4w==">
+      <TableDataSource Name="Table" Alias="markcode" DataType="System.Int32" Enabled="true" SelectCommand="exec [Pro_PrintMarkCode]  @Code">
+        <Column Name="PackTransferCode" DataType="System.String"/>
+        <Column Name="CustomerPO" DataType="System.String"/>
+        <Column Name="MaterialCode" DataType="System.String"/>
+        <Column Name="Mark" DataType="System.String"/>
+        <Column Name="ProductOrder" DataType="System.String"/>
+        <Column Name="ContainerNO" DataType="System.String"/>
+        <Column Name="ContainerNO1" Enabled="false" DataType="System.String"/>
+        <CommandParameter Name="Code" DataType="22" Size="20000" Expression="[Code]"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+    <Parameter Name="Code" DataType="System.String"/>
+  </Dictionary>
+  <ReportPage Name="Page1" PaperWidth="100" PaperHeight="130" LeftMargin="0" TopMargin="0" RightMargin="0" BottomMargin="0" FirstPageSource="256" OtherPagesSource="256">
+    <GroupHeaderBand Name="GroupHeader1" Width="378" Condition="[markcode.PackTransferCode]">
+      <DataBand Name="Data1" Top="4" Width="378" Height="491.4" DataSource="Table">
+        <BarcodeObject Name="Barcode1" Left="56.7" Top="37.8" Width="257.75" Height="248.3" AutoSize="false" DataColumn="markcode.PackTransferCode" ShowText="false" Barcode="QR Code" Barcode.ErrorCorrection="L" Barcode.Encoding="UTF8" Barcode.QuietZone="true"/>
+        <TextObject Name="Text1" Top="330.75" Width="368.55" Height="37.8" Text="[markcode.CustomerPO]" HorzAlign="Center" Font="等线, 26.25pt, style=Bold"/>
+        <TextObject Name="Text3" Top="425.25" Width="368.55" Height="37.8" Text="[markcode.Mark]" HorzAlign="Center" Font="等线, 26.25pt, style=Bold"/>
+        <TextObject Name="Text4" Left="47.25" Top="283.5" Width="292.95" Height="37.8" Text="[markcode.ProductOrder] [markcode.ContainerNO]" HorzAlign="Center" Font="等线, 26.25pt, style=Bold"/>
+        <TextObject Name="Text5" Top="378" Width="368.55" Height="37.8" Text="[markcode.MaterialCode]" HorzAlign="Center" Font="等线, 26.25pt, style=Bold"/>
+      </DataBand>
+      <GroupFooterBand Name="GroupFooter1" Top="499.4" Width="378"/>
+    </GroupHeaderBand>
+  </ReportPage>
+</Report>

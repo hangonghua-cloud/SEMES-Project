@@ -1,0 +1,19 @@
+﻿{
+  "name": "Siemens.SimaticIT.SystemApp.Sys_DataSegregateGroup",
+  "type": "standard",
+  "title": "Siemens.SimaticIT.SystemApp.Sys_DataSegregateGroup.Title",
+  "header": "",
+  "icon": "fa-folder",
+  "functionalBlock": "Siemens.SimaticIT.SystemApp",
+  "dependencies": [],
+  "states": [
+    {
+      "id": "home.Siemens_SimaticIT_SystemApp_Sys_DataSegregateGroup_Sys_DataSegregateGroup",
+      "title": "Siemens.SimaticIT.SystemApp.Sys_DataSegregateGroup.Title",
+      "header": "",
+      "securable": true,
+      "roles": []
+    }
+  ],
+  "manifestVersion": "01.01.00"
+}

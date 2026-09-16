@@ -1,0 +1,2 @@
+D:\New folder\CommonApp\CommonApp\CommonApp.APPOMModel\obj\Debug\CommonApp.APPOMModel.pmprojAssemblyReference.cache
+D:\New folder\CommonApp\CommonApp\CommonApp.APPOMModel\obj\Debug\CommonApp.APPOMModel.pmproj.CoreCompileInputs.cache

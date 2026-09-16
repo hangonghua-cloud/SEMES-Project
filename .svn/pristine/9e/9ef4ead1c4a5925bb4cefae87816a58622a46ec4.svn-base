@@ -1,0 +1,9 @@
+uni-view.u-form-item--left__content__label {
+		font-size: 14px;
+		line-height: 20px;
+		width: 100px;
+}
+
+	* {
+		font-family: Arial !important;
+	}

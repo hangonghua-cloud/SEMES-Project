@@ -1,0 +1,99 @@
+﻿<!--
+    0.代码生成: UA主子表一键生成前后端html、JS、API接口代码生成器 Ver 1.11 更新日期：2021-07-14  设计者：刘万军
+    1.功能描述: 磨粉料工单报工记录
+    2.创建人员: admin
+    3.创建日期: 2021-08-26
+    4.修改人员:
+    5.修改日期:
+-->
+<style>
+    .row {
+        padding: 5px;
+        margin-top: 10px;
+    }
+</style>
+<div class="command-bar-side-panel">
+    <button ng-click="vm.cancel()"
+            class="btn side-panel-button">
+        {{'Siemens.SimaticIT.ProductionApp.AbrasiveOrder.AddBG.Tips_1'|translate}}
+    </button>
+    <button ng-click="vm.save()"
+            class="btn side-panel-button">
+        {{'Siemens.SimaticIT.ProductionApp.AbrasiveOrder.AddBG.Tips_2'|translate}}
+    </button>
+</div>
+<div class="side-panel-property-area-body">
+
+    <sit-property-grid sit-id="view_form" sit-layout="Horizontal" sit-type="Fixed" sit-mode="edit" sit-columns="2"
+                       style="margin-left: 4px;">
+
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.WorkOrder" sit-validation="{required: true}"
+                      sit-read-only="true">
+            {{'Siemens.SimaticIT.ProductionApp.AbrasiveOrder.AddBG.Tips_3'|translate}}
+        </sit-property>
+
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.SmallClassName" sit-validation="{required: true}"
+                      sit-read-only="true">
+            {{'Siemens.SimaticIT.ProductionApp.AbrasiveOrder.AddBG.Tips_4'|translate}}
+        </sit-property>
+
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.MaterialCode" sit-validation="{required: true}"
+                      sit-read-only="true">
+            {{'Siemens.SimaticIT.ProductionApp.AbrasiveOrder.AddBG.Tips_5'|translate}}
+        </sit-property>
+
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.MaterialName" sit-validation="{required: true}"
+                      sit-read-only="true">
+            {{'Siemens.SimaticIT.ProductionApp.AbrasiveOrder.AddBG.Tips_6'|translate}}
+        </sit-property>
+
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.Spec" sit-validation="{required: true}"
+                      sit-read-only="true">
+            {{'Siemens.SimaticIT.ProductionApp.AbrasiveOrder.AddBG.Tips_7'|translate}}
+        </sit-property>
+
+        <sit-property sit-widget="sit-datepicker" sit-value="vm.BGDate" sit-validation="{required: true}"
+                      sit-widget-attributes="{'sit-format':'yyyy-MM-dd','sit-show-meridian':'false'}" sit-read-only="false">
+            {{'Siemens.SimaticIT.ProductionApp.AbrasiveOrder.AddBG.Tips_8'|translate}}
+        </sit-property>
+
+        <sit-property sit-widget="sit-select" sit-value="vm.Shift.value" sit-validation="{required: false}"
+                      sit-options="vm.Shift.options" sit-to-display="'ItemName'" sit-to-keep="'ItemValue'" sit-read-only="false">
+            {{'Siemens.SimaticIT.ProductionApp.AbrasiveOrder.AddBG.Tips_9'|translate}}
+        </sit-property>
+
+        <sit-property sit-widget="sit-numeric" sit-value="vm.currentItem.BGQty"
+                      sit-validation="{required: true, min: 0}" sit-read-only="false">
+            {{'Siemens.SimaticIT.ProductionApp.AbrasiveOrder.AddBG.Tips_10'|translate}}
+        </sit-property>
+
+        <!-- <sit-property sit-widget="sit-text" sit-value="vm.currentItem.BatchNo" sit-validation="{required: true}"
+                      sit-read-only="false">{{'Siemens.SimaticIT.ProductionApp.AbrasiveOrder.AddBG.Tips_11'|translate}}</sit-property> -->
+        <!-- <sit-property sit-widget="sit-select" sit-value="vm.PTeam.value" sit-validation="{required: false}" sit-options="vm.PTeam.options"
+                      sit-to-display="'PTeamName'" sit-to-keep="'PTeamCode'" sit-read-only="false" sit-change="vm.PTeamChange">{{'Siemens.SimaticIT.ProductionApp.AbrasiveOrder.AddBG.Tips_12'|translate}}</sit-property> -->
+
+        <sit-property sit-widget="sit-alp-text-picker" sit-value="vm.currentItem.UserCode"
+                      sit-validation="{required: true}" ng-click="vm.selectClick()" sit-read-only="false">
+            {{'Siemens.SimaticIT.ProductionApp.AbrasiveOrder.AddBG.Tips_13'|translate}}
+        </sit-property>
+
+
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.UserNames" sit-validation="{required: true}"
+                      sit-read-only="true">
+            {{'Siemens.SimaticIT.ProductionApp.AbrasiveOrder.AddBG.Tips_14'|translate}}
+        </sit-property>
+
+        <sit-property sit-widget="sit-select" sit-value="vm.typePackingType.value" sit-validation="{required: false}"
+                      sit-options="vm.typePackingType.options" sit-to-display="'ItemName'" sit-to-keep="'ItemValue'"
+                      style="max-width:100px;">
+            {{'Siemens.SimaticIT.ProductionApp.AbrasiveOrder.AddBG.Tips_15'|translate}}
+        </sit-property>
+
+        <sit-property sit-widget="sit-select" sit-value="vm.Machine.value" sit-validation="{required: false}"
+                      sit-options="vm.Machine.options" sit-to-display="'ResourceName'" sit-to-keep="'ResourceCode'"
+                      sit-read-only="false">
+            {{'Siemens.SimaticIT.ProductionApp.AbrasiveOrder.AddBG.Tips_16'|translate}}
+        </sit-property>
+
+    </sit-property-grid>
+</div>

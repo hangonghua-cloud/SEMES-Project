@@ -1,0 +1,8 @@
+{
+    "entityPicker": {
+        "defaultPlaceHolder": "查找实体",
+        "cancel": "取消",
+        "select": "选择",
+        "selectItem": "选择项"
+    }
+}

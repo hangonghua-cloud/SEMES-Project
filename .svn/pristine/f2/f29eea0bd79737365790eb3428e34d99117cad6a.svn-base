@@ -1,0 +1,14 @@
+
+<DSL Version="1.13">
+    <Project>
+        <Name>ButtonAuthFBLib.MSModel</Name>
+        <Version>01.00.00</Version>
+        <Prefix>Siemens.SimaticIT</Prefix>
+        <Domain>MasterData</Domain>
+        <DomainAcronym>MS</DomainAcronym>
+        <Guid>3c7b3a8f-4cfc-4740-9d2e-d08274eb1e71</Guid>
+		<ProjectKind>Library</ProjectKind>
+    </Project>
+    <References>
+    </References>
+</DSL>

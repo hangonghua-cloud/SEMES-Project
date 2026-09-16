@@ -1,0 +1,26 @@
+{
+  "name": "CCS.CommonApp.CommonUI",
+  "type": "standard",
+  "title": "CommonUI",
+  "header": "",
+  "icon": "fa-folder",
+  "functionalBlock": "CCS.CommonApp",
+  "dependencies": [],
+  "states": [
+    {
+      "id": "home.CCS_CommonApp_CommonUI_Blank",
+      "title": "Blank",
+      "header": "",
+      "securable": true,
+      "roles": []
+    },
+    {
+      "id": "home.CCS_CommonApp_CommonUI_Demo",
+      "title": "Demo",
+      "header": "",
+      "securable": true,
+      "roles": []
+    }
+  ],
+  "manifestVersion": "01.01.00"
+}

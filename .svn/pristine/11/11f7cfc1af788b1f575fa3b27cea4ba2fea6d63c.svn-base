@@ -1,0 +1,9940 @@
+﻿
+using ALP.Application.Busines.BaseManage;
+using ALP.Application.Busines.Material;
+using ALP.Application.Busines.MaterialManage;
+using ALP.Application.Busines.PlanManage;
+using ALP.Application.Busines.ProduceManage;
+using ALP.Application.Busines.QualityManage;
+using ALP.Application.Busines.SystemManage;
+using ALP.Application.Entity.BaseManage;
+using ALP.Application.Entity.MaterialManage;
+using ALP.Application.Entity.PlanManage;
+using ALP.Application.Entity.ProduceManage;
+using ALP.Application.Service.BaseManage;
+using ALP.Application.WebApi.Controllers.API;
+using ALP.WebApi.Filter;
+using ALP.WebApi.Models;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Dynamic;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Transactions;
+using System.Web.Http;
+using ALP.Application.Service.MaterialManage;
+using ALP.Util.Extension;
+using ALP.Application.Entity.QualityManage;
+using ALP.Application.Busines.ModelLevel;
+using ALP.Application.Code;
+using ALP.Application.UtilExtend.Util;
+using ALP.Application.Service.ProduceManage;
+using ALP.Application.Service.Material;
+using ALP.Application.Entity.Material;
+using ALP.Application.Service.Resources;
+
+namespace ALP.Application.WebApi.Controllers.ProduceManage
+{
+    /// <summary>
+    /// 生产业务
+    /// </summary>
+    //[Auth]
+    [RoutePrefix("Produce")]
+    public class ProduceController : ApiBaseController
+    {
+
+        #region 实例化对象
+        Level_BLL _levelBLL = new Level_BLL();//工厂建模
+        BS_People_Service _bsPeopleService = new BS_People_Service();//人员
+        DataItemDetailBLL _dataItemDetailBLL = new DataItemDetailBLL();//数据字典明细
+        BsModelWithResourceBLL _bsModelWithResourceBLL = new BsModelWithResourceBLL(); //工厂建模
+        BsModelResourceExtendInfoBLL _bsModelResourceExtendInfoBLL = new BsModelResourceExtendInfoBLL();//工厂属性
+        Base_KeyParameterItemBLL _baseKeyParameterItemBLL = new Base_KeyParameterItemBLL();//关键参数列表
+        Base_Images_Service _ImagesService = new Base_Images_Service();//图片上传
+        Base_MaterialFactoryBLL _baseMaterialFactoryBLL = new Base_MaterialFactoryBLL();//物料工厂属性
+        Base_MaterialGroupBLL _MaterialGroupBLL = new Base_MaterialGroupBLL();//物料组
+        Base_MaterialGroupBindMaterialBLL _baseMaterialGrouBindMaterialpBLL = new Base_MaterialGroupBindMaterialBLL();//物料组绑定物料
+        Base_MaterialBLL _baseMaterialBLL = new Base_MaterialBLL();//物料主数据
+        BS_Process_Service _bsProcessService = new BS_Process_Service(); //工艺路线
+        BS_ProcessOfOperations_Service _bsProcessOfOperationsService = new BS_ProcessOfOperations_Service();//工艺路线-工序
+        BS_ProcessOfOperationsAttr_Service _bsProcessOfOperationsAttrService = new BS_ProcessOfOperationsAttr_Service();//工艺路线-工序属性
+        BS_BOM_Service _bsBOMService = new BS_BOM_Service();
+        BS_BOMItems_Service _bsBOMItemsService = new BS_BOMItems_Service();
+        BaseSequenceService _baseSequence = new BaseSequenceService();//序列号
+
+        MM_RawMaterialStockBLL _rawMaterailStockBLL = new MM_RawMaterialStockBLL();//原材料库存
+        MM_RawMaterialOutBLL _mmRawMaterialOutBLL = new MM_RawMaterialOutBLL();//原材料出库记录
+        MM_RawMaterialInBLL _mmRawMaterialInBLL = new MM_RawMaterialInBLL();//原材料入库记录
+        MM_ProductInBLL _productInBLL = new MM_ProductInBLL();//成品入库记录
+        MM_ProductStockBLL _productStockBLL = new MM_ProductStockBLL();//成品库存
+        MM_SaleDomesticIn_Service _saleDomesticInService = new MM_SaleDomesticIn_Service();//内销成品入库记录
+        MM_SaleDomestic_Service _saleDomesticStockService = new MM_SaleDomestic_Service();//内销成品库存
+        MM_SupProductStockTransferBLL _supProductStockTransferBLL = new MM_SupProductStockTransferBLL();//超产品转入转出记录
+
+        PL_ProcessBLL _plProcessBLL = new PL_ProcessBLL();//工单工艺路线
+        PL_ProcessOfOperationsBLL _plProcessOfOperationsBLL = new PL_ProcessOfOperationsBLL();//工单工艺-工序
+        PL_ProcessOfOperationsAttrBLL _plProcessOfOperationsAttrBLL = new PL_ProcessOfOperationsAttrBLL();//工单工艺-工序-属性
+        PL_ExeWorkOrderBLL _exeWorkOrderBLL = new PL_ExeWorkOrderBLL();//执行工单
+        PL_WorkOrderBLL _workOrderBLL = new PL_WorkOrderBLL();//工单
+        PL_ProductionOrderBLL _productionOrderBLL = new PL_ProductionOrderBLL();
+        PL_BOMBLL _plBomBLL = new PL_BOMBLL();//工单Bom
+        PL_BOMItemsBLL _plBomItemBLL = new PL_BOMItemsBLL();//工单Bom明细
+        PL_MaterialBLL _plMaterialBLL = new PL_MaterialBLL();//工单物料
+        PL_MaterialFacetBLL _plMaterialFacetBLL = new PL_MaterialFacetBLL();//工单物料属性
+
+        PM_TransferCardBLL _transferCardBLL = new PM_TransferCardBLL(); //流转卡
+        PM_TranferCardBGRecordBLL _transferCardBGBLL = new PM_TranferCardBGRecordBLL();//流转卡报工记录
+        PM_BGBadRecordBLL _bgBadRecordBLL = new PM_BGBadRecordBLL();//报工不良信息
+        PM_TransferBGPersonRecordBLL _bgPersonRecordBLL = new PM_TransferBGPersonRecordBLL();//报工人员
+        PM_MaterialBatchConsumeRecordBLL _bgMBConsumeRecordBLL = new PM_MaterialBatchConsumeRecordBLL();//报工原料消耗记录
+        PM_StartUpRecordBLL _startUpRecordBLL = new PM_StartUpRecordBLL();//生产开工记录
+        PM_TransferCardResumeBLL _resumeBLL = new PM_TransferCardResumeBLL();//流转履历
+        PM_MaterialBatchUpRecordBLL _materialBatchUpRecordBLL = new PM_MaterialBatchUpRecordBLL();//原料批次上机记录
+        PM_TransferCardResumeBLL _transferCardResumeBLL = new PM_TransferCardResumeBLL();//流转履历
+        PM_TeamPersonBLL _teamPersonBLL = new PM_TeamPersonBLL();//生产小组
+        PM_TeamPerson_ItemsBLL _teamPersonItemBLL = new PM_TeamPerson_ItemsBLL();//生产小组人员
+        PM_ProcessBadItemBLL _pmProcessBadItemBLL = new PM_ProcessBadItemBLL();//工序报工不良项目配置
+        PM_TransferCardScrapRecordBLL _pmTransferCardScrapRecordBLL = new PM_TransferCardScrapRecordBLL();//流转卡报废记录
+        PM_TeamPersonBLL _pmTeamPersonBLL = new PM_TeamPersonBLL();//生产小组主表
+        PM_TeamPerson_ItemsBLL _pmTeamPersonItemsBLL = new PM_TeamPerson_ItemsBLL();//生产小组人员明细
+        PM_ReworkRecordBLL _pmReworkRecordBLL = new PM_ReworkRecordBLL();//返工任务主信息
+        PM_ReworkRecord_DetailBLL _pmReworkRecordDetailBLL = new PM_ReworkRecord_DetailBLL();//返工任务明细
+        PM_ProductionFirstInspectionDetailBLL _pmFirstInspectionDetailBLL = new PM_ProductionFirstInspectionDetailBLL();//生产首检明细
+        PM_PackingBGTransferCardBLL _packingBGTransferCardBLL = new PM_PackingBGTransferCardBLL();//包装报工
+        PM_PackingPrintMark_Service _markService = new PM_PackingPrintMark_Service();//包装唛头
+        PM_ProductionFirstInspectionBLL _pmFirtInspectionBLL = new PM_ProductionFirstInspectionBLL();//生产首检主表
+        PM_OwnProductTransferBLL _OwnProductTransferBLL = new PM_OwnProductTransferBLL();//自制半成品
+        PM_OwnProductOrderBLL _OwnProductOrderBLL = new PM_OwnProductOrderBLL();//自制半成品
+        PM_OwnProductBGBLL _OwnProductBGBLL = new PM_OwnProductBGBLL();//自制半成品
+        PM_TransferCardResumeBLL __TransferCardResumeBLL = new PM_TransferCardResumeBLL();
+        PL_FirstInspectionConfirmBLL _FirstInspectionConfirmBLL = new PL_FirstInspectionConfirmBLL();//质量首检
+        PMPostCoefficientService _pmPostCoefficientService = new PMPostCoefficientService();//岗位系数
+        PMProductPriceService _pmProductPriceService = new PMProductPriceService();//产品工价
+        PMOperationPalletNumService _pmOperationPalletNumService = new PMOperationPalletNumService();//工序托盘数量维护
+
+        QC_TestMaintenanceBLL _TestMaintenanceBLL = new QC_TestMaintenanceBLL();
+        QC_TestItemMaintenanceBLL _TestItemMaintenanceBLL = new QC_TestItemMaintenanceBLL();
+        QC_TestProcessMaintenanceBLL _TestProcessMaintenanceBLL = new QC_TestProcessMaintenanceBLL();
+
+        //锁
+        private static readonly object _lockTransferCardBG = new object();//流转卡报工
+        private static readonly object _lockPackingBG = new object();//包装报工
+        private static readonly object _lockOwnProductBG = new object();//自制半成品报工
+        private static readonly object _lockSortingBG = new object();//分拣报工
+        private static readonly object _lockCardScrap = new object();//流转卡报废
+        #endregion
+
+        #region 公共方法
+        private decimal? GetPrice()
+        {
+            decimal? price = null;
+
+
+
+            return price;
+        }
+        #endregion
+
+        #region 生产基础数据
+
+        /// <summary>
+        /// 工序报工不良项目配置
+        /// </summary>
+        /// <param name="jo"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("GetPMProcessBadItem")]
+        public HttpResponseMessage GetPMProcessBadItem(JObject jo)
+        {
+            var result = new ResponseResult();
+            try
+            {
+                dynamic scanResult = new ExpandoObject();
+
+                string processCode = getValue(jo, "processCode");
+                //if (string.IsNullOrEmpty(processCode))
+                //{
+                //    return AjaxResult(false, "工序编码不能为空");
+                //}
+                var msg = "";
+                var lstEntity = _pmProcessBadItemBLL.GetList(processCode, out msg);
+                scanResult = lstEntity.ToList().OrderBy(t => t.SortCode).Select(t => new { value = t.BadItemCode, label = t.BadItemName });
+                result.resultData = scanResult;
+                result.returnMsg = "Common.Success";
+            }
+            catch (Exception ex)
+            {
+                result.success = false;
+                result.statusCode = ((int)HttpStatusCode.InternalServerError).ToString();
+                result.returnMsg = "Common.Error";
+            }
+            return Request.CreateResponse(HttpStatusCode.OK, result);
+        }
+
+        /// <summary>
+        /// 获取订单号
+        /// </summary>
+        /// <param name="jo"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("GetProductOrderSelect")]
+        public HttpResponseMessage GetProductOrderSelect(JObject jo)
+        {
+            var result = new ResponseResult();
+            try
+            {
+                dynamic scanResult = new ExpandoObject();
+
+                var msg = "";
+                scanResult = _productionOrderBLL.Get_ExpressionList(t => t.OrderStatus == "3")
+                    .Select(t => new { value = t.ProductOrder, label = t.ProductOrder });
+                result.resultData = scanResult;
+
+                //result.returnMsg = Language.GetText("Common.SuccessWithOther","", "参数1", "参数2", "参数3");
+            }
+            catch (Exception ex)
+            {
+                result.success = false;
+                result.statusCode = ((int)HttpStatusCode.InternalServerError).ToString();
+                result.returnMsg = "Common.Error";
+            }
+            return Request.CreateResponse(HttpStatusCode.OK, result);
+        }
+        /// <summary>
+        /// 获取柜号
+        /// </summary>
+        /// <param name="jo"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("GetContainerNOSelect")]
+        public HttpResponseMessage GetContainerNOSelect(JObject jo)
+        {
+            var result = new ResponseResult();
+            try
+            {
+                dynamic scanResult = new ExpandoObject();
+
+                var productOrder = getValue(jo, "productOrder");//订单号
+                var materialCode = getValue(jo, "materialCode");//客户型号
+
+                var msg = "";
+                string[] arrPOStatus = new string[] { "1", "2" };
+                scanResult = _workOrderBLL.Get_ExpressionList(t =>
+                    t.ProductOrder == productOrder && t.MaterialCode == materialCode && arrPOStatus.Contains(t.POStatus))
+                    .Select(t => t.ContainerNO).Distinct().OrderBy(t => Convert.ToInt32(t)).Select(t => new { value = t, label = t });
+
+                result.resultData = scanResult;
+            }
+            catch (Exception ex)
+            {
+                result.success = false;
+                result.statusCode = ((int)HttpStatusCode.InternalServerError).ToString();
+                result.returnMsg = "Common.Error";
+            }
+            return Request.CreateResponse(HttpStatusCode.OK, result);
+        }
+        #endregion
+
+        #region 生产开工
+
+        /// <summary>
+        /// 生产开工扫描
+        /// </summary>
+        /// <param name="jo"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("GetPMStartInfo")]
+        public HttpResponseMessage GetPMStartInfo(JObject jo)
+        {
+            var result = new ResponseResult();
+            try
+            {
+                dynamic scanResult = new ExpandoObject();
+
+                if (jo == null)
+                {
+                    return AjaxResult(false, "Common.ParamsNotNull");//参数不能为空
+                }
+                string cardCode = getValue(jo, "cardCode");
+                if (string.IsNullOrEmpty(cardCode))
+                {
+                    return AjaxResult(false, "ProduceManage.ProduceController.GetPMStartInfo.Tips_1");//流转卡编码不能为空
+                }
+                var cardEntity = _transferCardBLL.Get_ExpressionEntity(t => t.CardCode == cardCode && t.IsEnabled == true);
+                if (cardEntity == null)
+                {
+                    return AjaxResult(false, "ProduceManage.ProduceController.GetPMStartInfo.Tips_2");//当前流转卡不存在
+                }
+                if (cardEntity.CardStatus == "5")//报废 
+                {
+                    return AjaxResult(false, "ProduceManage.ProduceController.GetPMStartInfo.Tips_3");//当前流转卡已报废
+                }
+                DataTable dtCard = null;
+                var workOrderEntity = _workOrderBLL.Get_ExpressionEntity(t => t.WorkOrder == cardEntity.WorkOrder);
+                if (workOrderEntity == null)
+                    return AjaxResult(false, "ProduceManage.ProduceController.GetPMStartInfo.Tips_4");//工单不存在
+
+                //流转方式开关  1：按柜 0：按批次
+                var keyParamItemEntity = _baseKeyParameterItemBLL.Get_ExpressionEntity(t => t.EnCode == "Switch" && t.ItemCode == "CirculationMode"
+                    && t.Remark1 == workOrderEntity.FactoryCode);
+                if (keyParamItemEntity?.ItemValue == "1") //按柜
+                {
+                    //流转卡列表
+                    var exeWorkOrder = cardEntity.ExeWorkOrder;
+                    dtCard = _transferCardBLL.GetCardList_PDA2(exeWorkOrder);
+                }
+                else  //按批次
+                {
+                    //流转卡列表
+                    var serialNumber = cardEntity.SerialNumber;
+                    dtCard = _transferCardBLL.GetCardList_PDA(serialNumber);
+                }
+
+                string inProcessCode = "";
+                string inProcessName = "";
+                string healthTime = "";
+                var resumeEntity = _resumeBLL.Get_ExpressionEntity(t => t.CardCode == cardCode && t.Flag == "1");
+                if (resumeEntity != null)
+                {
+                    inProcessCode = resumeEntity?.ProcessCode;//流转卡所在工序编码
+                    var bsModel = _bsModelWithResourceBLL.GetEntity(t => t.ResourceCode == inProcessCode);
+                    inProcessName = bsModel?.ResourceName;//流转卡所在工序名称
+                    if (keyParamItemEntity.ItemValue == "1")
+                    {
+                        healthTime = _transferCardBGBLL.GetHealthTime2(cardEntity.ExeWorkOrder, inProcessCode);
+                    }
+                    else
+                    {
+                        healthTime = _transferCardBGBLL.GetHealthTime(cardEntity.SerialNumber, inProcessCode);
+                    }
+
+                }
+
+                //if (cardEntity.TransferBy == "1")//整柜流转
+                //{
+                //    //判断所在工序所有流转卡是否全部报工
+                //    if (!string.IsNullOrEmpty(inProcessCode))
+                //    {
+                //        var bgList = _transferCardBGBLL.Get_ExpressionList(t => t.ExeWorkOrder == cardEntity.ExeWorkOrder && t.ProcessCode == inProcessCode);
+                //        foreach (DataRow item in dtCard.Rows)
+                //        {
+                //            string hCardCode = item["CardCode"].ToString();
+                //            if (!bgList.Any(t => t.CardCode == hCardCode))
+                //            {
+                //                return AjaxResult(false, $"所在工序[{inProcessName}]的流转卡[{item["CardName"]}]没有报过工！");
+                //            }
+                //        }
+                //    }
+                //}
+                ////校验是否在养生周期,加了开关  1：开 0：关
+                //var keyParamItemEntity = _baseKeyParameterItemBLL.Get_ExpressionEntity(t => t.EnCode == "Switch" && t.ItemCode == "HealthCycle");
+                //if (keyParamItemEntity.ItemValue == "1")
+                //{
+                //    if (!string.IsNullOrEmpty(healthTime))
+                //    {
+                //        if (DateTime.Now <= healthTime.ToDateTime())
+                //        {
+                //            return AjaxResult(false, "还在养生周期内，不允许开工");
+                //        }
+                //    }
+                //}
+
+                scanResult.TransferBy = cardEntity.TransferBy;//流转方式编码
+                scanResult.TransferByName = cardEntity.TransferBy == "1" ?
+                    Language.GetText("ProduceManage.ProduceController.GetPMStartInfo.Data_1")
+                    : Language.GetText("ProduceManage.ProduceController.GetPMStartInfo.Data_2");//整柜:单托
+                scanResult.HealthTime = healthTime;//养生时间
+                scanResult.ProcessCode = inProcessCode;//所在工序编码
+                scanResult.ProcessName = inProcessName;//所在工序名称
+                scanResult.TotalPallet = dtCard.Rows.Count;
+                scanResult.CardList = dtCard;//流转卡列表
+                result.resultData = scanResult;
+            }
+            catch (Exception ex)
+            {
+                result.success = false;
+                result.statusCode = ((int)HttpStatusCode.InternalServerError).ToString();
+                result.returnMsg = ex.Message;
+            }
+            return Request.CreateResponse(HttpStatusCode.OK, result);
+        }
+
+        /// <summary>
+        /// 保存生产开工信息
+        /// </summary>
+        /// <param name="jo"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("SavePMStartInfo")]
+        public HttpResponseMessage SavePMStartInfo(JObject jo)
+        {
+            var result = new ResponseResult();
+            try
+            {
+                if (jo == null)
+                {
+                    return AjaxResult(false, "Common.ParamsNotNull");//参数不能为空
+                }
+                var processCode = getValue(jo, "processCode");//操作工序
+                var processName = getValue(jo, "processName");//操作工序名称
+                var cardCode = getValue(jo, "cardCode");//流转卡编码
+                var transferBy = getValue(jo, "transferBy");//流转方式
+                var healthTime = getValue(jo, "healthTime");//养生时间
+                var inProcessCode = getValue(jo, "inProcessCode");//所在工序
+                var inProcessName = getValue(jo, "inProcessName");//所在工序名称
+                var totalPallet = getValue(jo, "totalPallet").ToInt();//总托数
+                var userCode = getValue(jo, "userCode");//用户编码
+                var userName = getValue(jo, "userName");//用户名称
+                var cardList = JsonConvert.DeserializeObject<List<dynamic>>(jo["cardList"].ToString());
+
+                PL_BOMEntity plBomEntity = null;
+                List<PL_BOMItemsEntity> plBomItemList = new List<PL_BOMItemsEntity>();
+
+                //流转卡列表信息
+                var cardEntity = _transferCardBLL.Get_ExpressionEntity(t => t.CardCode == cardCode);
+                //执行工单
+                var exeWorkOrderEntity = _exeWorkOrderBLL.Get_ExpressionEntity(t => t.ExeWorkOrder == cardEntity.ExeWorkOrder);
+                //工单被冻结后无法开工
+                var workOrderEntity = _workOrderBLL.Get_ExpressionEntity(t => t.WorkOrder == cardEntity.WorkOrder && t.FactoryCode == exeWorkOrderEntity.FactoryCode && t.IsEnabled == true);
+                if (workOrderEntity == null)
+                    return AjaxResult(false, "ProduceManage.ProduceController.SavePMStartInfo.Tips_1");//工单不存在
+
+                if (workOrderEntity.FreezeFlag == true || workOrderEntity.OrderStatus == "40")
+                    return AjaxResult(false, "ProduceManage.ProduceController.SavePMStartInfo.Tips_2");//工单已被冻结
+
+                if (workOrderEntity.OrderStatus == "9")
+                    return AjaxResult(false, $"工单【{workOrderEntity.WorkOrder}】已结案，无法继续操作");
+
+                //订单
+                var productOrderEntity = _productionOrderBLL.Get_ExpressionEntity(t => t.ProductOrder == cardEntity.ProductOrder);
+                //工单BOM
+                plBomEntity = _plBomBLL.Get_ExpressionEntity(t => t.WorkOrder == workOrderEntity.WorkOrder && t.FactoryCode == workOrderEntity.FactoryCode && t.IsDeleted == false);
+                var plBomId = plBomEntity.Id;
+
+                //流转方式开关  1：按柜 0：按批次
+                List<PM_TransferCardEntity> oldCardList = null;
+                var keyParamItemEntity2 = _baseKeyParameterItemBLL.Get_ExpressionEntity(t => t.EnCode == "Switch" && t.ItemCode == "CirculationMode"
+                    && t.Remark1 == workOrderEntity.FactoryCode);
+                if (keyParamItemEntity2?.ItemValue == "1") //按柜
+                {
+                    oldCardList = _transferCardBLL.Get_ExpressionList(t => t.ExeWorkOrder == cardEntity.ExeWorkOrder).ToList();
+                }
+                else //按批次
+                {
+                    oldCardList = _transferCardBLL.Get_ExpressionList(t => t.SerialNumber == cardEntity.SerialNumber).ToList();
+                }
+                #region 数据校验
+                var processEntity = _plProcessBLL.GetEntity(t => t.WorkOrder == cardEntity.WorkOrder && t.FactoryCode == workOrderEntity.FactoryCode && t.IsDeleted == false);
+                var oldProcessId = processEntity.Id;
+                var pOperationList = _plProcessOfOperationsBLL.Get_ExpressionList(t => t.ProcessId == processEntity.Id && t.FactoryCode == workOrderEntity.FactoryCode && t.IsDeleted == false).OrderBy(t => t.SN).ToList();
+                var pAttrList = _plProcessOfOperationsAttrBLL.Get_ExpressionList(t => t.ProcessId == processEntity.Id && t.IsEnabled == true).ToList();
+                if (pOperationList.Count == 0)
+                    return AjaxResult(false, "ProduceManage.ProduceController.SavePMStartInfo.Tips_3");//工单工艺-工序不存在
+                if (pAttrList.Count == 0)
+                    return AjaxResult(false, "ProduceManage.ProduceController.SavePMStartInfo.Tips_4");//工单工艺-属性不存在
+
+                //校验是否开过工
+                var oldStartEntity = _startUpRecordBLL.Get_ExpressionEntity(t => t.CardCode == cardCode && t.ProcessCode == processCode && t.IsEnabled == true);
+                if (oldStartEntity != null)
+                {
+                    return AjaxResult(false, "ProduceManage.ProduceController.SavePMStartInfo.Tips_5");//已开过工，不允许重复开工
+                }
+                if (!string.IsNullOrEmpty(cardEntity.NewType)) //新建流转卡
+                {
+                    var anyKG = _resumeBLL.GetList(t => t.CardCode == cardCode && t.ProcessCode == processCode && t.BusinessType == "8").Any();
+                    if (anyKG)
+                        return AjaxResult(false, "ProduceManage.ProduceController.SavePMStartInfo.Tips_5");//已开过工，不允许重复开工
+                }
+                var isChange = false;
+                //校验工艺路线里是否存在该工序
+                if (!pOperationList.Any(t => t.OperationCode == processCode))
+                {
+                    #region 判断是否需要更换工艺路线
+                    //查找流转卡所在工序的下一道工序
+                    var inIndex = pOperationList.FindIndex(t => t.OperationCode == inProcessCode);
+                    if (inIndex < pOperationList.Count - 1)
+                    {
+                        var nextOperationId = pOperationList[inIndex + 1].Id;
+                        var nextAttrList = pAttrList.FindAll(t => t.OperationsId == nextOperationId);
+                        var nextAttrValues = nextAttrList.Find(t => t.AttrCode == "GLGYLX")?.AttrValue;
+                        if (!string.IsNullOrEmpty(nextAttrValues))
+                        {
+                            var arrAttrValue = nextAttrValues.Split('+');
+                            if (arrAttrValue.Length != 2)
+                                return AjaxResult(false, "ProduceManage.ProduceController.SavePMStartInfo.Tips_6");//关联工艺路线维护格式不对
+
+                            var glProcessRoute = arrAttrValue[0];
+                            var glOperationCode = arrAttrValue[1];
+                            if (glOperationCode == processCode)
+                            {
+                                isChange = true;
+                                if (workOrderEntity.IsVC != true)
+                                {
+                                    #region 更换工艺路线
+                                    var bsProcessEntity = _bsProcessService.Get_ExpressionEntity(t => t.ProcessCode == glProcessRoute);
+                                    if (bsProcessEntity == null)
+                                        return AjaxResultWithParams(false, "ProduceManage.ProduceController.SavePMStartInfo.Tips_7", glProcessRoute);//工艺路线【{0}】不存在
+
+                                    //更新工单、执行工单工艺路线
+                                    workOrderEntity.Process = glProcessRoute;
+                                    workOrderEntity.ModifyBy = userCode;
+                                    workOrderEntity.ModifyTime = DateTime.Now;
+                                    exeWorkOrderEntity.Process = glProcessRoute;
+                                    exeWorkOrderEntity.ModifyBy = userCode;
+                                    exeWorkOrderEntity.ModifyTime = DateTime.Now;
+
+                                    var bsOperationList = _bsProcessOfOperationsService.Get_ExpressionList(t => t.ProcessCode == glProcessRoute);
+                                    var arrOperationId = bsOperationList.Select(t => t.Id);
+                                    var bsAttrList = _bsProcessOfOperationsAttrService.Get_ExpressionList(t => arrOperationId.Contains(t.OperationsId));
+
+                                    processEntity = Tools.Mapper<PL_ProcessEntity, BS_ProcessEntity>(bsProcessEntity);
+                                    processEntity.Id = Guid.NewGuid().ToString();
+                                    processEntity.WorkOrder = workOrderEntity.WorkOrder;
+                                    processEntity.IsDeleted = false;
+                                    processEntity.Creator = userCode;
+                                    processEntity.CreateTime = DateTime.Now;
+                                    processEntity.ModifyBy = userCode;
+                                    processEntity.ModifyTime = DateTime.Now;
+
+                                    pOperationList = new List<PL_ProcessOfOperationsEntity>();
+                                    pAttrList = new List<PL_ProcessOfOperationsAttrEntity>();
+                                    foreach (var item in bsOperationList)
+                                    {
+                                        var newItem = Tools.Mapper<PL_ProcessOfOperationsEntity, BS_ProcessOfOperationsEntity>(item);
+                                        newItem.Id = Guid.NewGuid().ToString();
+                                        newItem.ProcessId = processEntity.Id;
+                                        newItem.IsDeleted = false;
+                                        newItem.Creator = userCode;
+                                        newItem.CreateTime = DateTime.Now;
+                                        newItem.ModifyBy = userCode;
+                                        newItem.ModifyTime = DateTime.Now;
+                                        pOperationList.Add(newItem);
+
+                                        var newOperationAttrList = bsAttrList.Where(t => t.OperationsId == item.Id).ToList();
+                                        foreach (var detail in newOperationAttrList)
+                                        {
+                                            var newAttr = Tools.Mapper<PL_ProcessOfOperationsAttrEntity, BS_ProcessOfOperationsAttrEntity>(detail);
+                                            newAttr.Id = Guid.NewGuid().ToString();
+                                            newAttr.ProcessId = processEntity.Id;
+                                            newAttr.OperationsId = newItem.Id;
+                                            newAttr.IsEnabled = true;
+                                            newAttr.Creator = userCode;
+                                            newAttr.CreateTime = DateTime.Now;
+                                            newAttr.ModifyBy = userCode;
+                                            newAttr.ModifyTime = DateTime.Now;
+                                            pAttrList.Add(newAttr);
+                                        }
+                                    }
+                                    pOperationList = pOperationList.OrderBy(t => t.SN).ToList();
+                                    #endregion
+
+                                    #region 更换BOM
+                                    var bsBomEnttiy = _bsBOMService.Get_ExpressionEntity(t => t.FactoryCode == workOrderEntity.FactoryCode
+                                          && t.OrderType == productOrderEntity.OrderType && t.MaterialCode == workOrderEntity.MaterialCode
+                                          && t.Process == glProcessRoute);
+                                    if (bsBomEnttiy == null)
+                                        return AjaxResult(false, "ProduceManage.ProduceController.SavePMStartInfo.Tips_8");//新BOM不存在
+
+                                    plBomEntity = Tools.Mapper<PL_BOMEntity, BS_BOMEntity>(bsBomEnttiy);
+                                    plBomEntity.Id = Guid.NewGuid().ToString();
+                                    plBomEntity.WorkOrder = workOrderEntity.WorkOrder;
+                                    plBomEntity.IsDeleted = false;
+                                    plBomEntity.Remark = "";
+                                    plBomEntity.Creator = userCode;
+                                    plBomEntity.CreateTime = DateTime.Now;
+                                    plBomEntity.ModifyBy = userCode;
+                                    plBomEntity.ModifyTime = DateTime.Now;
+
+                                    //基础数据BOM明细
+                                    var bsBomItemList = _bsBOMItemsService.Get_ExpressionList(t => t.BOMId == bsBomEnttiy.Id);
+                                    var arrMaterialCode = bsBomItemList.Select(t => t.MaterialCode).Distinct();
+                                    var materialFactoryList = _baseMaterialFactoryBLL.Get_ExpressionList(t => t.FactoryCode == workOrderEntity.FactoryCode
+                                        && arrMaterialCode.Contains(t.MaterialCode)).ToList();
+                                    var materialList = _baseMaterialBLL.Get_ExpressionList(t => arrMaterialCode.Contains(t.MaterialCode)).ToList();
+
+                                    foreach (var item in bsBomItemList)
+                                    {
+                                        var plBomItemEntity = Tools.Mapper<PL_BOMItemsEntity, BS_BOMItemsEntity>(item);
+                                        plBomItemEntity.Id = Guid.NewGuid().ToString();
+                                        plBomItemEntity.BOMId = plBomEntity.Id;
+                                        var materialFactoryEntity = materialFactoryList.Find(t => t.MaterialCode == item.MaterialCode);
+                                        plBomItemEntity.ProcureType = materialFactoryEntity?.ProcureType;
+                                        plBomItemEntity.ProcessRoute = materialFactoryEntity?.ProcessRoute;
+                                        plBomItemEntity.IsUsed = materialFactoryEntity?.IsUsed;
+                                        plBomItemEntity.Creator = userCode;
+                                        plBomItemEntity.CreateTime = DateTime.Now;
+                                        plBomItemEntity.ModifyBy = userCode;
+                                        plBomItemEntity.ModifyTime = DateTime.Now;
+                                        var materialEntity = materialList.Find(t => t.MaterialCode == item.MaterialCode);
+                                        plBomItemEntity.Spec = materialEntity?.Spec;
+                                        plBomItemEntity.MaterialClass = materialEntity?.MaterialClass;
+                                        plBomItemEntity.SmallClass = materialEntity?.SmallClass;
+                                        plBomItemList.Add(plBomItemEntity);
+                                    }
+                                    #endregion
+                                }
+                                else //VC工单
+                                {
+                                    #region 更换特征工艺路线
+                                    var bsProcessEntity = _bsProcessService.Get_ExpressionEntity(t => t.ProcessCode == glProcessRoute && t.ProcessType == "2");
+                                    if (bsProcessEntity == null)
+                                        return AjaxResultWithParams(false, "ProduceManage.ProduceController.SavePMStartInfo.Tips_7", glProcessRoute);//工艺路线【{0}】不存在
+
+                                    var bsOperationList = _bsProcessOfOperationsService.Get_ExpressionList(t => t.ProcessCode == glProcessRoute).OrderBy(t => t.SN).ToList();
+                                    var arrOperationId = bsOperationList.Select(t => t.Id);
+                                    var bsAttrList = _bsProcessOfOperationsAttrService.Get_ExpressionList(t => arrOperationId.Contains(t.OperationsId)).ToList();
+
+                                    processEntity = new PL_ProcessEntity();
+                                    processEntity.Id = Guid.NewGuid().ToString();
+                                    processEntity.FactoryCode = workOrderEntity.FactoryCode;
+                                    processEntity.FactoryName = workOrderEntity.FactoryName;
+                                    processEntity.WorkOrder = workOrderEntity.WorkOrder;
+                                    processEntity.IsDeleted = false;
+                                    processEntity.Creator = userCode;
+                                    processEntity.CreateTime = DateTime.Now;
+
+                                    //查找需要替换的工序
+                                    var glOperationEntity = bsOperationList.Find(t => t.OperationCode == glOperationCode); //新特征工艺路线首工序Id
+                                    if (glOperationEntity == null)
+                                        return AjaxResultWithParams(false, "ProduceManage.ProduceController.SavePMStartInfo.Tips_9", glOperationCode);//关联工序【{0}】不存在
+
+                                    var glOperationAttrList = bsAttrList.FindAll(t => t.OperationsId == glOperationEntity.Id);//特征工艺路线首工序属性
+                                    string glOperationAttrValues = glOperationAttrList.Find(t => t.AttrCode == "GLGYLX")?.AttrValue;
+                                    if (string.IsNullOrEmpty(glOperationAttrValues))
+                                        return AjaxResult(false, "ProduceManage.ProduceController.SavePMStartInfo.Tips_10");//关联工艺路线属性未维护
+
+                                    var glOperationAttrValue = glOperationAttrValues.Split('+');
+                                    if (glOperationAttrValue.Length != 2)
+                                        return AjaxResult(false, "ProduceManage.ProduceController.SavePMStartInfo.Tips_11");//关联工艺路线维护格式不对
+
+                                    var glProcessRoute2 = glOperationAttrValue[0];
+                                    var glProcessEntity2 = _bsProcessService.Get_ExpressionEntity(t => t.ProcessCode == glProcessRoute2 && t.ProcessType == "2");
+                                    if (glProcessEntity2 == null)
+                                        return AjaxResultWithParams(false, "ProduceManage.ProduceController.SavePMStartInfo.Tips_12", glProcessRoute2);//特征工艺路线[{0}]不存在
+                                    //需替换的工序、属性
+                                    var glOperationList2 = _bsProcessOfOperationsService.Get_ExpressionList(t => t.ProcessCode == glProcessEntity2.ProcessCode).ToList();
+                                    var changeArrOperationCode = glOperationList2.Select(t => t.OperationCode);
+                                    var changeArrPLOperationId = pOperationList.FindAll(t => changeArrOperationCode.Contains(t.OperationCode)).Select(t => t.Id);
+                                    //删除旧工序、属性
+                                    pAttrList = pAttrList.Where(t => !changeArrPLOperationId.Contains(t.OperationsId)).ToList();
+                                    pOperationList = pOperationList.Where(t => !changeArrPLOperationId.Contains(t.Id)).ToList();
+
+                                    //更新工单工艺Id
+                                    foreach (var item in pOperationList)
+                                    {
+                                        item.ProcessId = processEntity.Id;
+                                        item.ModifyBy = CurrentAccount.UserCode;
+                                        item.ModifyTime = DateTime.Now;
+                                    }
+                                    foreach (var item in pAttrList)
+                                    {
+                                        item.ProcessId = processEntity.Id;
+                                        item.ModifyBy = CurrentAccount.UserCode;
+                                        item.ModifyTime = DateTime.Now;
+                                    }
+                                    //添加新工序、属性
+                                    foreach (var item in bsOperationList)
+                                    {
+                                        var newItem = Tools.Mapper<PL_ProcessOfOperationsEntity, BS_ProcessOfOperationsEntity>(item);
+                                        newItem.Id = Guid.NewGuid().ToString();
+                                        newItem.ProcessId = processEntity.Id;
+                                        newItem.ProcessCode = "";
+                                        newItem.IsDeleted = false;
+                                        newItem.Creator = userCode;
+                                        newItem.CreateTime = DateTime.Now;
+                                        newItem.ModifyBy = userCode;
+                                        newItem.ModifyTime = DateTime.Now;
+                                        pOperationList.Add(newItem);
+
+                                        var newOperationAttrList = bsAttrList.Where(t => t.OperationsId == item.Id).ToList();
+                                        foreach (var detail in newOperationAttrList)
+                                        {
+                                            var newAttr = Tools.Mapper<PL_ProcessOfOperationsAttrEntity, BS_ProcessOfOperationsAttrEntity>(detail);
+                                            newAttr.Id = Guid.NewGuid().ToString();
+                                            newAttr.ProcessId = processEntity.Id;
+                                            newAttr.OperationsId = newItem.Id;
+                                            newAttr.IsEnabled = true;
+                                            newAttr.Creator = userCode;
+                                            newAttr.CreateTime = DateTime.Now;
+                                            newAttr.ModifyBy = userCode;
+                                            newAttr.ModifyTime = DateTime.Now;
+                                            pAttrList.Add(newAttr);
+                                        }
+                                    }
+                                    pOperationList = pOperationList.OrderBy(t => t.SN).ToList();
+                                    #endregion
+                                }
+                            }
+                            else
+                                return AjaxResultWithParams(false, "ProduceManage.ProduceController.SavePMStartInfo.Tips_13", processName);//操作工序[{0}]不在工艺路线里！
+                        }
+                        else
+                            return AjaxResultWithParams(false, "ProduceManage.ProduceController.SavePMStartInfo.Tips_13", processName);//操作工序[{0}]不在工艺路线里！
+                    }
+                    #endregion
+                }
+
+                //校验该工序是否需要开工
+                var operationEntity = pOperationList.Find(t => t.OperationCode == processCode);
+                if (operationEntity == null)
+                    return AjaxResultWithParams(false, "ProduceManage.ProduceController.SavePMStartInfo.Tips_14", processCode);//工序[{processCode}]不存在
+
+                if (operationEntity.WFMark == "1")
+                    return AjaxResult(false, "ProduceManage.ProduceController.SavePMStartInfo.Tips_26");//外发不允许操作
+
+                var pOperationAttrList = pAttrList.FindAll(t => t.OperationsId == operationEntity.Id);
+                if (pOperationAttrList.Count == 0)
+                {
+                    return AjaxResult(false, "ProduceManage.ProduceController.SavePMStartInfo.Tips_15");//工艺属性不存在
+                }
+                //if (pOperationAttrList.Find(t => t.AttrCode == "KGCZ").AttrValue == Language.GetText("Common.No"))
+                if (pOperationAttrList.Find(t => t.AttrCode == "KGCZ").AttrValue == "否" || pOperationAttrList.Find(t => t.AttrCode == "KGCZ").AttrValue == "N")
+                {
+                    return AjaxResultWithParams(false, "ProduceManage.ProduceController.SavePMStartInfo.Tips_16", processName);//操作工序[{processName}]不需要开工！
+                }
+                //判断是否跨工序
+                int index = pOperationList.FindIndex(t => t.OperationCode == processCode);
+                if (index > 0) //非首道工序
+                {
+                    if (!string.IsNullOrEmpty(inProcessCode))
+                    {
+                        var frontOperationCode = pOperationList[index - 1].OperationCode;
+                        var frontOperationName = pOperationList[index - 1].OperationName;
+                        var wfMark = pOperationList[index - 1].WFMark;
+                        if (frontOperationCode != inProcessCode && wfMark != "1")
+                        {
+                            return AjaxResultWithParams(false, "ProduceManage.ProduceController.SavePMStartInfo.Tips_17", frontOperationName);//前工序[{frontOperationName}]还未开工
+                        }
+                    }
+                    else
+                    {
+                        //超产品 或外发
+                        if (cardEntity.StartProcess != processCode)
+                        {
+                            var frontOperationName = pOperationList.Find(t => t.OperationCode == cardEntity.StartProcess)?.OperationName;
+                            var wfMark = pOperationList.Find(t => t.OperationCode == cardEntity.StartProcess)?.WFMark;
+                            if (wfMark != "1")
+                                return AjaxResultWithParams(false, "ProduceManage.ProduceController.SavePMStartInfo.Tips_17", frontOperationName);//前工序[{frontOperationName}]还未开工
+                        }
+                    }
+                }
+                //不允许往前工序操作
+                if (!string.IsNullOrEmpty(inProcessCode))
+                {
+                    var sn1 = pOperationList.Find(t => t.OperationCode == inProcessCode).SN;
+                    var sn2 = pOperationList.Find(t => t.OperationCode == processCode).SN;
+                    if (sn2 < sn1)
+                        return AjaxResult(false, "ProduceManage.ProduceController.SavePMStartInfo.Tips_25");//不允许往前工序操作
+                }
+
+                if (transferBy == "1")//整柜流转
+                {
+                    if (cardList.Count != totalPallet) return AjaxResult(false, "ProduceManage.ProduceController.SavePMStartInfo.Tips_18");//整柜流转需要选择所有流转卡
+                }
+
+                //判断所在工序所有流转卡是否全部报工
+                if (!string.IsNullOrEmpty(inProcessCode))
+                {
+                    var bgList = _transferCardBGBLL.Get_ExpressionList(t => t.ExeWorkOrder == cardEntity.ExeWorkOrder && t.ProcessCode == inProcessCode && t.IsRework == "0").ToList();
+                    foreach (var item in cardList)
+                    {
+                        string hCardCode = item.CardCode;
+                        var hCardEntity = oldCardList.Find(t => t.CardCode == hCardCode);
+                        if (hCardEntity.StartProcess != processCode)
+                        {
+                            if (!bgList.Any(t => t.CardCode == hCardEntity.CardCode))
+                            {
+                                return AjaxResultWithParams(false, "ProduceManage.ProduceController.SavePMStartInfo.Tips_19", inProcessName, hCardEntity.CardName);//所在工序[{inProcessName}]的流转卡[{hCardEntity.CardName}]没有报工！
+                            }
+                        }
+                    }
+                }
+                //校验是否在养生周期,加了开关  1：开 0：关
+                var keyParamItemEntity = _baseKeyParameterItemBLL.Get_ExpressionEntity(t => t.EnCode == "Switch" && t.ItemCode == "HealthCycle"
+                    && t.Remark1 == workOrderEntity.FactoryCode);
+                if (keyParamItemEntity?.ItemValue == "1")
+                {
+                    if (!string.IsNullOrEmpty(healthTime))
+                    {
+                        if (DateTime.Now <= healthTime.ToDateTime())
+                        {
+                            return AjaxResult(false, "ProduceManage.ProduceController.SavePMStartInfo.Tips_20");//还在养生周期内，不允许开工
+                        }
+                    }
+                }
+
+                if (cardList.Select(t => t.ProcessCode).Distinct().ToList().Count > 1)
+                {
+                    return AjaxResult(false, "ProduceManage.ProduceController.SavePMStartInfo.Tips_21");//选择的流转卡不在同一道工序里
+                }
+                if (cardList.Select(t => t.BusinessType).Distinct().ToList().Count > 1)
+                {
+                    return AjaxResult(false, "ProduceManage.ProduceController.SavePMStartInfo.Tips_22");//选择的流转卡不是同一个业务类型
+                }
+                #endregion
+
+                #region 开工记录
+                List<PM_StartUpRecordEntity> lstStart = new List<PM_StartUpRecordEntity>();
+                cardList.ForEach(item =>
+                {
+                    string itemCardCode = item.CardCode;
+                    if (!lstStart.Any(t => t.CardCode == itemCardCode))
+                    {
+                        //开工记录
+                        PM_StartUpRecordEntity startEntity = new PM_StartUpRecordEntity();
+                        startEntity.Id = Guid.NewGuid().ToString();
+                        startEntity.FactoryCode = workOrderEntity.FactoryCode;
+                        startEntity.FactoryName = workOrderEntity.FactoryName;
+                        startEntity.ProductOrder = cardEntity.ProductOrder;
+                        startEntity.WorkOrder = cardEntity.WorkOrder;
+                        startEntity.ExeWorkOrder = cardEntity.ExeWorkOrder;
+                        startEntity.CardCode = itemCardCode;
+                        startEntity.ProcessCode = processCode;
+                        startEntity.ProcessName = processName;
+                        startEntity.Creator = userCode;
+                        startEntity.CreateTime = DateTime.Now;
+                        startEntity.IsEnabled = true;
+                        lstStart.Add(startEntity);
+                    }
+                });
+                #endregion
+
+                #region 流转履历
+                var data = _resumeBLL.GetList(t => t.Flag == "1");
+                var query = from start in lstStart
+                            join resume in data on start.CardCode equals resume.CardCode
+                            select resume;
+                var updateResumeList = query.ToList();
+                if (updateResumeList.Any(t => t.BusinessType != "2"))
+                    return AjaxResultWithParams(false, "ProduceManage.ProduceController.SavePMStartInfo.Tips_23", inProcessName);//所在工序[{inProcessName}]的流转卡未全部报工
+
+                updateResumeList.ForEach(t =>
+                {
+                    t.Flag = "0";//无效
+                    t.ModifyBy = userCode;
+                    t.ModifyTime = DateTime.Now;
+                });
+
+                List<PM_TransferCardResumeEntity> insertResumeList = new List<PM_TransferCardResumeEntity>();
+                var locationCode = pOperationAttrList.FirstOrDefault(t => t.AttrCode == "KGKW")?.AttrValue;//库位
+                var whsCode = _bsModelWithResourceBLL.GetEntity(t => t.ResourceCode == locationCode)?.ParentResource;//仓库
+                lstStart.ForEach(item =>
+                {
+                    PM_TransferCardResumeEntity resumeEntity = new PM_TransferCardResumeEntity();
+                    resumeEntity.Id = Guid.NewGuid().ToString();
+                    resumeEntity.FactoryCode = workOrderEntity.FactoryCode;
+                    resumeEntity.FactoryName = workOrderEntity.FactoryName;
+                    resumeEntity.ProcessCode = item.ProcessCode;
+                    resumeEntity.CardCode = item.CardCode;
+                    resumeEntity.BusinessType = "8";//开工
+                    resumeEntity.OperationId = item.Id;
+                    resumeEntity.Flag = "1";//有效
+                    resumeEntity.LocationCode = locationCode;
+                    resumeEntity.WhsCode = whsCode;
+                    //resumeEntity.IsInWHs = "1";
+                    resumeEntity.Creator = userCode;
+                    resumeEntity.CreateTime = DateTime.Now;
+                    resumeEntity.IsEnabled = true;
+                    resumeEntity.SheetQty = updateResumeList.Find(t => t.CardCode == item.CardCode)?.SheetQty;
+                    resumeEntity.PieceQty = updateResumeList.Find(t => t.CardCode == item.CardCode)?.PieceQty;
+
+                    insertResumeList.Add(resumeEntity);
+                });
+                #endregion
+
+                bool flag = false;
+                #region 当前工序需要托盘张数或者片数
+                //if (!processName.Contains(Language.GetText("ProduceManage.ProduceController.SavePMStartInfo.Data_1")))//包装
+                if (!processName.Contains("包装"))//包装
+                {
+                    decimal needPalletCount = 0;
+                    var startTotalSheetQty = insertResumeList.Sum(t => t.SheetQty);
+                    var startTotalPieceQty = insertResumeList.Sum(t => t.PieceQty);
+                    PMOperationPalletNumEntity pmOperationPalletQtyEntity = null;
+                    if (workOrderEntity.IsVC == true)
+                        pmOperationPalletQtyEntity = _pmOperationPalletNumService.GetEntity(t => t.ProcessCode == processCode && t.Spec == cardEntity.Spec && t.DocType == "2");
+                    else
+                        pmOperationPalletQtyEntity = _pmOperationPalletNumService.GetEntity(t => t.ProcessCode == processCode && t.MaterialCode == cardEntity.MaterialCode && t.DocType == "1");
+                    if (pmOperationPalletQtyEntity == null)
+                        return AjaxResult(false, "ProduceManage.ProduceController.SavePMStartInfo.Tips_24");
+
+                    //工序托盘数量
+                    var operationPalletQty = pmOperationPalletQtyEntity.PalletNum;
+                    var operationPalletUnit = pmOperationPalletQtyEntity.UnitName;
+                    decimal sheetQty = 0;
+                    decimal pieceQty = 0;
+                    //工单物料主数据
+                    var plMaterialEntity = _plMaterialBLL.Get_ExpressionEntity(t => t.WorkOrder == workOrderEntity.WorkOrder && t.IsDeleted == false);
+                    //工单物料属性
+                    var plMaterialFacetList = _plMaterialFacetBLL.Get_ExpressionList(t => t.MaterialId == plMaterialEntity.Id);
+                    var DXZHEntity = plMaterialFacetList.ToList().Find(t => t.AttrCode == "DXZH");//大张转小片转换值
+                    var DXZH = DXZHEntity == null ? "1" : DXZHEntity.AttrValue;
+                    //if (operationPalletUnit == Language.GetText("ProduceManage.ProduceController.SavePMStartInfo.Data_2"))//张
+                    if (operationPalletUnit == "张")
+                    {
+                        sheetQty = operationPalletQty.Value;
+                        pieceQty = operationPalletQty.Value * DXZH.ToDecimal();
+                        needPalletCount = Math.Ceiling(startTotalSheetQty.Value / operationPalletQty.Value);
+                    }
+                    else //片数
+                    {
+                        sheetQty = Math.Ceiling(operationPalletQty.Value / DXZH.ToDecimal());
+                        pieceQty = operationPalletQty.Value;
+                        needPalletCount = Math.Ceiling(startTotalPieceQty.Value / operationPalletQty.Value);
+                    }
+                    //拆托工序再关联剩余流转卡
+                    if (needPalletCount > oldCardList.Count && cardEntity.SplitProcess == processCode)
+                    {
+                        flag = true;
+                        int cardCount = 0;
+                        var allCardList = _transferCardBLL.Get_ExpressionList(t => t.ExeWorkOrder == exeWorkOrderEntity.ExeWorkOrder).OrderBy(t => t.CardName);
+                        foreach (var item in allCardList)
+                        {
+                            if (cardCount == needPalletCount)
+                                break;
+
+                            if (oldCardList.Any(t => t.CardCode == item.CardCode))
+                                cardCount += 1;
+                            else if ((item.CardStatus == "1" || item.CardStatus == "5") && string.IsNullOrEmpty(item.SerialNumber))//正常、报废流转卡
+                            {
+                                cardCount += 1;
+
+                                #region 流转卡
+                                item.SerialNumber = cardEntity.SerialNumber;
+                                item.PrintStatus = "3";//可打印
+                                oldCardList.Add(item);
+                                #endregion
+
+                                #region 开工
+                                if (!lstStart.Any(t => t.CardCode == item.CardCode))
+                                {
+                                    //开工记录
+                                    PM_StartUpRecordEntity startEntity = new PM_StartUpRecordEntity();
+                                    startEntity.Id = Guid.NewGuid().ToString();
+                                    startEntity.FactoryCode = workOrderEntity.FactoryCode;
+                                    startEntity.FactoryName = workOrderEntity.FactoryName;
+                                    startEntity.ProductOrder = cardEntity.ProductOrder;
+                                    startEntity.WorkOrder = cardEntity.WorkOrder;
+                                    startEntity.ExeWorkOrder = cardEntity.ExeWorkOrder;
+                                    startEntity.CardCode = item.CardCode;
+                                    startEntity.ProcessCode = processCode;
+                                    startEntity.ProcessName = processName;
+                                    startEntity.Creator = userCode;
+                                    startEntity.CreateTime = DateTime.Now;
+                                    startEntity.IsEnabled = true;
+                                    lstStart.Add(startEntity);
+                                }
+                                #endregion
+
+                                #region 流转履历
+                                PM_TransferCardResumeEntity resumeEntity = new PM_TransferCardResumeEntity();
+                                resumeEntity.Id = Guid.NewGuid().ToString();
+                                resumeEntity.FactoryCode = workOrderEntity.FactoryCode;
+                                resumeEntity.FactoryName = workOrderEntity.FactoryName;
+                                resumeEntity.ProcessCode = processCode;
+                                resumeEntity.CardCode = item.CardCode;
+                                resumeEntity.BusinessType = "8";//开工
+                                resumeEntity.OperationId = item.Id;
+                                resumeEntity.Flag = "1";//有效
+                                resumeEntity.LocationCode = locationCode;
+                                resumeEntity.WhsCode = whsCode;
+                                //resumeEntity.IsInWHs = "1";
+                                resumeEntity.Creator = userCode;
+                                resumeEntity.CreateTime = DateTime.Now;
+                                resumeEntity.IsEnabled = true;
+                                resumeEntity.SheetQty = 0;
+                                resumeEntity.PieceQty = 0;
+                                insertResumeList.Add(resumeEntity);
+                                #endregion
+                            }
+                        }
+                        #region 流转卡更新
+                        foreach (var item in oldCardList)
+                        {
+                            item.SCTPSL = sheetQty;
+                            item.SCTPSLP = pieceQty;
+                            item.PalletQty = sheetQty;
+                            item.PieceQty = pieceQty;
+                            item.ModifyBy = userCode;
+                            item.ModifyTime = DateTime.Now;
+                        }
+                        #endregion
+                    }
+                }
+                #endregion
+
+                #region 更新执行工单状态
+                bool isUpdate = false;
+                List<PL_WorkOrderEntity> oldWorkOrderList = new List<PL_WorkOrderEntity>();
+                if (exeWorkOrderEntity.Status == "1")
+                {
+                    exeWorkOrderEntity.Status = "2";//正在生产
+                    exeWorkOrderEntity.ModifyBy = userCode;
+                    exeWorkOrderEntity.ModifyTime = DateTime.Now;
+
+                    workOrderEntity.OrderStatus = "5";//生产中
+                    workOrderEntity.ModifyBy = userCode;
+                    workOrderEntity.ModifyTime = DateTime.Now;
+
+                    productOrderEntity.OrderStatus = "3";//生产中
+                    productOrderEntity.ModifyBy = userCode;
+                    productOrderEntity.ModifyTime = DateTime.Now;
+                    isUpdate = true;
+
+                    if (workOrderEntity.BatchStatus == 1)
+                    {
+                        oldWorkOrderList = _workOrderBLL.Get_ExpressionList(t => t.BatchWorkOrder == workOrderEntity.WorkOrder).ToList();
+                        foreach (var item in oldWorkOrderList)
+                        {
+                            item.OrderStatus = "5";
+                            item.ModifyBy = CurrentAccount.UserCode;
+                            item.ModifyTime = DateTime.Now;
+                        }
+                    }
+                }
+                #endregion
+
+                #region 记录登陆人绑定的开工工序
+                var peopleEntity = _bsPeopleService.Get_ExpressionEntity(t => t.Code == userCode);
+                var isUpdate1 = false;
+                if (peopleEntity.ProcessCode != processCode)
+                {
+                    isUpdate1 = true;
+                    peopleEntity.ProcessCode = processCode;
+                    peopleEntity.ModifyBy = userCode;
+                    peopleEntity.ModifyTime = DateTime.Now;
+                }
+                #endregion
+
+                var msg = "";
+                TransactionOptions transactionOption = new TransactionOptions();
+                //设置事务隔离级别
+                transactionOption.IsolationLevel = System.Transactions.IsolationLevel.ReadCommitted;
+                // 设置事务超时时间为60秒
+                transactionOption.Timeout = new TimeSpan(0, 0, 60);
+                using (var ts = new TransactionScope(TransactionScopeOption.Required, transactionOption))
+                //using (var ts = new TransactionScope())
+                {
+                    if (isChange) //更换工艺路线
+                    {
+                        _plProcessBLL.RemoveForm(t => t.Id == oldProcessId);
+                        _plProcessOfOperationsBLL.RemoveForm(t => t.ProcessId == oldProcessId);
+                        _plProcessOfOperationsAttrBLL.RemoveForm(t => t.ProcessId == oldProcessId);
+
+                        _plProcessBLL.SaveEntity("", processEntity, out msg);
+                        _plProcessOfOperationsBLL.SaveEntity_List(false, userName, pOperationList, out msg);
+                        _plProcessOfOperationsAttrBLL.SaveEntity_List(false, userName, pAttrList, out msg);
+                        if (workOrderEntity.IsVC == false)
+                        {
+                            //更换BOM
+                            _plBomBLL.RemoveForm(t => t.Id == plBomId);
+                            _plBomItemBLL.RemoveForm(t => t.BOMId == plBomId);
+
+                            _plBomBLL.SaveForm("", plBomEntity);
+                            _plBomItemBLL.Save_List(false, plBomItemList);
+                        }
+                        _workOrderBLL.SaveEntity(workOrderEntity.Id, workOrderEntity, out msg);
+                        _exeWorkOrderBLL.SaveEntity(exeWorkOrderEntity.Id, exeWorkOrderEntity, out msg);
+                    }
+                    _startUpRecordBLL.SaveEntity_List(false, userName, lstStart, out msg);
+                    if (updateResumeList.Count > 0)
+                        _resumeBLL.SaveEntity_List(true, userName, updateResumeList, out msg);
+
+                    _resumeBLL.SaveEntity_List(false, userName, insertResumeList, out msg);
+                    if (isUpdate)
+                    {
+                        _exeWorkOrderBLL.SaveEntity(exeWorkOrderEntity.Id, exeWorkOrderEntity, out msg);
+                        _workOrderBLL.SaveEntity(workOrderEntity.Id, workOrderEntity, out msg);
+                        _productionOrderBLL.SaveEntity(productOrderEntity.Id, productOrderEntity, out msg);
+                    }
+                    if (isUpdate1)
+                        _bsPeopleService.SaveEntity(peopleEntity.ID, peopleEntity, out msg);
+
+                    if (flag)
+                        _transferCardBLL.SaveEntity_List(true, userName, oldCardList, out msg);
+
+                    if (workOrderEntity.BatchStatus == 1 && oldWorkOrderList.Count > 0)
+                        _workOrderBLL.SaveEntity_List(true, CurrentAccount.UserCode, oldWorkOrderList, out msg);
+
+                    ts.Complete();
+                }
+
+                result.success = true;
+            }
+            catch (Exception ex)
+            {
+                result.success = false;
+                result.statusCode = ((int)HttpStatusCode.InternalServerError).ToString();
+                result.returnMsg = "Common.Error";
+            }
+            return Request.CreateResponse(HttpStatusCode.OK, result);
+        }
+
+        #endregion
+
+        #region 原料批次上机
+        /// <summary>
+        /// 原料批次上机-机台扫描获取有效记录
+        /// </summary>
+        /// <param name="jo"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("RawMBatchUpMachineScan")]
+        public HttpResponseMessage RawMBatchUpMachineScan(JObject jo)
+        {
+            var result = new ResponseResult();
+            try
+            {
+                dynamic cardScan = new ExpandoObject();
+
+                string machineCode = getValue(jo, "MachineCode");
+                if (string.IsNullOrEmpty(machineCode))
+                {
+                    return AjaxResult(false, "ProduceManage.ProduceController.RawMBatchUpMachineScan.Tips_1");//机台不能为空
+                }
+                var list = _materialBatchUpRecordBLL.Get_ExpressionList(t => t.MachineCode == machineCode && t.Flag == 1).ToList();
+
+                result.resultData = list;
+                result.success = true;
+            }
+            catch (Exception ex)
+            {
+                result.success = false;
+                result.statusCode = ((int)HttpStatusCode.InternalServerError).ToString();
+                result.returnMsg = "Common.Error";
+            }
+            return Request.CreateResponse(HttpStatusCode.OK, result);
+        }
+
+
+        /// <summary>
+        /// 原料批次上机-关键件条码扫描
+        /// </summary>
+        /// <param name="jo"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("RawMBatchUpCodeBarScan")]
+        public HttpResponseMessage RawMBatchUpCodeBarScan(JObject jo)
+        {
+            var result = new ResponseResult();
+            try
+            {
+                dynamic codeBarScan = new ExpandoObject();
+
+                string codeBar = getValue(jo, "codeBar");
+                if (string.IsNullOrEmpty(codeBar))
+                {
+                    return AjaxResult(false, "ProduceManage.ProduceController.RawMBatchUpCodeBarScan.Tips_1");//批次不能为空
+                }
+                var rawStockEntity = _rawMaterailStockBLL.Get_ExpressionEntity(t => t.BatchNo == codeBar);
+                if (rawStockEntity == null)
+                {
+                    return AjaxResult(false, "ProduceManage.ProduceController.RawMBatchUpCodeBarScan.Tips_2");//批次不存在
+                }
+                result.resultData = rawStockEntity;
+            }
+            catch (Exception ex)
+            {
+                result.success = false;
+                result.statusCode = ((int)HttpStatusCode.InternalServerError).ToString();
+                result.returnMsg = "Common.Error";
+            }
+            return Request.CreateResponse(HttpStatusCode.OK, result);
+        }
+
+        /// <summary>
+        /// 原料批次上机-保存
+        /// </summary>
+        /// <param name="jo"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("RawMBatchUpCodeBarSave")]
+        public HttpResponseMessage RawMBatchUpCodeBarSave(JObject jo)
+        {
+            var result = new ResponseResult();
+            var msg = "";
+            try
+            {
+                if (jo == null)
+                {
+                    return AjaxResult(false, "Common.ParamsNotNull");//参数不能为空
+                }
+                var userCode = getValue(jo, "userCode");//用户编码
+                var userName = getValue(jo, "userName");//用户名称
+                var entity = JsonConvert.DeserializeObject<PM_MaterialBatchUpRecordEntity>(jo["entity"].ToString());
+                var bsModel = _bsModelWithResourceBLL.GetEntity(t => t.ResourceCode == entity.MachineCode);
+                if (bsModel == null)
+                {
+                    return AjaxResult(false, "ProduceManage.ProduceController.RawMBatchUpCodeBarSave.Tips_1");//机台不存在
+                }
+                var processCode = bsModel?.ParentResource;
+
+                //校检上机批次在当前工序是否有库存，没库存不允许上机
+                var map = new Dictionary<string, string>();
+                map.Add("ResourceCode", processCode);
+                map.Add("FieldCode", "GXGLCK");//
+                var levEntity = _levelBLL.GetDynamicModelWithResource(map, out msg);
+                if (levEntity == null)
+                    return AjaxResult(false, "ProduceManage.ProduceController.RawMBatchUpCodeBarSave.Tips_2");//工序关联仓库未维护
+
+                string fieldValue = levEntity?.FieldValue;
+                var arrWhsCode = fieldValue.Split(',');
+                var rawEntity = _rawMaterailStockBLL.Get_ExpressionEntity(t => t.MaterialCode == entity.MaterialCode && arrWhsCode.Contains(t.WhsCode)
+                    && t.BatchNo == entity.BatchNo && t.Qty > 0);
+                if (rawEntity == null)
+                    return AjaxResultWithParams(false, "ProduceManage.ProduceController.RawMBatchUpCodeBarSave.Tips_3", fieldValue);//工序关联仓库[{fieldValue}]没有库存,不能上机
+
+                var isUpdate = false;
+                var down = _materialBatchUpRecordBLL.Get_ExpressionEntity(t => t.ProcessCode == processCode
+                                                                          && t.MachineCode == entity.MachineCode
+                                                                          && t.MaterialCode == entity.MaterialCode
+                                                                          && t.Flag == 1);
+                if (down != null) //更新上一个批次的上机状态
+                {
+                    isUpdate = true;
+                    down.Flag = 0;
+                    down.ModifyTime = DateTime.Now;
+                    down.ModifyBy = entity.Creator;
+                }
+
+                entity.FactoryCode = rawEntity.FactoryCode;
+                entity.FactoryName = rawEntity.FactoryName;
+                entity.ProcessCode = processCode;
+                entity.Id = Guid.NewGuid().ToString();
+                entity.CreateTime = DateTime.Now;
+                entity.Creator = userCode;
+                entity.IsEnabled = true;
+                entity.Flag = 1;//上机状态
+
+
+                TransactionOptions transactionOption = new TransactionOptions();
+                //设置事务隔离级别
+                transactionOption.IsolationLevel = System.Transactions.IsolationLevel.ReadCommitted;
+                // 设置事务超时时间为60秒
+                transactionOption.Timeout = new TimeSpan(0, 0, 60);
+                using (var ts = new TransactionScope(TransactionScopeOption.Required, transactionOption))
+                //using (var ts = new TransactionScope())
+                {
+                    if (isUpdate)
+                    {
+                        _materialBatchUpRecordBLL.SaveEntity(down.Id, down, out msg);
+                    }
+                    _materialBatchUpRecordBLL.SaveEntity("", entity, out msg);
+
+                    ts.Complete();
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                result.success = false;
+                result.statusCode = ((int)HttpStatusCode.InternalServerError).ToString();
+                result.returnMsg = "Common.Error";
+            }
+            return Request.CreateResponse(HttpStatusCode.OK, result);
+        }
+
+        /// <summary>
+        /// 取消绑定
+        /// </summary>
+        /// <param name="jo"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("RawMBatchUpMachineRemove")]
+        public HttpResponseMessage RawMBatchUpMachineRemove(JObject jo)
+        {
+            var result = new ResponseResult();
+            try
+            {
+                var userCode = getValue(jo, "userCode");//用户编码
+                var userName = getValue(jo, "userName");//用户名称
+                var list = JsonConvert.DeserializeObject<List<PM_MaterialBatchUpRecordEntity>>(getValue(jo, "data"));
+
+                foreach (var item in list)
+                {
+                    item.Flag = 0;
+                    item.ModifyBy = userCode;
+                    item.ModifyTime = DateTime.Now;
+                }
+                var msg = "";
+                if (list.Count > 0) _materialBatchUpRecordBLL.SaveEntity_List(true, userCode, list, out msg);
+                result.resultData = null;
+                result.returnMsg = "Common.ExecutionSuccess";//执行成功
+                result.success = true;
+            }
+            catch (Exception ex)
+            {
+                result.success = false;
+                result.statusCode = ((int)HttpStatusCode.InternalServerError).ToString();
+                result.returnMsg = "Common.Error";
+            }
+            return Request.CreateResponse(HttpStatusCode.OK, result);
+        }
+
+        #endregion
+
+        #region 流转卡报工
+
+        /// <summary>
+        /// 流转卡报工-生产机台扫描
+        /// </summary>
+        /// <param name="jo"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("TransferCardBGMachineScan")]
+        public HttpResponseMessage TransferCardBGMachineScan(JObject jo)
+        {
+            var result = new ResponseResult();
+            try
+            {
+                dynamic scanResult = new ExpandoObject();
+
+                string machineCode = getValue(jo, "machineCode");
+                if (string.IsNullOrEmpty(machineCode))
+                {
+                    return AjaxResult(false, "ProduceManage.ProduceController.TransferCardBGMachineScan.Tips_1");//生产机台不能为空
+                }
+                //机台
+                var bsModel = _bsModelWithResourceBLL.GetEntity(t => t.ResourceCode == machineCode && t.EnabledMark == true);
+                if (bsModel == null)
+                {
+                    return AjaxResultWithParams(false, "ProduceManage.ProduceController.TransferCardBGMachineScan.Tips_2", machineCode);//生产机台[{machineCode}]不存在
+                }
+                //工序
+                var bsModel1 = _bsModelWithResourceBLL.GetEntity(t => t.ResourceCode == bsModel.ParentResource && t.EnabledMark == true);
+
+                scanResult.ProcessCode = bsModel1.ResourceCode;//工序编码
+                scanResult.ProcessName = bsModel1.ResourceName;//工序名称
+                result.resultData = scanResult;
+            }
+            catch (Exception ex)
+            {
+                result.success = false;
+                result.statusCode = ((int)HttpStatusCode.InternalServerError).ToString();
+                result.returnMsg = "Common.Error";
+            }
+            return Request.CreateResponse(HttpStatusCode.OK, result);
+        }
+        /// <summary>
+        /// 流转卡报工-流转卡扫描
+        /// </summary>
+        /// <param name="jo"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("TransferCardBGCardScan")]
+        public HttpResponseMessage TransferCardBGCardScan(JObject jo)
+        {
+            var result = new ResponseResult();
+            var msg = string.Empty;
+            try
+            {
+                dynamic scanResult = new ExpandoObject();
+
+                string cardCode = getValue(jo, "cardCode");
+                string processCode = getValue(jo, "processCode");
+                if (string.IsNullOrEmpty(cardCode))
+                {
+                    return AjaxResult(false, "ProduceManage.ProduceController.TransferCardBGCardScan.Tips_1");//流转卡编码不能为空
+                }
+                var cardEntity = _transferCardBLL.Get_ExpressionEntity(t => t.CardCode == cardCode && t.IsEnabled == true);
+                if (cardEntity == null)
+                {
+                    return AjaxResult(false, "ProduceManage.ProduceController.TransferCardBGCardScan.Tips_2");//当前流转卡不存在
+                }
+                if (cardEntity.CardStatus == "5")//报废
+                {
+                    return AjaxResult(false, "ProduceManage.ProduceController.TransferCardBGCardScan.Tips_3");//当前流转卡已报废
+                }
+                else if (cardEntity.CardStatus == "3")
+                {
+                    return AjaxResult(false, "ProduceManage.ProduceController.TransferCardBGCardScan.Tips_4");//当前流转卡返工中
+                }
+
+                //判断是否特殊工序 TSBGBS  =1
+                var map = new Dictionary<string, string>();
+                map.Add("ResourceCode", processCode);
+                map.Add("FieldCode", "TSBGBS");
+                map.Add("FieldValue", "1");
+                var dy = _levelBLL.GetDynamicModelWithResource(map, out msg);
+                if (dy == null)
+                {
+                    var resumeEntity = _resumeBLL.Get_ExpressionEntity(t => t.CardCode == cardCode && t.Flag == "1");
+                    if (resumeEntity == null)
+                    {
+                        return AjaxResult(false, "ProduceManage.ProduceController.TransferCardBGCardScan.Tips_5");//当前流转卡还未开始流转，不允许报工
+                    }
+                    //if (resumeEntity.ProcessCode != processCode)
+                    //{
+                    //    var bsModel = _bsModelWithResourceBLL.GetEntity(t => t.ResourceCode == resumeEntity.ProcessCode);
+                    //    return AjaxResult(false, $"当前流转卡在工序[{bsModel?.ResourceName}]上，无法报工");
+                    //}
+                }
+
+                var workOrder = cardEntity.WorkOrder;
+                var workOrderEntity = _workOrderBLL.Get_ExpressionEntity(t => t.WorkOrder == workOrder);
+
+                scanResult.CardCode = cardEntity.CardCode;
+                scanResult.CardName = cardEntity.CardName;
+                scanResult.ProcessCode = processCode;
+                scanResult.ProductOrder = workOrderEntity.ProductOrder;
+                scanResult.ContainerNO = workOrderEntity.ContainerNO;
+                if (dy == null)
+                {
+                    var cardBGList = _transferCardBGBLL.Get_ExpressionList(t => t.CardCode == cardCode && t.ProcessCode == processCode && t.IsRework == "0");
+                    scanResult.HasBGQty = cardBGList.Sum(t => t.Qty);
+                }
+                else scanResult.HasBGQty = null;
+
+                //流转卡列表
+                var data = _transferCardBLL.getNoBGTS(cardEntity.SerialNumber, processCode);
+                scanResult.NotBGTS = data.NotBGTS;
+                result.resultData = scanResult;
+            }
+            catch (Exception ex)
+            {
+                result.success = false;
+                result.statusCode = ((int)HttpStatusCode.InternalServerError).ToString();
+                result.returnMsg = "Common.Error";
+            }
+            return Request.CreateResponse(HttpStatusCode.OK, result);
+        }
+
+        /// <summary>
+        /// 流转卡报工-生产小组扫描
+        /// </summary>
+        /// <param name="jo"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("TransferCardBGPTeamScan")]
+        public HttpResponseMessage TransferCardBGPTeamScan(JObject jo)
+        {
+            var result = new ResponseResult();
+            try
+            {
+                dynamic scanResult = new ExpandoObject();
+
+                string pTeamCode = getValue(jo, "pTeamCode");
+                if (string.IsNullOrEmpty(pTeamCode))
+                {
+                    return AjaxResult(false, "ProduceManage.ProduceController.TransferCardBGPTeamScan.Tips_1");//生产小组不能为空
+                }
+                var pTeamEntity = _teamPersonBLL.Get_ExpressionEntity(t => t.PTeamCode == pTeamCode);
+                if (pTeamEntity == null)
+                {
+                    return AjaxResult(false, "ProduceManage.ProduceController.TransferCardBGPTeamScan.Tips_2");//当前生产小组不存在
+                }
+                var msg = "";
+                var pTeamPersonList = _teamPersonItemBLL.GetList(pTeamCode, out msg);
+                if (pTeamPersonList == null || pTeamPersonList.Count() == 0)
+                {
+                    return AjaxResult(false, "ProduceManage.ProduceController.TransferCardBGPTeamScan.Tips_3");//当前生产小组没有分配人员
+                }
+
+                scanResult = pTeamPersonList.ToList().Select(t => new { UserCode = t.UserCode, UserName = t.UserName });
+                result.resultData = scanResult;
+            }
+            catch (Exception ex)
+            {
+                result.success = false;
+                result.statusCode = ((int)HttpStatusCode.InternalServerError).ToString();
+                result.returnMsg = "Common.Error";
+            }
+            return Request.CreateResponse(HttpStatusCode.OK, result);
+        }
+
+        /// <summary>
+        /// 流转卡报工-保存
+        /// </summary>
+        /// <param name="jo"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("TransferCardBGSave")]
+        public HttpResponseMessage TransferCardBGSave(JObject jo)
+        {
+            var result = new ResponseResult();
+            try
+            {
+                var mbConsumeRecordList = new List<PM_MaterialBatchConsumeRecordEntity>();//报工物料批次消耗记录
+                var rawMaterialOutList = new List<MM_RawMaterialOutEntity>();//原材料出库记录
+                var rawMaterialStockList = new List<MM_RawMaterialStockEntity>();//原材料库存
+                PM_TransferCardResumeEntity cardResumeEntity = null;//流转履历
+                List<PM_TransferCardResumeEntity> cardResumeOldList = null;//旧流转履历
+                var bgID = Guid.NewGuid().ToString();
+                var msg = "";
+                if (jo == null)
+                {
+                    return AjaxResult(false, "Common.ParamsNotNull");//参数不能为空
+                }
+
+                //CommonLog.WriteInputLog(jo.ToString(), "TransferCardBGSave");
+
+                var processCode = getValue(jo, "processCode");//工序编码
+                var cardCode = getValue(jo, "cardCode");//流转卡
+                var machineCode = getValue(jo, "machineCode");//生产机台
+                var qty = getValue(jo, "qty");//报工数量
+                var badQty = getValue(jo, "badQty");//不良数量
+                badQty = string.IsNullOrEmpty(badQty) ? "0" : badQty;
+                var pTeamCode = getValue(jo, "pTeamCode");//生产小组编码
+                var userNames = getValue(jo, "userNames");//人员信息
+                var userCode = getValue(jo, "userCode");//用户编码
+                var userName = getValue(jo, "userName");//用户名称
+                var remark = getValue(jo, "remark");//备注
+                var badItemDetailList = JsonConvert.DeserializeObject<List<PM_BGBadRecordEntity>>(jo["badItemDetailList"].ToString());
+
+                lock (_lockTransferCardBG)
+                {
+                    #region 数据校验
+                    if (string.IsNullOrEmpty(qty) || qty.ToDecimal() == 0)
+                    {
+                        return AjaxResult(false, "ProduceManage.ProduceController.TransferCardBGSave.Tips_1");//报工数量不能为0
+                    }
+                    if (qty.ToDecimal() > 10000)
+                    {
+                        return AjaxResult(false, "报工数量不能超10000");
+                    }
+                    var machineEntity = _bsModelWithResourceBLL.GetEntity(t => t.ResourceCode == machineCode);
+                    if (machineEntity == null)
+                        return AjaxResult(false, "ProduceManage.ProduceController.TransferCardBGSave.Tips_2");//机台不存在
+
+                    var cardEntity = _transferCardBLL.Get_ExpressionEntity(t => t.CardCode == cardCode);
+                    if (cardEntity.CardStatus == "5")//报废
+                    {
+                        return AjaxResult(false, "ProduceManage.ProduceController.TransferCardBGCardScan.Tips_3");//当前流转卡已报废
+                    }
+                    var exeWorkOrderEntity = _exeWorkOrderBLL.Get_ExpressionEntity(t => t.ExeWorkOrder == cardEntity.ExeWorkOrder && t.IsEnabled == true);//执行工单
+                    if (exeWorkOrderEntity == null)
+                    {
+                        return AjaxResult(false, "ProduceManage.ProduceController.TransferCardBGSave.Tips_3");//执行工单不存在
+                    }
+                    var workOrderEntity = _workOrderBLL.Get_ExpressionEntity(t => t.WorkOrder == cardEntity.WorkOrder && t.IsEnabled == true);
+                    if (workOrderEntity.FreezeFlag == true || workOrderEntity.OrderStatus == "40")
+                    {
+                        return AjaxResult(false, "工单已冻结");
+                    }
+                    if (workOrderEntity.OrderStatus == "9")
+                        return AjaxResult(false, "工单已结案，无法报工");
+
+                    var plMaterialEntity = _plMaterialBLL.Get_ExpressionEntity(t => t.WorkOrder == workOrderEntity.WorkOrder && t.IsDeleted == false);
+                    var plMaterialFacetList = _plMaterialFacetBLL.Get_ExpressionList(t => t.MaterialId == plMaterialEntity.Id).ToList();
+                    var DXZH = plMaterialFacetList.Find(t => t.AttrCode == "DXZH")?.AttrValue.ToDecimal();//大小转换
+                    var hisBGList = _transferCardBGBLL.Get_ExpressionList(t => t.CardCode == cardCode && t.ProcessCode == processCode && t.IsRework == "0").ToList();
+                    //var pTeamEntity = _teamPersonBLL.Get_ExpressionEntity(t => t.PTeamCode == pTeamCode);
+                    //if (pTeamEntity == null)
+                    //    return AjaxResult(false, "当前生产小组不存在");
+
+                    var pTeamEntity = _teamPersonBLL.Get_ExpressionEntity(t => t.ProcessCode == processCode && t.PTeamCode == pTeamCode);
+                    if (pTeamEntity == null)
+                    {
+                        var GLSCXZ = _bsModelResourceExtendInfoBLL.Get_ExpressEntity(t => t.ResourceCode == processCode && t.FieldCode == "GLSCXZ");
+                        var glProcessTeam = GLSCXZ?.FieldValue;
+                        pTeamEntity = _teamPersonBLL.Get_ExpressionEntity(t => glProcessTeam.Contains(t.ProcessCode) && t.PTeamCode == pTeamCode);
+                        if (pTeamEntity == null)
+                            return AjaxResult(false, "ProduceManage.ProduceController.TransferCardBGSave.Tips_4");//当前工序中没有该生产小组
+                    }
+
+                    var keyParamItemEntity1 = _baseKeyParameterItemBLL.Get_ExpressionEntity(t => t.EnCode == "Switch" && t.ItemCode == "QualityFirstInspection"
+                        && t.Remark1 == workOrderEntity.FactoryCode);
+                    if (keyParamItemEntity1?.ItemValue == "1")
+                    {
+                        if (exeWorkOrderEntity.OrderType != "5") //超产品执行工单不做判断
+                        {
+                            var firstEntity = _FirstInspectionConfirmBLL.GetEntity(t => t.WorkOrder == cardEntity.WorkOrder && t.Process == processCode);
+                            if (firstEntity != null && firstEntity.FirstStatus == "1")//FirstStatus=1 未检验
+                            {
+                                return AjaxResult(false, "ProduceManage.ProduceController.TransferCardBGSave.Tips_5");//流转卡未质量首检，不可以报工
+                            }
+                        }
+                    }
+
+                    //判断Bom是否存在
+                    var plBomEntity = _plBomBLL.Get_ExpressionEntity(t => t.WorkOrder == cardEntity.WorkOrder && t.IsDeleted == false);
+                    if (plBomEntity == null)
+                    {
+                        return AjaxResultWithParams(false, "ProduceManage.ProduceController.TransferCardBGSave.Tips_6", cardEntity.WorkOrder);// 工单[{cardEntity.WorkOrder}]的Bom不存在
+                    }
+                    //根据工单找当前工序的物料(带虚拟库位)
+                    var plBomItemList = _plBomItemBLL.GetBomItemList(plBomEntity.Id, processCode).ToList();
+
+                    //a.判断工单工艺是否存在
+                    var plProcessEntity = _plProcessBLL.GetEntity(t => t.WorkOrder == cardEntity.WorkOrder && t.IsDeleted == false);
+                    if (plProcessEntity == null)
+                    {
+                        return AjaxResultWithParams(false, "ProduceManage.ProduceController.TransferCardBGSave.Tips_7", cardEntity.WorkOrder);//工单[{cardEntity.WorkOrder}]的工艺路线不存在
+                    }
+                    var plOperationList = _plProcessOfOperationsBLL.Get_ExpressionList(t => t.ProcessId == plProcessEntity.Id && t.IsDeleted == false)
+                        .OrderBy(t => t.SN).ToList();
+                    var plOperationEntity = plOperationList.Find(t => t.OperationCode == processCode);
+                    List<PL_ProcessOfOperationsAttrEntity> plAttrList = null;
+                    //b.当前工序是否在工艺路线里，如果不在是否需要报工
+                    string unit = "";
+                    if (plOperationEntity == null)
+                    {
+                        var bsModelExtend = _bsModelResourceExtendInfoBLL.Get_ExpressEntity(t => t.ResourceCode == processCode && t.FieldCode == "TSBGBS");
+                        if (bsModelExtend.FieldValue == "0")
+                        {
+                            return AjaxResult(false, "ProduceManage.ProduceController.TransferCardBGSave.Tips_8");//当前工序不在工艺路线里，并且不可以报工
+                        }
+                        else if (bsModelExtend.FieldValue == "1")//特殊工序
+                        {
+                            unit = _bsModelResourceExtendInfoBLL.Get_ExpressEntity(t => t.ResourceCode == processCode && t.FieldCode == "DW")?.FieldValue;
+                        }
+                    }
+                    else if (plOperationEntity.OperationName.Contains("包装"))//Language.GetText("ProduceManage.ProduceController.TransferCardBGSave.Data_1")
+                        return AjaxResult(false, "ProduceManage.ProduceController.TransferCardBGSave.Tips_9");//包装请使用包装报工功能
+
+                    if (plOperationEntity.WFMark == "1")
+                        return AjaxResult(false, "ProduceManage.ProduceController.SavePMStartInfo.Tips_26");//外发不允许操作
+
+                    //b.1.校验是否库存为负数 1开，0关
+                    var stockSwitch = _baseKeyParameterItemBLL.Get_ExpressionEntity(t => t.EnCode == "Switch" && t.ItemCode == "Backflush"
+                        && t.Remark1 == workOrderEntity.FactoryCode);
+
+                    if (plOperationEntity != null) //工艺路线里的工序验证
+                    {
+                        //超产品执行工单要判断超产品库存是否已转出
+                        if (exeWorkOrderEntity.OrderType == "5") //5：超产品
+                        {
+                            var supProductTransferEntity = _supProductStockTransferBLL.Get_ExpressionEntity(t => t.ExeWorkOrder == exeWorkOrderEntity.ExeWorkOrder);
+                            if (supProductTransferEntity == null)
+                            {
+                                return AjaxResult(false, "ProduceManage.ProduceController.TransferCardBGSave.Tips_10");//请先将超产品库存转出
+                            }
+                        }
+
+                        plAttrList = _plProcessOfOperationsAttrBLL.Get_ExpressionList(t => t.OperationsId == plOperationEntity.Id).ToList();
+                        if (plAttrList.Count == 0)
+                        {
+                            return AjaxResult(false, "ProduceManage.ProduceController.TransferCardBGSave.Tips_11");// 工艺属性不存在
+                        }
+                        //c.当前工序是否需要报工
+                        var plAttrEntity1 = plAttrList.Find(t => t.AttrCode == "BGCZ");
+
+                        //if (plAttrEntity1.AttrValue == Language.GetText("Common.No"))//否
+                        if (plAttrEntity1.AttrValue == "否" || plAttrEntity1.AttrValue == "N")//否
+                        {
+                            return AjaxResult(false, "ProduceManage.ProduceController.TransferCardBGSave.Tips_12");//当前工序在工艺路线里，但不可以报工
+                        }
+                        //d.如果当前工序需要开工，校验是否已开工
+                        var plAttrEntity2 = plAttrList.Find(t => t.AttrCode == "KGCZ");
+                        if (plAttrEntity2.AttrValue == "是" || plAttrEntity2.AttrValue == "Y")
+                        {
+                            var startupEntity = _startUpRecordBLL.Get_ExpressionEntity(t => t.CardCode == cardCode && t.ProcessCode == processCode && t.IsEnabled == true);
+                            if (startupEntity == null)
+                            {
+                                //非新建流转卡或者（是新建流转卡，但不是首道工序）
+                                if (string.IsNullOrEmpty(cardEntity.NewType) || (!string.IsNullOrEmpty(cardEntity.NewType) && cardEntity.StartProcess != processCode))
+                                    return AjaxResult(false, "ProduceManage.ProduceController.TransferCardBGSave.Tips_13");//当前工序还没开工，不可以报工
+                            }
+                        }
+                        else
+                        {
+                            //判断是否跨工序
+                            int index = plOperationList.FindIndex(t => t.OperationCode == processCode);
+                            if (index > 0) //非首道工序
+                            {
+                                var resumeEntity = _resumeBLL.Get_ExpressionEntity(t => t.CardCode == cardCode && t.Flag == "1");
+                                if (!string.IsNullOrEmpty(resumeEntity?.ProcessCode))
+                                {
+                                    if (processCode != resumeEntity?.ProcessCode) //二次报工
+                                    {
+                                        var preOperationCode = plOperationList[index - 1].OperationCode;
+                                        var preOperationName = plOperationList[index - 1].OperationName;
+                                        if (preOperationCode != resumeEntity?.ProcessCode)
+                                        {
+                                            return AjaxResultWithParams(false, "ProduceManage.ProduceController.TransferCardBGSave.Tips_14", preOperationName);//上一道工序[{preOperationName}]未报工
+                                        }
+                                        else if (resumeEntity.BusinessType != "2")
+                                            return AjaxResultWithParams(false, "ProduceManage.ProduceController.TransferCardBGSave.Tips_14", preOperationName);//上一道工序[{preOperationName}]未报工
+                                    }
+                                }
+                                else
+                                { //超产品
+                                    if (cardEntity.StartProcess != processCode)
+                                    {
+                                        return AjaxResult(false, "不允许跨工序操作");//不允许跨工序操作
+                                    }
+                                }
+                            }
+                        }
+
+                        //不允许往前工序报工
+                        var resumeEntity2 = _resumeBLL.Get_ExpressionEntity(t => t.CardCode == cardCode && t.Flag == "1");
+                        if (resumeEntity2 != null)
+                        {
+                            var inProcessCode = resumeEntity2.ProcessCode;
+                            var sn1 = plOperationList.Find(t => t.OperationCode == inProcessCode).SN;
+                            var sn2 = plOperationList.Find(t => t.OperationCode == processCode).SN;
+                            if (sn2 < sn1)
+                                return AjaxResult(false, "ProduceManage.ProduceController.TransferCardBGSave.Tips_15");//不允许跨工序报工
+                        }
+
+                        //f车间首检  校验是否首检 1开，0关
+                        var SCSJ = plAttrList.Find(t => t.AttrCode == "SCSJ");
+                        if (SCSJ?.AttrValue == "是" || SCSJ?.AttrValue == "Y")//是
+                        {
+                            if (exeWorkOrderEntity.OrderType != "5") //超产品执行工单不做判断
+                            {
+                                var keyParamItemEntity = _baseKeyParameterItemBLL.Get_ExpressionEntity(t => t.EnCode == "Switch" && t.ItemCode == "WorkShopFirstInspection"
+                                    && t.Remark1 == workOrderEntity.FactoryCode);
+                                if (keyParamItemEntity?.ItemValue == "1")
+                                {
+                                    var workShopInspecEntity = _pmFirtInspectionBLL.Get_ExpressionEntity(t => t.ProductOrder == cardEntity.ProductOrder
+                                        && t.MaterialCode == cardEntity.MaterialCode && t.FirstProcessCode == processCode && t.InspectClass == "1");
+                                    if (workShopInspecEntity == null)
+                                    {
+                                        return AjaxResult(false, "ProduceManage.ProduceController.TransferCardBGSave.Tips_16");//车间未首检，不可以报工
+                                    }
+                                    else if (workShopInspecEntity.Determination == "2")
+                                        return AjaxResult(false, "ProduceManage.ProduceController.TransferCardBGSave.Tips_17");//车间首检不合格，无法报工
+
+                                    if (string.IsNullOrEmpty(workShopInspecEntity.SecondMark) || workShopInspecEntity.SecondMark == "0")
+                                        return AjaxResult(false, "ProduceManage.ProduceController.TransferCardBGSave.Tips_18");//车间主任未确认,无法报工
+                                }
+                                //班次首检
+                                var keyParamItemEntity_Shift = _baseKeyParameterItemBLL.Get_ExpressionEntity(t => t.EnCode == "Switch" && t.ItemCode == "ShiftInspection"
+                                    && t.Remark1 == workOrderEntity.FactoryCode);
+                                if (keyParamItemEntity_Shift?.ItemValue == "1")
+                                {
+                                    //班次判断
+                                    var dataItemList = _dataItemDetailBLL.GetDataItemList_UA("Shift");
+                                    var currentTime = DateTime.Now;
+                                    var shiftName = "";//班次
+                                    var startTime = DateTime.Now;
+                                    var endTime = DateTime.Now;
+                                    foreach (var item in dataItemList)
+                                    {
+                                        var arrTime = item.Description.Split('-');
+                                        startTime = Convert.ToDateTime(DateTime.Now.ToShortDateString() + " " + arrTime[0]);
+                                        endTime = Convert.ToDateTime(DateTime.Now.ToShortDateString() + " " + arrTime[1]);
+
+                                        if (startTime > endTime)
+                                        {
+                                            if (currentTime > startTime)
+                                                endTime = endTime.AddDays(1);
+                                            else
+                                                startTime = startTime.AddDays(-1);
+                                        }
+
+                                        if (currentTime >= startTime && currentTime < endTime)
+                                        {
+                                            shiftName = item.ItemName;
+                                            break;
+                                        }
+                                    }
+
+                                    var workShopInspecEntity = _pmFirtInspectionBLL.Get_ExpressionEntity(t => t.ProductOrder == cardEntity.ProductOrder
+                                        && t.MaterialCode == cardEntity.MaterialCode && t.FirstProcessCode == processCode && t.InspectClass == "1"
+                                        && t.CreateTime >= startTime && t.CreateTime < endTime);
+                                    if (workShopInspecEntity == null)
+                                    {
+                                        return AjaxResultWithParams(false, "ProduceManage.ProduceController.TransferCardBGSave.Tips_19", shiftName);//车间{shiftName}未首检，不可以报工
+                                    }
+                                    else if (workShopInspecEntity.Determination == "2")
+                                        return AjaxResultWithParams(false, "ProduceManage.ProduceController.TransferCardBGSave.Tips_20", shiftName);//车间{shiftName}首检不合格，无法报工
+
+                                    if (string.IsNullOrEmpty(workShopInspecEntity.SecondMark) || workShopInspecEntity.SecondMark == "0")
+                                        return AjaxResultWithParams(false, "ProduceManage.ProduceController.TransferCardBGSave.Tips_21", shiftName);//车间主任{shiftName}未确认,无法报工
+                                }
+                            }
+                        }
+                        //找到当前工序物料批次上机记录
+                        var upRecordList = _materialBatchUpRecordBLL.Get_ExpressionList(t => t.ProcessCode == processCode && t.MachineCode == machineCode && t.Flag == 1).ToList();
+                        //f.是否有库存
+                        var rawMaterialStockTable = _rawMaterailStockBLL.GetList(t => t.IsFrozen == "0");
+                        var query2 = from a in plBomItemList
+                                     join b in rawMaterialStockTable
+                                     on new { a.MaterialCode, WhsCode = a.Warehouse, a.LocationCode } equals new { b.MaterialCode, b.WhsCode, b.LocationCode }
+                                     select b;
+                        var rawMaterialStockSList = query2.ToList();
+
+                        unit = plAttrList.Find(t => t.AttrCode == "CCDW")?.AttrValue;//报工产出单位
+                        foreach (var item in plBomItemList)
+                        {
+                            if (string.IsNullOrEmpty(item.LocationCode))
+                                return AjaxResultWithParams(false, "ProduceManage.ProduceController.TransferCardBGSave.Tips_38", item.MaterialCode);//物料[{0}]没有找到线边库位
+
+                            // e.启用批次管理 是否存在批次上机记录
+                            var batchNo = "";
+                            if (item.IsUsed == true)
+                            {
+                                if (!upRecordList.Any(t => t.MaterialCode == item.MaterialCode))
+                                {
+                                    return AjaxResultWithParams(false, "ProduceManage.ProduceController.TransferCardBGSave.Tips_22", item.MaterialCode, item.MaterialName);//物料[{item.MaterialCode}{item.MaterialName}]没有上机记录
+                                }
+                                batchNo = upRecordList.ToList().Find(t => t.MaterialCode == item.MaterialCode)?.BatchNo;
+                                if (!rawMaterialStockSList.Any(t => t.MaterialCode == item.MaterialCode && t.BatchNo == batchNo))
+                                {
+                                    return AjaxResultWithParams(false, "ProduceManage.ProduceController.TransferCardBGSave.Tips_23", item.MaterialCode, item.MaterialName, batchNo);//物料[{item.MaterialCode}{item.MaterialName}]、批次[{batchNo}]没有可用的库存
+                                }
+                            }
+                            else //非批次管理
+                            {
+                                if (!rawMaterialStockSList.Any(t => t.MaterialCode == item.MaterialCode))
+                                {
+                                    return AjaxResultWithParams(false, "ProduceManage.ProduceController.TransferCardBGSave.Tips_24", item.MaterialCode, item.MaterialName);//物料[{item.MaterialCode}{item.MaterialName}]没有可用的库存
+                                }
+                            }
+                            #region 报工原料批次消耗记录
+                            var mbConsumeRecordEntity = new PM_MaterialBatchConsumeRecordEntity();
+                            mbConsumeRecordEntity.Id = Guid.NewGuid().ToString();
+                            mbConsumeRecordEntity.BGID = bgID;
+                            mbConsumeRecordEntity.FactoryCode = workOrderEntity.FactoryCode;
+                            mbConsumeRecordEntity.FactoryName = workOrderEntity.FactoryName;
+                            mbConsumeRecordEntity.MaterialCode = item.MaterialCode;
+                            mbConsumeRecordEntity.MaterialName = item.MaterialName;
+                            mbConsumeRecordEntity.WhsCode = item.Warehouse;
+                            mbConsumeRecordEntity.LocationCode = item.LocationCode;
+                            mbConsumeRecordEntity.Spec = item.Spec;
+                            mbConsumeRecordEntity.BatchNo = batchNo;
+                            mbConsumeRecordEntity.MaterialType = item.MaterialType;
+
+                            //if (unit == Language.GetText("ProduceManage.ProduceController.TransferCardBGSave.Data_2"))//张
+                            if (unit == "张")//张
+                            {
+                                mbConsumeRecordEntity.RecoilQty = Math.Round(item.Num.Value * (((qty.ToDecimal() + badQty.ToDecimal()) * DXZH.ToDecimal()) / plBomEntity.UnitNum.Value), 2, MidpointRounding.AwayFromZero);
+                            }
+                            else
+                            {
+                                mbConsumeRecordEntity.RecoilQty = Math.Round(item.Num.Value * ((qty.ToDecimal() + badQty.ToDecimal()) / plBomEntity.UnitNum.Value), 2, MidpointRounding.AwayFromZero);
+                            }
+                            mbConsumeRecordEntity.IsEnabled = true;
+                            mbConsumeRecordEntity.Creator = userCode;
+                            mbConsumeRecordEntity.CreateTime = DateTime.Now;
+                            mbConsumeRecordEntity.Unit = item.Unit;
+                            mbConsumeRecordEntity.UnitName = item.UnitName;
+
+                            if (mbConsumeRecordEntity.RecoilQty != 0)
+                                mbConsumeRecordList.Add(mbConsumeRecordEntity);
+                            #endregion
+                        }
+
+                        //报工数量控制
+                        var plAttrEntity3 = plAttrList.Find(t => t.AttrCode == "YGBGSL");
+                        //if (plAttrEntity3?.AttrValue == Language.GetText("Common.Yes"))//是
+                        if (plAttrEntity3?.AttrValue == "是" || plAttrEntity3?.AttrValue == "Y")
+                        {
+                            var plAttrEntity4 = plAttrList.Find(t => t.AttrCode == "CLZKBGBFB");
+                            if (string.IsNullOrEmpty(plAttrEntity4?.AttrValue))
+                            {
+                                return AjaxResult(false, "ProduceManage.ProduceController.TransferCardBGSave.Tips_25");//允许超流转卡数量报工百分比属性不能为空
+                            }
+                            var percent = Convert.ToDecimal(plAttrEntity4?.AttrValue);
+                            //if (unit == Language.GetText("ProduceManage.ProduceController.TransferCardBGSave.Data_2"))//张
+                            if (unit == "张")//张
+                            {
+                                if (qty.ToDecimal() + hisBGList.Sum(t => t.Qty) > cardEntity.PalletQty * percent)
+                                {
+                                    return AjaxResultWithParams(false, "ProduceManage.ProduceController.TransferCardBGSave.Tips_26", (cardEntity.PalletQty * percent).ToString());//报工数量不能大于" + (cardEntity.PalletQty * percent).ToString()
+                                }
+                            }
+                            //else if (unit == Language.GetText("ProduceManage.ProduceController.TransferCardBGSave.Data_3"))//片
+                            else if (unit == "片")
+                            {
+                                if (qty.ToDecimal() + hisBGList.Sum(t => t.Qty) > cardEntity.PieceQty * percent)
+                                {
+                                    return AjaxResultWithParams(false, "ProduceManage.ProduceController.TransferCardBGSave.Tips_26", (cardEntity.PalletQty * percent).ToString());//报工数量不能大于" + (cardEntity.PieceQty * percent).ToString()
+                                }
+                            }
+                        }
+                    }
+
+                    //当前工序不允许第一次报工负数
+                    if (qty.ToDecimal() < 0)
+                    {
+                        var hasBGList = _transferCardBGBLL.GetList(t => t.CardCode == cardCode && t.ProcessCode == processCode);
+                        if (!hasBGList.Any(t => t.Qty > 0))
+                            return AjaxResult(false, "ProduceManage.ProduceController.TransferCardBGSave.Tips_39"); //不允许第一次报工为负数
+                    }
+                    #endregion
+
+                    #region 1、报工生产小组
+                    var pTeamUserList = _teamPersonItemBLL.Get_ExpressionList(t => t.PTeamCode == pTeamCode).ToList();
+                    if (pTeamUserList.Count == 0)
+                        return AjaxResult(false, "ProduceManage.ProduceController.TransferCardBGSave.Tips_27");//当前生产小组没有分配人员
+
+                    var peopleQty = pTeamUserList.Count;//班组人数
+                    var bgPersonRecordList = new List<PM_TransferBGPersonRecordEntity>();
+                    //岗位系数
+                    var arrPostCode = pTeamUserList.Select(t => t.PostCode).Distinct();
+                    var postCoefficientList = _pmPostCoefficientService.GetList(t => t.ProcessCode == processCode && arrPostCode.Contains(t.PostCode)).ToList();
+                    #region 产品工价
+                    List<PMProductPriceEntity> productPriceList = new List<PMProductPriceEntity>();//产品工价列表
+                                                                                                   //判断是否VC物料
+                    if (workOrderEntity.IsVC == false)
+                        productPriceList = _pmProductPriceService.GetList(t => t.PriceType == "1" && t.ProcessCode == processCode
+                            && t.MaterialCode == plMaterialEntity.MaterialCode).ToList();
+                    else
+                        productPriceList = _pmProductPriceService.GetList(t => t.PriceType == "2" && t.ProcessCode == processCode
+                            && t.Spec == plMaterialEntity.Spec).ToList();
+                    #endregion
+                    foreach (var item in pTeamUserList)
+                    {
+                        var bgPersonEntity = new PM_TransferBGPersonRecordEntity();
+                        bgPersonEntity.Id = Guid.NewGuid().ToString();
+                        bgPersonEntity.BGID = bgID;
+                        bgPersonEntity.FactoryCode = item.FactoryCode;
+                        bgPersonEntity.FactoryName = item.FactoryName;
+                        bgPersonEntity.PTeamCode = item.PTeamCode;
+                        bgPersonEntity.PTeamName = pTeamEntity.PTeamName;
+                        bgPersonEntity.PostCode = item.PostCode;
+                        bgPersonEntity.PostName = item.PostName;
+                        bgPersonEntity.UserCode = item.UserCode;
+                        bgPersonEntity.UserName = item.UserName;
+                        var postCoefficientEntity = postCoefficientList.Find(t => t.PostCode == item.PostCode && t.PeopleQty == peopleQty);
+                        if (postCoefficientEntity == null)
+                            postCoefficientEntity = postCoefficientList.Find(t => t.PostCode == item.PostCode && t.PeopleQty == null);
+
+                        bgPersonEntity.Coefficient = postCoefficientEntity?.Coefficient;
+                        #region 产品工价
+                        var productPriceEntity = productPriceList.Find(t => t.PeopleQty == peopleQty && t.PostCode == item.PostCode);
+                        if (productPriceEntity == null)
+                        {
+                            productPriceEntity = productPriceList.Find(t => t.IsDefault == true && t.PostCode == item.PostCode);
+                            if (productPriceEntity == null)
+                            {
+                                productPriceEntity = productPriceList.Find(t => t.PeopleQty == peopleQty);
+                                if (productPriceEntity == null)
+                                    productPriceEntity = productPriceList.Find(t => t.IsDefault == true);
+                            }
+                        }
+                        bgPersonEntity.Price = productPriceEntity?.Price;
+                        #endregion
+                        bgPersonEntity.Creator = userCode;
+                        bgPersonEntity.CreateTime = DateTime.Now;
+                        bgPersonEntity.IsEnabled = true;
+                        bgPersonRecordList.Add(bgPersonEntity);
+                    }
+                    #endregion
+
+                    #region 2、生成报工记录
+                    var cardBGRecordEntity = new PM_TranferCardBGRecordEntity();
+                    cardBGRecordEntity.Id = bgID;
+                    cardBGRecordEntity.FactoryCode = workOrderEntity.FactoryCode;
+                    cardBGRecordEntity.FactoryName = workOrderEntity.FactoryName;
+                    cardBGRecordEntity.WorkOrder = workOrderEntity.WorkOrder;
+                    cardBGRecordEntity.ExeWorkOrder = cardEntity.ExeWorkOrder;
+                    cardBGRecordEntity.CardCode = cardEntity.CardCode;
+                    cardBGRecordEntity.ProcessCode = processCode;
+                    cardBGRecordEntity.MachineCode = machineCode;
+                    cardBGRecordEntity.Qty = qty.ToDecimal();
+                    //cardBGRecordEntity.Unit = plAttrList.Find(t => t.AttrCode == "CCDW")?.AttrValue;
+                    cardBGRecordEntity.Unit = unit;//报工单位统一从工艺路线工序属性里取值
+                    cardBGRecordEntity.BadQty = badItemDetailList.Sum(t => t.BadQty);
+                    if (plOperationEntity != null)//在工艺路线里的工序才有养生时间
+                    {
+                        cardBGRecordEntity.HealthTime = DateTime.Now.AddHours((double)plOperationEntity.CuringCycle * 24);
+                    }
+                    cardBGRecordEntity.IsRework = "0";//否
+                    cardBGRecordEntity.BGUser = userName;
+                    cardBGRecordEntity.DXZH = DXZH;
+                    cardBGRecordEntity.TotalCoefficient = bgPersonRecordList.Sum(t => t.Coefficient);
+                    cardBGRecordEntity.PeopleQty = peopleQty;
+
+                    //设备系数
+                    var equipCoefficientEntity = _bsModelResourceExtendInfoBLL.Get_ExpressEntity(t => t.ResourceCode == machineCode && t.FieldCode == "SBXS");
+                    if (equipCoefficientEntity != null && !string.IsNullOrEmpty(equipCoefficientEntity.FieldValue))
+                        cardBGRecordEntity.EquipCoefficient = equipCoefficientEntity?.FieldValue.ToDecimalOrNull();
+                    else
+                        cardBGRecordEntity.EquipCoefficient = 1;
+
+                    //是否计算工资
+                    var gzAttrEntity = plAttrList.Find(t => t.AttrCode == "JSXZ");//是否计算薪资
+                                                                                  //cardBGRecordEntity.IsCalculated = gzAttrEntity?.AttrValue == Language.GetText("Common.Yes") ? true : false;//是
+                    cardBGRecordEntity.IsCalculated = (gzAttrEntity?.AttrValue == "是" || gzAttrEntity?.AttrValue == "Y") ? true : false;//是
+                    if (cardBGRecordEntity.IsCalculated.Value)
+                    {
+                        if (bgPersonRecordList.Any(t => t.Coefficient == null) || bgPersonRecordList.Any(t => t.Price == null))
+                        {
+                            cardBGRecordEntity.IsGenerated = 3;
+                            if (bgPersonRecordList.Any(t => t.Coefficient == null))
+                                cardBGRecordEntity.ErrorReason = "2";
+                            else if (bgPersonRecordList.Any(t => t.Price == null))
+                                cardBGRecordEntity.ErrorReason = "1";
+                            else
+                                cardBGRecordEntity.ErrorReason = Language.GetText("Common.ErrorNone");//未知原因
+                        }
+                        else
+                            cardBGRecordEntity.IsGenerated = 1;
+                    }
+                    cardBGRecordEntity.IsEnabled = true;
+                    cardBGRecordEntity.Remark = remark;
+                    cardBGRecordEntity.Creator = userCode;
+                    cardBGRecordEntity.CreateTime = DateTime.Now;
+
+                    #region SAP 6个参数
+                    var factoryCode = workOrderEntity.FactoryCode;
+
+                    var SAPSyncSwitch = _baseKeyParameterItemBLL.Get_ExpressionEntity(t => t.EnCode == "Switch" && t.ItemCode == "SAPSync"
+                        && t.Remark1 == factoryCode);
+                    if (SAPSyncSwitch?.ItemValue == "1")
+                    {
+                        PMOperationPalletNumEntity pmOperationPalletEntity = null;
+                        if (workOrderEntity.IsVC == true)
+                        {
+                            pmOperationPalletEntity = _pmOperationPalletNumService.GetEntity(t => t.ProcessCode == processCode
+                                && t.Spec == plMaterialEntity.Spec && t.DocType == "2");
+                        }
+                        else
+                        {
+                            var arrProcessCode = plOperationList.Take(plOperationList.Count - 1).Select(t => t.OperationCode);
+                            pmOperationPalletEntity = _pmOperationPalletNumService.GetEntity(t => t.ProcessCode == processCode
+                                && t.MaterialCode == plMaterialEntity.MaterialCode && t.DocType == "1");
+                        }
+                        var hourCoefficient = pmOperationPalletEntity?.HourCoefficient;
+                        if (hourCoefficient == null)
+                            return AjaxResult(false, "ProduceManage.ProduceController.TransferCardBGSave.Tips_30");//工时系数未维护
+
+                        var totalQty = cardBGRecordEntity.Qty + cardBGRecordEntity.BadQty;
+                        if (unit == "张")
+                            totalQty = totalQty * DXZH;
+
+                        var attrBMSCH = plAttrList.Find(t => t.AttrCode == "BMSCH")?.AttrValue;
+                        var attrVGW01 = plAttrList.Find(t => t.AttrCode == "VGW01")?.AttrValue;
+                        var attrVGW02 = plAttrList.Find(t => t.AttrCode == "VGW02")?.AttrValue;
+                        var attrVGW03 = plAttrList.Find(t => t.AttrCode == "VGW03")?.AttrValue;
+                        var attrVGW04 = plAttrList.Find(t => t.AttrCode == "VGW04")?.AttrValue;
+                        var attrVGW05 = plAttrList.Find(t => t.AttrCode == "VGW05")?.AttrValue;
+                        var attrVGW06 = plAttrList.Find(t => t.AttrCode == "VGW06")?.AttrValue;
+
+                        if (string.IsNullOrEmpty(attrBMSCH))
+                            return AjaxResult(false, "ProduceManage.ProduceController.TransferCardBGSave.Tips_31");//基本数量 属性未维护
+                        if (string.IsNullOrEmpty(attrVGW01))
+                            return AjaxResult(false, "ProduceManage.ProduceController.TransferCardBGSave.Tips_32");//直接人工 属性未维护
+                        if (string.IsNullOrEmpty(attrVGW02))
+                            return AjaxResult(false, "ProduceManage.ProduceController.TransferCardBGSave.Tips_33");//间接人工 属性未维护
+                        if (string.IsNullOrEmpty(attrVGW03))
+                            return AjaxResult(false, "ProduceManage.ProduceController.TransferCardBGSave.Tips_34");//燃料动力 属性未维护
+                        if (string.IsNullOrEmpty(attrVGW04))
+                            return AjaxResult(false, "ProduceManage.ProduceController.TransferCardBGSave.Tips_35");//折旧摊销 属性未维护
+                        if (string.IsNullOrEmpty(attrVGW05))
+                            return AjaxResult(false, "ProduceManage.ProduceController.TransferCardBGSave.Tips_36");//备品备件 属性未维护
+                        if (string.IsNullOrEmpty(attrVGW06))
+                            return AjaxResult(false, "ProduceManage.ProduceController.TransferCardBGSave.Tips_37");//其他费用 属性未维护
+
+                        var BMSCHValue = attrBMSCH; //基本数量
+                        var arrVGW01 = attrVGW01.Split(',');
+                        var arrVGW02 = attrVGW02.Split(',');
+                        var arrVGW03 = attrVGW03.Split(',');
+                        var arrVGW04 = attrVGW04.Split(',');
+                        var arrVGW05 = attrVGW05.Split(',');
+                        var arrVGW06 = attrVGW06.Split(',');
+
+                        if (arrVGW01[1].ToUpper() == "S")
+                            cardBGRecordEntity.VGW01 = totalQty * (arrVGW01[0].ToDecimal() / BMSCHValue.ToDecimal()) * hourCoefficient;
+                        else
+                            cardBGRecordEntity.VGW01 = totalQty;
+
+                        if (arrVGW02[1].ToUpper() == "S")
+                            cardBGRecordEntity.VGW02 = totalQty * (arrVGW02[0].ToDecimal() / BMSCHValue.ToDecimal()) * hourCoefficient;
+                        else
+                            cardBGRecordEntity.VGW02 = totalQty;
+
+                        if (arrVGW03[1].ToUpper() == "S")
+                            cardBGRecordEntity.VGW03 = totalQty * (arrVGW03[0].ToDecimal() / BMSCHValue.ToDecimal()) * hourCoefficient;
+                        else
+                            cardBGRecordEntity.VGW03 = totalQty;
+
+                        if (arrVGW04[1].ToUpper() == "S")
+                            cardBGRecordEntity.VGW04 = totalQty * (arrVGW04[0].ToDecimal() / BMSCHValue.ToDecimal()) * hourCoefficient;
+                        else
+                            cardBGRecordEntity.VGW04 = totalQty;
+
+                        if (arrVGW05[1].ToUpper() == "S")
+                            cardBGRecordEntity.VGW05 = totalQty * (arrVGW05[0].ToDecimal() / BMSCHValue.ToDecimal()) * hourCoefficient;
+                        else
+                            cardBGRecordEntity.VGW05 = totalQty;
+
+                        if (arrVGW06[1].ToUpper() == "S")
+                            cardBGRecordEntity.VGW06 = totalQty * (arrVGW06[0].ToDecimal() / BMSCHValue.ToDecimal()) * hourCoefficient;
+                        else
+                            cardBGRecordEntity.VGW06 = totalQty;
+                    }
+                    #endregion
+
+                    #endregion
+
+                    #region 3、报工不良信息
+                    if (badItemDetailList != null && badItemDetailList.Count > 0)
+                    {
+                        if (badItemDetailList.Any(t => t.BadQty == null || t.BadQty == 0))
+                            return AjaxResult(false, "ProduceManage.ProduceController.TransferCardBGSave.Tips_28");//不良数量不能为空或者0
+
+                        badItemDetailList.ForEach(t =>
+                        {
+                            t.Id = Guid.NewGuid().ToString();
+                            t.BGID = bgID;
+                            t.BusinessTable = "PM_TranferCardBGRecord";
+                            t.FactoryCode = workOrderEntity.FactoryCode;
+                            t.FactoryName = workOrderEntity.FactoryName;
+                            t.SmallClassCode = plMaterialEntity.SmallClass;
+                            t.IsEnabled = true;
+                            t.Creator = userCode;
+                            t.CreateTime = DateTime.Now;
+                        });
+                    }
+                    #endregion
+
+                    if (plOperationEntity != null) //工艺路线里的工序
+                    {
+                        var docNum = DateTime.Now.ToString("yyyyMMddHHmmss");
+                        foreach (var item in mbConsumeRecordList)
+                        {
+                            #region 5、生成原材料出库记录
+                            MM_RawMaterialOutEntity rawMaterialOutEntity = new MM_RawMaterialOutEntity();
+                            rawMaterialOutEntity.Id = Guid.NewGuid().ToString();
+                            rawMaterialOutEntity.BusinessId = bgID;
+                            rawMaterialOutEntity.BusinessTable = "PM_TranferCardBGRecord";
+                            rawMaterialOutEntity.FactoryCode = workOrderEntity.FactoryCode;
+                            rawMaterialOutEntity.FactoryName = workOrderEntity.FactoryName;
+                            rawMaterialOutEntity.BGType = "1";//流转卡报工
+                            rawMaterialOutEntity.BGBatchNo = "";//待确认
+                            rawMaterialOutEntity.CardCode = cardCode;
+                            rawMaterialOutEntity.ProductOrder = cardEntity.ProductOrder;
+                            rawMaterialOutEntity.WorkOrder = cardEntity.WorkOrder;
+                            rawMaterialOutEntity.CustomerPO = workOrderEntity.CustomerPO;
+                            rawMaterialOutEntity.ContainerNO = workOrderEntity.ContainerNO;
+                            rawMaterialOutEntity.ExeWorkOrder = cardEntity.ExeWorkOrder;
+                            rawMaterialOutEntity.ProcessCode = processCode;
+                            rawMaterialOutEntity.Spec = cardEntity.Spec;
+                            rawMaterialOutEntity.CustomerModelName = plBomEntity.MaterialName;
+                            rawMaterialOutEntity.CustomerModel = cardEntity.MaterialCode;
+                            rawMaterialOutEntity.BGQty = qty.ToDecimal();
+                            //rawMaterialOutEntity.ProductUnit = plAttrList.Find(t => t.AttrCode == "CCDW")?.AttrValue;
+                            rawMaterialOutEntity.ProductUnit = unit;//报工单位统一从工序属性里取值
+                            rawMaterialOutEntity.DocNum = docNum;
+                            rawMaterialOutEntity.WhsCode = item.WhsCode;
+                            rawMaterialOutEntity.LocationCode = item.LocationCode;//取虚拟库位
+                            rawMaterialOutEntity.MaterialCode = item.MaterialCode;
+                            rawMaterialOutEntity.MaterialName = item.MaterialName;
+                            rawMaterialOutEntity.BatchNo = item.BatchNo;
+                            rawMaterialOutEntity.OutType = "1";//报工
+                            rawMaterialOutEntity.Qty = item.RecoilQty;
+                            rawMaterialOutEntity.Unit = item.Unit;
+                            rawMaterialOutEntity.UnitName = item.UnitName;
+                            rawMaterialOutEntity.Creator = userCode;
+                            rawMaterialOutEntity.CreateTime = DateTime.Now;
+                            rawMaterialOutEntity.MaterialType = item.MaterialType;
+                            rawMaterialOutList.Add(rawMaterialOutEntity);
+                            #endregion
+
+                            #region 6、扣减原材料库存
+                            if (!string.IsNullOrEmpty(item.BatchNo)) //按批次管理
+                            {
+                                var rawMaterialEnt = _rawMaterailStockBLL.Get_ExpressionEntity(t => t.MaterialCode == item.MaterialCode && t.LocationCode == item.LocationCode && t.BatchNo == item.BatchNo && t.IsFrozen == "0");
+                                if (rawMaterialEnt == null)
+                                {
+                                    return AjaxResult(false, "库存不存在");
+                                }
+                                rawMaterialOutEntity.BeforeQty = rawMaterialEnt.Qty;
+                                rawMaterialEnt.Qty = rawMaterialEnt.Qty - rawMaterialOutEntity.Qty;
+                                rawMaterialOutEntity.AfterQty = rawMaterialEnt.Qty;
+                                if (stockSwitch.ItemValue == "1") //库存不能为负数开关
+                                {
+                                    if (rawMaterialEnt.Qty < 0)
+                                    {
+                                        return AjaxResult(false, "库存不足，物料：" + rawMaterialEnt.MaterialName);
+                                    }
+                                }
+                                rawMaterialEnt.ModifyBy = userCode;
+                                rawMaterialEnt.ModifyTime = DateTime.Now;
+                                rawMaterialStockList.Add(rawMaterialEnt);
+
+
+                            }
+                            else
+                            {
+                                var rawMaterialEnt = _rawMaterailStockBLL.Get_ExpressionEntity(t => t.MaterialCode == item.MaterialCode && t.LocationCode == item.LocationCode && t.IsFrozen == "0");
+                                if (rawMaterialEnt == null)
+                                {
+                                    return AjaxResult(false, "库存不存在");
+                                }
+                                rawMaterialOutEntity.BeforeQty = rawMaterialEnt.Qty;
+                                rawMaterialEnt.Qty = rawMaterialEnt.Qty - rawMaterialOutEntity.Qty;
+                                rawMaterialOutEntity.AfterQty = rawMaterialEnt.Qty;
+                                if (stockSwitch.ItemValue == "1") //库存不能为负数开关
+                                {
+                                    if (rawMaterialEnt.Qty < 0)
+                                    {
+                                        return AjaxResult(false, "库存不足，物料：" + rawMaterialEnt.MaterialName);
+                                    }
+                                }
+                                rawMaterialEnt.ModifyBy = userCode;
+                                rawMaterialEnt.ModifyTime = DateTime.Now;
+                                rawMaterialStockList.Add(rawMaterialEnt);
+                            }
+                            #endregion
+                        }
+
+                        #region 6、扣减原材料库存 已注释
+                        //var rawMaterialStockTable = _rawMaterailStockBLL.GetList(t => t.IsFrozen == "0");
+                        //var query4 = from a in rawMaterialOutList
+                        //             join b in rawMaterialStockTable
+                        //             on new { a.MaterialCode, a.WhsCode, BatchNo = a.BatchNo ?? "" } equals new { b.MaterialCode, b.WhsCode, BatchNo = b.BatchNo ?? "" }
+                        //             select new MM_RawMaterialStockEntity()
+                        //             {
+                        //                 Id = b.Id,
+                        //                 FactoryCode = b.FactoryCode,
+                        //                 FactoryName = b.FactoryName,
+                        //                 MaterialCode = b.MaterialCode,
+                        //                 MaterialName = b.MaterialName,
+                        //                 BatchNo = b.BatchNo,
+                        //                 Qty = b.Qty - a.Qty,
+                        //                 Unit = b.Unit,
+                        //                 SupplierCode = b.SupplierCode,
+                        //                 WhsCode = b.WhsCode,
+                        //                 LocationCode = b.LocationCode,
+                        //                 IsFrozen = b.IsFrozen,
+                        //                 Creator = b.Creator,
+                        //                 CreateTime = b.CreateTime,
+                        //                 ModifyBy = userCode,
+                        //                 ModifyTime = DateTime.Now
+                        //             };
+                        //rawMaterialStockList = query4.ToList();
+                        ////校验是否倒冲为负 1开，0关
+                        //if (keyParamItemEntity2.ItemValue == "1")
+                        //{
+                        //    #region 启用批次管理的物料倒冲不能为负数
+                        //    //var arrMaterialCode = rawMaterialStockList.Select(t => t.MaterialCode).ToArray();
+                        //    //var materialFactoryList = _baseMaterialFactoryBLL.Get_ExpressionList(t => t.FactoryCode == workOrderEntity.FactoryCode
+                        //    //    && arrMaterialCode.Contains(t.MaterialCode) && t.IsUsed == true);
+
+                        //    //var query3 = from a in rawMaterialStockList
+                        //    //             join b in materialFactoryList on a.MaterialCode equals b.MaterialCode
+                        //    //             select a;
+                        //    //var batchStockList = query3.ToList();
+
+                        //    //if (batchStockList.Where(t => t.Qty < 0).Count() > 0)
+                        //    //{
+                        //    //    var batchStockEntity = batchStockList.FirstOrDefault(t => t.Qty < 0);
+                        //    //    var outQty = rawMaterialOutList.Find(t => t.MaterialCode == batchStockEntity.MaterialCode && t.WhsCode == batchStockEntity.WhsCode
+                        //    //        && t.BatchNo == batchStockEntity.BatchNo)?.Qty;//出库数量
+                        //    //    var remainStockQty = batchStockEntity.Qty + outQty;//剩余库存数量
+                        //    //    var plBomItemEntity = plBomItemList.Find(t => t.MaterialCode == batchStockEntity.MaterialCode);
+                        //    //    var remainBGQty = plBomEntity.UnitNum / plBomItemEntity.Num * remainStockQty;
+                        //    //    //if (unit == Language.GetText("ProduceManage.ProduceController.TransferCardBGSave.Data_2"))
+                        //    //    if (unit == "张")
+                        //    //        remainBGQty = Math.Ceiling(remainBGQty.Value / DXZH.Value);
+
+                        //    //    return AjaxResultWithParams(false, "ProduceManage.ProduceController.TransferCardBGSave.Tips_29", plBomItemEntity.MaterialName, remainBGQty.ToString(), unit);//[{plBomItemEntity.MaterialName}]上机批次剩余库存不足，\r\n报工数量不允许超过{remainBGQty.ToString()}{unit}
+                        //    //    //return AjaxResult(false, "倒冲不能为负数，不可以报工");
+                        //    //}
+                        //    #endregion
+
+                        //    #region 2024年9月10号 韩总要求库存不能为负数，不限制是否启用批次
+
+                        //    if (rawMaterialStockList.Where(t => t.Qty < 0).Count() > 0)
+                        //    {
+                        //        var arrMaterialCode = rawMaterialStockList.Select(t => t.MaterialCode).ToArray();
+                        //        var materialFactoryList = _baseMaterialFactoryBLL.Get_ExpressionList(t => t.FactoryCode == workOrderEntity.FactoryCode
+                        //            && arrMaterialCode.Contains(t.MaterialCode)).ToList();
+
+                        //        var negativeStockEntity = rawMaterialStockList.FirstOrDefault(t => t.Qty < 0);
+                        //        decimal? outQty = 0;
+                        //        //是否启用批次管理
+                        //        if (materialFactoryList.Find(t => t.MaterialCode == negativeStockEntity.MaterialCode)?.IsUsed == true)
+                        //        {
+                        //            outQty = rawMaterialOutList.Find(t => t.MaterialCode == negativeStockEntity.MaterialCode && t.LocationCode == negativeStockEntity.LocationCode
+                        //                && t.BatchNo == negativeStockEntity.BatchNo)?.Qty;//出库数量
+                        //        }
+                        //        else
+                        //        {
+                        //            //出库数量
+                        //            outQty = rawMaterialOutList.Find(t => t.MaterialCode == negativeStockEntity.MaterialCode && t.LocationCode == negativeStockEntity.LocationCode)?.Qty;
+                        //        }
+
+                        //        var remainStockQty = negativeStockEntity.Qty + outQty;//剩余库存数量
+                        //        var plBomItemEntity = plBomItemList.Find(t => t.MaterialCode == negativeStockEntity.MaterialCode);
+                        //        var remainBGQty = plBomEntity.UnitNum / plBomItemEntity.Num * remainStockQty;
+
+                        //        if (unit == "张")
+                        //            remainBGQty = Math.Ceiling(remainBGQty.Value / DXZH.Value);
+
+                        //        return AjaxResultWithParams(false, "ProduceManage.ProduceController.TransferCardBGSave.Tips_29", plBomItemEntity.MaterialName, remainBGQty.ToString(), unit);//[{plBomItemEntity.MaterialName}]上机批次剩余库存不足，\r\n报工数量不允许超过{remainBGQty.ToString()}{unit}
+                        //    }
+                        //    #endregion
+                        //}
+                        #endregion
+
+                        #region 7、流转履历
+                        var locationCode = plAttrList.Find(t => t.AttrCode == "BGKW")?.AttrValue;//库位
+                        var whsCode = _bsModelWithResourceBLL.GetEntity(t => t.ResourceCode == locationCode)?.ParentResource;//仓库
+
+                        cardResumeEntity = new PM_TransferCardResumeEntity();
+                        cardResumeEntity.Id = Guid.NewGuid().ToString();
+                        cardResumeEntity.FactoryCode = workOrderEntity.FactoryCode;
+                        cardResumeEntity.FactoryName = workOrderEntity.FactoryName;
+                        cardResumeEntity.CardCode = cardCode;
+                        cardResumeEntity.ProcessCode = processCode;
+                        cardResumeEntity.BusinessType = "2";//报工
+                        cardResumeEntity.OperationId = bgID;
+                        cardResumeEntity.Flag = "1";
+                        cardResumeEntity.LocationCode = locationCode;
+                        cardResumeEntity.WhsCode = whsCode;
+                        //cardResumeEntity.IsInWHs = "1";
+                        cardResumeEntity.IsEnabled = true;
+                        cardResumeEntity.Creator = userCode;
+                        cardResumeEntity.CreateTime = DateTime.Now;
+                        //if (unit == Language.GetText("ProduceManage.ProduceController.TransferCardBGSave.Data_2"))//张
+                        if (unit == "张")
+                        {
+                            cardResumeEntity.SheetQty = qty.ToDecimal() + hisBGList.Sum(t => t.Qty);
+                            cardResumeEntity.PieceQty = cardResumeEntity.SheetQty * DXZH;
+                        }
+                        else
+                        {
+                            cardResumeEntity.PieceQty = qty.ToDecimal() + hisBGList.Sum(t => t.Qty);
+                            cardResumeEntity.SheetQty = Math.Ceiling(cardResumeEntity.PieceQty.Value / DXZH.Value);
+                        }
+
+                        //历史数据失效
+                        cardResumeOldList = _resumeBLL.Get_ExpressionList(t => t.CardCode == cardCode && t.Flag == "1").ToList();
+                        if (cardResumeOldList != null && cardResumeOldList.Count > 0)
+                        {
+                            foreach (var item in cardResumeOldList)
+                            {
+                                item.Flag = "0";//失效
+                                item.ModifyBy = userCode;
+                                item.ModifyTime = DateTime.Now;
+                            }
+
+                        }
+                        #endregion
+                    }
+                    else //特殊工序
+                    {
+                        #region 7、流转履历
+                        cardResumeEntity = new PM_TransferCardResumeEntity();
+                        cardResumeEntity.Id = Guid.NewGuid().ToString();
+                        cardResumeEntity.FactoryCode = workOrderEntity.FactoryCode;
+                        cardResumeEntity.FactoryName = workOrderEntity.FactoryName;
+                        cardResumeEntity.CardCode = cardCode;
+                        cardResumeEntity.ProcessCode = processCode;
+                        cardResumeEntity.BusinessType = "2";//报工
+                        cardResumeEntity.OperationId = bgID;
+                        cardResumeEntity.Flag = "0";
+                        cardResumeEntity.Creator = userCode;
+                        cardResumeEntity.CreateTime = DateTime.Now;
+                        cardResumeEntity.IsEnabled = true;
+                        //if (unit == Language.GetText("ProduceManage.ProduceController.TransferCardBGSave.Data_2"))//张
+                        if (unit == "张")
+                        {
+                            cardResumeEntity.SheetQty = qty.ToDecimal() + hisBGList.Sum(t => t.Qty);
+                            cardResumeEntity.PieceQty = cardResumeEntity.SheetQty * DXZH;
+                        }
+                        else
+                        {
+                            cardResumeEntity.PieceQty = qty.ToDecimal() + hisBGList.Sum(t => t.Qty);
+                            cardResumeEntity.SheetQty = Math.Ceiling(cardResumeEntity.PieceQty.Value / DXZH.Value);
+                        }
+                        #endregion
+                    }
+                    #region 8、记录登陆人绑定的机台、生产小组
+                    var peopleEntity = _bsPeopleService.Get_ExpressionEntity(t => t.Code == userCode);
+                    var isUpdate = false;
+                    if (peopleEntity.MachineCode != machineCode || peopleEntity.PTeamCode != pTeamCode)
+                    {
+                        isUpdate = true;
+                        peopleEntity.MachineCode = machineCode;
+                        peopleEntity.PTeamCode = pTeamCode;
+                        peopleEntity.ModifyBy = userCode;
+                        peopleEntity.ModifyTime = DateTime.Now;
+                        //if (!string.IsNullOrEmpty(peopleEntity.Remark) && peopleEntity.Remark.Length > 1900)
+                        //    peopleEntity.Remark = DateTime.Now.ToString() + userName + "修改机台为：" + machineCode + ";";
+                        //else
+                        //    peopleEntity.Remark += DateTime.Now.ToString() + userName + "修改机台为：" + machineCode + ";";
+                    }
+                    #endregion
+
+                    #region 9、判断是否有返工记录
+                    List<PM_TransferCardEntity> cardList = new List<PM_TransferCardEntity>();
+                    var isUpdate2 = true;
+                    var reworkRecordDetailEntity = _pmReworkRecordDetailBLL.Get_ExpressionEntity(t => t.CardCode == cardCode && t.ReworkStatus == "1");
+                    if (reworkRecordDetailEntity != null)
+                    {
+                        var reworkRecordEntity = _pmReworkRecordBLL.Get_ExpressionEntity(t => t.Id == reworkRecordDetailEntity.ReworkId);
+                        if (reworkRecordEntity.ReworkProcess == processCode)
+                        {
+                            //返工任务中的流转卡都报工后，更新流转卡的状态为：返工中
+                            //返工任务明细
+                            var reworkDetailList = _pmReworkRecordDetailBLL.Get_ExpressionList(t => t.ReworkId == reworkRecordEntity.Id && t.ReworkStatus == "1").ToList();
+                            var arrCardCode = reworkDetailList.Select(t => t.CardCode).ToList();
+                            //流转卡报工记录
+                            var cardBGList = _transferCardBGBLL.Get_ExpressionList(t => t.ProcessCode == processCode && t.IsRework == "0" && arrCardCode.Contains(t.CardCode)).ToList();
+
+                            foreach (var item in reworkDetailList)
+                            {
+                                if (item.CardCode != cardCode) //排除校验当前报工的流转卡
+                                {
+                                    if (!cardBGList.Any(t => t.CardCode == item.CardCode))
+                                    {
+                                        isUpdate2 = false;
+                                        break;
+                                    }
+                                }
+                            }
+                            if (isUpdate2)
+                            {
+                                cardList = _transferCardBLL.Get_ExpressionList(t => arrCardCode.Contains(t.CardCode)).ToList();
+                                foreach (var item in cardList)
+                                {
+                                    item.CardStatus = "3";//返工中
+                                    item.ModifyBy = userCode;
+                                    item.ModifyTime = DateTime.Now;
+                                    item.SerialNumber = reworkRecordEntity.Id;
+                                }
+                            }
+                        }
+                    }
+                    #endregion
+
+                    #region 10、除了当前工序所用的BOM外，当前机台下其他物料全部失效掉
+
+                    //10.1判断工厂建模下是否需要失效
+                    var upMachineList = new List<PM_MaterialBatchUpRecordEntity>();
+                    var map = new Dictionary<string, string>();
+                    map.Add("ResourceCode", processCode);
+                    map.Add("FieldCode", "YLPLSJ");//
+                    map.Add("FieldValue", "1");
+                    //原料批次上机标识(0:清空上机记录，1：不用清空上机记录)
+                    var dy = _levelBLL.GetDynamicModelWithResource(map, out msg);
+                    if (dy == null)
+                    {
+                        var bomMaterialCodeList = plBomItemList.Select(t => t.MaterialCode).ToList();
+                        upMachineList = _materialBatchUpRecordBLL.Get_ExpressionList(t => t.MachineCode == machineCode && t.Flag == 1
+                                                                                     && !bomMaterialCodeList.Contains(t.MaterialCode)).ToList();
+                        foreach (var item in upMachineList)
+                        {
+                            item.Flag = 0;
+                            item.ModifyBy = userCode;
+                            item.ModifyTime = DateTime.Now;
+                        }
+                    }
+                    #endregion
+
+                    #region 11、工单状态
+                    var flag = true;
+                    var flag2 = false;
+                    List<PL_WorkOrderEntity> oldWorkOrderList = new List<PL_WorkOrderEntity>();
+                    var bzqProcessCode = plOperationList.OrderByDescending(t => t.SN).ToList()[1].OperationCode;
+                    if (bzqProcessCode == processCode) //如果是包装前工序，判断流转卡所在执行工单下的所有流转卡是否已报工
+                    {
+                        var cardList1 = _transferCardBLL.Get_ExpressionList(t => t.ExeWorkOrder == exeWorkOrderEntity.ExeWorkOrder && t.CardCode != cardCode
+                            && t.CardStatus != "5" && t.CardType != "5").ToList();
+                        var arrCardCode1 = cardList1.Select(t => t.CardCode).Distinct().ToList();
+                        var cardBGList1 = _transferCardBGBLL.Get_ExpressionList(t => t.ProcessCode == processCode && arrCardCode1.Contains(t.CardCode) && t.IsRework == "0").ToList();
+                        foreach (var item in cardList1)
+                        {
+                            if (!cardBGList1.Any(t => t.CardCode == item.CardCode))
+                            {
+                                flag = false;
+                                break;
+                            }
+                        }
+                        if (flag)
+                        {
+                            exeWorkOrderEntity.Status = "3";
+                            exeWorkOrderEntity.ModifyBy = userCode;
+                            exeWorkOrderEntity.ModifyTime = DateTime.Now;
+
+                            var exeWorkOrderList = _exeWorkOrderBLL.Get_ExpressionList(t => t.WorkOrder == exeWorkOrderEntity.WorkOrder
+                                && t.ExeWorkOrder != exeWorkOrderEntity.ExeWorkOrder && t.Status != "3" && t.OrderType != "5" && t.IsEnabled == true).ToList();
+                            if (exeWorkOrderList.Count == 0)
+                            {
+                                flag2 = true;
+                                workOrderEntity.OrderStatus = "6";//已完成
+                                workOrderEntity.ModifyBy = userCode;
+                                workOrderEntity.ModifyTime = DateTime.Now;
+                                if (workOrderEntity.BatchStatus == 1) //合批工单同步更新原工单状态
+                                {
+                                    oldWorkOrderList = _workOrderBLL.Get_ExpressionList(t => t.BatchWorkOrder == workOrderEntity.WorkOrder).ToList();
+                                    foreach (var item2 in oldWorkOrderList)
+                                    {
+                                        item2.OrderStatus = "6";
+                                        item2.ModifyBy = CurrentAccount.UserCode;
+                                        item2.ModifyTime = DateTime.Now;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    #endregion
+
+                    #region 执行事务
+
+                    //TransactionOptions transactionOption = new TransactionOptions();
+                    ////设置事务隔离级别
+                    //transactionOption.IsolationLevel = System.Transactions.IsolationLevel.ReadCommitted;
+                    //// 设置事务超时时间为60秒
+                    //transactionOption.Timeout = new TimeSpan(0, 0, 60);
+                    //using (var ts = new TransactionScope(TransactionScopeOption.Required, transactionOption))
+                    using (var ts = new TransactionScope())
+                    {
+                        _transferCardBGBLL.SaveEntity("", cardBGRecordEntity, out msg);
+                        if (badItemDetailList != null && badItemDetailList.Count > 0)
+                            _bgBadRecordBLL.SaveEntity_List(false, "", badItemDetailList, out msg);
+                        _bgPersonRecordBLL.SaveEntity_List(false, "", bgPersonRecordList, out msg);
+                        if (plOperationEntity != null)
+                        {
+                            _bgMBConsumeRecordBLL.SaveEntity_List(false, "", mbConsumeRecordList, out msg);
+                            _mmRawMaterialOutBLL.SaveEntity_List(false, "", rawMaterialOutList, out msg);
+                            if (rawMaterialStockList.Count > 0)
+                                _rawMaterailStockBLL.SaveEntity_List(true, "", rawMaterialStockList, out msg);
+
+                            _resumeBLL.SaveEntity("", cardResumeEntity, out msg);
+                            if (cardResumeOldList != null && cardResumeOldList.Count > 0)
+                                _resumeBLL.SaveEntity_List(true, userName, cardResumeOldList, out msg);
+                        }
+                        if (isUpdate)//更新绑定的机台、生产小组信息
+                            _bsPeopleService.SaveEntity(peopleEntity.ID, peopleEntity, out msg);
+
+                        if (isUpdate2 && cardList.Count > 0)//更新流转卡状态
+                            _transferCardBLL.SaveEntity_List(true, userName, cardList, out msg);
+
+                        if (upMachineList != null && upMachineList.Count() > 0)//上机记录
+                            _materialBatchUpRecordBLL.SaveEntity_List(true, userName, upMachineList, out msg);
+
+                        if (flag)
+                            _exeWorkOrderBLL.SaveEntity(exeWorkOrderEntity.Id, exeWorkOrderEntity, out msg);
+
+                        if (flag2)
+                            _workOrderBLL.SaveEntity(workOrderEntity.Id, workOrderEntity, out msg);
+
+                        if (workOrderEntity.BatchStatus == 1 && oldWorkOrderList.Count > 0)
+                            _workOrderBLL.SaveEntity_List(true, CurrentAccount.UserCode, oldWorkOrderList, out msg);
+
+                        ts.Complete();
+                    }
+                    #endregion
+                }
+            }
+            catch (Exception ex)
+            {
+                result.success = false;
+                result.statusCode = ((int)HttpStatusCode.InternalServerError).ToString();
+                result.returnMsg = ex.Message;
+            }
+            return Request.CreateResponse(HttpStatusCode.OK, result);
+        }
+        #endregion
+
+        #region 自制半成品报工
+
+        /// <summary>
+        /// 自制半成品报工-流转卡扫描
+        /// </summary>
+        /// <param name="jo"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("OwnProductBGCardScan")]
+        public HttpResponseMessage OwnProductBGCardScan(JObject jo)
+        {
+            var result = new ResponseResult();
+            try
+            {
+                string cardCode = getValue(jo, "cardCode");
+                //string processCode = getValue(jo, "processCode");
+                if (string.IsNullOrEmpty(cardCode))
+                    return AjaxResult(false, "ProduceManage.ProduceController.OwnProductBGCardScan.Tips_1");//流转卡不能为空！
+
+                var entity = _OwnProductTransferBLL.Get_ExpressionEntity(t => t.TransferCode == cardCode);
+                if (entity == null)
+                {
+                    return AjaxResult(false, "ProduceManage.ProduceController.OwnProductBGCardScan.Tips_2");//当前流转卡不存在
+                }
+                var orderEntity = _OwnProductOrderBLL.Get_ExpressionEntity(t => t.WorkOrder == entity.WorkOrder);
+                var list = _OwnProductBGBLL.Get_ExpressionList(t => t.TransferCode == cardCode);
+                dynamic dy = new ExpandoObject();
+
+                dy.OwnProductId = orderEntity.Id;
+                dy.WorkOrder = orderEntity.WorkOrder;
+                dy.FactoryCode = entity.FactoryCode;
+                dy.TransferCode = entity.TransferCode;
+                dy.TransferName = entity.TransferName;
+                dy.MaterialCode = orderEntity.MaterialCode;
+                dy.MaterialName = orderEntity.MaterialName;
+                dy.SmallClass = orderEntity.SmallClass;
+                dy.SmallClassName = orderEntity.SmallClassName;
+                dy.BatchNo = entity.BatchNumber;//批次号
+                dy.HasBGQty = list.Sum(t => t.BGQty);
+                result.success = true;
+                result.resultData = dy;
+                result.returnMsg = "Common.ExecutionSuccess";//执行成功
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+            catch (Exception ex)
+            {
+                result.success = false;
+                result.statusCode = ((int)HttpStatusCode.InternalServerError).ToString();
+                result.returnMsg = "Common.Error";
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+        }
+
+        /// <summary>
+        /// 自制半成品报工-获取卷码报工信息（CS端半成品报工使用）
+        /// </summary>
+        /// <param name="jo"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("GetOwnProductBGList")]
+        public HttpResponseMessage GetOwnProductBGList(JObject jo)
+        {
+            var result = new ResponseResult();
+            try
+            {
+                string cardCode = getValue(jo, "cardCode");
+                if (string.IsNullOrEmpty(cardCode))
+                    return AjaxResult(false, "ProduceManage.ProduceController.GetOwnProductBGList.Tips_1");//流转卡不能为空！
+
+                var lstEntity = _OwnProductBGBLL.Get_ExpressionList(t => t.TransferCode == cardCode).OrderByDescending(t => t.RollCode).ToList();
+                result.success = true;
+                result.resultData = lstEntity;
+                result.returnMsg = "Common.ExecutionSuccess";//执行成功
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+            catch (Exception ex)
+            {
+                result.success = false;
+                result.statusCode = ((int)HttpStatusCode.InternalServerError).ToString();
+                result.returnMsg = "Common.Error";
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+        }
+
+        /// <summary>
+        /// 自制半成品报工-修改单卷数量（CS端半成品报工使用）
+        /// </summary>
+        /// <param name="jo"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("OwnProductBGEditRoallQty")]
+        public HttpResponseMessage OwnProductBGEditRoallQty(JObject jo)
+        {
+            var result = new ResponseResult();
+            try
+            {
+                var entity = JsonConvert.DeserializeObject<PM_OwnProductBGEntity>(getValue(jo, "entity"));
+                if (entity == null)
+                    return AjaxResult(false, "Common.ParamsNotNull");//参数不能为空
+
+                string msg = "";
+                _OwnProductBGBLL.SaveEntity(entity.Id, entity, out msg);
+
+                result.success = true;
+                result.returnMsg = "Common.ExecutionSuccess";//执行成功
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+            catch (Exception ex)
+            {
+                result.success = false;
+                result.statusCode = ((int)HttpStatusCode.InternalServerError).ToString();
+                result.returnMsg = "Common.Error";
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+        }
+
+        /// <summary>
+        /// 自制半成品-报工
+        /// </summary>
+        /// <param name="jo"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("OwnProductBGSave")]
+        public HttpResponseMessage OwnProductBGSave(JObject jo)
+        {
+            var result = new ResponseResult();
+            try
+            {
+                var mbConsumeRecordList = new List<PM_MaterialBatchConsumeRecordEntity>();//物料批次消耗记录
+                var rawMaterialOutList = new List<MM_RawMaterialOutEntity>();//原材料出库列表
+                var rawMaterialStockList = new List<MM_RawMaterialStockEntity>();//原材料库存列表
+
+                var rawMaterialInList = new List<MM_RawMaterialInEntity>(); //原材料入库列表
+
+                var docNum = DateTime.Now.ToString("yyyyMMddHHmmss");
+                var time = DateTime.Now;
+                var bgID = Guid.NewGuid().ToString();
+                var msg = "";
+                if (jo == null)
+                {
+                    return AjaxResult(false, "Common.ParamsNotNull");//参数不能为空
+                }
+
+                var entity = JsonConvert.DeserializeObject<PM_OwnProductBGEntity>(getValue(jo, "entity"));
+
+                //var processCode = getValue(jo, "processCode");//工序
+                //var cardCode = getValue(jo, "cardCode");//流转卡
+                //var machineCode = getValue(jo, "machineCode");//生产机台
+                //var qty = getValue(jo, "qty");//报工数量
+                var badQty = getValue(jo, "badQty");//不良数量
+                badQty = string.IsNullOrEmpty(badQty) ? "0" : badQty;
+                //var pTeamCode = getValue(jo, "pTeamCode");//生产小组编码
+                var userNames = getValue(jo, "userNames");//人员信息
+                var userCode = getValue(jo, "userCode");//用户编码
+                var userName = getValue(jo, "userName");//用户名称
+
+                var badItemDetailList = JsonConvert.DeserializeObject<List<PM_BGBadRecordEntity>>(jo["badItemDetailList"].ToString());
+
+                lock (_lockOwnProductBG)
+                {
+                    #region 数据校验
+                    if (!entity.BGQty.HasValue || entity.BGQty.Value == 0)
+                    {
+                        return AjaxResult(false, "ProduceManage.ProduceController.OwnProductBGSave.Tips_1");//报工数量不能为0
+                    }
+                    if (entity.BGQty > 10000)
+                    {
+                        return AjaxResult(false, "报工数量不能超10000");
+                    }
+                    var trEntity = _OwnProductTransferBLL.Get_ExpressionEntity(t => t.TransferCode == entity.TransferCode);
+                    var OwnProductOrderEntity = _OwnProductOrderBLL.Get_ExpressionEntity(t => t.WorkOrder == entity.WorkOrder);
+
+                    if (OwnProductOrderEntity.OrderStatus == "9")
+                        return AjaxResult(false, $"工单【{OwnProductOrderEntity.WorkOrder}】已结案，无法继续操作");
+
+                    if (trEntity == null)
+                    {
+                        return AjaxResult(false, "ProduceManage.ProduceController.OwnProductBGSave.Tips_2");//当前流转卡不存在
+                    }
+                    //var pTeamEntity = _teamPersonBLL.Get_ExpressionEntity(t => t.PTeamCode == entity.UserGroup);//生产小组
+                    //if (pTeamEntity == null)
+                    //{
+                    //    return AjaxResult(false, "生产小组不存在");
+                    //}
+                    var pTeamEntity = _teamPersonBLL.Get_ExpressionEntity(t => t.ProcessCode == entity.BGProcess && t.PTeamCode == entity.UserGroup);
+                    if (pTeamEntity == null)
+                        return AjaxResult(false, "ProduceManage.ProduceController.OwnProductBGSave.Tips_3");//当前工序中没有该生产小组
+
+                    /**
+                     * 光板  bom 存在，工艺不存在
+                     * 底层  bom不存在 工艺存在
+                     */
+
+
+                    //a.判断Bom是否存在
+                    var plBomEntity = _plBomBLL.Get_ExpressionEntity(t => t.WorkOrder == entity.WorkOrder && t.IsDeleted == false);
+                    if (plBomEntity == null)
+                        return AjaxResult(false, "ProduceManage.ProduceController.OwnProductBGSave.Tips_4");//工单BOM不存在
+
+                    //根据工单找当前工序的物料(带虚拟库位)
+                    var plBomItemList = _plBomItemBLL.GetBomItemList(plBomEntity?.Id, entity.BGProcess).ToList();
+
+                    //b.判断工单工艺是否存在
+                    var plProcessEntity = _plProcessBLL.GetEntity(t => t.WorkOrder == entity.WorkOrder && t.IsDeleted == false);
+                    var ProcessId = plProcessEntity == null ? "" : plProcessEntity.Id;
+                    var plOperationList = _plProcessOfOperationsBLL.Get_ExpressionList(t => t.ProcessId == ProcessId).OrderBy(t => t.SN).ToList();
+                    if (plOperationList.Count == 0)
+                        return AjaxResult(false, "ProduceManage.ProduceController.OwnProductBGSave.Tips_5");// 工单工艺路线 - 工序不存在
+
+                    if (plOperationList.Find(t => t.OperationCode == entity.BGProcess) == null)
+                    {
+                        return AjaxResult(false, "ProduceManage.ProduceController.OwnProductBGSave.Tips_6");//报工工序不匹配
+                    }
+
+                    var plOperationEntity = plOperationList.Find(t => t.OperationCode == entity.BGProcess);
+                    if (plOperationEntity.WFMark == "1")
+                        return AjaxResult(false, "ProduceManage.ProduceController.SavePMStartInfo.Tips_26");//外发不允许操作
+
+                    var plAttrList = _plProcessOfOperationsAttrBLL.Get_ExpressionList(t => t.OperationsId == plOperationEntity.Id).ToList();
+                    var plAttrEntity = plAttrList.Find(t => t.AttrCode == "BGKW");
+                    if (plAttrEntity == null)
+                        return AjaxResult(false, "ProduceManage.ProduceController.OwnProductBGSave.Tips_7");//报工库位属性未维护
+                    #endregion
+
+                    #region 批次管理
+
+                    //查找物料
+                    var plMaterialEntity = _plMaterialBLL.Get_ExpressionEntity(t => t.WorkOrder == entity.WorkOrder && t.IsDeleted == false);
+                    if (plMaterialEntity != null)
+                    {
+                        entity.MaterialName = plMaterialEntity.MaterialName;
+                        entity.Spec = plMaterialEntity.Spec;
+                        entity.MaterialClass = plMaterialEntity.MaterialClass;
+                    }
+
+                    if (plBomItemList.Count > 0)
+                    {
+                        //找到当前工序物料批次上机记录
+                        var upRecordList = _materialBatchUpRecordBLL.Get_ExpressionList(t => t.ProcessCode == entity.BGProcess && t.MachineCode == entity.BGMachine && t.Flag == 1).ToList();
+
+                        //f.是否有库存
+                        var rawMaterialStockTable = _rawMaterailStockBLL.GetList(t => t.IsFrozen == "0");
+                        var query2 = from a in plBomItemList
+                                     join b in rawMaterialStockTable
+                                     on new { a.MaterialCode, WhsCode = a.Warehouse, a.LocationCode } equals new { b.MaterialCode, b.WhsCode, b.LocationCode }
+                                     select b;
+                        var rawMaterialStockSList = query2.ToList();
+                        foreach (var item in plBomItemList)
+                        {
+                            if (string.IsNullOrEmpty(item.LocationCode))
+                                return AjaxResultWithParams(false, "ProduceManage.ProduceController.TransferCardBGSave.Tips_38", item.MaterialCode);//物料[{0}]没有找到线边库位
+
+                            // e.启用批次管理 是否存在批次上机记录
+                            var batchNo = "";
+                            if (item.IsUsed == true)
+                            {
+                                if (!upRecordList.Any(t => t.MaterialCode == item.MaterialCode))
+                                {
+                                    return AjaxResultWithParams(false, "ProduceManage.ProduceController.OwnProductBGSave.Tips_8", item.MaterialCode, item.MaterialName);//物料[{item.MaterialCode}{item.MaterialName}]没有上机记录
+                                }
+                                batchNo = upRecordList.ToList().Find(t => t.MaterialCode == item.MaterialCode)?.BatchNo;
+                                if (!rawMaterialStockSList.Any(t => t.MaterialCode == item.MaterialCode && t.BatchNo == batchNo))
+                                {
+                                    return AjaxResultWithParams(false, "ProduceManage.ProduceController.OwnProductBGSave.Tips_9", item.MaterialCode, item.MaterialName, batchNo);//物料[{item.MaterialCode}{item.MaterialName}]、批次[{batchNo}]没有可用的库存
+                                }
+                            }
+                            else //非批次管理
+                            {
+                                if (!rawMaterialStockSList.Any(t => t.MaterialCode == item.MaterialCode))
+                                {
+                                    return AjaxResultWithParams(false, "ProduceManage.ProduceController.OwnProductBGSave.Tips_10", item.MaterialCode, item.MaterialName);//物料[{item.MaterialCode}{item.MaterialName}]没有可用的库存
+                                }
+                            }
+                            //报工原料批次消耗记录
+                            PM_MaterialBatchConsumeRecordEntity mbConsumeRecordEntity = new PM_MaterialBatchConsumeRecordEntity();
+                            mbConsumeRecordEntity.Id = Guid.NewGuid().ToString();
+                            mbConsumeRecordEntity.BGID = bgID;
+                            mbConsumeRecordEntity.FactoryCode = OwnProductOrderEntity.FactoryCode;
+                            mbConsumeRecordEntity.FactoryName = OwnProductOrderEntity.FactoryName;
+                            mbConsumeRecordEntity.MaterialCode = item.MaterialCode;
+                            mbConsumeRecordEntity.MaterialName = item.MaterialName;
+                            mbConsumeRecordEntity.WhsCode = item.Warehouse;
+                            mbConsumeRecordEntity.LocationCode = item.LocationCode;
+                            mbConsumeRecordEntity.Spec = item.Spec;
+                            mbConsumeRecordEntity.BatchNo = batchNo;
+                            mbConsumeRecordEntity.RecoilQty = Math.Round(item.Num.Value * ((entity.BGQty.ToDecimal() + badQty.ToDecimal()) / plBomEntity.UnitNum.Value), 2, MidpointRounding.AwayFromZero);
+                            mbConsumeRecordEntity.IsEnabled = true;
+                            mbConsumeRecordEntity.Creator = userCode;
+                            mbConsumeRecordEntity.CreateTime = DateTime.Now;
+                            mbConsumeRecordEntity.Unit = item.Unit;
+                            mbConsumeRecordEntity.UnitName = item.UnitName;
+                            mbConsumeRecordEntity.MaterialType = item.MaterialType;
+
+                            if (mbConsumeRecordEntity.RecoilQty != 0)
+                                mbConsumeRecordList.Add(mbConsumeRecordEntity);
+                        }
+                    }
+                    #endregion
+
+                    var hisBGList = _OwnProductBGBLL.Get_ExpressionList(t => t.TransferCode == entity.TransferCode && t.BGProcess == entity.BGProcess).ToList();
+                    //var unit = _bsModelResourceExtendInfoBLL.Get_ExpressEntity(t => t.ResourceCode == entity.BGProcess && t.FieldCode == "DW")?.FieldValue;
+                    var unit = plAttrList.Find(t => t.AttrCode == "CCDW")?.AttrValue;//报工产出单位
+                    var plMaterialFacetList = _plMaterialFacetBLL.Get_ExpressionList(t => t.MaterialId == plMaterialEntity.Id).ToList();
+                    var DXZH = plMaterialFacetList.Find(t => t.AttrCode == "DXZH")?.AttrValue.ToDecimal();//大小转换
+                    var SCTPSL = plMaterialFacetList.Find(t => t.AttrCode == "SCTPSL")?.AttrValue.ToDecimal();//生产托盘数量
+
+                    if (entity.BGQty + hisBGList.Sum(t => t.BGQty) > SCTPSL * (decimal)1.5)
+                    {
+                        return AjaxResultWithParams(false, "ProduceManage.ProduceController.OwnProductBGSave.Tips_11", (SCTPSL * (decimal)1.5).ToString());//报工数量不能大于  + (SCTPSL * (decimal)1.5).ToString()
+                    }
+
+                    #region 1、报工生产小组
+                    var pTeamUserList = _teamPersonItemBLL.Get_ExpressionList(t => t.PTeamCode == pTeamEntity.PTeamCode).ToList();
+                    if (pTeamUserList.Count == 0)
+                        return AjaxResult(false, "ProduceManage.ProduceController.OwnProductBGSave.Tips_12");//当前生产小组没有分配人员
+
+                    var peopleQty = pTeamUserList.Count;//班组人数
+                    var bgPersonRecordList = new List<PM_TransferBGPersonRecordEntity>();
+                    //岗位系数
+                    var arrPostCode = pTeamUserList.Select(t => t.PostCode).Distinct();
+                    var postCoefficientList = _pmPostCoefficientService.GetList(t => t.ProcessCode == entity.BGProcess && arrPostCode.Contains(t.PostCode)).ToList();
+                    //产品工价
+                    var productPriceList = _pmProductPriceService.GetList(t => t.PriceType == "1" && t.ProcessCode == entity.BGProcess
+                            && t.MaterialCode == plMaterialEntity.MaterialCode).ToList();
+                    foreach (var item in pTeamUserList)
+                    {
+                        var bgPersonEntity = new PM_TransferBGPersonRecordEntity();
+                        bgPersonEntity.Id = Guid.NewGuid().ToString();
+                        bgPersonEntity.BGID = bgID;
+                        bgPersonEntity.FactoryCode = item.FactoryCode;
+                        bgPersonEntity.FactoryName = item.FactoryName;
+                        bgPersonEntity.PTeamCode = item.PTeamCode;
+                        bgPersonEntity.PTeamName = pTeamEntity.PTeamName;
+                        bgPersonEntity.PostCode = item.PostCode;
+                        bgPersonEntity.PostName = item.PostName;
+                        bgPersonEntity.UserCode = item.UserCode;
+                        bgPersonEntity.UserName = item.UserName;
+
+                        var postCoefficientEntity = postCoefficientList.Find(t => t.PostCode == item.PostCode && t.PeopleQty == peopleQty);
+                        if (postCoefficientEntity == null)
+                            postCoefficientEntity = postCoefficientList.Find(t => t.PostCode == item.PostCode && t.PeopleQty == null);
+                        bgPersonEntity.Coefficient = postCoefficientEntity?.Coefficient;
+
+                        bgPersonEntity.Creator = userCode;
+                        bgPersonEntity.CreateTime = DateTime.Now;
+                        bgPersonEntity.IsEnabled = true;
+                        #region 产品工价
+                        var productPriceEntity = productPriceList.Find(t => t.PeopleQty == peopleQty && t.PostCode == item.PostCode);
+                        if (productPriceEntity == null)
+                        {
+                            productPriceEntity = productPriceList.Find(t => t.IsDefault == true && t.PostCode == item.PostCode);
+                            if (productPriceEntity == null)
+                            {
+                                productPriceEntity = productPriceList.Find(t => t.PeopleQty == peopleQty);
+                                if (productPriceEntity == null)
+                                    productPriceEntity = productPriceList.Find(t => t.IsDefault == true);
+                            }
+                        }
+                        bgPersonEntity.Price = productPriceEntity?.Price;
+                        #endregion
+                        bgPersonRecordList.Add(bgPersonEntity);
+                    }
+                    #endregion
+
+                    #region 2、生成报工记录
+                    entity.Id = bgID;
+                    entity.FactoryCode = OwnProductOrderEntity.FactoryCode;
+                    entity.FactoryName = OwnProductOrderEntity.FactoryName;
+                    entity.BatchNo = trEntity.BatchNumber;
+                    entity.Creator = userCode;
+                    entity.CreateTime = time;
+                    entity.BGUser = userName;
+                    entity.UserNames = userNames;
+                    entity.Unit = plMaterialEntity.Unit;//暂时从物料取报工
+                    entity.BadQty = badItemDetailList.Sum(t => t.BadQty);
+                    entity.TotalCoefficient = bgPersonRecordList.Sum(t => t.Coefficient);
+                    entity.PeopleQty = peopleQty;
+                    //设备系数
+                    var equipCoefficientEntity = _bsModelResourceExtendInfoBLL.Get_ExpressEntity(t => t.ResourceCode == entity.BGMachine && t.FieldCode == "SBXS");
+                    if (equipCoefficientEntity != null && !string.IsNullOrEmpty(equipCoefficientEntity.FieldValue))
+                        entity.EquipCoefficient = equipCoefficientEntity?.FieldValue.ToDecimalOrNull();
+                    else
+                        entity.EquipCoefficient = 1;
+
+                    //是否计算工资
+                    var gzAttrEntity = plAttrList.Find(t => t.AttrCode == "JSXZ");//是否计算薪资
+                                                                                  //entity.IsCalculated = gzAttrEntity?.AttrValue == Language.GetText("Common.Yes") ? true : false;//是
+                    entity.IsCalculated = (gzAttrEntity?.AttrValue == "是" || gzAttrEntity?.AttrValue == "Y") ? true : false;//是
+                    if (entity.IsCalculated.Value)
+                    {
+                        if (bgPersonRecordList.Any(t => t.Coefficient == null) || bgPersonRecordList.Any(t => t.Price == null))
+                        {
+                            entity.IsGenerated = 3;
+                            if (bgPersonRecordList.Any(t => t.Coefficient == null))
+                                entity.ErrorReason = "2";
+                            else if (bgPersonRecordList.Any(t => t.Price == null))
+                                entity.ErrorReason = "1";
+                            else
+                                entity.ErrorReason = Language.GetText("Common.ErrorNone");//未知原因
+                        }
+                        else
+                            entity.IsGenerated = 1;
+                    }
+
+                    //单卷条码
+                    if (!string.IsNullOrEmpty(entity.RollCode))
+                    {
+                        //var serialNo = _baseSequence.GetSerialNO("RollCode");
+                        //entity.RollCode = entity.TransferCode + "-" + serialNo;
+                        //result.resultData = entity.RollCode;
+                        //校验是否存在
+                        var isAny = _OwnProductBGBLL.GetList(t => t.RollCode == entity.RollCode).Any();
+                        if (isAny)
+                            return AjaxResultWithParams(false, "ProduceManage.ProduceController.OwnProductBGSave.Tips_13", entity.RollCode);//卷码[{entity.RollCode}]已存在！
+                    }
+
+                    #region SAP 6个参数
+                    var factoryCode = entity.FactoryCode;
+
+                    var SAPSyncSwitch = _baseKeyParameterItemBLL.Get_ExpressionEntity(t => t.EnCode == "Switch" && t.ItemCode == "SAPSync"
+                        && t.Remark1 == factoryCode);
+                    if (SAPSyncSwitch?.ItemValue == "1")
+                    {
+                        PMOperationPalletNumEntity pmOperationPalletEntity = null;
+
+                        var arrProcessCode = plOperationList.Take(plOperationList.Count - 1).Select(t => t.OperationCode);
+                        pmOperationPalletEntity = _pmOperationPalletNumService.GetEntity(t => t.ProcessCode == entity.BGProcess
+                            && t.MaterialCode == plMaterialEntity.MaterialCode && t.DocType == "1");
+
+                        var hourCoefficient = pmOperationPalletEntity?.HourCoefficient;
+                        if (hourCoefficient == null)
+                            return AjaxResult(false, "ProduceManage.ProduceController.TransferCardBGSave.Tips_30");//工时系数未维护
+
+                        var totalQty = entity.BGQty + entity.BadQty;
+                        if (unit == "张")
+                            totalQty = totalQty * DXZH;
+
+                        var attrBMSCH = plAttrList.Find(t => t.AttrCode == "BMSCH")?.AttrValue;
+                        var attrVGW01 = plAttrList.Find(t => t.AttrCode == "VGW01")?.AttrValue;
+                        var attrVGW02 = plAttrList.Find(t => t.AttrCode == "VGW02")?.AttrValue;
+                        var attrVGW03 = plAttrList.Find(t => t.AttrCode == "VGW03")?.AttrValue;
+                        var attrVGW04 = plAttrList.Find(t => t.AttrCode == "VGW04")?.AttrValue;
+                        var attrVGW05 = plAttrList.Find(t => t.AttrCode == "VGW05")?.AttrValue;
+                        var attrVGW06 = plAttrList.Find(t => t.AttrCode == "VGW06")?.AttrValue;
+
+                        if (string.IsNullOrEmpty(attrBMSCH))
+                            return AjaxResult(false, "ProduceManage.ProduceController.TransferCardBGSave.Tips_31");//基本数量 属性未维护
+                        if (string.IsNullOrEmpty(attrVGW01))
+                            return AjaxResult(false, "ProduceManage.ProduceController.TransferCardBGSave.Tips_32");//直接人工 属性未维护
+                        if (string.IsNullOrEmpty(attrVGW02))
+                            return AjaxResult(false, "ProduceManage.ProduceController.TransferCardBGSave.Tips_33");//间接人工 属性未维护
+                        if (string.IsNullOrEmpty(attrVGW03))
+                            return AjaxResult(false, "ProduceManage.ProduceController.TransferCardBGSave.Tips_34");//燃料动力 属性未维护
+                        if (string.IsNullOrEmpty(attrVGW04))
+                            return AjaxResult(false, "ProduceManage.ProduceController.TransferCardBGSave.Tips_35");//折旧摊销 属性未维护
+                        if (string.IsNullOrEmpty(attrVGW05))
+                            return AjaxResult(false, "ProduceManage.ProduceController.TransferCardBGSave.Tips_36");//备品备件 属性未维护
+                        if (string.IsNullOrEmpty(attrVGW06))
+                            return AjaxResult(false, "ProduceManage.ProduceController.TransferCardBGSave.Tips_37");//其他费用 属性未维护
+
+                        var BMSCHValue = attrBMSCH; //基本数量
+                        var arrVGW01 = attrVGW01.Split(',');
+                        var arrVGW02 = attrVGW02.Split(',');
+                        var arrVGW03 = attrVGW03.Split(',');
+                        var arrVGW04 = attrVGW04.Split(',');
+                        var arrVGW05 = attrVGW05.Split(',');
+                        var arrVGW06 = attrVGW06.Split(',');
+
+                        if (arrVGW01[1].ToUpper() == "S")
+                            entity.VGW01 = totalQty * (arrVGW01[0].ToDecimal() / BMSCHValue.ToDecimal()) * hourCoefficient;
+                        else
+                            entity.VGW01 = totalQty;
+
+                        if (arrVGW02[1].ToUpper() == "S")
+                            entity.VGW02 = totalQty * (arrVGW02[0].ToDecimal() / BMSCHValue.ToDecimal()) * hourCoefficient;
+                        else
+                            entity.VGW02 = totalQty;
+
+                        if (arrVGW03[1].ToUpper() == "S")
+                            entity.VGW03 = totalQty * (arrVGW03[0].ToDecimal() / BMSCHValue.ToDecimal()) * hourCoefficient;
+                        else
+                            entity.VGW03 = totalQty;
+
+                        if (arrVGW04[1].ToUpper() == "S")
+                            entity.VGW04 = totalQty * (arrVGW04[0].ToDecimal() / BMSCHValue.ToDecimal()) * hourCoefficient;
+                        else
+                            entity.VGW04 = totalQty;
+
+                        if (arrVGW05[1].ToUpper() == "S")
+                            entity.VGW05 = totalQty * (arrVGW05[0].ToDecimal() / BMSCHValue.ToDecimal()) * hourCoefficient;
+                        else
+                            entity.VGW05 = totalQty;
+
+                        if (arrVGW06[1].ToUpper() == "S")
+                            entity.VGW06 = totalQty * (arrVGW06[0].ToDecimal() / BMSCHValue.ToDecimal()) * hourCoefficient;
+                        else
+                            entity.VGW06 = totalQty;
+                    }
+                    #endregion
+                    #endregion
+
+                    #region 库存、入库记录
+                    var material = _baseMaterialBLL.Get_ExpressionEntity(t => t.MaterialCode == entity.MaterialCode);
+
+                    var bsModel = _bsModelWithResourceBLL.GetEntity(t => t.ResourceCode == plAttrEntity.AttrValue);
+                    //入库记录
+                    MM_RawMaterialInEntity mminentity = new MM_RawMaterialInEntity();
+                    mminentity.Id = Guid.NewGuid().ToString();
+                    mminentity.BusinessId = bgID;
+                    mminentity.BusinessTable = "PM_OwnProductBG";
+                    mminentity.FactoryCode = OwnProductOrderEntity.FactoryCode;
+                    mminentity.FactoryName = OwnProductOrderEntity.FactoryName;
+                    mminentity.WorkOrder = entity.WorkOrder;
+                    mminentity.DocNum = docNum;
+                    mminentity.MaterialCode = entity.MaterialCode;
+                    mminentity.MaterialName = entity.MaterialName;
+                    mminentity.Spec = entity.Spec;
+                    mminentity.SmallClass = plMaterialEntity.SmallClass;
+                    mminentity.Unit = material?.Unit;
+                    mminentity.UnitName = material?.UnitName;
+                    // 是否启用批次管理
+                    var materialFactoryEntity = _baseMaterialFactoryBLL.Get_ExpressionEntity(t => t.MaterialCode == entity.MaterialCode
+                        && t.FactoryCode == OwnProductOrderEntity.FactoryCode);
+                    if (materialFactoryEntity?.IsUsed == true)
+                    {
+                        mminentity.BatchNo = trEntity.BatchNumber; //批次号
+                    }
+                    else
+                    {
+                        mminentity.BatchNo = "";
+                    }
+
+                    mminentity.SupplierCode = "";
+                    mminentity.QualityStatus = "";
+                    mminentity.Qty = entity.BGQty;
+                    mminentity.InType = "9";
+                    mminentity.WhsCode = bsModel.ParentResource;
+                    mminentity.LocationCode = bsModel.ResourceCode;
+                    mminentity.Remark = "";
+                    mminentity.Creator = userCode;
+                    mminentity.CreateTime = DateTime.Now;
+                    mminentity.LineNum = OwnProductOrderEntity.LineNum;
+                    //库存
+                    MM_RawMaterialStockEntity targetEntity = null;
+                    if (materialFactoryEntity?.IsUsed == true)
+                        targetEntity = _rawMaterailStockBLL.Get_ExpressionEntity(t => t.WhsCode == bsModel.ParentResource && t.LocationCode == bsModel.ResourceCode
+                            && t.MaterialCode == mminentity.MaterialCode && t.BatchNo == mminentity.BatchNo);
+                    else
+                        targetEntity = _rawMaterailStockBLL.Get_ExpressionEntity(t => t.WhsCode == bsModel.ParentResource && t.LocationCode == bsModel.ResourceCode
+                            && t.MaterialCode == mminentity.MaterialCode);
+
+                    MM_RawMaterialStockEntity StockEntity = new MM_RawMaterialStockEntity();
+                    if (targetEntity == null)
+                    {
+                        StockEntity.Id = Guid.NewGuid().ToString();
+                        StockEntity.FactoryCode = OwnProductOrderEntity.FactoryCode;
+                        StockEntity.FactoryName = OwnProductOrderEntity.FactoryName;
+                        StockEntity.MaterialCode = entity.MaterialCode;
+                        StockEntity.MaterialName = entity.MaterialName;
+                        if (materialFactoryEntity?.IsUsed == true)
+                        {
+                            StockEntity.BatchNo = mminentity.BatchNo;
+                        }
+                        else
+                        {
+                            StockEntity.BatchNo = "";
+                        }
+
+                        StockEntity.Qty = Convert.ToDecimal(entity.BGQty);
+                        StockEntity.Unit = material?.Unit;
+                        StockEntity.SupplierCode = "";
+                        StockEntity.WhsCode = bsModel.ParentResource;
+                        StockEntity.LocationCode = bsModel.ResourceCode;
+                        StockEntity.IsFrozen = "0";
+                        StockEntity.Creator = userCode;
+                        StockEntity.CreateTime = DateTime.Now;
+                        //记录库存变化
+                        mminentity.BeforeQty = 0;
+                        mminentity.AfterQty = StockEntity.Qty;
+                    }
+                    else
+                    {
+                        //入库前库存
+                        mminentity.BeforeQty = targetEntity.Qty;
+
+                        targetEntity.Qty += Convert.ToDecimal(entity.BGQty);
+                        targetEntity.ModifyBy = userCode;
+                        targetEntity.ModifyTime = DateTime.Now;
+
+                        //入库后库存
+                        mminentity.AfterQty = targetEntity.Qty;
+                    }
+                    #endregion
+
+                    #region 3、报工不良信息
+                    if (badItemDetailList != null && badItemDetailList.Count > 0)
+                    {
+                        if (badItemDetailList.Any(t => t.BadQty == null || t.BadQty == 0))
+                            return AjaxResult(false, "ProduceManage.ProduceController.OwnProductBGSave.Tips_14");//不良数量不能为空或者0
+
+                        badItemDetailList.ForEach(t =>
+                        {
+                            t.Id = Guid.NewGuid().ToString();
+                            t.FactoryCode = OwnProductOrderEntity.FactoryCode;
+                            t.FactoryName = OwnProductOrderEntity.FactoryName;
+                            t.SmallClassCode = plMaterialEntity.SmallClass;
+                            t.BGID = bgID;
+                            t.BusinessTable = "PM_OwnProductBG";
+                            t.IsEnabled = true;
+                            t.Creator = userCode;
+                            t.CreateTime = DateTime.Now;
+                        });
+                    }
+
+                    #endregion
+
+                    #region 4.更新自制半成品表
+                    var ownTransferEntity = _OwnProductTransferBLL.Get_ExpressionEntity(t => t.TransferCode == entity.TransferCode);
+                    ownTransferEntity.TransferStatus = "2";//自制半成品流转卡
+                    ownTransferEntity.ModifyBy = userCode;
+                    ownTransferEntity.ModifyTime = time;
+
+                    var ownProductEntity = _OwnProductOrderBLL.Get_ExpressionEntity(t => t.Id == entity.OwnProductId);
+                    if (ownProductEntity.OrderStatus == "9")
+                        return AjaxResult(false, "工单已结案，无法报工");
+
+                    ownProductEntity.OrderStatus = "5";
+                    ownProductEntity.ModifyBy = userCode;
+                    ownProductEntity.ModifyTime = time;
+                    #endregion
+
+                    #region 如果有Bom，出库记录，扣减库存
+                    if (plBomItemList.Count > 0)
+                    {
+                        //b.1.校验是否库存为负数 1开，0关
+                        var stockSwitch = _baseKeyParameterItemBLL.Get_ExpressionEntity(t => t.EnCode == "Switch" && t.ItemCode == "Backflush"
+                            && t.Remark1 == ownProductEntity.FactoryCode);
+
+                        foreach (var item in mbConsumeRecordList)
+                        {
+                            #region 5、生成原材料出库记录
+                            MM_RawMaterialOutEntity rawMaterialOutEntity = new MM_RawMaterialOutEntity();
+                            rawMaterialOutEntity.Id = Guid.NewGuid().ToString();
+                            rawMaterialOutEntity.BusinessId = bgID;
+                            rawMaterialOutEntity.BusinessTable = "PM_OwnProductBG";
+                            rawMaterialOutEntity.FactoryCode = OwnProductOrderEntity.FactoryCode;
+                            rawMaterialOutEntity.FactoryName = OwnProductOrderEntity.FactoryName;
+                            rawMaterialOutEntity.BGType = "4";//自制半成品报工
+                            rawMaterialOutEntity.BGBatchNo = "";//待确认
+                            rawMaterialOutEntity.CardCode = entity.TransferCode;
+                            //rawMaterialOutEntity.ProductOrder = cardEntity.ProductOrder;
+                            //rawMaterialOutEntity.CustomerPO = workOrderEntity.CustomerPO;
+                            //rawMaterialOutEntity.ContainerNO = workOrderEntity.ContainerNO;
+                            rawMaterialOutEntity.WorkOrder = entity.WorkOrder;
+                            rawMaterialOutEntity.ExeWorkOrder = entity.WorkOrder;
+                            rawMaterialOutEntity.ProcessCode = entity.BGProcess;
+                            rawMaterialOutEntity.Spec = plMaterialEntity.Spec;
+                            rawMaterialOutEntity.CustomerModelName = plBomEntity?.MaterialName;
+                            // rawMaterialOutEntity.CustomerModel = cardEntity.MaterialCode;
+                            rawMaterialOutEntity.BGQty = entity.BGQty;
+                            //rawMaterialOutEntity.ProductUnit = plAttrList.Find(t => t.AttrCode == "CCDW")?.AttrValue;
+                            rawMaterialOutEntity.ProductUnit = plMaterialEntity.Unit;//报工单位统一从工序属性里取值
+                            rawMaterialOutEntity.DocNum = docNum;
+                            rawMaterialOutEntity.WhsCode = item.WhsCode;
+                            rawMaterialOutEntity.LocationCode = item.LocationCode;//取虚拟库位
+                            rawMaterialOutEntity.MaterialCode = item.MaterialCode;
+                            rawMaterialOutEntity.MaterialName = item.MaterialName;
+                            rawMaterialOutEntity.BatchNo = item.BatchNo;
+                            rawMaterialOutEntity.OutType = "1";//报工
+                            rawMaterialOutEntity.Qty = item.RecoilQty;
+                            rawMaterialOutEntity.Unit = item.Unit;
+                            rawMaterialOutEntity.UnitName = item.UnitName;
+                            rawMaterialOutEntity.Creator = userCode;
+                            rawMaterialOutEntity.CreateTime = DateTime.Now;
+                            rawMaterialOutEntity.MaterialType = item.MaterialType;
+                            rawMaterialOutList.Add(rawMaterialOutEntity);
+                            #endregion
+
+                            #region 6、扣减原材料库存
+                            if (!string.IsNullOrEmpty(item.BatchNo))
+                            {
+                                var rawMaterialEnt = _rawMaterailStockBLL.Get_ExpressionEntity(t => t.MaterialCode == item.MaterialCode && t.LocationCode == item.LocationCode && t.BatchNo == item.BatchNo && t.IsFrozen == "0");
+                                if (rawMaterialEnt == null)
+                                {
+                                    return AjaxResult(false, "库存不存在");
+                                }
+                                rawMaterialOutEntity.BeforeQty = rawMaterialEnt.Qty;
+                                rawMaterialEnt.Qty = rawMaterialEnt.Qty - rawMaterialOutEntity.Qty;
+                                rawMaterialOutEntity.AfterQty = rawMaterialEnt.Qty;
+                                if (stockSwitch.ItemValue == "1") //库存不能为负数开关
+                                {
+                                    if (rawMaterialEnt.Qty < 0)
+                                    {
+                                        return AjaxResult(false, "库存不足，物料：" + rawMaterialEnt.MaterialName);
+                                    }
+                                }
+                                rawMaterialEnt.ModifyBy = userCode;
+                                rawMaterialEnt.ModifyTime = DateTime.Now;
+                                rawMaterialStockList.Add(rawMaterialEnt);
+                            }
+                            else
+                            {
+                                var rawMaterialEnt = _rawMaterailStockBLL.Get_ExpressionEntity(t => t.MaterialCode == item.MaterialCode && t.LocationCode == item.LocationCode && t.IsFrozen == "0");
+                                if (rawMaterialEnt == null)
+                                {
+                                    return AjaxResult(false, "库存不存在");
+                                }
+                                rawMaterialOutEntity.BeforeQty = rawMaterialEnt.Qty;
+                                rawMaterialEnt.Qty = rawMaterialEnt.Qty - rawMaterialOutEntity.Qty;
+                                rawMaterialOutEntity.AfterQty = rawMaterialEnt.Qty;
+                                if (stockSwitch.ItemValue == "1") //库存不能为负数开关
+                                {
+                                    if (rawMaterialEnt.Qty < 0)
+                                    {
+                                        return AjaxResult(false, "库存不足，物料：" + rawMaterialEnt.MaterialName);
+                                    }
+                                }
+                                rawMaterialEnt.ModifyBy = userCode;
+                                rawMaterialEnt.ModifyTime = DateTime.Now;
+                                rawMaterialStockList.Add(rawMaterialEnt);
+                            }
+                            #endregion
+                        }
+
+
+                        #region 6、扣减原材料库存 已注释
+                        //var rawMaterialStockTable = _rawMaterailStockBLL.GetList(t => t.IsFrozen == "0");
+                        //var query4 = from a in rawMaterialOutList
+                        //             join b in rawMaterialStockTable
+                        //             on new { a.MaterialCode, a.WhsCode, BatchNo = a.BatchNo ?? "" } equals new { b.MaterialCode, b.WhsCode, BatchNo = b.BatchNo ?? "" }
+                        //             select new MM_RawMaterialStockEntity()
+                        //             {
+                        //                 Id = b.Id,
+                        //                 FactoryCode = b.FactoryCode,
+                        //                 FactoryName = b.FactoryName,
+                        //                 MaterialCode = b.MaterialCode,
+                        //                 MaterialName = b.MaterialName,
+                        //                 BatchNo = b.BatchNo,
+                        //                 Qty = b.Qty - a.Qty,
+                        //                 Unit = b.Unit,
+                        //                 SupplierCode = b.SupplierCode,
+                        //                 WhsCode = b.WhsCode,
+                        //                 LocationCode = b.LocationCode,
+                        //                 IsFrozen = b.IsFrozen,
+                        //                 Creator = b.Creator,
+                        //                 CreateTime = b.CreateTime,
+                        //                 ModifyBy = userCode,
+                        //                 ModifyTime = DateTime.Now
+                        //             };
+                        //rawMaterialStockList = query4.ToList();
+                        ////校验是否倒冲为负 1开，0关
+                        //var keyParamItemEntity1 = _baseKeyParameterItemBLL.Get_ExpressionEntity(t => t.EnCode == "Switch" && t.ItemCode == "Backflush"
+                        //    && t.Remark1 == OwnProductOrderEntity.FactoryCode);
+                        //if (keyParamItemEntity1?.ItemValue == "1")
+                        //{
+                        //    #region 启用批次管理的物料倒冲不能为负数
+                        //    //var arrMaterialCode = rawMaterialStockList.Select(t => t.MaterialCode).ToArray();
+                        //    //var materialFactoryList = _baseMaterialFactoryBLL.Get_ExpressionList(t => t.FactoryCode == OwnProductOrderEntity.FactoryCode
+                        //    //    && arrMaterialCode.Contains(t.MaterialCode) && t.IsUsed == true);
+
+                        //    //var query3 = from a in rawMaterialStockList
+                        //    //             join b in materialFactoryList on a.MaterialCode equals b.MaterialCode
+                        //    //             select a;
+                        //    //var batchStockList = query3.ToList();
+
+                        //    //if (batchStockList.Where(t => t.Qty < 0).Count() > 0)
+                        //    //{
+                        //    //    var batchStockEntity = batchStockList.FirstOrDefault(t => t.Qty < 0);
+                        //    //    var outQty = rawMaterialOutList.Find(t => t.MaterialCode == batchStockEntity.MaterialCode && t.WhsCode == batchStockEntity.WhsCode
+                        //    //        && t.BatchNo == batchStockEntity.BatchNo)?.Qty;//出库数量
+                        //    //    var remainStockQty = batchStockEntity.Qty + outQty;//剩余库存数量
+                        //    //    var plBomItemEntity = plBomItemList.Find(t => t.MaterialCode == batchStockEntity.MaterialCode);
+                        //    //    var remainBGQty = plBomEntity.UnitNum / plBomItemEntity.Num * remainStockQty;
+                        //    //    if (unit == "张")
+                        //    //        remainBGQty = Math.Ceiling(remainBGQty.Value / DXZH.Value);
+
+                        //    //    return AjaxResultWithParams(false, "ProduceManage.ProduceController.OwnProductBGSave.Tips_15", plBomItemEntity.MaterialName, remainBGQty.ToString(), unit);//[{plBomItemEntity.MaterialName}]上机批次剩余库存不足，\r\n报工数量不允许超过{remainBGQty.ToString()}{unit}
+                        //    //    //return AjaxResult(false, "倒冲不能为负数，不可以报工");
+                        //    //}
+                        //    #endregion
+
+                        //    #region 2024年9月10号 韩总要求库存不能为负数，不限制是否启用批次
+
+                        //    if (rawMaterialStockList.Where(t => t.Qty < 0).Count() > 0)
+                        //    {
+                        //        var arrMaterialCode = rawMaterialStockList.Select(t => t.MaterialCode).ToArray();
+                        //        var materialFactoryList = _baseMaterialFactoryBLL.Get_ExpressionList(t => t.FactoryCode == OwnProductOrderEntity.FactoryCode
+                        //            && arrMaterialCode.Contains(t.MaterialCode)).ToList();
+
+                        //        var negativeStockEntity = rawMaterialStockList.FirstOrDefault(t => t.Qty < 0);
+                        //        decimal? outQty = 0;
+                        //        //是否启用批次管理
+                        //        if (materialFactoryList.Find(t => t.MaterialCode == negativeStockEntity.MaterialCode)?.IsUsed == true)
+                        //        {
+                        //            outQty = rawMaterialOutList.Find(t => t.MaterialCode == negativeStockEntity.MaterialCode && t.LocationCode == negativeStockEntity.LocationCode
+                        //                && t.BatchNo == negativeStockEntity.BatchNo)?.Qty;//出库数量
+                        //        }
+                        //        else
+                        //        {
+                        //            //出库数量
+                        //            outQty = rawMaterialOutList.Find(t => t.MaterialCode == negativeStockEntity.MaterialCode && t.LocationCode == negativeStockEntity.LocationCode)?.Qty;
+                        //        }
+
+                        //        var remainStockQty = negativeStockEntity.Qty + outQty;//剩余库存数量
+                        //        var plBomItemEntity = plBomItemList.Find(t => t.MaterialCode == negativeStockEntity.MaterialCode);
+                        //        var remainBGQty = plBomEntity.UnitNum / plBomItemEntity.Num * remainStockQty;
+
+                        //        if (unit == "张")
+                        //            remainBGQty = Math.Ceiling(remainBGQty.Value / DXZH.Value);
+
+                        //        return AjaxResultWithParams(false, "ProduceManage.ProduceController.TransferCardBGSave.Tips_29", plBomItemEntity.MaterialName);//[{plBomItemEntity.MaterialName}]上机批次剩余库存不足
+                        //    }
+
+                        //    #endregion
+                        //}
+                        #endregion
+
+                    }
+                    #endregion
+
+                    #region 8、记录登陆人绑定的机台、生产小组
+                    var peopleEntity = _bsPeopleService.Get_ExpressionEntity(t => t.Code == userCode);
+                    var isUpdate = false;
+                    if (peopleEntity != null && (peopleEntity?.MachineCode != entity.BGMachine || peopleEntity?.PTeamCode != entity.UserGroup))
+                    {
+                        isUpdate = true;
+                        peopleEntity.MachineCode = entity.BGMachine;
+                        peopleEntity.PTeamCode = entity.UserGroup;
+                        peopleEntity.ModifyBy = userCode;
+                        peopleEntity.ModifyTime = DateTime.Now;
+                        //if (!string.IsNullOrEmpty(peopleEntity.Remark) && peopleEntity.Remark.Length > 1900)
+                        //    peopleEntity.Remark = DateTime.Now.ToString() + userName + "修改机台为：" + entity.BGMachine + ";";
+                        //else
+                        //    peopleEntity.Remark += DateTime.Now.ToString() + userName + "修改机台为：" + entity.BGMachine + ";";
+                    }
+                    #endregion
+
+                    #region 10、除了当前工序所用的BOM外，当前机台下其他物料全部失效掉
+                    //10.1判断工厂建模下是否需要失效
+                    var upMachineList = new List<PM_MaterialBatchUpRecordEntity>();
+                    var map = new Dictionary<string, string>();
+                    map.Add("ResourceCode", entity.BGProcess);
+                    map.Add("FieldCode", "YLPLSJ");//
+                    map.Add("FieldValue", "1");
+                    //原料批次上机标识(0:清空上机记录，1：不用清空上机记录)
+                    var dy = _levelBLL.GetDynamicModelWithResource(map, out msg);
+                    if (dy == null)
+                    {
+                        var bomMaterialCodeList = plBomItemList.Select(t => t.MaterialCode).ToList();
+                        upMachineList = _materialBatchUpRecordBLL.Get_ExpressionList(t => t.MachineCode == entity.BGMachine && t.Flag == 1
+                                                                                     && !bomMaterialCodeList.Contains(t.MaterialCode)).ToList();
+                        foreach (var item in upMachineList)
+                        {
+                            item.Flag = 0;
+                            item.ModifyBy = userCode;
+                            item.ModifyTime = DateTime.Now;
+                        }
+                    }
+                    #endregion
+
+                    #region 执行事务
+
+                    TransactionOptions transactionOption = new TransactionOptions();
+                    //设置事务隔离级别
+                    transactionOption.IsolationLevel = System.Transactions.IsolationLevel.ReadCommitted;
+                    // 设置事务超时时间为60秒
+                    transactionOption.Timeout = new TimeSpan(0, 0, 60);
+                    using (var ts = new TransactionScope(TransactionScopeOption.Required, transactionOption))
+                    //using (var ts = new TransactionScope())
+                    {
+                        _OwnProductBGBLL.SaveEntity("", entity, out msg);
+                        _OwnProductOrderBLL.SaveEntity(ownProductEntity.Id, ownProductEntity, out msg);
+                        _OwnProductTransferBLL.SaveEntity(ownTransferEntity.Id, ownTransferEntity, out msg);
+                        //_transferCardBGBLL.SaveEntity("", cardBGRecordEntity, out msg);
+                        _bgBadRecordBLL.SaveEntity_List(false, "", badItemDetailList, out msg);
+                        _bgPersonRecordBLL.SaveEntity_List(false, "", bgPersonRecordList, out msg);
+                        if (plBomItemList.Count() > 0)
+                        {
+                            _bgMBConsumeRecordBLL.SaveEntity_List(false, "", mbConsumeRecordList, out msg);
+                            _mmRawMaterialOutBLL.SaveEntity_List(false, "", rawMaterialOutList, out msg);
+                            _rawMaterailStockBLL.SaveEntity_List(true, "", rawMaterialStockList, out msg);
+
+                        }
+                        _mmRawMaterialInBLL.SaveEntity("", mminentity, out msg);
+                        if (targetEntity == null)
+                            _rawMaterailStockBLL.SaveEntity("", StockEntity, out msg);
+                        else
+                            _rawMaterailStockBLL.SaveEntity(targetEntity.Id, targetEntity, out msg);
+
+                        if (isUpdate)//更新绑定的机台、生产小组信息
+                        {
+                            _bsPeopleService.SaveEntity(peopleEntity.ID, peopleEntity, out msg);
+                        }
+
+                        if (upMachineList != null && upMachineList.Count() > 0)//上机记录
+                        {
+                            _materialBatchUpRecordBLL.SaveEntity_List(true, userName, upMachineList, out msg);
+                        }
+                        ts.Complete();
+                    }
+                    #endregion
+                }
+            }
+            catch (Exception ex)
+            {
+                result.success = false;
+                result.statusCode = ((int)HttpStatusCode.InternalServerError).ToString();
+                result.returnMsg = Language.GetText("Common.ErrorWithOther", ex.Message);
+            }
+            return Request.CreateResponse(HttpStatusCode.OK, result);
+        }
+
+        #endregion
+
+        #region 流转卡报废
+        /// <summary>
+        /// 流转卡报废-流转卡扫描
+        /// </summary>
+        /// <param name="jo"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("TransferCardScrapScan")]
+        public HttpResponseMessage TransferCardScrapScan(JObject jo)
+        {
+            var result = new ResponseResult();
+            try
+            {
+                dynamic scanResult = new ExpandoObject();
+
+                string cardCode = getValue(jo, "cardCode");
+                if (string.IsNullOrEmpty(cardCode))
+                {
+                    return AjaxResult(false, "ProduceManage.ProduceController.TransferCardScrapScan.Tips_1");//流转卡编码不能为空
+                }
+                var cardEntity = _transferCardBLL.Get_ExpressionEntity(t => t.CardCode == cardCode && t.IsEnabled == true);
+                if (cardEntity == null)
+                {
+                    return AjaxResult(false, "ProduceManage.ProduceController.TransferCardScrapScan.Tips_2");//当前流转卡不存在
+                }
+                //else if (cardEntity.CardStatus == "2")//待返工
+                //{
+                //    return AjaxResult(false, "待返工的流转卡不允许作废");
+                //}
+                //else if (cardEntity.CardStatus == "3")//返工中
+                //{
+                //    return AjaxResult(false, "返工中的流转卡不允许作废");
+                //}
+
+                scanResult.CardCode = cardEntity.CardCode;
+                scanResult.ProductOrder = cardEntity.ProductOrder;
+                scanResult.ContainerNO = cardEntity.ContainerNO;
+                var data = _transferCardBLL.TransferCardScrapScan(cardCode);
+                scanResult.ProcessCode = data?.ProcessCode;
+                scanResult.ProcessName = data?.ProcessName;
+                scanResult.ScrapQty = data?.ScrapQty;
+
+                result.resultData = scanResult;
+            }
+            catch (Exception ex)
+            {
+                result.success = false;
+                result.statusCode = ((int)HttpStatusCode.InternalServerError).ToString();
+                result.returnMsg = "Common.Error";
+            }
+            return Request.CreateResponse(HttpStatusCode.OK, result);
+        }
+
+        /// <summary>
+        /// 流转卡报废-保存
+        /// </summary>
+        /// <param name="jo"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("TransferCardScrapSave")]
+        public HttpResponseMessage TransferCardScrapSave(JObject jo)
+        {
+            var result = new ResponseResult();
+            try
+            {
+                if (jo == null)
+                {
+                    return AjaxResult(false, "Common.ParamsNotNull");//参数不能为空
+                }
+                var userCode = getValue(jo, "userCode");//用户编码
+                var userName = getValue(jo, "userName");//用户名称
+                var cardScrapRecordntity = JsonConvert.DeserializeObject<PM_TransferCardScrapRecordEntity>(jo["entity"].ToString());
+
+                lock (_lockCardScrap)
+                {
+                    var cardEntity = _transferCardBLL.Get_ExpressionEntity(t => t.CardCode == cardScrapRecordntity.CardCode && t.IsEnabled == true);
+                    if (cardEntity == null)
+                        return AjaxResult(false, "ProduceManage.ProduceController.TransferCardScrapSave.Tips_1");//当前流转卡不存在
+                    if (cardEntity.CardStatus == "5")
+                    {
+                        return AjaxResult(false, "当前流转卡已报废");
+                    }
+
+                    var workOrderEntity = _workOrderBLL.Get_ExpressionEntity(t => t.WorkOrder == cardEntity.WorkOrder);
+
+                    #region 1、报废记录
+                    cardScrapRecordntity.Id = Guid.NewGuid().ToString();
+                    cardScrapRecordntity.FactoryCode = workOrderEntity.FactoryCode;
+                    cardScrapRecordntity.FactoryName = workOrderEntity.FactoryName;
+                    cardScrapRecordntity.CreateTime = DateTime.Now;
+                    cardScrapRecordntity.Creator = userCode;
+                    cardScrapRecordntity.Operator = userName;
+                    cardScrapRecordntity.IsEnabled = true;
+                    #endregion
+
+                    #region 2、流转卡
+                    cardEntity.CardStatus = "5";//报废
+                    cardEntity.ModifyBy = cardScrapRecordntity.Creator;
+                    cardEntity.ModifyTime = DateTime.Now;
+                    cardEntity.SerialNumber = cardScrapRecordntity.Id;
+                    #endregion
+
+                    #region 4、流转履历
+                    var resumeEntity = _resumeBLL.Get_ExpressionEntity(t => t.CardCode == cardEntity.CardCode && t.Flag == "1");
+                    if (resumeEntity != null)
+                    {
+                        resumeEntity.Flag = "0";
+                        //resumeEntity.BusinessType = "4";//报废
+                        resumeEntity.ModifyBy = userCode;
+                        resumeEntity.ModifyTime = DateTime.Now;
+                    }
+
+                    var newResume = Tools.Clone(resumeEntity);
+                    newResume.Id = Guid.NewGuid().ToString();
+                    newResume.BusinessType = "4";//报废
+                    newResume.Creator = userCode;
+                    newResume.CreateTime = DateTime.Now;
+                    newResume.ModifyBy = userCode;
+                    newResume.ModifyTime = DateTime.Now;
+
+                    #endregion
+
+                    #region 3、判断是否有返工任务
+                    var isUpdate = false;
+                    var isUpdate2 = true;
+                    PM_ReworkRecordEntity taskEntity = null;
+                    List<PM_TransferCardEntity> cardList2 = new List<PM_TransferCardEntity>();
+                    var taskDetailEntity = _pmReworkRecordDetailBLL.Get_ExpressionEntity(t => t.CardCode == cardEntity.CardCode && t.ReworkStatus == "1");//1：未开始
+                    if (taskDetailEntity != null)
+                    {
+                        taskEntity = _pmReworkRecordBLL.Get_ExpressionEntity(t => t.Id == taskDetailEntity.ReworkId);
+                        //返工任务明细中过滤当前流转卡
+                        var taskDetailList = _pmReworkRecordDetailBLL.Get_ExpressionList(t => t.ReworkId == taskEntity.Id && t.ReworkStatus == "1" && t.CardCode != cardEntity.CardCode);
+
+                        //流转卡列表
+                        var data1 = _transferCardBLL.GetList(t => true);
+                        var query1 = from a in data1
+                                     join b in taskDetailList on a.CardCode equals b.CardCode
+                                     select a;
+                        var cardList = query1.ToList();
+                        //是否其他流转卡已返工报工完毕
+                        var data2 = _transferCardBGBLL.GetList(t => true);
+                        var query2 = from a in taskDetailList
+                                     join b in data2 on a.Id equals b.ReworkDId
+                                     select b;
+                        var cardBGList = query2.ToList();
+                        int i = 0;
+                        foreach (var item in taskDetailList)
+                        {
+                            if (cardList.Any(t => t.CardCode == item.CardCode && t.CardStatus != "5"))//5:报废
+                            {
+                                if (!cardBGList.Any(t => t.ReworkDId == item.Id)) { i += 1; }//没有返工报工记录，+1
+                            }
+                        }
+                        if (i == 0)
+                        {
+                            isUpdate = true;
+                            taskEntity.Status = "3";//已完成
+                            taskEntity.ModifyBy = userCode;
+                            taskEntity.ModifyTime = DateTime.Now;
+                        }
+                        //返工任务明细里的流转卡
+                        var arrCardCode = taskDetailList.Select(t => t.CardCode).ToList();
+
+                        var inProcessCode = resumeEntity.ProcessCode;
+                        if (resumeEntity.BusinessType == "2") //报工  (考虑有些工序没开工，但实际流转卡已流转到这些工序的情况)
+                        {
+                            //查找流转卡（返工任务里非报废状态）的最后一条报工记录
+                            var finalBG = _transferCardBGBLL.Get_ExpressionList(t => t.IsRework == "0" && arrCardCode.Contains(t.CardCode))
+                                .OrderByDescending(t => t.CreateTime).FirstOrDefault();
+                            if (finalBG != null && finalBG.ProcessCode != resumeEntity.ProcessCode)
+                            {
+                                inProcessCode = finalBG.ProcessCode;
+                            }
+                        }
+                        //是否其他流转卡已到达返工节点
+                        if (taskEntity.ReworkProcess == inProcessCode)
+                        {
+                            //返工任务中的流转卡都报工后，更新流转卡的状态为：返工中
+
+                            //流转卡报工记录
+                            var cardBGList2 = _transferCardBGBLL.Get_ExpressionList(t => t.ProcessCode == inProcessCode && t.IsRework == "0" 
+                                && arrCardCode.Contains(t.CardCode)).ToList();
+
+                            foreach (var item in taskDetailList)
+                            {
+                                if (!cardBGList2.Any(t => t.CardCode == item.CardCode))
+                                {
+                                    isUpdate2 = false;
+                                    break;
+                                }
+                            }
+                            if (isUpdate2)
+                            {
+                                cardList2 = _transferCardBLL.Get_ExpressionList(t => arrCardCode.Contains(t.CardCode)).ToList();
+                                foreach (var item in cardList2)
+                                {
+                                    item.CardStatus = "3";//返工中
+                                    item.ModifyBy = userCode;
+                                    item.ModifyTime = DateTime.Now;
+                                    item.SerialNumber = taskEntity.Id;
+                                }
+                            }
+                        }
+
+                        //返工任务明细改为作废状态
+                        taskDetailEntity.ReworkStatus = "5";//已作废
+                        taskDetailEntity.ModifyBy = userCode;
+                        taskDetailEntity.ModifyTime = DateTime.Now;
+                    }
+                    #endregion
+
+                    #region 11、工单状态
+                    //var flag = false;
+                    //var flag2 = false;
+                    //var workOrderEntity = _workOrderBLL.Get_ExpressionEntity(t => t.WorkOrder == cardEntity.WorkOrder);
+                    //var exeWorkOrderEntity = _exeWorkOrderBLL.Get_ExpressionEntity(t => t.ExeWorkOrder == cardEntity.ExeWorkOrder);
+                    //var plProcessEntity = _plProcessBLL.GetEntity(t => t.WorkOrder == cardEntity.WorkOrder);
+                    //var plOperationList = _plProcessOfOperationsBLL.Get_ExpressionList(t => t.ProcessId == plProcessEntity.Id).ToList();
+                    //var bzqProcessCode = plOperationList.Where(t => t.OperationCode != "FHBZ").ToList().OrderByDescending(t => t.SN).FirstOrDefault()?.OperationCode;
+                    //if (bzqProcessCode == resumeEntity?.ProcessCode) //如果是包装前工序，判断流转卡所在执行工单下的所有流转卡是否已报工
+                    //{
+                    //    int m = 0;
+                    //    var cardList1 = _transferCardBLL.Get_ExpressionList(t =>
+                    //          t.ExeWorkOrder == exeWorkOrderEntity.ExeWorkOrder
+                    //          && t.CardCode != cardEntity.CardCode
+                    //          && t.CardStatus != "5"
+                    //          && t.CardType != "5").ToList();
+
+                    //    var arrCardCode1 = cardList1.Select(t => t.CardCode).Distinct().ToList();
+
+                    //    var cardBGList1 = _transferCardBGBLL.Get_ExpressionList(t => t.ProcessCode == resumeEntity.ProcessCode
+                    //        && arrCardCode1.Contains(t.CardCode) && t.IsRework == "0").ToList();
+                    //    foreach (var item in cardList1)
+                    //    {
+                    //        if (cardBGList1.Any(t => t.CardCode == item.CardCode))
+                    //        {
+                    //            m = m + 1;
+                    //        }
+                    //    }
+                    //    if (cardList1.Count == m)
+                    //    {
+                    //        flag = true;
+                    //        exeWorkOrderEntity.Status = "3";
+                    //        exeWorkOrderEntity.ModifyBy = userCode;
+                    //        exeWorkOrderEntity.ModifyTime = DateTime.Now;
+
+                    //        var exeWorkOrderList = _exeWorkOrderBLL.Get_ExpressionList(t =>
+                    //              t.WorkOrder == exeWorkOrderEntity.WorkOrder
+                    //              && t.ExeWorkOrder != exeWorkOrderEntity.ExeWorkOrder
+                    //              && t.Status != "3"
+                    //              && t.OrderType != "5"
+                    //              && t.IsEnabled == true).ToList();
+                    //        if (exeWorkOrderList.Count == 0)
+                    //        {
+                    //            flag2 = true;
+                    //            workOrderEntity.OrderStatus = "6";//已完成
+                    //            workOrderEntity.ModifyBy = userCode;
+                    //            workOrderEntity.ModifyTime = DateTime.Now;
+                    //        }
+                    //    }
+                    //}
+                    #endregion
+
+                    var msg = "";
+                    TransactionOptions transactionOption = new TransactionOptions();
+                    //设置事务隔离级别
+                    transactionOption.IsolationLevel = System.Transactions.IsolationLevel.ReadCommitted;
+                    // 设置事务超时时间为60秒
+                    transactionOption.Timeout = new TimeSpan(0, 0, 60);
+                    using (var ts = new TransactionScope(TransactionScopeOption.Required, transactionOption))
+                    //using (var ts = new TransactionScope())
+                    {
+                        _transferCardBLL.SaveEntity(cardEntity.Id, cardEntity, out msg);
+                        _pmTransferCardScrapRecordBLL.SaveEntity("", cardScrapRecordntity, out msg);
+                        if (isUpdate)//返工任务主表
+                        {
+                            _pmReworkRecordBLL.SaveEntity(taskEntity.Id, taskEntity, out msg);
+                        }
+                        if (taskDetailEntity != null)
+                        {
+                            _pmReworkRecordDetailBLL.SaveEntity(taskDetailEntity.Id, taskDetailEntity, out msg);
+                        }
+                        if (resumeEntity != null)//流转履历
+                        {
+                            _resumeBLL.SaveEntity(resumeEntity.Id, resumeEntity, out msg);
+                            _resumeBLL.SaveEntity("", newResume, out msg);
+                        }
+                        if (isUpdate2 && cardList2.Count > 0)//更新流转卡返工中
+                        {
+                            _transferCardBLL.SaveEntity_List(true, userName, cardList2, out msg);
+                        }
+
+                        //if (flag)
+                        //    _exeWorkOrderBLL.SaveEntity(exeWorkOrderEntity.Id, exeWorkOrderEntity, out msg);
+                        //if (flag2)
+                        //    _workOrderBLL.SaveEntity(workOrderEntity.Id, workOrderEntity, out msg);
+
+                        ts.Complete();
+                    }
+                    result.returnMsg = "ProduceManage.ProduceController.TransferCardScrapSave.Tips_2";//报废成功
+                }
+            }
+            catch (Exception ex)
+            {
+                result.success = false;
+                result.statusCode = ((int)HttpStatusCode.InternalServerError).ToString();
+                result.returnMsg = ex.Message;
+            }
+            return Request.CreateResponse(HttpStatusCode.OK, result);
+        }
+        #endregion
+
+        #region 生产小组人员绑定
+
+        /// <summary>
+        /// 生产小组人员绑定-小组编码扫描
+        /// </summary>
+        /// <param name="jo"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("PTeamCodeScan")]
+        public HttpResponseMessage PTeamCodeScan(JObject jo)
+        {
+            var result = new ResponseResult();
+            try
+            {
+                dynamic scanResult = new ExpandoObject();
+
+                if (jo == null)
+                {
+                    return AjaxResult(false, "Common.ParamsNotNull");//参数不能为空
+                }
+                string pTeamCode = getValue(jo, "pTeamCode");
+                if (string.IsNullOrEmpty(pTeamCode))
+                {
+                    return AjaxResult(false, "ProduceManage.ProduceController.PTeamCodeScan.Tips_1");//生产小组编码不能为空
+                }
+                var teamEntity = _pmTeamPersonBLL.Get_ExpressionEntity(t => t.PTeamCode == pTeamCode);
+                if (teamEntity == null)
+                {
+                    return AjaxResult(false, "ProduceManage.ProduceController.PTeamCodeScan.Tips_2");//当前生产小组不存在
+                }
+                var bsModel = _bsModelWithResourceBLL.GetEntity(t => t.ResourceCode == teamEntity.ProcessCode);
+                teamEntity.ProcessName = bsModel?.ResourceName;
+                var personList = _pmTeamPersonItemsBLL.Get_ExpressionList(t => t.TeamId == teamEntity.Id);
+
+                var keyParameterItemList = _baseKeyParameterItemBLL.Get_ExpressionList(t => t.EnCode == "ProcessPost" && t.ItemCode == teamEntity.ProcessCode);
+                if (keyParameterItemList == null && keyParameterItemList.Count() == 0)
+                {
+                    return AjaxResult(false, "ProduceManage.ProduceController.PTeamCodeScan.Tips_3");//岗位信息没有维护
+                }
+                var postList = keyParameterItemList.ToList().Select(t => new { PostCode = t.Col1, PostName = t.Col2 });
+
+                scanResult.PTeamCode = teamEntity.PTeamCode;//生产小组编码
+                scanResult.PTeamName = teamEntity.PTeamName;//生产小组名称
+                scanResult.ProcessCode = teamEntity.ProcessCode;//工序编码
+                scanResult.ProcessName = teamEntity.ProcessName;//工序名称
+                scanResult.ItemList = personList;//人员列表
+                scanResult.PostList = postList;//工序岗位列表
+
+                result.resultData = scanResult;
+            }
+            catch (Exception ex)
+            {
+                result.success = false;
+                result.statusCode = ((int)HttpStatusCode.InternalServerError).ToString();
+                result.returnMsg = "Common.Error";
+            }
+            return Request.CreateResponse(HttpStatusCode.OK, result);
+        }
+
+        /// <summary>
+        /// 生产小组人员绑定-保存
+        /// </summary>
+        /// <param name="jo"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("PTeamSave")]
+        public HttpResponseMessage PTeamSave(JObject jo)
+        {
+            var result = new ResponseResult();
+            try
+            {
+                if (jo == null)
+                {
+                    return AjaxResult(false, "Common.ParamsNotNull");//参数不能为空
+                }
+                var pTeamCode = getValue(jo, "pTeamCode");
+                var userCode = getValue(jo, "userCode");//用户编码
+                var userName = getValue(jo, "userName");//用户名称
+                var personList = JsonConvert.DeserializeObject<List<PM_TeamPerson_ItemsEntity>>(jo["personList"].ToString());
+                if (string.IsNullOrEmpty(pTeamCode))
+                {
+                    return AjaxResult(false, "ProduceManage.ProduceController.PTeamSave.Tips_1");//生产小组编码不能为空
+                }
+                if (personList.Count == 0)
+                {
+                    return AjaxResult(false, "ProduceManage.ProduceController.PTeamSave.Tips_2");//人员列表不能为空
+                }
+                var teamEntity = _pmTeamPersonBLL.Get_ExpressionEntity(t => t.PTeamCode == pTeamCode);
+                teamEntity.ModifyBy = userCode;
+                teamEntity.ModifyTime = DateTime.Now;
+
+                //岗位系数
+                decimal? coefficient = 0;
+                var peopleQty = personList.Count;
+                var arrPostCode = personList.Select(t => t.PostCode).Distinct();
+                var postCoefficientList = _pmPostCoefficientService.GetList(t => t.ProcessCode == teamEntity.ProcessCode && arrPostCode.Contains(t.PostCode)).ToList();
+                foreach (var item in personList)
+                {
+                    item.Id = Guid.NewGuid().ToString();
+                    item.TeamId = teamEntity.Id;
+                    item.FactoryCode = teamEntity.FactoryCode;
+                    item.FactoryName = teamEntity.FactoryName;
+                    item.PTeamCode = pTeamCode;
+                    item.Creator = userCode;
+                    item.CreateTime = DateTime.Now;
+
+                    var postCoefficientEntity = postCoefficientList.Find(t => t.PostCode == item.PostCode && t.PeopleQty == peopleQty);
+                    if (postCoefficientEntity == null)
+                        postCoefficientEntity = postCoefficientList.Find(t => t.PostCode == item.PostCode && t.PeopleQty == null);
+
+                    if (postCoefficientEntity == null)
+                        return AjaxResult(false, "ProduceManage.ProduceController.PTeamSave.Tips_3");//请先维护岗位系数
+
+                    coefficient += postCoefficientEntity?.Coefficient;
+                };
+                if (coefficient == 0)
+                    return AjaxResult(false, "ProduceManage.ProduceController.PTeamSave.Tips_4");//总岗位系数不能为0
+
+                var msg = "";
+                TransactionOptions transactionOption = new TransactionOptions();
+                //设置事务隔离级别
+                transactionOption.IsolationLevel = System.Transactions.IsolationLevel.ReadCommitted;
+                // 设置事务超时时间为60秒
+                transactionOption.Timeout = new TimeSpan(0, 0, 60);
+                using (var ts = new TransactionScope(TransactionScopeOption.Required, transactionOption))
+                //using (var ts = new TransactionScope())
+                {
+                    _pmTeamPersonBLL.SaveEntity(teamEntity.Id, teamEntity, out msg);
+                    _pmTeamPersonItemsBLL.RemoveForm(t => t.TeamId == teamEntity.Id);
+                    _pmTeamPersonItemsBLL.SaveEntity_List(false, "", personList, out msg);
+
+                    ts.Complete();
+                }
+                result.returnMsg = "ProduceManage.ProduceController.PTeamSave.Tips_5";//绑定成功
+            }
+            catch (Exception ex)
+            {
+                result.success = false;
+                result.statusCode = ((int)HttpStatusCode.InternalServerError).ToString();
+                result.returnMsg = "Common.Error";
+            }
+            return Request.CreateResponse(HttpStatusCode.OK, result);
+        }
+        /// <summary>
+        /// 生产小组人员删除
+        /// </summary>
+        /// <param name="jo"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("PTeamPersonDelete")]
+        public HttpResponseMessage PTeamPersonDelete(JObject jo)
+        {
+            var result = new ResponseResult();
+            try
+            {
+                if (jo == null)
+                {
+                    return AjaxResult(false, "Common.ParamsNotNull");//参数不能为空
+                }
+                var pTeamCode = getValue(jo, "pTeamCode");
+                var teamUserCode = getValue(jo, "teamUserCode");//用户编码
+
+                _teamPersonItemBLL.RemoveForm(t => t.PTeamCode == pTeamCode && t.UserCode == teamUserCode);
+
+                result.returnMsg = "Common.DeleteSuccess";//删除成功
+            }
+            catch (Exception ex)
+            {
+                result.success = false;
+                result.statusCode = ((int)HttpStatusCode.InternalServerError).ToString();
+                result.returnMsg = "Common.Error";
+            }
+            return Request.CreateResponse(HttpStatusCode.OK, result);
+        }
+        #endregion
+
+        #region 创建返工任务
+
+        /// <summary>
+        /// 返工任务-流转卡扫描
+        /// </summary>
+        /// <param name="jo"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("ReworkCardScan")]
+        public HttpResponseMessage ReworkCardScan(JObject jo)
+        {
+            var result = new ResponseResult();
+            try
+            {
+                dynamic scanResult = new ExpandoObject();
+
+                if (jo == null)
+                {
+                    return AjaxResult(false, "Common.ParamsNotNull");//参数不能为空
+                }
+                string cardCode = getValue(jo, "cardCode");
+                if (string.IsNullOrEmpty(cardCode))
+                {
+                    return AjaxResult(false, "ProduceManage.ProduceController.ReworkCardScan.Tips_1");//流转卡编码不能为空
+                }
+                #region 正常
+                var cardEntity = _transferCardBLL.Get_ExpressionEntity(t => t.CardCode == cardCode && t.IsEnabled == true);
+                if (cardEntity != null)//正常
+                {
+                    if (cardEntity.CardStatus == "5")//报废
+                    {
+                        return AjaxResult(false, "ProduceManage.ProduceController.ReworkCardScan.Tips_2");//当前流转卡已报废
+                    }
+                    //获取流转卡所在工序
+                    var resumeEntity = _transferCardResumeBLL.Get_ExpressionEntity(t => t.CardCode == cardCode && t.Flag == "1");
+                    var processName = "";
+
+                    if (resumeEntity == null)
+                    {
+                        return AjaxResult(false, "ProduceManage.ProduceController.ReworkCardScan.Tips_3");//无法找到当前流转卡工序
+                    }
+
+                    var bsModel = _bsModelWithResourceBLL.GetEntity(t => t.ResourceCode == resumeEntity.ProcessCode);
+                    processName = bsModel?.ResourceName;
+
+                    //流转卡列表
+                    var serialNumber = cardEntity.SerialNumber;
+                    var processCode = resumeEntity.ProcessCode;
+                    var cardList = _transferCardBLL.ReworkCardScan(serialNumber, processCode);
+                    var newCardList = cardList.Select(t => new
+                    {
+                        CardCode = t.CardCode,//流转卡编码
+                        CardName = t.CardName,//托盘号
+                        ProductOrder = t.ProductOrder,//订单号
+                        ContainerNO = t.ContainerNO,//柜号
+                        BGQty = t.BGQty,//返工前报工数量
+                        Unit = t.Unit,//单位
+                        ProcessCode = t.ProcessCode,//所在工序编码
+                        ProcessName = t.ProcessName,//所在工序名称
+                        BusinessType = t.BusinessType,//业务类型
+                        BusinessTypeName = t.BusinessTypeName,//业务列名称
+                        CardStatus = t.CardStatus,  //流转卡状态编码
+                        CardStatusName = t.CardStatusName //流转卡状态名称
+                    });
+                    var workOrderEntity = _workOrderBLL.Get_ExpressionEntity(t => t.WorkOrder == cardEntity.WorkOrder && t.IsEnabled == true);
+                    //获取工单工艺路线工序
+                    var plProcessEntity = _plProcessBLL.GetEntity(t => t.WorkOrder == cardEntity.WorkOrder && t.IsDeleted == false);
+                    if (plProcessEntity == null)
+                        return AjaxResult(false, "ProduceManage.ProduceController.ReworkCardScan.Tips_4");//工艺路线不存在
+
+                    var plOperationList = _plProcessOfOperationsBLL.Get_ExpressionList(t => t.ProcessId == plProcessEntity.Id && t.IsDeleted == false).OrderBy(t => t.SN).ToList();
+
+                    scanResult.ReworkProductType = "1";//正常
+                    scanResult.WorkOrder = cardEntity.WorkOrder;//工单
+                    scanResult.CurrentProcess = resumeEntity?.ProcessCode;//当前工序
+                    scanResult.CurrentProcessName = processName;//当前工序名称
+                    scanResult.FactoryCode = workOrderEntity?.FactoryCode;//工厂编码
+                    scanResult.FactoryName = workOrderEntity?.FactoryName;//工厂名称
+                    scanResult.CardList = newCardList;
+                    scanResult.OperationList = plOperationList;
+                    return AjaxResult(true, "Common.SearchSuccess", scanResult);//查询成功
+                }
+                #endregion
+
+                #region 自制
+                var ownCardEntity = _OwnProductTransferBLL.Get_ExpressionEntity(t => t.TransferCode == cardCode);
+                if (ownCardEntity != null)
+                {
+                    var ownProductEntity = _OwnProductOrderBLL.Get_ExpressionEntity(t => t.WorkOrder == ownCardEntity.WorkOrder);
+                    var cardList = _OwnProductTransferBLL.Get_ExpressionList(t => t.WorkOrder == ownCardEntity.WorkOrder && t.BatchNumber == ownCardEntity.BatchNumber);
+                    var bsModel = _bsModelWithResourceBLL.GetEntity(t => t.ResourceCode == ownProductEntity.ProcessCode);
+                    var processName = bsModel?.ResourceName;
+
+                    var newCardList = cardList.Select(t => new
+                    {
+                        CardCode = t.TransferCode,//流转卡编码
+                        CardName = t.TransferName,//托盘号
+                        CardStatus = t.CardStatus,//流转卡状态
+                        BGStatus = t.TransferStatus,
+                        BGStatusName = t.TransferStatus == "1" ?
+                        Language.GetText("ProduceManage.ProduceController.ReworkCardScan.Data_1") //未报工
+                        : Language.GetText("ProduceManage.ProduceController.ReworkCardScan.Data_2")//已报工
+                    });
+                    // 获取工单工艺路线工序
+                    var plProcessEntity = _plProcessBLL.GetEntity(t => t.WorkOrder == ownCardEntity.WorkOrder && t.IsDeleted == false);
+                    if (plProcessEntity == null)
+                        return AjaxResult(false, "ProduceManage.ProduceController.ReworkCardScan.Tips_4");//工艺路线不存在
+
+                    var plOperationList = _plProcessOfOperationsBLL.Get_ExpressionList(t => t.ProcessId == plProcessEntity.Id && t.IsDeleted == false).OrderBy(t => t.SN).ToList();
+
+                    scanResult.ReworkProductType = "2";//自制
+                    scanResult.WorkOrder = ownCardEntity.WorkOrder;//工单
+                    scanResult.CurrentProcess = ownProductEntity.ProcessCode;//当前工序
+                    scanResult.CurrentProcessName = processName;//当前工序名称
+                    scanResult.FactoryCode = ownProductEntity?.FactoryCode;//工厂编码
+                    scanResult.FactoryName = ownProductEntity?.FactoryName;//工厂名称
+                    scanResult.CardList = newCardList;
+                    scanResult.OperationList = plOperationList;
+                    return AjaxResult(true, "Common.Success", scanResult);//Success
+                }
+                #endregion
+
+                return AjaxResult(false, "ProduceManage.ProduceController.ReworkCardScan.Tips_5");//当前流转卡不存在
+            }
+            catch (Exception ex)
+            {
+                result.success = false;
+                result.statusCode = ((int)HttpStatusCode.InternalServerError).ToString();
+                result.returnMsg = "Common.Error";
+            }
+            return Request.CreateResponse(HttpStatusCode.OK, result);
+        }
+
+        /// <summary>
+        /// 返工任务-保存
+        /// </summary>
+        /// <param name="jo"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("ReworkSave")]
+        public HttpResponseMessage ReworkSave(JObject jo)
+        {
+            var result = new ResponseResult();
+            try
+            {
+                if (jo == null)
+                {
+                    return AjaxResult(false, "Common.ParamsNotNull");//参数不能为空
+                }
+                var reworkProductType = getValue(jo, "reworkProductType");//返工产品类型
+                var cardCode = getValue(jo, "cardCode");//流转卡编码
+                var currentProcess = getValue(jo, "currentProcess");//当前工序编码
+                var dutyProcess = getValue(jo, "dutyProcess");//责任工序编码
+                var reworkProcess = getValue(jo, "reworkProcess");//返工工序编码
+                var userCode = getValue(jo, "userCode");//用户编码
+                var userName = getValue(jo, "userName");//用户名称
+                var remark = getValue(jo, "remark");
+                var detail = JsonConvert.DeserializeObject<List<PM_ReworkRecord_DetailEntity>>(jo["detail"].ToString());
+                var imgList = JsonConvert.DeserializeObject<List<Base_ImagesEntity>>(jo["fileUrl"].ToString());
+                var badItemDetailList = JsonConvert.DeserializeObject<List<PM_BGBadRecordEntity>>(jo["badItemDetailList"].ToString());
+
+                PM_ReworkRecordEntity reworkEntity = null;
+                List<PM_TransferCardEntity> cardList = new List<PM_TransferCardEntity>();
+                List<PM_OwnProductTransferEntity> ownCardList = new List<PM_OwnProductTransferEntity>();//自制流转卡
+
+                string factoryCode = "";
+                string factoryName = "";
+                if (reworkProductType == "1") //正常
+                {
+                    var cardEntity = _transferCardBLL.Get_ExpressionEntity(t => t.CardCode == cardCode);
+                    if (cardEntity == null)
+                    {
+                        return AjaxResult(false, "ProduceManage.ProduceController.ReworkCardScan.Tips_1");//扫描的流转卡不存在
+                    }
+
+                    //流转卡
+                    var data1 = _transferCardBLL.GetList(t => true);
+                    var query1 = from a in data1
+                                 join b in detail on a.CardCode equals b.CardCode
+                                 select a;
+                    cardList = query1.ToList();
+                    foreach (var item in cardList)
+                    {
+                        if (item.CardStatus == "2")
+                        {
+                            return AjaxResult(false, "ProduceManage.ProduceController.ReworkCardScan.Tips_2");//扫描的流转卡是待返工状态
+                        }
+                        else if (item.CardStatus == "3")
+                        {
+                            return AjaxResult(false, "ProduceManage.ProduceController.ReworkCardScan.Tips_3");//扫描的流转卡是返工中状态
+                        }
+                        else if (item.CardStatus == "5")
+                        {
+                            return AjaxResult(false, "ProduceManage.ProduceController.ReworkCardScan.Tips_4");//扫描的流转卡已报废
+                        }
+                    }
+
+                    //工艺路线
+                    var workOrder = cardEntity.WorkOrder;
+                    var plProcessEntity = _plProcessBLL.GetEntity(t => t.WorkOrder == workOrder && t.IsDeleted == false);
+                    var plOperationList = _plProcessOfOperationsBLL.Get_ExpressionList(t => t.ProcessId == plProcessEntity.Id).ToList();
+                    var reworkOperationEntity = plOperationList.Find(t => t.OperationCode == reworkProcess);
+                    if (reworkOperationEntity == null)
+                    {
+                        return AjaxResult(false, "ProduceManage.ProduceController.ReworkCardScan.Tips_5");//返工工序不在工艺路线里
+                    }
+                    factoryCode = plProcessEntity.FactoryCode;
+                    factoryName = plProcessEntity.FactoryName;
+
+                    #region 返工任务主表
+                    reworkEntity = new PM_ReworkRecordEntity();
+                    reworkEntity.Id = Guid.NewGuid().ToString();
+                    reworkEntity.FactoryCode = factoryCode;
+                    reworkEntity.FactoryName = factoryName;
+                    reworkEntity.ReworkOrder = DateTime.Now.ToString("yyyyMMddHHmmss");
+                    reworkEntity.ProductOrder = cardEntity.ProductOrder;
+                    reworkEntity.WorkOrder = cardEntity.WorkOrder;
+                    reworkEntity.ExeWorkOrder = cardEntity.ExeWorkOrder;
+                    reworkEntity.ContainerNO = cardEntity.ContainerNO;
+                    reworkEntity.CurrentProcess = currentProcess;
+                    reworkEntity.DutyProcess = dutyProcess;
+                    reworkEntity.ReworkProcess = reworkProcess;
+                    reworkEntity.Status = "1";//未开始
+                    reworkEntity.ConfirmStatus = "0";//未确认
+                    reworkEntity.Creator = userCode;
+                    reworkEntity.CreateTime = DateTime.Now;
+                    reworkEntity.IsEnabled = true;
+                    reworkEntity.PalletQty = detail.Count;
+                    reworkEntity.Operator = userName;
+                    reworkEntity.Remark = remark;
+                    reworkEntity.ReworkProductType = reworkProductType;
+                    #endregion
+
+                    #region 返工任务明细
+                    foreach (var item in detail)
+                    {
+                        item.Id = Guid.NewGuid().ToString();
+                        item.ReworkId = reworkEntity.Id;
+                        item.FactoryCode = factoryCode;
+                        item.FactoryName = factoryName;
+                        item.Creator = userCode;
+                        item.CreateTime = DateTime.Now;
+                        item.IsEnabled = true;
+                        item.ReworkStatus = "1";//未开始
+                    }
+                    #endregion
+
+                    #region 更新流转卡状态
+                    string cardStatus = string.Empty;
+
+                    var data2 = _resumeBLL.GetList(t => t.Flag == "1");//流转履历
+                    var query2 = from a in data2
+                                 join b in detail on a.CardCode equals b.CardCode
+                                 select a;
+                    var resumeList = query2.ToList();
+                    var resumeEntity = resumeList.Find(t => t.CardCode == cardList.First().CardCode);
+                    var inOperationEntity = plOperationList.Find(t => t.OperationCode == resumeEntity.ProcessCode);//流转卡所在工序
+
+                    if (reworkOperationEntity.SN > inOperationEntity.SN)
+                        cardStatus = "2";//返工工序 在 流转卡所在工序之后，则为待返工
+                    else if (reworkOperationEntity.SN == inOperationEntity.SN) //返工工序=所在工序
+                    {
+                        if (resumeList.Select(t => t.ProcessCode).Distinct().Count() > 1)
+                        {
+                            return AjaxResult(false, "ProduceManage.ProduceController.ReworkCardScan.Tips_6");//返工的流转卡不在同一道工序
+                        }
+                        if (resumeList.FindAll(t => t.BusinessType == "8").Count == cardList.Count)
+                            cardStatus = "2";//业务类型都是开工，则为待返工
+                        else if (resumeList.FindAll(t => t.BusinessType == "2").Count == cardList.Count)
+                            cardStatus = "3";//业务类型都是完工状态，则为返工中
+                        else
+                            cardStatus = "2";//有开工、完工的视为待返工
+                    }
+                    else
+                        cardStatus = "3";//小于所在工序，返工中
+
+                    foreach (var item in cardList)
+                    {
+                        item.CardStatus = cardStatus;
+                        if (cardStatus == "3")//返工中
+                        {
+                            item.SerialNumber = reworkEntity.Id;
+                        }
+                        item.ModifyBy = userCode;
+                        item.ModifyTime = DateTime.Now;
+                    }
+                    #endregion
+                }
+                else if (reworkProductType == "2")//自制半成品
+                {
+                    var ownCardEntity = _OwnProductTransferBLL.Get_ExpressionEntity(t => t.TransferCode == cardCode);
+                    if (ownCardEntity == null)
+                    {
+                        return AjaxResult(false, "ProduceManage.ProduceController.ReworkCardScan.Tips_7");//当前流转卡不存在
+                    }
+                    factoryCode = ownCardEntity.FactoryCode;
+                    factoryName = ownCardEntity.FactoryName;
+
+                    #region 返工任务主表
+                    reworkEntity = new PM_ReworkRecordEntity();
+                    reworkEntity.Id = Guid.NewGuid().ToString();
+                    reworkEntity.FactoryCode = factoryCode;
+                    reworkEntity.FactoryName = factoryName;
+                    reworkEntity.ReworkOrder = DateTime.Now.ToString("yyyyMMddHHmmss");
+                    reworkEntity.ProductOrder = "";
+                    reworkEntity.WorkOrder = ownCardEntity.WorkOrder;
+                    reworkEntity.ExeWorkOrder = "";
+                    reworkEntity.ContainerNO = "";
+                    reworkEntity.CurrentProcess = currentProcess;
+                    reworkEntity.DutyProcess = dutyProcess;
+                    reworkEntity.ReworkProcess = reworkProcess;
+                    reworkEntity.Status = "1";//未开始
+                    reworkEntity.ConfirmStatus = "0";//未确认
+                    reworkEntity.Creator = userCode;
+                    reworkEntity.CreateTime = DateTime.Now;
+                    reworkEntity.IsEnabled = true;
+                    reworkEntity.PalletQty = detail.Count;
+                    reworkEntity.Operator = userName;
+                    reworkEntity.Remark = remark;
+                    reworkEntity.ReworkProductType = reworkProductType;
+                    #endregion
+
+                    #region 返工任务明细
+                    foreach (var item in detail)
+                    {
+                        item.Id = Guid.NewGuid().ToString();
+                        item.ReworkId = reworkEntity.Id;
+                        item.FactoryCode = factoryCode;
+                        item.FactoryName = factoryName;
+                        item.Creator = userCode;
+                        item.CreateTime = DateTime.Now;
+                        item.IsEnabled = true;
+                        item.ReworkStatus = "1";//未开始
+                    }
+                    #endregion
+
+                    #region 更新流转卡状态
+                    //流转卡
+                    var data1 = _OwnProductTransferBLL.GetList(t => true);
+                    var query1 = from a in data1
+                                 join b in detail on a.TransferCode equals b.CardCode
+                                 select a;
+                    ownCardList = query1.ToList();
+                    foreach (var item in ownCardList)
+                    {
+                        if (item.CardStatus == "3")
+                        {
+                            return AjaxResult(false, "ProduceManage.ProduceController.ReworkCardScan.Tips_8");//扫描的流转卡是返工中状态
+                        }
+                        else if (item.CardStatus == "5")
+                        {
+                            return AjaxResult(false, "ProduceManage.ProduceController.ReworkCardScan.Tips_9");//扫描的流转卡已报废
+                        }
+                        item.CardStatus = "3";//返工中
+                        item.ModifyBy = userCode;
+                        item.ModifyTime = DateTime.Now;
+                    }
+                    #endregion
+                }
+
+                #region 报工不良信息
+                badItemDetailList.ForEach(t =>
+                {
+                    t.Id = Guid.NewGuid().ToString();
+                    t.BGID = reworkEntity.Id;
+                    t.BusinessTable = "PM_ReworkRecord";
+                    t.FactoryCode = factoryCode;
+                    t.FactoryName = factoryName;
+                    t.IsEnabled = true;
+                    t.Creator = userCode;
+                    t.CreateTime = DateTime.Now;
+                });
+                #endregion
+
+                #region 上传图片
+                foreach (var item in imgList)
+                {
+                    item.Id = Guid.NewGuid().ToString();
+                    item.FactoryCode = factoryCode;
+                    item.FactoryName = factoryName;
+                    item.Module = Language.GetText("ProduceManage.ProduceController.ReworkCardScan.Data_1");//生产模块
+                    item.TableName = "PM_ReworkRecord";
+                    item.ParentId = reworkEntity.Id;
+                    item.Creator = userCode;
+                    item.CreateTime = DateTime.Now;
+                }
+                #endregion
+
+                var msg = "";
+                TransactionOptions transactionOption = new TransactionOptions();
+                //设置事务隔离级别
+                transactionOption.IsolationLevel = System.Transactions.IsolationLevel.ReadCommitted;
+                // 设置事务超时时间为60秒
+                transactionOption.Timeout = new TimeSpan(0, 0, 60);
+                using (var ts = new TransactionScope(TransactionScopeOption.Required, transactionOption))
+                //using (var ts = new TransactionScope())
+                {
+                    _pmReworkRecordBLL.SaveEntity("", reworkEntity, out msg);
+                    _pmReworkRecordDetailBLL.SaveEntity_List(false, "", detail, out msg);
+                    if (reworkProductType == "1")
+                    {
+                        _transferCardBLL.SaveEntity_List(true, "", cardList, out msg);
+                    }
+                    else
+                    {
+                        _OwnProductTransferBLL.SaveEntity_List(true, "", ownCardList, out msg);
+                    }
+                    if (imgList.Count > 0) _ImagesService.SaveEntity_List(false, null, imgList, out msg);
+                    _bgBadRecordBLL.SaveEntity_List(false, "", badItemDetailList, out msg);
+                    ts.Complete();
+                }
+            }
+            catch (Exception ex)
+            {
+                result.success = false;
+                result.statusCode = ((int)HttpStatusCode.InternalServerError).ToString();
+                result.returnMsg = "Common.Error";
+            }
+            return Request.CreateResponse(HttpStatusCode.OK, result);
+        }
+
+        /// <summary>
+        /// 返工任务-查询
+        /// </summary>
+        /// <param name="jo"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("ReworkQuery")]
+        public HttpResponseMessage ReworkQuery(JObject jo)
+        {
+            var result = new ResponseResult();
+            try
+            {
+                if (jo == null)
+                {
+                    return AjaxResult(false, "Common.ParamsNotNull");//参数不能为空
+                }
+                var processCode = getValue(jo, "processCode");//工序编码
+
+                DataTable dt = _pmReworkRecordBLL.GetReworkRecord(processCode);
+                result.resultData = dt;
+            }
+            catch (Exception ex)
+            {
+                result.success = false;
+                result.statusCode = ((int)HttpStatusCode.InternalServerError).ToString();
+                result.returnMsg = "Common.Error";
+            }
+            return Request.CreateResponse(HttpStatusCode.OK, result);
+        }
+
+        #endregion
+
+        #region 返工报工
+        /// <summary>
+        /// 返工报工-返工任务查询
+        /// </summary>
+        /// <param name="jo"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("ReworkBGTaskQuery")]
+        public HttpResponseMessage ReworkBGTaskQuery(JObject jo)
+        {
+            var result = new ResponseResult();
+            try
+            {
+                string queryJson = getValue(jo, "queryJson");
+                var data = _pmReworkRecordBLL.GetPageDataTableList(null, queryJson);
+                result.resultData = data;
+                result.success = true;
+                result.returnMsg = "Common.SearchSuccess";
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+            catch (Exception ex)
+            {
+                result.success = false;
+                result.returnMsg = Language.GetText("Common.SearchErrorWithOther", ex.Message);
+                result.statusCode = ((int)HttpStatusCode.InternalServerError).ToString();
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+        }
+
+        /// <summary>
+        /// 返工报工-返工任务明细查询
+        /// </summary>
+        /// <param name="jo"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("ReworkBGTaskDetailQuery")]
+        public HttpResponseMessage ReworkBGTaskDetailQuery(JObject jo)
+        {
+            var result = new ResponseResult();
+            try
+            {
+                dynamic scanResult = new ExpandoObject();
+
+                string id = getValue(jo, "id");
+                if (string.IsNullOrEmpty(id))
+                {
+                    return AjaxResult(false, "ProduceManage.ProduceController.ReworkBGTaskDetailQuery.Tips_1");//id不能为空
+                }
+                var taskEntity = _pmReworkRecordBLL.Get_ExpressionEntity(t => t.Id == id);
+                var queryJson = "{\"queryJson\":{\"TaskId\":\"" + taskEntity.Id + "\"}}";
+                var taskDetail = _pmReworkRecordDetailBLL.GetPageDataTableList(null, queryJson, taskEntity.ReworkProductType);
+                var dataItemDetailList = _dataItemDetailBLL.GetDataItemList("ReworkStatus");//返工状态列表
+
+                scanResult.ReworkOrder = taskEntity.ReworkOrder;//返工单号
+                scanResult.CreateTime = taskEntity.CreateTime;//打返工时间
+                scanResult.Operator = taskEntity.Operator;//打返工人员
+                scanResult.PalletQty = taskEntity.PalletQty;//返工托数
+                scanResult.Status = taskEntity.Status;//返工状态编码
+                scanResult.StatusName = dataItemDetailList.ToList().Find(t => t.ItemValue == taskEntity.Status)?.ItemName;//返工状态明细
+                scanResult.TaskDetail = taskDetail;//返工明细
+                result.resultData = scanResult;
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+            catch (Exception ex)
+            {
+                result.success = false;
+                result.returnMsg = Language.GetText("Common.SearchErrorWithOther", ex.Message);
+                result.statusCode = ((int)HttpStatusCode.InternalServerError).ToString();
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+        }
+
+        /// <summary>
+        /// 返工报工-流转卡扫描
+        /// </summary>
+        /// <param name="jo"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("ReworkBGCardScan")]
+        public HttpResponseMessage ReworkBGCardScan(JObject jo)
+        {
+            var result = new ResponseResult();
+            try
+            {
+                dynamic scanResult = new ExpandoObject();
+
+                //string id = getValue(jo, "id");//返工任务Id
+                string cardCode = getValue(jo, "cardCode");//流转卡编码
+                var cardEntity = _transferCardBLL.Get_ExpressionEntity(t => t.CardCode == cardCode);
+                if (cardEntity != null)
+                {
+                    if (cardEntity.CardStatus == "5")
+                    {
+                        return AjaxResult(false, "ProduceManage.ProduceController.ReworkBGCardScan.Tips_1");//当前流转卡已报废
+                    }
+                    var taskDetailList = _pmReworkRecordDetailBLL.Get_ExpressionList(t => t.CardCode == cardCode).ToList();
+
+                    var lstTaskId = taskDetailList.Select(t => t.ReworkId).Distinct().ToList();
+                    var taskEntity = _pmReworkRecordBLL.Get_ExpressionEntity(t => lstTaskId.Contains(t.Id) && t.ConfirmStatus == "0");
+                    if (taskDetailList.Count > 0 && taskEntity != null) //有返工任务
+                    {
+                        //不良项目
+                        var msg = "";
+                        var lstEntity = _pmProcessBadItemBLL.GetList(taskEntity.ReworkProcess, out msg);
+                        var batItemList = lstEntity.ToList().OrderBy(t => t.BadItemCode).Select(t => new { value = t.BadItemCode, label = t.BadItemName });
+                        //返工报工数量
+                        var reworkDetailList = _pmReworkRecordDetailBLL.Get_ExpressionList(t => t.ReworkId == taskEntity.Id).ToList();
+                        var reworkDetailEntity = reworkDetailList.Find(t => t.ReworkId == taskEntity.Id && t.CardCode == cardCode);
+                        var reworkBGList = _transferCardBGBLL.Get_ExpressionList(t => t.CardCode == cardCode && t.ReworkDId == reworkDetailEntity.Id).ToList();
+                        var reworkBGQty = reworkBGList.Sum(t => t.Qty);
+                        //未返工托盘号
+                        var noReworkPalletNo = string.Join("、", reworkDetailList.Where(t => t.ReworkStatus == "1").OrderBy(t => t.CardName).Select(t => t.CardName).ToArray());
+
+                        scanResult.ReworkProductType = taskEntity.ReworkProductType;
+                        scanResult.TaskId = taskEntity.Id;//返工任务Id
+                        scanResult.ReworkProcess = taskEntity.ReworkProcess;
+                        scanResult.ProductOrder = cardEntity.ProductOrder;//订单号
+                        scanResult.ContainerNO = cardEntity.ContainerNO;//柜号
+                        scanResult.CardCode = cardCode;//流转卡编码
+                        scanResult.CardName = cardEntity.CardName;//托号
+                        scanResult.ReworkBGQty = reworkBGQty;//返工已报工数量
+                        scanResult.batItemList = batItemList;//工序不良项目列表
+                        scanResult.NoReworkPalletNo = noReworkPalletNo;//未返工托盘号
+                        return AjaxResult(true, "Common.Success", scanResult);
+                    }
+                    else //特殊产品返工
+                    {
+                        var resumeEntity = _resumeBLL.Get_ExpressionEntity(t => t.CardCode == cardCode && t.Flag == "1");
+                        if (resumeEntity == null)
+                            return AjaxResult(false, "ProduceManage.ProduceController.ReworkBGCardScan.Tips_2");//流转履历不存在
+
+                        var processCode = "";
+                        //是否返工工序
+                        var bsModelExtend = _bsModelResourceExtendInfoBLL.Get_ExpressEntity(t => t.ResourceCode == resumeEntity.ProcessCode && t.FieldCode == "SFZJBG"
+                         && (t.FieldValue == "是" || t.FieldValue == "Y"));
+                        if (bsModelExtend != null)
+                            processCode = resumeEntity.ProcessCode;
+                        else
+                        {
+                            //当前所在工序的下一道工序
+                            var plProcessEntity = _plProcessBLL.GetEntity(t => t.WorkOrder == cardEntity.WorkOrder && t.IsDeleted == false);
+                            if (plProcessEntity == null)
+                                return AjaxResult(false, "ProduceManage.ProduceController.ReworkBGCardScan.Tips_3");//工艺路线不存在
+
+                            var plOperationList = _plProcessOfOperationsBLL.Get_ExpressionList(t => t.ProcessId == plProcessEntity.Id).ToList();
+                            var plOperationEntity = plOperationList.Find(t => t.OperationCode == resumeEntity.ProcessCode);
+                            if (plOperationEntity == null)
+                                return AjaxResultWithParams(false, "ProduceManage.ProduceController.ReworkBGCardScan.Tips_4", resumeEntity.ProcessCode);//工艺路线中没有工序[{resumeEntity.ProcessCode}]
+
+                            var nextOperationEntity = plOperationList.Where(t => t.SN > plOperationEntity.SN).OrderBy(t => t.SN).FirstOrDefault();
+                            if (nextOperationEntity == null)
+                                return AjaxResult(false, "ProduceManage.ProduceController.ReworkBGCardScan.Tips_5");//下一道工序不存在
+
+                            bsModelExtend = _bsModelResourceExtendInfoBLL.Get_ExpressEntity(t => t.ResourceCode == nextOperationEntity.OperationCode && t.FieldCode == "SFZJBG"
+                             && (t.FieldValue == "是" || t.FieldValue == "Y"));
+                            if (bsModelExtend == null)
+                                return AjaxResultWithParams(false, "ProduceManage.ProduceController.ReworkBGCardScan.Tips_6", nextOperationEntity.OperationCode);//工序[{nextOperationEntity.OperationCode}]不允许返工报工
+                            else
+                                processCode = nextOperationEntity.OperationCode;
+                        }
+
+                        //不良项目
+                        var msg = "";
+                        var lstEntity = _pmProcessBadItemBLL.GetList(processCode, out msg);
+                        var batItemList = lstEntity.ToList().OrderBy(t => t.BadItemCode).Select(t => new { value = t.BadItemCode, label = t.BadItemName });
+
+                        //流转卡返工报工数量
+                        var cardBGList = _transferCardBGBLL.Get_ExpressionList(t => t.CardCode == cardCode && t.ProcessCode == processCode && t.IsRework == "0").ToList();
+
+                        //未报工托盘号
+                        var cardList = _transferCardBLL.Get_ExpressionList(t => t.SerialNumber == cardEntity.SerialNumber).ToList();
+                        var arrBGCardCode = _transferCardBGBLL.Get_ExpressionList(t => t.ProcessCode == processCode && t.IsRework == "0").Select(t => t.CardCode).Distinct().ToArray();
+                        var arrNoReworkCard = cardList.Where(t => !arrBGCardCode.Contains(t.CardCode)).OrderBy(t => t.CardName).Select(t => t.CardName).Distinct();
+                        var noReworkPalletNo = string.Join("、", arrNoReworkCard);
+
+                        scanResult.ReworkProductType = "3"; //特殊产品返工报工
+                        scanResult.ProductOrder = cardEntity.ProductOrder;//订单号
+                        scanResult.ContainerNO = cardEntity.ContainerNO;//柜号
+                        scanResult.CardCode = cardCode;//流转卡编码
+                        scanResult.CardName = cardEntity.CardName;//托号
+                        scanResult.ReworkBGQty = cardBGList.Sum(t => t.Qty);//返工已报工数量
+                        scanResult.batItemList = batItemList;//工序不良项目列表
+                        scanResult.NoReworkPalletNo = noReworkPalletNo;//未返工托盘号
+                        scanResult.ReworkProcess = processCode;
+                        return AjaxResult(true, "Common.Success", scanResult);
+                    }
+                }
+                //自制半成品
+                var ownCardEntity = _OwnProductTransferBLL.Get_ExpressionEntity(t => t.TransferCode == cardCode);
+                if (ownCardEntity != null)
+                {
+                    if (ownCardEntity.CardStatus == "5")
+                    {
+                        return AjaxResult(false, "ProduceManage.ProduceController.ReworkBGCardScan.Tips_7");//当前流转卡已报废
+                    }
+                    var taskDetailList = _pmReworkRecordDetailBLL.Get_ExpressionList(t => t.CardCode == cardCode).ToList();
+                    if (taskDetailList.Count == 0)
+                    {
+                        return AjaxResult(false, "ProduceManage.ProduceController.ReworkBGCardScan.Tips_8");//当前流转卡没有返工任务
+                    }
+                    var lstTaskId = taskDetailList.Select(t => t.ReworkId).Distinct().ToList();
+                    string[] arrStatus = new string[] { "1", "2" };
+                    var taskEntity = _pmReworkRecordBLL.Get_ExpressionEntity(t => lstTaskId.Contains(t.Id) && arrStatus.Contains(t.Status));
+                    if (taskEntity == null)
+                    {
+                        return AjaxResult(false, "ProduceManage.ProduceController.ReworkBGCardScan.Tips_9");//当前流转卡没有返工任务
+                    }
+
+                    //返工工序不良项目
+                    var msg = "";
+                    var lstEntity = _pmProcessBadItemBLL.GetList(taskEntity.ReworkProcess, out msg);
+                    var batItemList = lstEntity.ToList().OrderBy(t => t.BadItemCode).Select(t => new { value = t.BadItemCode, label = t.BadItemName });
+                    //返工报工数量
+                    var taskDetailEntity = _pmReworkRecordDetailBLL.Get_ExpressionEntity(t => t.ReworkId == taskEntity.Id && t.CardCode == cardCode);
+                    var reworkBGList = _OwnProductBGBLL.Get_ExpressionList(t => t.TransferCode == cardCode && t.ReworkDId == taskDetailEntity.Id).ToList();
+                    var reworkBGQty = reworkBGList.Sum(t => t.BGQty);
+
+                    scanResult.ReworkProductType = taskEntity.ReworkProductType;
+                    scanResult.TaskId = taskEntity.Id;//返工任务Id
+                    scanResult.ReworkProcess = taskEntity.ReworkProcess;
+                    scanResult.WorkOrder = ownCardEntity.WorkOrder;//工单号
+                    scanResult.BatchNo = ownCardEntity.BatchNumber;//批次号
+                    scanResult.CardCode = cardCode;//流转卡编码
+                    scanResult.CardName = ownCardEntity.TransferName;//托号
+                    scanResult.ReworkBGQty = reworkBGQty;//返工已报工数量
+                    scanResult.batItemList = batItemList;//工序不良项目列表
+                    return AjaxResult(true, "Common.Success", scanResult);
+                }
+
+                return AjaxResult(false, "ProduceManage.ProduceController.ReworkBGCardScan.Tips_10");//当前流转卡不存在
+            }
+            catch (Exception ex)
+            {
+                result.success = false;
+                result.returnMsg = Language.GetText("Common.SearchErrorWithOther", ex.Message);
+                result.statusCode = ((int)HttpStatusCode.InternalServerError).ToString();
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+        }
+
+        /// <summary>
+        /// 返工报工-生产小组扫描
+        /// </summary>
+        /// <param name="jo"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("ReworkBGPTeamScan")]
+        public HttpResponseMessage ReworkBGPTeamScan(JObject jo)
+        {
+            var result = new ResponseResult();
+            try
+            {
+                dynamic scanResult = new ExpandoObject();
+
+                string pTeamCode = getValue(jo, "pTeamCode");
+                if (string.IsNullOrEmpty(pTeamCode))
+                {
+                    return AjaxResult(false, "ProduceManage.ProduceController.ReworkBGPTeamScan.Tips_1");//生产小组不能为空
+                }
+                var pTeamEntity = _teamPersonBLL.Get_ExpressionEntity(t => t.PTeamCode == pTeamCode);
+                if (pTeamEntity == null)
+                {
+                    return AjaxResult(false, "ProduceManage.ProduceController.ReworkBGPTeamScan.Tips_2");//当前生产小组不存在
+                }
+                var msg = "";
+                var pTeamPersonList = _teamPersonItemBLL.GetList(pTeamCode, out msg);
+                if (pTeamPersonList == null || pTeamPersonList.Count() == 0)
+                {
+                    return AjaxResult(false, "ProduceManage.ProduceController.ReworkBGPTeamScan.Tips_3");//当前生产小组没有分配人员
+                }
+
+                scanResult = pTeamPersonList.ToList().Select(t => new { UserCode = t.UserCode, UserName = t.UserName });
+                result.resultData = scanResult;
+            }
+            catch (Exception ex)
+            {
+                result.success = false;
+                result.statusCode = ((int)HttpStatusCode.InternalServerError).ToString();
+                result.returnMsg = "Common.Error";
+            }
+            return Request.CreateResponse(HttpStatusCode.OK, result);
+        }
+
+        /// <summary>
+        /// 返工报工-保存
+        /// </summary>
+        /// <param name="jo"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("ReworkBGSave")]
+        public HttpResponseMessage ReworkBGSave(JObject jo)
+        {
+            var result = new ResponseResult();
+            try
+            {
+                if (jo == null)
+                {
+                    return AjaxResult(false, "Common.ParamsNotNull");//参数不能为空
+                }
+                var reworkProductType = getValue(jo, "reworkProductType");//返工产品类型
+                var taskId = getValue(jo, "taskId");//返工任务Id
+                var cardCode = getValue(jo, "cardCode");//流转卡
+                var qty = getValue(jo, "qty");//报工数量
+                var badQty = getValue(jo, "badQty");//不良数量
+                badQty = string.IsNullOrEmpty(badQty) ? "0" : badQty;
+                var pTeamCode = getValue(jo, "pTeamCode");//生产小组编码
+                var userCode = getValue(jo, "userCode");//用户编码
+                var userName = getValue(jo, "userName");//用户名称
+                var remark = getValue(jo, "remark");//备注
+                var badItemDetailList = JsonConvert.DeserializeObject<List<PM_BGBadRecordEntity>>(jo["badItemDetailList"].ToString());
+
+                PM_TransferCardResumeEntity cardResumeEntity = null;//流转履历
+                var bgID = Guid.NewGuid().ToString();
+                PM_TranferCardBGRecordEntity cardBGRecordEntity = null;
+                PM_OwnProductBGEntity ownCardBGEntity = null;
+
+                if (string.IsNullOrEmpty(qty) || qty.ToDecimal() == 0)
+                {
+                    return AjaxResult(false, "ProduceManage.ProduceController.ReworkBGSave.Tips_1");//报工数量不能为0
+                }
+
+                if (reworkProductType == "3") //特殊产品返工
+                {
+                    var cardEntity = _transferCardBLL.Get_ExpressionEntity(t => t.CardCode == cardCode);
+                    var workOrderEntity = _workOrderBLL.Get_ExpressionEntity(t => t.WorkOrder == cardEntity.WorkOrder);
+                    if (workOrderEntity.OrderStatus == "9")
+                        return AjaxResult(false, "工单已结案，无法报工");
+
+                    //流转卡所在工序
+                    var resumeEntity = _resumeBLL.Get_ExpressionEntity(t => t.CardCode == cardCode && t.Flag == "1");
+                    if (resumeEntity == null)
+                        return AjaxResult(false, "ProduceManage.ProduceController.ReworkBGSave.Tips_2");//流转履历不存在
+
+                    var processCode = "";
+                    var processName = "";
+                    var locationCode = "";
+                    var whsCode = "";
+                    decimal curingCycle = 0;
+
+                    //工艺路线
+                    var plProcessEntity = _plProcessBLL.GetEntity(t => t.WorkOrder == cardEntity.WorkOrder);
+                    if (plProcessEntity == null)
+                        return AjaxResult(false, "ProduceManage.ProduceController.ReworkBGSave.Tips_3");//工艺路线不存在
+
+                    var plOperationList = _plProcessOfOperationsBLL.Get_ExpressionList(t => t.ProcessId == plProcessEntity.Id).ToList();
+                    var plAttrList = _plProcessOfOperationsAttrBLL.Get_ExpressionList(t => t.ProcessId == plProcessEntity.Id).ToList();
+                    if (resumeEntity.BusinessType == "8") //二次返工报工
+                    {
+                        processCode = resumeEntity.ProcessCode;
+                        var operationEntity = _bsModelWithResourceBLL.GetEntity(t => t.ResourceCode == processCode);
+                        processName = operationEntity?.ResourceName;
+                    }
+                    else
+                    {
+                        var plCurrentOperationEntity = plOperationList.Find(t => t.OperationCode == resumeEntity.ProcessCode);
+                        var nextOperaionEntity = plOperationList.Where(t => t.SN > plCurrentOperationEntity.SN).OrderBy(t => t.SN).FirstOrDefault();
+                        processCode = nextOperaionEntity.OperationCode;
+                        processName = nextOperaionEntity.OperationName;
+                    }
+                    var plOperationEntity = plOperationList.Find(t => t.OperationCode == processCode);
+                    if (plOperationEntity.WFMark == "1")
+                        return AjaxResult(false, "ProduceManage.ProduceController.SavePMStartInfo.Tips_26");//外发不允许操作
+
+                    curingCycle = plOperationEntity.CuringCycle.Value;
+                    //仓库、库位
+                    var plOperationAttrList = plAttrList.Where(t => t.OperationsId == plOperationEntity.Id).ToList();
+                    locationCode = plOperationAttrList.Find(t => t.AttrCode == "BGKW")?.AttrValue;//库位
+                    whsCode = _bsModelWithResourceBLL.GetEntity(t => t.ResourceCode == locationCode)?.ParentResource;//仓库
+
+                    //物料工厂属性
+                    var unit = _bsModelResourceExtendInfoBLL.Get_ExpressEntity(t => t.ResourceCode == processCode && t.FieldCode == "DW")?.FieldValue;
+                    var plMaterialEntity = _plMaterialBLL.Get_ExpressionEntity(t => t.WorkOrder == cardEntity.WorkOrder && t.IsDeleted == false);
+                    var plMaterialFacetList = _plMaterialFacetBLL.Get_ExpressionList(t => t.MaterialId == plMaterialEntity.Id).ToList();
+                    var DXZH = plMaterialFacetList.Find(t => t.AttrCode == "DXZH")?.AttrValue.ToDecimal();//大小转换
+
+                    #region 报工生产小组
+                    //var pTeamEntity = _teamPersonBLL.Get_ExpressionEntity(t => t.PTeamCode == pTeamCode);//生产小组不关联工序
+                    //if (pTeamEntity == null)
+                    //{
+                    //    return AjaxResult(false, "该生产小组不存在");
+                    //}
+                    var pTeamEntity = _teamPersonBLL.Get_ExpressionEntity(t => t.ProcessCode == processCode && t.PTeamCode == pTeamCode);
+                    if (pTeamEntity == null)
+                    {
+                        var GLSCXZ = _bsModelResourceExtendInfoBLL.Get_ExpressEntity(t => t.ResourceCode == processCode && t.FieldCode == "GLSCXZ");
+                        var glProcessTeam = GLSCXZ?.FieldValue;
+                        pTeamEntity = _teamPersonBLL.Get_ExpressionEntity(t => glProcessTeam.Contains(t.ProcessCode) && t.PTeamCode == pTeamCode);
+                        if (pTeamEntity == null)
+                            return AjaxResult(false, "ProduceManage.ProduceController.ReworkBGSave.Tips_4");//当前工序中没有该生产小组
+                    }
+
+                    var pTeamUserList = _teamPersonItemBLL.Get_ExpressionList(t => t.PTeamCode == pTeamCode).ToList();
+                    if (pTeamUserList.Count == 0)
+                        return AjaxResult(false, "ProduceManage.ProduceController.ReworkBGSave.Tips_5");//当前生产小组没有分配人员
+
+                    var peopleQty = pTeamUserList.Count;//班组人数
+                    var bgPersonRecordList = new List<PM_TransferBGPersonRecordEntity>();
+                    //岗位系数
+                    var arrPostCode = pTeamUserList.Select(t => t.PostCode).Distinct();
+                    var postCoefficientList = _pmPostCoefficientService.GetList(t => t.ProcessCode == processCode && arrPostCode.Contains(t.PostCode)).ToList();
+                    #region 产品工价
+                    List<PMProductPriceEntity> productPriceList = new List<PMProductPriceEntity>();//产品工价列表
+                    //判断是否VC物料
+                    if (workOrderEntity.IsVC == false)
+                        productPriceList = _pmProductPriceService.GetList(t => t.PriceType == "1" && t.ProcessCode == processCode
+                            && t.MaterialCode == plMaterialEntity.MaterialCode).ToList();
+                    else
+                        productPriceList = _pmProductPriceService.GetList(t => t.PriceType == "2" && t.ProcessCode == processCode
+                            && t.Spec == plMaterialEntity.Spec).ToList();
+                    #endregion
+                    foreach (var item in pTeamUserList)
+                    {
+                        var bgPersonEntity = new PM_TransferBGPersonRecordEntity();
+                        bgPersonEntity.Id = Guid.NewGuid().ToString();
+                        bgPersonEntity.BGID = bgID;
+                        bgPersonEntity.FactoryCode = item.FactoryCode;
+                        bgPersonEntity.FactoryName = item.FactoryName;
+                        bgPersonEntity.PTeamCode = item.PTeamCode;
+                        bgPersonEntity.PTeamName = pTeamEntity.PTeamName;
+                        bgPersonEntity.PostCode = item.PostCode;
+                        bgPersonEntity.PostName = item.PostName;
+                        bgPersonEntity.UserCode = item.UserCode;
+                        bgPersonEntity.UserName = item.UserName;
+                        var postCoefficientEntity = postCoefficientList.Find(t => t.PostCode == item.PostCode && t.PeopleQty == peopleQty);
+                        if (postCoefficientEntity == null)
+                            postCoefficientEntity = postCoefficientList.Find(t => t.PostCode == item.PostCode && t.PeopleQty == null);
+
+                        bgPersonEntity.Coefficient = postCoefficientEntity?.Coefficient;
+                        #region 产品工价
+                        var productPriceEntity = productPriceList.Find(t => t.PeopleQty == peopleQty && t.PostCode == item.PostCode);
+                        if (productPriceEntity == null)
+                        {
+                            productPriceEntity = productPriceList.Find(t => t.IsDefault == true && t.PostCode == item.PostCode);
+                            if (productPriceEntity == null)
+                            {
+                                productPriceEntity = productPriceList.Find(t => t.PeopleQty == peopleQty);
+                                if (productPriceEntity == null)
+                                    productPriceEntity = productPriceList.Find(t => t.IsDefault == true);
+                            }
+                        }
+                        bgPersonEntity.Price = productPriceEntity?.Price;
+                        #endregion
+                        bgPersonEntity.Creator = userCode;
+                        bgPersonEntity.CreateTime = DateTime.Now;
+                        bgPersonEntity.IsEnabled = true;
+                        bgPersonRecordList.Add(bgPersonEntity);
+                    }
+                    #endregion
+
+                    #region 3、报工不良信息
+                    if (badItemDetailList != null && badItemDetailList.Count > 0)
+                    {
+                        if (badItemDetailList.Any(t => t.BadQty == null || t.BadQty == 0))
+                            return AjaxResult(false, "ProduceManage.ProduceController.ReworkBGSave.Tips_6");//不良数量不能为空或者0
+
+                        badItemDetailList.ForEach(t =>
+                        {
+                            t.Id = Guid.NewGuid().ToString();
+                            t.FactoryCode = workOrderEntity.FactoryCode;
+                            t.FactoryName = workOrderEntity.FactoryName;
+                            t.SmallClassCode = plMaterialEntity.SmallClass;
+                            t.BGID = bgID;
+                            t.BusinessTable = "PM_TranferCardBGRecord";
+                            t.IsEnabled = true;
+                            t.Creator = userCode;
+                            t.CreateTime = DateTime.Now;
+                        });
+                    }
+                    #endregion
+
+                    #region 报工记录
+                    cardBGRecordEntity = new PM_TranferCardBGRecordEntity();
+                    cardBGRecordEntity.Id = bgID;
+                    cardBGRecordEntity.WorkOrder = workOrderEntity.WorkOrder;
+                    cardBGRecordEntity.FactoryCode = workOrderEntity.FactoryCode;
+                    cardBGRecordEntity.FactoryName = workOrderEntity.FactoryName;
+                    cardBGRecordEntity.ExeWorkOrder = cardEntity.ExeWorkOrder;
+                    cardBGRecordEntity.CardCode = cardEntity.CardCode;
+                    cardBGRecordEntity.ProcessCode = processCode;
+                    cardBGRecordEntity.Qty = qty.ToDecimal();
+                    cardBGRecordEntity.Unit = unit;
+                    cardBGRecordEntity.BadQty = badItemDetailList.Sum(t => t.BadQty);
+                    cardBGRecordEntity.BGUser = userName;
+                    cardBGRecordEntity.Creator = userCode;
+                    cardBGRecordEntity.CreateTime = DateTime.Now;
+                    cardBGRecordEntity.IsEnabled = true;
+                    cardBGRecordEntity.IsRework = "0";//是否返工
+                    cardBGRecordEntity.DXZH = DXZH;
+                    cardBGRecordEntity.Remark = remark;
+                    cardBGRecordEntity.HealthTime = DateTime.Now.AddHours((double)curingCycle * 24);
+                    cardBGRecordEntity.TotalCoefficient = bgPersonRecordList.Sum(t => t.Coefficient);
+                    cardBGRecordEntity.PeopleQty = peopleQty;
+
+                    //设备系数默认1，返工报工没有机台
+                    //var equipCoefficientEntity = _bsModelResourceExtendInfoBLL.Get_ExpressEntity(t => t.ResourceCode == machineCode && t.FieldCode == "SBXS");
+                    //if (equipCoefficientEntity != null && !string.IsNullOrEmpty(equipCoefficientEntity.FieldValue))
+                    //    cardBGRecordEntity.EquipCoefficient = equipCoefficientEntity?.FieldValue.ToDecimalOrNull();
+                    //else
+                    cardBGRecordEntity.EquipCoefficient = 1;
+
+                    //是否计算工资
+                    var gzAttrEntity = plOperationAttrList.Find(t => t.AttrCode == "JSXZ");//是否计算薪资
+                    //cardBGRecordEntity.IsCalculated = gzAttrEntity?.AttrValue == Language.GetText("Common.Yes") ? true : false;
+                    cardBGRecordEntity.IsCalculated = (gzAttrEntity?.AttrValue == "是" || gzAttrEntity?.AttrValue == "Y") ? true : false;
+                    if (cardBGRecordEntity.IsCalculated.Value)
+                    {
+                        if (bgPersonRecordList.Any(t => t.Coefficient == null) || bgPersonRecordList.Any(t => t.Price == null))
+                        {
+                            cardBGRecordEntity.IsGenerated = 3;
+                            if (bgPersonRecordList.Any(t => t.Coefficient == null))
+                                cardBGRecordEntity.ErrorReason = "2";
+                            else if (bgPersonRecordList.Any(t => t.Price == null))
+                                cardBGRecordEntity.ErrorReason = "1";
+                            else
+                                cardBGRecordEntity.ErrorReason = Language.GetText("Common.ErrorNone");//未知原因
+                        }
+                        else
+                            cardBGRecordEntity.IsGenerated = 1;
+                    }
+                    #region SAP 6个参数
+                    var factoryCode = workOrderEntity.FactoryCode;
+
+                    var SAPSyncSwitch = _baseKeyParameterItemBLL.Get_ExpressionEntity(t => t.EnCode == "Switch" && t.ItemCode == "SAPSync"
+                        && t.Remark1 == factoryCode);
+                    if (SAPSyncSwitch?.ItemValue == "1")
+                    {
+                        PMOperationPalletNumEntity pmOperationPalletEntity = null;
+                        if (workOrderEntity.IsVC == true)
+                        {
+                            pmOperationPalletEntity = _pmOperationPalletNumService.GetEntity(t => t.ProcessCode == processCode
+                                && t.Spec == plMaterialEntity.Spec && t.DocType == "2");
+                        }
+                        else
+                        {
+                            var arrProcessCode = plOperationList.Take(plOperationList.Count - 1).Select(t => t.OperationCode);
+                            pmOperationPalletEntity = _pmOperationPalletNumService.GetEntity(t => t.ProcessCode == processCode
+                                && t.MaterialCode == plMaterialEntity.MaterialCode && t.DocType == "1");
+                        }
+                        var hourCoefficient = pmOperationPalletEntity?.HourCoefficient;
+                        if (hourCoefficient == null)
+                            return AjaxResult(false, "ProduceManage.ProduceController.TransferCardBGSave.Tips_30");//工时系数未维护
+
+                        var totalQty = cardBGRecordEntity.Qty + cardBGRecordEntity.BadQty;
+                        if (unit == "张")
+                            totalQty = totalQty * DXZH;
+
+                        var attrBMSCH = plAttrList.Find(t => t.AttrCode == "BMSCH")?.AttrValue;
+                        var attrVGW01 = plAttrList.Find(t => t.AttrCode == "VGW01")?.AttrValue;
+                        var attrVGW02 = plAttrList.Find(t => t.AttrCode == "VGW02")?.AttrValue;
+                        var attrVGW03 = plAttrList.Find(t => t.AttrCode == "VGW03")?.AttrValue;
+                        var attrVGW04 = plAttrList.Find(t => t.AttrCode == "VGW04")?.AttrValue;
+                        var attrVGW05 = plAttrList.Find(t => t.AttrCode == "VGW05")?.AttrValue;
+                        var attrVGW06 = plAttrList.Find(t => t.AttrCode == "VGW06")?.AttrValue;
+
+                        if (string.IsNullOrEmpty(attrBMSCH))
+                            return AjaxResult(false, "ProduceManage.ProduceController.TransferCardBGSave.Tips_31");//基本数量 属性未维护
+                        if (string.IsNullOrEmpty(attrVGW01))
+                            return AjaxResult(false, "ProduceManage.ProduceController.TransferCardBGSave.Tips_32");//直接人工 属性未维护
+                        if (string.IsNullOrEmpty(attrVGW02))
+                            return AjaxResult(false, "ProduceManage.ProduceController.TransferCardBGSave.Tips_33");//间接人工 属性未维护
+                        if (string.IsNullOrEmpty(attrVGW03))
+                            return AjaxResult(false, "ProduceManage.ProduceController.TransferCardBGSave.Tips_34");//燃料动力 属性未维护
+                        if (string.IsNullOrEmpty(attrVGW04))
+                            return AjaxResult(false, "ProduceManage.ProduceController.TransferCardBGSave.Tips_35");//折旧摊销 属性未维护
+                        if (string.IsNullOrEmpty(attrVGW05))
+                            return AjaxResult(false, "ProduceManage.ProduceController.TransferCardBGSave.Tips_36");//备品备件 属性未维护
+                        if (string.IsNullOrEmpty(attrVGW06))
+                            return AjaxResult(false, "ProduceManage.ProduceController.TransferCardBGSave.Tips_37");//其他费用 属性未维护
+
+                        var BMSCHValue = attrBMSCH; //基本数量
+                        var arrVGW01 = attrVGW01.Split(',');
+                        var arrVGW02 = attrVGW02.Split(',');
+                        var arrVGW03 = attrVGW03.Split(',');
+                        var arrVGW04 = attrVGW04.Split(',');
+                        var arrVGW05 = attrVGW05.Split(',');
+                        var arrVGW06 = attrVGW06.Split(',');
+
+                        if (arrVGW01[1].ToUpper() == "S")
+                            cardBGRecordEntity.VGW01 = totalQty * (arrVGW01[0].ToDecimal() / BMSCHValue.ToDecimal()) * hourCoefficient;
+                        else
+                            cardBGRecordEntity.VGW01 = totalQty;
+
+                        if (arrVGW02[1].ToUpper() == "S")
+                            cardBGRecordEntity.VGW02 = totalQty * (arrVGW02[0].ToDecimal() / BMSCHValue.ToDecimal()) * hourCoefficient;
+                        else
+                            cardBGRecordEntity.VGW02 = totalQty;
+
+                        if (arrVGW03[1].ToUpper() == "S")
+                            cardBGRecordEntity.VGW03 = totalQty * (arrVGW03[0].ToDecimal() / BMSCHValue.ToDecimal()) * hourCoefficient;
+                        else
+                            cardBGRecordEntity.VGW03 = totalQty;
+
+                        if (arrVGW04[1].ToUpper() == "S")
+                            cardBGRecordEntity.VGW04 = totalQty * (arrVGW04[0].ToDecimal() / BMSCHValue.ToDecimal()) * hourCoefficient;
+                        else
+                            cardBGRecordEntity.VGW04 = totalQty;
+
+                        if (arrVGW05[1].ToUpper() == "S")
+                            cardBGRecordEntity.VGW05 = totalQty * (arrVGW05[0].ToDecimal() / BMSCHValue.ToDecimal()) * hourCoefficient;
+                        else
+                            cardBGRecordEntity.VGW05 = totalQty;
+
+                        if (arrVGW06[1].ToUpper() == "S")
+                            cardBGRecordEntity.VGW06 = totalQty * (arrVGW06[0].ToDecimal() / BMSCHValue.ToDecimal()) * hourCoefficient;
+                        else
+                            cardBGRecordEntity.VGW06 = totalQty;
+                    }
+                    #endregion
+
+                    #endregion
+
+                    #region 开工记录
+                    //开工记录
+                    PM_StartUpRecordEntity startEntity = new PM_StartUpRecordEntity();
+                    startEntity.Id = Guid.NewGuid().ToString();
+                    startEntity.FactoryCode = workOrderEntity.FactoryCode;
+                    startEntity.FactoryName = workOrderEntity.FactoryName;
+                    startEntity.ProductOrder = cardEntity.ProductOrder;
+                    startEntity.WorkOrder = cardEntity.WorkOrder;
+                    startEntity.ExeWorkOrder = cardEntity.ExeWorkOrder;
+                    startEntity.CardCode = cardCode;
+                    startEntity.ProcessCode = processCode;
+                    startEntity.ProcessName = processName;
+                    startEntity.Creator = userCode;
+                    startEntity.CreateTime = DateTime.Now;
+                    startEntity.IsEnabled = true;
+                    #endregion
+
+                    #region 开工流转履历
+                    resumeEntity.Flag = "0";
+                    resumeEntity.ModifyBy = userCode;
+                    resumeEntity.ModifyTime = DateTime.Now;
+
+                    cardResumeEntity = new PM_TransferCardResumeEntity();
+                    cardResumeEntity.Id = Guid.NewGuid().ToString();
+                    cardResumeEntity.FactoryCode = workOrderEntity.FactoryCode;
+                    cardResumeEntity.FactoryName = workOrderEntity.FactoryName;
+                    cardResumeEntity.CardCode = cardCode;
+                    cardResumeEntity.ProcessCode = processCode;
+                    cardResumeEntity.BusinessType = "8";
+                    cardResumeEntity.OperationId = bgID;
+                    cardResumeEntity.Flag = "1";
+                    cardResumeEntity.Creator = userCode;
+                    cardResumeEntity.CreateTime = DateTime.Now;
+                    cardResumeEntity.IsEnabled = true;
+
+                    if (resumeEntity.BusinessType == "8")
+                    {
+                        cardResumeEntity.WhsCode = resumeEntity.WhsCode;
+                        cardResumeEntity.LocationCode = resumeEntity.LocationCode;
+                        if (unit == "张")
+                        {
+                            cardResumeEntity.SheetQty = qty.ToDecimal() + resumeEntity.SheetQty;
+                            cardResumeEntity.PieceQty = cardResumeEntity.SheetQty * DXZH + resumeEntity.PieceQty;
+                        }
+                        else
+                        {
+                            cardResumeEntity.PieceQty = qty.ToDecimal() + resumeEntity.PieceQty;
+                            cardResumeEntity.SheetQty = Math.Ceiling(cardResumeEntity.PieceQty.Value / DXZH.Value) + resumeEntity.SheetQty;
+                        }
+                    }
+                    else
+                    {
+                        cardResumeEntity.WhsCode = whsCode;
+                        cardResumeEntity.LocationCode = locationCode;
+                        if (unit == "张")
+                        {
+                            cardResumeEntity.SheetQty = qty.ToDecimal();
+                            cardResumeEntity.PieceQty = cardResumeEntity.SheetQty * DXZH;
+                        }
+                        else
+                        {
+                            cardResumeEntity.PieceQty = qty.ToDecimal();
+                            cardResumeEntity.SheetQty = Math.Ceiling(cardResumeEntity.PieceQty.Value / DXZH.Value);
+                        }
+                    }
+                    #endregion
+
+                    var msg = "";
+                    TransactionOptions transactionOption = new TransactionOptions();
+                    //设置事务隔离级别
+                    transactionOption.IsolationLevel = System.Transactions.IsolationLevel.ReadCommitted;
+                    // 设置事务超时时间为60秒
+                    transactionOption.Timeout = new TimeSpan(0, 0, 60);
+                    using (var ts = new TransactionScope(TransactionScopeOption.Required, transactionOption))
+                    //using (var ts = new TransactionScope())
+                    {
+                        _transferCardBGBLL.SaveEntity("", cardBGRecordEntity, out msg);
+                        if (badItemDetailList != null && badItemDetailList.Count > 0)
+                            _bgBadRecordBLL.SaveEntity_List(false, "", badItemDetailList, out msg);
+
+                        _bgPersonRecordBLL.SaveEntity_List(false, "", bgPersonRecordList, out msg);
+                        _startUpRecordBLL.SaveEntity("", startEntity, out msg);//开工记录
+                        _resumeBLL.SaveEntity("", cardResumeEntity, out msg);//开工流转履历
+                        _resumeBLL.SaveEntity(resumeEntity.Id, resumeEntity, out msg);
+
+                        ts.Complete();
+                    }
+                }
+                else //有返工任务的
+                {
+                    var taskEntity = _pmReworkRecordBLL.Get_ExpressionEntity(t => t.Id == taskId); //返工任务
+                    var taskDetailList = _pmReworkRecordDetailBLL.Get_ExpressionList(t => t.ReworkId == taskId);//返工任务明细
+                    var taskDetailEntity = _pmReworkRecordDetailBLL.Get_ExpressionEntity(t => t.ReworkId == taskId && t.CardCode == cardCode);//明细行
+                    if (taskDetailEntity == null)
+                    {
+                        return AjaxResult(false, "ProduceManage.ProduceController.ReworkBGSave.Tips_7");//当前返工任务没有该流转卡
+                    }
+                    var pTeamEntity = _teamPersonBLL.Get_ExpressionEntity(t => t.PTeamCode == pTeamCode);
+                    if (pTeamEntity == null)
+                    {
+                        return AjaxResult(false, "ProduceManage.ProduceController.ReworkBGSave.Tips_8");//该生产小组不存在
+                    }
+
+                    PL_MaterialEntity plMaterialEntity = null;
+                    if (reworkProductType == "1")//正常
+                    {
+                        var cardEntity = _transferCardBLL.Get_ExpressionEntity(t => t.CardCode == cardCode);
+                        if (cardEntity.CardStatus != "3") //3：流转卡状态不是：返工中
+                        {
+                            return AjaxResult(false, "ProduceManage.ProduceController.ReworkBGSave.Tips_9");//当前流转卡未到返工节点
+                        }
+                        taskDetailList = taskDetailList.Where(t => t.CardCode != cardCode).ToList();//过滤当前流转卡
+                                                                                                    //流转卡
+                        var data1 = _transferCardBLL.GetList(t => true);
+                        var query1 = from a in data1
+                                     join b in taskDetailList on a.CardCode equals b.CardCode
+                                     select a;
+                        var cardList = query1.ToList();
+
+                        var hisBGList = _transferCardBGBLL.Get_ExpressionList(t => t.ReworkDId == taskDetailEntity.Id && t.ProcessCode == taskEntity.ReworkProcess).ToList();
+                        var unit = _bsModelResourceExtendInfoBLL.Get_ExpressEntity(t => t.ResourceCode == taskEntity.ReworkProcess && t.FieldCode == "DW")?.FieldValue;
+                        plMaterialEntity = _plMaterialBLL.Get_ExpressionEntity(t => t.WorkOrder == cardEntity.WorkOrder && t.IsDeleted == false);
+                        var plMaterialFacet = _plMaterialFacetBLL.Get_ExpressionList(t => t.MaterialId == plMaterialEntity.Id).ToList();
+                        var DXZH = plMaterialFacet.Find(t => t.AttrCode == "DXZH")?.AttrValue.ToDecimal();//大小转换
+                        var SCTPSL = plMaterialFacet.Find(t => t.AttrCode == "SCTPSL")?.AttrValue.ToDecimal();//生产托盘数量
+                                                                                                              //if (unit == "张")
+                                                                                                              //{
+                                                                                                              //    if (qty.ToDecimal() + hisBGList.Sum(t => t.Qty) > SCTPSL * (decimal)1.5)
+                                                                                                              //    {
+                                                                                                              //        return AjaxResult(false, "报工数量不能大于" + (SCTPSL * (decimal)1.5).ToString());
+                                                                                                              //    }
+                                                                                                              //}
+                                                                                                              //else if (unit == "片")
+                                                                                                              //{
+                                                                                                              //    if (qty.ToDecimal() + hisBGList.Sum(t => t.Qty) > SCTPSL * DXZH * (decimal)1.5)
+                                                                                                              //    {
+                                                                                                              //        return AjaxResult(false, "报工数量不能大于" + (SCTPSL * DXZH * (decimal)1.5).ToString());
+                                                                                                              //    }
+                                                                                                              //}
+
+                        #region 更新返工任务状态
+                        var data2 = _transferCardBGBLL.GetList(t => true);
+                        var query2 = from a in taskDetailList
+                                     join b in data2 on a.Id equals b.ReworkDId
+                                     select b;
+                        var cardBGList = query2.ToList();
+                        int i = 0;
+                        foreach (var item in taskDetailList)
+                        {
+                            if (cardList.Any(t => t.CardCode == item.CardCode && t.CardStatus != "5"))//5:报废
+                            {
+                                if (!cardBGList.Any(t => t.ReworkDId == item.Id)) { i += 1; } //没有报工记录，+1
+                            }
+                        }
+                        if (i > 0) taskEntity.Status = "2";//正在返工
+                        else taskEntity.Status = "3";//已完成
+                        taskEntity.ModifyBy = userCode;
+                        taskEntity.ModifyTime = DateTime.Now;
+                        #endregion
+
+                        #region 1、生成报工记录
+                        cardBGRecordEntity = new PM_TranferCardBGRecordEntity();
+                        cardBGRecordEntity.Id = bgID;
+                        cardBGRecordEntity.FactoryCode = taskEntity.FactoryCode;
+                        cardBGRecordEntity.FactoryName = taskEntity.FactoryName;
+                        cardBGRecordEntity.ExeWorkOrder = cardEntity.ExeWorkOrder;
+                        cardBGRecordEntity.CardCode = cardEntity.CardCode;
+                        cardBGRecordEntity.ProcessCode = taskEntity.CurrentProcess;
+                        cardBGRecordEntity.Qty = qty.ToDecimal();
+                        cardBGRecordEntity.Unit = unit;
+                        cardBGRecordEntity.BadQty = badItemDetailList.Sum(t => t.BadQty);
+                        cardBGRecordEntity.BGUser = userName;
+                        cardBGRecordEntity.Creator = userCode;
+                        cardBGRecordEntity.CreateTime = DateTime.Now;
+                        cardBGRecordEntity.IsEnabled = true;
+                        cardBGRecordEntity.IsRework = "1";//是否返工 1：是
+                        cardBGRecordEntity.ReworkDId = taskDetailEntity.Id;
+                        cardBGRecordEntity.DXZH = DXZH;
+                        cardBGRecordEntity.Remark = remark;
+                        #endregion
+
+                        #region 2、流转履历
+                        cardResumeEntity = new PM_TransferCardResumeEntity();
+                        cardResumeEntity.Id = Guid.NewGuid().ToString();
+                        cardResumeEntity.FactoryCode = taskEntity.FactoryCode;
+                        cardResumeEntity.FactoryName = taskEntity.FactoryName;
+                        cardResumeEntity.CardCode = cardCode;
+                        cardResumeEntity.ProcessCode = taskEntity.ReworkProcess;
+                        cardResumeEntity.BusinessType = "5";//返工
+                        cardResumeEntity.OperationId = bgID;
+                        cardResumeEntity.Flag = "0";
+                        cardResumeEntity.Creator = userCode;
+                        cardResumeEntity.CreateTime = DateTime.Now;
+                        cardResumeEntity.IsEnabled = true;
+                        if (unit == "张")
+                        {
+                            cardResumeEntity.SheetQty = qty.ToDecimal() + hisBGList.Sum(t => t.Qty);
+                            cardResumeEntity.PieceQty = cardResumeEntity.SheetQty * DXZH;
+                        }
+                        else
+                        {
+                            cardResumeEntity.PieceQty = qty.ToDecimal() + hisBGList.Sum(t => t.Qty);
+                            cardResumeEntity.SheetQty = Math.Ceiling(cardResumeEntity.PieceQty.Value / DXZH.Value);
+                        }
+
+                        #endregion
+                    }
+                    else if (reworkProductType == "2")//自制
+                    {
+                        var ownCardEntity = _OwnProductTransferBLL.Get_ExpressionEntity(t => t.TransferCode == cardCode);
+                        taskDetailList = taskDetailList.Where(t => t.CardCode != cardCode).ToList();//过滤当前流转卡
+                                                                                                    //流转卡
+                        var data1 = _OwnProductTransferBLL.GetList(t => true);
+                        var query1 = from a in data1
+                                     join b in taskDetailList on a.TransferCode equals b.CardCode
+                                     select a;
+                        var ownCardList = query1.ToList();
+
+                        var hisBGList = _OwnProductBGBLL.Get_ExpressionList(t => t.TransferCode == cardCode && t.BGProcess == taskEntity.ReworkProcess).ToList();
+                        var unit = _bsModelResourceExtendInfoBLL.Get_ExpressEntity(t => t.ResourceCode == taskEntity.ReworkProcess && t.FieldCode == "DW")?.FieldValue;
+                        plMaterialEntity = _plMaterialBLL.Get_ExpressionEntity(t => t.WorkOrder == ownCardEntity.WorkOrder && t.IsDeleted == false);
+                        var plMaterialFacet = _plMaterialFacetBLL.Get_ExpressionList(t => t.MaterialId == plMaterialEntity.Id).ToList();
+                        var DXZH = plMaterialFacet.Find(t => t.AttrCode == "DXZH")?.AttrValue.ToDecimal();//大小转换
+                        var SCTPSL = plMaterialFacet.Find(t => t.AttrCode == "SCTPSL")?.AttrValue.ToDecimal();//大小转换
+
+                        if (qty.ToDecimal() + hisBGList.Sum(t => t.BGQty) > SCTPSL * (decimal)1.5)
+                        {
+                            return AjaxResultWithParams(false, "ProduceManage.ProduceController.ReworkBGSave.Tips_10", (SCTPSL * (decimal)1.5).ToString());//"报工数量不能大于" + (SCTPSL * (decimal)1.5).ToString()
+                        }
+
+                        #region 更新返工任务状态
+                        var data2 = _OwnProductBGBLL.GetList(t => true);
+                        var query2 = from a in taskDetailList
+                                     join b in data2 on a.Id equals b.ReworkDId
+                                     select b;
+                        var ownCardBGList = query2.ToList();
+                        int i = 0;
+                        foreach (var item in taskDetailList)
+                        {
+                            if (ownCardList.Any(t => t.TransferCode == item.CardCode && t.CardStatus != "5"))//5:报废
+                            {
+                                if (!ownCardBGList.Any(t => t.ReworkDId == item.Id)) { i += 1; } //没有报工记录，+1
+                            }
+                        }
+                        if (i > 0) taskEntity.Status = "2";//正在返工
+                        else taskEntity.Status = "3";//已完成
+                        taskEntity.ModifyBy = userCode;
+                        taskEntity.ModifyTime = DateTime.Now;
+                        #endregion
+
+                        #region 1、生成报工记录
+                        ownCardBGEntity = new PM_OwnProductBGEntity();
+                        ownCardBGEntity.Id = bgID;
+                        ownCardBGEntity.OwnProductId = bgID;
+                        ownCardBGEntity.FactoryCode = taskEntity.FactoryCode;
+                        ownCardBGEntity.FactoryName = taskEntity.FactoryName;
+                        ownCardBGEntity.WorkOrder = ownCardEntity.WorkOrder;
+                        ownCardBGEntity.MaterialCode = plMaterialEntity.MaterialCode;
+                        ownCardBGEntity.MaterialName = plMaterialEntity.MaterialName;
+                        ownCardBGEntity.Spec = plMaterialEntity.Spec;
+                        ownCardBGEntity.TransferCode = cardCode;
+                        ownCardBGEntity.TransferName = ownCardEntity.TransferName;
+                        ownCardBGEntity.BGProcess = taskEntity.ReworkProcess;
+                        ownCardBGEntity.BGQty = qty.ToDecimal();
+                        ownCardBGEntity.Unit = unit;
+                        ownCardBGEntity.BadQty = badItemDetailList.Sum(t => t.BadQty);
+                        ownCardBGEntity.BGUser = userName;
+                        ownCardBGEntity.UserGroup = pTeamCode;
+                        ownCardBGEntity.Creator = userCode;
+                        ownCardBGEntity.CreateTime = DateTime.Now;
+                        ownCardBGEntity.BatchNo = ownCardEntity.BatchNumber;
+                        ownCardBGEntity.ReworkDId = taskDetailEntity.Id;
+                        #endregion
+                    }
+
+                    //更新返工任务明细中的返工状态
+                    taskDetailEntity.ReworkStatus = "3";//已完成
+                    taskDetailEntity.ModifyBy = userCode;
+                    taskDetailEntity.ModifyTime = DateTime.Now;
+
+                    #region 3、报工不良信息
+                    if (badItemDetailList != null && badItemDetailList.Count > 0)
+                    {
+                        if (badItemDetailList.Any(t => t.BadQty == null || t.BadQty == 0))
+                            return AjaxResult(false, "ProduceManage.ProduceController.ReworkBGSave.Tips_11");//不良数量不能为空或者0
+
+                        badItemDetailList.ForEach(t =>
+                        {
+                            t.Id = Guid.NewGuid().ToString();
+                            t.FactoryCode = taskEntity.FactoryCode;
+                            t.FactoryName = taskEntity.FactoryName;
+                            t.SmallClassCode = plMaterialEntity.SmallClass;
+                            t.BGID = bgID;
+                            t.BusinessTable = "PM_TranferCardBGRecord";
+                            t.IsEnabled = true;
+                            t.Creator = userCode;
+                            t.CreateTime = DateTime.Now;
+                        });
+                    }
+                    #endregion
+
+                    #region 4、报工生产小组
+
+                    var pTeamUserList = _teamPersonItemBLL.Get_ExpressionList(t => t.PTeamCode == pTeamCode).ToList();
+                    if (pTeamUserList.Count == 0)
+                        return AjaxResult(false, "ProduceManage.ProduceController.ReworkBGSave.Tips_12");//当前生产小组没有分配人员
+
+                    var processPostList = _baseKeyParameterItemBLL.Get_ExpressionList(t =>
+                        t.IsEnabled == true && t.EnCode == "ProcessPost" && t.ItemCode == taskEntity.ReworkProcess).ToList();
+                    var transferBGPersonRecordList = pTeamUserList.Select(t =>
+                         new PM_TransferBGPersonRecordEntity()
+                         {
+                             Id = Guid.NewGuid().ToString(),
+                             BGID = bgID,
+                             FactoryCode = taskEntity.FactoryCode,
+                             FactoryName = taskEntity.FactoryName,
+                             PTeamCode = t.PTeamCode,
+                             PTeamName = pTeamEntity.PTeamName,
+                             PostCode = t.PostCode,
+                             PostName = processPostList.Find(m => m.Col1 == t.PostCode)?.Col2,
+                             UserCode = t.UserCode,
+                             UserName = t.UserName,
+                             Creator = userCode,
+                             IsEnabled = true,
+                             CreateTime = DateTime.Now
+                         }).ToList();
+                    #endregion
+
+                    var msg = "";
+                    TransactionOptions transactionOption = new TransactionOptions();
+                    //设置事务隔离级别
+                    transactionOption.IsolationLevel = System.Transactions.IsolationLevel.ReadCommitted;
+                    // 设置事务超时时间为60秒
+                    transactionOption.Timeout = new TimeSpan(0, 0, 60);
+                    using (var ts = new TransactionScope(TransactionScopeOption.Required, transactionOption))
+                    //using (var ts = new TransactionScope())
+                    {
+                        if (reworkProductType == "1")
+                        {
+                            _transferCardBGBLL.SaveEntity("", cardBGRecordEntity, out msg);
+                            _resumeBLL.SaveEntity("", cardResumeEntity, out msg);
+                        }
+                        else if (reworkProductType == "2")
+                        {
+                            _OwnProductBGBLL.SaveEntity("", ownCardBGEntity, out msg);
+                        }
+                        _bgBadRecordBLL.SaveEntity_List(false, "", badItemDetailList, out msg);
+                        if (badItemDetailList != null && badItemDetailList.Count > 0)
+                            _bgPersonRecordBLL.SaveEntity_List(false, "", transferBGPersonRecordList, out msg);
+
+                        _pmReworkRecordBLL.SaveEntity(taskEntity.Id, taskEntity, out msg);
+                        _pmReworkRecordDetailBLL.SaveEntity(taskDetailEntity.Id, taskDetailEntity, out msg);
+
+                        ts.Complete();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                result.success = false;
+                result.statusCode = ((int)HttpStatusCode.InternalServerError).ToString();
+                result.returnMsg = "Common.Error";
+            }
+            return Request.CreateResponse(HttpStatusCode.OK, result);
+        }
+        #endregion
+
+        #region 返工任务-质量异常确认
+        /// <summary>
+        /// 返工报工-质量确认查询返工任务
+        /// </summary>
+        /// <param name="jo"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("GetReworkRecordDetail")]
+        public HttpResponseMessage GetReworkRecordDetail(JObject jo)
+        {
+            var result = new ResponseResult();
+            try
+            {
+                string cardCode = getValue(jo, "cardCode");
+
+                var cardEntity = _transferCardBLL.Get_ExpressionEntity(t => t.CardCode == cardCode);
+                if (cardEntity != null)//正常
+                {
+                    //判断是否特殊产品返工确认
+                    var resumeEntity = _resumeBLL.Get_ExpressionEntity(t => t.CardCode == cardEntity.CardCode && t.Flag == "1");
+                    if (resumeEntity == null)
+                        return AjaxResult(false, "ProduceManage.ProduceController.GetReworkRecordDetail.Tips_1");//流转履历不存在
+                    //查找流转卡所在工序或者下一道工序是否需要质检报工
+                    string processCode = resumeEntity.ProcessCode;
+
+                    var bsModelExtend = _bsModelResourceExtendInfoBLL.Get_ExpressEntity(t => t.ResourceCode == processCode && t.FieldCode == "SFZJBG"
+                          && (t.FieldValue == "是" || t.FieldValue == "Y"));
+                    if (bsModelExtend != null)  //特殊产品返工确认
+                    {
+                        if (resumeEntity.BusinessType == "2") //完工 代表已确认
+                            return AjaxResult(false, "ProduceManage.ProduceController.GetReworkRecordDetail.Tips_2");//质量已确认
+
+                        var serialNumber = cardEntity.SerialNumber;
+                        var cardList = _transferCardBLL.Get_ExpressionList(t => t.SerialNumber == serialNumber).ToList();
+                        var arrCardCode = cardList.Select(t => t.CardCode);
+                        //判断是否都在一个工序里
+                        var resumeList = _resumeBLL.Get_ExpressionList(t => arrCardCode.Contains(t.CardCode) && t.Flag == "1").ToList();
+                        var arrProcessCode = resumeList.Select(t => t.ProcessCode).Distinct();
+                        if (arrProcessCode.Count() > 1)
+                            return AjaxResult(false, "ProduceManage.ProduceController.GetReworkRecordDetail.Tips_3");//不在同一道工序里
+
+                        var plProcessEntity = _plProcessBLL.GetEntity(t => t.WorkOrder == cardEntity.WorkOrder && t.IsDeleted == false);
+                        var plOperationList = _plProcessOfOperationsBLL.Get_ExpressionList(t => t.ProcessId == plProcessEntity.Id).ToList();
+                        var plOperationId = plOperationList.Find(t => t.OperationCode == processCode).Id;
+                        var plAttrList = _plProcessOfOperationsAttrBLL.Get_ExpressionList(t => t.OperationsId == plOperationId && t.IsEnabled == true).ToList();
+                        //if (plAttrList.Any(t => t.AttrCode == "KGCZ" && t.AttrValue == Language.GetText("Common.Yes")))
+                        if (plAttrList.Any(t => t.AttrCode == "KGCZ" && (t.AttrValue == "是" || t.AttrValue == "Y")))
+                        {
+                            var startRecord = _startUpRecordBLL.Get_ExpressionEntity(t => t.ProcessCode == processCode && t.CardCode == cardEntity.CardCode);
+                            if (startRecord == null)
+                                return AjaxResult(false, "ProduceManage.ProduceController.GetReworkRecordDetail.Tips_4");//当前流转卡未开工
+                        }
+                        var cardBGList = _transferCardBGBLL.Get_ExpressionList(t => arrCardCode.Contains(t.CardCode) && t.ProcessCode == processCode).ToList();
+                        var query1 = from a in cardBGList
+                                     join b in cardList on a.CardCode equals b.CardCode
+                                     select new
+                                     {
+                                         a.CardCode,
+                                         b.CardName,
+                                         a.Qty,
+                                         a.BadQty,
+                                         a.BGUser
+                                     };
+                        var data = query1.OrderBy(t => t.CardCode).ToList();
+                        var resultData = new
+                        {
+                            Entity = new
+                            {
+                                ReworkOrder = "",
+                                ProcessCode = processCode,
+                                ReworkProductType = "3"
+                            },
+                            OptionList = data
+                        };
+                        return AjaxResult(true, "Common.Success", resultData);
+                    }
+                    else  //有返工任务
+                    {
+                        var reowrkDetailList = _pmReworkRecordDetailBLL.Get_ExpressionList(t => t.CardCode == cardCode).ToList();
+                        var reworkIdList = reowrkDetailList.Select(t => t.ReworkId).Distinct().ToList();
+                        var reworkList = _pmReworkRecordBLL.Get_ExpressionList(t => reworkIdList.Contains(t.Id)).ToList();
+                        if (reworkList.Count == 0)
+                        {
+                            return AjaxResult(false, "ProduceManage.ProduceController.GetReworkRecordDetail.Tips_5");//没有可确认的质量异常单
+                        }
+                        var reworkEntity = reworkList.OrderByDescending(t => t.CreateTime).First();
+                        var list = _pmReworkRecordDetailBLL.GetReworkRecordDetail(reworkEntity.Id, "1");
+                        if (list.Count < 1) return AjaxResult(false, "ProduceManage.ProduceController.GetReworkRecordDetail.Tips_6");//流转卡没有返工任务
+                        foreach (var item in list.GroupBy(t => new
+                        {
+                            t.Id,
+                            t.ReworkOrder,
+                            t.ProductOrder,
+                            t.ContainerNO,
+                            t.ReworkProcess,
+                            t.ReworkProcessName,
+                            t.StatusName,
+                            t.QualityConfirmUser,
+                            t.QualityConfirmTime,
+                            t.RePallet
+                        }))
+                        {
+                            var i = item.Where(t => !string.IsNullOrEmpty(t.ReworkDId) && t.CardStatus != "5")
+                                .Select(t => t.ReworkDId).Distinct().Count();
+                            var lastTime = i == 0 ? "" : item.Max(t => t.CreateTime).ToString("yyyy-MM-dd HH:mm");
+                            var resultData = new
+                            {
+                                Entity = new
+                                {
+                                    item.Key.Id,
+                                    item.Key.ReworkOrder,
+                                    item.Key.ProductOrder,
+                                    item.Key.ContainerNO,
+                                    item.Key.ReworkProcess,
+                                    item.Key.ReworkProcessName,
+                                    item.Key.StatusName,
+                                    item.Key.QualityConfirmUser,
+                                    item.Key.QualityConfirmTime,
+                                    RePallet = item.Key.RePallet,
+                                    BGPallet = i,
+                                    LastTime = lastTime,
+                                    ReworkProductType = "1"
+                                },
+                                OptionList = item.ToList()
+                            };
+                            return AjaxResult(true, "Common.Success", resultData);
+                        }
+                    }
+                }
+                //自制
+                var ownCardEntity = _OwnProductTransferBLL.Get_ExpressionEntity(t => t.TransferCode == cardCode);
+                if (ownCardEntity != null)
+                {
+                    var reowrkDetailList = _pmReworkRecordDetailBLL.Get_ExpressionList(t => t.CardCode == cardCode).ToList();
+                    var reworkIdList = reowrkDetailList.Select(t => t.ReworkId).Distinct().ToList();
+                    var reworkList = _pmReworkRecordBLL.Get_ExpressionList(t => reworkIdList.Contains(t.Id)).ToList();
+                    if (reworkList.Count == 0)
+                    {
+                        return AjaxResult(false, "ProduceManage.ProduceController.GetReworkRecordDetail.Tips_7");//没有可确认的质量异常单
+                    }
+                    var reworkEntity = reworkList.OrderByDescending(t => t.CreateTime).First();
+                    var list = _pmReworkRecordDetailBLL.GetReworkRecordDetail(reworkEntity.Id, "2");
+
+                    if (list.Count < 1) return AjaxResult(false, "ProduceManage.ProduceController.GetReworkRecordDetail.Tips_8");//流转卡没有返工记录
+
+                    foreach (var item in list.GroupBy(t => new
+                    {
+                        t.Id,
+                        t.ReworkOrder,
+                        t.WorkOrder,
+                        t.ReworkProcess,
+                        t.ReworkProcessName,
+                        t.StatusName,
+                        t.QualityConfirmUser,
+                        t.QualityConfirmTime,
+                        t.RePallet
+                    }))
+                    {
+                        var i = item.Where(t => !string.IsNullOrEmpty(t.ReworkDId)).Select(t => t.ReworkDId).Distinct().Count();
+                        var lastTime = i == 0 ? "" : item.Max(t => t.CreateTime).ToString("yyyy-MM-dd HH:mm");
+                        var resultData = new
+                        {
+                            Entity = new
+                            {
+                                item.Key.Id,
+                                item.Key.ReworkOrder,
+                                item.Key.ReworkProcess,
+                                item.Key.ReworkProcessName,
+                                item.Key.StatusName,
+                                item.Key.QualityConfirmUser,
+                                item.Key.QualityConfirmTime,
+                                RePallet = item.Key.RePallet,
+                                BGPallet = i,
+                                LastTime = lastTime,
+                                ReworkProductType = "2"
+                            },
+                            OptionList = item.ToList()
+                        };
+                        return AjaxResult(true, "Common.Success", resultData);
+                    }
+                }
+
+                return AjaxResult(false, "ProduceManage.ProduceController.GetReworkRecordDetail.Tips_9");//当前流转卡不存在
+            }
+            catch (Exception ex)
+            {
+                result.success = false;
+                result.returnMsg = Language.GetText("Common.ErrorWithOther", ex.Message);
+                result.statusCode = ((int)HttpStatusCode.InternalServerError).ToString();
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+        }
+
+        /// <summary>
+        /// 返工报工-质量确认保存
+        /// </summary>
+        /// <param name="jo"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("ReworkRecordQualityConfirmSave")]
+        public HttpResponseMessage ReworkRecordQualityConfirmSave(JObject jo)
+        {
+            var result = new ResponseResult();
+            try
+            {
+                var id = getValue(jo, "Id");
+                var userCode = getValue(jo, "userCode");
+                var userName = getValue(jo, "userName");
+                var reworkProductType = getValue(jo, "ReworkProductType");
+                var cardCode = getValue(jo, "CardCode");
+                var processCode = getValue(jo, "ProcessCode"); //工序
+
+                List<PM_TransferCardEntity> cardList = new List<PM_TransferCardEntity>();
+                List<PM_OwnProductTransferEntity> ownCardList = new List<PM_OwnProductTransferEntity>();
+
+                List<PM_TransferCardResumeEntity> updateResumeList = new List<PM_TransferCardResumeEntity>();
+                List<PM_TransferCardResumeEntity> lstResumeInsert = new List<PM_TransferCardResumeEntity>();
+
+                PM_ReworkRecordEntity entity = null;
+                if (reworkProductType != "3")
+                {
+                    entity = _pmReworkRecordBLL.GetEntity(id);
+                    if (entity.Status != "3") return AjaxResult(false, "ProduceManage.ProduceController.ReworkRecordQualityConfirmSave.Tips_1");//返工没有完成，不允许确认
+                    if (entity.ConfirmStatus == "1") return AjaxResult(false, "ProduceManage.ProduceController.ReworkRecordQualityConfirmSave.Tips_2");//质量已经确认,不允许二次确认
+
+                    entity.QualityConfirmTime = DateTime.Now;
+                    entity.QualityConfirmUser = userName;
+                    entity.ConfirmStatus = "1";
+                }
+
+                if (reworkProductType == "1")//正常
+                {
+                    // 更新流转卡状态
+                    cardList = _transferCardBLL.Get_ExpressionList(t => t.SerialNumber == id).ToList();
+                    foreach (var item in cardList)
+                    {
+                        item.CardStatus = "4";//已返工
+                        item.ModifyBy = userCode;
+                        item.ModifyTime = DateTime.Now;
+                    }
+                }
+                else if (reworkProductType == "2")
+                {
+                    var data1 = _pmReworkRecordDetailBLL.Get_ExpressionList(t => t.ReworkId == entity.Id);
+                    var data2 = _OwnProductTransferBLL.GetList(t => true);
+                    var query1 = from a in data1
+                                 join b in data2 on a.CardCode equals b.TransferCode
+                                 select b;
+                    ownCardList = query1.ToList();
+                    foreach (var item in ownCardList)
+                    {
+                        item.CardStatus = "4";//已返工
+                        item.ModifyBy = userCode;
+                        item.ModifyTime = DateTime.Now;
+                    }
+                }
+                else if (reworkProductType == "3") //特殊产品返工确认
+                {
+                    //生产报工流转履历()
+                    var cardEntity = _transferCardBLL.Get_ExpressionEntity(t => t.CardCode == cardCode);
+                    cardList = _transferCardBLL.Get_ExpressionList(t => t.SerialNumber == cardEntity.SerialNumber).ToList();
+                    var arrCardCode = cardList.Select(t => t.CardCode);
+                    updateResumeList = _resumeBLL.Get_ExpressionList(t => arrCardCode.Contains(t.CardCode) && t.Flag == "1").ToList();
+
+                    var plProcessEntity = _plProcessBLL.GetEntity(t => t.WorkOrder == cardEntity.WorkOrder);
+                    if (plProcessEntity == null)
+                        return AjaxResult(false, "ProduceManage.ProduceController.ReworkRecordQualityConfirmSave.Tips_3");//工艺路线不存在
+
+                    var plOperationList = _plProcessOfOperationsBLL.Get_ExpressionList(t => t.ProcessId == plProcessEntity.Id).ToList();
+                    var inProcessCode = updateResumeList.FirstOrDefault()?.ProcessCode;
+                    var plOperationEntity = plOperationList.Find(t => t.OperationCode == inProcessCode);
+                    if (plOperationEntity == null)
+                        return AjaxResultWithParams(false, "ProduceManage.ProduceController.ReworkRecordQualityConfirmSave.Tips_4", inProcessCode);//工序【{inProcessCode}】不在工艺路线里
+
+                    var plOperationAttrList = _plProcessOfOperationsAttrBLL.Get_ExpressionList(t => t.OperationsId == plOperationEntity.Id).ToList();
+                    var locationCode = plOperationAttrList.Find(t => t.AttrCode == "BGKW")?.AttrValue;
+                    var whsCode = _bsModelWithResourceBLL.GetEntity(t => t.ResourceCode == locationCode)?.ParentResource;
+
+                    foreach (var item in updateResumeList)
+                    {
+                        var resumeEntity = Tools.Clone(item);
+                        resumeEntity.Id = Guid.NewGuid().ToString();
+                        resumeEntity.BusinessType = "2";
+                        resumeEntity.Flag = "1";
+                        resumeEntity.IsEnabled = true;
+                        resumeEntity.Creator = userCode;
+                        resumeEntity.CreateTime = DateTime.Now;
+                        resumeEntity.ModifyBy = null;
+                        resumeEntity.ModifyTime = null;
+                        resumeEntity.WhsCode = whsCode;
+                        resumeEntity.LocationCode = locationCode;
+                        lstResumeInsert.Add(resumeEntity);
+
+                        item.Flag = "0";
+                        item.ModifyBy = userCode;
+                        item.ModifyTime = DateTime.Now;
+                    }
+                }
+
+                var msg = "";
+                TransactionOptions transactionOption = new TransactionOptions();
+                //设置事务隔离级别
+                transactionOption.IsolationLevel = System.Transactions.IsolationLevel.ReadCommitted;
+                // 设置事务超时时间为60秒
+                transactionOption.Timeout = new TimeSpan(0, 0, 60);
+                using (var ts = new TransactionScope(TransactionScopeOption.Required, transactionOption))
+                //using (var ts = new TransactionScope())
+                {
+                    if (reworkProductType != "3")
+                        _pmReworkRecordBLL.SaveEntity(id, entity, out msg);
+
+                    if (reworkProductType == "1")
+                    {
+                        _transferCardBLL.SaveEntity_List(true, userName, cardList, out msg);
+                    }
+                    else if (reworkProductType == "2")
+                    {
+                        _OwnProductTransferBLL.SaveEntity_List(true, userName, ownCardList, out msg);
+                    }
+                    else if (reworkProductType == "3")
+                    {
+                        if (updateResumeList.Count > 0)
+                            _resumeBLL.SaveEntity_List(true, userName, updateResumeList, out msg);
+                        if (lstResumeInsert.Count > 0)
+                            _resumeBLL.SaveEntity_List(false, userName, lstResumeInsert, out msg);
+                    }
+
+                    ts.Complete();
+                }
+            }
+            catch (Exception ex)
+            {
+                result.success = false;
+                result.returnMsg = Language.GetText("Common.ExecutionErrorWithOther", ex.Message);
+                result.statusCode = ((int)HttpStatusCode.InternalServerError).ToString();
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+            return Request.CreateResponse(HttpStatusCode.OK, result);
+        }
+        #endregion
+
+        #region 车间/质量首检
+        /// <summary>
+        /// 车间/质量首检-流转卡扫描
+        /// </summary>
+        /// <param name="jo"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("FirstInspectionCardScan")]
+        public HttpResponseMessage FirstInspectionCardScan(JObject jo)
+        {
+            var result = new ResponseResult();
+            try
+            {
+                dynamic scanResult = new ExpandoObject();
+
+                string cardCode = getValue(jo, "cardCode");//流转卡编码
+                var cardEntity = _transferCardBLL.Get_ExpressionEntity(t => t.CardCode == cardCode);
+                if (cardEntity == null)
+                {
+                    return AjaxResult(false, "ProduceManage.ProduceController.FirstInspectionCardScan.Tips_1");//当前流转卡不存在
+                }
+                if (cardEntity.CardStatus == "5")
+                {
+                    return AjaxResult(false, "ProduceManage.ProduceController.FirstInspectionCardScan.Tips_2");//当前流转卡已报废
+                }
+
+                scanResult.ProductOrder = cardEntity.ProductOrder;//订单号
+                scanResult.ContainerNO = cardEntity.ContainerNO;//柜号
+                scanResult.MMXH = cardEntity.MMXH;//面膜型号
+                scanResult.Spec = cardEntity.Spec;//规格型号
+
+                result.resultData = scanResult;
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+            catch (Exception ex)
+            {
+                result.success = false;
+                result.returnMsg = Language.GetText("Common.SearchErrorWithOther", ex.Message);
+                result.statusCode = ((int)HttpStatusCode.InternalServerError).ToString();
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+        }
+        /// <summary>
+        /// 车间首检-机台扫描
+        /// </summary>
+        /// <param name="jo"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("FirstInspectionMachineScan")]
+        public HttpResponseMessage FirstInspectionMachineScan(JObject jo)
+        {
+            var result = new ResponseResult();
+            try
+            {
+                dynamic scanResult = new ExpandoObject();
+
+                string cardCode = getValue(jo, "cardCode");//流转卡编码
+                var machineCode = getValue(jo, "machineCode");//机台
+                var cardEntity = _transferCardBLL.Get_ExpressionEntity(t => t.CardCode == cardCode);
+                if (cardEntity == null)
+                {
+                    return AjaxResult(false, "ProduceManage.ProduceController.FirstInspectionMachineScan.Tips_1");//当前流转卡不存在
+                }
+                if (cardEntity.CardStatus == "5")
+                {
+                    return AjaxResult(false, "ProduceManage.ProduceController.FirstInspectionMachineScan.Tips_2");//当前流转卡已报废
+                }
+                var smallClass = _plMaterialBLL.Get_ExpressionEntity1(cardEntity.WorkOrder);
+                var plWorkEntity = _workOrderBLL.Get_ExpressionEntity(t => t.WorkOrder == cardEntity.WorkOrder);
+                var factoryCode = plWorkEntity?.FactoryCode;//工厂      
+                var bsModel = _bsModelWithResourceBLL.GetEntity(t => t.ResourceCode == machineCode);
+                var processCode = bsModel?.ParentResource;// 工序
+                var testType = "3";// 检验分类 1巡检；2过程检验；3首检
+                if (string.IsNullOrEmpty(factoryCode) ||
+                   string.IsNullOrEmpty(processCode) || string.IsNullOrEmpty(testType))
+                {
+                    return AjaxResult(false, "ProduceManage.ProduceController.FirstInspectionMachineScan.Tips_3");//查询参数不能为空
+                }
+
+                var expression = LinqExtensions.True<QC_TestMaintenanceEntity>();
+                expression = expression.And(t => t.FactoryCode == factoryCode);
+                expression = expression.And(t => t.TestType == testType);
+                expression = expression.And(t => t.IsEnabled == true);
+
+                var expression1 = LinqExtensions.True<QC_TestItemMaintenanceEntity>();
+                expression1 = expression1.And(t => t.TestDepartment == "2");
+                expression1 = expression1.And(t => t.IsEnabled == true);
+
+
+                var query = from test in _TestMaintenanceBLL.Get_ExpressionList(expression)
+                            join item in _TestItemMaintenanceBLL.Get_ExpressionList(expression1) on test.Id equals item.TestMaintenanceId
+                            join process in _TestProcessMaintenanceBLL.Get_ExpressionList(t => t.ProcessCode == processCode) on test.Id equals process.TestMaintenanceId
+                            select new
+                            {
+                                TestItemId = item.Id,
+                                SmallClass = test.SmallClass,
+                                TestItemCoading = item.TestItemCoading,
+                                TestItemName = item.TestItemName,
+                                TestItemStandard = item.TestItemStandard,
+                                DataType = item.DataType,
+                                DataTypeName = item.DataTypeName,
+                                TestDepartment = item.TestDepartment,
+                            };
+                var list = query.ToList();
+                var list1 = new List<dynamic>();
+                for (int i = 0; i < smallClass.Count; i++)
+                {
+                    string a = smallClass[i].GroupName.ToString();
+                    list1.AddRange(list.Where(t => t.SmallClass == a));
+
+                }
+
+                if (list1.Count < 1) return AjaxResult(false, "ProduceManage.ProduceController.FirstInspectionMachineScan.Tips_4");//检测项目为空,请维护检测项目
+
+                var checkList = new List<dynamic>();
+                foreach (var item in list1)
+                {
+                    if (int.Parse(item.DataType) > 3 && item.DataTypeName.IndexOf("/") > 0)
+                    {
+                        var optionList = new List<dynamic>();
+                        var array = item.DataTypeName.Split('/');
+                        for (var i = 0; i < array.Length; i++)
+                        {
+                            optionList.Add(new
+                            {
+                                value = i,
+                                name = array[i]
+                            });
+                        }
+                        checkList.Add(new
+                        {
+                            item.TestItemId,
+                            item.TestItemCoading,
+                            item.TestItemName,
+                            item.TestItemStandard,
+                            item.DataType,
+                            item.DataTypeName,
+                            item.TestDepartment,
+                            Options = optionList
+                        });
+                    }
+                    else
+                    {
+                        checkList.Add(new
+                        {
+                            item.TestItemId,
+                            item.TestItemCoading,
+                            item.TestItemName,
+                            item.TestItemStandard,
+                            item.DataType,
+                            item.DataTypeName,
+                            item.TestDepartment,
+                        });
+                    }
+                }
+
+
+
+                scanResult.CheckList = checkList;//检测项目
+
+                result.resultData = new
+                {
+                    scanResult,
+                    processCode = processCode,
+                };
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+            catch (Exception ex)
+            {
+                result.success = false;
+                result.returnMsg = Language.GetText("Common.SearchErrorWithOther", ex.Message);
+                result.statusCode = ((int)HttpStatusCode.InternalServerError).ToString();
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+        }
+        /// <summary>
+        /// 车间首检-保存
+        /// </summary>
+        /// <param name="jo"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("FirstInspectionSave")]
+        public HttpResponseMessage FirstInspectionSave(JObject jo)
+        {
+            var result = new ResponseResult();
+            try
+            {
+                var processCode = getValue(jo, "processCode");
+                var cardCode = getValue(jo, "cardCode");//流转卡编码
+                var machineCode = getValue(jo, "MachineCode");//机台
+                var firtResult = getValue(jo, "firtResult");//首检结果
+                var userCode = getValue(jo, "userCode");//用户编码
+                var userName = getValue(jo, "userName");//用户名称
+                var Attachment = getValue(jo, "Attachment");
+                var checkList = JsonConvert.DeserializeObject<List<PM_ProductionFirstInspectionDetailEntity>>(getValue(jo, "checkList"));
+                var imgList = JsonConvert.DeserializeObject<List<Base_ImagesEntity>>(jo["fileUrl"].ToString());
+
+                if (string.IsNullOrEmpty(firtResult))
+                    return AjaxResult(false, "ProduceManage.ProduceController.FirstInspectionSave.Tips_1");//判定结果不能为空
+
+                var cardEntity = _transferCardBLL.Get_ExpressionEntity(t => t.CardCode == cardCode);
+                if (cardEntity == null)
+                {
+                    return AjaxResult(false, "ProduceManage.ProduceController.FirstInspectionSave.Tips_2");//当前流转卡不存在
+                }
+                if (cardEntity.CardStatus == "5")
+                {
+                    return AjaxResult(false, "ProduceManage.ProduceController.FirstInspectionSave.Tips_3");//当前流转卡已报废
+                }
+                if (string.IsNullOrEmpty(machineCode))
+                {
+                    return AjaxResult(false, "ProduceManage.ProduceController.FirstInspectionSave.Tips_4");//机台不能为空
+                }
+                var bsModel = _bsModelWithResourceBLL.GetEntity(t => t.ResourceCode == machineCode);
+                if (bsModel == null)
+                    return AjaxResult(false, "ProduceManage.ProduceController.FirstInspectionSave.Tips_5");//机台不存在
+
+                var workOrderEntity = _workOrderBLL.Get_ExpressionEntity(t => t.WorkOrder == cardEntity.WorkOrder);
+
+                #region 检测主表
+                PM_ProductionFirstInspectionEntity main = new PM_ProductionFirstInspectionEntity();
+                main.Id = Guid.NewGuid().ToString();
+                main.FactoryCode = workOrderEntity.FactoryCode;
+                main.FactoryName = workOrderEntity.FactoryName;
+                main.ProductOrder = cardEntity.ProductOrder;
+                main.WorkOrder = cardEntity.WorkOrder;
+                main.ExeWorkOrder = cardEntity.ExeWorkOrder;
+                main.MaterialCode = cardEntity.MaterialCode;
+                main.FirstProcessCode = processCode;
+                main.FirstMachine = machineCode;
+                main.InspectClass = "1";//车间首检
+                main.FirstResult = firtResult;
+                main.Attachment = Attachment;
+                main.FirstUser = userName;
+                main.FirstTime = DateTime.Now;
+                main.CreateTime = DateTime.Now;
+                main.Creator = userCode;
+                main.Determination = firtResult;//合格/不合格
+                //班次判断
+                var dataItemList = _dataItemDetailBLL.GetDataItemList_UA("Shift");
+                var currentTime = DateTime.Now;
+                foreach (var item in dataItemList)
+                {
+                    var arrTime = item.Description.Split('-');
+                    var startTime = Convert.ToDateTime(DateTime.Now.ToShortDateString() + " " + arrTime[0]);
+                    var endTime = Convert.ToDateTime(DateTime.Now.ToShortDateString() + " " + arrTime[1]);
+
+                    if (startTime > endTime)
+                    {
+                        if (currentTime > startTime)
+                            endTime = endTime.AddDays(1);
+                        else
+                            startTime = startTime.AddDays(-1);
+                    }
+
+                    if (currentTime >= startTime && currentTime < endTime)
+                    {
+                        main.ShiftCode = item.ItemValue;
+                        main.ShiftName = item.ItemName;
+                        break;
+                    }
+                }
+                #endregion
+
+                #region 检测明细
+                foreach (var item in checkList)
+                {
+                    item.Id = Guid.NewGuid().ToString();
+                    item.FirstInspectionId = main.Id;
+                    item.FactoryCode = workOrderEntity.FactoryCode;
+                    item.FactoryName = workOrderEntity.FactoryName;
+                    item.Creator = userCode;
+                    item.CreateTime = DateTime.Now;
+                }
+                #endregion
+
+                if (imgList != null)
+                {
+                    foreach (var item in imgList)
+                    {
+                        item.Id = Guid.NewGuid().ToString();
+                        item.FactoryCode = workOrderEntity.FactoryCode;
+                        item.FactoryName = workOrderEntity.FactoryName;
+                        item.Module = Language.GetText("ProduceManage.ProduceController.FirstInspectionSave.Data_1");//生产模块
+                        item.TableName = "PM_ProductionFirstInspection";
+                        item.ParentId = main.Id;
+                        item.Creator = userCode;
+                        item.CreateTime = DateTime.Now;
+                    }
+                }
+
+                var msg = "";
+                TransactionOptions transactionOption = new TransactionOptions();
+                //设置事务隔离级别
+                transactionOption.IsolationLevel = System.Transactions.IsolationLevel.ReadCommitted;
+                // 设置事务超时时间为60秒
+                transactionOption.Timeout = new TimeSpan(0, 0, 60);
+                using (var ts = new TransactionScope(TransactionScopeOption.Required, transactionOption))
+                //using (var ts = new TransactionScope())
+                {
+                    _pmFirtInspectionBLL.SaveEntity("", main, out msg);
+                    _pmFirstInspectionDetailBLL.SaveEntity_List(false, "", checkList, out msg);
+                    if (imgList != null) _ImagesService.SaveEntity_List(false, null, imgList, out msg);
+                    ts.Complete();
+                }
+
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+            catch (Exception ex)
+            {
+                result.success = false;
+                result.returnMsg = Language.GetText("Common.SearchErrorWithOther", ex.Message);
+                result.statusCode = ((int)HttpStatusCode.InternalServerError).ToString();
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+        }
+
+        /// <summary>
+        /// 车间首检-查询
+        /// </summary>
+        /// <param name="jo"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("FirstInspectionQuery")]
+        public HttpResponseMessage FirstInspectionQuery(JObject jo)
+        {
+            var result = new ResponseResult();
+            try
+            {
+                string queryJson = getValue(jo, "queryJson");
+                var data = _pmFirtInspectionBLL.GetPageDataTableList(null, queryJson);
+                result.resultData = data;
+                result.success = true;
+                result.returnMsg = Language.GetText("Common.SearchSuccess");
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+            catch (Exception ex)
+            {
+                result.success = false;
+                result.returnMsg = Language.GetText("Common.SearchErrorWithOther", ex.Message);
+                result.statusCode = ((int)HttpStatusCode.InternalServerError).ToString();
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+        }
+
+        /// <summary>
+        /// 质量首检-查询
+        /// </summary>
+        /// <param name="jo"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("FirstInspectionConfirmQuery")]
+        public HttpResponseMessage FirstInspectionConfirmQuery(JObject jo)
+        {
+            var result = new ResponseResult();
+            try
+            {
+                string queryJson = getValue(jo, "queryJson");
+                var data = _FirstInspectionConfirmBLL.GetPageDataTableList(null, queryJson);
+                result.resultData = data;
+                result.success = true;
+                result.returnMsg = Language.GetText("Common.SearchSuccess");
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+            catch (Exception ex)
+            {
+                result.success = false;
+                result.returnMsg = Language.GetText("Common.SearchErrorWithOther", ex.Message);
+                result.statusCode = ((int)HttpStatusCode.InternalServerError).ToString();
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+        }
+
+        /// <summary>
+        /// 质量首检-根据流转卡获取流转履历表数据
+        /// </summary>
+        /// <param name="jo"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("GetprocessList")]
+        public HttpResponseMessage GetprocessList(JObject jo)
+        {
+            var result = new ResponseResult();
+            result.resultData = null;
+            var msg = "";
+            try
+            {
+                if (jo == null) return AjaxResult(false, "Common.ParamsNotNull");//参数不能为空
+
+
+                var cardCode = getValue(jo, "CardCode");
+                if (cardCode == null) return AjaxResult(false, "ProduceManage.ProduceController.GetprocessList.Tips_1");//请扫描流转卡
+                var resumeentity = __TransferCardResumeBLL.Get_ExpressionEntity(t => t.CardCode == cardCode && t.Flag == "1");
+                if (resumeentity == null)
+                {
+                    return AjaxResult(false, "ProduceManage.ProduceController.GetprocessList.Tips_2");//流转履历中没有与该流转卡相关的工序!
+                }
+                else
+                {
+                    result.resultData = resumeentity.ProcessCode;
+                    result.success = true;
+                    result.returnMsg = Language.GetText("Common.ExecutionSuccess");
+                    return Request.CreateResponse(HttpStatusCode.OK, result);
+                }
+            }
+            catch (Exception ex)
+            {
+                result.success = false;
+                result.returnMsg = Language.GetText("Common.ExecutionErrorWithOther", msg + ex.Message);
+                result.statusCode = ((int)HttpStatusCode.InternalServerError).ToString();
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+
+        }
+
+        /// <summary>
+        /// 质量首检-扫描机台
+        /// </summary>
+        /// <param name="jo"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("FirstInspectionConfirmMachieScan")]
+        public HttpResponseMessage FirstInspectionConfirmMachieScan(JObject jo)
+        {
+            var result = new ResponseResult();
+            try
+            {
+                var cardecode = getValue(jo, "cardcode");
+                var containerNO = getValue(jo, "containerNO");
+                var mmXH = getValue(jo, "mmXH");
+                var machineCode = getValue(jo, "machineCode");
+                var processcode = getValue(jo, "processcode");
+                // var resurceEntity = _levelBLL.GetModelResourceByChild(machineCode);
+                //if (resurceEntity == null) return AjaxResult(false, "当前机台没有查到工序");
+                var exeentity = _transferCardBLL.Get_ExpressionEntity(t => t.CardCode == cardecode);
+                var groupEntity = _MaterialGroupBLL.GetEntity(t => t.GroupCode == "quality_group");//质量组
+                var materialCode = exeentity.MaterialCode;
+                /*
+                  {
+                        "workOrder":"FH21-0085#Z0018",
+                        containerNO:"12",
+                        materialCode:"V097705047",
+                        mmXH:"ORGW-581-1",
+                        machineCode:"FH_LM_01"
+                        }
+                 * */
+                var list1 = _FirstInspectionConfirmBLL.GetList(t => t.WorkOrder == exeentity.WorkOrder
+                               && t.ContainerNO == containerNO
+                               && t.MaterialCode == materialCode
+                               && t.MMXH == mmXH
+                               && t.Process == processcode && t.FirstStatus == "1");//未检验
+
+                if (list1.Count() < 1)
+                {
+                    return AjaxResult(false, "ProduceManage.ProduceController.FirstInspectionConfirmMachieScan.Tips_1");//当前流转卡不在质量首检任务中
+                }
+
+
+
+                var query = from first in _FirstInspectionConfirmBLL.GetList(t => t.WorkOrder == exeentity.WorkOrder
+                            && t.ContainerNO == containerNO
+                            && t.MaterialCode == materialCode
+                            && t.MMXH == mmXH
+                            && t.Process == processcode && t.FirstStatus == "1")//未检验
+
+                            join material in _baseMaterialGrouBindMaterialpBLL.GetList(t => t.MaterialCode == materialCode)
+                            on first.MaterialCode equals material.MaterialCode
+
+                            join gEntity in _MaterialGroupBLL.GetList(t => t.ParentId == groupEntity.Id)
+                            on material.GroupCode equals gEntity.GroupCode
+
+                            join process in _TestProcessMaintenanceBLL.Get_ExpressionList(t => t.ProcessCode == processcode)
+                            on first.Process equals process.ProcessCode
+
+                            join test in _TestMaintenanceBLL.Get_ExpressionList(t => t.TestType == "3")//首检
+                            on process.TestMaintenanceId equals test.Id
+
+                            join item in _TestItemMaintenanceBLL.Get_ExpressionList(t => true)
+                            on test.Id equals item.TestMaintenanceId
+                            where material.GroupCode == test.SmallClass
+                            select new
+                            {
+                                first.Id,
+                                TestItemId = item.TestMaintenanceId,
+                                item.TestItemCoading,
+                                item.TestItemName,
+                                item.TestItemStandard,
+                                item.DataType,
+                                item.DataTypeName,
+                                item.TestDepartment,
+                            };
+
+                var list = query.ToList();
+                var laboratoryTestStatus = "1";
+
+                if (list.Count < 1 || list.Find(t => t.TestDepartment == "2") == null) return AjaxResult(false, "ProduceManage.ProduceController.FirstInspectionConfirmMachieScan.Tips_2");//没有查询到检测项目
+                //1实验室检验
+                if (list.Find(t => t.TestDepartment == "1") != null) laboratoryTestStatus = "2";
+
+                var checkList = new List<dynamic>();
+
+                var checkList1 = new List<dynamic>();
+
+                foreach (var item in list.Where(t => t.TestDepartment == "2"))
+                {
+                    if (int.Parse(item.DataType) > 3 && item.DataTypeName.IndexOf("/") > 0)
+                    {
+                        var optionList = new List<dynamic>();
+                        var array = item.DataTypeName.Split('/');
+                        for (var i = 0; i < array.Length; i++)
+                        {
+                            optionList.Add(new
+                            {
+                                text = array[i]
+                            });
+                        }
+                        checkList.Add(new
+                        {
+                            item.TestItemId,
+                            item.TestItemCoading,
+                            item.TestItemName,
+                            item.TestItemStandard,
+                            item.DataType,
+                            item.DataTypeName,
+                            item.TestDepartment,
+                            Options = optionList
+                        });
+                    }
+                    else
+                    {
+                        checkList.Add(new
+                        {
+                            item.TestItemId,
+                            item.TestItemCoading,
+                            item.TestItemName,
+                            item.TestItemStandard,
+                            item.DataType,
+                            item.DataTypeName,
+                            item.TestDepartment,
+                        });
+                    }
+                }
+
+                foreach (var item in list.Where(t => t.TestDepartment == "1"))
+                {
+                    if (int.Parse(item.DataType) > 3 && item.DataTypeName.IndexOf("/") > 0)
+                    {
+                        var optionList = new List<dynamic>();
+                        var array = item.DataTypeName.Split('/');
+                        for (var i = 0; i < array.Length; i++)
+                        {
+                            optionList.Add(new
+                            {
+                                text = array[i]
+                            });
+                        }
+                        checkList1.Add(new
+                        {
+                            item.TestItemId,
+                            item.TestItemCoading,
+                            item.TestItemName,
+                            item.TestItemStandard,
+                            item.DataType,
+                            item.DataTypeName,
+                            item.TestDepartment,
+                            Options = optionList
+                        });
+                    }
+                    else
+                    {
+                        checkList1.Add(new
+                        {
+                            item.TestItemId,
+                            item.TestItemCoading,
+                            item.TestItemName,
+                            item.TestItemStandard,
+                            item.DataType,
+                            item.DataTypeName,
+                            item.TestDepartment,
+                        });
+                    }
+                }
+
+
+
+                result.resultData = new
+                {
+                    firstInspectionConfirmId = list[0].Id,//质量首检表Id
+                    laboratoryTestStatus = laboratoryTestStatus,
+                    checkList,
+                    checkList1,
+                };
+                result.success = true;
+                result.returnMsg = Language.GetText("Common.SearchSuccess");
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+            catch (Exception ex)
+            {
+                result.success = false;
+                result.returnMsg = Language.GetText("Common.SearchErrorWithOther", ex.Message);
+                result.statusCode = ((int)HttpStatusCode.InternalServerError).ToString();
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+        }
+        /// <summary>
+        /// 质量首检-保存
+        /// </summary>
+        /// <param name="jo"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("FirstInspectionConfirmSave")]
+        public HttpResponseMessage FirstInspectionConfirmSave(JObject jo)
+        {
+            var result = new ResponseResult();
+            try
+            {
+                var cardCode = getValue(jo, "cardCode");//流转卡编码FirstInspectionConfirmMachieScan
+                var machineCode = getValue(jo, "MachineCode");//机台
+                var firtResult = getValue(jo, "firtResult");//首检结果
+                var userCode = getValue(jo, "userCode");//用户编码
+                var userName = getValue(jo, "userName");//用户名称
+                var laboratoryTestStatus = getValue(jo, "laboratoryTestStatus");//实验室
+                var id = getValue(jo, "firstInspectionConfirmId");//质量首检表Id
+                var Attachment = getValue(jo, "Attachment");
+                var checkList = JsonConvert.DeserializeObject<List<PM_ProductionFirstInspectionDetailEntity>>(getValue(jo, "checkList"));
+                var checkList1 = JsonConvert.DeserializeObject<List<PM_ProductionFirstInspectionDetailEntity>>(getValue(jo, "checkList1"));
+                var imgList = JsonConvert.DeserializeObject<List<Base_ImagesEntity>>(jo["fileUrl"].ToString());
+                var cardEntity = _transferCardBLL.Get_ExpressionEntity(t => t.CardCode == cardCode);
+                if (cardEntity == null)
+                {
+                    return AjaxResult(false, "ProduceManage.ProduceController.FirstInspectionConfirmSave.Tips_1");//当前流转卡不存在
+                }
+                if (cardEntity.CardStatus == "5")
+                {
+                    return AjaxResult(false, "ProduceManage.ProduceController.FirstInspectionConfirmSave.Tips_2");//当前流转卡已报废
+                }
+                if (String.IsNullOrEmpty(id))
+                {
+                    return AjaxResult(false, "Common.ParamsNotNull");//参数不能为空
+                }
+
+
+                var firstEntity = _FirstInspectionConfirmBLL.GetEntity(t => t.Id == id);
+                firstEntity.FirstStatus = "2";
+                firstEntity.ModifyBy = userCode;
+                firstEntity.ModifyTime = DateTime.Now;
+
+                //检测主表
+                PM_ProductionFirstInspectionEntity main = new PM_ProductionFirstInspectionEntity();
+                main.Id = Guid.NewGuid().ToString();
+                main.FactoryCode = firstEntity.FactoryCode;
+                main.FactoryName = firstEntity.FactoryName;
+                main.ProductOrder = cardEntity.ProductOrder;
+                main.WorkOrder = cardEntity.WorkOrder;
+                main.ExeWorkOrder = cardEntity.ExeWorkOrder;
+                main.FirstProcessCode = firstEntity.Process;
+                main.FirstMachine = machineCode;
+                main.LaboratoryTestStatus = laboratoryTestStatus;
+                main.SecondMark = "";
+                main.InspectClass = "2";   //质量首检
+                main.Attachment = Attachment;
+                main.FirstResult = firtResult;
+                main.FirstUser = userName;
+                main.FirstTime = DateTime.Now;
+                main.CreateTime = DateTime.Now;
+                main.Creator = userCode;
+
+                //检测明细
+                foreach (var item in checkList)
+                {
+                    item.Id = Guid.NewGuid().ToString();
+                    item.FirstInspectionId = main.Id;
+                    item.FactoryCode = firstEntity.FactoryCode;
+                    item.FactoryName = firstEntity.FactoryName;
+                    item.Creator = userCode;
+                    item.CreateTime = DateTime.Now;
+                    item.EnabledMark = true;
+                }
+
+                //检测明细--实验室
+                foreach (var item in checkList1)
+                {
+                    item.Id = Guid.NewGuid().ToString();
+                    item.FirstInspectionId = main.Id;
+                    item.FactoryCode = firstEntity.FactoryCode;
+                    item.FactoryName = firstEntity.FactoryName;
+                    item.Creator = userCode;
+                    item.CreateTime = DateTime.Now;
+                    item.EnabledMark = true;
+                }
+
+
+
+                if (imgList != null)
+                {
+                    foreach (var item in imgList)
+                    {
+                        item.Id = Guid.NewGuid().ToString();
+                        item.FactoryCode = firstEntity.FactoryCode;
+                        item.FactoryName = firstEntity.FactoryName;
+                        item.Module = Language.GetText("ProduceManage.ProduceController.FirstInspectionConfirmSave.Data_1");//生产模块
+                        item.TableName = "PM_ProductionFirstInspection";
+                        item.ParentId = main.Id;
+                        item.Creator = userCode;
+                        item.CreateTime = DateTime.Now;
+                    }
+                }
+                var msg = "";
+                TransactionOptions transactionOption = new TransactionOptions();
+                //设置事务隔离级别
+                transactionOption.IsolationLevel = System.Transactions.IsolationLevel.ReadCommitted;
+                // 设置事务超时时间为60秒
+                transactionOption.Timeout = new TimeSpan(0, 0, 60);
+                using (var ts = new TransactionScope(TransactionScopeOption.Required, transactionOption))
+                //using (var ts = new TransactionScope())
+                {
+                    _FirstInspectionConfirmBLL.SaveEntity(id, firstEntity);
+                    _pmFirtInspectionBLL.SaveEntity("", main, out msg);
+                    _pmFirstInspectionDetailBLL.SaveEntity_List(false, "", checkList, out msg);
+                    _pmFirstInspectionDetailBLL.SaveEntity_List(false, "", checkList1, out msg);
+                    if (imgList != null) _ImagesService.SaveEntity_List(false, null, imgList, out msg);
+
+                    ts.Complete();
+                }
+
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+            catch (Exception ex)
+            {
+                result.success = false;
+                result.returnMsg = Language.GetText("Common.SearchErrorWithOther", ex.Message);
+                result.statusCode = ((int)HttpStatusCode.InternalServerError).ToString();
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+        }
+
+        /// <summary>
+        /// 车间首检-查询检测结果
+        /// </summary>
+        /// <param name="jo"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("FirstInspectionQueryResult")]
+        public HttpResponseMessage FirstInspectionQueryResult(JObject jo)
+        {
+            var result = new ResponseResult();
+            try
+            {
+                string queryJson = getValue(jo, "queryJson");
+                var list = _pmFirstInspectionDetailBLL.FirstInspectionQueryResult(queryJson);
+
+                var data = new List<dynamic>();
+
+                foreach (var item in list.GroupBy(t => new
+                {
+                    t.Id,
+                    t.ProductOrder,
+                    t.WorkOrder,
+                    t.ExeWorkOrder,
+                    t.CreateTime,
+                    t.ProcessName,
+                    t.MachineName,
+                    t.Determination
+                }))
+                {
+                    var optionList = new List<dynamic>();
+                    foreach (var detail in item.ToList())
+                    {
+                        optionList.Add(new
+                        {
+                            detail.TestItemName,
+                            detail.DataTypeName,
+                            detail.TestItemStandard,
+                            detail.QualityResult,
+                            detail.TestDepartmentName,
+                        });
+                    }
+                    data.Add(new
+                    {
+                        item.Key.Id,
+                        item.Key.ProductOrder,
+                        item.Key.WorkOrder,
+                        item.Key.ExeWorkOrder,
+                        item.Key.CreateTime,
+                        item.Key.ProcessName,
+                        item.Key.MachineName,
+                        item.Key.Determination,
+                        optionList
+                    });
+                }
+
+                result.resultData = data;
+                result.success = true;
+                result.returnMsg = Language.GetText("Common.SearchSuccess");
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+            catch (Exception ex)
+            {
+                result.success = false;
+                result.returnMsg = Language.GetText("Common.SearchErrorWithOther", ex.Message);
+                result.statusCode = ((int)HttpStatusCode.InternalServerError).ToString();
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+        }
+
+        /// <summary>
+        /// 车间首检-最终判定保存
+        /// </summary>
+        /// <param name="jo"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("FirstInspectionLastSave")]
+        public HttpResponseMessage FirstInspectionLastSave(JObject jo)
+        {
+            var result = new ResponseResult();
+            try
+            {
+                string id = getValue(jo, "id");//生产首检主表Id
+                string determination = getValue(jo, "determination");
+                string userCode = getValue(jo, "userCode");
+
+                var entity = _pmFirtInspectionBLL.Get_ExpressionEntity(t => t.Id == id);
+                entity.Determination = determination;
+                entity.ModifyBy = userCode;
+                entity.ModifyTime = DateTime.Now;
+
+                var msg = "";
+
+                _pmFirtInspectionBLL.SaveEntity(id, entity, out msg);
+                result.success = true;
+                result.returnMsg = Language.GetText("Common.SearchSuccess");
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+            catch (Exception ex)
+            {
+                result.success = false;
+                result.returnMsg = Language.GetText("Common.SearchErrorWithOther", ex.Message);
+                result.statusCode = ((int)HttpStatusCode.InternalServerError).ToString();
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+        }
+
+
+        /// <summary>
+        /// 生产首检-质量复检（录入界面呈现）
+        /// </summary>
+        /// <param name="jo"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("FirstInspectionReCheck")]
+        public HttpResponseMessage FirstInspectionReCheck(JObject jo)
+        {
+            var result = new ResponseResult();
+            try
+            {
+                dynamic scanResult = new ExpandoObject();
+
+                string id = getValue(jo, "id");//生产首检主表Id
+                var main = _pmFirtInspectionBLL.GetEntity(id);
+                var bsModel = _bsModelWithResourceBLL.GetEntity(t => t.ResourceCode == main.FirstMachine);
+                //main.FirstMachineName = bsModel?.ResourceName;//机台名称
+                var workOrderEntity = _workOrderBLL.Get_ExpressionEntity(t => t.WorkOrder == main.WorkOrder);
+                var plMaterialEntity = _plMaterialBLL.Get_ExpressionEntity(t => t.WorkOrder == main.WorkOrder && t.IsDeleted == false);
+                var plMaterialFact = _plMaterialFacetBLL.Get_ExpressionList(t => t.MaterialId == plMaterialEntity.Id);
+                var detail = _pmFirstInspectionDetailBLL.Get_ExpressionList(t => t.FirstInspectionId == main.Id);
+
+                var checkList = new List<dynamic>();
+                foreach (var item in detail)
+                {
+                    if (int.Parse(item.DataType) > 3 && item.DataTypeName.IndexOf("/") > 0)
+                    {
+                        var optionList = new List<dynamic>();
+                        var array = item.DataTypeName.Split("/");
+                        for (var i = 0; i < array.Length; i++)
+                        {
+                            optionList.Add(new
+                            {
+                                value = i,
+                                name = array[i]
+                            });
+                        }
+                        checkList.Add(new
+                        {
+                            item.Id,
+                            item.FirstInspectionId,
+                            item.TestItemId,
+                            item.TestItemCoading,
+                            item.TestItemName,
+                            item.TestItemStandard,
+                            item.DataType,
+                            item.DataTypeName,
+                            item.WorkShopResult,
+                            Options = optionList
+                        });
+                    }
+                    else
+                    {
+                        checkList.Add(new
+                        {
+                            item.Id,
+                            item.FirstInspectionId,
+                            item.TestItemId,
+                            item.TestItemCoading,
+                            item.TestItemName,
+                            item.TestItemStandard,
+                            item.DataType,
+                            item.DataTypeName,
+                            item.WorkShopResult
+                        });
+                    }
+                }
+
+                scanResult.ProductOrder = workOrderEntity.ProductOrder;//订单号
+                scanResult.ContainerNO = workOrderEntity.ContainerNO;//柜号
+                scanResult.MMXH = plMaterialFact.ToList().Find(t => t.AttrCode == "MMXH")?.AttrValue;//面膜型号
+                scanResult.Spec = plMaterialEntity.Spec;//规格型号
+                scanResult.FirstMachine = main.FirstMachine;//机台编码
+                //scanResult.FirstMachineName = main.FirstMachineName;//机台名称
+                scanResult.CheckList = checkList;//检测项目
+
+                result.resultData = scanResult;
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+            catch (Exception ex)
+            {
+                result.success = false;
+                result.returnMsg = Language.GetText("Common.SearchErrorWithOther", ex.Message);
+                result.statusCode = ((int)HttpStatusCode.InternalServerError).ToString();
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+        }
+
+
+
+        /// <summary>
+        /// 生产首检-质量复检保存
+        /// </summary>
+        /// <param name="jo"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("FirstInspectionReCheckSave")]
+        public HttpResponseMessage FirstInspectionReCheckSave(JObject jo)
+        {
+            var result = new ResponseResult();
+            try
+            {
+                var id = getValue(jo, "id");//生产首检主表Id
+                var secondResult = getValue(jo, "secondResult");//复检结果
+                var userCode = getValue(jo, "userCode");//用户编码
+                var userName = getValue(jo, "userName");//用户名称
+                var checkList = JsonConvert.DeserializeObject<List<PM_ProductionFirstInspectionDetailEntity>>(getValue(jo, "checkList"));
+
+                //更新主表信息
+                var main = _pmFirtInspectionBLL.GetEntity(id);
+                main.SecondMark = "1";//已完成
+                main.SecondResult = secondResult;
+                main.SecondUser = userName;
+                main.SecondTime = DateTime.Now;
+                main.ModifyBy = userCode;
+                main.ModifyTime = DateTime.Now;
+
+
+                var msg = "";
+                TransactionOptions transactionOption = new TransactionOptions();
+                //设置事务隔离级别
+                transactionOption.IsolationLevel = System.Transactions.IsolationLevel.ReadCommitted;
+                // 设置事务超时时间为60秒
+                transactionOption.Timeout = new TimeSpan(0, 0, 60);
+                using (var ts = new TransactionScope(TransactionScopeOption.Required, transactionOption))
+                //using (var ts = new TransactionScope())
+                {
+                    _pmFirtInspectionBLL.SaveEntity(main.Id, main, out msg);
+                    _pmFirstInspectionDetailBLL.SaveEntity_List(true, "", checkList, out msg);
+
+                    ts.Complete();
+                }
+
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+            catch (Exception ex)
+            {
+                result.success = false;
+                result.returnMsg = Language.GetText("Common.SearchErrorWithOther", ex.Message);
+                result.statusCode = ((int)HttpStatusCode.InternalServerError).ToString();
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+        }
+
+        #endregion
+
+        #region 包装报工
+        /// <summary>
+        /// 包装报工-流转卡扫描
+        /// </summary>
+        /// <param name="jo"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("PackingBGCardScan")]
+        public HttpResponseMessage PackingBGCardScan(JObject jo)
+
+        {
+            var result = new ResponseResult();
+            try
+            {
+                dynamic scanResult = new ExpandoObject();
+
+                var cardCode = getValue(jo, "cardCode");//流转卡编码
+                var productOrder = getValue(jo, "productOrder");//订单号
+                var containerNO = getValue(jo, "containerNO");//柜号
+                var machineCode = getValue(jo, "machineCode");//机台编码
+
+                if (string.IsNullOrEmpty(cardCode))
+                {
+                    return AjaxResult(false, "ProduceManage.ProduceController.PackingBGCardScan.Tips_1");//流转卡编码不能为空
+                }
+                var cardEntity = _transferCardBLL.Get_ExpressionEntity(t => t.CardCode == cardCode && t.IsEnabled == true);
+                if (cardEntity == null)
+                {
+                    return AjaxResult(false, "ProduceManage.ProduceController.PackingBGCardScan.Tips_2");//当前流转卡不存在
+                }
+                if (cardEntity.CardStatus == "5")//报废
+                {
+                    return AjaxResult(false, "ProduceManage.ProduceController.PackingBGCardScan.Tips_3");//当前流转卡已报废
+                }
+                else if (cardEntity.CardStatus == "3")//返工中
+                {
+                    return AjaxResult(false, "ProduceManage.ProduceController.PackingBGCardScan.Tips_4");//当前流转卡返工中，无法报工
+                }
+                else if (cardEntity.CardStatus == "2")//待返工
+                {
+                    return AjaxResult(false, "ProduceManage.ProduceController.PackingBGCardScan.Tips_5");//当前流转卡待返工，无法报工
+                }
+
+                var sourceWorkOrder = _workOrderBLL.Get_ExpressionEntity(t => t.WorkOrder == cardEntity.WorkOrder);
+                if (sourceWorkOrder == null)
+                {
+                    return AjaxResult(false, "原工单不存在");
+                }
+                if (sourceWorkOrder?.FreezeFlag == true || sourceWorkOrder.OrderStatus == "40")
+                {
+                    return AjaxResult(false, "ProduceManage.ProduceController.PerPalletStartCardScan.Tips_4");//原工单已被冻结
+                }
+
+                List<string> lstProductOrder = new List<string>();
+                if (string.IsNullOrEmpty(productOrder))
+                {
+                    var hePiWorkOrderEntity = _workOrderBLL.Get_ExpressionEntity(t => t.WorkOrder == cardEntity.WorkOrder);
+                    if (hePiWorkOrderEntity.BatchStatus == 1) //合批工单
+                    {
+                        var bH0ePiWorkOrderList = _workOrderBLL.Get_ExpressionList(t => t.BatchWorkOrder == cardEntity.WorkOrder && t.PackingStatus != "3")
+                            .OrderBy(t => t.CreateTime).ToList();
+                        var arrProductOrder = bH0ePiWorkOrderList.Select(t => t.ProductOrder).Distinct().ToList();
+                        lstProductOrder = arrProductOrder;
+                        productOrder = bH0ePiWorkOrderList.FirstOrDefault()?.ProductOrder;
+                        containerNO = bH0ePiWorkOrderList.FirstOrDefault()?.ContainerNO;
+                    }
+                    else
+                    {
+                        lstProductOrder = new List<string>();
+                        productOrder = cardEntity.ProductOrder;
+                        containerNO = cardEntity.ContainerNO;
+                    }
+                }
+
+                var machineEntity = _bsModelWithResourceBLL.GetEntity(t => t.ResourceCode == machineCode);
+                if (machineEntity == null)
+                    return AjaxResult(false, "ProduceManage.ProduceController.PackingBGCardScan.Tips_6");//机台不存在
+                string processCode = machineEntity.ParentResource;//工序编码
+                var processEntity = _bsModelWithResourceBLL.GetEntity(t => t.ResourceCode == processCode);
+                if (!processEntity.ResourceName.Contains(Language.GetText("ProduceManage.ProduceController.PackingBGCardScan.Data_1")))//包装
+                    return AjaxResult(false, "ProduceManage.ProduceController.PackingBGCardScan.Tips_7");//请选择包装工序的机台
+
+                var plProcessEntity = _plProcessBLL.GetEntity(t => t.WorkOrder == cardEntity.WorkOrder && t.IsDeleted == false);
+                if (plProcessEntity == null)
+                {
+                    return AjaxResultWithParams(false, "ProduceManage.ProduceController.PackingBGCardScan.Tips_8", cardEntity.WorkOrder);//工单[{cardEntity.WorkOrder}]的工艺路线不存在
+                }
+                var plOperationList = _plProcessOfOperationsBLL.Get_ExpressionList(t => t.ProcessId == plProcessEntity.Id && t.IsDeleted == false)
+                    .OrderBy(t => t.SN).ToList();
+                var index = plOperationList.FindIndex(t => t.OperationCode == processCode);
+                if (index < 0)
+                {
+                    return AjaxResult(false, "ProduceManage.ProduceController.PackingBGCardScan.Tips_9");//当前工序不在工艺路线里
+                }
+                string lastProcessCode = string.Empty;
+                decimal? lastBGQty = 0;
+                decimal? currentProcessBGQty = 0;
+                //上道工序报工数量
+                if (index > 0)
+                {
+                    lastProcessCode = plOperationList[index - 1].OperationCode;//上一道工序
+                    var lastProcessName = plOperationList[index - 1].OperationName;//上一道工序明细
+                    var cardBGList = _transferCardBGBLL.Get_ExpressionList(t => t.CardCode == cardCode && t.ProcessCode == lastProcessCode && t.IsRework == "0");
+                    if (cardBGList != null && cardBGList.Count() > 0)
+                    {
+                        lastBGQty = cardBGList.Sum(t => t.Qty);
+                    }
+                    else if (cardEntity.StartProcess != processCode) //起始工序不等于报工工序（超产品不做校验）
+                    {
+                        if (!string.IsNullOrEmpty(cardEntity.StartProcess))
+                            //上一道工序[{lastProcessName}]没有报工
+                            return AjaxResultWithParams(false, "ProduceManage.ProduceController.PackingBGCardScan.Tips_10", lastProcessName);
+                    }
+                    else if (cardEntity?.CardType == "5") //超产品
+                    {
+                        lastBGQty = cardEntity.PieceQty;
+                    }
+                }
+                //当前工序包装已报工数量
+                var packingBGList = _packingBGTransferCardBLL.Get_ExpressionList(t => t.CardCode == cardCode && t.ProcessCode == processCode);
+                if (packingBGList != null && packingBGList.Count() > 0)
+                {
+                    currentProcessBGQty = packingBGList.Sum(t => t.Qty);
+                }
+                //当前工单包装未报工数量
+                decimal? packNoBGQty = 0;
+                if (string.IsNullOrEmpty(containerNO))
+                {
+                    containerNO = cardEntity.ContainerNO;
+                }
+
+                var workOrderEntity = _workOrderBLL.Get_ExpressionEntity(t => t.ProductOrder == productOrder
+                    && t.ContainerNO == containerNO && t.MaterialCode == cardEntity.MaterialCode && t.WorkOrderType == "1");
+                if (workOrderEntity == null)
+                {
+                    if (cardEntity.WorkOrderType != "2")  //2:补料单
+                        return AjaxResult(false, "ProduceManage.ProduceController.PackingBGCardScan.Tips_11");//柜号不存在
+                }
+                else
+                {
+                    if (workOrderEntity?.FreezeFlag == true || workOrderEntity.OrderStatus == "40")
+                    {
+                        return AjaxResult(false, $"工单{workOrderEntity.WorkOrder}已冻结");//原工单已被冻结
+                    }
+
+                    var packingBGList2 = _packingBGTransferCardBLL.Get_ExpressionList(t => t.WorkOrder == workOrderEntity.WorkOrder);
+                    if (packingBGList2 != null && packingBGList2.Count() > 0)
+                    {
+                        packNoBGQty = workOrderEntity.OrderPieces - packingBGList2.Sum(t => t.Qty);
+                    }
+                    else
+                    {
+                        packNoBGQty = workOrderEntity.OrderPieces;
+                    }
+
+                    //不可以跨订单报工
+                    if (workOrderEntity.ProductOrder != cardEntity.ProductOrder)
+                    {
+                        return AjaxResult(false, "不可以跨订单报工");
+                    }
+                }
+
+                var msg = "";
+                var lstEntity = _pmProcessBadItemBLL.GetList(processCode, out msg);
+                var batItemList = lstEntity.ToList().OrderBy(t => t.BadItemCode).Select(t => new { value = t.BadItemCode, label = t.BadItemName });
+
+                scanResult.ProcessCode = processCode;//工序编码
+                scanResult.ProductOrder = productOrder;//订单号
+                scanResult.CardCode = cardEntity.CardCode;//流转卡编码
+                scanResult.CardName = cardEntity.CardName;//托号
+                scanResult.MaterialCode = cardEntity.MaterialCode;//客户型号
+                scanResult.ContainerNO = containerNO;//柜号
+                scanResult.CanBGQty = (lastBGQty == 0 ? cardEntity.PieceQty : lastBGQty) - currentProcessBGQty;//可报工数量
+                scanResult.PackNoBGQty = packNoBGQty;//包装未报工数量
+                scanResult.batItemList = batItemList;//工序不良项目列表
+                scanResult.ProductOrderList = lstProductOrder;//订单列表
+                result.resultData = scanResult;
+            }
+            catch (Exception ex)
+            {
+                result.success = false;
+                result.statusCode = ((int)HttpStatusCode.InternalServerError).ToString();
+                result.returnMsg = "Common.Error";
+            }
+            return Request.CreateResponse(HttpStatusCode.OK, result);
+        }
+        /// <summary>
+        /// 包装报工-生产小组扫描
+        /// </summary>
+        /// <param name="jo"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("PackingBGPTeamScan")]
+        public HttpResponseMessage PackingBGPTeamScan(JObject jo)
+        {
+            var result = new ResponseResult();
+            try
+            {
+                dynamic scanResult = new ExpandoObject();
+
+                string pTeamCode = getValue(jo, "pTeamCode");
+                if (string.IsNullOrEmpty(pTeamCode))
+                {
+                    return AjaxResult(false, "ProduceManage.ProduceController.PackingBGPTeamScan.Tips_1");//生产小组不能为空
+                }
+                var pTeamEntity = _teamPersonBLL.Get_ExpressionEntity(t => t.PTeamCode == pTeamCode);
+                if (pTeamEntity == null)
+                {
+                    return AjaxResult(false, "ProduceManage.ProduceController.PackingBGPTeamScan.Tips_2");//当前生产小组不存在
+                }
+                var msg = "";
+                var pTeamPersonList = _teamPersonItemBLL.GetList(pTeamCode, out msg);
+                if (pTeamPersonList == null || pTeamPersonList.Count() == 0)
+                {
+                    return AjaxResult(false, "ProduceManage.ProduceController.PackingBGPTeamScan.Tips_3");//当前生产小组没有分配人员
+                }
+
+                scanResult = pTeamPersonList.ToList().Select(t => new { UserCode = t.UserCode, UserName = t.UserName });
+                result.resultData = scanResult;
+            }
+            catch (Exception ex)
+            {
+                result.success = false;
+                result.statusCode = ((int)HttpStatusCode.InternalServerError).ToString();
+                result.returnMsg = "Common.Error";
+            }
+            return Request.CreateResponse(HttpStatusCode.OK, result);
+        }
+
+        /// <summary>
+        /// 包装报工-保存
+        /// </summary>
+        /// <param name="jo"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("PackingBGSave")]
+        public HttpResponseMessage PackingBGSave(JObject jo)
+        {
+            var result = new ResponseResult();
+            try
+            {
+                var mbConsumeRecordList = new List<PM_MaterialBatchConsumeRecordEntity>();//报工物料批次消耗记录
+                var rawMaterialOutList = new List<MM_RawMaterialOutEntity>();//原材料出库记录
+                var rawMaterialStockList = new List<MM_RawMaterialStockEntity>();//原材料库存
+                List<PM_PackingPrintMarkEntity> markList = new List<PM_PackingPrintMarkEntity>();//唛头
+                MM_ProductInEntity productInEntity = null;
+                MM_ProductStockEntity productStockEntity = null;//成品库库存
+                                                                //PM_TransferCardResumeEntity cardResumeEntity = null;//流转履历
+                PM_TransferCardResumeEntity cardResumeOldEntity = null;//流转履历
+                MM_SaleDomesticInEntity saleDomesticInEntity = null;//内销成品入库
+                MM_SaleDomesticEntity saleDomesticStockEntity = null;//内销成品库存
+                var bgID = Guid.NewGuid().ToString();
+                var msg = "";
+                var time = DateTime.Now;
+
+                if (jo == null)
+                {
+                    return AjaxResult(false, "Common.ParamsNotNull");//参数不能为空
+                }
+
+                var productOrder = getValue(jo, "productOrder");//订单号
+                var containerNO = getValue(jo, "containerNO");//柜号
+                var processCode = getValue(jo, "processCode");//工序
+                var cardCode = getValue(jo, "cardCode");//流转卡
+                var machineCode = getValue(jo, "machineCode");//生产机台
+                var qty = getValue(jo, "qty");//报工数量
+                var badQty = getValue(jo, "badQty");//不良数量
+                badQty = string.IsNullOrEmpty(badQty) ? "0" : badQty;
+                var pTeamCode = getValue(jo, "pTeamCode");//生产小组编码
+                var userCode = getValue(jo, "userCode");//用户编码
+                var userName = getValue(jo, "userName");//用户名称
+                var remark = getValue(jo, "remark");//备注
+                var badItemDetailList = JsonConvert.DeserializeObject<List<PM_BGBadRecordEntity>>(jo["badItemDetailList"].ToString());
+
+                lock (_lockPackingBG)
+                {
+                    #region 数据校验
+                    if (string.IsNullOrEmpty(containerNO))
+                    {
+                        return AjaxResult(false, "ProduceManage.ProduceController.PackingBGSave.Tips_1");//柜号不能为空
+                    }
+                    if (string.IsNullOrEmpty(qty) || qty.ToDecimal() == 0)
+                    {
+                        return AjaxResult(false, "ProduceManage.ProduceController.PackingBGSave.Tips_2");//报工数量不能为0
+                    }
+                    if (qty.ToDecimal() > 10000)
+                    {
+                        return AjaxResult(false, "报工数量不能超10000");
+                    }
+
+                    var cardEntity = _transferCardBLL.Get_ExpressionEntity(t => t.CardCode == cardCode);
+                    var sourceWorkOrder = _workOrderBLL.Get_ExpressionEntity(t => t.WorkOrder == cardEntity.WorkOrder);
+                    if (sourceWorkOrder == null)
+                    {
+                        return AjaxResult(false, "原工单不存在");
+                    }
+                    if (sourceWorkOrder?.FreezeFlag == true || sourceWorkOrder.OrderStatus == "40")
+                    {
+                        return AjaxResult(false, $"工单{sourceWorkOrder.WorkOrder}已冻结");//工单已被冻结
+                    }
+                    if (sourceWorkOrder.OrderStatus == "9")
+                        return AjaxResult(false, $"工单【{sourceWorkOrder.WorkOrder}】已结案，无法继续操作");
+
+                    var workOrderEntity = _workOrderBLL.Get_ExpressionEntity(t => t.ProductOrder == productOrder && t.ContainerNO == containerNO
+                        && t.MaterialCode == cardEntity.MaterialCode && t.WorkOrderType == "1" && t.POStatus != "3"); //正常工单
+                    if (workOrderEntity == null)
+                    {
+                        return AjaxResult(false, "ProduceManage.ProduceController.PackingBGSave.Tips_3");//柜号不存在
+                    }
+                    if (workOrderEntity.OrderStatus == "9")
+                    {
+                        return AjaxResult(false, "工单已结案，无法报工");
+                    }
+                    if (workOrderEntity?.FreezeFlag == true || workOrderEntity.OrderStatus == "40")
+                    {
+                        return AjaxResult(false, $"工单{workOrderEntity.WorkOrder}已冻结");//工单已冻结
+                    }
+                    //不可以跨订单报工
+                    if (workOrderEntity.ProductOrder != cardEntity.ProductOrder)
+                    {
+                        return AjaxResult(false, "不可以跨订单报工");
+                    }
+
+                    //超产品执行工单要判断超产品库存是否已转出
+                    var exeWorkOrderEntity = _exeWorkOrderBLL.Get_ExpressionEntity(t => t.ExeWorkOrder == cardEntity.ExeWorkOrder);
+                    if (exeWorkOrderEntity.OrderType == "5") //5：超产品
+                    {
+                        var supProductTransferEntity = _supProductStockTransferBLL.Get_ExpressionEntity(t => t.ExeWorkOrder == exeWorkOrderEntity.ExeWorkOrder);
+                        if (supProductTransferEntity == null)
+                        {
+                            return AjaxResult(false, "ProduceManage.ProduceController.PackingBGSave.Tips_4");//请先将超产品库存转出
+                        }
+                    }
+                    var productOrderEntity = _productionOrderBLL.Get_ExpressionEntity(t => t.ProductOrder == workOrderEntity.ProductOrder);
+                    var plMaterialEntity = _plMaterialBLL.Get_ExpressionEntity(t => t.WorkOrder == workOrderEntity.WorkOrder && t.IsDeleted == false);
+                    var plMaterialFacetList = _plMaterialFacetBLL.Get_ExpressionList(t => t.MaterialId == plMaterialEntity.Id).ToList();
+                    //var pTeamEntity = _teamPersonBLL.Get_ExpressionEntity(t => t.PTeamCode == pTeamCode);
+                    //if (pTeamEntity == null)
+                    //{
+                    //    return AjaxResult(false, "该生产小组不存在");
+                    //}
+                    //var pTeamEntity = _teamPersonBLL.Get_ExpressionEntity(t => t.ProcessCode == processCode && t.PTeamCode == pTeamCode);
+                    //if (pTeamEntity == null)
+                    //    return AjaxResult(false, "ProduceManage.ProduceController.PackingBGSave.Tips_5");//当前工序中没有该生产小组
+                    var pTeamEntity = _teamPersonBLL.Get_ExpressionEntity(t => t.ProcessCode == processCode && t.PTeamCode == pTeamCode);
+                    if (pTeamEntity == null)
+                    {
+                        var GLSCXZ = _bsModelResourceExtendInfoBLL.Get_ExpressEntity(t => t.ResourceCode == processCode && t.FieldCode == "GLSCXZ");
+                        var glProcessTeam = GLSCXZ?.FieldValue;
+                        pTeamEntity = _teamPersonBLL.Get_ExpressionEntity(t => glProcessTeam.Contains(t.ProcessCode) && t.PTeamCode == pTeamCode);
+                        if (pTeamEntity == null)
+                            return AjaxResult(false, "ProduceManage.ProduceController.PackingBGSave.Tips_5");//当前工序中没有该生产小组
+                    }
+
+                    //a.判断Bom是否存在
+                    var plBomEntity = _plBomBLL.Get_ExpressionEntity(t => t.WorkOrder == workOrderEntity.WorkOrder && t.IsDeleted == false);
+                    if (plBomEntity == null)
+                    {
+                        return AjaxResultWithParams(false, "ProduceManage.ProduceController.PackingBGSave.Tips_6", workOrderEntity.WorkOrder);//工单[{workOrderEntity.WorkOrder}]的Bom不存在
+                    }
+                    var plBomItemList = _plBomItemBLL.GetBomItemList(plBomEntity.Id, processCode).ToList();
+
+                    //判断工单工艺是否存在
+                    var plProcessEntity = _plProcessBLL.GetEntity(t => t.WorkOrder == workOrderEntity.WorkOrder && t.IsDeleted == false);
+                    if (plProcessEntity == null)
+                    {
+                        return AjaxResultWithParams(false, "ProduceManage.ProduceController.PackingBGSave.Tips_7", workOrderEntity.WorkOrder);//工单[{workOrderEntity.WorkOrder}]的工艺路线不存在
+                    }
+                    var plOperationList = _plProcessOfOperationsBLL.Get_ExpressionList(t => t.ProcessId == plProcessEntity.Id && t.IsDeleted == false)
+                        .OrderBy(t => t.SN).ToList();
+                    var plOperationEntity = plOperationList.Find(t => t.OperationCode == processCode);
+                    //b.当前工序是否在工艺路线里
+                    if (plOperationEntity == null)
+                    {
+                        return AjaxResult(false, "ProduceManage.ProduceController.PackingBGSave.Tips_8");//当前工序不在工艺路线里，不可以报工
+                    }
+                    if (plOperationEntity.WFMark == "1")
+                        return AjaxResult(false, "ProduceManage.ProduceController.SavePMStartInfo.Tips_26");//外发不允许操作
+
+                    var plAttrList = _plProcessOfOperationsAttrBLL.Get_ExpressionList(t => t.OperationsId == plOperationEntity.Id).ToList();
+
+                    //c.当前工序是否需要报工
+                    var plAttrEntity1 = plAttrList.Find(t => t.AttrCode == "BGCZ");
+                    //if (plAttrEntity1?.AttrValue == Language.GetText("Common.No"))
+                    if (plAttrEntity1?.AttrValue == "否" || plAttrEntity1?.AttrValue == "N")
+                    {
+                        return AjaxResult(false, "ProduceManage.ProduceController.PackingBGSave.Tips_9");//当前工序在工艺路线里，但不可以报工
+                    }
+                    //d.如果当前工序需要开工，校验是否已开工
+                    var plAttrEntity2 = plAttrList.Find(t => t.AttrCode == "KGCZ");
+                    if (plAttrEntity2.AttrValue == "是" || plAttrEntity2.AttrValue == "Y")
+                    {
+                        var startupEntity = _startUpRecordBLL.Get_ExpressionEntity(t => t.CardCode == cardCode && t.ProcessCode == processCode && t.IsEnabled == true);
+                        if (startupEntity == null)
+                        {
+                            if (string.IsNullOrEmpty(cardEntity.NewType) || (!string.IsNullOrEmpty(cardEntity.NewType) && cardEntity.StartProcess != processCode))
+                                return AjaxResult(false, "ProduceManage.ProduceController.PackingBGSave.Tips_10");//当前工序还没开工，不可以报工
+                        }
+                    }
+
+                    //校验车间是否首检 1开，0关
+                    var keyParamItemEntity = _baseKeyParameterItemBLL.Get_ExpressionEntity(t => t.EnCode == "Switch" && t.ItemCode == "WorkShopFirstInspection"
+                        && t.Remark1 == workOrderEntity.FactoryCode);
+                    if (keyParamItemEntity?.ItemValue == "1")
+                    {
+                        var firstEntity = _FirstInspectionConfirmBLL.GetEntity(t => t.WorkOrder == workOrderEntity.WorkOrder && t.Process == processCode);
+                        if (firstEntity != null && firstEntity.FirstStatus == "1")//FirstStatus=1 未检验
+                        {
+                            return AjaxResult(false, "ProduceManage.ProduceController.PackingBGSave.Tips_11");//流转卡未首检，不可以报工
+                        }
+                    }
+                    //库存不能为负数开发 1开，0关
+                    var keyParamItemEntity1 = _baseKeyParameterItemBLL.Get_ExpressionEntity(t => t.EnCode == "Switch" && t.ItemCode == "Backflush");
+
+                    //找到当前工序物料批次上机记录
+                    var upRecordList = _materialBatchUpRecordBLL.Get_ExpressionList(t => t.ProcessCode == processCode && t.MachineCode == machineCode && t.Flag == 1).ToList();
+                    //f.是否有库存
+                    var rawMaterialStockTable = _rawMaterailStockBLL.GetList(t => t.IsFrozen == "0");
+                    var query2 = from a in plBomItemList
+                                 join b in rawMaterialStockTable
+                                 on new { a.MaterialCode, WhsCode = a.Warehouse, a.LocationCode } equals new { b.MaterialCode, b.WhsCode, b.LocationCode }
+                                 select b;
+                    var rawMaterialStockSList = query2.ToList();
+                    foreach (var item in plBomItemList)
+                    {
+                        if (string.IsNullOrEmpty(item.LocationCode))
+                            return AjaxResultWithParams(false, "ProduceManage.ProduceController.TransferCardBGSave.Tips_38", item.MaterialCode);//物料[{0}]没有找到线边库位
+
+                        // e.启用批次管理 是否存在批次上机记录
+                        var batchNo = "";
+                        if (item.IsUsed == true)
+                        {
+                            if (!upRecordList.Any(t => t.MaterialCode == item.MaterialCode))
+                            {
+                                return AjaxResultWithParams(false, "ProduceManage.ProduceController.PackingBGSave.Tips_12", item.MaterialCode, item.MaterialName);//物料[{item.MaterialCode}{item.MaterialName}]没有上机记录
+                            }
+                            batchNo = upRecordList.ToList().Find(t => t.MaterialCode == item.MaterialCode)?.BatchNo;
+                            if (!rawMaterialStockSList.Any(t => t.MaterialCode == item.MaterialCode && t.BatchNo == batchNo))
+                            {
+                                return AjaxResultWithParams(false, "ProduceManage.ProduceController.PackingBGSave.Tips_13", item.MaterialCode, item.MaterialName, batchNo);//物料[{item.MaterialCode}{item.MaterialName}]、批次[{batchNo}]没有可用的库存
+                            }
+                        }
+                        else //非批次管理
+                        {
+                            if (!rawMaterialStockSList.Any(t => t.MaterialCode == item.MaterialCode))
+                            {
+                                return AjaxResultWithParams(false, "ProduceManage.ProduceController.PackingBGSave.Tips_14", item.MaterialCode, item.MaterialName);//物料[{item.MaterialCode}{item.MaterialName}]没有可用的库存
+                            }
+                        }
+                        //4、报工原料批次消耗记录
+                        var mbConsumeRecordEntity = new PM_MaterialBatchConsumeRecordEntity();
+                        mbConsumeRecordEntity.Id = Guid.NewGuid().ToString();
+                        mbConsumeRecordEntity.BGID = bgID;
+                        mbConsumeRecordEntity.FactoryCode = workOrderEntity.FactoryCode;
+                        mbConsumeRecordEntity.FactoryName = workOrderEntity.FactoryName;
+                        mbConsumeRecordEntity.MaterialCode = item.MaterialCode;
+                        mbConsumeRecordEntity.MaterialName = item.MaterialName;
+                        mbConsumeRecordEntity.WhsCode = item.Warehouse;
+                        mbConsumeRecordEntity.LocationCode = item.LocationCode;
+                        mbConsumeRecordEntity.Spec = item.Spec;
+                        mbConsumeRecordEntity.BatchNo = batchNo;
+                        mbConsumeRecordEntity.RecoilQty = Math.Round(item.Num.Value * ((qty.ToDecimal() + badQty.ToDecimal()) / plBomEntity.UnitNum.Value), 2, MidpointRounding.AwayFromZero);
+                        mbConsumeRecordEntity.IsEnabled = true;
+                        mbConsumeRecordEntity.Creator = userCode;
+                        mbConsumeRecordEntity.CreateTime = DateTime.Now;
+                        mbConsumeRecordEntity.Unit = item.Unit;
+                        mbConsumeRecordEntity.UnitName = item.UnitName;
+                        mbConsumeRecordEntity.MaterialType = item.MaterialType;
+
+                        if (mbConsumeRecordEntity.RecoilQty != 0)
+                            mbConsumeRecordList.Add(mbConsumeRecordEntity);
+                    }
+                    //流转卡履历
+                    if (!string.IsNullOrEmpty(cardEntity.StartProcess))
+                    {
+                        cardResumeOldEntity = _resumeBLL.Get_ExpressionEntity(t => t.CardCode == cardCode && t.Flag == "1");
+                        if (cardResumeOldEntity == null)
+                            return AjaxResult(false, "ProduceManage.ProduceController.PackingBGSave.Tips_15");//流转卡履历没有找到
+                    }
+
+                    //报工数量控制
+                    //var unit = _bsModelResourceExtendInfoBLL.Get_ExpressEntity(t => t.ResourceCode == processCode && t.FieldCode == "DW")?.FieldValue;
+                    var unit = plAttrList.Find(t => t.AttrCode == "CCDW")?.AttrValue;//报工产出单位
+                    var DXZH = plMaterialFacetList.Find(t => t.AttrCode == "DXZH")?.AttrValue.ToDecimal();//大小转换
+                    var hisBGList = _packingBGTransferCardBLL.Get_ExpressionList(t => t.CardCode == cardCode && t.ProcessCode == processCode);
+                    if (!string.IsNullOrEmpty(cardEntity.StartProcess))
+                    {
+                        var plAttrEntity3 = plAttrList.Find(t => t.AttrCode == "YGBGSL");
+
+                        if (plAttrEntity3?.AttrValue == "是" || plAttrEntity3?.AttrValue == "Y")
+                        {
+                            var plAttrEntity4 = plAttrList.Find(t => t.AttrCode == "CLZKBGBFB");
+                            if (string.IsNullOrEmpty(plAttrEntity4?.AttrValue))
+                            {
+                                return AjaxResult(false, "ProduceManage.ProduceController.PackingBGSave.Tips_16");//允许超流转卡数量报工百分比属性不能为空
+                            }
+                            var percent = Convert.ToDecimal(plAttrEntity4?.AttrValue);
+                            if (unit == "张")
+                            {
+                                if (qty.ToDecimal() + hisBGList.Sum(t => t.Qty) > cardResumeOldEntity.SheetQty * percent)
+                                {
+                                    return AjaxResultWithParams(false, "ProduceManage.ProduceController.PackingBGSave.Tips_17", (cardResumeOldEntity.SheetQty * percent).ToString());//报工数量不能大于" + (cardResumeOldEntity.SheetQty * percent).ToString()
+                                }
+                            }
+                            else if (unit == "片")
+                            {
+                                if (qty.ToDecimal() + hisBGList.Sum(t => t.Qty) > cardResumeOldEntity.PieceQty * percent)
+                                {
+                                    return AjaxResultWithParams(false, "ProduceManage.ProduceController.PackingBGSave.Tips_17", (cardResumeOldEntity.PieceQty * percent).ToString());//报工数量不能大于" + (cardResumeOldEntity.PieceQty * percent).ToString()
+                                }
+                            }
+                        }
+                    }
+                    else//包装新建流转卡
+                    {
+                        if (qty.ToDecimal() + hisBGList.Sum(t => t.Qty) > cardEntity.PieceQty)
+                        {
+                            return AjaxResultWithParams(false, "ProduceManage.ProduceController.PackingBGSave.Tips_17", cardEntity.PieceQty.ToString());//报工数量不能大于ardEntity.PieceQty.ToString()
+                        }
+                    }
+
+                    #endregion
+
+                    #region 1、报工生产小组
+                    var pTeamUserList = _teamPersonItemBLL.Get_ExpressionList(t => t.PTeamCode == pTeamEntity.PTeamCode).ToList();
+                    if (pTeamUserList.Count == 0)
+                        return AjaxResult(false, "ProduceManage.ProduceController.PackingBGSave.Tips_18");//当前生产小组没有分配人员
+
+                    var peopleQty = pTeamUserList.Count;//班组人数
+                    var bgPersonRecordList = new List<PM_TransferBGPersonRecordEntity>();
+
+                    //岗位系数
+                    var arrPostCode = pTeamUserList.Select(t => t.PostCode).Distinct();
+                    var postCoefficientList = _pmPostCoefficientService.GetList(t => t.ProcessCode == processCode && arrPostCode.Contains(t.PostCode)).ToList();
+                    #region 产品工价
+                    List<PMProductPriceEntity> productPriceList = new List<PMProductPriceEntity>();//产品工价列表
+                                                                                                   //判断是否VC物料
+                    if (workOrderEntity.IsVC == false)
+                        productPriceList = _pmProductPriceService.GetList(t => t.PriceType == "1" && t.ProcessCode == processCode
+                            && t.MaterialCode == plMaterialEntity.MaterialCode).ToList();
+                    else
+                        productPriceList = _pmProductPriceService.GetList(t => t.PriceType == "2" && t.ProcessCode == processCode
+                            && t.Spec == plMaterialEntity.Spec).ToList();
+                    #endregion
+                    foreach (var item in pTeamUserList)
+                    {
+                        var bgPersonEntity = new PM_TransferBGPersonRecordEntity();
+                        bgPersonEntity.Id = Guid.NewGuid().ToString();
+                        bgPersonEntity.BGID = bgID;
+                        bgPersonEntity.FactoryCode = item.FactoryCode;
+                        bgPersonEntity.FactoryName = item.FactoryName;
+                        bgPersonEntity.PTeamCode = item.PTeamCode;
+                        bgPersonEntity.PTeamName = pTeamEntity.PTeamName;
+                        bgPersonEntity.PostCode = item.PostCode;
+                        bgPersonEntity.PostName = item.PostName;
+                        bgPersonEntity.UserCode = item.UserCode;
+                        bgPersonEntity.UserName = item.UserName;
+
+                        var postCoefficientEntity = postCoefficientList.Find(t => t.PostCode == item.PostCode && t.PeopleQty == peopleQty);
+                        if (postCoefficientEntity == null)
+                            postCoefficientEntity = postCoefficientList.Find(t => t.PostCode == item.PostCode && t.PeopleQty == null);
+
+                        bgPersonEntity.Coefficient = postCoefficientEntity?.Coefficient;
+                        #region 产品工价
+                        var productPriceEntity = productPriceList.Find(t => t.PeopleQty == peopleQty && t.PostCode == item.PostCode);
+                        if (productPriceEntity == null)
+                        {
+                            productPriceEntity = productPriceList.Find(t => t.IsDefault == true && t.PostCode == item.PostCode);
+                            if (productPriceEntity == null)
+                            {
+                                productPriceEntity = productPriceList.Find(t => t.PeopleQty == peopleQty);
+                                if (productPriceEntity == null)
+                                    productPriceEntity = productPriceList.Find(t => t.IsDefault == true);
+                            }
+                        }
+                        bgPersonEntity.Price = productPriceEntity?.Price;
+                        #endregion
+
+                        bgPersonEntity.Creator = userCode;
+                        bgPersonEntity.CreateTime = DateTime.Now;
+                        bgPersonEntity.IsEnabled = true;
+                        bgPersonRecordList.Add(bgPersonEntity);
+                    }
+                    #endregion
+
+                    #region 2、生成报工记录
+                    PM_PackingBGTransferCardEntity cardBGRecordEntity = new PM_PackingBGTransferCardEntity();
+                    cardBGRecordEntity.Id = bgID;
+                    cardBGRecordEntity.FactoryCode = workOrderEntity.FactoryCode;
+                    cardBGRecordEntity.FactoryName = workOrderEntity.FactoryName;
+                    cardBGRecordEntity.ProductOrder = workOrderEntity.ProductOrder;
+                    cardBGRecordEntity.WorkOrder = workOrderEntity.WorkOrder;
+                    cardBGRecordEntity.ContainerNO = containerNO;
+                    cardBGRecordEntity.CustomerPO = workOrderEntity.CustomerPO;
+                    cardBGRecordEntity.MaterialCode = workOrderEntity.MaterialCode;
+                    cardBGRecordEntity.PaperBox = plBomItemList.FirstOrDefault(t => t.SmallClass == "BC")?.Spec;
+                    cardBGRecordEntity.CardCode = cardEntity.CardCode;
+                    cardBGRecordEntity.CardName = cardEntity.CardName;
+                    cardBGRecordEntity.ProcessCode = processCode;
+                    cardBGRecordEntity.Qty = qty.ToDecimal();
+                    //cardBGRecordEntity.Unit = plAttrList.Find(t => t.AttrCode == "CCDW")?.AttrValue;
+                    cardBGRecordEntity.Unit = unit;//报工单位统一从工序属性里取值
+                    cardBGRecordEntity.BadQty = badItemDetailList.Sum(t => t.BadQty);
+                    cardBGRecordEntity.MachineCode = machineCode;
+                    cardBGRecordEntity.TotalCoefficient = bgPersonRecordList.Sum(t => t.Coefficient);
+                    cardBGRecordEntity.PeopleQty = peopleQty;
+
+                    //设备系数
+                    var equipCoefficientEntity = _bsModelResourceExtendInfoBLL.Get_ExpressEntity(t => t.ResourceCode == machineCode && t.FieldCode == "SBXS");
+                    if (equipCoefficientEntity != null && !string.IsNullOrEmpty(equipCoefficientEntity.FieldValue))
+                        cardBGRecordEntity.EquipCoefficient = equipCoefficientEntity?.FieldValue.ToDecimalOrNull();
+                    else
+                        cardBGRecordEntity.EquipCoefficient = 1;
+
+                    //是否计算工资
+                    var gzAttrEntity = plAttrList.Find(t => t.AttrCode == "JSXZ");//是否计算薪资
+                                                                                  //cardBGRecordEntity.IsCalculated = gzAttrEntity?.AttrValue == Language.GetText("Common.Yes") ? true : false;
+                    cardBGRecordEntity.IsCalculated = (gzAttrEntity?.AttrValue == "是" || gzAttrEntity?.AttrValue == "Y") ? true : false;
+                    if (cardBGRecordEntity.IsCalculated.Value)
+                    {
+                        if (bgPersonRecordList.Any(t => t.Coefficient == null) || bgPersonRecordList.Any(t => t.Price == null))
+                        {
+                            cardBGRecordEntity.IsGenerated = 3;
+                            if (bgPersonRecordList.Any(t => t.Coefficient == null))
+                                cardBGRecordEntity.ErrorReason = "2";
+                            else if (bgPersonRecordList.Any(t => t.Price == null))
+                                cardBGRecordEntity.ErrorReason = "1";
+                            else
+                                cardBGRecordEntity.ErrorReason = Language.GetText("Common.ErrorNone");//未知原因
+                        }
+                        else
+                            cardBGRecordEntity.IsGenerated = 1;
+                    }
+                    cardBGRecordEntity.Creator = userCode;
+                    cardBGRecordEntity.CreateTime = DateTime.Now;
+                    cardBGRecordEntity.Remark = remark;
+
+                    var bgRecordList = _packingBGTransferCardBLL.Get_ExpressionList(t => t.WorkOrder == workOrderEntity.WorkOrder);
+                    if (bgRecordList.Sum(t => t.Qty) + cardBGRecordEntity.Qty > workOrderEntity.OrderPieces)
+                    {
+                        return AjaxResult(false, "ProduceManage.ProduceController.PackingBGSave.Tips_19");//报工数量超出下单数量
+                    }
+
+                    #region SAP 6个参数
+                    var factoryCode = workOrderEntity.FactoryCode;
+
+                    var SAPSyncSwitch = _baseKeyParameterItemBLL.Get_ExpressionEntity(t => t.EnCode == "Switch" && t.ItemCode == "SAPSync"
+                        && t.Remark1 == factoryCode);
+                    if (SAPSyncSwitch?.ItemValue == "1")
+                    {
+                        PMOperationPalletNumEntity pmOperationPalletEntity = null;
+                        if (workOrderEntity.IsVC == true)
+                        {
+                            pmOperationPalletEntity = _pmOperationPalletNumService.GetEntity(t => t.ProcessCode == processCode
+                                && t.Spec == plMaterialEntity.Spec && t.DocType == "2");
+                        }
+                        else
+                        {
+                            var arrProcessCode = plOperationList.Take(plOperationList.Count - 1).Select(t => t.OperationCode);
+                            pmOperationPalletEntity = _pmOperationPalletNumService.GetEntity(t => t.ProcessCode == processCode
+                                && t.MaterialCode == plMaterialEntity.MaterialCode && t.DocType == "1");
+                        }
+                        var hourCoefficient = pmOperationPalletEntity?.HourCoefficient;
+                        if (hourCoefficient == null)
+                            return AjaxResult(false, "ProduceManage.ProduceController.TransferCardBGSave.Tips_30");//工时系数未维护
+
+                        var totalQty = cardBGRecordEntity.Qty + cardBGRecordEntity.BadQty;
+                        if (unit == "张")
+                            totalQty = totalQty * DXZH;
+
+                        var attrBMSCH = plAttrList.Find(t => t.AttrCode == "BMSCH")?.AttrValue;
+                        var attrVGW01 = plAttrList.Find(t => t.AttrCode == "VGW01")?.AttrValue;
+                        var attrVGW02 = plAttrList.Find(t => t.AttrCode == "VGW02")?.AttrValue;
+                        var attrVGW03 = plAttrList.Find(t => t.AttrCode == "VGW03")?.AttrValue;
+                        var attrVGW04 = plAttrList.Find(t => t.AttrCode == "VGW04")?.AttrValue;
+                        var attrVGW05 = plAttrList.Find(t => t.AttrCode == "VGW05")?.AttrValue;
+                        var attrVGW06 = plAttrList.Find(t => t.AttrCode == "VGW06")?.AttrValue;
+
+                        if (string.IsNullOrEmpty(attrBMSCH))
+                            return AjaxResult(false, "ProduceManage.ProduceController.TransferCardBGSave.Tips_31");//基本数量 属性未维护
+                        if (string.IsNullOrEmpty(attrVGW01))
+                            return AjaxResult(false, "ProduceManage.ProduceController.TransferCardBGSave.Tips_32");//直接人工 属性未维护
+                        if (string.IsNullOrEmpty(attrVGW02))
+                            return AjaxResult(false, "ProduceManage.ProduceController.TransferCardBGSave.Tips_33");//间接人工 属性未维护
+                        if (string.IsNullOrEmpty(attrVGW03))
+                            return AjaxResult(false, "ProduceManage.ProduceController.TransferCardBGSave.Tips_34");//燃料动力 属性未维护
+                        if (string.IsNullOrEmpty(attrVGW04))
+                            return AjaxResult(false, "ProduceManage.ProduceController.TransferCardBGSave.Tips_35");//折旧摊销 属性未维护
+                        if (string.IsNullOrEmpty(attrVGW05))
+                            return AjaxResult(false, "ProduceManage.ProduceController.TransferCardBGSave.Tips_36");//备品备件 属性未维护
+                        if (string.IsNullOrEmpty(attrVGW06))
+                            return AjaxResult(false, "ProduceManage.ProduceController.TransferCardBGSave.Tips_37");//其他费用 属性未维护
+
+                        var BMSCHValue = attrBMSCH; //基本数量
+                        var arrVGW01 = attrVGW01.Split(',');
+                        var arrVGW02 = attrVGW02.Split(',');
+                        var arrVGW03 = attrVGW03.Split(',');
+                        var arrVGW04 = attrVGW04.Split(',');
+                        var arrVGW05 = attrVGW05.Split(',');
+                        var arrVGW06 = attrVGW06.Split(',');
+
+                        if (arrVGW01[1].ToUpper() == "S")
+                            cardBGRecordEntity.VGW01 = totalQty * (arrVGW01[0].ToDecimal() / BMSCHValue.ToDecimal()) * hourCoefficient;
+                        else
+                            cardBGRecordEntity.VGW01 = totalQty;
+
+                        if (arrVGW02[1].ToUpper() == "S")
+                            cardBGRecordEntity.VGW02 = totalQty * (arrVGW02[0].ToDecimal() / BMSCHValue.ToDecimal()) * hourCoefficient;
+                        else
+                            cardBGRecordEntity.VGW02 = totalQty;
+
+                        if (arrVGW03[1].ToUpper() == "S")
+                            cardBGRecordEntity.VGW03 = totalQty * (arrVGW03[0].ToDecimal() / BMSCHValue.ToDecimal()) * hourCoefficient;
+                        else
+                            cardBGRecordEntity.VGW03 = totalQty;
+
+                        if (arrVGW04[1].ToUpper() == "S")
+                            cardBGRecordEntity.VGW04 = totalQty * (arrVGW04[0].ToDecimal() / BMSCHValue.ToDecimal()) * hourCoefficient;
+                        else
+                            cardBGRecordEntity.VGW04 = totalQty;
+
+                        if (arrVGW05[1].ToUpper() == "S")
+                            cardBGRecordEntity.VGW05 = totalQty * (arrVGW05[0].ToDecimal() / BMSCHValue.ToDecimal()) * hourCoefficient;
+                        else
+                            cardBGRecordEntity.VGW05 = totalQty;
+
+                        if (arrVGW06[1].ToUpper() == "S")
+                            cardBGRecordEntity.VGW06 = totalQty * (arrVGW06[0].ToDecimal() / BMSCHValue.ToDecimal()) * hourCoefficient;
+                        else
+                            cardBGRecordEntity.VGW06 = totalQty;
+                    }
+                    #endregion
+
+                    #endregion
+
+                    #region 3、报工不良信息
+                    if (badItemDetailList != null && badItemDetailList.Count > 0)
+                    {
+                        if (badItemDetailList.Any(t => t.BadQty == null || t.BadQty == 0))
+                            return AjaxResult(false, "ProduceManage.ProduceController.PackingBGSave.Tips_20");//不良数量不能为空或者0
+
+                        badItemDetailList.ForEach(t =>
+                        {
+                            t.Id = Guid.NewGuid().ToString();
+                            t.BGID = bgID;
+                            t.BusinessTable = "PM_PackingBGTransferCard";
+                            t.FactoryCode = workOrderEntity.FactoryCode;
+                            t.FactoryName = workOrderEntity.FactoryName;
+                            t.SmallClassCode = plMaterialEntity.SmallClass;
+                            t.IsEnabled = true;
+                            t.Creator = userCode;
+                            t.CreateTime = DateTime.Now;
+                        });
+                    }
+                    #endregion
+
+                    #region 4、报工原料批次消耗记录
+                /* var materialGroupList = _baseMaterialGrouBindMaterialpBLL.GetList(t => true)*/
+                ;
+                    //var query3 = from a in mbConsumeRecordList
+                    //             //join b in materialGroupList
+                    //             //on a.MaterialCode equals b.MaterialCode into temp1
+                    //             //from b in temp1.DefaultIfEmpty()
+                    //             select new PM_MaterialBatchConsumeRecordEntity()
+                    //             {
+                    //                 Id = a.Id,
+                    //                 BGID = a.BGID,
+                    //                 MaterialCode = a.MaterialCode,
+                    //                 MaterialName = a.MaterialName,
+                    //                 Spec = a.Spec,
+                    //                 GroupCode = b?.GroupCode,
+                    //                 BatchNo = a.BatchNo,
+                    //                 RecoilQty = a.RecoilQty,
+                    //                 CreateTime = a.CreateTime,
+                    //                 Creator = a.Creator,
+                    //                 IsEnabled = a.IsEnabled
+                    //             };
+                    //mbConsumeRecordList = query3.ToList();
+
+                    #endregion
+
+                    var docNum = DateTime.Now.ToString("yyyyMMddHHmmss");
+                    foreach (var item in mbConsumeRecordList)
+                    {
+                        #region 5、生产原材料出库记录
+                        MM_RawMaterialOutEntity rawMaterialOutEntity = new MM_RawMaterialOutEntity();
+                        rawMaterialOutEntity.Id = Guid.NewGuid().ToString();
+                        rawMaterialOutEntity.BusinessId = bgID;
+                        rawMaterialOutEntity.BusinessTable = "PM_TranferCardBGRecord";
+                        rawMaterialOutEntity.FactoryCode = workOrderEntity.FactoryCode;
+                        rawMaterialOutEntity.FactoryName = workOrderEntity.FactoryName;
+                        rawMaterialOutEntity.BGType = "3";//包装报工
+                        rawMaterialOutEntity.BGBatchNo = "";//待确认
+                        rawMaterialOutEntity.CardCode = cardCode;
+                        rawMaterialOutEntity.ProductOrder = workOrderEntity.ProductOrder;
+                        rawMaterialOutEntity.WorkOrder = workOrderEntity.WorkOrder;
+                        rawMaterialOutEntity.CustomerPO = workOrderEntity.CustomerPO;
+                        rawMaterialOutEntity.ContainerNO = workOrderEntity.ContainerNO;
+                        rawMaterialOutEntity.ExeWorkOrder = cardEntity.ExeWorkOrder;//流转卡的执行工单
+                        rawMaterialOutEntity.ProcessCode = processCode;
+                        rawMaterialOutEntity.Spec = plMaterialEntity.Spec;
+                        rawMaterialOutEntity.CustomerModelName = plBomEntity.MaterialName;
+                        rawMaterialOutEntity.CustomerModel = workOrderEntity.MaterialCode;
+                        rawMaterialOutEntity.BGQty = qty.ToDecimal();
+                        //rawMaterialOutEntity.ProductUnit = plAttrList.Find(t => t.AttrCode == "CCDW")?.AttrValue;
+                        rawMaterialOutEntity.ProductUnit = unit;//报工单位统一从工序属性里取值
+                        rawMaterialOutEntity.DocNum = docNum;
+                        rawMaterialOutEntity.WhsCode = item.WhsCode;
+                        rawMaterialOutEntity.LocationCode = item.LocationCode;//取虚拟库位
+                        rawMaterialOutEntity.MaterialCode = item.MaterialCode;
+                        rawMaterialOutEntity.MaterialName = item.MaterialName;
+                        rawMaterialOutEntity.BatchNo = item.BatchNo;
+                        rawMaterialOutEntity.OutType = "1";//报工
+                        rawMaterialOutEntity.Qty = item.RecoilQty;
+                        rawMaterialOutEntity.Unit = item.Unit;
+                        rawMaterialOutEntity.UnitName = item.UnitName;
+                        rawMaterialOutEntity.Creator = userCode;
+                        rawMaterialOutEntity.CreateTime = DateTime.Now;
+                        rawMaterialOutEntity.MaterialType = item.MaterialType;
+                        rawMaterialOutList.Add(rawMaterialOutEntity);
+                        #endregion
+
+                        #region 6、扣减原材料库存
+                        if (!string.IsNullOrEmpty(item.BatchNo))
+                        {
+                            var rawMaterialEnt = _rawMaterailStockBLL.Get_ExpressionEntity(t => t.MaterialCode == item.MaterialCode && t.LocationCode == item.LocationCode && t.BatchNo == item.BatchNo && t.IsFrozen == "0");
+                            if (rawMaterialEnt == null)
+                            {
+                                return AjaxResult(false, "库存不存在，物料：" + item.MaterialName);
+                            }
+                            rawMaterialOutEntity.BeforeQty = rawMaterialEnt.Qty;
+                            rawMaterialEnt.Qty = rawMaterialEnt.Qty - rawMaterialOutEntity.Qty;
+                            rawMaterialOutEntity.AfterQty = rawMaterialEnt.Qty;
+                            if (keyParamItemEntity1.ItemValue == "1") //库存不能为负数开关
+                            {
+                                if (rawMaterialEnt.Qty < 0)
+                                {
+                                    return AjaxResult(false, "库存不足，物料：" + rawMaterialEnt.MaterialName);
+                                }
+                            }
+                            rawMaterialEnt.ModifyBy = userCode;
+                            rawMaterialEnt.ModifyTime = DateTime.Now;
+                            rawMaterialStockList.Add(rawMaterialEnt);
+                        }
+                        else
+                        {
+                            var rawMaterialEnt = _rawMaterailStockBLL.Get_ExpressionEntity(t => t.MaterialCode == item.MaterialCode && t.LocationCode == item.LocationCode && t.IsFrozen == "0");
+                            if (rawMaterialEnt == null)
+                            {
+                                return AjaxResult(false, "库存不存在，物料：" + item.MaterialName);
+                            }
+                            rawMaterialOutEntity.BeforeQty = rawMaterialEnt.Qty;
+                            rawMaterialEnt.Qty = rawMaterialEnt.Qty - rawMaterialOutEntity.Qty;
+                            rawMaterialOutEntity.AfterQty = rawMaterialEnt.Qty;
+                            if (keyParamItemEntity1.ItemValue == "1") //库存不能为负数开关
+                            {
+                                if (rawMaterialEnt.Qty < 0)
+                                {
+                                    return AjaxResult(false, "库存不足，物料：" + rawMaterialEnt.MaterialName);
+                                }
+                            }
+                            rawMaterialEnt.ModifyBy = userCode;
+                            rawMaterialEnt.ModifyTime = DateTime.Now;
+                            rawMaterialStockList.Add(rawMaterialEnt);
+                        }
+                        #endregion
+                    }
+
+                    #region 6、扣减原材料库存 已注释
+                    ////var rawMaterialStockTable = _rawMaterailStockBLL.GetList(t => t.IsFrozen == "0");
+                    //var query4 = from a in rawMaterialOutList
+                    //             join b in rawMaterialStockTable
+                    //             on new { a.MaterialCode, a.WhsCode, BatchNo = a.BatchNo ?? "" } equals new { b.MaterialCode, b.WhsCode, BatchNo = b.BatchNo ?? "" }
+                    //             select new MM_RawMaterialStockEntity()
+                    //             {
+                    //                 Id = b.Id,
+                    //                 MaterialCode = b.MaterialCode,
+                    //                 MaterialName = b.MaterialName,
+                    //                 BatchNo = b.BatchNo,
+                    //                 Qty = b.Qty - a.Qty,
+                    //                 Unit = b.Unit,
+                    //                 SupplierCode = b.SupplierCode,
+                    //                 WhsCode = b.WhsCode,
+                    //                 LocationCode = b.LocationCode,
+                    //                 IsFrozen = b.IsFrozen,
+                    //                 Creator = b.Creator,
+                    //                 CreateTime = b.CreateTime,
+                    //                 ModifyBy = userCode,
+                    //                 ModifyTime = DateTime.Now
+                    //             };
+                    //rawMaterialStockList = query4.ToList();
+
+
+                    //if (keyParamItemEntity1.ItemValue == "1")
+                    //{
+                    //    #region 启用批次管理的物料倒冲不能为负数
+                    //    //var arrMaterialCode = rawMaterialStockList.Select(t => t.MaterialCode).ToArray();
+                    //    //var materialFactoryList = _baseMaterialFactoryBLL.Get_ExpressionList(t => t.FactoryCode == workOrderEntity.FactoryCode
+                    //    //    && arrMaterialCode.Contains(t.MaterialCode) && t.IsUsed == true);
+
+                    //    //var query3 = from a in rawMaterialStockList
+                    //    //             join b in materialFactoryList on a.MaterialCode equals b.MaterialCode
+                    //    //             select a;
+                    //    //var batchStockList = query3.ToList();
+
+                    //    //if (batchStockList.Where(t => t.Qty < 0).Count() > 0)
+                    //    //{
+                    //    //    var batchStockEntity = batchStockList.FirstOrDefault(t => t.Qty < 0);
+                    //    //    var outQty = rawMaterialOutList.Find(t => t.MaterialCode == batchStockEntity.MaterialCode && t.WhsCode == batchStockEntity.WhsCode
+                    //    //        && t.BatchNo == batchStockEntity.BatchNo)?.Qty;//出库数量
+                    //    //    var remainStockQty = batchStockEntity.Qty + outQty;//剩余库存数量
+                    //    //    var plBomItemEntity = plBomItemList.Find(t => t.MaterialCode == batchStockEntity.MaterialCode);
+                    //    //    var remainBGQty = plBomEntity.UnitNum / plBomItemEntity.Num * remainStockQty;
+                    //    //    if (unit == "张")
+                    //    //        remainBGQty = Math.Ceiling(remainBGQty.Value / DXZH.Value);
+
+                    //    //    return AjaxResultWithParams(false, "ProduceManage.ProduceController.PackingBGSave.Tips_21", plBomItemEntity.MaterialName, remainBGQty.ToString(), unit);//[{plBomItemEntity.MaterialName}]上机批次剩余库存不足，\r\n报工数量不允许超过{remainBGQty.ToString()}{unit}
+                    //    //    //return AjaxResult(false, "倒冲不能为负数，不可以报工");
+                    //    //}
+                    //    #endregion
+
+                    //    #region 2024年9月10号 韩总要求库存不能为负数，不限制是否启用批次
+
+                    //    if (rawMaterialStockList.Where(t => t.Qty < 0).Count() > 0)
+                    //    {
+                    //        var arrMaterialCode = rawMaterialStockList.Select(t => t.MaterialCode).ToArray();
+                    //        var materialFactoryList = _baseMaterialFactoryBLL.Get_ExpressionList(t => t.FactoryCode == workOrderEntity.FactoryCode
+                    //            && arrMaterialCode.Contains(t.MaterialCode)).ToList();
+
+                    //        var negativeStockEntity = rawMaterialStockList.FirstOrDefault(t => t.Qty < 0);
+                    //        decimal? outQty = 0;
+                    //        //是否启用批次管理
+                    //        if (materialFactoryList.Find(t => t.MaterialCode == negativeStockEntity.MaterialCode)?.IsUsed == true)
+                    //        {
+                    //            outQty = rawMaterialOutList.Find(t => t.MaterialCode == negativeStockEntity.MaterialCode && t.LocationCode == negativeStockEntity.LocationCode
+                    //                && t.BatchNo == negativeStockEntity.BatchNo)?.Qty;//出库数量
+                    //        }
+                    //        else
+                    //        {
+                    //            //出库数量
+                    //            outQty = rawMaterialOutList.Find(t => t.MaterialCode == negativeStockEntity.MaterialCode && t.LocationCode == negativeStockEntity.LocationCode)?.Qty;
+                    //        }
+
+                    //        var remainStockQty = negativeStockEntity.Qty + outQty;//剩余库存数量
+                    //        var plBomItemEntity = plBomItemList.Find(t => t.MaterialCode == negativeStockEntity.MaterialCode);
+                    //        var remainBGQty = plBomEntity.UnitNum / plBomItemEntity.Num * remainStockQty;
+
+                    //        if (unit == "张")
+                    //            remainBGQty = Math.Ceiling(remainBGQty.Value / DXZH.Value);
+
+                    //        return AjaxResultWithParams(false, "ProduceManage.ProduceController.TransferCardBGSave.Tips_29", plBomItemEntity.MaterialName, remainBGQty.ToString(), unit);//[{plBomItemEntity.MaterialName}]上机批次剩余库存不足，\r\n报工数量不允许超过{remainBGQty.ToString()}{unit}
+                    //    }
+
+                    //    #endregion
+                    //}
+
+                    #endregion
+
+                    #region 7、流转履历
+                    var locationCode = plAttrList.Find(t => t.AttrCode == "BGKW")?.AttrValue;//库位
+                    var whsCode = _bsModelWithResourceBLL.GetEntity(t => t.ResourceCode == locationCode)?.ParentResource;
+
+                    //cardResumeEntity = new PM_TransferCardResumeEntity();
+                    //cardResumeEntity.Id = Guid.NewGuid().ToString();
+                    //cardResumeEntity.CardCode = cardCode;
+                    //cardResumeEntity.ProcessCode = processCode;
+                    //cardResumeEntity.BusinessType = "2";//报工
+                    //cardResumeEntity.OperationId = bgID;
+                    //cardResumeEntity.Flag = "1";
+                    //cardResumeEntity.WhsCode = whsCode;
+                    //cardResumeEntity.LocationCode = locationCode;
+                    ////cardResumeEntity.IsInWHs = "1";
+                    //cardResumeEntity.Creator = userCode;
+                    //cardResumeEntity.CreateTime = DateTime.Now;
+                    //cardResumeEntity.IsEnabled = true;
+                    //if (unit == "张")
+                    //{
+                    //    cardResumeEntity.SheetQty = qty.ToDecimal() + hisBGList.Sum(t => t.Qty);
+                    //    cardResumeEntity.PieceQty = cardResumeEntity.SheetQty * DXZH;
+                    //}
+                    //else
+                    //{
+                    //    cardResumeEntity.PieceQty = qty.ToDecimal() + hisBGList.Sum(t => t.Qty);
+                    //    cardResumeEntity.SheetQty = Math.Ceiling(cardResumeEntity.PieceQty.Value / DXZH.Value);
+                    //}
+
+                    //历史数据失效
+                    if (cardResumeOldEntity != null)
+                    {
+                        cardResumeOldEntity.Flag = "0";//失效
+                                                       //cardResumeOldEntity.IsInWHs = "0";
+                        cardResumeOldEntity.ModifyBy = userCode;
+                        cardResumeOldEntity.ModifyTime = DateTime.Now;
+                    }
+                    #endregion
+
+                    if (productOrderEntity.OrderType == "1")//出口
+                    {
+                        var perPalletPieceQty = plMaterialFacetList.Find(t => t.AttrCode == "CPBZTPSL")?.AttrValue.ToDecimal();//单托片数
+                                                                                                                               //var perPalletPieceQty = workOrderEntity.PerPalletPieceQty;//单托片数
+                        if (perPalletPieceQty == null || perPalletPieceQty == 0)
+                        {
+                            return AjaxResult(false, "ProduceManage.ProduceController.PackingBGSave.Tips_22");//产品包装托盘数量不能为空或者0
+                        }
+                        var perPalletBoxQty = plMaterialFacetList.Find(t => t.AttrCode == "BZTPSL")?.AttrValue;//单托盒数
+                        if (string.IsNullOrEmpty(perPalletBoxQty))
+                        {
+                            return AjaxResult(false, "单托盒数不能为空");
+                        }
+
+                        #region 8、成品入库
+                        productInEntity = new MM_ProductInEntity();
+                        productInEntity.Create();
+                        productInEntity.FactoryCode = workOrderEntity.FactoryCode;
+                        productInEntity.FactoryName = workOrderEntity.FactoryName;
+                        //productInEntity.MarkCode = packingPrintMarkEntity.PackTransferCode;
+                        productInEntity.ProductOrder = workOrderEntity.ProductOrder;
+                        productInEntity.OrderType = productOrderEntity.OrderType;
+                        productInEntity.WorkOrder = workOrderEntity.WorkOrder;
+                        productInEntity.ContainerNO = workOrderEntity.ContainerNO;
+                        productInEntity.MaterialCode = workOrderEntity.MaterialCode;
+                        productInEntity.CustomerPO = workOrderEntity.CustomerPO;
+                        productInEntity.WhsCode = whsCode;
+                        productInEntity.LocationCode = locationCode;
+                        //productInEntity.PalletQty = palletCount;
+                        productInEntity.PerPalletPieceQty = perPalletPieceQty;
+                        productInEntity.PieceQty = qty.ToDecimal();
+                        productInEntity.PerPalletBoxQty = perPalletBoxQty.ToDecimal();
+                        //productInEntity.BoxQty = perPalletBoxQty.ToDecimal() * palletCount;
+                        productInEntity.Creator = userCode;
+                        productInEntity.CreateTime = DateTime.Now;
+                        productInEntity.InType = "1";
+                        if (cardEntity.WorkOrder == workOrderEntity.WorkOrder)
+                        {
+                            productInEntity.SAPInType = "1";
+                        }
+                        else
+                        {
+                            productInEntity.SAPInType = "2";
+                            productInEntity.S_WorkOrder = cardEntity.WorkOrder;
+                        }
+
+                        productInEntity.LineNum = workOrderEntity.Orderline;
+                        #endregion
+
+                        #region 9、成品库存
+                        //var SAPSyncSwitch = _baseKeyParameterItemBLL.Get_ExpressionEntity(t => t.EnCode == "Switch" && t.ItemCode == "SAPSync"
+                        //    && t.Remark1 == factoryCode);
+                        if (SAPSyncSwitch?.ItemValue == "1")
+                        {
+                            productStockEntity = _productStockBLL.Get_ExpressionEntity(t => t.ProductOrder == workOrderEntity.ProductOrder
+                                && t.LineNum == workOrderEntity.Orderline && t.LocationCode == locationCode);
+                        }
+                        else
+                        {
+                            productStockEntity = _productStockBLL.Get_ExpressionEntity(t => t.ProductOrder == workOrderEntity.ProductOrder
+                            && t.ContainerNO == workOrderEntity.ContainerNO && t.MaterialCode == workOrderEntity.MaterialCode && t.LocationCode == locationCode);
+                        }
+                        if (productStockEntity == null)
+                        {
+                            productStockEntity = new MM_ProductStockEntity();
+                            productStockEntity.FactoryCode = workOrderEntity.FactoryCode;
+                            productStockEntity.FactoryName = workOrderEntity.FactoryName;
+                            //productStockEntity.MarkCode = packingPrintMarkEntity.PackTransferCode;
+                            productStockEntity.ProductOrder = workOrderEntity.ProductOrder;
+                            productStockEntity.WorkOrder = workOrderEntity.WorkOrder;
+                            productStockEntity.ContainerNO = workOrderEntity.ContainerNO;
+                            productStockEntity.MaterialCode = workOrderEntity.MaterialCode;
+                            productStockEntity.CustomerPO = workOrderEntity.CustomerPO;
+                            productStockEntity.WhsCode = whsCode;
+                            productStockEntity.LocationCode = locationCode;
+                            //productStockEntity.PalletQty = palletCount;
+                            productStockEntity.PerPalletPieceQty = perPalletPieceQty;
+                            productStockEntity.PieceQty = productInEntity.PieceQty;
+                            productStockEntity.PerPalletBoxQty = perPalletBoxQty.ToDecimal();
+                            //productStockEntity.BoxQty = productInEntity.BoxQty;
+                            productStockEntity.Creator = userCode;
+                            productStockEntity.CreateTime = DateTime.Now;
+                            productStockEntity.IsEnabled = true;
+                            productStockEntity.LineNum = workOrderEntity.Orderline;
+                        }
+                        else
+                        {
+                            //productStockEntity.PalletQty += palletCount;
+                            productStockEntity.PerPalletPieceQty = perPalletPieceQty;
+                            productStockEntity.PieceQty += productInEntity.PieceQty;
+                            productStockEntity.PerPalletBoxQty = perPalletBoxQty.ToDecimal();
+                            //productStockEntity.BoxQty += productInEntity.BoxQty;
+                            productStockEntity.ModifyBy = userCode;
+                            productStockEntity.ModifyTime = DateTime.Now;
+                            productStockEntity.IsEnabled = true;
+                        }
+
+                        #endregion
+
+                        #region 10、生成唛头
+
+                        var existMarkList = _markService.Get_ExpressionList(t => t.WorkOrder == workOrderEntity.WorkOrder);
+                        var existMarkCount = existMarkList.Count();//已生成唛头数量
+                        if (existMarkCount >= workOrderEntity.OrderPallet)
+                        {
+                            return AjaxResult(false, "唛头数量已足够");
+                        }
+                        var totalStockQty = _productStockBLL.Get_ExpressionList(t => t.WorkOrder == workOrderEntity.WorkOrder).Sum(t => t.PieceQty);
+                        var totalQty = totalStockQty + productInEntity.PieceQty; //库存汇总+本次入库数量
+                        if (totalQty > workOrderEntity.OrderPieces)
+                        {
+                            return AjaxResult(false, "累计入库数量不能大于订单片数");
+                        }
+
+                        //库存片数
+                        if (totalQty < workOrderEntity.OrderPieces)
+                        {
+                            //计算需要生成的唛头数量
+                            var needPalletCount = (int)(totalQty - existMarkCount * perPalletPieceQty) / (int)perPalletPieceQty;
+
+                            //需要生成的随机数数量=生成唛头数量
+                            string returnNum = string.Empty;
+                            _markService.GetSerialNO("PackingPrintMark", needPalletCount, out returnNum, out msg);
+                            var index = Int32.Parse(returnNum);
+
+                            for (int i = 1; i <= needPalletCount; i++)
+                            {
+                                var markEntity = new PM_PackingPrintMarkEntity();
+                                markEntity.Id = Guid.NewGuid().ToString();
+                                markEntity.FactoryCode = workOrderEntity.FactoryCode;
+                                markEntity.FactoryName = workOrderEntity.FactoryName;
+                                markEntity.PackTransferCode = "M" + time.ToString("yyMMddHHmmss") + (index++).ToString().PadLeft(4, '0');
+                                markEntity.Mark = workOrderEntity.OrderWholePallet + "-" + (workOrderEntity.OrderStartPallet + existMarkCount + (i - 1));
+                                markEntity.ProductOrder = workOrderEntity.ProductOrder;
+                                markEntity.WorkOrder = workOrderEntity.WorkOrder;
+                                markEntity.Customer = productOrderEntity.Customer;
+                                markEntity.MaterialCode = plMaterialFacetList.Find(t => t.AttrCode == "MTXH")?.AttrValue;//唛头型号
+                                markEntity.ContainerNO = workOrderEntity.ContainerNO;
+                                markEntity.CustomerPO = workOrderEntity.CustomerPO;
+                                //packingPrintMarkEntity.Spec = plMaterialFacetList.Find(t => t.AttrCode == "Spec")?.AttrValue;
+                                markEntity.Quantity = plMaterialFacetList.Find(t => t.AttrCode == "BZTPSL")?.AttrValue + " ctns";
+                                markEntity.PrintStatus = "1";//未打印
+                                markEntity.Creator = userCode;
+                                markEntity.CreateTime = time;
+                                markEntity.WorkOrderType = workOrderEntity.WorkOrderType;
+                                markEntity.Status = "1";//待入库
+                                markEntity.BoxDate = (productOrderEntity.BoxDate == null ? time.ToString("ddMMyy") : productOrderEntity.BoxDate.Value.ToString("ddMMyy")) + "A";
+                                markEntity.MMXH = plMaterialFacetList.Find(t => t.AttrCode == "MMXH")?.AttrValue;
+                                //packingPrintMarkEntity.MTBT = plMaterialFacetList.Find(t => t.AttrCode == "MTBT")?.AttrValue;//唛头标题
+                                markEntity.PieceQty = perPalletPieceQty;
+                                markEntity.Orderline = workOrderEntity.Orderline;
+                                markList.Add(markEntity);
+                            }
+                        }
+                        else if (totalQty == workOrderEntity.OrderPieces)
+                        {
+                            //计算需要生成的唛头数量
+                            var needPalletCount = (int)workOrderEntity.OrderPallet - (int)existMarkCount;
+
+                            //需要生成的随机数数量=生成唛头数量
+                            string returnNum = string.Empty;
+                            _markService.GetSerialNO("PackingPrintMark", needPalletCount, out returnNum, out msg);
+                            var index = Int32.Parse(returnNum);
+
+                            decimal? countPieceQty = 0;
+                            for (int i = 1; i <= needPalletCount; i++)
+                            {
+                                var markEntity = new PM_PackingPrintMarkEntity();
+                                markEntity.Id = Guid.NewGuid().ToString();
+                                markEntity.FactoryCode = workOrderEntity.FactoryCode;
+                                markEntity.FactoryName = workOrderEntity.FactoryName;
+                                markEntity.PackTransferCode = "M" + time.ToString("yyMMddHHmmss") + (index++).ToString().PadLeft(4, '0');
+                                markEntity.Mark = workOrderEntity.OrderWholePallet + "-" + (workOrderEntity.OrderStartPallet + existMarkCount + (i - 1));
+                                markEntity.ProductOrder = workOrderEntity.ProductOrder;
+                                markEntity.WorkOrder = workOrderEntity.WorkOrder;
+                                markEntity.Customer = productOrderEntity.Customer;
+                                markEntity.MaterialCode = plMaterialFacetList.Find(t => t.AttrCode == "MTXH")?.AttrValue;//唛头型号
+                                markEntity.ContainerNO = workOrderEntity.ContainerNO;
+                                markEntity.CustomerPO = workOrderEntity.CustomerPO;
+                                //packingPrintMarkEntity.Spec = plMaterialFacetList.Find(t => t.AttrCode == "Spec")?.AttrValue;
+                                markEntity.Quantity = plMaterialFacetList.Find(t => t.AttrCode == "BZTPSL")?.AttrValue + " ctns";
+                                markEntity.PrintStatus = "1";//未打印
+                                markEntity.Creator = userCode;
+                                markEntity.CreateTime = time;
+                                markEntity.WorkOrderType = workOrderEntity.WorkOrderType;
+                                markEntity.Status = "1";//待入库
+                                markEntity.BoxDate = (productOrderEntity.BoxDate == null ? time.ToString("ddMMyy") : productOrderEntity.BoxDate.Value.ToString("ddMMyy")) + "A";
+                                markEntity.MMXH = plMaterialFacetList.Find(t => t.AttrCode == "MMXH")?.AttrValue;
+                                //packingPrintMarkEntity.MTBT = plMaterialFacetList.Find(t => t.AttrCode == "MTBT")?.AttrValue;//唛头标题
+                                if (i == needPalletCount)
+                                {
+                                    markEntity.PieceQty = workOrderEntity.OrderPieces - (countPieceQty + existMarkCount * perPalletPieceQty);
+                                }
+                                else
+                                {
+                                    markEntity.PieceQty = perPalletPieceQty;
+                                    countPieceQty += perPalletPieceQty;
+                                }
+                                markEntity.Orderline = workOrderEntity.Orderline;
+                                markList.Add(markEntity);
+                            }
+                        }
+                        #endregion
+                    }
+                    else//内销
+                    {
+                        #region 内销成品入库记录
+                        saleDomesticInEntity = new MM_SaleDomesticInEntity();
+                        saleDomesticInEntity.Id = Guid.NewGuid().ToString();
+                        saleDomesticInEntity.FactoryCode = workOrderEntity.FactoryCode;
+                        saleDomesticInEntity.FactoryName = workOrderEntity.FactoryName;
+                        saleDomesticInEntity.ProductOrder = workOrderEntity.ProductOrder;
+                        saleDomesticInEntity.WorkOrder = workOrderEntity.WorkOrder;
+                        saleDomesticInEntity.ContainerNO = containerNO;
+                        saleDomesticInEntity.MaterialCode = workOrderEntity.MaterialCode;
+                        saleDomesticInEntity.CustomerPO = workOrderEntity.CustomerPO;
+                        saleDomesticInEntity.WhsCode = whsCode;
+                        saleDomesticInEntity.LocationCode = locationCode;
+                        saleDomesticInEntity.Creator = userCode;
+                        saleDomesticInEntity.CreateTime = DateTime.Now;
+                        #endregion
+
+                        #region 内销成品库存
+                        saleDomesticStockEntity = _saleDomesticStockService.Get_ExpressionEntity(t => t.ProductOrder == workOrderEntity.ProductOrder
+                            && t.MaterialCode == workOrderEntity.MaterialCode && t.WhsCode == whsCode && t.LocationCode == locationCode);
+                        var BZDHSL = plMaterialFacetList.Find(t => t.AttrCode == "BZDHSL")?.AttrValue.ToDecimal();
+                        if (BZDHSL == 0 || BZDHSL == null)
+                            return AjaxResult(false, "ProduceManage.ProduceController.PackingBGSave.Tips_24");//包装单盒数量没有值
+
+                        if (saleDomesticStockEntity == null)
+                        {
+                            saleDomesticStockEntity = new MM_SaleDomesticEntity();
+                            saleDomesticStockEntity.FactoryCode = workOrderEntity.FactoryCode;
+                            saleDomesticStockEntity.FactoryName = workOrderEntity.FactoryName;
+                            saleDomesticStockEntity.ProductOrder = workOrderEntity.ProductOrder;
+                            saleDomesticStockEntity.MaterialCode = workOrderEntity.MaterialCode;
+                            saleDomesticStockEntity.WhsCode = whsCode;
+                            saleDomesticStockEntity.LocationCode = locationCode;
+                            saleDomesticStockEntity.PieceQty = qty.ToDecimal();
+                            saleDomesticStockEntity.BoxQty = Math.Ceiling(qty.ToDecimal() / BZDHSL.Value);
+                            saleDomesticStockEntity.Attr = "0";//线边库
+                            saleDomesticStockEntity.IsEnabled = true;
+                            saleDomesticStockEntity.Creator = userCode;
+                            saleDomesticStockEntity.CreateTime = DateTime.Now;
+                        }
+                        else
+                        {
+                            saleDomesticStockEntity.PieceQty += qty.ToDecimal();
+                            saleDomesticStockEntity.BoxQty += Math.Ceiling(qty.ToDecimal() / BZDHSL.Value);
+                            saleDomesticStockEntity.ModifyBy = userCode;
+                            saleDomesticStockEntity.ModifyTime = DateTime.Now;
+                        }
+                        #endregion
+                    }
+
+                    #region 11、除了当前工序所用的BOM外，当前机台下其他物料全部失效掉
+                    var bomMaterialCodeList = plBomItemList.Select(t => t.MaterialCode).ToList();
+                    var upMachineList = _materialBatchUpRecordBLL.Get_ExpressionList(t => t.MachineCode == machineCode && t.Flag == 1
+                                                                                     && !bomMaterialCodeList.Contains(t.MaterialCode)).ToList();
+                    foreach (var item in upMachineList)
+                    {
+                        item.Flag = 0;
+                        item.ModifyBy = userCode;
+                        item.ModifyTime = DateTime.Now;
+                    }
+                    #endregion
+
+                    #region 12、记录登陆人绑定的机台、生产小组
+                    var peopleEntity = _bsPeopleService.Get_ExpressionEntity(t => t.Code == userCode);
+                    var isUpdate = false;
+                    if (peopleEntity.MachineCode != machineCode || peopleEntity.PTeamCode != pTeamCode)
+                    {
+                        isUpdate = true;
+                        peopleEntity.MachineCode = machineCode;
+                        peopleEntity.PTeamCode = pTeamCode;
+                        peopleEntity.ModifyBy = userCode;
+                        peopleEntity.ModifyTime = DateTime.Now;
+                        //if (!string.IsNullOrEmpty(peopleEntity.Remark) && peopleEntity.Remark.Length > 1900)
+                        //    peopleEntity.Remark = DateTime.Now.ToString() + userName + "修改机台为：" + machineCode + ";";
+                        //else
+                        //    peopleEntity.Remark += DateTime.Now.ToString() + userName + "修改机台为：" + machineCode + ";";
+                    }
+                    #endregion
+
+                    #region 13、更新流转卡状态
+
+                    cardEntity.CardStatus = "6";
+                    cardEntity.ModifyBy = userCode;
+                    cardEntity.ModifyTime = DateTime.Now;
+
+                    #endregion
+
+                    #region 14、PO号、包装状态
+                    var flag = false;
+                    if (bgRecordList.Sum(t => t.Qty) + cardBGRecordEntity.Qty < workOrderEntity.OrderPieces)
+                    {
+                        flag = true;
+                        //1.PO号状态更改
+                        workOrderEntity.POStatus = "2";
+                        workOrderEntity.PackingStatus = "2";
+                        workOrderEntity.PackingStartTime = DateTime.Now;
+                        workOrderEntity.ModifyBy = userCode;
+                        workOrderEntity.ModifyTime = DateTime.Now;
+                    }
+                    else if (bgRecordList.Sum(t => t.Qty) + cardBGRecordEntity.Qty == workOrderEntity.OrderPieces)
+                    {
+                        flag = true;
+                        //1.PO号状态更改
+                        workOrderEntity.POStatus = "3";
+                        workOrderEntity.PackingStatus = "3";//包装状态
+                        workOrderEntity.PackingEndTime = DateTime.Now;
+                        workOrderEntity.ModifyBy = userCode;
+                        workOrderEntity.ModifyTime = DateTime.Now;
+                    }
+                    else
+                        return AjaxResult(false, "ProduceManage.ProduceController.PackingBGSave.Tips_25");//超出下单数量
+
+                    #endregion
+
+                    #region 15、订单状态
+                    var flag2 = false;
+                    if (workOrderEntity.POStatus == "3")
+                    {
+                        string[] arrPOStatus = new string[] { "1", "2" };
+                        var workOrderList = _workOrderBLL.Get_ExpressionList(t => t.ProductOrder == workOrderEntity.ProductOrder
+                              && t.WorkOrder != workOrderEntity.WorkOrder && t.WorkOrderType == "1" && arrPOStatus.Contains(t.POStatus));
+                        if (workOrderList.Count() == 0)
+                        {
+                            flag2 = true;
+                            productOrderEntity.OrderStatus = "4";//已完成
+                            productOrderEntity.ModifyBy = userCode;
+                            productOrderEntity.ModifyTime = DateTime.Now;
+                        }
+                    }
+                    #endregion
+
+                    TransactionOptions transactionOption = new TransactionOptions();
+                    //设置事务隔离级别
+                    transactionOption.IsolationLevel = System.Transactions.IsolationLevel.ReadCommitted;
+                    // 设置事务超时时间为60秒
+                    transactionOption.Timeout = new TimeSpan(0, 0, 60);
+                    using (var ts = new TransactionScope(TransactionScopeOption.Required, transactionOption))
+                    //using (var ts = new TransactionScope())
+                    {
+                        _packingBGTransferCardBLL.SaveEntity("", cardBGRecordEntity, out msg);//包装报工记录
+                        if (badItemDetailList != null && badItemDetailList.Count > 0)
+                            _bgBadRecordBLL.SaveEntity_List(false, "", badItemDetailList, out msg);//不良记录
+
+                        _bgPersonRecordBLL.SaveEntity_List(false, "", bgPersonRecordList, out msg);//生产小组
+
+                        _bgMBConsumeRecordBLL.SaveEntity_List(false, "", mbConsumeRecordList, out msg);//物料批次消耗
+                        _mmRawMaterialOutBLL.SaveEntity_List(false, "", rawMaterialOutList, out msg);//原料出库记录
+                        if (rawMaterialStockList.Count > 0)
+                            _rawMaterailStockBLL.SaveEntity_List(true, "", rawMaterialStockList, out msg);//原材料库存
+
+                        //_resumeBLL.SaveEntity("", cardResumeEntity, out msg);//流转履历
+                        if (cardResumeOldEntity != null)
+                            _resumeBLL.SaveEntity(cardResumeOldEntity.Id, cardResumeOldEntity, out msg);
+
+                        if (productOrderEntity.OrderType == "1")//出口
+                        {
+                            if (markList.Count > 0)//唛头
+                            {
+                                _markService.SaveEntity_List(false, userName, markList, out msg);
+                            }
+                            if (productInEntity != null)
+                            {
+                                _productInBLL.SaveEntity("", productInEntity, out msg);
+                            }
+                            if (productStockEntity != null)
+                            {
+                                _productStockBLL.SaveEntity(productStockEntity.Id, productStockEntity, out msg);
+                            }
+                        }
+                        else//内销
+                        {
+                            _saleDomesticInService.SaveEntity("", saleDomesticInEntity, out msg);
+                            _saleDomesticStockService.SaveEntity(saleDomesticStockEntity.Id, saleDomesticStockEntity, out msg);
+                        }
+                        if (upMachineList != null && upMachineList.Count() > 0)//上机记录
+                        {
+                            _materialBatchUpRecordBLL.SaveEntity_List(true, userName, upMachineList, out msg);
+                        }
+                        if (isUpdate)//更新绑定的机台、生产小组信息
+                        {
+                            _bsPeopleService.SaveEntity(peopleEntity.ID, peopleEntity, out msg);
+                        }
+                        _transferCardBLL.SaveEntity(cardEntity.Id, cardEntity, out msg);//流转卡
+                        if (flag) //更新工单信息
+                        {
+                            _workOrderBLL.SaveEntity(workOrderEntity.Id, workOrderEntity, out msg);
+                        }
+                        if (flag2)//更新订单信息
+                        {
+                            _productionOrderBLL.SaveEntity(productOrderEntity.Id, productOrderEntity, out msg);
+                        }
+                        ts.Complete();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                result.success = false;
+                result.statusCode = ((int)HttpStatusCode.InternalServerError).ToString();
+                result.returnMsg = ex.Message;
+            }
+            return Request.CreateResponse(HttpStatusCode.OK, result);
+        }
+
+        /// <summary>
+        /// 包装报工-查询
+        /// </summary>
+        /// <param name="jo"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("PackingBGQuery")]
+        public HttpResponseMessage PackingBGQuery(JObject jo)
+        {
+            var result = new ResponseResult();
+            try
+            {
+                string queryJson = getValue(jo, "queryJson");
+                var data = _packingBGTransferCardBLL.GetPageDataTableList(null, queryJson);
+                result.resultData = data;
+                result.success = true;
+                result.returnMsg = Language.GetText("Common.SearchSuccess");
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+            catch (Exception ex)
+            {
+                result.success = false;
+                result.returnMsg = Language.GetText("Common.SearchErrorWithOther", ex.Message);
+                result.statusCode = ((int)HttpStatusCode.InternalServerError).ToString();
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+        }
+        #endregion
+
+        #region 扫一扫
+        /// <summary>
+        /// 流转卡/唛头
+        /// </summary>
+        /// <param name="jo"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("CodeBarScan")]
+        public HttpResponseMessage CodeBarScan(JObject jo)
+        {
+            var result = new ResponseResult();
+            try
+            {
+                dynamic scanResult = new ExpandoObject();
+
+                if (jo == null)
+                {
+                    return AjaxResult(false, "Common.ParamsNotNull");//参数不能为空
+                }
+                string codeBar = getValue(jo, "codeBar");
+                if (string.IsNullOrEmpty(codeBar))
+                {
+                    return AjaxResult(false, "ProduceManage.ProduceController.CodeBarScan.Tips_1");//条码不能为空
+                }
+                //流转卡
+                var cardEntity = _transferCardBLL.Get_ExpressionEntity(t => t.CardCode == codeBar);
+                if (cardEntity != null)
+                {
+                    //流转卡列表
+                    var exeWorkOrder = cardEntity.ExeWorkOrder; ;
+                    List<dynamic> data = _transferCardBLL.CodeBarScan(exeWorkOrder);
+                    //获取报工记录
+                    var data1 = _transferCardBGBLL.GetList(t => t.ExeWorkOrder == exeWorkOrder && t.IsRework == "0");
+                    var data2 = _bsModelWithResourceBLL.GetList(t => t.EnabledMark == true);
+                    var query1 = from a in data1
+                                 join b in data2 on a.ProcessCode equals b.ResourceCode
+                                 select new PM_TranferCardBGRecordEntity()
+                                 {
+                                     Id = a.Id,
+                                     CardCode = a.CardCode,
+                                     ProcessCode = a.ProcessCode,
+                                     ProcessName = b.ResourceName,
+                                     MachineCode = a.MachineCode,
+                                     Qty = a.Qty,
+                                     Unit = a.Unit,
+                                     CreateTime = a.CreateTime
+                                 };
+                    var bgList = query1.ToList();
+
+                    List<string> bgID = bgList.Select(t => t.Id).ToList();
+
+                    var bgPersonList = _bgPersonRecordBLL.Get_ExpressionList(t => bgID.Contains(t.BGID)).ToList();//报工人员
+                    foreach (var item in bgList)
+                    {
+                        item.UserNames = string.Join(",", bgPersonList.FindAll(t => t.BGID == item.Id).Select(t => t.UserName));
+                    }
+
+                    foreach (var item in data)
+                    {
+                        //返工报工记录不显示 add 2025-10-18 by dragon
+                        item.bgList = bgList.Where(t => t.CardCode == item.CardCode).OrderBy(t => t.CreateTime).ToList();
+                    }
+
+                    scanResult.Type = "1";//1:流转卡 2：唛头
+                    scanResult.List = data;//流转卡列表
+                    return AjaxResult(true, "Common.SearchSuccess", scanResult);
+                }
+
+                //唛头
+                var markEntity = _markService.Get_ExpressionEntity(t => t.PackTransferCode == codeBar);
+                if (markEntity != null)
+                {
+                    var workOrder = markEntity.WorkOrder;
+                    List<dynamic> data = _markService.GetMarkListByWorkOrder(workOrder);
+                    scanResult.Type = "2";//1:流转卡 2：唛头
+                    scanResult.List = data;//唛头列表
+                    return AjaxResult(true, "Common.SearchSuccess", scanResult);
+                }
+
+                //自制半成品
+                var transferentity = _OwnProductTransferBLL.Get_ExpressionEntity(t => t.TransferCode == codeBar);
+                if (transferentity != null)
+                {
+                    var workorder = transferentity.WorkOrder;
+                    var batchNo = transferentity.BatchNumber;
+                    List<dynamic> data = _OwnProductTransferBLL.CodeBarScan(workorder, batchNo);
+
+                    var data1 = _OwnProductBGBLL.Get_ExpressionList(t => t.WorkOrder == workorder && t.BatchNo == batchNo);
+                    var data2 = _bsModelWithResourceBLL.GetList(t => t.EnabledMark == true);
+                    var query1 = from a in data1
+                                 join b in data2 on a.BGProcess equals b.ResourceCode
+                                 select new PM_OwnProductBGEntity()
+                                 {
+                                     Id = a.Id,
+                                     TransferCode = a.TransferCode,
+                                     TransferName = a.TransferName,
+                                     BGProcess = b.ResourceName,
+                                     BGMachine = a.BGMachine,
+                                     BGQty = a.BGQty,
+                                     Unit = a.Unit,
+                                     CreateTime = a.CreateTime
+                                 };
+                    var bgList = query1.ToList();
+                    List<string> bgID = bgList.Select(t => t.Id).ToList();
+
+                    var bgPersonList = _bgPersonRecordBLL.Get_ExpressionList(t => bgID.Contains(t.BGID)).ToList();//报工人员
+                    foreach (var item in bgList)
+                    {
+                        item.UserGroup = string.Join(",", bgPersonList.FindAll(t => t.BGID == item.Id).Select(t => t.UserName));
+                    }
+
+                    foreach (var item in data)
+                    {
+                        string transferCode = item.TransferCode;
+                        item.bgList = bgList.Where(t => t.TransferCode == transferCode).OrderBy(t => t.CreateTime).ToList();
+                    }
+
+                    scanResult.Type = "3";//1:流转卡 2：唛头 3、自制半成品
+                    scanResult.List = data;//自制半成品流转卡列表
+                    return AjaxResult(true, "Common.SearchSuccess", scanResult);
+
+                }
+
+                return AjaxResult(false, "ProduceManage.ProduceController.CodeBarScan.Tips_2");//条码不能为空
+            }
+            catch (Exception ex)
+            {
+                result.success = false;
+                result.statusCode = ((int)HttpStatusCode.InternalServerError).ToString();
+                result.returnMsg = ex.Message;
+            }
+            return Request.CreateResponse(HttpStatusCode.OK, result);
+        }
+        #endregion
+
+        #region 查一查
+        /// <summary>
+        /// 获取用户报工记录8点到8点
+        /// </summary>
+        /// <param name="jo"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("GetUserBGRecord")]
+        public HttpResponseMessage GetUserBGRecord(JObject jo)
+        {
+            var result = new ResponseResult();
+            try
+            {
+                if (jo == null)
+                {
+                    return AjaxResult(false, "Common.ParamsNotNull");//参数不能为空
+                }
+                string userCode = getValue(jo, "UserCode");
+                string startDate = getValue(jo, "StartDate");//yyyy-MM-dd
+                string EndDate = getValue(jo, "EndDate");//yyyy-MM-dd
+                if (string.IsNullOrEmpty(userCode))
+                {
+                    return AjaxResult(false, "ProduceManage.ProduceController.GetUserBGRecord.Tips_1");//用户不能为空
+                }
+                //if (string.IsNullOrEmpty(startDate) || string.IsNullOrEmpty(EndDate)
+                //    || Tools.DateTimeInterval(startDate, EndDate, "Hours") > 48)
+                //{
+                //    return AjaxResult(false, "时间间隔不能超过48小时");
+                //}
+
+                var dt = _transferCardBGBLL.GetUserBGRecord(userCode, startDate, EndDate);
+
+                result.resultData = new
+                {
+                    SumQty = dt.Compute("sum(Qty)", ""),
+                    SumSalary = dt.Compute("sum(Salary)", ""),
+                    rows = dt
+                };
+                result.returnMsg = Language.GetText("Common.ExecutionSuccess");
+                result.success = true;
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+            catch (Exception ex)
+            {
+                result.success = false;
+                result.statusCode = ((int)HttpStatusCode.InternalServerError).ToString();
+                result.returnMsg = ex.Message;
+                return Request.CreateResponse(HttpStatusCode.OK, result);
+            }
+
+        }
+        #endregion
+
+        #region 单托开工
+
+        /// <summary>
+        /// 单托开工-机台扫描
+        /// </summary>
+        /// <param name="jo"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("PerPalletStartMachineScan")]
+        public HttpResponseMessage PerPalletStartMachineScan(JObject jo)
+        {
+            var result = new ResponseResult();
+            try
+            {
+                dynamic scanResult = new ExpandoObject();
+
+                if (jo == null)
+                {
+                    return AjaxResult(false, "Common.ParamsNotNull");//参数不能为空
+                }
+                string machineCode = getValue(jo, "machineCode");
+                if (string.IsNullOrEmpty(machineCode))
+                {
+                    return AjaxResult(false, "ProduceManage.ProduceController.PerPalletStartMachineScan.Tips_1");//机台不能为空
+                }
+
+                var machineEntity = _bsModelWithResourceBLL.GetEntity(t => t.ResourceCode == machineCode);
+                if (machineEntity == null)
+                    return AjaxResult(false, "ProduceManage.ProduceController.PerPalletStartMachineScan.Tips_2");//机台不存在
+                var processCode = machineEntity.ParentResource;
+                var processEntity = _bsModelWithResourceBLL.GetEntity(t => t.ResourceCode == processCode);
+
+                scanResult.MachineCode = machineEntity.ResourceCode; //机台编码
+                scanResult.MachineName = machineEntity.ResourceName; //机台名称
+                scanResult.ProcessCode = processCode; //操作工序编码
+                scanResult.ProcessName = processEntity.ResourceName; //操作工序名称
+
+                result.resultData = scanResult;
+            }
+            catch (Exception ex)
+            {
+                result.success = false;
+                result.statusCode = ((int)HttpStatusCode.InternalServerError).ToString();
+                result.returnMsg = ex.Message;
+            }
+            return Request.CreateResponse(HttpStatusCode.OK, result);
+        }
+
+        /// <summary>
+        /// 单托开工-流转卡扫描
+        /// </summary>
+        /// <param name="jo"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("PerPalletStartCardScan")]
+        public HttpResponseMessage PerPalletStartCardScan(JObject jo)
+        {
+            var result = new ResponseResult();
+            try
+            {
+                dynamic scanResult = new ExpandoObject();
+
+                if (jo == null)
+                {
+                    return AjaxResult(false, "Common.ParamsNotNull");//参数不能为空
+                }
+                string cardCode = getValue(jo, "cardCode");
+                string processCode = getValue(jo, "processCode");//开工工序
+
+                #region 数据校验
+                if (string.IsNullOrEmpty(cardCode))
+                {
+                    return AjaxResult(false, "ProduceManage.ProduceController.PerPalletStartCardScan.Tips_1");//流转卡编码不能为空
+                }
+                var cardEntity = _transferCardBLL.Get_ExpressionEntity(t => t.CardCode == cardCode && t.IsEnabled == true);
+                if (cardEntity == null)
+                {
+                    return AjaxResult(false, "ProduceManage.ProduceController.PerPalletStartCardScan.Tips_2");//当前流转卡不存在
+                }
+                if (cardEntity.CardStatus == "5")//报废
+                {
+                    return AjaxResult(false, "ProduceManage.ProduceController.PerPalletStartCardScan.Tips_3");//当前流转卡已报废
+                }
+                //工单被冻结后无法开工
+                var workOrderEntity = _workOrderBLL.Get_ExpressionEntity(t => t.WorkOrder == cardEntity.WorkOrder);
+                if (workOrderEntity?.FreezeFlag == true || workOrderEntity.OrderStatus == "40")
+                {
+                    return AjaxResult(false, "ProduceManage.ProduceController.PerPalletStartCardScan.Tips_4");//工单已被冻结
+                }
+
+                string inProcessCode = ""; //流转卡所在工序
+                string inProcessName = "";
+                DateTime? healthTime = null;
+                var resumeEntity = _resumeBLL.Get_ExpressionEntity(t => t.CardCode == cardCode && t.Flag == "1");
+                if (resumeEntity != null)
+                {
+                    inProcessCode = resumeEntity.ProcessCode;
+                    var bsInProcessModel = _bsModelWithResourceBLL.GetEntity(t => t.ResourceCode == inProcessCode);
+                    inProcessName = bsInProcessModel?.ResourceName;//所在工序名称
+
+                    var cardBGEntity = _transferCardBGBLL.Get_ExpressionList(t => t.IsRework == "0" && t.CardCode == cardCode
+                        && t.ProcessCode == inProcessCode && t.IsEnabled == true).OrderBy(t => t.CreateTime).FirstOrDefault();
+                    if (cardBGEntity == null)
+                        return AjaxResultWithParams(false, "ProduceManage.ProduceController.PerPalletStartCardScan.Tips_5", inProcessName);//流转卡所在工序[{inProcessName}]没有报工！
+
+                    healthTime = cardBGEntity.HealthTime;
+                }
+                //校验是否在养生周期,加了开关  1：开 0：关
+                var keyParamItemEntity = _baseKeyParameterItemBLL.Get_ExpressionEntity(t => t.EnCode == "Switch" && t.ItemCode == "HealthCycle");
+                if (keyParamItemEntity.ItemValue == "1")
+                {
+                    if (healthTime.HasValue)
+                    {
+                        if (DateTime.Now <= healthTime)
+                        {
+                            return AjaxResult(false, "ProduceManage.ProduceController.PerPalletStartCardScan.Tips_6");//还在养生周期内，不允许开工
+                        }
+                    }
+                }
+                //操作工序
+                var bsmodelprocess = _bsModelWithResourceBLL.GetEntity(t => t.ResourceCode == processCode);
+                var processName = bsmodelprocess?.ResourceName;//操作工序
+
+                //校验是否开过工
+                var oldStartEntity = _startUpRecordBLL.Get_ExpressionEntity(t => t.CardCode == cardCode && t.ProcessCode == processCode && t.IsEnabled == true);
+                if (oldStartEntity != null)
+                {
+                    return AjaxResult(false, "ProduceManage.ProduceController.PerPalletStartCardScan.Tips_7");//已开过工，不允许重复开工
+                }
+
+                var processEntity = _plProcessBLL.GetEntity(t => t.WorkOrder == cardEntity.WorkOrder && t.IsDeleted == false);
+                var pOperationList = _plProcessOfOperationsBLL.Get_ExpressionList(t => t.ProcessId == processEntity.Id).OrderBy(t => t.SN).ToList();
+                var plOperationEntity = pOperationList.Find(t => t.OperationCode == processCode);
+                if (plOperationEntity == null)
+                    return AjaxResultWithParams(false, "ProduceManage.ProduceController.PerPalletStartCardScan.Tips_8", processName);//操作工序[{processName}]不在工艺路线里！
+
+                var plAttrList = _plProcessOfOperationsAttrBLL.Get_ExpressionList(t => t.OperationsId == plOperationEntity.Id).ToList();
+                if (plAttrList.Count == 0)
+                {
+                    return AjaxResult(false, "ProduceManage.ProduceController.PerPalletStartCardScan.Tips_9");//工艺属性不存在
+                }
+                //校验该工序是否需要开工
+                //if (plAttrList.Find(t => t.AttrCode == "KGCZ")?.AttrValue == Language.GetText("Common.No"))
+                if (plAttrList.Find(t => t.AttrCode == "KGCZ")?.AttrValue == "否" || plAttrList.Find(t => t.AttrCode == "KGCZ")?.AttrValue == "N")
+                {
+                    return AjaxResultWithParams(false, "ProduceManage.ProduceController.PerPalletStartCardScan.Tips_10", processName);//操作工序[{processName}]不需要开工！"
+                }
+                if (plAttrList.Find(t => t.AttrCode == "DTKG")?.AttrValue != "是" && plAttrList.Find(t => t.AttrCode == "DTKG")?.AttrValue != "Y")
+                {
+                    return AjaxResultWithParams(false, "ProduceManage.ProduceController.PerPalletStartCardScan.Tips_11", processName);//操作工序[{processName}]不可以单托开工！
+                }
+                //判断是否跨工序
+                int index = pOperationList.FindIndex(t => t.OperationCode == processCode);
+                if (index > 0) //非首道工序
+                {
+                    if (!string.IsNullOrEmpty(inProcessCode))
+                    {
+                        var lastOperationCode = pOperationList[index - 1].OperationCode;
+                        if (lastOperationCode != inProcessCode)
+                        {
+                            return AjaxResult(false, "ProduceManage.ProduceController.PerPalletStartCardScan.Tips_12");//不允许跨工序操作
+                        }
+                    }
+                    else
+                    { //超产品
+                        if (cardEntity.StartProcess != processCode)
+                        {
+                            return AjaxResult(false, "ProduceManage.ProduceController.PerPalletStartCardScan.Tips_12");//不允许跨工序操作
+                        }
+                    }
+                }
+                #endregion
+
+                var locationCode = plAttrList.FirstOrDefault(t => t.AttrCode == "KGKW")?.AttrValue;//库位
+                var whsCode = _bsModelWithResourceBLL.GetEntity(t => t.ResourceCode == locationCode)?.ParentResource;//仓库
+
+                scanResult.FactoryCode = workOrderEntity.FactoryCode;
+                scanResult.FactoryName = workOrderEntity.FactoryName;
+                scanResult.ProcessCode = processCode;//操作工序编码
+                scanResult.ProcessName = processName;//操作工序名称
+                scanResult.ProductOrder = workOrderEntity.ProductOrder;
+                scanResult.WorkOrder = workOrderEntity.WorkOrder;
+                scanResult.ExeWorkOrder = cardEntity.ExeWorkOrder;
+                scanResult.CardCode = cardCode;//流转卡编码
+                scanResult.MaterialCode = cardEntity.MaterialCode;//客户型号
+                scanResult.MMXH = cardEntity.MMXH;//面膜型号
+                scanResult.Spec = cardEntity.Spec;//规格
+                scanResult.WhsCode = whsCode;
+                scanResult.LocationCode = locationCode;
+                scanResult.SheetQty = resumeEntity?.SheetQty;
+                scanResult.PieceQty = resumeEntity?.PieceQty;
+                result.resultData = scanResult;
+            }
+            catch (Exception ex)
+            {
+                result.success = false;
+                result.statusCode = ((int)HttpStatusCode.InternalServerError).ToString();
+                result.returnMsg = ex.Message;
+            }
+            return Request.CreateResponse(HttpStatusCode.OK, result);
+        }
+
+        /// <summary>
+        ///  单托开工-保存
+        /// </summary>
+        /// <param name="jo"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("PerPalletStartSave")]
+        public HttpResponseMessage PerPalletStartSave(JObject jo)
+        {
+            var result = new ResponseResult();
+            try
+            {
+                if (jo == null)
+                {
+                    return AjaxResult(false, "Common.ParamsNotNull");//参数不能为空
+                }
+                var userCode = CurrentAccount.UserCode;
+                var userName = CurrentAccount.UserName;
+                var machineCode = getValue(jo, "machineCode");
+                var processCode = getValue(jo, "processCode");
+                var totalPallet = getValue(jo, "totalPallet").ToInt();//总托数
+                var cardList = JsonConvert.DeserializeObject<List<dynamic>>(jo["cardList"].ToString());
+
+                #region 数据校验
+
+                if (cardList.Select(t => t.ProcessCode).Distinct().ToList().Count > 1)
+                {
+                    return AjaxResult(false, "ProduceManage.ProduceController.PerPalletStartSave.Tips_1");//选择的流转卡不在同一道工序里
+                }
+                //if (cardList.Select(t => t.BusinessType).Distinct().ToList().Count > 1)
+                //{
+                //    return AjaxResult(false, "选择的流转卡不是同一个业务类型");
+                //}
+                #endregion
+
+                #region  开工记录
+                List<PM_StartUpRecordEntity> lstStart = new List<PM_StartUpRecordEntity>();
+                List<PM_TransferCardResumeEntity> insertResumeList = new List<PM_TransferCardResumeEntity>();
+                cardList.ForEach(item =>
+                {
+                    string itemCardCode = item.CardCode;
+                    if (!lstStart.Any(t => t.CardCode == itemCardCode))
+                    {
+                        #region 开工记录
+                        PM_StartUpRecordEntity startEntity = new PM_StartUpRecordEntity();
+                        startEntity.Id = Guid.NewGuid().ToString();
+                        startEntity.FactoryCode = item.FactoryCode;
+                        startEntity.FactoryName = item.FactoryName;
+                        startEntity.ProductOrder = item.ProductOrder;
+                        startEntity.WorkOrder = item.WorkOrder;
+                        startEntity.ExeWorkOrder = item.ExeWorkOrder;
+                        startEntity.CardCode = itemCardCode;
+                        startEntity.MachineCode = item.MachineCode;
+                        startEntity.MachineName = item.MachineName;
+                        startEntity.ProcessCode = item.ProcessCode;
+                        startEntity.ProcessName = item.ProcessName;
+                        startEntity.Creator = userCode;
+                        startEntity.CreateTime = DateTime.Now;
+                        startEntity.IsEnabled = true;
+                        lstStart.Add(startEntity);
+                        #endregion
+
+                        #region 流转履历
+                        PM_TransferCardResumeEntity resumeEntity = new PM_TransferCardResumeEntity();
+                        resumeEntity.Id = Guid.NewGuid().ToString();
+                        resumeEntity.FactoryCode = item.FactoryCode;
+                        resumeEntity.FactoryName = item.FactoryName;
+                        resumeEntity.ProcessCode = item.ProcessCode;
+                        resumeEntity.CardCode = item.CardCode;
+                        resumeEntity.BusinessType = "8";//开工
+                        resumeEntity.OperationId = startEntity.Id;
+                        resumeEntity.Flag = "1";//有效
+                        resumeEntity.LocationCode = item.LocationCode;
+                        resumeEntity.WhsCode = item.WhsCode;
+                        //resumeEntity.IsInWHs = "1";
+                        resumeEntity.Creator = userCode;
+                        resumeEntity.CreateTime = DateTime.Now;
+                        resumeEntity.IsEnabled = true;
+                        resumeEntity.SheetQty = item.SheetQty;
+                        resumeEntity.PieceQty = item.PieceQty;
+                        insertResumeList.Add(resumeEntity);
+                        #endregion
+
+                    }
+                });
+                #endregion
+
+                #region 流转履历
+                var data = _resumeBLL.GetList(t => t.Flag == "1");
+                var query = from start in lstStart
+                            join resume in data on start.CardCode equals resume.CardCode
+                            select resume;
+                var updateResumeList = query.ToList();
+                updateResumeList.ForEach(t =>
+                {
+                    t.Flag = "0";//无效
+                    t.ModifyBy = userCode;
+                    t.ModifyTime = DateTime.Now;
+                });
+                #endregion
+
+                #region 记录登陆人绑定的机台
+                var peopleEntity = _bsPeopleService.Get_ExpressionEntity(t => t.Code == userCode);
+                var isUpdate1 = false;
+                if (peopleEntity.MachineCode != machineCode)
+                {
+                    isUpdate1 = true;
+                    peopleEntity.MachineCode = machineCode;
+                    peopleEntity.ProcessCode = processCode;
+                    peopleEntity.ModifyBy = userCode;
+                    peopleEntity.ModifyTime = DateTime.Now;
+                }
+                #endregion
+                var msg = "";
+                TransactionOptions transactionOption = new TransactionOptions();
+                //设置事务隔离级别
+                transactionOption.IsolationLevel = System.Transactions.IsolationLevel.ReadCommitted;
+                // 设置事务超时时间为60秒
+                transactionOption.Timeout = new TimeSpan(0, 0, 60);
+                using (var ts = new TransactionScope(TransactionScopeOption.Required, transactionOption))
+                //using (var ts = new TransactionScope())
+                {
+                    _startUpRecordBLL.SaveEntity_List(false, userName, lstStart, out msg);
+                    if (updateResumeList.Count > 0)
+                    {
+                        _resumeBLL.SaveEntity_List(true, userName, updateResumeList, out msg);
+                    }
+                    _resumeBLL.SaveEntity_List(false, userName, insertResumeList, out msg);
+
+                    if (isUpdate1)
+                    {
+                        _bsPeopleService.SaveEntity(peopleEntity.ID, peopleEntity, out msg);
+                    }
+
+                    ts.Complete();
+                }
+
+                result.success = true;
+            }
+            catch (Exception ex)
+            {
+                result.success = false;
+                result.statusCode = ((int)HttpStatusCode.InternalServerError).ToString();
+                result.returnMsg = "Common.Error";
+            }
+            return Request.CreateResponse(HttpStatusCode.OK, result);
+        }
+
+        #endregion
+
+        #region 分拣报工
+
+        /// <summary>
+        /// 分拣报工-生产机台扫描
+        /// </summary>
+        /// <param name="jo"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("SortingBGMachineScan")]
+        public HttpResponseMessage SortingBGMachineScan(JObject jo)
+        {
+            var result = new ResponseResult();
+            try
+            {
+                dynamic scanResult = new ExpandoObject();
+
+                string machineCode = getValue(jo, "machineCode");
+                if (string.IsNullOrEmpty(machineCode))
+                {
+                    return AjaxResult(false, "ProduceManage.ProduceController.SortingBGMachineScan.Tips_1");
+                }
+                //机台
+                var bsModel = _bsModelWithResourceBLL.GetEntity(t => t.ResourceCode == machineCode && t.EnabledMark == true);
+                if (bsModel == null)
+                {
+
+                    return AjaxResultWithParams(false, "ProduceManage.ProduceController.SortingBGMachineScan.Tips_2", machineCode);//生产机台[{ machineCode}]不存在
+                }
+                //工序
+                var bsModel1 = _bsModelWithResourceBLL.GetEntity(t => t.ResourceCode == bsModel.ParentResource && t.EnabledMark == true);
+
+                scanResult.ProcessCode = bsModel1.ResourceCode;//工序编码
+                scanResult.ProcessName = bsModel1.ResourceName;//工序名称
+                result.resultData = scanResult;
+            }
+            catch (Exception ex)
+            {
+                result.success = false;
+                result.statusCode = ((int)HttpStatusCode.InternalServerError).ToString();
+                result.returnMsg = "Common.Error";
+            }
+            return Request.CreateResponse(HttpStatusCode.OK, result);
+        }
+        /// <summary>
+        /// 分拣报工-流转卡扫描
+        /// </summary>
+        /// <param name="jo"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("SortingBGCardScan")]
+        public HttpResponseMessage SortingBGCardScan(JObject jo)
+        {
+            var result = new ResponseResult();
+            var msg = string.Empty;
+            try
+            {
+                dynamic scanResult = new ExpandoObject();
+
+                string cardCode = getValue(jo, "cardCode");
+                string processCode = getValue(jo, "processCode");
+                if (string.IsNullOrEmpty(cardCode))
+                {
+                    return AjaxResult(false, "ProduceManage.ProduceController.SortingBGCardScan.Tips_1");//流转卡编码不能为空
+                }
+                var cardEntity = _transferCardBLL.Get_ExpressionEntity(t => t.CardCode == cardCode && t.IsEnabled == true);
+                if (cardEntity == null)
+                {
+                    return AjaxResult(false, "ProduceManage.ProduceController.SortingBGCardScan.Tips_2");//当前流转卡不存在
+                }
+                if (cardEntity.CardStatus == "5")//报废
+                {
+                    return AjaxResult(false, "ProduceManage.ProduceController.SortingBGCardScan.Tips_3");//当前流转卡已报废
+                }
+                else if (cardEntity.CardStatus == "3")
+                {
+                    return AjaxResult(false, "ProduceManage.ProduceController.SortingBGCardScan.Tips_4");//当前流转卡返工中
+                }
+
+                //判断是否特殊工序 TSBGBS  =1
+                var map = new Dictionary<string, string>();
+                map.Add("ResourceCode", processCode);
+                map.Add("FieldCode", "TSBGBS");
+                map.Add("FieldValue", "1");
+                var dy = _levelBLL.GetDynamicModelWithResource(map, out msg);
+                if (dy == null)
+                {
+                    var resumeEntity = _resumeBLL.Get_ExpressionEntity(t => t.CardCode == cardCode && t.Flag == "1");
+                    if (resumeEntity == null)
+                    {
+                        return AjaxResult(false, "ProduceManage.ProduceController.SortingBGCardScan.Tips_5");//当前流转卡还未开始流转，不允许报工
+                    }
+                    if (resumeEntity.ProcessCode != processCode)
+                    {
+                        var bsModel = _bsModelWithResourceBLL.GetEntity(t => t.ResourceCode == resumeEntity.ProcessCode);
+                        return AjaxResultWithParams(false, "ProduceManage.ProduceController.SortingBGCardScan.Tips_6", bsModel?.ResourceName);//当前流转卡在工序[{bsModel?.ResourceName}]上，无法报工
+                    }
+                }
+
+                var workOrder = cardEntity.WorkOrder;
+                var workOrderEntity = _workOrderBLL.Get_ExpressionEntity(t => t.WorkOrder == workOrder);
+
+                scanResult.CardCode = cardEntity.CardCode;
+                scanResult.CardName = cardEntity.CardName;
+                scanResult.ProcessCode = processCode;
+                scanResult.ProductOrder = workOrderEntity.ProductOrder;
+                scanResult.ContainerNO = workOrderEntity.ContainerNO;
+                if (dy == null)
+                {
+                    var cardBGList = _transferCardBGBLL.Get_ExpressionList(t => t.CardCode == cardCode && t.ProcessCode == processCode && t.IsRework == "0");
+                    scanResult.HasBGQty = cardBGList.Sum(t => t.Qty);
+                }
+                else scanResult.HasBGQty = null;
+
+                //流转卡列表
+                var exeWorkOrder = cardEntity.ExeWorkOrder;
+                var CardStatus = cardEntity.CardStatus;
+                var BusinessType = "8";
+                var data = _transferCardBLL.CodeBarScan1(exeWorkOrder, CardStatus, BusinessType);
+                scanResult.NotBGTS = data.NotBGTS;
+                result.resultData = scanResult;
+            }
+            catch (Exception ex)
+            {
+                result.success = false;
+                result.statusCode = ((int)HttpStatusCode.InternalServerError).ToString();
+                result.returnMsg = "Common.Error";
+            }
+            return Request.CreateResponse(HttpStatusCode.OK, result);
+        }
+
+        /// <summary>
+        /// 分拣报工-生产小组扫描
+        /// </summary>
+        /// <param name="jo"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("SortingBGPTeamScan")]
+        public HttpResponseMessage SortingBGPTeamScan(JObject jo)
+        {
+            var result = new ResponseResult();
+            try
+            {
+                dynamic scanResult = new ExpandoObject();
+
+                string pTeamCode = getValue(jo, "pTeamCode");
+                if (string.IsNullOrEmpty(pTeamCode))
+                {
+                    return AjaxResult(false, "ProduceManage.ProduceController.SortingBGPTeamScan.Tips_1");//生产小组不能为空
+                }
+                var pTeamEntity = _teamPersonBLL.Get_ExpressionEntity(t => t.PTeamCode == pTeamCode);
+                if (pTeamEntity == null)
+                {
+                    return AjaxResult(false, "ProduceManage.ProduceController.SortingBGPTeamScan.Tips_2");//当前生产小组不存在
+                }
+                var msg = "";
+                var pTeamPersonList = _teamPersonItemBLL.GetList(pTeamCode, out msg);
+                if (pTeamPersonList == null || pTeamPersonList.Count() == 0)
+                {
+                    return AjaxResult(false, "ProduceManage.ProduceController.SortingBGPTeamScan.Tips_3");//当前生产小组没有分配人员
+                }
+
+                scanResult = pTeamPersonList.ToList().Select(t => new { UserCode = t.UserCode, UserName = t.UserName });
+                result.resultData = scanResult;
+            }
+            catch (Exception ex)
+            {
+                result.success = false;
+                result.statusCode = ((int)HttpStatusCode.InternalServerError).ToString();
+                result.returnMsg = "Common.Error";
+            }
+            return Request.CreateResponse(HttpStatusCode.OK, result);
+        }
+
+        /// <summary>
+        /// 分拣报工-保存
+        /// </summary>
+        /// <param name="jo"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("SortingBGSave")]
+        public HttpResponseMessage SortingBGSave(JObject jo)
+        {
+            var result = new ResponseResult();
+            try
+            {
+                var mbConsumeRecordList = new List<PM_MaterialBatchConsumeRecordEntity>();//报工物料批次消耗记录
+                var rawMaterialOutList = new List<MM_RawMaterialOutEntity>();//原材料出库记录
+                var rawMaterialStockList = new List<MM_RawMaterialStockEntity>();//原材料库存
+                PM_TransferCardResumeEntity cardResumeEntity = null;//流转履历
+                List<PM_TransferCardResumeEntity> cardResumeOldList = null;//旧流转履历
+                var bgID = Guid.NewGuid().ToString();
+                var msg = "";
+                if (jo == null)
+                {
+                    return AjaxResult(false, "Common.ParamsNotNull");//参数不能为空
+                }
+
+                //CommonLog.WriteInputLog(jo.ToString(), "SortingBGSave");
+
+                var processCode = getValue(jo, "processCode");//工序编码
+                var cardCode = getValue(jo, "cardCode");//流转卡
+                var machineCode = getValue(jo, "machineCode");//生产机台
+                var sortingPort = getValue(jo, "sortingPort");//分拣口
+                var qty = getValue(jo, "qty");//报工数量
+                var badQty = getValue(jo, "badQty");//不良数量
+                badQty = string.IsNullOrEmpty(badQty) ? "0" : badQty;
+                var pTeamCode = getValue(jo, "pTeamCode");//生产小组编码
+                var userNames = getValue(jo, "userNames");//人员信息
+                var remark = getValue(jo, "remark");//备注
+                var badItemDetailList = JsonConvert.DeserializeObject<List<PM_BGBadRecordEntity>>(jo["badItemDetailList"].ToString());
+                var userCode = CurrentAccount.UserCode;
+                var userName = CurrentAccount.UserName;
+
+                lock (_lockSortingBG)
+                {
+                    #region 数据校验
+                    if (string.IsNullOrEmpty(qty) || qty.ToDecimal() == 0)
+                    {
+                        return AjaxResult(false, "ProduceManage.ProduceController.SortingBGSave.Tips_1");//报工数量不能为0
+                    }
+                    var machineEntity = _bsModelWithResourceBLL.GetEntity(t => t.ResourceCode == machineCode);
+                    if (machineEntity == null)
+                        return AjaxResult(false, "ProduceManage.ProduceController.SortingBGSave.Tips_2");//机台不存在
+
+                    var locationEntity = _bsModelWithResourceBLL.GetEntity(t => t.ResourceCode == sortingPort);
+                    if (locationEntity == null)
+                        return AjaxResult(false, "ProduceManage.ProduceController.SortingBGSave.Tips_3");//分拣口不存在！
+
+                    var cardEntity = _transferCardBLL.Get_ExpressionEntity(t => t.CardCode == cardCode);
+                    var exeWorkOrderEntity = _exeWorkOrderBLL.Get_ExpressionEntity(t => t.ExeWorkOrder == cardEntity.ExeWorkOrder && t.IsEnabled == true);//执行工单
+                    if (exeWorkOrderEntity == null)
+                    {
+                        return AjaxResult(false, "ProduceManage.ProduceController.SortingBGSave.Tips_4");//执行工单不存在
+                    }
+                    var workOrderEntity = _workOrderBLL.Get_ExpressionEntity(t => t.WorkOrder == cardEntity.WorkOrder);
+                    if (workOrderEntity.FreezeFlag == true || workOrderEntity.OrderStatus == "40")
+                    {
+                        return AjaxResult(false, "工单已冻结");
+                    }
+                    if (workOrderEntity.OrderStatus == "9")
+                        return AjaxResult(false, "工单已结案，无法报工");
+
+                    var plMaterialEntity = _plMaterialBLL.Get_ExpressionEntity(t => t.WorkOrder == workOrderEntity.WorkOrder && t.IsDeleted == false);
+                    var plMaterialFacetList = _plMaterialFacetBLL.Get_ExpressionList(t => t.MaterialId == plMaterialEntity.Id).ToList();
+                    var DXZH = plMaterialFacetList.Find(t => t.AttrCode == "DXZH")?.AttrValue.ToDecimal();//大小转换
+                    var hisBGList = _transferCardBGBLL.Get_ExpressionList(t => t.CardCode == cardCode && t.ProcessCode == processCode && t.IsRework == "0").ToList();
+                    //var pTeamEntity = _teamPersonBLL.Get_ExpressionEntity(t => t.PTeamCode == pTeamCode);//生产小组不关联工序
+                    //if (pTeamEntity == null)
+                    //{
+                    //    return AjaxResult(false, "该生产小组不存在");
+                    //}
+                    var pTeamEntity = _teamPersonBLL.Get_ExpressionEntity(t => t.ProcessCode == processCode && t.PTeamCode == pTeamCode);
+                    if (pTeamEntity == null)
+                        return AjaxResult(false, "ProduceManage.ProduceController.SortingBGSave.Tips_5");//当前工序中没有该生产小组
+
+                    var keyParamItemEntity1 = _baseKeyParameterItemBLL.Get_ExpressionEntity(t => t.EnCode == "Switch" && t.ItemCode == "QualityFirstInspection"
+                        && t.Remark1 == workOrderEntity.FactoryCode);
+                    if (keyParamItemEntity1?.ItemValue == "1")
+                    {
+                        if (exeWorkOrderEntity.OrderType != "5") //超产品执行工单不做判断
+                        {
+                            var firstEntity = _FirstInspectionConfirmBLL.GetEntity(t => t.WorkOrder == cardEntity.WorkOrder && t.Process == processCode);
+                            if (firstEntity != null && firstEntity.FirstStatus == "1")//FirstStatus=1 未检验
+                            {
+                                return AjaxResult(false, "ProduceManage.ProduceController.SortingBGSave.Tips_6");//流转卡未质量首检，不可以报工
+                            }
+                        }
+                    }
+
+                    //判断Bom是否存在
+                    var plBomEntity = _plBomBLL.Get_ExpressionEntity(t => t.WorkOrder == cardEntity.WorkOrder && t.IsDeleted == false);
+                    if (plBomEntity == null)
+                    {
+                        return AjaxResultWithParams(false, "ProduceManage.ProduceController.SortingBGSave.Tips_7", cardEntity.WorkOrder);//工单[{cardEntity.WorkOrder}]的Bom不存在
+                    }
+                    //根据工单找当前工序的物料(带虚拟库位)
+                    var plBomItemList = _plBomItemBLL.GetBomItemList(plBomEntity.Id, processCode).ToList();
+
+                    //a.判断工单工艺是否存在
+                    var plProcessEntity = _plProcessBLL.GetEntity(t => t.WorkOrder == cardEntity.WorkOrder && t.IsDeleted == false);
+                    if (plProcessEntity == null)
+                    {
+                        return AjaxResultWithParams(false, "ProduceManage.ProduceController.SortingBGSave.Tips_8", cardEntity.WorkOrder);//工单[{cardEntity.WorkOrder}]的工艺路线不存在
+                    }
+                    var plOperationList = _plProcessOfOperationsBLL.Get_ExpressionList(t => t.ProcessId == plProcessEntity.Id && t.IsDeleted == false)
+                        .OrderBy(t => t.SN).ToList();
+                    var plOperationEntity = plOperationList.Find(t => t.OperationCode == processCode);
+                    List<PL_ProcessOfOperationsAttrEntity> plAttrList = null;
+                    string unit = "";
+                    //b.当前工序是否在工艺路线里，如果不在是否需要报工
+                    if (plOperationEntity == null)
+                    {
+                        var bsModelExtend = _bsModelResourceExtendInfoBLL.Get_ExpressEntity(t => t.ResourceCode == processCode && t.FieldCode == "TSBGBS");
+                        if (bsModelExtend.FieldValue == "0")
+                        {
+                            return AjaxResult(false, "ProduceManage.ProduceController.SortingBGSave.Tips_9");//当前工序不在工艺路线里，并且不可以报工
+                        }
+                        else if (bsModelExtend.FieldValue == "1")//特殊工序
+                        {
+                            unit = _bsModelResourceExtendInfoBLL.Get_ExpressEntity(t => t.ResourceCode == processCode && t.FieldCode == "DW")?.FieldValue;
+                        }
+                    }
+                    if (plOperationEntity.WFMark == "1")
+                        return AjaxResult(false, "ProduceManage.ProduceController.SavePMStartInfo.Tips_26");//外发不允许操作
+
+                    //b.1.校验是否库存为负数 1开，0关
+                    var stockSwitch = _baseKeyParameterItemBLL.Get_ExpressionEntity(t => t.EnCode == "Switch" && t.ItemCode == "Backflush"
+                        && t.Remark1 == workOrderEntity.FactoryCode);
+
+                    if (plOperationEntity != null) //工艺路线里的工序验证
+                    {
+                        //超产品执行工单要判断超产品库存是否已转出
+                        if (exeWorkOrderEntity.OrderType == "5") //5：超产品
+                        {
+                            var supProductTransferEntity = _supProductStockTransferBLL.Get_ExpressionEntity(t => t.ExeWorkOrder == exeWorkOrderEntity.ExeWorkOrder);
+                            if (supProductTransferEntity == null)
+                            {
+                                return AjaxResult(false, "ProduceManage.ProduceController.SortingBGSave.Tips_10");//请先将超产品库存转出
+                            }
+                        }
+
+                        plAttrList = _plProcessOfOperationsAttrBLL.Get_ExpressionList(t => t.OperationsId == plOperationEntity.Id).ToList();
+                        if (plAttrList.Count == 0)
+                        {
+                            return AjaxResult(false, "ProduceManage.ProduceController.SortingBGSave.Tips_26");//工艺属性不存在
+                        }
+                        //c.当前工序是否需要报工
+                        var plAttrEntity1 = plAttrList.Find(t => t.AttrCode == "BGCZ");
+
+                        //if (plAttrEntity1.AttrValue == Language.GetText("Common.No"))
+                        if (plAttrEntity1.AttrValue == "否" || plAttrEntity1.AttrValue == "N")
+                        {
+                            return AjaxResult(false, "ProduceManage.ProduceController.SortingBGSave.Tips_11");//当前工序在工艺路线里，但不可以报工
+                        }
+                        //d.如果当前工序需要开工，校验是否已开工
+                        var plAttrEntity2 = plAttrList.Find(t => t.AttrCode == "KGCZ");
+                        //if (plAttrEntity2.AttrValue == Language.GetText("Common.Yes"))
+                        if (plAttrEntity2.AttrValue == "是" || plAttrEntity2.AttrValue == "Y")
+                        {
+                            var startupEntity = _startUpRecordBLL.Get_ExpressionEntity(t => t.CardCode == cardCode && t.ProcessCode == processCode && t.IsEnabled == true);
+                            if (startupEntity == null)
+                            {
+                                //非新建流转卡或者（是新建流转卡，但不是首道工序）
+                                if (string.IsNullOrEmpty(cardEntity.NewType) || (!string.IsNullOrEmpty(cardEntity.NewType) && cardEntity.StartProcess != processCode))
+                                    return AjaxResult(false, "ProduceManage.ProduceController.SortingBGSave.Tips_12");//当前工序还没开工，不可以报工
+                            }
+                        }
+                        else
+                        {
+                            //判断是否跨工序
+                            int index = plOperationList.FindIndex(t => t.OperationCode == processCode);
+                            if (index > 0) //非首道工序
+                            {
+                                var resumeEntity = _resumeBLL.Get_ExpressionEntity(t => t.CardCode == cardCode && t.Flag == "1");
+                                if (!string.IsNullOrEmpty(resumeEntity?.ProcessCode))
+                                {
+                                    var preOperationCode = plOperationList[index - 1].OperationCode;
+                                    var preOperationName = plOperationList[index - 1].OperationName;
+                                    if (preOperationCode != resumeEntity?.ProcessCode)
+                                    {
+                                        return AjaxResultWithParams(false, "ProduceManage.ProduceController.SortingBGSave.Tips_13", preOperationName);//上一道工序[{preOperationName}]未报工
+                                    }
+                                    else if (resumeEntity.BusinessType != "2")
+                                        return AjaxResultWithParams(false, "ProduceManage.ProduceController.SortingBGSave.Tips_13", preOperationName);//上一道工序[{preOperationName}]未报工
+                                }
+                                else
+                                { //超产品
+                                    if (cardEntity.StartProcess != processCode)
+                                    {
+                                        return AjaxResult(false, "ProduceManage.ProduceController.SortingBGSave.Tips_14");//不允许跨工序操作
+                                    }
+                                }
+                            }
+                        }
+
+                        //f车间首检  校验是否首检 1开，0关
+                        if (plAttrList.Find(t => t.AttrCode == "SCSJ")?.AttrValue == "是" || plAttrList.Find(t => t.AttrCode == "SCSJ")?.AttrValue == "Y")
+                        {
+                            if (exeWorkOrderEntity.OrderType != "5") //超产品执行工单不做判断
+                            {
+                                var keyParamItemEntity = _baseKeyParameterItemBLL.Get_ExpressionEntity(t => t.EnCode == "Switch" && t.ItemCode == "WorkShopFirstInspection"
+                                    && t.Remark1 == workOrderEntity.FactoryCode);
+                                if (keyParamItemEntity?.ItemValue == "1")
+                                {
+                                    var workShopInspecEntity = _pmFirtInspectionBLL.Get_ExpressionEntity(t => t.ProductOrder == cardEntity.ProductOrder
+                                        && t.MaterialCode == cardEntity.MaterialCode && t.FirstProcessCode == processCode && t.InspectClass == "1");
+                                    if (workShopInspecEntity == null)
+                                    {
+                                        return AjaxResult(false, "ProduceManage.ProduceController.SortingBGSave.Tips_15");//车间未首检，不可以报工
+                                    }
+                                    else if (workShopInspecEntity.Determination == "2")
+                                        return AjaxResult(false, "ProduceManage.ProduceController.SortingBGSave.Tips_16");//车间首检不合格，无法报工
+
+                                    if (string.IsNullOrEmpty(workShopInspecEntity.SecondMark) || workShopInspecEntity.SecondMark == "0")
+                                        return AjaxResult(false, "ProduceManage.ProduceController.SortingBGSave.Tips_17");//车间主任未确认,无法报工
+                                }
+                            }
+                        }
+                        //找到当前工序物料批次上机记录
+                        var upRecordList = _materialBatchUpRecordBLL.Get_ExpressionList(t => t.ProcessCode == processCode && t.MachineCode == machineCode && t.Flag == 1).ToList();
+                        //f.是否有库存
+                        var rawMaterialStockTable = _rawMaterailStockBLL.GetList(t => t.IsFrozen == "0");
+                        var query2 = from a in plBomItemList
+                                     join b in rawMaterialStockTable
+                                     on new { a.MaterialCode, WhsCode = a.Warehouse, a.LocationCode } equals new { b.MaterialCode, b.WhsCode, b.LocationCode }
+                                     select b;
+                        var rawMaterialStockSList = query2.ToList();
+
+                        foreach (var item in plBomItemList)
+                        {
+                            if (string.IsNullOrEmpty(item.LocationCode))
+                                return AjaxResultWithParams(false, "ProduceManage.ProduceController.TransferCardBGSave.Tips_38", item.MaterialCode);//物料[{0}]没有找到线边库位
+
+                            // e.启用批次管理 是否存在批次上机记录
+                            var batchNo = "";
+                            if (item.IsUsed == true)
+                            {
+                                if (!upRecordList.Any(t => t.MaterialCode == item.MaterialCode))
+                                {
+                                    return AjaxResultWithParams(false, "ProduceManage.ProduceController.SortingBGSave.Tips_18", item.MaterialCode, item.MaterialName);//物料[{item.MaterialCode}{item.MaterialName}]没有上机记录
+                                }
+                                batchNo = upRecordList.ToList().Find(t => t.MaterialCode == item.MaterialCode)?.BatchNo;
+                                if (!rawMaterialStockSList.Any(t => t.MaterialCode == item.MaterialCode && t.BatchNo == batchNo))
+                                {
+                                    return AjaxResultWithParams(false, "ProduceManage.ProduceController.SortingBGSave.Tips_19", item.MaterialCode, item.MaterialName, batchNo);//物料[{item.MaterialCode}{item.MaterialName}]、批次[{batchNo}]没有可用的库存
+                                }
+                            }
+                            else //非批次管理
+                            {
+                                if (!rawMaterialStockSList.Any(t => t.MaterialCode == item.MaterialCode))
+                                {
+                                    return AjaxResultWithParams(false, "ProduceManage.ProduceController.SortingBGSave.Tips_20", item.MaterialCode, item.MaterialName);//物料[{item.MaterialCode}{item.MaterialName}]没有可用的库存
+                                }
+                            }
+                            #region 报工原料批次消耗记录
+                            PM_MaterialBatchConsumeRecordEntity mbConsumeRecordEntity = new PM_MaterialBatchConsumeRecordEntity();
+                            mbConsumeRecordEntity.Id = Guid.NewGuid().ToString();
+                            mbConsumeRecordEntity.BGID = bgID;
+                            mbConsumeRecordEntity.FactoryCode = workOrderEntity.FactoryCode;
+                            mbConsumeRecordEntity.FactoryName = workOrderEntity.FactoryName;
+                            mbConsumeRecordEntity.MaterialCode = item.MaterialCode;
+                            mbConsumeRecordEntity.MaterialName = item.MaterialName;
+                            mbConsumeRecordEntity.WhsCode = item.Warehouse;
+                            mbConsumeRecordEntity.LocationCode = item.LocationCode;
+                            mbConsumeRecordEntity.Spec = item.Spec;
+                            mbConsumeRecordEntity.BatchNo = batchNo;
+                            //if (unit == Language.GetText("ProduceManage.ProduceController.SortingBGSave.Data_1"))//张
+                            if (unit == "张")
+                            {
+                                mbConsumeRecordEntity.RecoilQty = Math.Round(item.Num.Value * (((qty.ToDecimal() + badQty.ToDecimal()) * DXZH.ToDecimal()) / plBomEntity.UnitNum.Value), 2, MidpointRounding.AwayFromZero);
+                            }
+                            else
+                            {
+                                mbConsumeRecordEntity.RecoilQty = Math.Round(item.Num.Value * ((qty.ToDecimal() + badQty.ToDecimal()) / plBomEntity.UnitNum.Value), 2, MidpointRounding.AwayFromZero);
+                            }
+                            mbConsumeRecordEntity.IsEnabled = true;
+                            mbConsumeRecordEntity.Creator = userCode;
+                            mbConsumeRecordEntity.CreateTime = DateTime.Now;
+                            mbConsumeRecordEntity.Unit = item.Unit;
+                            mbConsumeRecordEntity.UnitName = item.UnitName;
+                            mbConsumeRecordEntity.MaterialType = item.MaterialType;
+
+                            if (mbConsumeRecordEntity.RecoilQty != 0)
+                                mbConsumeRecordList.Add(mbConsumeRecordEntity);
+                            #endregion
+                        }
+
+                        //报工数量控制
+                        var plAttrEntity3 = plAttrList.Find(t => t.AttrCode == "YGBGSL");
+                        if (plAttrEntity3?.AttrValue == "是" || plAttrEntity3?.AttrValue == "Y")
+                        {
+                            var plAttrEntity4 = plAttrList.Find(t => t.AttrCode == "CLZKBGBFB");
+                            if (string.IsNullOrEmpty(plAttrEntity4?.AttrValue))
+                            {
+                                return AjaxResult(false, "ProduceManage.ProduceController.SortingBGSave.Tips_21");//允许超流转卡数量报工百分比属性不能为空
+                            }
+                            var percent = Convert.ToDecimal(plAttrEntity4?.AttrValue);
+                            //if (unit == Language.GetText("ProduceManage.ProduceController.SortingBGSave.Data_1"))//张
+                            if (unit == "张")
+                            {
+                                if (qty.ToDecimal() + hisBGList.Sum(t => t.Qty) > cardEntity.PalletQty * percent)
+                                {
+                                    return AjaxResultWithParams(false, "ProduceManage.ProduceController.SortingBGSave.Tips_22", (cardEntity.PalletQty * percent).ToString());//报工数量不能大于" + (cardEntity.PalletQty * percent).ToString()
+                                }
+                            }
+                            //else if (unit == Language.GetText("ProduceManage.ProduceController.SortingBGSave.Data_2"))//片
+                            else if (unit == "片")
+                            {
+                                if (qty.ToDecimal() + hisBGList.Sum(t => t.Qty) > cardEntity.PieceQty * percent)
+                                {
+                                    return AjaxResultWithParams(false, "ProduceManage.ProduceController.SortingBGSave.Tips_22", (cardEntity.PieceQty * percent).ToString());//报工数量不能大于" + (cardEntity.PieceQty * percent).ToString()
+                                }
+                            }
+                        }
+                    }
+
+                    //当前工序不允许第一次报工负数
+                    if (qty.ToDecimal() < 0)
+                    {
+                        var hasBGList = _transferCardBGBLL.GetList(t => t.CardCode == cardCode && t.ProcessCode == processCode);
+                        if (!hasBGList.Any(t => t.Qty > 0))
+                            return AjaxResult(false, "ProduceManage.ProduceController.TransferCardBGSave.Tips_39"); //不允许第一次报工为负数
+                    }
+
+                    #endregion
+
+                    #region 1、报工生产小组
+                    var pTeamUserList = _teamPersonItemBLL.Get_ExpressionList(t => t.PTeamCode == pTeamCode).ToList();
+                    if (pTeamUserList.Count == 0)
+                        return AjaxResult(false, "ProduceManage.ProduceController.SortingBGSave.Tips_23");//当前生产小组没有分配人员
+
+                    var peopleQty = pTeamUserList.Count;//班组人数
+                    var bgPersonRecordList = new List<PM_TransferBGPersonRecordEntity>();
+                    //岗位系数
+                    var arrPostCode = pTeamUserList.Select(t => t.PostCode).Distinct();
+                    var postCoefficientList = _pmPostCoefficientService.GetList(t => t.ProcessCode == processCode && arrPostCode.Contains(t.PostCode)).ToList();
+                    #region 产品工价
+                    List<PMProductPriceEntity> productPriceList = new List<PMProductPriceEntity>();//产品工价列表
+                                                                                                   //判断是否VC物料
+                    if (workOrderEntity.IsVC == false)
+                        productPriceList = _pmProductPriceService.GetList(t => t.PriceType == "1" && t.ProcessCode == processCode
+                            && t.MaterialCode == plMaterialEntity.MaterialCode).ToList();
+                    else
+                        productPriceList = _pmProductPriceService.GetList(t => t.PriceType == "2" && t.ProcessCode == processCode
+                            && t.Spec == plMaterialEntity.Spec).ToList();
+                    #endregion
+                    foreach (var item in pTeamUserList)
+                    {
+                        var bgPersonEntity = new PM_TransferBGPersonRecordEntity();
+                        bgPersonEntity.Id = Guid.NewGuid().ToString();
+                        bgPersonEntity.BGID = bgID;
+                        bgPersonEntity.FactoryCode = item.FactoryCode;
+                        bgPersonEntity.FactoryName = item.FactoryName;
+                        bgPersonEntity.PTeamCode = item.PTeamCode;
+                        bgPersonEntity.PTeamName = pTeamEntity.PTeamName;
+                        bgPersonEntity.PostCode = item.PostCode;
+                        bgPersonEntity.PostName = item.PostName;
+                        bgPersonEntity.UserCode = item.UserCode;
+                        bgPersonEntity.UserName = item.UserName;
+                        //岗位系数
+                        var postCoefficientEntity = postCoefficientList.Find(t => t.PostCode == item.PostCode && t.PeopleQty == peopleQty);
+                        if (postCoefficientEntity == null)
+                            postCoefficientEntity = postCoefficientList.Find(t => t.PostCode == item.PostCode && !t.PeopleQty.HasValue);
+
+                        bgPersonEntity.Coefficient = postCoefficientEntity?.Coefficient;
+                        #region 产品工价
+                        var productPriceEntity = productPriceList.Find(t => t.PeopleQty == peopleQty && t.PostCode == item.PostCode);
+                        if (productPriceEntity == null)
+                        {
+                            productPriceEntity = productPriceList.Find(t => t.IsDefault == true && t.PostCode == item.PostCode);
+                            if (productPriceEntity == null)
+                            {
+                                productPriceEntity = productPriceList.Find(t => t.PeopleQty == peopleQty);
+                                if (productPriceEntity == null)
+                                    productPriceEntity = productPriceList.Find(t => t.IsDefault == true);
+                            }
+                        }
+                        bgPersonEntity.Price = productPriceEntity?.Price;
+                        #endregion
+                        bgPersonEntity.Creator = userCode;
+                        bgPersonEntity.CreateTime = DateTime.Now;
+                        bgPersonEntity.IsEnabled = true;
+                        bgPersonRecordList.Add(bgPersonEntity);
+                    }
+                    #endregion
+
+                    #region 2、生成报工记录
+                    var cardBGRecordEntity = new PM_TranferCardBGRecordEntity();
+                    cardBGRecordEntity.Id = bgID;
+                    cardBGRecordEntity.FactoryCode = workOrderEntity.FactoryCode;
+                    cardBGRecordEntity.FactoryName = workOrderEntity.FactoryName;
+                    cardBGRecordEntity.WorkOrder = workOrderEntity.WorkOrder;
+                    cardBGRecordEntity.ExeWorkOrder = cardEntity.ExeWorkOrder;
+                    cardBGRecordEntity.CardCode = cardEntity.CardCode;
+                    cardBGRecordEntity.ProcessCode = processCode;
+                    cardBGRecordEntity.MachineCode = machineCode;
+                    cardBGRecordEntity.SortingPort = sortingPort;
+                    cardBGRecordEntity.Qty = qty.ToDecimal();
+                    //cardBGRecordEntity.Unit = plAttrList.Find(t => t.AttrCode == "CCDW")?.AttrValue;
+                    cardBGRecordEntity.Unit = unit;//报工单位统一从工序属性里取值
+                    cardBGRecordEntity.BadQty = badItemDetailList.Sum(t => t.BadQty);
+                    if (plOperationEntity != null)//在工艺路线里的工序才有养生时间
+                    {
+                        cardBGRecordEntity.HealthTime = DateTime.Now.AddHours((double)plOperationEntity.CuringCycle * 24);
+                    }
+                    cardBGRecordEntity.IsRework = "0";//否
+                    cardBGRecordEntity.BGUser = userName;
+                    cardBGRecordEntity.DXZH = DXZH;
+                    cardBGRecordEntity.TotalCoefficient = bgPersonRecordList.Sum(t => t.Coefficient);
+                    cardBGRecordEntity.PeopleQty = peopleQty;
+
+                    //设备系数
+                    var equipCoefficientEntity = _bsModelResourceExtendInfoBLL.Get_ExpressEntity(t => t.ResourceCode == machineCode && t.FieldCode == "SBXS");
+                    if (equipCoefficientEntity != null && !string.IsNullOrEmpty(equipCoefficientEntity.FieldValue))
+                        cardBGRecordEntity.EquipCoefficient = equipCoefficientEntity?.FieldValue.ToDecimalOrNull();
+                    else
+                        cardBGRecordEntity.EquipCoefficient = 1;
+
+                    //是否计算工资
+                    var gzAttrEntity = plAttrList.Find(t => t.AttrCode == "JSXZ");//是否计算薪资
+                    cardBGRecordEntity.IsCalculated = (gzAttrEntity?.AttrValue == "是" || gzAttrEntity?.AttrValue == "Y") ? true : false;
+                    if (cardBGRecordEntity.IsCalculated.Value)
+                    {
+                        if (bgPersonRecordList.Any(t => t.Coefficient == null) || bgPersonRecordList.Any(t => t.Price == null))
+                        {
+                            cardBGRecordEntity.IsGenerated = 3;
+                            if (bgPersonRecordList.Any(t => t.Coefficient == null))
+                                cardBGRecordEntity.ErrorReason = "2";
+                            else if (bgPersonRecordList.Any(t => t.Price == null))
+                                cardBGRecordEntity.ErrorReason = "1";
+                            else
+                                cardBGRecordEntity.ErrorReason = Language.GetText("Common.ErrorNone");//未知原因
+                        }
+                        else
+                            cardBGRecordEntity.IsGenerated = 1;
+                    }
+                    cardBGRecordEntity.IsEnabled = true;
+                    cardBGRecordEntity.Remark = remark;
+                    cardBGRecordEntity.Creator = userCode;
+                    cardBGRecordEntity.CreateTime = DateTime.Now;
+                    #endregion
+
+                    #region 3、报工不良信息
+                    if (badItemDetailList != null && badItemDetailList.Count > 0)
+                    {
+                        if (badItemDetailList.Any(t => t.BadQty == null || t.BadQty == 0))
+                            return AjaxResult(false, "ProduceManage.ProduceController.SortingBGSave.Tips_24");//不良数量不能为0
+
+                        badItemDetailList.ForEach(t =>
+                        {
+                            t.Id = Guid.NewGuid().ToString();
+                            t.BGID = bgID;
+                            t.BusinessTable = "PM_TranferCardBGRecord";
+                            t.FactoryCode = workOrderEntity.FactoryCode;
+                            t.FactoryName = workOrderEntity.FactoryName;
+                            t.SmallClassCode = plMaterialEntity.SmallClass;
+                            t.IsEnabled = true;
+                            t.Creator = userCode;
+                            t.CreateTime = DateTime.Now;
+                        });
+                    }
+                    #endregion
+
+                    if (plOperationEntity != null) //工艺路线里的工序
+                    {
+                        #region 4、报工原料批次消耗记录关联物料组
+                        //var materialGroupList = _baseMaterialGrouBindMaterialpBLL.GetList(t => true);
+                        //var query3 = from a in mbConsumeRecordList
+                        //             join b in materialGroupList
+                        //             on a.MaterialCode equals b.MaterialCode into temp1
+                        //             from b in temp1.DefaultIfEmpty()
+                        //             select new PM_MaterialBatchConsumeRecordEntity()
+                        //             {
+                        //                 Id = a.Id,
+                        //                 BGID = a.BGID,
+                        //                 MaterialCode = a.MaterialCode,
+                        //                 MaterialName = a.MaterialName,
+                        //                 Spec = a.Spec,
+                        //                 GroupCode = b?.GroupCode,
+                        //                 BatchNo = a.BatchNo,
+                        //                 RecoilQty = a.RecoilQty,
+                        //                 CreateTime = a.CreateTime,
+                        //                 Creator = a.Creator,
+                        //                 IsEnabled = a.IsEnabled
+                        //             };
+                        //mbConsumeRecordList = query3.ToList();
+
+                        #endregion
+
+                        var docNum = DateTime.Now.ToString("yyyyMMddHHmmss");
+                        foreach (var item in mbConsumeRecordList)
+                        {
+                            #region 5、生成原材料出库记录
+                            MM_RawMaterialOutEntity rawMaterialOutEntity = new MM_RawMaterialOutEntity();
+                            rawMaterialOutEntity.Id = Guid.NewGuid().ToString();
+                            rawMaterialOutEntity.BusinessId = bgID;
+                            rawMaterialOutEntity.BusinessTable = "PM_TranferCardBGRecord";
+                            rawMaterialOutEntity.FactoryCode = workOrderEntity.FactoryCode;
+                            rawMaterialOutEntity.FactoryName = workOrderEntity.FactoryName;
+                            rawMaterialOutEntity.BGType = "1";//流转卡报工
+                            rawMaterialOutEntity.BGBatchNo = "";//待确认
+                            rawMaterialOutEntity.CardCode = cardCode;
+                            rawMaterialOutEntity.ProductOrder = cardEntity.ProductOrder;
+                            rawMaterialOutEntity.WorkOrder = cardEntity.WorkOrder;
+                            rawMaterialOutEntity.CustomerPO = workOrderEntity.CustomerPO;
+                            rawMaterialOutEntity.ContainerNO = workOrderEntity.ContainerNO;
+                            rawMaterialOutEntity.ExeWorkOrder = cardEntity.ExeWorkOrder;
+                            rawMaterialOutEntity.ProcessCode = processCode;
+                            rawMaterialOutEntity.Spec = cardEntity.Spec;
+                            rawMaterialOutEntity.CustomerModelName = plBomEntity.MaterialName;
+                            rawMaterialOutEntity.CustomerModel = cardEntity.MaterialCode;
+                            rawMaterialOutEntity.BGQty = qty.ToDecimal();
+                            //rawMaterialOutEntity.ProductUnit = plAttrList.Find(t => t.AttrCode == "CCDW")?.AttrValue;
+                            rawMaterialOutEntity.ProductUnit = unit;//报工单位统一从工序属性里取值
+                            rawMaterialOutEntity.DocNum = docNum;
+                            rawMaterialOutEntity.WhsCode = item.WhsCode;
+                            rawMaterialOutEntity.LocationCode = item.LocationCode;//取虚拟库位
+                            rawMaterialOutEntity.MaterialCode = item.MaterialCode;
+                            rawMaterialOutEntity.MaterialName = item.MaterialName;
+                            rawMaterialOutEntity.BatchNo = item.BatchNo;
+                            rawMaterialOutEntity.OutType = "1";//报工
+                            rawMaterialOutEntity.Qty = item.RecoilQty;
+                            rawMaterialOutEntity.Unit = item.Unit;
+                            rawMaterialOutEntity.UnitName = item.UnitName;
+                            rawMaterialOutEntity.Creator = userCode;
+                            rawMaterialOutEntity.CreateTime = DateTime.Now;
+                            rawMaterialOutEntity.MaterialType = item.MaterialType;
+                            rawMaterialOutList.Add(rawMaterialOutEntity);
+                            #endregion
+
+                            #region 6、扣减原材料库存
+                            if (!string.IsNullOrEmpty(item.BatchNo))
+                            {
+                                var rawMaterialEnt = _rawMaterailStockBLL.Get_ExpressionEntity(t => t.MaterialCode == item.MaterialCode && t.LocationCode == item.LocationCode && t.BatchNo == item.BatchNo && t.IsFrozen == "0");
+                                if (rawMaterialEnt == null)
+                                {
+                                    return AjaxResult(false, "库存不存在");
+                                }
+                                rawMaterialOutEntity.BeforeQty = rawMaterialEnt.Qty;
+                                rawMaterialEnt.Qty = rawMaterialEnt.Qty - rawMaterialOutEntity.Qty;
+                                rawMaterialOutEntity.AfterQty = rawMaterialEnt.Qty;
+                                if (stockSwitch.ItemValue == "1") //库存不能为负数开关
+                                {
+                                    if (rawMaterialEnt.Qty < 0)
+                                    {
+                                        return AjaxResult(false, "库存不足，物料：" + rawMaterialEnt.MaterialName);
+                                    }
+                                }
+                                rawMaterialEnt.ModifyBy = userCode;
+                                rawMaterialEnt.ModifyTime = DateTime.Now;
+                                rawMaterialStockList.Add(rawMaterialEnt);
+                            }
+                            else
+                            {
+                                var rawMaterialEnt = _rawMaterailStockBLL.Get_ExpressionEntity(t => t.MaterialCode == item.MaterialCode && t.LocationCode == item.LocationCode && t.IsFrozen == "0");
+                                if (rawMaterialEnt == null)
+                                {
+                                    return AjaxResult(false, "库存不存在");
+                                }
+                                rawMaterialOutEntity.BeforeQty = rawMaterialEnt.Qty;
+                                rawMaterialEnt.Qty = rawMaterialEnt.Qty - rawMaterialOutEntity.Qty;
+                                rawMaterialOutEntity.AfterQty = rawMaterialEnt.Qty;
+                                if (stockSwitch.ItemValue == "1") //库存不能为负数开关
+                                {
+                                    if (rawMaterialEnt.Qty < 0)
+                                    {
+                                        return AjaxResult(false, "库存不足，物料：" + rawMaterialEnt.MaterialName);
+                                    }
+                                }
+                                rawMaterialEnt.ModifyBy = userCode;
+                                rawMaterialEnt.ModifyTime = DateTime.Now;
+                                rawMaterialStockList.Add(rawMaterialEnt);
+                            }
+                            #endregion
+                        }
+
+                        #region 6、扣减原材料库存 已注释
+                        //var rawMaterialStockTable = _rawMaterailStockBLL.GetList(t => t.IsFrozen == "0");
+                        //var query4 = from a in rawMaterialOutList
+                        //             join b in rawMaterialStockTable
+                        //             on new { a.MaterialCode, a.WhsCode, BatchNo = a.BatchNo ?? "" } equals new { b.MaterialCode, b.WhsCode, BatchNo = b.BatchNo ?? "" }
+                        //             select new MM_RawMaterialStockEntity()
+                        //             {
+                        //                 Id = b.Id,
+                        //                 FactoryCode = b.FactoryCode,
+                        //                 FactoryName = b.FactoryName,
+                        //                 MaterialCode = b.MaterialCode,
+                        //                 MaterialName = b.MaterialName,
+                        //                 BatchNo = b.BatchNo,
+                        //                 Qty = b.Qty - a.Qty,
+                        //                 Unit = b.Unit,
+                        //                 SupplierCode = b.SupplierCode,
+                        //                 WhsCode = b.WhsCode,
+                        //                 LocationCode = b.LocationCode,
+                        //                 IsFrozen = b.IsFrozen,
+                        //                 Creator = b.Creator,
+                        //                 CreateTime = b.CreateTime,
+                        //                 ModifyBy = userCode,
+                        //                 ModifyTime = DateTime.Now
+                        //             };
+                        //rawMaterialStockList = query4.ToList();
+                        ////校验是否倒冲为负 1开，0关
+                        //if (keyParamItemEntity2.ItemValue == "1")
+                        //{
+                        //    #region 启用批次管理的物料倒冲不能为负数
+                        //    //var arrMaterialCode = rawMaterialStockList.Select(t => t.MaterialCode).ToArray();
+                        //    //var materialFactoryList = _baseMaterialFactoryBLL.Get_ExpressionList(t => t.FactoryCode == workOrderEntity.FactoryCode
+                        //    //    && arrMaterialCode.Contains(t.MaterialCode) && t.IsUsed == true);
+
+                        //    //var query3 = from a in rawMaterialStockList
+                        //    //             join b in materialFactoryList on a.MaterialCode equals b.MaterialCode
+                        //    //             select a;
+                        //    //var batchStockList = query3.ToList();
+
+                        //    //if (batchStockList.Where(t => t.Qty < 0).Count() > 0)
+                        //    //{
+                        //    //    var batchStockEntity = batchStockList.FirstOrDefault(t => t.Qty < 0);
+                        //    //    var outQty = rawMaterialOutList.Find(t => t.MaterialCode == batchStockEntity.MaterialCode && t.WhsCode == batchStockEntity.WhsCode
+                        //    //        && t.BatchNo == batchStockEntity.BatchNo)?.Qty;//出库数量
+                        //    //    var remainStockQty = batchStockEntity.Qty + outQty;//剩余库存数量
+                        //    //    var plBomItemEntity = plBomItemList.Find(t => t.MaterialCode == batchStockEntity.MaterialCode);
+                        //    //    var remainBGQty = plBomEntity.UnitNum / plBomItemEntity.Num * remainStockQty;
+                        //    //    //if (unit == Language.GetText("ProduceManage.ProduceController.SortingBGSave.Data_1"))//张
+                        //    //    if (unit == "张")
+                        //    //        remainBGQty = Math.Ceiling(remainBGQty.Value / DXZH.Value);
+
+                        //    //    return AjaxResultWithParams(false, "ProduceManage.ProduceController.SortingBGSave.Tips_25", plBomItemEntity.MaterialName, remainBGQty.ToString(), unit);//[{plBomItemEntity.MaterialName}]上机批次剩余库存不足，\r\n报工数量不允许超过{remainBGQty.ToString()}{unit}
+                        //    //    //return AjaxResult(false, "倒冲不能为负数，不可以报工");
+                        //    //}
+                        //    #endregion
+
+                        //    #region 2024年9月10号 韩总要求库存不能为负数，不限制是否启用批次
+
+                        //    if (rawMaterialStockList.Where(t => t.Qty < 0).Count() > 0)
+                        //    {
+                        //        var arrMaterialCode = rawMaterialStockList.Select(t => t.MaterialCode).ToArray();
+                        //        var materialFactoryList = _baseMaterialFactoryBLL.Get_ExpressionList(t => t.FactoryCode == workOrderEntity.FactoryCode
+                        //            && arrMaterialCode.Contains(t.MaterialCode)).ToList();
+
+                        //        var negativeStockEntity = rawMaterialStockList.FirstOrDefault(t => t.Qty < 0);
+                        //        decimal? outQty = 0;
+                        //        //是否启用批次管理
+                        //        if (materialFactoryList.Find(t => t.MaterialCode == negativeStockEntity.MaterialCode)?.IsUsed == true)
+                        //        {
+                        //            outQty = rawMaterialOutList.Find(t => t.MaterialCode == negativeStockEntity.MaterialCode && t.LocationCode == negativeStockEntity.LocationCode
+                        //                && t.BatchNo == negativeStockEntity.BatchNo)?.Qty;//出库数量
+                        //        }
+                        //        else
+                        //        {
+                        //            //出库数量
+                        //            outQty = rawMaterialOutList.Find(t => t.MaterialCode == negativeStockEntity.MaterialCode && t.LocationCode == negativeStockEntity.LocationCode)?.Qty;
+                        //        }
+
+                        //        var remainStockQty = negativeStockEntity.Qty + outQty;//剩余库存数量
+                        //        var plBomItemEntity = plBomItemList.Find(t => t.MaterialCode == negativeStockEntity.MaterialCode);
+                        //        var remainBGQty = plBomEntity.UnitNum / plBomItemEntity.Num * remainStockQty;
+
+                        //        if (unit == "张")
+                        //            remainBGQty = Math.Ceiling(remainBGQty.Value / DXZH.Value);
+
+                        //        return AjaxResultWithParams(false, "ProduceManage.ProduceController.TransferCardBGSave.Tips_29", plBomItemEntity.MaterialName, remainBGQty.ToString(), unit);//[{plBomItemEntity.MaterialName}]上机批次剩余库存不足，\r\n报工数量不允许超过{remainBGQty.ToString()}{unit}
+                        //    }
+
+                        //    #endregion
+                        //}
+                        #endregion
+
+                        #region 7、流转履历
+                        var whsCode = locationEntity.ParentResource;
+
+                        cardResumeEntity = new PM_TransferCardResumeEntity();
+                        cardResumeEntity.Id = Guid.NewGuid().ToString();
+                        cardResumeEntity.FactoryCode = workOrderEntity.FactoryCode;
+                        cardResumeEntity.FactoryName = workOrderEntity.FactoryName;
+                        cardResumeEntity.CardCode = cardCode;
+                        cardResumeEntity.ProcessCode = processCode;
+                        cardResumeEntity.BusinessType = "2";//报工
+                        cardResumeEntity.OperationId = bgID;
+                        cardResumeEntity.Flag = "1";
+                        cardResumeEntity.LocationCode = sortingPort;
+                        cardResumeEntity.WhsCode = whsCode;
+                        //cardResumeEntity.IsInWHs = "1";
+                        cardResumeEntity.IsEnabled = true;
+                        cardResumeEntity.Creator = userCode;
+                        cardResumeEntity.CreateTime = DateTime.Now;
+                        //if (unit == Language.GetText("ProduceManage.ProduceController.SortingBGSave.Data_1"))//张
+                        if (unit == "张")
+                        {
+                            cardResumeEntity.SheetQty = qty.ToDecimal() + hisBGList.Sum(t => t.Qty);
+                            cardResumeEntity.PieceQty = cardResumeEntity.SheetQty * DXZH;
+                        }
+                        else
+                        {
+                            cardResumeEntity.PieceQty = qty.ToDecimal() + hisBGList.Sum(t => t.Qty);
+                            cardResumeEntity.SheetQty = Math.Ceiling(cardResumeEntity.PieceQty.Value / DXZH.Value);
+                        }
+
+                        //历史数据失效
+                        cardResumeOldList = _resumeBLL.Get_ExpressionList(t => t.CardCode == cardCode && t.Flag == "1").ToList();
+                        if (cardResumeOldList != null && cardResumeOldList.Count > 0)
+                        {
+                            foreach (var item in cardResumeOldList)
+                            {
+                                item.Flag = "0";//失效
+                                item.ModifyBy = userCode;
+                                item.ModifyTime = DateTime.Now;
+                            }
+                        }
+                        #endregion
+                    }
+                    else //特殊工序
+                    {
+                        #region 7、流转履历
+                        cardResumeEntity = new PM_TransferCardResumeEntity();
+                        cardResumeEntity.Id = Guid.NewGuid().ToString();
+                        cardResumeEntity.FactoryCode = workOrderEntity.FactoryCode;
+                        cardResumeEntity.FactoryName = workOrderEntity.FactoryName;
+                        cardResumeEntity.CardCode = cardCode;
+                        cardResumeEntity.ProcessCode = processCode;
+                        cardResumeEntity.BusinessType = "2";//报工
+                        cardResumeEntity.OperationId = bgID;
+                        cardResumeEntity.Flag = "0";
+                        cardResumeEntity.Creator = userCode;
+                        cardResumeEntity.CreateTime = DateTime.Now;
+                        cardResumeEntity.IsEnabled = true;
+                        //if (unit == Language.GetText("ProduceManage.ProduceController.SortingBGSave.Data_1"))//张
+                        if (unit == "张")
+                        {
+                            cardResumeEntity.SheetQty = qty.ToDecimal() + hisBGList.Sum(t => t.Qty);
+                            cardResumeEntity.PieceQty = cardResumeEntity.SheetQty * DXZH;
+                        }
+                        else
+                        {
+                            cardResumeEntity.PieceQty = qty.ToDecimal() + hisBGList.Sum(t => t.Qty);
+                            cardResumeEntity.SheetQty = Math.Ceiling(cardResumeEntity.PieceQty.Value / DXZH.Value);
+                        }
+                        #endregion
+                    }
+                    #region 8、记录登陆人绑定的机台、生产小组
+                    var peopleEntity = _bsPeopleService.Get_ExpressionEntity(t => t.Code == userCode);
+                    var isUpdate = false;
+                    if (peopleEntity.MachineCode != machineCode || peopleEntity.PTeamCode != pTeamCode)
+                    {
+                        isUpdate = true;
+                        peopleEntity.MachineCode = machineCode;
+                        peopleEntity.PTeamCode = pTeamCode;
+                        peopleEntity.ModifyBy = userCode;
+                        peopleEntity.ModifyTime = DateTime.Now;
+                        //if (!string.IsNullOrEmpty(peopleEntity.Remark) && peopleEntity.Remark.Length > 1900)
+                        //    peopleEntity.Remark = DateTime.Now.ToString() + userName + "修改机台为：" + machineCode + ";";
+                        //else
+                        //    peopleEntity.Remark += DateTime.Now.ToString() + userName + "修改机台为：" + machineCode + ";";
+                    }
+                    #endregion
+
+                    #region 9、判断是否有返工记录
+                    List<PM_TransferCardEntity> cardList = new List<PM_TransferCardEntity>();
+                    var isUpdate2 = true;
+                    var reworkRecordDetailEntity = _pmReworkRecordDetailBLL.Get_ExpressionEntity(t => t.CardCode == cardCode && t.ReworkStatus == "1");
+                    if (reworkRecordDetailEntity != null)
+                    {
+                        var reworkRecordEntity = _pmReworkRecordBLL.Get_ExpressionEntity(t => t.Id == reworkRecordDetailEntity.ReworkId);
+                        if (reworkRecordEntity.ReworkProcess == processCode)
+                        {
+                            //返工任务中的流转卡都报工后，更新流转卡的状态为：返工中
+                            //返工任务明细
+                            var reworkDetailList = _pmReworkRecordDetailBLL.Get_ExpressionList(t => t.ReworkId == reworkRecordEntity.Id && t.ReworkStatus == "1").ToList();
+                            var arrCardCode = reworkDetailList.Select(t => t.CardCode).ToList();
+                            //流转卡报工记录
+                            var cardBGList = _transferCardBGBLL.Get_ExpressionList(t => t.ProcessCode == processCode && t.IsRework == "0" && arrCardCode.Contains(t.CardCode)).ToList();
+
+                            foreach (var item in reworkDetailList)
+                            {
+                                if (item.CardCode != cardCode) //排除校验当前报工的流转卡
+                                {
+                                    if (!cardBGList.Any(t => t.CardCode == item.CardCode))
+                                    {
+                                        isUpdate2 = false;
+                                        break;
+                                    }
+                                }
+                            }
+                            if (isUpdate2)
+                            {
+                                cardList = _transferCardBLL.Get_ExpressionList(t => arrCardCode.Contains(t.CardCode)).ToList();
+                                foreach (var item in cardList)
+                                {
+                                    item.CardStatus = "3";//返工中
+                                    item.ModifyBy = userCode;
+                                    item.ModifyTime = DateTime.Now;
+                                    item.SerialNumber = reworkRecordEntity.Id;
+                                }
+                            }
+                        }
+                    }
+                    #endregion
+
+                    #region 10、除了当前工序所用的BOM外，当前机台下其他物料全部失效掉
+
+                    //10.1判断工厂建模下是否需要失效
+                    var upMachineList = new List<PM_MaterialBatchUpRecordEntity>();
+                    var map = new Dictionary<string, string>();
+                    map.Add("ResourceCode", processCode);
+                    map.Add("FieldCode", "YLPLSJ");//
+                    map.Add("FieldValue", "1");
+                    //原料批次上机标识(0:清空上机记录，1：不用清空上机记录)
+                    var dy = _levelBLL.GetDynamicModelWithResource(map, out msg);
+                    if (dy == null)
+                    {
+                        var bomMaterialCodeList = plBomItemList.Select(t => t.MaterialCode).ToList();
+                        upMachineList = _materialBatchUpRecordBLL.Get_ExpressionList(t => t.MachineCode == machineCode && t.Flag == 1
+                            && !bomMaterialCodeList.Contains(t.MaterialCode)).ToList();
+                        foreach (var item in upMachineList)
+                        {
+                            item.Flag = 0;
+                            item.ModifyBy = userCode;
+                            item.ModifyTime = DateTime.Now;
+                        }
+                    }
+                    #endregion
+
+                    #region 11、工单状态
+                    var flag = true;
+                    var flag2 = false;
+                    List<PL_WorkOrderEntity> oldWorkOrderList = new List<PL_WorkOrderEntity>();
+                    var bzqProcessCode = plOperationList.OrderByDescending(t => t.SN).ToList()[1].OperationCode;
+                    if (bzqProcessCode == processCode) //如果是包装前工序，判断流转卡所在执行工单下的所有流转卡是否已报工
+                    {
+                        var cardList1 = _transferCardBLL.Get_ExpressionList(t => t.ExeWorkOrder == exeWorkOrderEntity.ExeWorkOrder && t.CardCode != cardCode
+                            && t.CardStatus != "5" && t.CardType != "5").ToList();
+                        var arrCardCode1 = cardList1.Select(t => t.CardCode).Distinct().ToList();
+                        var cardBGList1 = _transferCardBGBLL.Get_ExpressionList(t => t.ProcessCode == processCode && arrCardCode1.Contains(t.CardCode)
+                            && t.IsRework == "0").ToList();
+                        foreach (var item in cardList1)
+                        {
+                            if (!cardBGList1.Any(t => t.CardCode == item.CardCode))
+                            {
+                                flag = false;
+                                break;
+                            }
+                        }
+                        if (flag)
+                        {
+                            exeWorkOrderEntity.Status = "3";
+                            exeWorkOrderEntity.ModifyBy = userCode;
+                            exeWorkOrderEntity.ModifyTime = DateTime.Now;
+
+                            var exeWorkOrderList = _exeWorkOrderBLL.Get_ExpressionList(t => t.WorkOrder == exeWorkOrderEntity.WorkOrder
+                                && t.ExeWorkOrder != exeWorkOrderEntity.ExeWorkOrder && t.Status != "3" && t.OrderType != "5" && t.IsEnabled == true).ToList();
+                            if (exeWorkOrderList.Count == 0)
+                            {
+                                flag2 = true;
+                                workOrderEntity.OrderStatus = "6";//已完成
+                                workOrderEntity.ModifyBy = userCode;
+                                workOrderEntity.ModifyTime = DateTime.Now;
+                                if (workOrderEntity.BatchStatus == 1) //合批工单同步更新原工单状态
+                                {
+                                    oldWorkOrderList = _workOrderBLL.Get_ExpressionList(t => t.BatchWorkOrder == workOrderEntity.WorkOrder).ToList();
+                                    foreach (var item2 in oldWorkOrderList)
+                                    {
+                                        item2.OrderStatus = "6";
+                                        item2.ModifyBy = CurrentAccount.UserCode;
+                                        item2.ModifyTime = DateTime.Now;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    #endregion
+
+                    #region 执行事务
+
+                    //TransactionOptions transactionOption = new TransactionOptions();
+                    ////设置事务隔离级别
+                    //transactionOption.IsolationLevel = System.Transactions.IsolationLevel.ReadCommitted;
+                    //// 设置事务超时时间为60秒
+                    //transactionOption.Timeout = new TimeSpan(0, 0, 60);
+                    //using (var ts = new TransactionScope(TransactionScopeOption.Required, transactionOption))
+                    using (var ts = new TransactionScope())
+                    {
+                        _transferCardBGBLL.SaveEntity("", cardBGRecordEntity, out msg);
+                        if (badItemDetailList != null && badItemDetailList.Count > 0)
+                            _bgBadRecordBLL.SaveEntity_List(false, "", badItemDetailList, out msg);
+
+                        _bgPersonRecordBLL.SaveEntity_List(false, "", bgPersonRecordList, out msg);
+                        if (plOperationEntity != null)
+                        {
+                            _bgMBConsumeRecordBLL.SaveEntity_List(false, "", mbConsumeRecordList, out msg);
+                            _mmRawMaterialOutBLL.SaveEntity_List(false, "", rawMaterialOutList, out msg);
+                            if (rawMaterialStockList.Count > 0)
+                            {
+                                _rawMaterailStockBLL.SaveEntity_List(true, "", rawMaterialStockList, out msg);
+                            }
+                            _resumeBLL.SaveEntity("", cardResumeEntity, out msg);
+                            if (cardResumeOldList != null && cardResumeOldList.Count > 0)
+                                _resumeBLL.SaveEntity_List(true, userName, cardResumeOldList, out msg);
+                        }
+                        if (isUpdate)//更新绑定的机台、生产小组信息
+                        {
+                            _bsPeopleService.SaveEntity(peopleEntity.ID, peopleEntity, out msg);
+                        }
+                        if (isUpdate2 && cardList.Count > 0)//更新流转卡状态
+                        {
+                            _transferCardBLL.SaveEntity_List(true, userName, cardList, out msg);
+                        }
+                        if (upMachineList != null && upMachineList.Count() > 0)//上机记录
+                        {
+                            _materialBatchUpRecordBLL.SaveEntity_List(true, userName, upMachineList, out msg);
+                        }
+                        if (flag)
+                        {
+                            _exeWorkOrderBLL.SaveEntity(exeWorkOrderEntity.Id, exeWorkOrderEntity, out msg);
+                        }
+                        if (flag2)
+                        {
+                            _workOrderBLL.SaveEntity(workOrderEntity.Id, workOrderEntity, out msg);
+                        }
+
+                        if (workOrderEntity.BatchStatus == 1 && oldWorkOrderList.Count > 0)
+                            _workOrderBLL.SaveEntity_List(true, CurrentAccount.UserCode, oldWorkOrderList, out msg);
+
+                        ts.Complete();
+                    }
+                    #endregion
+                }
+            }
+            catch (Exception ex)
+            {
+                result.success = false;
+                result.statusCode = ((int)HttpStatusCode.InternalServerError).ToString();
+                result.returnMsg = "Common.Error";
+            }
+            return Request.CreateResponse(HttpStatusCode.OK, result);
+        }
+        #endregion
+
+        #region 在机流转卡查询
+        /// <summary>
+        /// 在机流转卡查询
+        /// </summary>
+        /// <param name="jo"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("InMachineCardQuery")]
+        public HttpResponseMessage InMachineCardQuery(JObject jo)
+        {
+            dynamic scanResult = new ExpandoObject();
+            try
+            {
+                string machineCode = getValue(jo, "machineCode");//机台编码
+                if (string.IsNullOrEmpty(machineCode))
+                    return AjaxResult(false, "ProduceManage.ProduceController.InMachineCardQuery.Tips_1");//机台不能为空
+                //机台
+                var machineEntity = _bsModelWithResourceBLL.GetEntity(t => t.ResourceCode == machineCode);
+                if (machineEntity == null)
+                    return AjaxResult(false, "ProduceManage.ProduceController.InMachineCardQuery.Tips_2");//机台不存在
+                //工序
+                var processCode = machineEntity.ParentResource;
+                var processEntity = _bsModelWithResourceBLL.GetEntity(t => t.ResourceCode == processCode);
+                //工厂
+                var factoryEntity = _bsModelWithResourceBLL.GetFactoryByProcess(processCode);
+                //在机超期天数
+                var keyParamItemEntity = _baseKeyParameterItemBLL.Get_ExpressionEntity(t => t.Remark1 == factoryEntity.ResourceCode
+                    && t.EnCode == "Number" && t.ItemCode == "OnOverDays");
+                int days = keyParamItemEntity.ItemValue.ToInt();
+
+                var startUpList = _startUpRecordBLL.GetList(t => t.MachineCode == machineCode);
+                var resumeList = _resumeBLL.GetList(t => t.Flag == "1" && t.BusinessType == "8");
+                var cardList = _transferCardBLL.GetList(t => true);
+                var query = from a in startUpList
+                            join b in resumeList on a.CardCode equals b.CardCode
+                            join c in cardList on b.CardCode equals c.CardCode
+                            select new
+                            {
+                                a.CardCode,
+                                b.SheetQty,
+                                b.PieceQty,
+                                c.MMXH,
+                                c.Spec,
+                                c.ProductOrder,
+                                c.ContainerNO,
+                                StartTime = a.CreateTime,
+                                ClassColor = ((DateTime.Now - a.CreateTime.Value).TotalDays <= days) ? "Gainsboro" : "#FF0000"
+                            };
+                var data = query.OrderBy(t => t.StartTime).ToList();
+
+                scanResult.MachineName = machineEntity.ResourceName;
+                scanResult.ProcessCode = processCode;
+                scanResult.ProcessName = processEntity?.ResourceName;
+                scanResult.List = data;
+
+                return AjaxResult(true, "Common.Success", scanResult);
+            }
+            catch (Exception ex)
+            {
+                return AjaxResult(false, ex.Message);
+            }
+        }
+        #endregion
+
+        #region BOM查询
+        /// <summary>
+        /// BOM查询
+        /// </summary>
+        /// <param name="jo"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("BOMQuery")]
+        public HttpResponseMessage BOMQuery(JObject jo)
+        {
+            var result = new ResponseResult();
+            try
+            {
+                dynamic scanResult = new ExpandoObject();
+
+                if (jo == null)
+                {
+                    return AjaxResult(false, "Common.ParamsNotNull");//参数不能为空
+                }
+                string codeBar = getValue(jo, "codeBar");
+                if (string.IsNullOrEmpty(codeBar))
+                {
+                    return AjaxResult(false, "ProduceManage.ProduceController.BOMQuery.Tips_1");//条码不能为空
+                }
+                //流转卡
+                var cardEntity = _transferCardBLL.Get_ExpressionEntity(t => t.CardCode == codeBar && t.IsEnabled == true);
+                if (cardEntity != null)
+                {
+                    var workOrder = cardEntity.WorkOrder;
+
+                    var plBOMEntity = _plBomBLL.Get_ExpressionEntity(t => t.WorkOrder == workOrder && t.IsDeleted == false); ;
+                    if (plBOMEntity == null)
+                        return AjaxResult(false, "ProduceManage.ProduceController.BOMQuery.Tips_2");//BOM不存在
+
+                    var plBOMItemList = _plBomItemBLL.Get_ExpressionList(t => t.BOMId == plBOMEntity.Id).ToList();
+                    if (plBOMItemList.Count == 0)
+                        return AjaxResult(false, "ProduceManage.ProduceController.BOMQuery.Tips_3");//BOM明细不存在
+                    var plOperationList = _transferCardBLL.BOMQuery(workOrder);
+                    int i = 1;
+                    foreach (var item in plOperationList)
+                    {
+                        string operationCode = item.OperationCode;
+                        var bomItemList = plBOMItemList.Where(t => t.ConsumeProcess == operationCode).ToList();
+                        if (i == 1)
+                        {
+                            bomItemList.ForEach(t =>
+                            {
+                                t.Num = Math.Round(t.Num.Value / plBOMEntity.UnitNum.Value * cardEntity.DXZH.Value, 3, MidpointRounding.AwayFromZero);
+                            });
+                        }
+                        item.BOMItemList = bomItemList;
+                        i += 1;
+                    }
+
+                    scanResult.List = plOperationList;//流转卡列表
+                    return AjaxResult(true, "Common.SearchSuccess", scanResult);
+                }
+
+                //自制半成品流转卡
+                var ownCardEntity = _OwnProductTransferBLL.Get_ExpressionEntity(t => t.TransferCode == codeBar);
+                if (ownCardEntity != null)
+                {
+                    var workOrder = ownCardEntity.WorkOrder;
+
+                    var plBOMEntity = _plBomBLL.Get_ExpressionEntity(t => t.WorkOrder == workOrder && t.IsDeleted == false); ;
+                    if (plBOMEntity == null)
+                        return AjaxResult(false, "ProduceManage.ProduceController.BOMQuery.Tips_2");//BOM不存在
+
+                    var plBOMItemList = _plBomItemBLL.Get_ExpressionList(t => t.BOMId == plBOMEntity.Id).ToList();
+                    if (plBOMItemList.Count == 0)
+                        return AjaxResult(false, "ProduceManage.ProduceController.BOMQuery.Tips_3");//BOM明细不存在
+                    var plOperationList = _transferCardBLL.BOMQuery(workOrder);
+                    foreach (var item in plOperationList)
+                    {
+                        string operationCode = item.OperationCode;
+                        var bomItemList = plBOMItemList.Where(t => t.ConsumeProcess == operationCode).ToList();
+
+                        item.BOMItemList = bomItemList;
+                    }
+
+                    scanResult.List = plOperationList;//流转卡列表
+                    return AjaxResult(true, "Common.SearchSuccess", scanResult);
+                }
+
+
+                return AjaxResult(false, "ProduceManage.ProduceController.BOMQuery.Tips_4");//条码无效
+            }
+            catch (Exception ex)
+            {
+                result.success = false;
+                result.statusCode = ((int)HttpStatusCode.InternalServerError).ToString();
+                result.returnMsg = ex.Message;
+            }
+            return Request.CreateResponse(HttpStatusCode.OK, result);
+        }
+        #endregion
+    }
+}

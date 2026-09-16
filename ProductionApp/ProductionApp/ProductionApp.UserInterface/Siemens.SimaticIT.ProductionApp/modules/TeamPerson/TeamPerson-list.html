@@ -1,0 +1,94 @@
+﻿<style>
+    .MainCommandActionButton {
+        margin-top: 20px !important;
+    }
+</style>
+
+<div id="itemlist" class="content-area content-area-relative" style="height: calc(14% - 30px) !important">
+    <!--查询条件与功能按钮-->
+    <div class="col-md-40" style="margin-left: 15px;">
+        <div class="side-panel-property-area-body">
+            <sit-property-grid sit-id="add_form" sit-layout="Horizontal" sit-type="Fixed" sit-mode="edit"
+                               sit-columns="8">
+                <sit-property sit-widget="sit-select" sit-value="vm.typeFactory.value"
+                              sit-validation="{required: false}" sit-options="vm.typeFactory.options"
+                              sit-to-display="'ResourceName'" sit-to-keep="'ResourceCode'" sit-read-only="false"
+                              sit-change="vm.typeFactoryChange">
+                    {{'Siemens.SimaticIT.ProductionApp.TeamPerson.Factory'|translate}}
+                </sit-property>
+                <sit-property sit-widget="sit-select" sit-value="vm.Process.value" sit-validation="{required: false}"
+                              sit-options="vm.Process.options" sit-to-display="'ResourceName'" sit-to-keep="'ResourceCode'"
+                              sit-read-only="false">
+                    {{'Siemens.SimaticIT.ProductionApp.TeamPerson.Process'|translate}}
+                </sit-property>
+                <sit-property sit-widget="sit-text" sit-value="vm.searchParams.PTeamCode" sit-read-only="false"
+                              style="max-width:100px;">
+                    {{'Siemens.SimaticIT.ProductionApp.TeamPerson.PTeamCode'|translate}}
+                </sit-property>
+                <sit-property sit-widget="sit-text" sit-value="vm.searchParams.PTeamName" sit-read-only="false"
+                              style="max-width:100px;">
+                    {{'Siemens.SimaticIT.ProductionApp.TeamPerson.PTeamName'|translate}}
+                </sit-property>
+
+                <sit-command-bar sit-type="action">
+                    <sit-command sit-icon="fa-search" sit-type="main" sit-name="com.siemens.customcommand.search"
+                                 :sit-tooltip="{{'customCommon.Button.Search'|translate}}" ng-click="vm.searchButtonHandler"
+                                 :sit-label="{{'customCommon.Button.Search'|translate}}">
+                    </sit-command>
+                </sit-command-bar>
+            </sit-property-grid>
+        </div>
+    </div>
+    <!--右侧功能按钮-->
+    <sit-command-bar sit-vertical-autofixed="true" sit-type="Tool" sit-label-align="right" sit-layout="vertical">
+        <sit-command sit-icon="fa-trash" sit-name="com.siemens.customcommand.delete"
+                     :sit-tooltip="{{'customCommon.Button.Delete'|translate}}" ng-click="vm.deleteButtonHandler"
+                     :sit-label="{{'customCommon.Button.Delete'|translate}}" ng-show="vm.isButtonVisible"></sit-command>
+        <sit-command sit-icon="fa-edit" sit-name="com.siemens.customcommand.edit"
+                     :sit-tooltip="{{'customCommon.Button.Edit'|translate}}" ng-click="vm.editButtonHandler"
+                     :sit-label="{{'customCommon.Button.Edit'|translate}}" ng-show="vm.isButtonVisible"></sit-command>
+        <sit-command sit-icon="fa-plus" sit-name="com.siemens.customcommand.add" ng-click="vm.addButtonHandler"
+                     :sit-tooltip="{{'customCommon.Button.Add'|translate}}" :sit-label="{{'customCommon.Button.Add'|translate}}"
+                     sit-type="main"></sit-command>
+    </sit-command-bar>
+</div>
+<!-- grid列表 -->
+<div id="listClass" style="width:100%; height: 37%; padding:0px 16px 0 16px; margin-top: 3px;">
+    <div ui-grid="vm.gridOptions" ui-grid-pinning ui-grid-auto-resize ui-grid-resize-columns ui-grid-selection
+         ui-grid-pagination class="uigrid"></div>
+</div>
+<!--子表操作区-->
+<div class="col-md-40" style="margin-left: 15px;margin-top: 1%;">
+    <div class="side-panel-property-area-body">
+        <sit-property-grid sit-id="add_form" sit-layout="Horizontal" sit-type="Fixed" sit-mode="edit" sit-columns="7">
+            <sit-property sit-widget="sit-select" sit-value="vm.Post.value" sit-validation="{required: false}"
+                          sit-options="vm.Post.options" sit-to-display="'Col2'" sit-to-keep="'Col1'" sit-read-only="false">
+                {{'Siemens.SimaticIT.ProductionApp.TeamPerson.Post'|translate}}
+            </sit-property>
+
+            <sit-property sit-widget="sit-entity-picker" sit-id="vm.UserConfig.id"
+                          sit-datasource="vm.UserConfig.datasource" sit-limit="vm.UserConfig.limit"
+                          sit-placeholder="vm.UserConfig.placeholder"
+                          sit-selected-attribute-to-display="vm.UserConfig.attributetodisplay"
+                          sit-selected-object="vm.UserConfig.selectedObject" sit-wait-ms="vm.UserConfig.waitTime"
+                          sit-editable="vm.UserConfig.editable" sit-validation="vm.UserConfig.validation"
+                          sit-change="vm.UserConfig.changeEvent" ng-disabled="vm.UserConfig.disableEP"
+                          ng-readonly="vm.UserConfig.readOnly" sit-required="vm.UserConfig.required">
+                {{'Siemens.SimaticIT.ProductionApp.TeamPerson.Person'|translate}}
+            </sit-property>
+            <sit-command-bar sit-type="action">
+                <sit-command sit-icon="fa-plus" sit-type="main" sit-name="com.siemens.customcommand.add"
+                             :sit-tooltip="{{'customCommon.Button.Add2'|translate}}"
+                             :sit-label="{{'customCommon.Button.Add2'|translate}}" ng-click="vm.add2ButtonHandler"></sit-command>
+                <sit-command sit-icon="fa-trash" sit-type="main" sit-name="com.siemens.customcommand.delete"
+                             :sit-tooltip="{{'customCommon.Button.Delete'|translate}}" ng-click="vm.delete2ButtonHandler"
+                             :sit-label="{{'customCommon.Button.Delete'|translate}}"></sit-command>
+            </sit-command-bar>
+        </sit-property-grid>
+    </div>
+</div>
+
+<div id="listClass2" class="col-md-40" style="width:100%; height: 40%; padding:0px 16px 0 16px; margin-top: 2%;">
+    <div ui-grid="vm.gridOptionsDetail" ui-grid-pinning ui-grid-auto-resize ui-grid-resize-columns ui-grid-selection
+         ui-grid-pagination class="uigrid"></div>
+</div>

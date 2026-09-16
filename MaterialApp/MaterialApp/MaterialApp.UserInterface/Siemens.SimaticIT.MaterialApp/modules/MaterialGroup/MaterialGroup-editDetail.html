@@ -1,0 +1,36 @@
+﻿<div class="command-bar-side-panel">
+    <button ng-click="vm.cancel()" class="btn side-panel-button">{{'Siemens.SimaticIT.MaterialApp.MaterialGroup.MaterialGroupeditDetail.Tips_1'|translate}}</button>
+    <button ng-click="vm.save()" class="btn side-panel-button" ng-show="vm.validInputs">{{'Siemens.SimaticIT.MaterialApp.MaterialGroup.MaterialGroupeditDetail.Tips_2'|translate}}</button>
+</div>
+<div class="side-panel-property-area-body">
+    <sit-property-grid sit-id="edit_form"
+                       sit-layout="Vertical"
+                       sit-type="Fluid"
+                       sit-mode="edit"
+                       sit-columns="1">
+        <!-- TODO: Put here the properties of the entity managed by the service -->
+        <sit-property sit-widget="sit-text"
+                      sit-value="vm.currentItem.MaterialCode"
+                      sit-validation="{required: true}"
+                      sit-read-only="false">
+            {{'Siemens.SimaticIT.MaterialApp.MaterialGroup.MaterialGroupeditDetail.Tips_3'|translate}}
+        </sit-property>
+        <sit-property sit-widget="sit-numeric"
+                      sit-value="vm.currentItem.SortCode"
+                      sit-validation="{required: true}"
+                      sit-read-only="false">
+            {{'Siemens.SimaticIT.MaterialApp.MaterialGroup.MaterialGroupeditDetail.Tips_4'|translate}}
+        </sit-property>
+        <sit-property sit-widget="sit-checkbox"
+                      sit-value="vm.IsEnabledMark"
+                      sit-validation="{required: false}"
+                      ng-show="true">
+            {{'Siemens.SimaticIT.MaterialApp.MaterialGroup.MaterialGroupeditDetail.Tips_5'|translate}}
+        </sit-property>
+        <!-- <sit-property sit-widget="sit-textarea"
+                    sit-value="vm.currentItem.Description"
+                    sit-validation="{required: false}"
+                    sit-read-only="false">
+            {{'Siemens.SimaticIT.MaterialApp.MaterialGroup.MaterialGroupeditDetail.Tips_6'|translate}}
+        </sit-property> -->
+</div>

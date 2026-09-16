@@ -1,0 +1,26 @@
+﻿{
+  "name": "Siemens.SimaticIT.MaterialApp.MMSaleDomestic",
+  "type": "standard",
+  "title": "Siemens.SimaticIT.MaterialApp.MMSaleDomestic.Title",
+  "header": "",
+  "icon": "fa-folder",
+  "functionalBlock": "Siemens.SimaticIT.MaterialApp",
+  "dependencies": [],
+  "states": [
+    {
+      "id": "home.Siemens_SimaticIT_MaterialApp_MMSaleDomestic_SaleDomestic",
+      "title": "Siemens.SimaticIT.MaterialApp.SaleDomestic.Title",
+      "header": "",
+      "securable": true,
+      "roles": []
+    },
+    {
+      "id": "home.Siemens_SimaticIT_MaterialApp_MMSaleDomestic_SaleDomesticOut",
+      "title": "Siemens.SimaticIT.MaterialApp.SaleDomesticOut.Title",
+      "header": "",
+      "securable": true,
+      "roles": []
+    }
+  ],
+  "manifestVersion": "01.01.00"
+}

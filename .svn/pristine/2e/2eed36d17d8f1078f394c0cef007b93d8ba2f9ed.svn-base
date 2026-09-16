@@ -1,0 +1,128 @@
+﻿{
+  //Ổ chung
+  "Common": {
+    "Error": "Thao tác thất bại, lỗi máy chủ",
+    "ErrorWithOther": "Thao tác thất bại，{0}",
+    "ErrorWithOther2": "Thao tác thất bại：",
+    "Success": "Thao tác thành công",
+    "Success2": "Thao tác thành công：",
+    "SuccessWithOther": "Thao tác thành công，{0}",
+    "ExecutionSuccess": "Thực thi thành công",
+    "ExecutionSuccess2": "Thực thi thành công：",
+    "ExecutionSuccessWithOther": "Thực thi thành công，{0}",
+    "ExecutionError": "Thực thi thất bại",
+    "ExecutionError2": "Thực thi thất bại：",
+    "ExecutionErrorWithOther": "Thực thi thất bại，{0}",
+
+    "ParamsNotNull": "Tham số không được để trống",
+    "SearchParamsNotNull": "Tham số truy vấn không được để trống",
+    "Yes": "Có",
+    "No": "Không",
+    "Qua": "Hợp lệ",
+    "UnQua": "Không hợp lệ",
+    "ErrorNone": "Không rõ nguyên nhân",
+    "DeleteSuccess": "Xóa thành công",
+    "DeleteSuccess2": "Xóa thành công：",
+    "DeleteSuccessWithOther": "Xóa thành công:{0}",
+    "DeleteError": "Xóa thất bại",
+    "DeleteError2": "Xóa thất bại：",
+    "DeleteErrorWithOther": "Xóa thất bại:{0}",
+    "SearchSuccess": "Truy vấn thành công",
+    "SearchSuccess2": "Truy vấn thành công：",
+    "SearchSuccessWithOther": "Truy vấn thành công:{0}",
+    "SearchError": "Truy vấn thất bại",
+    "SearchError2": "Truy vấn thất bại：",
+    "SearchErrorWithOther": "Truy vấn thất bại:{0}"
+  },
+  "BaseManage": {
+    "AccountController": {
+      "Tips_1": "Thao tác thất bại， hãy chuyển tham số yêu cầu",
+      "Tips_2": "Account/List接口异常：{0}",
+      "Tips_4": "Account/SaveAccount接口请求参数{0}",
+      "Tips_5": "Account/SaveAccount接口异常：{0}"
+    },
+    "BaseShiftController": {
+      "Tips_2": "Tham số phân trang Pagination không được để trống!",
+      "Tips_4": "Nhận dữ liệu chi tiết thành công",
+      "Tips_5": "Tên người dùng không được để trống!",
+      "Tips_8": "Thiếu tham số KeyValue!",
+      "Tips_9": "Thiếu tham số Entity!"
+    }
+  },
+  "LevelManage": {
+    "BsModelLevelExtendFieldsController": {
+      "Tips_1": "Kiểm tra thành công  0001",
+      "Tips_2": "】的数据",
+      "Tips_3": "Tìm kiếm thành công",
+      "Tips_4": "Tham số phân trang Pagination không được để trống!",
+      "Tips_7": "Nhận dữ liệu chi tiết thành công",
+      "Tips_8": "Mã người dùng không được để trống!",
+      "Tips_11": "Thiếu tham số KeyValue!",
+      "Tips_12": "Thiếu tham số Entity!",
+      "Tips_14": "Thêm thất bại：nhập lại mã trường dữ liệu",
+      "Tips_15": "Thêm thất bại：nhập lại tên trường dữ liệu",
+      "Tips_16": "Sửa thành công",
+      "Tips_17": "Mã trường nhập đã tồn tại",
+      "Tips_18": "Tên trường nhập đã tồn tại"
+    },
+    "BsModelLevelsController": {
+      "Tips_1": "Kiểm tra thành công  0001",
+      "Tips_2": "Tìm kiếm thành công",
+      "Tips_3": "Tham số phân trang Pagination không được để trống!",
+      "Tips_6": "Nhận dữ liệu chi tiết thành công",
+      "Tips_7": "Lấy dữ liệu thành công",
+      "Tips_8": "Mã người dùng không được để trống!",
+      "Tips_11": "Thiếu tham số KeyValue!",
+      "Tips_12": "Thiếu tham số Entity!",
+      "Tips_13": "Thêm thành công",
+      "Tips_14": "Sửa thành công",
+      "Tips_15": "Khóa chính bị trùng, vui lòng nhập lại mã phân cấp",
+      "Tips_16": "Tên phân cấp vừa nhập đã tồn tại",
+      "Tips_17": "Phân cấp vừa nhập đã tồn tại"
+    },
+    "BsModelResourceExtendInfoController": {
+      "Tips_1": "Kiểm tra thành công  0001",
+      "Tips_2": "Tìm kiếm thành công",
+      "Tips_3": "Tham số phân trang Pagination không được để trống!",
+      "Tips_6": "Nhận dữ liệu chi tiết thành công",
+      "Tips_7": "ID tài nguyên không được để trống!",
+      "Tips_10": "Thiếu tham số KeyValue!",
+      "Tips_11": "Thiếu tham số Entity!",
+      "Tips_13": "Tham số ResourceCode không được để trống!",
+      "Tips_14": "Tham số FieldCode không được để trống"
+    },
+    "BsModelWithResourceController": {
+      "Tips_1": "Kiểm tra thành công  0001",
+      "Tips_2": "Tìm kiếm thành công",
+      "Tips_3": "Tham số phân trang Pagination không được để trống!",
+      "Tips_6": "Nhận dữ liệu chi tiết thành công",
+      "Tips_7": "ID tài nguyên không được để trống!",
+      "Tips_10": "Thiếu tham số KeyValue!",
+      "Tips_11": "Thiếu tham số Entity!",
+      "Tips_13": "Sửa thành công",
+      "Tips_14": "Thao tác thất bại，nhập lại mã",
+      "Tips_15": "Thao tác thất bại，nhập lại tên"
+    },
+    "LevelController": {
+      "Tips_1": "Kiểm tra thành công  0001",
+      "Tips_2": "]的数据",
+      "Tips_3": "]的数据失败：",
+      "Tips_6": "Tham số không được để trống!",
+      "Tips_7": "ResourceCode Tham số không được để trống!",
+      "Tips_8": "LevelCode Tham số không được để trống!",
+      "Tips_10": "Người đăng nhập không được để trống!",
+      "Tips_11": "Nhà máy Tham số không được để trống!",
+      "Tips_12": "factoryCode Tham số không được để trống!",
+      "Tips_13": "Thao tác thất bại:",
+      "Tips_14": "factoryCode、fieldCode、fieldValue Tham số không được để trống!",
+      "Tips_15": "parentResource Tham số không được để trống!",
+      "Tips_16": "ModelLeve Tham số không được để trống!",
+      "Tips_17": "FieldCode Tham số không được để trống!",
+      "Tips_18": "FieldValue Tham số không được để trống!",
+      "Tips_19": "ResourceCode không được để trống!",
+      "Tips_20": "FieldCode không được để trống!",
+      "Tips_21": "FieldValue không được để trống!",
+      "Tips_22": "userName không được để trống!"
+    }
+  }
+}

@@ -1,0 +1,1114 @@
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.Common;
+using System.Linq;
+using System.Linq.Expressions;
+using System.Data.SqlClient;
+using System.Text;
+using System.Threading.Tasks;
+using ALP.Application.Entity.Material;
+using ALP.Data.Repository;
+using ALP.Util;
+using ALP.Util.Extension;
+using ALP.Util.WebControl;
+using Newtonsoft.Json.Linq;
+using ALP.Application.Service.Common;
+using System.IO;
+using ALP.Application.IService.Material;
+using ALP.Application.UtilExtend.Offices;
+using System.ComponentModel.DataAnnotations.Schema;
+using ALP.Data;
+using ALP.Application.Entity.SAPEntity;
+
+namespace ALP.Application.Service.Material
+{
+    /// <summary>
+    /// 1.创建日期: 2021-07-30
+    /// 2.创建作者: liyongguo
+    /// 3.功能描述: Base_MaterialFactoryService 业务服务类
+    /// 4.任务编号: 工厂物料数据维护
+    /// 5.最后修改日期: 
+    /// 6.最后修改作者: 
+    /// </summary>
+    public class Base_MaterialFactory_Service : RepositoryFactory<Base_MaterialFactoryEntity>, Base_MaterialFactoryIService
+    {
+        /// <summary>
+        /// 功能描述: 查询分页列表
+        /// 创　　建: liyongguo
+        /// 创建日期: 2021-07-30 19:46:38
+        /// 任务编号: 工厂物料数据维护
+        /// </summary>
+        /// <param name="pagination">分页</param>
+        /// <param name="queryJson">查询参数</param>
+        /// <returns>返回分页列表</returns>
+        public IEnumerable<Base_MaterialFactoryEntity> GetPageList(Pagination pagination, string queryJson)
+        {
+            StringBuilder sql = new StringBuilder();
+            sql.Append(@"SELECT [Id],
+                               [MaterialCode],
+                               [FactoryCode],
+                               [Warehouse],
+                               [ProcureType],
+                               [ProcessRoute],
+                               [IsUsed],
+                               [Creator],
+                               [CreateTime],
+                               [ModifyBy],
+                               [ModifyTime],
+                               SafeStock,
+                               TemplateCode
+                        FROM [dbo].[Base_MaterialFactory]
+                        WHERE 1 = 1 ");
+            var parameter = new List<DbParameter>();
+            if (!string.IsNullOrEmpty(queryJson))
+            {
+                JObject queryParam = queryJson.ToJObject();
+                //查询条件 
+                //Id 是否为空进行查询
+                if (!queryParam["Id"].IsEmpty())
+                {
+                    //sql.Append($" AND Id = N'{queryParam["Id"]}'");
+                    sql.Append($" AND Id like N'%{queryParam["Id"]}%'");
+                }
+                //物料编码 是否为空进行查询
+                if (!queryParam["MaterialCode"].IsEmpty())
+                {
+                    //sql.Append($" AND MaterialCode = N'{queryParam["MaterialCode"]}'");
+                    sql.Append($" AND MaterialCode like N'%{queryParam["MaterialCode"]}%'");
+                }
+                //物料名称 是否为空进行查询
+                if (!queryParam["FactoryCode"].IsEmpty())
+                {
+                    sql.Append($" AND FactoryCode = N'{queryParam["FactoryCode"]}'");
+                }
+                //库存地点 是否为空进行查询
+                if (!queryParam["Warehouse"].IsEmpty())
+                {
+                    //sql.Append($" AND Warehouse = N'{queryParam["Warehouse"]}'");
+                    sql.Append($" AND Warehouse like N'%{queryParam["Warehouse"]}%'");
+                }
+                //采购类型 是否为空进行查询
+                if (!queryParam["ProcureType"].IsEmpty())
+                {
+                    //sql.Append($" AND ProcureType = N'{queryParam["ProcureType"]}'");
+                    sql.Append($" AND ProcureType like N'%{queryParam["ProcureType"]}%'");
+                }
+                //生产工艺路线 是否为空进行查询
+                if (!queryParam["ProcessRoute"].IsEmpty())
+                {
+                    //sql.Append($" AND ProcessRoute = N'{queryParam["ProcessRoute"]}'");
+                    sql.Append($" AND ProcessRoute like N'%{queryParam["ProcessRoute"]}%'");
+                }
+                //是否启用批次管理 是否为空进行查询
+                if (!queryParam["IsUsed"].IsEmpty())
+                {
+                    //sql.Append($" AND IsUsed = N'{queryParam["IsUsed"]}'");
+                    sql.Append($" AND IsUsed like N'%{queryParam["IsUsed"]}%'");
+                }
+                //queryName(选择弹窗关键名称) 是否为空进行查询
+                if (!queryParam["queryName"].IsEmpty())
+                {
+                    //sql.Append($" AND 关键名称 = '{queryParam["queryName"]}'");
+                    //sql.Append($" AND 关键名称 like N'%{queryParam["queryName"]}%'");
+                }
+                //queryCode(选择弹窗关键编码) 是否为空进行查询
+                if (!queryParam["queryCode"].IsEmpty())
+                {
+                    //sql.Append($" AND 关键编码 = N'{queryParam["queryCode"]}'");
+                    //sql.Append($" AND 关键编码 like N'%{queryParam["queryCode"]}%'");
+                }
+            }
+            try
+            {
+                if (pagination == null)
+                {
+                    return this.BaseRepository().FindList(sql.ToString());
+                }
+                else
+                {
+                    return this.BaseRepository().FindList(sql.ToString(), parameter.ToArray(), pagination);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// 功能描述: 查询分页列表(DataTable)
+        /// 创　　建: liyongguo
+        /// 创建日期: 2021-07-30 19:46:38
+        /// 任务编号: 工厂物料数据维护
+        /// </summary>
+        /// <param name="pagination">分页</param>
+        /// <param name="queryJson">查询参数</param>
+        /// <returns>返回分页列表</returns>
+        public DataTable GetPageDataTableList(Pagination pagination, string queryJson)
+        {
+            StringBuilder sql = new StringBuilder();
+            sql.Append(@"SELECT MF.Id,
+                               M.Id MaterialId,
+                               MF.FactoryCode,
+                               a.ResourceName FactoryName,
+                               MF.MaterialCode,
+                               M.MaterialName,
+                               M.Spec,
+                               M.MaterialClass,
+                               V1.ItemName MaterialClassName,
+                               M.SmallClass,
+                               V2.ItemName SmallClassName,
+                               M.UnitName,
+                               M.Unit,
+                               M.IsEnabled,
+                               MF.Warehouse,
+                               V4.ResourceName WarehouseName,
+                               MF.ProcureType,
+                               V5.ItemName ProcureTypeName,
+                               MF.ProcessRoute,
+                               BP.ProcessName ProcessRouteName,
+                               MF.IsUsed,
+                               MF.IsExemption,
+                               MF.Creator,
+                               MF.CreateTime,
+                               MF.ModifyBy,
+                               MF.ModifyTime,
+                               MF.SafeStock,
+							   MF.TemplateCode
+                        FROM [dbo].[Base_MaterialFactory] MF
+                            LEFT JOIN dbo.Base_Material M
+                                ON M.MaterialCode = MF.MaterialCode
+                            LEFT JOIN [dbo].[V_DataDictionary] V1
+                                ON V1.EnCode = 'MaterialType'
+                                   AND V1.ItemValue = M.MaterialClass
+                            LEFT JOIN [dbo].[V_DataDictionary] V2
+                                ON V2.EnCode = 'MaterialSmall'
+                                   AND V2.ItemValue = M.SmallClass
+                            LEFT JOIN [dbo].BS_ModelWithResource V4
+                                ON V4.ResourceCode = MF.Warehouse
+                            LEFT JOIN [dbo].[V_DataDictionary] V5
+                                ON V5.EnCode = 'ProcureType'
+                                   AND V5.ItemValue = MF.ProcureType
+                            LEFT JOIN dbo.BS_Process BP
+                                ON BP.ProcessCode = MF.ProcessRoute
+								AND mf.FactoryCode=BP.FactoryCode
+                            LEFT JOIN dbo.BS_ModelWithResource a
+                                ON a.ModelLeve = 'Factory'
+                                   AND MF.FactoryCode = a.ResourceCode
+                        WHERE ISNULL(MF.IsDeleted,0)=0 ");
+            var parameter = new List<DbParameter>();
+            if (!string.IsNullOrEmpty(queryJson))
+            {
+                JObject queryParam = queryJson.ToJObject();
+                //查询条件 
+                //Id 是否为空进行查询
+                if (!queryParam["Id"].IsEmpty())
+                {
+                    //sql.Append($" AND Id = N'{queryParam["Id"]}'");
+                    sql.Append($" AND MF.Id like N'%{queryParam["Id"]}%'");
+                }
+                //工厂 是否为空进行查询
+                if (!queryParam["FactoryCode"].IsEmpty())
+                {
+                    sql.Append($" AND MF.FactoryCode = N'{queryParam["FactoryCode"]}'");
+                }
+                //物料编码 是否为空进行查询
+                if (!queryParam["MaterialCode"].IsEmpty())
+                {
+                    //sql.Append($" AND MaterialCode = N'{queryParam["MaterialCode"]}'");
+                    sql.Append($" AND MF.MaterialCode like N'%{queryParam["MaterialCode"]}%'");
+                }
+                //物料名称 是否为空进行查询
+                if (!queryParam["MaterialName"].IsEmpty())
+                {
+                    //sql.Append($" AND MaterialCode = N'{queryParam["MaterialCode"]}'");
+                    sql.Append($" AND M.MaterialName like N'%{queryParam["MaterialName"]}%'");
+                }
+                //规格型号 是否为空进行查询
+                if (!queryParam["Spec"].IsEmpty())
+                {
+                    sql.Append($" AND M.Spec like N'%{queryParam["Spec"]}%'");
+                }
+                //物料小类 是否为空进行查询
+                if (!queryParam["SmallClass"].IsEmpty())
+                {
+                    sql.Append($" AND M.SmallClass = N'{queryParam["SmallClass"]}'");
+                }
+                //物料分类 是否为空进行查询
+                if (!queryParam["MaterialClass"].IsEmpty())
+                {
+                    sql.Append($" AND M.MaterialClass = N'{queryParam["MaterialClass"]}'");
+                }
+                //库存地点 是否为空进行查询
+                if (!queryParam["Warehouse"].IsEmpty())
+                {
+                    //sql.Append($" AND Warehouse = N'{queryParam["Warehouse"]}'");
+                    sql.Append($" AND MF.Warehouse like N'%{queryParam["Warehouse"]}%'");
+                }
+                //采购类型 是否为空进行查询
+                if (!queryParam["ProcureType"].IsEmpty())
+                {
+                    sql.Append($" AND MF.ProcureType = N'{queryParam["ProcureType"]}'");
+                }
+                //生产工艺路线 是否为空进行查询
+                if (!queryParam["ProcessRoute"].IsEmpty())
+                {
+                    //sql.Append($" AND ProcessRoute = N'{queryParam["ProcessRoute"]}'");
+                    sql.Append($" AND MF.ProcessRoute like N'%{queryParam["ProcessRoute"]}%'");
+                }
+                //是否启用批次管理 是否为空进行查询
+                if (!queryParam["IsUsed"].IsEmpty())
+                {
+                    //sql.Append($" AND IsUsed = N'{queryParam["IsUsed"]}'");
+                    sql.Append($" AND MF.IsUsed like N'%{queryParam["IsUsed"]}%'");
+                }
+
+                if (!queryParam["SmallClassOwnProduct"].IsEmpty())
+                {
+                    sql.Append($" AND M.SmallClass IN ({queryParam["SmallClassOwnProduct"]})");
+                }
+                //queryCode(选择弹窗关键编码) 是否为空进行查询
+                if (!queryParam["Name"].IsEmpty())
+                {
+                    sql.Append($" AND (M.MaterialName like N'%{queryParam["Name"]}%' OR M.MaterialCode like N'%{queryParam["Name"]}%')");
+                }
+                //物料分类 <>成品 CHPN
+                if (!queryParam["QueryFilter1"].IsEmpty())
+                {
+                    sql.Append($" AND M.MaterialClass != N'{queryParam["QueryFilter1"]}'");
+                }
+            }
+            try
+            {
+                if (pagination == null)
+                {
+                    return this.BaseRepository().FindTable(sql.ToString());
+                }
+                else
+                {
+                    return this.BaseRepository().FindTable(sql.ToString(), parameter.ToArray(), pagination);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// 功能描述: 查询列表, 不分页, 适用于下拉列表使用
+        /// 创　　建: liyongguo
+        /// 创建日期: 2021-07-30 19:46:38
+        /// 任务编号: 工厂物料数据维护
+        /// </summary>
+        /// <param name="checkType">查询条件</param>
+        /// <returns>返回分页列表</returns>
+        public IEnumerable<Base_MaterialFactoryEntity> GetList(string checkType, out string msg)
+        {
+            StringBuilder sql = new StringBuilder();
+            sql.Append(@"SELECT 
+                      [Id]
+                      ,[MaterialCode]
+                      ,[FactoryCode]
+                      ,[Warehouse]
+                      ,[ProcureType]
+                      ,[ProcessRoute]
+                      ,[IsUsed]
+                      ,[Creator]
+                      ,[CreateTime]
+                      ,[ModifyBy]
+                      ,[ModifyTime],SafeStock
+                  FROM [dbo].[Base_MaterialFactory] where 1=1 ");
+            if (!checkType.IsEmpty())
+            {
+                //sql.Append($@" and Id = N'{checkType}' ");
+            }
+            msg = "";
+            try
+            {
+                return this.BaseRepository().FindList(sql.ToString());
+            }
+            catch (Exception ex)
+            {
+                msg = ex.Message;
+                return null;
+            }
+        }
+        public IEnumerable<Base_MaterialFactoryEntity> GetList(Expression<Func<Base_MaterialFactoryEntity, bool>> condition)
+        {
+            return this.BaseRepository().IQueryable(condition);
+        }
+        public DataTable GetListSelect(string queryJson)
+        {
+            StringBuilder sql = new StringBuilder();
+            sql.Append(@"SELECT BM.FactoryCode,
+                               BM.MaterialCode,
+                               BP.ProcessCode,
+                               BP.ProcessName
+                        FROM dbo.Base_MaterialFactory BM
+                            INNER JOIN dbo.BS_Process BP
+                                ON BM.ProcessRoute = BP.ProcessCode
+								AND BM.FactoryCode=BP.FactoryCode
+                        WHERE 1 = 1 ");
+            if (!string.IsNullOrEmpty(queryJson))
+            {
+                JObject queryParam = queryJson.ToJObject();
+                if (!queryParam["FactoryCode"].IsEmpty())
+                {
+                    sql.Append($" AND BM.FactoryCode = N'{queryParam["FactoryCode"]}'");
+                }
+                if (!queryParam["MaterialCode"].IsEmpty())
+                {
+                    sql.Append($" AND BM.MaterialCode = N'{queryParam["MaterialCode"]}'");
+                }
+            }
+
+            return this.BaseRepository().FindTable(sql.ToString());
+        }
+
+        /// <summary>
+        /// 功能描述: 保存表单（新增、修改）
+        /// 创　　建: liyongguo
+        /// 创建日期: 2021-07-30 19:46:38
+        /// 任务编号: 工厂物料数据维护
+        /// </summary>
+        /// <param name="keyValue">主键值</param>
+        /// <param name="entity">实体对象</param>
+        /// <param name="msg">输出错误内容</param>
+        /// <returns>返回int 成功1, 失败0 </returns>
+        public int SaveEntity(string keyValue, Base_MaterialFactoryEntity entity, out string msg)
+        {
+            int n = 0;
+            msg = "";
+            try
+            {
+                if (!string.IsNullOrEmpty(keyValue))
+                {
+                    entity.Modify(keyValue);
+                    n = this.BaseRepository().Update(entity);
+                }
+                else
+                {
+                    if (string.IsNullOrEmpty(entity.Id))
+                    {
+                        entity.Create();
+                    }
+                    n = this.BaseRepository().Insert(entity);
+                }
+            }
+            catch (Exception ex)
+            {
+                msg = ex.Message;
+            }
+            return n;
+        }
+
+        /// <summary>
+        /// 功能描述: 导入 保存表单（新增、修改）
+        /// 创　　建: liyongguo
+        /// 创建日期: 2021-07-30 19:46:38
+        /// 任务编号: 工厂物料数据维护
+        /// </summary>
+        /// <param name="IsUpdate">是否更新</param>
+        /// <param name="CreatedByName">创建人</param>
+        /// <param name="List<Base_MaterialFactoryEntity>">实体对象数组</param>
+        /// <param name="msg">输出错误内容</param>
+        /// <returns>返回int 成功1, 失败0 </returns>
+        public int SaveEntity_List(bool IsUpdate, string CreatedByName, List<Base_MaterialFactoryEntity> entity_list, out string msg)
+        {
+            int n = 0;
+            msg = "";
+            try
+            {
+                if (IsUpdate)
+                {
+                    //n = this.BaseRepository().Update(entity_list);
+                    StringBuilder sql = new StringBuilder();
+                    if (entity_list.Count > 0)
+                    {
+                        foreach (var Save_obj in entity_list)
+                        {
+                            StringBuilder sql_temp = new StringBuilder();
+                            sql_temp.Append("UPDATE [dbo].[Base_MaterialFactory] set ");
+                            string keyValue = "";
+                            //循环实体
+                            Save_obj.GetType().GetProperties().ToList().ForEach(x =>
+                            {
+                                if (x.Name == "Id")
+                                {
+                                    keyValue = x.GetValue(Save_obj, null).ToString();
+                                }
+                                else
+                                {
+                                    if (x.Name == "IsDeleted")
+                                    {
+                                        if (x.GetValue(Save_obj, null) != null)
+                                        {
+                                            sql_temp.Append(x.Name + "=" + (x.GetValue(Save_obj, null) == null ? 0 : (x.GetValue(Save_obj, null).ToString() == "true" ? 1 : 0)) + ",");
+                                        }
+                                    }
+                                    else
+                                    {
+                                        var hasNotMapped = Attribute.IsDefined(x, typeof(NotMappedAttribute));
+                                        if (!hasNotMapped)
+                                        {
+                                            if (x.GetValue(Save_obj, null) != null && x.GetValue(Save_obj, null).ToString() != "")
+                                            {
+                                                sql_temp.Append(x.Name + "=N'" + (x.GetValue(Save_obj, null) == null ? "" : x.GetValue(Save_obj, null).ToString()) + "',");
+                                            }
+                                        }
+                                    }
+                                }
+
+                            });
+                            sql.Append(sql_temp.ToString().TrimEnd(',') + $" WHERE Id='{keyValue}';");
+                        }
+                    }
+                    //批量执行更新语句
+                    n = this.BaseRepository().ExecuteBySql(sql.ToString());
+                }
+                else
+                {
+                    n = this.BaseRepository().Insert(entity_list);
+
+                }
+            }
+            catch (Exception ex)
+            {
+                msg = ex.Message;
+            }
+            return n;
+        }
+
+        public void InsertList(List<Base_MaterialFactoryEntity> list)
+        {
+            this.BaseRepository().Insert(list);
+        }
+
+        /// <summary>
+        /// 功能描述: 删除, 通过主键删除
+        /// 创　　建: liyongguo
+        /// 创建日期: 2021-07-30 19:46:38
+        /// 任务编号: 工厂物料数据维护
+        /// </summary>
+        /// <param name="keyValue">主键值</param>
+        /// <param name="msg">输出错误内容</param>
+        /// <param name="UpdateByName">删除操作人</param>
+        /// <returns>返回int 成功1, 失败0 </returns>
+        public int DeleteEntity(string keyValue, out string msg, string UpdateByName = "")
+        {
+            int n = 0;
+            msg = "";
+            try
+            {
+                //删除
+                n = this.BaseRepository().Delete(keyValue);
+            }
+            catch (Exception ex)
+            {
+                msg = ex.Message;
+            }
+            return n;
+        }
+
+        /// <summary>
+        /// 功能描述: 假删除, 通过主键删除, 删除标记设置为0
+        /// 创　　建: liyongguo
+        /// 创建日期: 2021-07-30 19:46:38
+        /// 任务编号: 工厂物料数据维护
+        /// </summary>
+        /// <param name="keyValue">主键值</param>
+        /// <param name="UpdateByName">删除操作人</param>
+        /// <returns>返回int 成功1, 失败0 </returns>
+        public int RemoveForm(string keyValue, string UpdateByName = "")
+        {
+            return this.BaseRepository().Delete(keyValue);
+        }
+
+        /// <summary>
+        /// 功能描述: 删除, 通过主键删除, 使用SQL方式, 更新也可以使用
+        /// 创　　建: liyongguo
+        /// 创建日期: 2021-07-30 19:46:38
+        /// 任务编号: 工厂物料数据维护
+        /// </summary>
+        /// <param name="keyValue">主键值</param>
+        /// <param name="msg">输出错误内容</param>
+        /// <returns>返回int 成功1, 失败0 </returns>
+        public int Delete_SQL(string keyValue, out string msg)
+        {
+            int n = 0;
+            msg = "";
+            try
+            {
+                StringBuilder sql = new StringBuilder();
+                sql.Append($@"DELETE FROM [dbo].[Base_MaterialFactory] WHERE Id=N'{keyValue}'");
+                n = this.BaseRepository().ExecuteBySql(sql.ToString());
+            }
+            catch (Exception ex)
+            {
+                msg = ex.Message;
+            }
+            return n;
+        }
+
+        /// <summary>
+        /// 功能描述: 根据主键得到一个实体对象
+        /// 创　　建: liyongguo
+        /// 创建日期: 2021-07-30 19:46:38
+        /// 任务编号: 工厂物料数据维护
+        /// </summary>
+        /// <param name="keyValue">主键值</param>
+        /// <returns>返回Base_MaterialFactoryEntity</returns>
+        public Base_MaterialFactoryEntity GetEntity(string keyValue)
+        {
+            return this.BaseRepository().FindEntity(keyValue);
+        }
+
+        /// <summary>
+        /// 功能描述: 通过某字段(不是主键)查询对象
+        /// 创　　建: liyongguo
+        /// 创建日期: 2021-07-30 19:46:38
+        /// 任务编号: 工厂物料数据维护
+        /// </summary>
+        /// <param name="QueryField">查询条件字段内容</param>
+        /// <returns>返回Base_MaterialFactoryEntity</returns>
+        public Base_MaterialFactoryEntity GetEntityByQuery(string QueryField)
+        {
+            // 根据实际情况更换某字段, 这个字段内容在列表是唯一值
+            return this.BaseRepository().FindEntity(t => t.Id == QueryField);
+        }
+
+        /// <summary>
+        /// 功能描述:  根据条件（linq）方法查询对象
+        /// 创　　建: liyongguo
+        /// 创建日期: 2021-07-30 19:46:38
+        /// 任务编号: 工厂物料数据维护
+        /// </summary>
+        /// /// <param name="condition">Expression 条件</param>
+        /// <returns>返回Base_MaterialFactoryEntity 对象</returns>
+        public Base_MaterialFactoryEntity Get_ExpressionEntity(Expression<Func<Base_MaterialFactoryEntity, bool>> condition)
+        {
+            // 根据实际情况更换某字段, 这个字段内容在列表是唯一值
+            return this.BaseRepository().FindEntity(condition);
+            //调用示例 var data = _Service.Get_ExpressionEntity(t => t.PlanProTime == PlanProTime && t.Line == Line&& t.IsDeleted == false);
+        }
+
+        /// <summary>
+        /// 功能描述: 根据条件（linq）方法查询列表
+        /// 创　　建: liyongguo
+        /// 创建日期: 2021-07-30 19:46:38
+        /// 任务编号: 工厂物料数据维护
+        /// </summary>
+        /// /// <param name="condition">Expression 条件</param>
+        /// <returns>返回Base_MaterialFactoryEntity 列表</returns>
+        public IEnumerable<Base_MaterialFactoryEntity> Get_ExpressionList(Expression<Func<Base_MaterialFactoryEntity, bool>> condition)
+        {
+            // 根据实际情况更换某字段, 这个字段内容在列表是唯一值
+            return this.BaseRepository().IQueryable(condition);
+            //调用示例 var data = _Service.Get_ExpressionList(t => t.PlanProTime == PlanProTime && t.Line == Line&& t.IsDeleted == false).OrderByDescending(t => t.PlanProNo).ToList();
+        }
+
+        ///// <summary>
+        ///// 删除主表数据并同步删除子表数据, 假删除更新删除标记
+        ///// </summary>
+        ///// <param name="keyValue"></param>
+        ///// <returns></returns>
+        //public int RemoveForm(string keyValue)
+        //{
+        //    int result = 0;
+        //    StringBuilder sql = new StringBuilder();
+        //    //子表服务类
+        //    RepositoryFactory<Base_MaterialFactoryEntity> bomService = new RepositoryFactory<Base_MaterialFactoryEntity>();
+
+        //    Base_MaterialFactoryEntity entity = this.BaseRepository().FindEntity(keyValue);
+        //    //根据主表在子表的ID与主表主键查找实体, 如果是多条,使用循环遍历删除
+        //    Base_MaterialFactoryDetailEntity bomEntity = bomService.BaseRepository().IQueryable(t => t.Base_MaterialFactory_Id == entity.Id).FirstOrDefault();
+        //    if (entity != null)
+        //    {
+        //        //主表删除标记
+        //        entity.IsEnabled = false;
+        //        this.BaseRepository().Update(entity);
+        //        if (bomEntity != null)
+        //        {
+        //            //子表删除标记
+        //            bomEntity.IsEnabled = false;
+        //            bomService.BaseRepository().Update(bomEntity);
+        //        }
+        //        result = 1;
+        //    }
+
+        //    return result;
+        //}
+
+        /// <summary>
+        /// 功能描述: 查询列表, 不分页,返回不是当前实体,使用另一个实体进行返回 参考示例
+        /// 创　　建: liyongguo
+        /// 创建日期: 2021-07-30 19:46:38
+        /// 任务编号: 工厂物料数据维护
+        /// </summary>
+        /// <param name="checkType">查询条件</param>
+        /// <param name="msg">错误消息输出</param>
+        /// <returns>返回分页列表</returns>
+        public IEnumerable<Base_MaterialFactoryEntity> GetList_TestOtherEntity(string checkType, out string msg)
+        {
+            StringBuilder sql = new StringBuilder();
+            sql.Append(@"SELECT getdate() as CreatedDateTime ");
+            if (string.IsNullOrEmpty(checkType) == false)
+            {
+                //sql.Append($@" and ID = '{checkType}'";
+            }
+            msg = "";
+            try
+            {
+                //执行 
+                Data.Dapper.SqlDatabase db2 = new Data.Dapper.SqlDatabase();
+                //实体映射查询
+                IEnumerable<Base_MaterialFactoryEntity> Base_MaterialFactoryEntity_list = db2.FindList<Base_MaterialFactoryEntity>(sql.ToString());
+                return Base_MaterialFactoryEntity_list;
+            }
+            catch (Exception ex)
+            {
+                msg = ex.Message;
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// 功能描述: 查询列表, 不分页,返回不是当前实体,使用一个未定义表进行返回 参考示例
+        /// 创　　建: liyongguo
+        /// 创建日期: 2021-07-30 19:46:38
+        /// 任务编号: 工厂物料数据维护
+        /// </summary>
+        /// <param name="checkType">查询条件</param>
+        /// <param name="msg">错误消息输出</param>
+        /// <returns>返回分页列表</returns>
+        public DataTable GetDataTable_TestOtherEntity(string checkType, out string msg)
+        {
+            StringBuilder sql = new StringBuilder();
+            sql.Append(@"SELECT getdate() as CreatedDateTime ");
+            if (string.IsNullOrEmpty(checkType) == false)
+            {
+                //sql.Append($@" and ID = '{checkType}'";
+            }
+            msg = "";
+            try
+            {
+                //执行 
+                Data.Dapper.SqlDatabase db2 = new Data.Dapper.SqlDatabase();
+                //实体映射查询
+                DataTable Base_MaterialFactoryEntity_DataTable = db2.FindTable(sql.ToString());
+                return Base_MaterialFactoryEntity_DataTable;
+            }
+            catch (Exception ex)
+            {
+                msg = ex.Message;
+                return null;
+            }
+        }
+
+        /// <summary>
+        /// 根据单据类型获取流水号 存储过程调用示例
+        /// </summary>
+        /// <param name="SeqCode">规则代码</param>
+        /// <param name="returnNum">返回的流水号</param>
+        /// <param name="messageCode">异常消息等</param>
+        /// <returns></returns>
+        public bool GetSerialNO(string SeqCode, out string returnNum, out string messageCode)
+        {
+            bool b = false;
+            returnNum = "";
+            messageCode = "";
+            //调用存储过程
+            SqlParameter[] parameters = {
+                new SqlParameter("@SeqCode", SqlDbType.VarChar,60),
+                new SqlParameter("@ReturnNum", SqlDbType.VarChar,40),
+                new SqlParameter("@MessageCode", SqlDbType.VarChar,800)
+            };
+            parameters[0].Value = SeqCode;
+            parameters[1].Direction = ParameterDirection.Output;
+            parameters[2].Direction = ParameterDirection.Output;
+
+            try
+            {
+                //执行存储过程
+                Data.Dapper.SqlDatabase db2 = new Data.Dapper.SqlDatabase();
+                db2.ExecuteProcedure("P_GetSerialNO", parameters);
+                //返回参数值
+                returnNum = parameters[1].Value.ToString();
+                messageCode = parameters[2].Value.ToString();
+                b = true;
+            }
+            catch (Exception ex)
+            {
+                messageCode = ex.Message;
+            }
+            return b;
+        }
+
+        /// <summary>
+        /// 功能描述: 导出 列表到EXCEL 
+        /// 创　　建: liyongguo
+        /// 创建日期: 2021-07-30 19:46:38
+        /// 任务编号: 工厂物料数据维护
+        /// </summary>
+        /// <param name="checkType">查询条件</param>
+        /// <returns>链接地址</returns>
+        public string GetList_export(string checkType, out string msg)
+        {
+            StringBuilder sql = new StringBuilder();
+            sql.Append(@"SELECT 
+                      [MaterialCode] as '物料编码'
+                      ,[FactoryCode] as '物料名称'
+                      ,[Warehouse] as '库存地点'
+                      ,[ProcureType] as '采购类型'
+                      ,[ProcessRoute] as '生产工艺路线'
+                      ,[IsUsed] as '是否启用批次管理'
+                      ,[Creator] as '创建人'
+                      ,[CreateTime] as '创建时间'
+                      ,[ModifyBy] as '最后修改人'
+                      ,[ModifyTime] as '最后修改时间'
+                  FROM [dbo].[Base_MaterialFactory] where 1=1 ");
+            msg = "成功!";
+            if (!checkType.IsEmpty())
+            {
+                //此处换上你的关键查询条件 也可以为空 查询全部
+                sql.Append($@" and CreatedByCode = '{checkType}' ");
+            }
+            try
+            {
+                DataTable dt = this.BaseRepository().FindTable(sql.ToString());
+                var virtualPath = "~/";
+                var dirPath = "Upload/";
+                string folder = DateTime.Now.ToString("yyyyMM") + "/";
+                //文件全路径
+                var fullDirPath = System.Web.HttpContext.Current.Server.MapPath(virtualPath + dirPath + folder);
+
+                string sServerDir = fullDirPath;
+                if (!Directory.Exists(sServerDir))
+                {
+                    Directory.CreateDirectory(sServerDir);
+                }
+                string saveFileName = "工厂物料数据维护_" + DateTime.Now.ToString("yyyy-MM-dd-HHmm") + ".xls";
+
+                ExcelHelper Excel = new ExcelHelper();
+                MemoryStream ms = Excel.DataTableToExcel("工厂物料数据维护", dt, true);
+                //保存
+                Excel.saveTofle(ms, System.IO.Path.Combine(sServerDir, saveFileName));
+                Excel.Dispose();
+                return $@"{dirPath}{folder}{saveFileName}";
+            }
+            catch (Exception ex)
+            {
+                msg = ex.Message;
+                return null;
+            }
+        }
+
+        public int RemoveForm(Expression<Func<Base_MaterialFactoryEntity, bool>> condition)
+        {
+            return this.BaseRepository().Delete(condition);
+        }
+
+        #region SAP对接
+        /// <summary>
+        /// 物料工厂属性新增、修改接口
+        /// 创建： jpf
+        /// 创建时间：2024-3-5 19:12:01
+        /// </summary>
+        /// <param name="lstEntity"></param>
+
+        public void MaterialFactorySaveFromSAP(List<SAPBase_MaterialFactory> lstEntity)
+        {
+            //开启事务进行数据的插入
+            IDatabase db = DbFactory.UABase().BeginTrans();
+            try
+            {
+                foreach (var SAPitem in lstEntity)
+                {
+                    Base_MaterialFactoryEntity materialFactoryEntity = SAPitem.MaterialFactoryEntity;
+                    List<Base_MaterialFacetEntity> materFacetList = SAPitem.FacetEntitys;
+
+                    //判断物料工厂是否为空
+                    if (string.IsNullOrEmpty(materialFactoryEntity.FactoryCode))
+                    {
+                        throw new Exception("工厂编码必须传!");
+                    }
+                    //判断物料编码是否为空
+                    if (string.IsNullOrEmpty(materialFactoryEntity.MaterialCode))
+                    {
+                        throw new Exception("物料编码必须传!");
+                    }
+                    //将SAP物料编码转化为MES的物料编码
+                    var strSql = string.Format(@"select  * FROM Base_Material where SAPmaterialCode={0} and IsEnabled=1", materialFactoryEntity.MaterialCode);
+                    var dtMaterial = new RepositoryFactory().BaseRepository().FindTable(strSql);
+                    if (dtMaterial.Rows.Count == 0)
+                    {
+                        throw new Exception(materialFactoryEntity.MaterialCode + "物料编码未同步");
+                    }
+                    materialFactoryEntity.MaterialCode = dtMaterial.Rows[0]["MaterialCode"].ToString();
+
+                    //判断工艺路线编码是否与系统一致
+                    if (!string.IsNullOrEmpty(materialFactoryEntity.ProcessRoute))
+                    {
+                        var ProcessSql = string.Format(@"SELECT * FROM BS_Process WHERE ProcessCode='{0}'", materialFactoryEntity.ProcessRoute);
+                        var ProcessData = new RepositoryFactory().BaseRepository().FindTable(ProcessSql);
+                        if (ProcessData.Rows.Count == 0)
+                        {
+                            throw new Exception(materialFactoryEntity.ProcessRoute + "工艺路线编码在MES系统不存在，不允许同步");
+                        }
+                    }
+                    //物料工厂属性维护是否存在
+                    var matFacSql = string.Format(@"SELECT * FROM Base_MaterialFactory WHERE MaterialCode='{0}' AND FactoryCode='{1}'",
+                        materialFactoryEntity.MaterialCode, materialFactoryEntity.FactoryCode);
+                    var matFacData = new RepositoryFactory().BaseRepository().FindList<Base_MaterialFactoryEntity>(matFacSql).FirstOrDefault();
+
+                    var materialFactoryId = "";
+                    if (materialFactoryEntity.IsDeleted == false)
+                    {
+                        if (matFacData == null)
+                        {
+                            materialFactoryEntity.Create();
+                            materialFactoryEntity.CreateTime = DateTime.Now;
+                            materialFactoryEntity.Creator = "SAP";
+                            db.Insert(materialFactoryEntity);
+                            materialFactoryId = materialFactoryEntity.Id;
+                        }
+                        else
+                        {
+                            matFacData.ModifyTime = DateTime.Now;
+                            matFacData.Warehouse = materialFactoryEntity.Warehouse;
+                            matFacData.ProcessRoute = materialFactoryEntity.ProcessRoute;
+                            matFacData.IsUsed = materialFactoryEntity.IsUsed;
+                            matFacData.IsExemption = materialFactoryEntity.IsExemption;
+                            matFacData.SafeStock = materialFactoryEntity.SafeStock;
+                            db.Update(matFacData);
+                            materialFactoryId = matFacData.Id;
+                        }
+
+                        if (materFacetList != null && materFacetList.Count > 0)
+                        {
+                            //循环处理物料工厂属性
+                            foreach (var item in materFacetList)
+                            {
+                                //属性编码是否传了
+                                if (string.IsNullOrEmpty(item.AttrCode))
+                                {
+                                    throw new Exception("属性编码必须传");
+                                }
+                                //属性名称是否传
+                                if (string.IsNullOrEmpty(item.AttrName))
+                                {
+                                    throw new Exception("属性名称必须传");
+                                }
+                                //属性类型
+                                if (string.IsNullOrEmpty(item.AttrType))
+                                {
+                                    throw new Exception("属性类型必须传");
+                                }
+
+                                item.Create();
+                                item.MaterialFactoryId = materialFactoryId;
+
+                                ////判断是否已经维护了如果维护则更新没有维护则新增
+                                //var FacetEntity = new Base_MaterialFacet_Service().Get_ExpressionEntity(t => t.MaterialFactoryId == materialFactoryId && t.AttrCode == item.AttrCode);
+
+                                //if (FacetEntity == null)
+                                //{
+                                //    item.Create();
+                                //    item.MaterialFactoryId = materialFactoryId;
+                                //    db.Insert(item);
+                                //}
+                                //else
+                                //{
+                                //    FacetEntity.AttrName = item.AttrName;
+                                //    FacetEntity.AttrType = item.AttrType;
+                                //    FacetEntity.AttrValue = item.AttrValue;
+                                //    db.Update(FacetEntity);
+                                //}
+                                //}
+                                //else
+                                //{
+                                //    item.Create();
+                                //    item.MaterialFactoryId = _MaterialFactoryEntity.Id;
+                                //    db.Insert(item);
+                                //}
+                            }
+                            new Base_MaterialFacet_Service().RemoveForm(t => t.MaterialFactoryId == materialFactoryId);
+                            string msg = "";
+                            new Base_MaterialFacet_Service().SaveEntity_List(false, "", materFacetList, out msg);
+                        }
+                    }
+                    else
+                    {
+                        //if (matFacData == null)
+                        //{
+                        //    throw new Exception("物料工厂属性不存在，无法删除");
+                        //}
+                        if (matFacData != null)
+                        {
+                            new Base_MaterialFacet_Service().RemoveForm(t => t.MaterialFactoryId == matFacData.Id);
+                            RemoveForm(matFacData.Id, null);
+                        }
+                    }
+                }
+                db.Commit();
+            }
+            catch (Exception ex)
+            {
+                db.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                db.Close();
+            }
+
+        }
+
+        /// <summary>
+        /// 物料工厂属性新增、修改接口
+        /// 创建： jpf
+        /// 创建时间：2024-3-5 19:12:01
+        /// </summary>
+        /// <param name="_MaterialFactoryEntity"></param>
+        /// <param name="FacetEntitys"></param>
+        public void SaveSAPBase_OLdMaterialFactory(List<Base_MaterialFactoryEntity> Entity, List<Base_MaterialFacetEntity> FacetEntitys)
+        {
+            //开启事务进行数据的插入
+            IDatabase db = DbFactory.UABase().BeginTrans();
+            try
+            {
+                foreach (var _MaterialFactoryEntity in Entity)
+                {
+                    //判断物料工厂是否为空
+                    if (string.IsNullOrEmpty(_MaterialFactoryEntity.FactoryCode))
+                    {
+                        throw new Exception("工厂编码必须传!");
+                    }
+                    //判断物料编码是否为空
+                    if (string.IsNullOrEmpty(_MaterialFactoryEntity.MaterialCode))
+                    {
+                        throw new Exception("物料编码必须传!");
+                    }
+                    //将SAP物料编码转化为MES的物料编码
+                    var MaterSql = string.Format(@"select  * FROM Base_Material where SAPmaterialCode={0} and IsEnabled=1", _MaterialFactoryEntity.MaterialCode);
+                    var MaterData = new RepositoryFactory().BaseRepository().FindTable(MaterSql);
+                    if (MaterData.Rows.Count == 0)
+                    {
+                        throw new Exception(_MaterialFactoryEntity.MaterialCode + "物料编码未同步");
+                    }
+                    _MaterialFactoryEntity.MaterialCode = MaterData.Rows[0]["MaterialCode"].ToString();
+                    //仓库编码不能为空
+                    if (string.IsNullOrEmpty(_MaterialFactoryEntity.Warehouse))
+                    {
+                        throw new Exception("库存编码必须传!");
+                    }
+                    //是否启用批次管理
+
+                    if (string.IsNullOrEmpty(_MaterialFactoryEntity.IsExemption))
+                    {
+                        throw new Exception("是否免检管理");
+                    }
+                    //判断工艺路线编码是否与系统一致
+                    if (!string.IsNullOrEmpty(_MaterialFactoryEntity.ProcessRoute))
+                    {
+                        var ProcessSql = string.Format(@"SELECT * FROM BS_Process WHERE ProcessCode='{0}'", _MaterialFactoryEntity.ProcessRoute);
+                        var ProcessData = new RepositoryFactory().BaseRepository().FindTable(ProcessSql);
+                        if (ProcessData.Rows.Count == 0)
+                        {
+                            throw new Exception(_MaterialFactoryEntity.ProcessRoute + "工艺路线编码在MES系统不存在，不允许同步");
+                        }
+                    }
+                    //物料工厂属性维护是否存在
+                    var MaFacSql = string.Format(@"SELECT * FROM Base_MaterialFactory WHERE MaterialCode='{0}' AND FactoryCode='{1}'",
+                     _MaterialFactoryEntity.MaterialCode, _MaterialFactoryEntity.FactoryCode
+                        );
+                    var MaFacData = new RepositoryFactory().BaseRepository().FindList<Base_MaterialFactoryEntity>(MaFacSql).FirstOrDefault();
+                    var isbool = false;
+                    if (MaFacData == null)
+                    {
+                        _MaterialFactoryEntity.Create();
+                        _MaterialFactoryEntity.CreateTime = DateTime.Now;
+                        db.Insert(_MaterialFactoryEntity);
+                    }
+                    else
+                    {
+                        isbool = true;
+                        MaFacData.ModifyTime = DateTime.Now;
+                        MaFacData.Warehouse = _MaterialFactoryEntity.Warehouse;
+                        MaFacData.ProcessRoute = _MaterialFactoryEntity.ProcessRoute;
+                        MaFacData.IsUsed = _MaterialFactoryEntity.IsUsed;
+                        MaFacData.IsExemption = _MaterialFactoryEntity.IsExemption;
+                        MaFacData.SafeStock = _MaterialFactoryEntity.SafeStock;
+                        db.Update(MaFacData);
+
+                    }
+                    //循环处理物料工厂属性
+                    foreach (var item in FacetEntitys)
+                    {
+                        //属性编码是否传了
+                        if (string.IsNullOrEmpty(item.AttrCode))
+                        {
+                            throw new Exception("属性编码必须传");
+                        }
+                        //属性名称是否传
+                        if (string.IsNullOrEmpty(item.AttrName))
+                        {
+                            throw new Exception("属性名称必须传");
+                        }
+                        //属性类型
+                        if (string.IsNullOrEmpty(item.AttrType))
+                        {
+                            throw new Exception("属性类型必须传");
+                        }
+                        //属性值
+                        if (string.IsNullOrEmpty(item.AttrValue))
+                        {
+                            throw new Exception("属性值必须传");
+                        }
+
+                        //判断是否已经维护主表数据
+                        if (isbool)
+                        {
+                            //判断是否已经维护了如果维护则更新没有维护则新增
+                            var FacetEntity = new Base_MaterialFacet_Service().Get_ExpressionEntity(t => t.MateriaBindTempId == MaFacData.Id && t.AttrCode == item.AttrCode);
+
+                            if (FacetEntity == null)
+                            {
+                                item.Create();
+                                item.MaterialFactoryId = MaFacData.Id;
+                                db.Insert(item);
+                            }
+                            else
+                            {
+                                FacetEntity.AttrName = item.AttrName;
+                                FacetEntity.AttrType = item.AttrType;
+                                FacetEntity.AttrValue = item.AttrValue;
+                                db.Update(FacetEntity);
+                            }
+                        }
+                        else
+                        {
+                            item.Create();
+                            item.MaterialFactoryId = _MaterialFactoryEntity.Id;
+                            db.Insert(item);
+                        }
+                    }
+                }
+                db.Commit();
+            }
+            catch (Exception)
+            {
+                db.Rollback();
+                throw;
+            }
+            finally
+            {
+                db.Close();
+            }
+
+        }
+        #endregion
+    }
+}

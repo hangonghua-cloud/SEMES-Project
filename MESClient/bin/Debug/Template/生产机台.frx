@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="11/16/2021 20:25:05" ReportInfo.Modified="11/16/2021 20:42:38" ReportInfo.CreatorVersion="2014.4.8.0">
+  <Dictionary>
+    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlqxfki+t8jnSxof6qn6ng9vZXyxJ29Vo8PhbFaOrHhCHgROOaG/q4zpcoYQe61tsOxaKWTscH6Ad1rABTy1kAs9dLOkZCIFkSPgtS3xo+Qd2I1vweO+bh9fU/O4XMGzx8XtIFJb67TJ4BRKzzmozO5UQpb9tCUGPeow9BQ0MTIwDeJ/j9L8W5nwyb3RVts9gSKfdIAvF3qq/Vj9sHEIXxDfw==">
+      <TableDataSource Name="Table" Alias="Machine" DataType="System.Int32" Enabled="true" SelectCommand="EXEC dbo.Pro_PrintMachine @Code">
+        <Column Name="MachineCode" DataType="System.String"/>
+        <Column Name="MachineName" DataType="System.String"/>
+        <CommandParameter Name="Code" DataType="22" Size="10000" Expression="[Code]"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+    <Parameter Name="Code" DataType="System.String"/>
+  </Dictionary>
+  <ReportPage Name="Page1" PaperWidth="100" PaperHeight="130" LeftMargin="0" TopMargin="0" RightMargin="0" BottomMargin="0" FirstPageSource="256" OtherPagesSource="256">
+    <GroupHeaderBand Name="GroupHeader1" Width="378" Condition="[Machine.MachineCode]">
+      <DataBand Name="Data1" Top="4" Width="378" Height="463.05" DataSource="Table">
+        <BarcodeObject Name="Barcode1" Left="56.7" Top="103.95" Width="248.3" Height="237.95" AutoSize="false" DataColumn="Machine.MachineCode" ShowText="false" Barcode="QR Code" Barcode.ErrorCorrection="L" Barcode.Encoding="UTF8" Barcode.QuietZone="true"/>
+        <TextObject Name="Text1" Left="9.45" Top="37.8" Width="359.1" Height="56.7" Text="[Machine.MachineCode]" HorzAlign="Center" Font="等线, 36pt, style=Bold"/>
+        <TextObject Name="Text2" Top="349.65" Width="359.1" Height="37.8" Text="[Machine.MachineName]" HorzAlign="Center" Font="等线, 26.25pt, style=Bold"/>
+      </DataBand>
+      <GroupFooterBand Name="GroupFooter1" Top="471.05" Width="378"/>
+    </GroupHeaderBand>
+  </ReportPage>
+</Report>

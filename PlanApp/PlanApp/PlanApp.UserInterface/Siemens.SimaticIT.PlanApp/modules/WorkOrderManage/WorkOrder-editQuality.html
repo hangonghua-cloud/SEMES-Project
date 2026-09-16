@@ -1,0 +1,34 @@
+﻿<style>
+    .row {
+        padding: 5px;
+        margin-top: 10px;
+    }
+
+    .canvas .property-area-container > div.content .side-panel-property-area-body {
+        overflow-y: visible;
+    }
+</style>
+<div class="command-bar-side-panel">
+    <button ng-click="vm.cancel()" class="btn side-panel-button">{{'Siemens.SimaticIT.PlanApp.WorkOrderManage.editqua.Tips_1'|translate}}</button>
+    <button ng-click="vm.save()" class="btn side-panel-button" ng-show="vm.validInputs">{{'Siemens.SimaticIT.PlanApp.WorkOrderManage.editqua.Tips_2'|translate}}</button>
+</div>
+<div class="side-panel-property-area-body" style="margin-left: 18px;">
+    <sit-property-grid sit-id="edit_form"
+                       sit-layout="Horizontal"
+                       sit-type="Fixed"
+                       sit-mode="edit"
+                       sit-columns="4">
+        <!-- TODO: Put here the properties of the entity managed by the service -->
+        <sit-property sit-widget="sit-select" sit-value="vm.typeFirstCheck.value" sit-validation="{required: false}"
+                      sit-options="vm.typeFirstCheck.options"
+                      sit-to-display="'ItemName'" sit-to-keep="'ItemValue'">{{'Siemens.SimaticIT.PlanApp.WorkOrderManage.editqua.Tips_3'|translate}}</sit-property>
+        <sit-property sit-widget="sit-alp-text-picker"
+                      sit-value="vm.currentItem.FirstInspectionOperation"
+                      ng-click="vm.ChildClick()"
+                      sit-validation="{required: true}"
+                      sit-read-only="false">{{'Siemens.SimaticIT.PlanApp.WorkOrderManage.editqua.Tips_4'|translate}}</sit-property>
+    </sit-property-grid>
+</div>
+<div id="itemlist" style="width:calc(100% - 2px); height: calc(100% - 100px);margin-top: 6px; padding:5px 16px 0 16px;clear: both; display: block;overflow-y: auto;">
+    <div ui-grid="vm.gridOptionsItem" ui-grid-selection ui-grid-resize-columns ui-grid-auto-resize class="uigrid  gridItem"></div>
+</div>

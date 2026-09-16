@@ -1,0 +1,19 @@
+﻿{
+  "name": "Siemens.SimaticIT.ProductionApp.TeamPerson",
+  "type": "standard",
+  "title": "Siemens.SimaticIT.ProductionApp.TeamPerson.Title",
+  "header": "",
+  "icon": "fa-folder",
+  "functionalBlock": "Siemens.SimaticIT.ProductionApp",
+  "dependencies": [],
+  "states": [
+    {
+      "id": "home.Siemens_SimaticIT_ProductionApp_TeamPerson_TeamPerson",
+      "title": "Siemens.SimaticIT.ProductionApp.TeamPerson.Title",
+      "header": "",
+      "securable": true,
+      "roles": []
+    }
+  ],
+  "manifestVersion": "01.01.00"
+}

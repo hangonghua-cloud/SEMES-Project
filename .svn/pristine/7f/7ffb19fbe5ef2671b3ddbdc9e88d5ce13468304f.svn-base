@@ -1,0 +1,92 @@
+﻿<style>
+    .MainCommandActionButton {
+        margin-top: 20px !important;
+    }
+
+    .ui-grid-disable-selection {
+        -moz-user-select: text;
+        -webkit-user-select: text;
+        -ms-user-select: text;
+        user-select: text;
+    }
+
+    .green {
+        color: rgb(38, 228, 31)
+    }
+
+    .red {
+        color: red
+    }
+</style>
+<div id="itemlist" class="content-area content-area-relative" style="height: calc(93% - 30px) !important">
+    <!--查询条件与功能按钮-->
+    <div class="col-md-40" style="margin-left: 15px;">
+        <div class="side-panel-property-area-body">
+            <sit-property-grid sit-id="add_form" sit-layout="Horizontal" sit-type="Fixed" sit-mode="edit"
+                               sit-columns="8">
+                <sit-property sit-widget="sit-select" sit-read-only="false" sit-options="vm.CodadConfig.options"
+                              sit-to-keep="'ResourceCode'" sit-validation="{required: false}"
+                              sit-value="vm.CodadConfig.selectedOption" sit-change="vm.FactoryChange"
+                              sit-to-display="'ResourceName'">{{'Siemens.SimaticIT.EquipmentApp.EquipmentAccount.EquipmentAccountlist.Tips_1'|translate}}</sit-property>
+                <sit-property sit-widget="sit-select" sit-read-only="false" sit-options="vm.ProcessConfig.options"
+                              sit-to-keep="'ResourceCode'" sit-validation="{required: false}"
+                              sit-value="vm.ProcessConfig.selectedOption" sit-to-display="'ResourceName'">{{'Siemens.SimaticIT.EquipmentApp.EquipmentAccount.EquipmentAccountlist.Tips_2'|translate}}</sit-property>
+                <sit-property sit-widget="sit-text" sit-value="vm.searchParams.EquipmentId" sit-read-only="false"
+                              style="max-width:300px;">{{'Siemens.SimaticIT.EquipmentApp.EquipmentAccount.EquipmentAccountlist.Tips_3'|translate}}</sit-property>
+                <sit-property sit-widget="sit-text" sit-value="vm.searchParams.EquipmentName" sit-read-only="false"
+                              style="max-width:300px;">{{'Siemens.SimaticIT.EquipmentApp.EquipmentAccount.EquipmentAccountlist.Tips_4'|translate}}</sit-property>
+                <sit-property sit-widget="sit-select" sit-read-only="false" sit-options="vm.TypeConfig.options"
+                              sit-to-keep="'ItemValue'" sit-change='vm.shopChagne' sit-validation="{required: false}"
+                              sit-value="vm.TypeConfig.selectedOption" sit-to-display="'ItemName'">
+                    {{'Siemens.SimaticIT.EquipmentApp.EquipmentAccount.EquipmentAccountlist.Tips_5'|translate}}
+                </sit-property>
+
+                <sit-property sit-widget="sit-select" sit-read-only="false" sit-options="vm.SiteConfig.options"
+                              sit-to-keep="'ResourceCode'" sit-validation="{required: false}"
+                              sit-value="vm.SiteConfig.selectedOption" sit-change="vm.selectSite" sit-to-display="'ResourceName'">
+                    {{'Siemens.SimaticIT.EquipmentApp.EquipmentAccount.EquipmentAccountlist.Tips_6'|translate}}
+                </sit-property>
+                <sit-command-bar sit-type="action">
+                    <sit-command sit-icon="fa-search" sit-type="main" sit-name="com.siemens.customcommand.search"
+                                 :sit-tooltip="{{'Siemens.SimaticIT.EquipmentApp.EquipmentAccount.EquipmentAccountlist.Tips_7'|translate}}" ng-click="vm.searchButtonHandler" :sit-label="{{'Siemens.SimaticIT.EquipmentApp.EquipmentAccount.EquipmentAccountlist.Tips_7'|translate}}">
+                    </sit-command>
+                </sit-command-bar>
+            </sit-property-grid>
+        </div>
+    </div>
+    <!--右侧功能按钮-->
+    <sit-command-bar sit-vertical-autofixed="true" sit-type="Tool" :sit-label-align="right" sit-layout="vertical">
+
+        <sit-command sit-icon="fa-eye" sit-name="com.siemens.customcommand.delete" :sit-tooltip="{{'Siemens.SimaticIT.EquipmentApp.EquipmentAccount.EquipmentAccountlist.Tips_8'|translate}}"
+                     ng-click="vm.select2ButtonHandler" :sit-label="{{'Siemens.SimaticIT.EquipmentApp.EquipmentAccount.EquipmentAccountlist.Tips_8'|translate}}" ng-show="vm.isDetailButtonVisible" sit-type="main">
+        </sit-command>
+        <sit-command sit-icon="fa-trash-o" sit-name="com.siemens.customcommand.delete" :sit-tooltip="{{'Siemens.SimaticIT.EquipmentApp.EquipmentAccount.EquipmentAccountlist.Tips_9'|translate}}"
+                     ng-click="vm.delete2ButtonHandler" :sit-label="{{'Siemens.SimaticIT.EquipmentApp.EquipmentAccount.EquipmentAccountlist.Tips_9'|translate}}" ng-show="vm.isDetailButtonVisible" sit-type="main">
+        </sit-command>
+        <sit-command sit-icon="fa-pencil-square-o" sit-name="com.siemens.customcommand.edit" :sit-tooltip="{{'Siemens.SimaticIT.EquipmentApp.EquipmentAccount.EquipmentAccountlist.Tips_10'|translate}}"
+                     ng-click="vm.edit2ButtonHandler" :sit-label="{{'Siemens.SimaticIT.EquipmentApp.EquipmentAccount.EquipmentAccountlist.Tips_10'|translate}}" ng-show="vm.isDetailButtonVisible" sit-type="main">
+        </sit-command>
+        <sit-command sit-icon="fa-plus-square-o" sit-name="com.siemens.customcommand.add"
+                     ng-click="vm.add2ButtonHandler" :sit-tooltip="{{'Siemens.SimaticIT.EquipmentApp.EquipmentAccount.EquipmentAccountlist.Tips_11'|translate}}" :sit-label="{{'Siemens.SimaticIT.EquipmentApp.EquipmentAccount.EquipmentAccountlist.Tips_11'|translate}}" ng-show="vm.isButtonVisible"
+                     sit-type="main"></sit-command>
+
+        <!-- <sit-command sit-icon="fa-trash" sit-name="com.siemens.customcommand.delete" :sit-tooltip="{{'Siemens.SimaticIT.EquipmentApp.EquipmentAccount.EquipmentAccountlist.Tips_12'|translate}}" ng-click="vm.deleteButtonHandler"
+                     :sit-label="{{'Siemens.SimaticIT.EquipmentApp.EquipmentAccount.EquipmentAccountlist.Tips_12'|translate}}" ng-show="vm.isButtonVisible"></sit-command>
+        <sit-command sit-icon="fa-pencil" sit-name="com.siemens.customcommand.edit" :sit-tooltip="{{'Siemens.SimaticIT.EquipmentApp.EquipmentAccount.EquipmentAccountlist.Tips_13'|translate}}" ng-click="vm.editButtonHandler"
+                     :sit-label="{{'Siemens.SimaticIT.EquipmentApp.EquipmentAccount.EquipmentAccountlist.Tips_13'|translate}}" ng-show="vm.isButtonVisible"></sit-command>
+        <sit-command sit-icon="fa-plus" sit-name="com.siemens.customcommand.add" ng-click="vm.addButtonHandler" :sit-tooltip="{{'Siemens.SimaticIT.EquipmentApp.EquipmentAccount.EquipmentAccountlist.Tips_14'|translate}}"
+                     :sit-label="{{'Siemens.SimaticIT.EquipmentApp.EquipmentAccount.EquipmentAccountlist.Tips_14'|translate}}" sit-type="main"></sit-command> -->
+
+    </sit-command-bar>
+    <!-- grid列表 -->
+    <div id="listClass" style="width:100%; height: 44%; padding:0px 16px 0 16px; margin-top: 80px;">
+        <div ui-grid="vm.gridOptions" ui-grid-pinning ui-grid-auto-resize ui-grid-resize-columns ui-grid-selection
+             ui-grid-pagination class="uigrid"></div>
+    </div>
+
+    <!-- grid列表 -->
+    <div id="listClass2" class="col-md-40" style="width:100%; height:44%; padding:0px 16px 0 16px; margin-top: 3px;">
+        <div ui-grid="vm.gridOptionsDetail" ui-grid-pinning ui-grid-auto-resize ui-grid-resize-columns ui-grid-selection
+             ui-grid-pagination class="uigrid"></div>
+    </div>
+</div>

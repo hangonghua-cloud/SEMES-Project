@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="11/16/2021 20:54:18" ReportInfo.Modified="03/13/2022 14:46:27" ReportInfo.CreatorVersion="2014.4.8.0">
+  <Dictionary>
+    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlqxfki+t8jnSxof6qn6ng9vZXyxJ29Vo8PhbFaOrHhCHgROOaG/q4zpcoYQe61tsOxaKWTscH6Ad1rABTy1kAs9dLOkZCIFkSPgtS3xo+Qd2I1vweO+bh9fU/O4XMGzx8XtIFJb67TJ4BRKzzmozO5UQpb9tCUGPeow9BQ0MTIwDeJ/j9L8W5nwyb3RVts9gSKU5NRJeeDZ1oYCsp1fwfMdg==">
+      <TableDataSource Name="Table" Alias="MMBatch" DataType="System.Int32" Enabled="true" SelectCommand="EXEC dbo.Pro_PrintMMBatch @Code,@ExeWorkOrder">
+        <Column Name="BatchNo" DataType="System.String"/>
+        <Column Name="MaterialName" DataType="System.String"/>
+        <Column Name="WhsCode" DataType="System.String"/>
+        <Column Name="WhsName" DataType="System.String"/>
+        <Column Name="LocationCode" DataType="System.String"/>
+        <Column Name="LocationName" DataType="System.String"/>
+        <Column Name="Qty" DataType="System.Decimal"/>
+        <Column Name="Unit" DataType="System.String"/>
+        <Column Name="PrintTime" DataType="System.String"/>
+        <Column Name="ProductOrder" DataType="System.String"/>
+        <Column Name="ContainerNo" DataType="System.String"/>
+        <CommandParameter Name="Code" DataType="22" Size="20000" Expression="[Code]"/>
+        <CommandParameter Name="ExeWorkOrder" DataType="22" Size="50" Expression="[ExeWorkOrder]"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+    <Parameter Name="Code" DataType="System.String"/>
+    <Parameter Name="ExeWorkOrder" DataType="System.String"/>
+  </Dictionary>
+  <ReportPage Name="Page1" PaperWidth="100" PaperHeight="130" LeftMargin="0" TopMargin="0" RightMargin="0" BottomMargin="0" FirstPageSource="256" OtherPagesSource="256">
+    <GroupHeaderBand Name="GroupHeader1" Width="378" Condition="[MMBatch.BatchNo]">
+      <DataBand Name="Data1" Top="4" Width="378" Height="472.5" DataSource="Table">
+        <TextObject Name="Text1" Left="9.45" Top="9.45" Width="359.1" Height="47.25" Text="[MMBatch.BatchNo]" HorzAlign="Center" Font="等线, 36pt, style=Bold"/>
+        <BarcodeObject Name="Barcode1" Left="47.25" Top="113.4" Width="267.2" Height="256.85" AutoSize="false" DataColumn="MMBatch.BatchNo" ShowText="false" Barcode="QR Code" Barcode.ErrorCorrection="L" Barcode.Encoding="UTF8" Barcode.QuietZone="true"/>
+        <TextObject Name="Text2" Left="9.45" Top="368.55" Width="359.1" Height="18.9" Text="[MMBatch.MaterialName]" HorzAlign="Center" Font="等线, 14.25pt, style=Bold"/>
+        <TextObject Name="Text3" Left="9.45" Top="396.9" Width="359.1" Height="18.9" Text="[MMBatch.WhsName]" HorzAlign="Center" Font="等线, 14.25pt, style=Bold"/>
+        <TextObject Name="Text4" Left="9.45" Top="415.8" Width="359.1" Height="18.9" Text="[MMBatch.Qty][MMBatch.Unit]" HorzAlign="Center" Font="等线, 14.25pt, style=Bold"/>
+        <TextObject Name="Text5" Left="9.45" Top="444.15" Width="359.1" Height="18.9" Text="[MMBatch.PrintTime]" HorzAlign="Center" Font="等线, 14.25pt, style=Bold"/>
+        <TextObject Name="Text6" Left="9.45" Top="66.15" Width="359.1" Height="37.8" Text="[MMBatch.ProductOrder] [MMBatch.ContainerNo]" HorzAlign="Center" Font="等线, 28pt, style=Bold"/>
+      </DataBand>
+      <GroupFooterBand Name="GroupFooter1" Top="480.5" Width="378"/>
+    </GroupHeaderBand>
+  </ReportPage>
+</Report>

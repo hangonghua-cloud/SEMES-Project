@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="MsgPushService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://10.17.2.32:8084/MsgPushService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://10.17.2.32:8084/MsgPushService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://10.17.2.32:8084/MsgPushService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/WcfMsgPushService.MesModel" />
+      <xsd:import schemaLocation="http://10.17.2.32:8084/MsgPushService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/WcfMsgPushService.MesEntity" />
+      <xsd:import schemaLocation="http://10.17.2.32:8084/MsgPushService.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://10.17.2.32:8084/MsgPushService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/ALP.Application.Entity.WebApp" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="MsgPushIService_SendMessage_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendMessage" />
+  </wsdl:message>
+  <wsdl:message name="MsgPushIService_SendMessage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="MsgPushIService_GetDepartmentList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDepartmentList" />
+  </wsdl:message>
+  <wsdl:message name="MsgPushIService_GetDepartmentList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDepartmentListResponse" />
+  </wsdl:message>
+  <wsdl:message name="MsgPushIService_GetUserByDepid_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserByDepid" />
+  </wsdl:message>
+  <wsdl:message name="MsgPushIService_GetUserByDepid_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserByDepidResponse" />
+  </wsdl:message>
+  <wsdl:message name="MsgPushIService_GetUserByUserid_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserByUserid" />
+  </wsdl:message>
+  <wsdl:message name="MsgPushIService_GetUserByUserid_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserByUseridResponse" />
+  </wsdl:message>
+  <wsdl:message name="MsgPushIService_PushFirstPassYieldInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:PushFirstPassYieldInfo" />
+  </wsdl:message>
+  <wsdl:message name="MsgPushIService_PushFirstPassYieldInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PushFirstPassYieldInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="MsgPushIService_PushDefectTopThreeInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:PushDefectTopThreeInfo" />
+  </wsdl:message>
+  <wsdl:message name="MsgPushIService_PushDefectTopThreeInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PushDefectTopThreeInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="MsgPushIService_PushMaterielShortageInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:PushMaterielShortageInfo" />
+  </wsdl:message>
+  <wsdl:message name="MsgPushIService_PushMaterielShortageInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PushMaterielShortageInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="MsgPushIService_PushMaterielDistSheetInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:PushMaterielDistSheetInfo" />
+  </wsdl:message>
+  <wsdl:message name="MsgPushIService_PushMaterielDistSheetInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PushMaterielDistSheetInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="MsgPushIService_PushInWhExceptionFrozenInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:PushInWhExceptionFrozenInfo" />
+  </wsdl:message>
+  <wsdl:message name="MsgPushIService_PushInWhExceptionFrozenInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PushInWhExceptionFrozenInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="MsgPushIService_PushEquipMouldRepairInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:PushEquipMouldRepairInfo" />
+  </wsdl:message>
+  <wsdl:message name="MsgPushIService_PushEquipMouldRepairInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PushEquipMouldRepairInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="MsgPushIService_PushEquipMouldMaintainInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:PushEquipMouldMaintainInfo" />
+  </wsdl:message>
+  <wsdl:message name="MsgPushIService_PushEquipMouldMaintainInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PushEquipMouldMaintainInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="MsgPushIService_PushEquipSpecialVerifiInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:PushEquipSpecialVerifiInfo" />
+  </wsdl:message>
+  <wsdl:message name="MsgPushIService_PushEquipSpecialVerifiInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PushEquipSpecialVerifiInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="MsgPushIService_PushChangeMouldInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:PushChangeMouldInfo" />
+  </wsdl:message>
+  <wsdl:message name="MsgPushIService_PushChangeMouldInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PushChangeMouldInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="MsgPushIService_PushSchedulingInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:PushSchedulingInfo" />
+  </wsdl:message>
+  <wsdl:message name="MsgPushIService_PushSchedulingInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PushSchedulingInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="MsgPushIService_AutoPushSchedulingInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:AutoPushSchedulingInfo" />
+  </wsdl:message>
+  <wsdl:message name="MsgPushIService_AutoPushSchedulingInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AutoPushSchedulingInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="MsgPushIService_PushProFactorMaterialsInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:PushProFactorMaterialsInfo" />
+  </wsdl:message>
+  <wsdl:message name="MsgPushIService_PushProFactorMaterialsInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PushProFactorMaterialsInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="MsgPushIService_PushEquipLineStopInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:PushEquipLineStopInfo" />
+  </wsdl:message>
+  <wsdl:message name="MsgPushIService_PushEquipLineStopInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PushEquipLineStopInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="MsgPushIService_PushJobWorkingInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:PushJobWorkingInfo" />
+  </wsdl:message>
+  <wsdl:message name="MsgPushIService_PushJobWorkingInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PushJobWorkingInfoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="MsgPushIService">
+    <wsdl:operation name="SendMessage">
+      <wsdl:input wsaw:Action="http://tempuri.org/MsgPushIService/SendMessage" message="tns:MsgPushIService_SendMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/MsgPushIService/SendMessageResponse" message="tns:MsgPushIService_SendMessage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDepartmentList">
+      <wsdl:input wsaw:Action="http://tempuri.org/MsgPushIService/GetDepartmentList" message="tns:MsgPushIService_GetDepartmentList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/MsgPushIService/GetDepartmentListResponse" message="tns:MsgPushIService_GetDepartmentList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByDepid">
+      <wsdl:input wsaw:Action="http://tempuri.org/MsgPushIService/GetUserByDepid" message="tns:MsgPushIService_GetUserByDepid_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/MsgPushIService/GetUserByDepidResponse" message="tns:MsgPushIService_GetUserByDepid_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByUserid">
+      <wsdl:input wsaw:Action="http://tempuri.org/MsgPushIService/GetUserByUserid" message="tns:MsgPushIService_GetUserByUserid_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/MsgPushIService/GetUserByUseridResponse" message="tns:MsgPushIService_GetUserByUserid_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PushFirstPassYieldInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/MsgPushIService/PushFirstPassYieldInfo" message="tns:MsgPushIService_PushFirstPassYieldInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/MsgPushIService/PushFirstPassYieldInfoResponse" message="tns:MsgPushIService_PushFirstPassYieldInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PushDefectTopThreeInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/MsgPushIService/PushDefectTopThreeInfo" message="tns:MsgPushIService_PushDefectTopThreeInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/MsgPushIService/PushDefectTopThreeInfoResponse" message="tns:MsgPushIService_PushDefectTopThreeInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PushMaterielShortageInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/MsgPushIService/PushMaterielShortageInfo" message="tns:MsgPushIService_PushMaterielShortageInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/MsgPushIService/PushMaterielShortageInfoResponse" message="tns:MsgPushIService_PushMaterielShortageInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PushMaterielDistSheetInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/MsgPushIService/PushMaterielDistSheetInfo" message="tns:MsgPushIService_PushMaterielDistSheetInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/MsgPushIService/PushMaterielDistSheetInfoResponse" message="tns:MsgPushIService_PushMaterielDistSheetInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PushInWhExceptionFrozenInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/MsgPushIService/PushInWhExceptionFrozenInfo" message="tns:MsgPushIService_PushInWhExceptionFrozenInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/MsgPushIService/PushInWhExceptionFrozenInfoResponse" message="tns:MsgPushIService_PushInWhExceptionFrozenInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PushEquipMouldRepairInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/MsgPushIService/PushEquipMouldRepairInfo" message="tns:MsgPushIService_PushEquipMouldRepairInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/MsgPushIService/PushEquipMouldRepairInfoResponse" message="tns:MsgPushIService_PushEquipMouldRepairInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PushEquipMouldMaintainInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/MsgPushIService/PushEquipMouldMaintainInfo" message="tns:MsgPushIService_PushEquipMouldMaintainInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/MsgPushIService/PushEquipMouldMaintainInfoResponse" message="tns:MsgPushIService_PushEquipMouldMaintainInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PushEquipSpecialVerifiInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/MsgPushIService/PushEquipSpecialVerifiInfo" message="tns:MsgPushIService_PushEquipSpecialVerifiInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/MsgPushIService/PushEquipSpecialVerifiInfoResponse" message="tns:MsgPushIService_PushEquipSpecialVerifiInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PushChangeMouldInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/MsgPushIService/PushChangeMouldInfo" message="tns:MsgPushIService_PushChangeMouldInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/MsgPushIService/PushChangeMouldInfoResponse" message="tns:MsgPushIService_PushChangeMouldInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PushSchedulingInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/MsgPushIService/PushSchedulingInfo" message="tns:MsgPushIService_PushSchedulingInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/MsgPushIService/PushSchedulingInfoResponse" message="tns:MsgPushIService_PushSchedulingInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AutoPushSchedulingInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/MsgPushIService/AutoPushSchedulingInfo" message="tns:MsgPushIService_AutoPushSchedulingInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/MsgPushIService/AutoPushSchedulingInfoResponse" message="tns:MsgPushIService_AutoPushSchedulingInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PushProFactorMaterialsInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/MsgPushIService/PushProFactorMaterialsInfo" message="tns:MsgPushIService_PushProFactorMaterialsInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/MsgPushIService/PushProFactorMaterialsInfoResponse" message="tns:MsgPushIService_PushProFactorMaterialsInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PushEquipLineStopInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/MsgPushIService/PushEquipLineStopInfo" message="tns:MsgPushIService_PushEquipLineStopInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/MsgPushIService/PushEquipLineStopInfoResponse" message="tns:MsgPushIService_PushEquipLineStopInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PushJobWorkingInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/MsgPushIService/PushJobWorkingInfo" message="tns:MsgPushIService_PushJobWorkingInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/MsgPushIService/PushJobWorkingInfoResponse" message="tns:MsgPushIService_PushJobWorkingInfo_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_MsgPushIService" type="tns:MsgPushIService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SendMessage">
+      <soap:operation soapAction="http://tempuri.org/MsgPushIService/SendMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDepartmentList">
+      <soap:operation soapAction="http://tempuri.org/MsgPushIService/GetDepartmentList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByDepid">
+      <soap:operation soapAction="http://tempuri.org/MsgPushIService/GetUserByDepid" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByUserid">
+      <soap:operation soapAction="http://tempuri.org/MsgPushIService/GetUserByUserid" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PushFirstPassYieldInfo">
+      <soap:operation soapAction="http://tempuri.org/MsgPushIService/PushFirstPassYieldInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PushDefectTopThreeInfo">
+      <soap:operation soapAction="http://tempuri.org/MsgPushIService/PushDefectTopThreeInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PushMaterielShortageInfo">
+      <soap:operation soapAction="http://tempuri.org/MsgPushIService/PushMaterielShortageInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PushMaterielDistSheetInfo">
+      <soap:operation soapAction="http://tempuri.org/MsgPushIService/PushMaterielDistSheetInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PushInWhExceptionFrozenInfo">
+      <soap:operation soapAction="http://tempuri.org/MsgPushIService/PushInWhExceptionFrozenInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PushEquipMouldRepairInfo">
+      <soap:operation soapAction="http://tempuri.org/MsgPushIService/PushEquipMouldRepairInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PushEquipMouldMaintainInfo">
+      <soap:operation soapAction="http://tempuri.org/MsgPushIService/PushEquipMouldMaintainInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PushEquipSpecialVerifiInfo">
+      <soap:operation soapAction="http://tempuri.org/MsgPushIService/PushEquipSpecialVerifiInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PushChangeMouldInfo">
+      <soap:operation soapAction="http://tempuri.org/MsgPushIService/PushChangeMouldInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PushSchedulingInfo">
+      <soap:operation soapAction="http://tempuri.org/MsgPushIService/PushSchedulingInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AutoPushSchedulingInfo">
+      <soap:operation soapAction="http://tempuri.org/MsgPushIService/AutoPushSchedulingInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PushProFactorMaterialsInfo">
+      <soap:operation soapAction="http://tempuri.org/MsgPushIService/PushProFactorMaterialsInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PushEquipLineStopInfo">
+      <soap:operation soapAction="http://tempuri.org/MsgPushIService/PushEquipLineStopInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PushJobWorkingInfo">
+      <soap:operation soapAction="http://tempuri.org/MsgPushIService/PushJobWorkingInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MsgPushService">
+    <wsdl:port name="BasicHttpBinding_MsgPushIService" binding="tns:BasicHttpBinding_MsgPushIService">
+      <soap:address location="http://10.17.2.32:8084/MsgPushService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

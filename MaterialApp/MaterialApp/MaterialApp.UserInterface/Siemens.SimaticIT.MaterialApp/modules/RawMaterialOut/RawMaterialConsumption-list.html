@@ -1,0 +1,65 @@
+﻿<style>
+    .MainCommandActionButton {
+        margin-top: 20px !important;
+    }
+</style>
+<div id="itemlist" class="content-area content-area-relative" style="height: calc(93% - 30px) !important">
+    <!--查询条件与功能按钮-->
+    <div class="col-md-40" style="margin-left: 15px;height: calc(13%-30px) !important">
+        <div class="side-panel-property-area-body">
+            <sit-property-grid sit-id="add_form" sit-layout="Horizontal" sit-type="Fixed" sit-mode="edit"
+                               sit-columns="8">
+                <sit-property sit-widget="sit-select" sit-value="vm.Factory.value" sit-validation="{required: false}"
+                              sit-options="vm.Factory.options" sit-to-display="'ResourceName'" sit-to-keep="'ResourceCode'"
+                              sit-read-only="false" sit-change="vm.FactoryChange">{{'Siemens.SimaticIT.MaterialApp.RawMaterialOut.RawMaterialConsumptionlist.Tips_1'|translate}}</sit-property>
+                <sit-property sit-widget="sit-select" sit-value="vm.Process.value" sit-validation="{required: false}"
+                              sit-options="vm.Process.options" sit-to-display="'ResourceName'" sit-to-keep="'ResourceCode'"
+                              sit-read-only="false">{{'Siemens.SimaticIT.MaterialApp.RawMaterialOut.RawMaterialConsumptionlist.Tips_2'|translate}}</sit-property>
+                <sit-property sit-widget="sit-text" sit-value="vm.searchParams.MaterialCode" sit-read-only="false"
+                              style="max-width:300px;">{{'Siemens.SimaticIT.MaterialApp.RawMaterialOut.RawMaterialConsumptionlist.Tips_3'|translate}}</sit-property>
+                <sit-property sit-widget="sit-text" sit-value="vm.searchParams.MaterialName" sit-read-only="false"
+                              style="max-width:300px;">{{'Siemens.SimaticIT.MaterialApp.RawMaterialOut.RawMaterialConsumptionlist.Tips_4'|translate}}</sit-property>
+
+                <sit-property sit-widget="sit-datepicker" sit-value="vm.StartTime" sit-format="'yyyy-MM-dd'"
+                              sit-read-only="false">{{'Siemens.SimaticIT.MaterialApp.RawMaterialOut.RawMaterialConsumptionlist.Tips_5'|translate}}</sit-property>
+                <sit-property sit-widget="sit-datepicker" sit-value="vm.EndTime" sit-format="'yyyy-MM-dd'"
+                              sit-read-only="false">{{'Siemens.SimaticIT.MaterialApp.RawMaterialOut.RawMaterialConsumptionlist.Tips_6'|translate}}</sit-property>
+                <sit-command-bar sit-type="action">
+                    <sit-command sit-icon="fa-search" sit-type="main" sit-name="com.siemens.customcommand.search"
+                                 :sit-tooltip="{{'Siemens.SimaticIT.MaterialApp.RawMaterialOut.RawMaterialConsumptionlist.Tips_7'|translate}}" ng-click="vm.searchButtonHandler" :sit-label="{{'Siemens.SimaticIT.MaterialApp.RawMaterialOut.RawMaterialConsumptionlist.Tips_7'|translate}}">
+                    </sit-command>
+                </sit-command-bar>
+            </sit-property-grid>
+        </div>
+    </div>
+    <!--右侧功能按钮-->
+    <!-- <sit-command-bar sit-vertical-autofixed="true" sit-type="Tool" :sit-label-align="right" sit-layout="vertical">
+
+
+        <sit-command sit-icon="fa-trash-o" sit-name="com.siemens.customcommand.delete" :sit-tooltip="{{'Siemens.SimaticIT.MaterialApp.RawMaterialOut.RawMaterialConsumptionlist.Tips_8'|translate}}" ng-click="vm.delete2ButtonHandler"
+                     :sit-label="{{'Siemens.SimaticIT.MaterialApp.RawMaterialOut.RawMaterialConsumptionlist.Tips_8'|translate}}" ng-show="vm.isDetailButtonVisible" sit-type="main"></sit-command>
+        <sit-command sit-icon="fa-pencil-square-o " sit-name="com.siemens.customcommand.edit" :sit-tooltip="{{'Siemens.SimaticIT.MaterialApp.RawMaterialOut.RawMaterialConsumptionlist.Tips_9'|translate}}" ng-click="vm.edit2ButtonHandler"
+                     :sit-label="{{'Siemens.SimaticIT.MaterialApp.RawMaterialOut.RawMaterialConsumptionlist.Tips_9'|translate}}" ng-show="vm.isDetailButtonVisible" sit-type="main"></sit-command>
+        <sit-command sit-icon="fa-plus-square-o " sit-name="com.siemens.customcommand.add" ng-click="vm.add2ButtonHandler" :sit-tooltip="{{'Siemens.SimaticIT.MaterialApp.RawMaterialOut.RawMaterialConsumptionlist.Tips_10'|translate}}"
+                     :sit-label="{{'Siemens.SimaticIT.MaterialApp.RawMaterialOut.RawMaterialConsumptionlist.Tips_10'|translate}}" ng-show="vm.isButtonVisible" sit-type="main"></sit-command>
+
+
+        <sit-command sit-icon="fa-trash" sit-name="com.siemens.customcommand.delete" :sit-tooltip="{{'Siemens.SimaticIT.MaterialApp.RawMaterialOut.RawMaterialConsumptionlist.Tips_11'|translate}}" ng-click="vm.deleteButtonHandler"
+                     :sit-label="{{'Siemens.SimaticIT.MaterialApp.RawMaterialOut.RawMaterialConsumptionlist.Tips_11'|translate}}" ng-show="vm.isButtonVisible"></sit-command>
+        <sit-command sit-icon="fa-pencil" sit-name="com.siemens.customcommand.edit" :sit-tooltip="{{'Siemens.SimaticIT.MaterialApp.RawMaterialOut.RawMaterialConsumptionlist.Tips_12'|translate}}" ng-click="vm.editButtonHandler"
+                     :sit-label="{{'Siemens.SimaticIT.MaterialApp.RawMaterialOut.RawMaterialConsumptionlist.Tips_12'|translate}}" ng-show="vm.isButtonVisible"></sit-command>
+        <sit-command sit-icon="fa-plus" sit-name="com.siemens.customcommand.add" ng-click="vm.addButtonHandler" :sit-tooltip="{{'Siemens.SimaticIT.MaterialApp.RawMaterialOut.RawMaterialConsumptionlist.Tips_13'|translate}}"
+                     :sit-label="{{'Siemens.SimaticIT.MaterialApp.RawMaterialOut.RawMaterialConsumptionlist.Tips_13'|translate}}" sit-type="main"></sit-command>
+    </sit-command-bar> -->
+    <!-- grid列表 -->
+    <div id="listClass" style="width:100%; height: 46%; padding:0px 16px 0 16px; margin-top: 30px;">
+        <div ui-grid="vm.gridOptions" ui-grid-pinning ui-grid-auto-resize ui-grid-resize-columns ui-grid-selection
+             ui-grid-pagination class="uigrid"></div>
+    </div>
+
+    <!-- grid列表 -->
+    <div id="listClass2" class="col-md-40" style="width:100%; height: 46%; padding:0px 16px 0 16px; margin-top: 3px;">
+        <div ui-grid="vm.gridOptionsDetail" ui-grid-pinning ui-grid-auto-resize ui-grid-resize-columns ui-grid-selection
+             ui-grid-pagination class="uigrid"></div>
+    </div>
+</div>

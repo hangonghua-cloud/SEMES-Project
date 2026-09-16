@@ -1,0 +1,19 @@
+﻿{
+  "name": "Siemens.SimaticIT.BasicDataManageFBApp.AppModelManage",
+  "type": "standard",
+  "title": "PDA功能管理",
+  "header": "",
+  "icon": "fa-folder",
+  "functionalBlock": "Siemens.SimaticIT.BasicDataManageFBApp",
+  "dependencies": [],
+  "states": [
+    {
+      "id": "home.Siemens_SimaticIT_BasicDataManageFBApp_AppModelManage_AppModelScreen",
+      "title": "PDA功能管理",
+      "header": "",
+      "securable": true,
+      "roles": []
+    }
+  ],
+  "manifestVersion": "01.01.00"
+}

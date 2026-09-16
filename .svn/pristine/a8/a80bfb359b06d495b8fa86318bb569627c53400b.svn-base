@@ -1,0 +1,576 @@
+﻿{
+  "Siemens.SimaticIT.BaseDataApp": {
+    "DataDictionary": {
+      "DataDictionaryadd": {
+        "Tips_1": "Hủy bỏ",
+        "Tips_2": "Lưu",
+        "Tips_3": "Mã:",
+        "Tips_4": "Tên:",
+        "Tips_5": "Thứ tự:",
+        "Tips_6": "Có phải có hiệu lực:",
+        "Tips_7": "Chú ý:",
+        "Tips_8": "Cấp trên trực thuộc:",
+        "Tips_9": "Chọn danh mục cấp trên trực thuộc, nếu trống biểu thị là danh mục hàng đầu",
+        "Tips_10": "Chọn danh mục cấp trên trực thuộc",
+        "Tips_11": "&nbsp;chọn",
+        "Tips_12": "Chọn tổ chức trực thuộc"
+      },
+      "DataDictionaryedit": {
+        "Tips_1": "Hủy bỏ",
+        "Tips_2": "Lưu",
+        "Tips_3": "Mã:",
+        "Tips_4": "Tên:",
+        "Tips_5": "Thứ tự:",
+        "Tips_6": "Có phải có hiệu lực:",
+        "Tips_7": "Chú ý:",
+        "Tips_8": "Cấp trên trực thuộc",
+        "Tips_9": "Chọn phân loại cấp trên trực thuộc, nếu trống biểu thị là phân loại hàng đầu",
+        "Tips_10": "Chọn phân loại cấp trên trực thuộc",
+        "Tips_11": "&nbsp;chọn",
+        "Tips_12": "Chọn tổ chức trực thuộc"
+      },
+      "DataDictionarylist": {
+        "Tips_1": "Phân loại mới",
+        "Tips_2": "Thêm mới",
+        "Tips_3": "Sửa đổi phân loại",
+        "Tips_4": "Sửa đổi",
+        "Tips_5": "Xóa phân loại",
+        "Tips_6": "Xóa",
+        "Tips_7": "Biên tập",
+        "Tips_8": "Dữ liệu từ điển -",
+        "Tips_9": "Xóa mục",
+        "Tips_10": "Biên tập mục",
+        "Tips_11": "Mục mới",
+        "Tips_12": "Biên tập loại",
+        "Tips_13": "Thêm loại"
+      },
+      "DataDictionary_editDataItemDetail": {
+        "Tips_1": "Biên tập mục từ điển",
+        "Tips_2": "Có hiệu lực",
+        "Tips_3": "Lỗi thao tác",
+        "Tips_4": "Mã:",
+        "Tips_5": "Thứ tự:",
+        "Tips_6": "Có phải có hiệu lực:",
+        "Tips_7": "Chú ý:",
+        "Tips_8": "Chú ý 1:",
+        "Tips_9": "Hủy bỏ",
+        "Tips_10": "Lưu"
+      },
+      "DataItemadd": {
+        "Tips_1": "Hủy bỏ",
+        "Tips_2": "Lưu",
+        "Tips_3": "Tên:",
+        "Tips_4": "Mã:",
+        "Tips_5": "Thứ tự:",
+        "Tips_6": "Có phải có hiệu lực:",
+        "Tips_7": "Chú ý:",
+        "Tips_8": "Chú ý 1:"
+      },
+      "DataDictionaryaddctrl": {
+        "Tips_1": "Thêm danh mục từ điển mới",
+        "Tips_2": "Có hiệu lực",
+        "Tips_3": "Quyết định",
+        "Tips_4": "Hủy bỏ",
+        "Tips_5": "Chọn danh mục cấp trên",
+        "Tips_6": "Thông báo lỗi",
+        "Tips_7": "Lỗi thao tác"
+      },
+      "DataDictionaryeditctrl": {
+        "Tips_1": "Có hiệu lực",
+        "Tips_2": "Quyết định",
+        "Tips_3": "Hủy bỏ",
+        "Tips_4": "Chọn danh mục cấp trên",
+        "Tips_5": "Thông báo lỗi",
+        "Tips_6": "Lỗi thao tác"
+      },
+      "DataDictionarylistctrl": {
+        "Tips_1": "Không có danh mục nào được chọn",
+        "Tips_2": "Số thứ tự",
+        "Tips_3": "Mã",
+        "Tips_4": "Tên",
+        "Tips_5": "Chú ý",
+        "Tips_6": "Chú ý 1",
+        "Tips_7": "Sắp xếp",
+        "Tips_8": "Có hiệu lực",
+        "Tips_9": "Thời gian tạo",
+        "Tips_10": "Lỗi thao tác",
+        "Tips_11": "Vui lòng chọn phân loại!",
+        "Tips_12": "Xóa",
+        "Tips_13": "Bạn có chắc chắn muốn xóa phân loại [",
+        "Tips_14": "]sao？",
+        "Tips_15": "Bạn có chắc chắn muốn xóa mục [",
+        "Tips_16": "Từ điển dữ liệu"
+      },
+      "DataItemaddctrl": {
+        "Tips_1": "Thêm mục từ điển mới",
+        "Tips_2": "Có hiệu lực",
+        "Tips_3": "Lỗi thao tác",
+        "Tips_4": "Quyết định",
+        "Tips_5": "Thông báo lỗi"
+      },
+      "Title": "Quản lý từ điển dữ liệu"
+    },
+    "KeyParameter": {
+      "KeyParameteradd": {
+        "Tips_1": "Hủy bỏ",
+        "Tips_2": "Lưu",
+        "Tips_3": "Máy tính chủ",
+        "Tips_4": "Mã:",
+        "Tips_5": "Tên:",
+        "Tips_6": "Thứ tự:",
+        "Tips_7": "Có phải trùng lặp không:",
+        "Tips_8": "Có phải có hiệu lực không",
+        "Tips_9": "Chú ý:",
+        "Tips_10": "Cấp trên trực thuộc",
+        "Tips_11": "Chọn phân loại cấp trên trực thuộc, nếu trống biểu thị là phân loại hàng đầu",
+        "Tips_12": "Chọn phân loại cấp trên trực thuộc",
+        "Tips_13": "&nbsp;chọn",
+        "Tips_14": "Chọn tổ chức trực thuộc"
+      },
+      "KeyParameteraddDetail": {
+        "Tips_1": "Hủy bỏ",
+        "Tips_2": "Lưu",
+        "Tips_3": "Mã:",
+        "Tips_4": "Tên:",
+        "Tips_5": "Thứ tự:",
+        "Tips_6": "Giá trị:",
+        "Tips_7": "Miền 1:",
+        "Tips_8": "Miền 2:",
+        "Tips_9": "Miền 3:",
+        "Tips_10": "Chú ý 1:",
+        "Tips_11": "Chú ý2:",
+        "Tips_12": "Có phải có hiệu lực:"
+      },
+      "KeyParameteredit": {
+        "Tips_1": "Hủy bỏ",
+        "Tips_2": "Lưu",
+        "Tips_3": "Mã:",
+        "Tips_4": "Tên:",
+        "Tips_5": "Thứ tự:",
+        "Tips_6": "Có phải trùng lặp không:",
+        "Tips_7": "Có phải có hiệu lực không",
+        "Tips_8": "Chú ý:"
+      },
+      "KeyParametereditDetail": {
+        "Tips_1": "Hủy bỏ",
+        "Tips_2": "Lưu",
+        "Tips_3": "Mã:",
+        "Tips_4": "Tên:",
+        "Tips_5": "Thứ tự:",
+        "Tips_6": "Giá trị:",
+        "Tips_7": "Miền 1:",
+        "Tips_8": "Miền 2:",
+        "Tips_9": "Miền 3:",
+        "Tips_10": "Chú ý 1:",
+        "Tips_11": "Chú ý 2:",
+        "Tips_12": "Có phải có hiệu lực:"
+      },
+      "KeyParameterlist": {
+        "Tips_1": "Phân loại mới",
+        "Tips_2": "Thêm mới",
+        "Tips_3": "Sửa đổi phân loại",
+        "Tips_4": "Sửa đổi",
+        "Tips_5": "Xóa phân loại",
+        "Tips_6": "Xóa",
+        "Tips_7": "Biên tập",
+        "Tips_8": "Dữ liệu từ điển -",
+        "Tips_9": "Xóa mục",
+        "Tips_10": "Biên tập mục",
+        "Tips_11": "Mục mới",
+        "Tips_12": "Biên tập loại",
+        "Tips_13": "Thêm loại",
+        "Tips_14": "Tham số chính -"
+      },
+      "KeyParameterselect": {
+        "Tips_1": "Đóng kín"
+      },
+      "KeyParameteraddctrl": {
+        "Tips_1": "Thêm tham số chính",
+        "Tips_2": "Có hiệu lực",
+        "Tips_3": "Miền trùng lặp",
+        "Tips_4": "Đang lưu, vui lòng đợi.....",
+        "Tips_5": "Quyết định",
+        "Tips_6": "Hủy bỏ",
+        "Tips_7": "Chọn danh mục cấp trên",
+        "Tips_8": "Thông báo lỗi",
+        "Tips_9": "Lưu thành công",
+        "Tips_10": "Lỗi thao tác",
+        "Tips_11": "Thêm vào"
+      },
+      "KeyParameteraddDetailctrl": {
+        "Tips_1": "Thêm chi tiết",
+        "Tips_2": "Có hiệu lực",
+        "Tips_3": "Đang lưu, vui lòng đợi.....",
+        "Tips_4": "Lưu thành công",
+        "Tips_5": "Lỗi thao tác",
+        "Tips_6": "Thêm vào"
+      },
+      "KeyParametereditctrl": {
+        "Tips_1": "Biên tập",
+        "Tips_2": "Có hiệu lực",
+        "Tips_3": "Miền trùng lặp",
+        "Tips_4": "Đang lưu, vui lòng đợi.....",
+        "Tips_5": "Lưu thành công",
+        "Tips_6": "Lỗi thao tác"
+      },
+      "KeyParametereditDetailctrl": {
+        "Tips_1": "Biên tập chi tiết",
+        "Tips_2": "Có hiệu lực",
+        "Tips_3": "Đang lưu, vui lòng đợi.....",
+        "Tips_4": "Lưu thành công",
+        "Tips_5": "Lỗi thao tác",
+        "Tips_6": "Biên tập"
+      },
+      "KeyParameterlistctrl": {
+        "Tips_1": "Không có danh mục nào được chọn",
+        "Tips_2": "Sắp xếp",
+        "Tips_3": "Mã",
+        "Tips_4": "Tên",
+        "Tips_5": "Giá trị",
+        "Tips_6": "Miền 1",
+        "Tips_7": "Miền 2",
+        "Tips_8": "Miền 3",
+        "Tips_9": "Chú ý 1",
+        "Tips_10": "Chú ý 2",
+        "Tips_11": "Có hiệu lực",
+        "Tips_12": "Chú ý",
+        "Tips_13": "Thời gian tạo",
+        "Tips_14": "Lỗi thao tác",
+        "Tips_15": "Vui lòng chọn phân loại!",
+        "Tips_16": "Xóa",
+        "Tips_17": "Bạn có chắc chắn muốn xóa phân loại [",
+        "Tips_18": "]sao？",
+        "Tips_19": "Bạn có chắc chắn muốn xóa mục [",
+        "Tips_20": "Bảo trì tham số chính"
+      },
+      "KeyParameterselectctrl": {
+        "Tips_1": "Kiểm tra"
+      },
+      "Title": "Bảo trì tham số chính"
+    },
+    "KnowledgeBase": {
+      "KnowledgeBaseadd": {
+        "Tips_1": "Hủy bỏ",
+        "Tips_2": "Lưu"
+      },
+      "KnowledgeBaseedit": {
+        "Tips_1": "Hủy bỏ",
+        "Tips_2": "Lưu"
+      },
+      "KnowledgeBaselist": {
+        "Tips_1": "1.Liên kết UMC",
+        "Tips_2": "2.Tải xuống APP",
+        "Tips_3": "6.Tải xuống quy trình thiết lập máy quét mã",
+        "Tips_4": "3.Tải xuống CS",
+        "Tips_5": "7.Phương pháp nhập vào Google"
+      },
+      "KnowledgeBaseselect": {
+        "Tips_1": "Đóng kín"
+      },
+      "KnowledgeBaseaddctrl": {
+        "Tips_1": "Thêm vào"
+      },
+      "KnowledgeBaseeditctrl": {
+        "Tips_1": "Biên tập"
+      },
+      "KnowledgeBaselistctrl": {
+        "Tips_1": "Các trang web thường xuyên sử dụng"
+      },
+      "KnowledgeBaseselectctrl": {
+        "Tips_1": "Kiểm tra"
+      },
+      "Title": "Các trang web thường xuyên sử dụng"
+    },
+    "ReportManage": {
+      "ReportGroupadd": {
+        "Tips_1": "Hủy bỏ",
+        "Tips_2": "Lưu",
+        "Tips_3": "Tên vai trò:",
+        "Tips_4": "Thứ tự:",
+        "Tips_5": "Chú ý:"
+      },
+      "ReportGroupaddDetail": {
+        "Tips_1": "Hủy bỏ",
+        "Tips_2": "Lưu"
+      },
+      "ReportGroupedit": {
+        "Tips_1": "Hủy bỏ",
+        "Tips_2": "Lưu",
+        "Tips_3": "Tên vai trò:",
+        "Tips_4": "Thứ tự:",
+        "Tips_5": "Chú ý:"
+      },
+      "ReportGroupeditDetail": {
+        "Tips_1": "Hủy bỏ",
+        "Tips_2": "Lưu",
+        "Tips_3": "Tra cứu",
+        "Tips_4": "Mã nhân viên:",
+        "Tips_5": "Họ tên:",
+        "Tips_6": "Bộ phận:"
+      },
+      "ReportGrouplist": {
+        "Tips_1": "Tên vai trò:",
+        "Tips_2": "Tìm kiếm",
+        "Tips_3": "Thêm người dùng",
+        "Tips_4": "Quyền mới",
+        "Tips_5": "Xóa vai trò",
+        "Tips_6": "Chỉnh sửa vai trò",
+        "Tips_7": "Thêm mới vai trò"
+      },
+      "ReportGroupselect": {
+        "Tips_1": "Đóng kín"
+      },
+      "ReportLayoutadd": {
+        "Tips_1": "Hủy bỏ",
+        "Tips_2": "Lưu",
+        "Tips_3": "Máy tính chủ",
+        "Tips_4": "Tên:",
+        "Tips_5": "Thứ tự:",
+        "Tips_6": "Có phải có hiệu lực không",
+        "Tips_7": "Chú ý:",
+        "Tips_8": "Cấp trên trực thuộc",
+        "Tips_9": "Chọn phân loại cấp trên trực thuộc, nếu trống biểu thị là phân loại hàng đầu",
+        "Tips_10": "Chọn phân loại cấp trên trực thuộc",
+        "Tips_11": "&nbsp;chọn",
+        "Tips_12": "Chọn tổ chức trực thuộc"
+      },
+      "ReportLayoutaddDetail": {
+        "Tips_1": "Hủy bỏ",
+        "Tips_2": "Lưu",
+        "Tips_3": "Tên bảng báo cáo:",
+        "Tips_4": "Địa chỉ:",
+        "Tips_5": "Thứ tự:",
+        "Tips_6": "Có phải có hiệu lực không",
+        "Tips_7": "Chú ý:"
+      },
+      "ReportLayoutedit": {
+        "Tips_1": "Hủy bỏ",
+        "Tips_2": "Lưu",
+        "Tips_3": "Tên:",
+        "Tips_4": "Thứ tự:",
+        "Tips_5": "Có phải có hiệu lực không",
+        "Tips_6": "Chú ý:"
+      },
+      "ReportLayouteditDetail": {
+        "Tips_1": "Hủy bỏ",
+        "Tips_2": "Lưu",
+        "Tips_3": "Tên bảng báo cáo:",
+        "Tips_4": "Địa chỉ:",
+        "Tips_5": "Thứ tự:",
+        "Tips_6": "Có phải có hiệu lực không",
+        "Tips_7": "Chú ý:"
+      },
+      "ReportLayoutlist": {
+        "Tips_1": "Xóa bảng báo cáo",
+        "Tips_2": "Chỉnh sửa bảng báo cáo",
+        "Tips_3": "Thêm mới bảng báo cáo",
+        "Tips_4": "Xóa menu",
+        "Tips_5": "Chỉnh sửa menu",
+        "Tips_6": "Thêm mới menu",
+        "Tips_7": "menu -"
+      },
+      "ReportLayoutselect": {
+        "Tips_1": "Đóng kín"
+      },
+      "ReportRecordadd": {
+        "Tips_1": "Hủy bỏ",
+        "Tips_2": "Lưu"
+      },
+      "ReportRecordedit": {
+        "Tips_1": "Hủy bỏ",
+        "Tips_2": "Lưu"
+      },
+      "ReportRecordselect": {
+        "Tips_1": "Đóng kín"
+      },
+      "ReportGroupaddctrl": {
+        "Tips_1": "Thêm vào",
+        "Tips_2": "Đang lưu, vui lòng đợi.....",
+        "Tips_3": "Lưu thành công",
+        "Tips_4": "Lỗi thao tác"
+      },
+      "ReportGroupaddDetailctrl": {
+        "Tips_1": "Thêm vào",
+        "Tips_2": "Lỗi thao tác",
+        "Tips_3": "Đang lưu, vui lòng đợi.....",
+        "Tips_4": "Vui lòng chọn bảng báo cáo",
+        "Tips_5": "Lưu thành công"
+      },
+      "ReportGroupeditctrl": {
+        "Tips_1": "Biên tập",
+        "Tips_2": "Đang lưu, vui lòng đợi.....",
+        "Tips_3": "Lưu thành công",
+        "Tips_4": "Lỗi thao tác"
+      },
+      "ReportGroupeditDetailctrl": {
+        "Tips_1": "Thêm người dùng",
+        "Tips_2": "Mã công nhân",
+        "Tips_3": "Họ tên",
+        "Tips_4": "Giới tính",
+        "Tips_5": "Bộ phận",
+        "Tips_6": "Chức vụ",
+        "Tips_7": "Vui lòng chọn nhân viên",
+        "Tips_8": "Lỗi thao tác",
+        "Tips_9": "Đang lưu, vui lòng đợi.....",
+        "Tips_10": "Lưu thành công",
+        "Tips_11": "Biên tập"
+      },
+      "ReportGrouplistctrl": {
+        "Tips_1": "Sắp xếp",
+        "Tips_2": "Tên vai trò",
+        "Tips_3": "Chú ý",
+        "Tips_4": "Lỗi nhận dữ liệu",
+        "Tips_5": "Số thứ tự",
+        "Tips_6": "Mã thẻ nhân viên",
+        "Tips_7": "Họ tên",
+        "Tips_8": "Quản lý vai trò bảng báo cáo"
+      },
+      "ReportGroupselectctrl": {
+        "Tips_1": "Kiểm tra"
+      },
+      "ReportLayoutaddctrl": {
+        "Tips_1": "Thêm vào",
+        "Tips_2": "Có hiệu lực",
+        "Tips_3": "Đang lưu, vui lòng đợi.....",
+        "Tips_4": "Quyết định",
+        "Tips_5": "Hủy bỏ",
+        "Tips_6": "Chọn danh mục cấp trên",
+        "Tips_7": "Thông báo lỗi",
+        "Tips_8": "Lưu thành công",
+        "Tips_9": "Lỗi thao tác"
+      },
+      "ReportLayoutaddDetailctrl": {
+        "Tips_1": "Thêm vào",
+        "Tips_2": "Có hiệu lực",
+        "Tips_3": "Đang lưu, vui lòng đợi.....",
+        "Tips_4": "Lưu thành công",
+        "Tips_5": "Lỗi thao tác"
+      },
+      "ReportLayouteditctrl": {
+        "Tips_1": "Biên tập",
+        "Tips_2": "Có hiệu lực",
+        "Tips_3": "Đang lưu, vui lòng đợi.....",
+        "Tips_4": "Lưu thành công",
+        "Tips_5": "Lỗi thao tác"
+      },
+      "ReportLayouteditDetailctrl": {
+        "Tips_1": "Biên tập",
+        "Tips_2": "Có hiệu lực",
+        "Tips_3": "Đang lưu, vui lòng đợi.....",
+        "Tips_4": "Lưu thành công",
+        "Tips_5": "Lỗi thao tác"
+      },
+      "ReportLayoutlistctrl": {
+        "Tips_1": "Không có danh mục nào được chọn",
+        "Tips_2": "Sắp xếp",
+        "Tips_3": "Tên bảng báo cáo",
+        "Tips_4": "Địa chỉ",
+        "Tips_5": "Chú ý",
+        "Tips_6": "Có phải ẩn không",
+        "Tips_7": "Thời gian tạo",
+        "Tips_8": "Lỗi thao tác",
+        "Tips_9": "Vui lòng chọn phân loại!",
+        "Tips_10": "Xóa",
+        "Tips_11": "Bạn có chắc chắn muốn xóa phân loại？",
+        "Tips_12": "Vui lòng chọn menu trước!",
+        "Tips_13": "Bạn có chắc chắn muốn xóa mục？",
+        "Tips_14": "Cấu hình trang báo cáo"
+      },
+      "ReportLayoutselectctrl": {
+        "Tips_1": "Kiểm tra"
+      },
+      "ReportRecordaddctrl": {
+        "Tips_1": "Thêm vào"
+      },
+      "ReportRecordeditctrl": {
+        "Tips_1": "Biên tập"
+      },
+      "ReportRecordlistctrl": {
+        "Tips_1": "Ẩn",
+        "Tips_2": "Không có danh mục nào được chọn",
+        "Tips_3": "Mã nhà xưởng",
+        "Tips_4": "Tên nhà xưởng",
+        "Tips_5": "Hiển thị",
+        "Tips_6": "Lỗi thao tác",
+        "Tips_7": "Trang báo cáo"
+      },
+      "ReportRecordselectctrl": {
+        "Tips_1": "Kiểm tra"
+      },
+      "Title": "Quản lý bảng báo cáo"
+    },
+    "UpdateLog": {
+      "UpdateLogadd": {
+        "Tips_1": "Hủy bỏ",
+        "Tips_2": "Lưu",
+        "Tips_3": "Loại hình nghiệp vụ:",
+        "Tips_4": "Số phiên bản:",
+        "Tips_5": "Thay đổi nội dung:"
+      },
+      "UpdateLogedit": {
+        "Tips_1": "Hủy bỏ",
+        "Tips_2": "Lưu",
+        "Tips_3": "Loại hình nghiệp vụ:",
+        "Tips_4": "Số phiên bản:",
+        "Tips_5": "Thay đổi nội dung:"
+      },
+      "UpdateLoglist": {
+        "Tips_1": "Loại hình nghiệp vụ:",
+        "Tips_2": "Số phiên bản:",
+        "Tips_3": "Tìm kiếm",
+        "Tips_4": "Xóa",
+        "Tips_5": "Biên tập",
+        "Tips_6": "Thêm mới"
+      },
+      "UpdateLogselect": {
+        "Tips_1": "Đóng kín"
+      },
+      "UpdateLogaddctrl": {
+        "Tips_1": "Thêm vào",
+        "Tips_2": "--Vui lòng chọn--",
+        "Tips_3": "Đoạn CS",
+        "Tips_4": "Đang lưu, vui lòng đợi.....",
+        "Tips_5": "Lưu thành công",
+        "Tips_6": "Lỗi thao tác"
+      },
+      "UpdateLogeditctrl": {
+        "Tips_1": "Biên tập",
+        "Tips_2": "--Vui lòng chọn--",
+        "Tips_3": "Đoạn CS",
+        "Tips_4": "Đang lưu, vui lòng đợi.....",
+        "Tips_5": "Lưu thành công",
+        "Tips_6": "Lỗi thao tác"
+      },
+      "UpdateLoglistctrl": {
+        "Tips_1": "--Vui lòng chọn--",
+        "Tips_2": "Đoạn CS",
+        "Tips_3": "Số thứ tự",
+        "Tips_4": "Loại hình nghiệp vụ:",
+        "Tips_5": "Số phiên bản",
+        "Tips_6": "Thay đổi nội dung",
+        "Tips_7": "Người tạo",
+        "Tips_8": "Thời gian tạo",
+        "Tips_9": "Lỗi nhận dữ liệu",
+        "Tips_10": "Xóa",
+        "Tips_11": "Bạn có chắc chăn xóa các bản ghi đã chọn không？",
+        "Tips_12": "Nhật ký nâng cấp"
+      },
+      "UpdateLogselectctrl": {
+        "Tips_1": "Kiểm tra"
+      },
+      "Title": "Nhật ký nâng cấp"
+    },
+    "DataItemDetail": {
+      "Title": "Thông tin chi tiết quản lý từ điển dữ liệu"
+    },
+    "ReportRecord": {
+      "Title": "Trang báo cáo"
+    },
+    "ReportGroup": {
+      "Title": "Quản lý vai trò bảng báo cáo"
+    },
+    "ReportLayout": {
+      "Title": "Cấu hình trang báo cáo"
+    }
+  }
+}

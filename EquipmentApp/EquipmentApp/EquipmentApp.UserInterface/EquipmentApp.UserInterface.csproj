@@ -1,0 +1,271 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4265B065-EF0B-441B-82B5-87FA6EC1BAFA}</ProjectGuid>
+    <ProjectTypeGuids>{D45F378E-08AA-4766-880A-1AF4180CC2F8};{349c5851-65df-11da-9384-00065b846f21};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Siemens.SimaticIT.EquipmentApp.UserInterface</RootNamespace>
+    <AssemblyName>Siemens.SimaticIT.EquipmentApp.UserInterface</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <Name>EquipmentApp.UserInterface</Name>
+    <FunctionalBlockType>Project</FunctionalBlockType>
+    <FunctionalBlockVersion>01.00.00</FunctionalBlockVersion>
+    <FunctionalBlockName>EquipmentApp</FunctionalBlockName>
+    <FunctionalBlockPrefix>Siemens.SimaticIT</FunctionalBlockPrefix>
+    <SitPlatformVersion>4.1</SitPlatformVersion>
+    <Use64BitIISExpress />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Siemens.SimaticIT.EquipmentApp\components\" />
+    <Folder Include="Siemens.SimaticIT.EquipmentApp\config\" />
+    <Folder Include="Siemens.SimaticIT.EquipmentApp\fonts\" />
+    <Folder Include="Siemens.SimaticIT.EquipmentApp\images\" />
+    <Folder Include="Siemens.SimaticIT.EquipmentApp\scripts\" />
+    <Folder Include="Siemens.SimaticIT.EquipmentApp\services\" />
+    <Folder Include="Siemens.SimaticIT.EquipmentApp\styles\" />
+    <Folder Include="Siemens.SimaticIT.EquipmentApp\swac\" />
+    <Folder Include="Siemens.SimaticIT.EquipmentApp\widgets\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EP_EquipmentCheckItemMaintenance\EP_EquipmentCheckItemMaintenance-add-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EP_EquipmentCheckItemMaintenance\EP_EquipmentCheckItemMaintenance-add.html" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EP_EquipmentCheckItemMaintenance\EP_EquipmentCheckItemMaintenance-addstandard-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EP_EquipmentCheckItemMaintenance\EP_EquipmentCheckItemMaintenance-addstandard.html" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EP_EquipmentCheckItemMaintenance\EP_EquipmentCheckItemMaintenance-edit-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EP_EquipmentCheckItemMaintenance\EP_EquipmentCheckItemMaintenance-edit.html" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EP_EquipmentCheckItemMaintenance\EP_EquipmentCheckItemMaintenance-editstandard-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EP_EquipmentCheckItemMaintenance\EP_EquipmentCheckItemMaintenance-editstandard.html" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EP_EquipmentCheckItemMaintenance\EP_EquipmentCheckItemMaintenance-list-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EP_EquipmentCheckItemMaintenance\EP_EquipmentCheckItemMaintenance-list.html" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EP_EquipmentCheckItemMaintenance\EP_EquipmentCheckItemMaintenance-select-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EP_EquipmentCheckItemMaintenance\EP_EquipmentCheckItemMaintenance-select.html" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EP_EquipmentCheckItemMaintenance\EP_EquipmentCheckItemMaintenance-srv.js" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EP_EquipmentCheckItemMaintenance\module.js" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EP_EquipmentCheckRecord\EP_EquipmentCheckRecord-add-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EP_EquipmentCheckRecord\EP_EquipmentCheckRecord-add.html" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EP_EquipmentCheckRecord\EP_EquipmentCheckRecord-addresult-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EP_EquipmentCheckRecord\EP_EquipmentCheckRecord-addresult.html" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EP_EquipmentCheckRecord\EP_EquipmentCheckRecord-edit-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EP_EquipmentCheckRecord\EP_EquipmentCheckRecord-edit.html" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EP_EquipmentCheckRecord\EP_EquipmentCheckRecord-editresult-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EP_EquipmentCheckRecord\EP_EquipmentCheckRecord-editresult.html" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EP_EquipmentCheckRecord\EP_EquipmentCheckRecord-list-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EP_EquipmentCheckRecord\EP_EquipmentCheckRecord-list.html" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EP_EquipmentCheckRecord\EP_EquipmentCheckRecord-srv.js" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EP_EquipmentCheckRecord\EP_EquipmentCheckRecord-select-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EP_EquipmentCheckRecord\EP_EquipmentCheckRecord-select.html" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EP_EquipmentMaintainTask\EP_EquipmentMaintainTask-addresult.html" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EP_EquipmentMaintainTask\EP_EquipmentMaintainTask-addresult-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EP_EquipmentMaintainTask\EP_EquipmentMaintainTask-add-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EP_EquipmentMaintainTask\EP_EquipmentMaintainTask-add.html" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EP_EquipmentMaintainTask\EP_EquipmentMaintainTask-addspare-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EP_EquipmentMaintainTask\EP_EquipmentMaintainTask-addspare.html" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EP_EquipmentMaintainTask\EP_EquipmentMaintainTask-editresult.html" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EP_EquipmentMaintainTask\EP_EquipmentMaintainTask-editresult-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EP_EquipmentMaintainTask\EP_EquipmentMaintainTask-edit-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EP_EquipmentMaintainTask\EP_EquipmentMaintainTask-edit.html" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EP_EquipmentMaintainTask\EP_EquipmentMaintainTask-editspare-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EP_EquipmentMaintainTask\EP_EquipmentMaintainTask-editspare.html" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EP_EquipmentMaintainTask\EP_EquipmentMaintainTask-list-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EP_EquipmentMaintainTask\EP_EquipmentMaintainTask-list.html" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EP_EquipmentMaintainTask\EP_EquipmentMaintainTask-srv.js" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EP_EquipmentMaintain\EP_EquipmentMaintain-addspare.html" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EP_EquipmentMaintain\EP_EquipmentMaintain-addspare-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EP_EquipmentMaintain\EP_EquipmentMaintain-addstandard.html" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EP_EquipmentMaintain\EP_EquipmentMaintain-addstandard-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EP_EquipmentMaintain\EP_EquipmentMaintain-add-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EP_EquipmentMaintain\EP_EquipmentMaintain-add.html" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EP_EquipmentMaintain\EP_EquipmentMaintain-editselect.html" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EP_EquipmentMaintain\EP_EquipmentMaintain-editselect-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EP_EquipmentMaintain\EP_EquipmentMaintain-editspare.html" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EP_EquipmentMaintain\EP_EquipmentMaintain-editspare-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EP_EquipmentMaintain\EP_EquipmentMaintain-editstandard.html" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EP_EquipmentMaintain\EP_EquipmentMaintain-editstandard-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EP_EquipmentMaintain\EP_EquipmentMaintain-edit-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EP_EquipmentMaintain\EP_EquipmentMaintain-edit.html" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EP_EquipmentMaintain\EP_EquipmentMaintain-list-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EP_EquipmentMaintain\EP_EquipmentMaintain-list.html" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EP_EquipmentMaintain\EP_EquipmentMaintain-srv.js" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EP_EquipmentMalfunctionRepair\EP_EquipmentMalfunctionRepair-addrepair.html" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EP_EquipmentMalfunctionRepair\EP_EquipmentMalfunctionRepair-addrepair-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EP_EquipmentMalfunctionRepair\EP_EquipmentMalfunctionRepair-addspare.html" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EP_EquipmentMalfunctionRepair\EP_EquipmentMalfunctionRepair-addspare-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EP_EquipmentMalfunctionRepair\EP_EquipmentMalfunctionRepair-add-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EP_EquipmentMalfunctionRepair\EP_EquipmentMalfunctionRepair-add.html" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EP_EquipmentMalfunctionRepair\EP_EquipmentMalfunctionRepair-editrepair.html" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EP_EquipmentMalfunctionRepair\EP_EquipmentMalfunctionRepair-editrepair-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EP_EquipmentMalfunctionRepair\EP_EquipmentMalfunctionRepair-editspare.html" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EP_EquipmentMalfunctionRepair\EP_EquipmentMalfunctionRepair-editspare-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EP_EquipmentMalfunctionRepair\EP_EquipmentMalfunctionRepair-edit-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EP_EquipmentMalfunctionRepair\EP_EquipmentMalfunctionRepair-edit.html" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EP_EquipmentMalfunctionRepair\EP_EquipmentMalfunctionRepair-list-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EP_EquipmentMalfunctionRepair\EP_EquipmentMalfunctionRepair-list.html" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EP_EquipmentMalfunctionRepair\EP_EquipmentMalfunctionRepair-srv.js" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EP_EquipmentMalfunctionRepair\EP_EquipmentMalfunctionRepair-select-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EP_EquipmentMalfunctionRepair\EP_EquipmentMalfunctionRepair-select.html" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EP_EquipmentRepairRecord\EP_EquipmentRepairRecord-add-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EP_EquipmentRepairRecord\EP_EquipmentRepairRecord-add.html" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EP_EquipmentRepairRecord\EP_EquipmentRepairRecord-edit-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EP_EquipmentRepairRecord\EP_EquipmentRepairRecord-edit.html" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EP_EquipmentRepairRecord\EP_EquipmentRepairRecord-list-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EP_EquipmentRepairRecord\EP_EquipmentRepairRecord-list.html" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EP_EquipmentRepairRecord\EP_EquipmentRepairRecord-srv.js" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EP_EquipmentSpareParts\EP_EquipmentSpareParts-add-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EP_EquipmentSpareParts\EP_EquipmentSpareParts-add.html" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EP_EquipmentSpareParts\EP_EquipmentSpareParts-edit-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EP_EquipmentSpareParts\EP_EquipmentSpareParts-edit.html" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EP_EquipmentSpareParts\EP_EquipmentSpareParts-list-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EP_EquipmentSpareParts\EP_EquipmentSpareParts-list.html" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EP_EquipmentSpareParts\EP_EquipmentSpareParts-srv.js" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EP_EquipmentTool\EP_EquipmentTool-add-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EP_EquipmentTool\EP_EquipmentTool-add.html" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EP_EquipmentTool\EP_EquipmentTool-edit-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EP_EquipmentTool\EP_EquipmentTool-edit.html" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EP_EquipmentTool\EP_EquipmentTool-list-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EP_EquipmentTool\EP_EquipmentTool-list.html" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EP_EquipmentTool\EP_EquipmentTool-srv.js" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EquipmentAccount\EquipmentAccount-addDetail.html" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EquipmentAccount\EquipmentAccount-addDetail-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EquipmentAccount\EquipmentAccount-archives.html" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EquipmentAccount\EquipmentAccount-archives-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EquipmentAccount\EquipmentAccount-add-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EquipmentAccount\EquipmentAccount-add.html" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EquipmentAccount\EquipmentAccount-editDetail.html" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EquipmentAccount\EquipmentAccount-editDetail-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EquipmentAccount\EquipmentAccount-edit-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EquipmentAccount\EquipmentAccount-edit.html" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EquipmentAccount\EquipmentAccount-list-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EquipmentAccount\EquipmentAccount-list.html" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EquipmentAccount\EquipmentAccount-select-ctrl.js" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EquipmentAccount\EquipmentAccount-select.html" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EquipmentAccount\EquipmentAccount-srv.js" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\EquipmentAccount\module.js" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\Siemens.SimaticIT.EquipmentApp.EquipmentAccount.json" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\Siemens.SimaticIT.EquipmentApp.EP_EquipmentCheckItemMaintenance.json" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\Siemens.SimaticIT.EquipmentApp.EP_EquipmentCheckRecord.json" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\Siemens.SimaticIT.EquipmentApp.EP_EquipmentMalfunctionRepair.json" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\Siemens.SimaticIT.EquipmentApp.EP_EquipmentRepairRecord.json" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\Siemens.SimaticIT.EquipmentApp.EP_EquipmentMaintain.json" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\Siemens.SimaticIT.EquipmentApp.EP_EquipmentSpareParts.json" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\Siemens.SimaticIT.EquipmentApp.EP_EquipmentTool.json" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\modules\Siemens.SimaticIT.EquipmentApp.EP_EquipmentMaintainTask.json" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\resources\resources.json" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\resources\Siemens.SimaticIT.EquipmentApp.vi-VN.json" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\resources\Siemens.SimaticIT.EquipmentApp.zh-CN.json" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\resources\Siemens.SimaticIT.EquipmentApp.th-TH.json" />
+    <Content Include="Siemens.SimaticIT.EquipmentApp\resources\Siemens.SimaticIT.EquipmentApp.en-US.json" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="app.js" />
+    <Content Include="config.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="default.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="default-debug.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Siemens.SimaticIT.EquipmentApp\module.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="scripts\_references.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Siemens.SimaticIT.EquipmentApp\locales\locales.json" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Import Project="$(SITUnifiedVSToolingPlatformBin)\Siemens.SimaticIt.UI.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>59854</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:59854/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeCompile">
+  </Target>
+  <Target Name="AfterCompile">
+  </Target>
+  -->
+</Project>

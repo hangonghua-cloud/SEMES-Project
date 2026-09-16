@@ -1,0 +1,1979 @@
+﻿using ALP.Application.Entity.Enum;
+using ALP.Application.Entity.HTTPEntity;
+using ALP.Application.Entity.MaterialManage;
+using ALP.Application.Entity.PlanManage;
+using ALP.Application.Entity.ProduceManage;
+using ALP.Application.Entity.SAPEntity;
+using ALP.Application.Entity.SAPEntity.ToSAP;
+using ALP.Application.Service.AuthorizeManage;
+using ALP.Application.Service.BaseManage;
+using ALP.Application.Service.Helper;
+using ALP.Application.Service.Material;
+using ALP.Application.Service.MaterialManage;
+using ALP.Application.Service.PlanManage;
+using ALP.Application.Service.ProduceManage;
+using ALP.Application.Service.SystemManage;
+using ALP.Application.UtilExtend;
+using ALP.Application.UtilExtend.Util;
+using ALP.Data;
+using ALP.Data.Repository;
+using ALP.Util;
+using ALP.Util.Extension;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ALP.Application.Service.ToSAP
+{
+
+    public class ToSAPService : BaseSAPService
+    {
+
+        /// <summary>
+        /// MES->SAP接口测试
+        /// </summary>
+        /// <returns></returns>
+        public void ToSAPTest()
+        {
+
+            IF128 sapRequest = new IF128();
+            sapRequest.HEAD = new SapHeadDto();
+            sapRequest.HEAD.INIF_ID = SAPInterface.IF128.ToString();
+            sapRequest.RSQ_DATA = new IF128_RSQ_DATA();
+
+            IF128_HEAD IS_HEAD = new IF128_HEAD();
+            IS_HEAD.AUFNR = "10000000";
+            IS_HEAD.APRIO = "1";
+            // sapRequest.RSQ_DATA.IS_HEAD = IS_HEAD;
+
+            var result = SAPHelper.Instance.PostToSAP(sapRequest.HEAD.INIF_ID, sapRequest);
+            var isPosted = result.Flag ? "1" : "";
+            var postedMsg = result.Msg;
+            var data = result.Data;
+            //更新sap返回内容到业务表
+
+        }
+
+        /// <summary>
+        /// 自制半成品报工物料消耗-SAP工单领退料
+        /// </summary>
+        public void OwnProductBGMatConsumeToSAP()
+        {
+            try
+            {
+                IF112 sapRequest = new IF112();
+                sapRequest.HEAD = new SapHeadDto();
+                sapRequest.HEAD.INIF_ID = SAPInterface.IF112.ToString();
+                sapRequest.RSQ_DATA = new IF112_RSQ_DATA();
+                string dbsql = string.Format(@"
+                
+                SELECT a.*,b.SAP_AUFNR FROM dbo.MM_RawMaterialOut a
+                INNER JOIN  dbo.PM_OwnProductOrder b ON a.WorkOrder=b.WorkOrder
+                WHERE a.BGType='4' AND a.OutType='1' AND ISNULL(a.IsPosted,'')=''");
+                var MM_RawMaterialOutLists = new RepositoryFactory().BaseRepository().FindList<SAPMM_RawMaterialOutEntity>(dbsql);
+                if (MM_RawMaterialOutLists.Any())
+                {
+                    foreach (var items in MM_RawMaterialOutLists.GroupBy(t => t.SAP_AUFNR))
+                    {
+                        IF112_DATA IF112_DATA = new IF112_DATA();
+
+                        IF112_DATA.AUFNR = items.FirstOrDefault().SAP_AUFNR;
+                        IF112_DATA.BUDAT = items.FirstOrDefault().PostDate == null ? "" : items.FirstOrDefault().PostDate.Value.ToString("yyyyMMdd");
+                        IF112_DATA.BKTXT = items.FirstOrDefault().Creator;
+                        IF112_DATA.MTSNR = items.FirstOrDefault().WorkOrder;
+                        sapRequest.RSQ_DATA.IS_DATA = IF112_DATA;
+                        List<IF112_ITEM> IS_ITEM = new List<IF112_ITEM>();
+                        foreach (var item in items)
+                        {
+                            IF112_ITEM IF112_ITEM = new IF112_ITEM();
+                            IF112_ITEM.MATNR = item.MaterialCode;
+                            IF112_ITEM.WERKS = item.FactoryCode;
+                            IF112_ITEM.CHARG = item.BatchNo;
+                            IF112_ITEM.ERFMG = item.Qty.ToString();
+                            IF112_ITEM.ISHS = item.MaterialClass;
+                            IF112_ITEM.LGORT = item.LocationCode;
+                            IS_ITEM.Add(IF112_ITEM);
+                        }
+                        sapRequest.RSQ_DATA.IS_ITEM = IS_ITEM;
+                        var result = SAPHelper.Instance.PostToSAP(sapRequest.HEAD.INIF_ID, sapRequest);
+                        var isPosted = result.Flag ? "1" : "";
+                        var postedMsg = result.Msg;
+                        var data = result.Data;
+                        foreach (var item in items)
+                        {
+                            //查找出库表信息
+                            var MM_RawMaterialOut = new MM_RawMaterialOut_Service().Get_ExpressionEntity(t => t.Id == item.Id);
+                            MM_RawMaterialOut.IsPosted = isPosted;
+                            MM_RawMaterialOut.PostedMsg = postedMsg;
+                            MM_RawMaterialOut.PostedTime = DateTime.Now;
+                            MM_RawMaterialOut.PostedUser = "SAP";
+                            MM_RawMaterialOut.SAP_MBLNR = getValue(JObject.Parse(data), "EV_MBLNR");
+                            MM_RawMaterialOut.SAP_MJAHR = getValue(JObject.Parse(data), "EV_MJAHR");
+                            new RepositoryFactory().BaseRepository().Update(MM_RawMaterialOut);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        /// <summary>
+        ///    包装报工  流转卡报工物料消耗-SAP工单领退料
+        /// </summary>
+        public void CardAndPackBGMatConsumeToSAP()
+        {
+            try
+            {
+                IF112 sapRequest = new IF112();
+                sapRequest.HEAD = new SapHeadDto();
+                sapRequest.HEAD.INIF_ID = SAPInterface.IF112.ToString();
+                sapRequest.RSQ_DATA = new IF112_RSQ_DATA();
+                string dbsql = string.Format(@"
+                SELECT a.*,b.SAP_AUFNR FROM dbo.MM_RawMaterialOut a
+                INNER JOIN  dbo.PL_WorkOrder b ON a.WorkOrder=b.WorkOrder
+                WHERE a.BGType IN('1','3') AND a.OutType='1' AND ISNULL(a.IsPosted,'')=''");
+                var MM_RawMaterialOutLists = new RepositoryFactory().BaseRepository().FindList<SAPMM_RawMaterialOutEntity>(dbsql);
+                if (MM_RawMaterialOutLists.Any())
+                {
+                    foreach (var items in MM_RawMaterialOutLists.GroupBy(t => t.SAP_AUFNR))
+                    {
+                        IF112_DATA IF112_DATA = new IF112_DATA();
+
+                        IF112_DATA.AUFNR = items.FirstOrDefault().SAP_AUFNR;
+                        IF112_DATA.BUDAT = items.FirstOrDefault().PostDate == null ? "" : items.FirstOrDefault().PostDate.Value.ToString("yyyyMMdd");
+                        IF112_DATA.BKTXT = items.FirstOrDefault().Creator;
+                        IF112_DATA.MTSNR = items.FirstOrDefault().WorkOrder;
+                        sapRequest.RSQ_DATA.IS_DATA = IF112_DATA;
+                        List<IF112_ITEM> IS_ITEM = new List<IF112_ITEM>();
+                        foreach (var item in items)
+                        {
+                            IF112_ITEM IF112_ITEM = new IF112_ITEM();
+                            IF112_ITEM.MATNR = item.MaterialCode;
+                            IF112_ITEM.WERKS = item.FactoryCode;
+                            IF112_ITEM.CHARG = item.BatchNo;
+                            IF112_ITEM.ERFMG = item.Qty.ToString();
+                            IF112_ITEM.ISHS = item.MaterialClass;
+                            IF112_ITEM.LGORT = item.LocationCode;
+                            IS_ITEM.Add(IF112_ITEM);
+                        }
+                        sapRequest.RSQ_DATA.IS_ITEM = IS_ITEM;
+                        var result = SAPHelper.Instance.PostToSAP(sapRequest.HEAD.INIF_ID, sapRequest);
+                        var isPosted = result.Flag ? "1" : "";
+                        var postedMsg = result.Msg;
+                        var data = result.Data;
+                        foreach (var item in items)
+                        {
+                            //查找出库表信息
+                            var MM_RawMaterialOut = new MM_RawMaterialOut_Service().Get_ExpressionEntity(t => t.Id == item.Id);
+                            MM_RawMaterialOut.IsPosted = isPosted;
+                            MM_RawMaterialOut.PostedMsg = postedMsg;
+                            MM_RawMaterialOut.PostedTime = DateTime.Now;
+                            MM_RawMaterialOut.PostedUser = "SAP";
+                            MM_RawMaterialOut.SAP_MBLNR = getValue(JObject.Parse(data), "EV_MBLNR");
+                            MM_RawMaterialOut.SAP_MJAHR = getValue(JObject.Parse(data), "EV_MJAHR");
+                            new RepositoryFactory().BaseRepository().Update(MM_RawMaterialOut);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// 原材料调拨-SAP调拨过账
+        /// </summary>
+        public void RawMaterialDBToSAP()
+        {
+            try
+            {
+                IF102 sapRequest = new IF102();
+                sapRequest.HEAD = new SapHeadDto();
+                sapRequest.HEAD.INIF_ID = SAPInterface.IF102.ToString();
+                sapRequest.RSQ_DATA = new IF102_RSQ_DATA();
+
+                //获取调拨数据
+                string dbSql = string.Format(@"
+	                          SELECT a.* ,
+	                          b.Id AS Bid,
+	                          b.FactoryCode AS BFactoryCode,
+	                          B.LocationCode AS BLocationCode,
+	                          b.BatchNo AS BBatchNo FROM dbo.MM_RawMaterialOut a
+							  INNER JOIN dbo.MM_RawMaterialIn b ON a.AssociateNo=a.AssociateNo
+							  WHERE ISNULL(a.IsPosted,'')=''");
+                var RawMaterialDBLists = new RepositoryFactory().BaseRepository().FindList<MM_SelectRawMaterialOutEntity>(dbSql);
+
+                if (RawMaterialDBLists.Any())
+                {
+                    foreach (var items in RawMaterialDBLists.GroupBy(t => t.PostDate))
+                    {
+                        IF102_HEAD IF102_HEAD = new IF102_HEAD();
+                        IF102_HEAD.BLDAT = DateTime.Now.ToString("yyyyMMdd");
+                        IF102_HEAD.BUDAT = items.FirstOrDefault().PostDate.ToString("yyyyMMdd"); ;
+                        sapRequest.RSQ_DATA.IS_HEAD = IF102_HEAD;
+
+                        List<IF102_ITEM> IS_ITEM = new List<IF102_ITEM>();
+                        foreach (var item in items)
+                        {
+                            IF102_ITEM IF102_ITEM = new IF102_ITEM();
+                            IF102_ITEM.BWART = "311";
+                            IF102_ITEM.MATNR = item.MaterialCode;
+                            IF102_ITEM.WERKS = item.FactoryCode;
+                            IF102_ITEM.CHARG = item.BatchNo;
+                            IF102_ITEM.ERFMG = item.Qty.ToString();
+                            IF102_ITEM.ERFME = item.Unit;
+                            IF102_ITEM.UMWRK = item.BFactoryCode;
+                            IF102_ITEM.UMLGO = item.BLocationCode;
+                            IF102_ITEM.UMCHA = item.BBatchNo;
+                            IS_ITEM.Add(IF102_ITEM);
+                        }
+                        sapRequest.RSQ_DATA.IT_ITEM = IS_ITEM;
+                        var result = SAPHelper.Instance.PostToSAP(sapRequest.HEAD.INIF_ID, sapRequest);
+                        var isPosted = result.Flag ? "1" : "";
+                        var postedMsg = result.Msg;
+                        var data = result.Data;
+                        foreach (var item in items)
+                        {
+                            //查找出库表信息
+                            var MM_RawMaterialOut = new MM_RawMaterialOut_Service().Get_ExpressionEntity(t => t.Id == item.Id);
+
+                            MM_RawMaterialOut.IsPosted = isPosted;
+                            MM_RawMaterialOut.PostedMsg = postedMsg;
+                            MM_RawMaterialOut.PostedTime = DateTime.Now;
+                            MM_RawMaterialOut.PostedUser = "SAP";
+                            MM_RawMaterialOut.SAP_MBLNR = getValue(JObject.Parse(data), "EV_MBLNR");
+                            new RepositoryFactory().BaseRepository().Update(MM_RawMaterialOut);
+                            // item.SAPYear = getValue(JObject.Parse(data), "EV_MJAHR");
+
+                            //查找入库表信息
+                            var MM_RawMaterialin = new MM_RawMaterialIn_Service().Get_ExpressionEntity(t => t.Id == item.Bid);
+                            MM_RawMaterialin.IsPosted = isPosted;
+                            MM_RawMaterialin.PostedMsg = postedMsg;
+                            MM_RawMaterialin.PostedTime = DateTime.Now;
+                            MM_RawMaterialin.PostedUser = "SAP";
+                            MM_RawMaterialin.SAP_MBLNR = getValue(JObject.Parse(data), "EV_MBLNR");
+                            new RepositoryFactory().BaseRepository().Update(MM_RawMaterialin);
+                        }
+
+                    }
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// 原材料出库-SAP领退料过账
+        /// </summary>
+        public void RawMaterialOutWhsToSAP()
+        {
+            try
+            {
+                IF116 sapRequest = new IF116();
+                sapRequest.HEAD = new SapHeadDto();
+                sapRequest.HEAD.INIF_ID = SAPInterface.IF116.ToString();
+                sapRequest.RSQ_DATA = new IF116_RSQ_DATA();
+
+                IF116_HEAD IF116_HEAD = new IF116_HEAD();
+                IF116_HEAD.BLDAT = DateTime.Now.ToString("yyyyMMdd");
+                IF116_HEAD.BUDAT = DateTime.Now.ToString("yyyyMMdd");
+                sapRequest.RSQ_DATA.IS_HEAD = IF116_HEAD;
+
+                //获取明细数据
+                string smallSql = string.Format(@"SELECT * FROM dbo.MM_RawMaterialOut WHERE OutType='10' AND ISNULL(IsPosted,'')=''");
+                var RawMaterialOunLists = new RepositoryFactory().BaseRepository().FindList<MM_RawMaterialOutEntity>(smallSql);
+                if (RawMaterialOunLists.Any())
+                {
+                    List<IF116_ITEM> IT_ITEM = new List<IF116_ITEM>();
+                    foreach (var item in RawMaterialOunLists)
+                    {
+                        IF116_ITEM IF116_ITEM = new IF116_ITEM();
+                        IF116_ITEM.BWART = item.MoveType;
+                        IF116_ITEM.MATNR = item.MaterialCode;
+                        IF116_ITEM.WERKS = item.FactoryCode;
+                        IF116_ITEM.LGORT = item.LocationCode;
+                        IF116_ITEM.CHARG = item.BatchNo;
+                        IF116_ITEM.ERFMG = item.Qty.ToString();
+                        IF116_ITEM.ERFME = item.Unit;
+                        IF116_ITEM.KOSTL = item.WorkShopCode;
+                        IF116_ITEM.AUFNR = item.ProductOrder;
+                        IF116_ITEM.SGTXT = "";
+                        IT_ITEM.Add(IF116_ITEM);
+                    }
+                    sapRequest.RSQ_DATA.IT_ITEM = IT_ITEM;
+
+                    var result = SAPHelper.Instance.PostToSAP(sapRequest.HEAD.INIF_ID, sapRequest);
+                    var isPosted = result.Flag ? "1" : "";
+                    var postedMsg = result.Msg;
+                    var data = result.Data;
+                    //更新采购入库单据
+
+                    foreach (var item in RawMaterialOunLists)
+                    {
+                        item.IsPosted = isPosted;
+                        item.PostedMsg = postedMsg;
+                        item.PostedTime = DateTime.Now;
+                        item.PostedUser = "SAP";
+                        item.SAP_MBLNR = getValue(JObject.Parse(data), "EV_MBLNR");
+                        item.SAP_MJAHR = getValue(JObject.Parse(data), "EV_MJAHR");
+
+                        new RepositoryFactory().BaseRepository().Update(item);
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+        /// <summary>
+        /// 成品发货-SAP销售交货单冲销过账
+        /// </summary>
+        public void ProductDispatchItemOffToSAP()
+        {
+            try
+            {
+                IF106 sapRequest = new IF106();
+                sapRequest.HEAD = new SapHeadDto();
+                sapRequest.HEAD.INIF_ID = SAPInterface.IF106.ToString();
+                sapRequest.RSQ_DATA = new IF106_RSQ_DATA();
+                //获取成品发货数据
+                string sql = string.Format(@"SELECT * FROM dbo.MM_ProductDispatchItem WHERE PostMark='R' AND  ISNULL(Off_IsPosted,'')='' ");
+                var ProductDispatchItems = new RepositoryFactory().BaseRepository().FindList<MM_ProductDispatchItemEntity>(sql);
+                if (ProductDispatchItems.Any())
+                {
+                    foreach (var item in ProductDispatchItems)
+                    {
+                        IF106_HEAD IF106_HEAD = new IF106_HEAD();
+                        IF106_HEAD.ZGZ = "R";
+                        IF106_HEAD.VSTEL = item.FactoryCode;
+                        IF106_HEAD.VSTEL = item.DocNum;
+                        IF106_HEAD.WADAT_IST = Convert.ToDateTime(item.SendTime).ToString("yyyyMMdd");
+                        IF106_HEAD.ZMESDATE = DateTime.Now.ToString("yyyyMMdd");
+                        IF106_HEAD.ZMESTIME = DateTime.Now.ToString("hhmmss");
+                        sapRequest.RSQ_DATA.IS_HEAD = IF106_HEAD;
+                        var result = SAPHelper.Instance.PostToSAP(sapRequest.HEAD.INIF_ID, sapRequest);
+                        var Off_IsPosted = result.Flag ? "1" : "";
+                        var Off_PostedMsg = result.Msg;
+                        var data = result.Data;
+
+                        item.Off_IsPosted = Off_IsPosted;
+                        item.Off_PostedMsg = Off_PostedMsg;
+                        item.Off_PostedTime = DateTime.Now;
+                        item.Off_PostedUser = "SAP";
+                        if (Off_IsPosted == "1")
+                        {
+                            item.Off_SAP_MBLNR = getValue(JObject.Parse(data), "EV_MBLNR");
+                            item.Off_SAP_VBELN = getValue(JObject.Parse(data), "EV_VBLEN");
+
+                        }
+                        new RepositoryFactory().BaseRepository().Update(item);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        /// <summary>
+        ///  原材料发货-SAP销售交货单冲销过账
+        /// </summary>
+        public void RawMaterialDispatchOffSAP()
+        {
+            try
+            {
+                IF106 sapRequest = new IF106();
+                sapRequest.HEAD = new SapHeadDto();
+                sapRequest.HEAD.INIF_ID = SAPInterface.IF106.ToString();
+                sapRequest.RSQ_DATA = new IF106_RSQ_DATA();
+                //获取成品发货数据
+                string sql = string.Format(@"SELECT * FROM dbo.MM_RawMaterialDispatch WHERE PostMark='R' AND  ISNULL(Off_IsPosted,'')='' ");
+                var ProductDispatchItems = new RepositoryFactory().BaseRepository().FindList<MMRawMaterialDispatchEntity>(sql);
+                if (ProductDispatchItems.Any())
+                {
+                    foreach (var item in ProductDispatchItems)
+                    {
+                        IF106_HEAD IF106_HEAD = new IF106_HEAD();
+                        IF106_HEAD.ZGZ = "R";
+                        IF106_HEAD.VSTEL = item.FactoryCode;
+                        IF106_HEAD.VSTEL = item.DeliveryNo;
+                        IF106_HEAD.WADAT_IST = Convert.ToDateTime(item.PostDate).ToString("yyyyMMdd");
+                        IF106_HEAD.ZMESDATE = DateTime.Now.ToString("yyyyMMdd");
+                        IF106_HEAD.ZMESTIME = DateTime.Now.ToString("hhmmss");
+                        sapRequest.RSQ_DATA.IS_HEAD = IF106_HEAD;
+                        var result = SAPHelper.Instance.PostToSAP(sapRequest.HEAD.INIF_ID, sapRequest);
+                        var Off_IsPosted = result.Flag ? "1" : "";
+                        var Off_PostedMsg = result.Msg;
+                        var data = result.Data;
+
+                        item.Off_IsPosted = Off_IsPosted;
+                        item.Off_PostedMsg = Off_PostedMsg;
+                        item.Off_PostedTime = DateTime.Now;
+                        item.Off_PostedUser = "SAP";
+                        if (Off_IsPosted == "1")
+                        {
+                            item.Off_SAP_MBLNR = getValue(JObject.Parse(data), "EV_MBLNR");
+                            item.Off_SAP_VBELN = getValue(JObject.Parse(data), "EV_VBLEN");
+
+                        }
+                        new RepositoryFactory().BaseRepository().Update(item);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// 自制半成品工单创建-SAP工单创建接口
+        /// </summary>
+        public (bool Flag, string Msg, string Data) PM_OwnProductOrderTOSAP(PM_OwnProductOrderEntity entity)
+        {
+            IF110 sapRequest = new IF110();
+            sapRequest.HEAD = new SapHeadDto();
+            sapRequest.HEAD.INIF_ID = SAPInterface.IF110.ToString();
+
+            var materialEntity = new Base_Material_Service().Get_ExpressionEntity(t => t.MaterialCode == entity.MaterialCode);
+
+            sapRequest.RSQ_DATA = new IF110_RSQ_DATA();
+            IF110_DATA iF110_DATA = new IF110_DATA();
+            iF110_DATA.WERKS = entity.FactoryCode ?? "";
+            iF110_DATA.MATNR = materialEntity?.SAPMaterialCode ?? "";
+            iF110_DATA.AUART = entity.FactoryCode ?? "";
+            iF110_DATA.GAMNG = entity.PlanQty.ToString() ?? "";
+            iF110_DATA.GSTRP = entity.CreateTime.Value.ToString("yyyyMMdd");
+            iF110_DATA.GLTRP = entity.CreateTime.Value.ToString("yyyyMMdd");
+            iF110_DATA.ABLAD = entity.WorkOrder ?? "";
+            iF110_DATA.PLNNR_ALT = entity.ProcessRoute ?? "";
+            iF110_DATA.BOMCODE = entity.BOMCode ?? "";
+            iF110_DATA.TXT = entity.Remark ?? "";
+            sapRequest.RSQ_DATA.IS_DATA = iF110_DATA;
+
+            var result = SAPHelper.Instance.PostToSAP(sapRequest.HEAD.INIF_ID, sapRequest);
+            return result;
+
+        }
+
+        /// <summary>
+        /// 半成品工单状态修改-SAP结案
+        /// </summary>
+        /// <param name="entities"></param>
+        /// <param name="postUser">过账人员</param>
+        /// <returns></returns>
+        public bool PM_OwnProductOrderStatusTOSAP(List<PM_OwnProductOrderEntity> entities, string postUser)
+        {
+            var isbool = true;
+            try
+            {
+                var dicList = new DataItemDetailService().GetDataItemList("WorkOrderStatus").ToList();//工单状态转换成SAP定义的
+
+                IF128 sapRequest = new IF128();
+                sapRequest.HEAD = new SapHeadDto();
+                sapRequest.HEAD.INIF_ID = SAPInterface.IF128.ToString();
+                sapRequest.RSQ_DATA = new IF128_RSQ_DATA();
+                List<IF128_HEAD> IT_HEAD = new List<IF128_HEAD>();
+                foreach (var item in entities)
+                {
+                    IF128_HEAD iF128_HEAD = new IF128_HEAD();
+                    iF128_HEAD.AUFNR = item.SAP_AUFNR;
+                    iF128_HEAD.APRIO = dicList.Find(t => t.ItemValue == "9")?.Description;
+                    IT_HEAD.Add(iF128_HEAD);
+                }
+                sapRequest.RSQ_DATA.IT_HEAD = IT_HEAD;
+                var sapResult = SAPHelper.Instance.PostToSAP(sapRequest.HEAD.INIF_ID, sapRequest);
+                if (!sapResult.Flag)
+                {
+                    isbool = false;
+                }
+
+                var IT_RETURNs = JsonConvert.DeserializeObject<List<IF128_RSP_DATA>>(getValue(JObject.Parse(sapResult.Data), "IT_RETURN"));
+                List<PM_OwnProductOrderEntity> workOrderEntities = new List<PM_OwnProductOrderEntity>();
+                foreach (var item in IT_RETURNs)
+                {
+                    var workEntity = new PM_OwnProductOrder_Service().Get_ExpressionEntity(t => t.SAP_AUFNR == item.AUFNR);
+                    if (workEntity != null)
+                    {
+                        if (item.STATUS == "S")
+                        {
+                            workEntity.Update_IsPosted = "1";
+                            workEntity.Update_PostedMsg = item.MESSAGE;
+                            workEntity.Update_PostedTime = DateTime.Now;
+                            workEntity.Update_PostedUser = postUser;
+                            workEntity.OrderStatus = "9";
+                        }
+                        else
+                        {
+                            workEntity.Update_PostedMsg = item.MESSAGE;
+                            workEntity.Update_PostedTime = DateTime.Now;
+                            workEntity.Update_PostedUser = postUser;
+                        }
+                        workOrderEntities.Add(workEntity);
+                    }
+
+                }
+                string msg = "";
+                new PM_OwnProductOrder_Service().SaveEntity_List(true, "", workOrderEntities, out msg);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return isbool;
+        }
+
+        /// <summary>
+        /// 生产工单状态修改-SAP结案
+        /// </summary>
+        /// <param name="entities"></param>
+        /// <param name="postUser">过账人员</param>
+        /// <returns></returns>
+        public bool PL_WorkOrderStatusTOSAP(List<PL_WorkOrderEntity> entities, string postUser)
+        {
+            var isbool = true;
+            try
+            {
+                var dicList = new DataItemDetailService().GetDataItemList("WorkOrderStatus").ToList();//工单状态转换成SAP定义的
+
+                IF128 sapRequest = new IF128();
+                sapRequest.HEAD = new SapHeadDto();
+                sapRequest.HEAD.INIF_ID = SAPInterface.IF128.ToString();
+                sapRequest.RSQ_DATA = new IF128_RSQ_DATA();
+                List<IF128_HEAD> IT_HEAD = new List<IF128_HEAD>();
+                foreach (var item in entities)
+                {
+                    IF128_HEAD iF128_HEAD = new IF128_HEAD();
+                    iF128_HEAD.AUFNR = item.SAP_AUFNR;
+                    iF128_HEAD.APRIO = dicList.Find(t => t.ItemValue == "9")?.Description;
+                    IT_HEAD.Add(iF128_HEAD);
+                }
+                sapRequest.RSQ_DATA.IT_HEAD = IT_HEAD;
+                var sapResult = SAPHelper.Instance.PostToSAP(sapRequest.HEAD.INIF_ID, sapRequest);
+                if (!sapResult.Flag)
+                {
+                    isbool = false;
+                }
+
+                var IT_RETURNs = JsonConvert.DeserializeObject<List<IF128_RSP_DATA>>(getValue(JObject.Parse(sapResult.Data), "IT_RETURN"));
+                List<PL_WorkOrderEntity> workOrderEntities = new List<PL_WorkOrderEntity>();
+                foreach (var item in IT_RETURNs)
+                {
+                    var workOrderList = new PL_WorkOrder_Service().Get_ExpressionList(t => t.SAP_AUFNR == item.AUFNR).ToList();
+                    if (workOrderList.Count > 0)
+                    {
+                        workOrderList.ForEach(t =>
+                        {
+                            if (item.STATUS == "S")
+                            {
+                                t.Update_IsPosted = "1";
+                                t.Update_PostedMsg = item.MESSAGE;
+                                t.Update_PostedTime = DateTime.Now;
+                                t.Update_PostedUser = postUser;
+                                t.OrderStatus = "9";
+                            }
+                            else
+                            {
+                                t.Update_PostedMsg = item.MESSAGE;
+                                t.Update_PostedTime = DateTime.Now;
+                                t.Update_PostedUser = postUser;
+                            }
+                            workOrderEntities.Add(t);
+                        });
+                    }
+
+                }
+                if (workOrderEntities.Count > 0)
+                {
+                    string msg = "";
+                    new PL_WorkOrder_Service().SaveEntity_List(true, "SAP", workOrderEntities, out msg);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return isbool;
+        }
+
+        /// <summary>
+        /// 工单发布-SAP工单创建接口
+        /// </summary>
+        public bool PL_WorkOrderTOSAP(List<PL_WorkOrderEntity> workOrderList, string postUser)
+        {
+            var isbool = true;
+
+            try
+            {
+                IF110 sapRequest = new IF110();
+                sapRequest.HEAD = new SapHeadDto();
+                sapRequest.HEAD.INIF_ID = SAPInterface.IF106.ToString();
+                sapRequest.RSQ_DATA = new IF110_RSQ_DATA();
+                if (workOrderList.Any())
+                {
+                    foreach (var item in workOrderList)
+                    {
+                        var PL_BOM = new PL_BOM_Service().Get_ExpressionEntity(t => t.WorkOrder == item.WorkOrder);
+                        IF110_DATA iF110_DATA = new IF110_DATA();
+                        iF110_DATA.WERKS = item.FactoryCode;
+                        iF110_DATA.MATNR = item.MaterialCode;
+                        iF110_DATA.AUART = item.FactoryCode;
+                        iF110_DATA.GAMNG = item.OrderPieces.ToString();
+                        iF110_DATA.GSTRP = item.CreateTime.Value.ToString("yyyyMMdd");
+                        iF110_DATA.GLTRP = item.GiveTime.Value.ToString("yyyyMMdd");
+                        iF110_DATA.ABLAD = item.WorkOrder;
+                        iF110_DATA.PLNNR_ALT = item.Process;
+                        iF110_DATA.BOMCODE = PL_BOM.BOMCode;
+                        iF110_DATA.KDAUF = item.ProductOrder;
+                        iF110_DATA.KDPOS = item.Orderline;
+                        iF110_DATA.TXT = item.Remark;
+                        sapRequest.RSQ_DATA.IS_DATA = iF110_DATA;
+                        var result = SAPHelper.Instance.PostToSAP(sapRequest.HEAD.INIF_ID, sapRequest);
+                        var isPosted = result.Flag ? "1" : "";
+                        var postedMsg = result.Msg;
+                        var data = result.Data;
+                        item.IsPosted = isPosted;
+                        item.PostedMsg = postedMsg;
+                        item.PostedTime = DateTime.Now;
+                        item.PostedUser = postUser;
+                        if (isPosted == "1")
+                        {
+                            item.SAP_AUFNR = getValue(JObject.Parse(data), "EV_AUFNR");
+                        }
+                        else
+                        {
+                            isbool = false;
+                        }
+                        new RepositoryFactory().BaseRepository().Update(item);
+                    }
+                }
+                else
+                {
+                    isbool = false;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return isbool;
+        }
+
+        public (bool, string) WorkOrderCreateToSAP(List<PL_WorkOrderEntity> workOrderList, string postUser, List<PL_BOMEntity> plBOMList)
+        {
+            IF110 sapRequest = new IF110();
+            sapRequest.HEAD = new SapHeadDto();
+            sapRequest.HEAD.INIF_ID = SAPInterface.IF110.ToString();
+            sapRequest.RSQ_DATA = new IF110_RSQ_DATA();
+
+            //物料集合
+            var arrMaterialCode = workOrderList.Select(t => t.MaterialCode).Distinct().ToArray();
+            var materialList = new Base_Material_Service().Get_ExpressionList(t => arrMaterialCode.Contains(t.MaterialCode)).ToList();
+
+            //生产张数、放量张数、大小转换  用于sap接口
+            var dylist = new PL_WorkOrder_Service().GetWorkOrderYield(workOrderList.First().ProductOrder);
+            if (dylist.Count < 1 || dylist.ToList().Any(t => t.Yield == null))
+                return (false, "没有获取到良率");
+
+            //工单 大小转换
+            var arrWorkOrder = workOrderList.Select(t => t.WorkOrder).ToArray();
+            var plMaterialList = new PL_Material_Service().Get_ExpressionList(t => arrWorkOrder.Contains(t.WorkOrder) && t.IsDeleted == false).ToList();
+            var arrPLMaterialId = plMaterialList.Select(t => t.Id).ToArray();
+            var plMaterialFacetList = new PL_MaterialFacet_Service().Get_ExpressionList(t => arrPLMaterialId.Contains(t.MaterialId)
+                && t.AttrCode == "DXZH").ToList();
+
+            foreach (var item in workOrderList.OrderBy(t => t.Orderline))
+            {
+                var plMaterialEntity = plMaterialList.Find(t => t.WorkOrder == item.WorkOrder);
+                if (plMaterialEntity == null)
+                    return (false, $"工单[{item.WorkOrder}]物料没有数据");
+
+                var plMaterialFacetEntity = plMaterialFacetList.Find(t => t.MaterialId == plMaterialEntity.Id);
+                if (plMaterialFacetEntity == null || string.IsNullOrEmpty(plMaterialFacetEntity.AttrValue))
+                    return (false, $"工单[{item.WorkOrder}]没有大小张转换");
+
+                var dxzh = plMaterialFacetEntity.AttrValue.ToDecimal();
+                var totalSheets = Math.Ceiling((item.OrderPieces / dxzh).Value);
+                var yield = (Decimal)dylist.Find(t => t.WorkOrder == item.WorkOrder)?.Yield;
+                if (yield <= 0 || yield > 1)
+                    return (false, "良率必须在0-1之间");
+
+                var actualQty = Math.Ceiling(totalSheets / yield);
+                item.TotalSheets = totalSheets;
+                item.ActualSheets = actualQty;
+
+                var PL_BOM = plBOMList.Find(T => T.WorkOrder == item.WorkOrder);
+                IF110_DATA iF110_DATA = new IF110_DATA();
+                iF110_DATA.WERKS = item.FactoryCode ?? "";
+                iF110_DATA.MATNR = materialList.Find(t => t.MaterialCode == item.MaterialCode)?.SAPMaterialCode ?? "";
+                iF110_DATA.AUART = item.FactoryCode ?? "";
+                //iF110_DATA.GAMNG = (item.ActualSheets * dxzh).ToString() ?? "";
+                iF110_DATA.GAMNG = item.OrderPieces.ToString() ?? ""; //韩总要求改成下单片数 2024-06-11
+                //iF110_DATA.GSTRP = item.CreateTime.Value.ToString("yyyyMMdd");
+                iF110_DATA.GSTRP = DateTime.Now.ToString("yyyyMMdd");//韩总要求改成当前日期 2024-09-09
+                iF110_DATA.GLTRP = item.GiveTime.Value.ToString("yyyyMMdd");
+                iF110_DATA.ABLAD = item.WorkOrder ?? "";
+                iF110_DATA.PLNNR_ALT = item.Process ?? "";
+                iF110_DATA.BOMCODE = PL_BOM.BOMCode ?? "";
+                iF110_DATA.KDAUF = item.ProductOrder ?? "";
+                iF110_DATA.KDPOS = item.Orderline ?? "";
+                iF110_DATA.TXT = item.Remark ?? "";
+                sapRequest.RSQ_DATA.IS_DATA = iF110_DATA;
+
+                var result = SAPHelper.Instance.PostToSAP(sapRequest.HEAD.INIF_ID, sapRequest);
+                if (!result.Flag)
+                    return (false, result.Msg);
+
+                item.IsPosted = result.Flag ? "1" : ""; ;
+                item.PostedMsg = result.Msg;
+                item.PostedTime = DateTime.Now;
+                item.PostedUser = postUser;
+                item.SAP_AUFNR = getValue(JObject.Parse(result.Data), "EV_AUFNR");
+                new RepositoryFactory().BaseRepository().Update(item);
+            }
+
+            return (true, "");
+        }
+
+        /// <summary>
+        /// 原材料发货-SAP销售交货单过账
+        /// </summary>
+        public void RawMaterialDispatchToSAP()
+        {
+            try
+            {
+                IF106 sapRequest = new IF106();
+                sapRequest.HEAD = new SapHeadDto();
+                sapRequest.HEAD.INIF_ID = SAPInterface.IF106.ToString();
+                sapRequest.RSQ_DATA = new IF106_RSQ_DATA();
+                //获取成品发货数据
+                string sql = string.Format(@"SELECT * FROM dbo.MM_RawMaterialDispatch WHERE Status='3' AND ISNULL(IsPosted,'')=''");
+                var ProductDispatchItems = new RepositoryFactory().BaseRepository().FindList<MMRawMaterialDispatchEntity>(sql);
+                if (ProductDispatchItems.Any())
+                {
+                    foreach (var item in ProductDispatchItems)
+                    {
+                        IF106_HEAD IF106_HEAD = new IF106_HEAD();
+                        IF106_HEAD.ZGZ = "G";
+                        IF106_HEAD.VSTEL = item.FactoryCode;
+                        IF106_HEAD.VSTEL = item.DeliveryNo;
+                        IF106_HEAD.WADAT_IST = Convert.ToDateTime(item.PostDate).ToString("yyyyMMdd");
+                        IF106_HEAD.ZMESDATE = DateTime.Now.ToString("yyyyMMdd");
+                        IF106_HEAD.ZMESTIME = DateTime.Now.ToString("hhmmss");
+                        sapRequest.RSQ_DATA.IS_HEAD = IF106_HEAD;
+                        var result = SAPHelper.Instance.PostToSAP(sapRequest.HEAD.INIF_ID, sapRequest);
+                        var isPosted = result.Flag ? "1" : "";
+                        var postedMsg = result.Msg;
+                        var data = result.Data;
+
+                        item.IsPosted = isPosted;
+                        item.PostedMsg = postedMsg;
+                        item.PostedTime = DateTime.Now;
+                        item.PostedUser = "SAP";
+                        if (isPosted == "1")
+                        {
+                            item.SAP_MBLNR = getValue(JObject.Parse(data), "EV_MBLNR");
+                            item.SAP_VBELN = getValue(JObject.Parse(data), "EV_VBLEN");
+
+                        }
+                        new RepositoryFactory().BaseRepository().Update(item);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// 成品发货-SAP销售交货单过账
+        /// </summary>
+        public void ProductDispatchItemToSAP()
+        {
+            try
+            {
+                IF106 sapRequest = new IF106();
+                sapRequest.HEAD = new SapHeadDto();
+                sapRequest.HEAD.INIF_ID = SAPInterface.IF106.ToString();
+                sapRequest.RSQ_DATA = new IF106_RSQ_DATA();
+                //获取成品发货数据
+                string sql = string.Format(@"SELECT * FROM dbo.MM_ProductDispatchItem WHERE Status='3' AND ISNULL(IsPosted,'')=''");
+                var ProductDispatchItems = new RepositoryFactory().BaseRepository().FindList<MM_ProductDispatchItemEntity>(sql);
+                if (ProductDispatchItems.Any())
+                {
+                    foreach (var item in ProductDispatchItems)
+                    {
+                        IF106_HEAD IF106_HEAD = new IF106_HEAD();
+                        IF106_HEAD.ZGZ = "G";
+                        IF106_HEAD.VSTEL = item.FactoryCode;
+                        IF106_HEAD.VSTEL = item.DocNum;
+                        IF106_HEAD.WADAT_IST = Convert.ToDateTime(item.PostDate).ToString("yyyyMMdd");
+                        IF106_HEAD.ZMESDATE = DateTime.Now.ToString("yyyyMMdd");
+                        IF106_HEAD.ZMESTIME = DateTime.Now.ToString("hhmmss");
+                        sapRequest.RSQ_DATA.IS_HEAD = IF106_HEAD;
+                        var result = SAPHelper.Instance.PostToSAP(sapRequest.HEAD.INIF_ID, sapRequest);
+                        var isPosted = result.Flag ? "1" : "";
+                        var postedMsg = result.Msg;
+                        var data = result.Data;
+
+                        item.IsPosted = isPosted;
+                        item.PostedMsg = postedMsg;
+                        item.PostedTime = DateTime.Now;
+                        item.PostedUser = "SAP";
+                        if (isPosted == "1")
+                        {
+                            item.SAP_MBLNR = getValue(JObject.Parse(data), "EV_MBLNR");
+                            item.SAP_VBELN = getValue(JObject.Parse(data), "EV_VBLEN");
+
+                        }
+                        new RepositoryFactory().BaseRepository().Update(item);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// 采购入库-SAP采购订单入库
+        /// </summary>
+        public void PurchaseInWhsToSAP()
+        {
+            try
+            {
+                IF108 sapRequest = new IF108();
+                sapRequest.HEAD = new SapHeadDto();
+                sapRequest.HEAD.INIF_ID = SAPInterface.IF108.ToString();
+                sapRequest.RSQ_DATA = new IF108_RSQ_DATA();
+
+                IF108_HEAD IF108_HEAD = new IF108_HEAD();
+                IF108_HEAD.BLDAT = DateTime.Now.ToString("yyyyMMdd");
+                IF108_HEAD.BUDAT = DateTime.Now.ToString("yyyyMMdd");
+                sapRequest.RSQ_DATA.IS_HEAD = IF108_HEAD;
+
+                //获取明细数据
+                string smallSql = string.Format(@"SELECT * FROM dbo.MM_RawMaterialIn WHERE InType='10' AND ISNULL(IsPosted,'')=''");
+                var RawMaterialInLists = new RepositoryFactory().BaseRepository().FindList<MM_RawMaterialInEntity>(smallSql);
+                if (RawMaterialInLists.Any())
+                {
+                    List<IF108_ITEM> IT_ITEM = new List<IF108_ITEM>();
+                    foreach (var item in RawMaterialInLists)
+                    {
+                        IF108_ITEM IF108_ITEM = new IF108_ITEM();
+                        IF108_ITEM.BWART = "101";
+                        IF108_ITEM.MATNR = item.MaterialCode;
+                        IF108_ITEM.WERKS = item.FactoryCode;
+                        IF108_ITEM.LGORT = item.LocationCode;
+                        IF108_ITEM.CHARG = string.IsNullOrEmpty(item.BatchNo) ? "" : item.BatchNo;
+                        IF108_ITEM.ERFMG = item.Qty.ToString();
+                        IF108_ITEM.ERFME = item.Unit;
+                        IF108_ITEM.LIFNR = item.SupplierCode;
+                        IF108_ITEM.EBELN = item.PurchaseOrder;
+                        IF108_ITEM.EBELP = item.LineNum;
+                        IT_ITEM.Add(IF108_ITEM);
+                    }
+                    sapRequest.RSQ_DATA.IT_ITEM = IT_ITEM;
+                    var result = SAPHelper.Instance.PostToSAP(sapRequest.HEAD.INIF_ID, sapRequest);
+                    var isPosted = result.Flag ? "1" : "";
+                    var postedMsg = result.Msg;
+                    var data = result.Data;
+                    //更新采购入库单据
+
+                    foreach (var item in RawMaterialInLists)
+                    {
+                        item.IsPosted = isPosted;
+                        item.PostedMsg = postedMsg;
+                        item.PostedTime = DateTime.Now;
+                        item.PostedUser = "SAP";
+                        if (isPosted == "1")
+                        {
+                            item.SAP_MBLNR = getValue(JObject.Parse(data), "EV_MBLNR");
+                            item.SAP_MJAHR = getValue(JObject.Parse(data), "EV_MJAHR");
+
+                        }
+                        new RepositoryFactory().BaseRepository().Update(item);
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        #region 保存SAP回传MES的信息
+        public void SaveSAPresult(SAPresultEntity entity)
+        {
+            try
+            {
+                var businessType = entity.BusinessType;
+                List<SAPresult> sapResult = entity.SAPresult;
+                if (string.IsNullOrEmpty(businessType))
+                {
+                    throw new Exception("业务标识必传");
+                }
+                #region 注释
+                //if (businessType == "1")
+                //{
+                //    foreach (var item in sapResult)
+                //    {
+                //        var PM_TranferCardBGRecord = new PM_TranferCardBGRecord_Service().Get_ExpressionEntity(t => t.Id == item.Id);
+                //        PM_TranferCardBGRecord.IsPosted = item.IsPosted;
+                //        PM_TranferCardBGRecord.PostedMsg = item.PostedMsg;
+                //        PM_TranferCardBGRecord.PostedTime = DateTime.Now;
+                //        PM_TranferCardBGRecord.PostedUser = "SAP";
+                //        db.Update(PM_TranferCardBGRecord);
+                //    }
+                //}
+                //else if (businessType == "2")
+                //{
+                //    foreach (var item in sapResult)
+                //    {
+                //        var PM_PackingBGTransferCard = new PM_PackingBGTransferCard_Service().Get_ExpressionEntity(t => t.Id == item.Id);
+                //        PM_PackingBGTransferCard.IsPosted = item.IsPosted;
+                //        PM_PackingBGTransferCard.PostedMsg = item.PostedMsg;
+                //        PM_PackingBGTransferCard.PostedTime = DateTime.Now;
+                //        PM_PackingBGTransferCard.PostedUser = "SAP";
+                //        db.Update(PM_PackingBGTransferCard);
+                //    }
+                //}
+                //else if (businessType == "3")
+                //{
+                //    foreach (var item in sapResult)
+                //    {
+                //        var PM_OwnProductBG = new PM_OwnProductBG_Service().Get_ExpressionEntity(t => t.Id == item.Id);
+                //        PM_OwnProductBG.IsPosted = item.IsPosted;
+                //        PM_OwnProductBG.PostedMsg = item.PostedMsg;
+                //        PM_OwnProductBG.PostedTime = DateTime.Now;
+                //        PM_OwnProductBG.PostedUser = "SAP";
+                //        db.Update(PM_OwnProductBG);
+                //    }
+                //}
+                //else if (businessType == "4")
+                //{
+                //    foreach (var item in sapResult)
+                //    {
+                //        var MM_RawMaterialOu = new MM_RawMaterialOut_Service().Get_ExpressionEntity(t => t.Id == item.Id);
+                //        MM_RawMaterialOu.IsPosted = item.IsPosted;
+                //        MM_RawMaterialOu.PostedMsg = item.PostedMsg;
+                //        MM_RawMaterialOu.PostedTime = DateTime.Now;
+                //        MM_RawMaterialOu.PostedUser = "SAP";
+                //        MM_RawMaterialOu.SAP_MBLNR = item.MBLNR;
+                //        MM_RawMaterialOu.SAP_MJAHR = item.MJAHR;
+                //        db.Update(MM_RawMaterialOu);
+                //    }
+                //}
+                //else if (businessType == "5")
+                //{
+                //    foreach (var item in sapResult)
+                //    {
+                //        var MM_ProductIn = new MM_ProductIn_Service().Get_ExpressionEntity(t => t.Id == item.Id);
+                //        MM_ProductIn.IsPosted = item.IsPosted;
+                //        MM_ProductIn.PostedMsg = item.PostedMsg;
+                //        MM_ProductIn.PostedTime = DateTime.Now;
+                //        MM_ProductIn.PostedUser = "SAP";
+                //        MM_ProductIn.SAP_MBLNR = item.MBLNR;
+                //        MM_ProductIn.SAP_MJAHR = item.MJAHR;
+                //        db.Update(MM_ProductIn);
+                //    }
+                //}
+                //else if (businessType == "6")
+                //{
+                //    foreach (var item in sapResult)
+                //    {
+                //        var MM_RawMaterialIn = new MM_RawMaterialIn_Service().Get_ExpressionEntity(t => t.Id == item.Id);
+                //        MM_RawMaterialIn.IsPosted = item.IsPosted;
+                //        MM_RawMaterialIn.PostedMsg = item.PostedMsg;
+                //        MM_RawMaterialIn.PostedTime = DateTime.Now;
+                //        MM_RawMaterialIn.PostedUser = "SAP";
+                //        MM_RawMaterialIn.SAP_MBLNR = item.MBLNR;
+                //        MM_RawMaterialIn.SAP_MJAHR = item.MJAHR;
+                //        db.Update(MM_RawMaterialIn);
+                //    }
+                //}
+
+                //else if (businessType == "7" || businessType == "8")
+                //{
+                //    foreach (var item in sapResult)
+                //    {
+                //        var supTransfer = new MM_SupProductStockTransfer_Service().Get_ExpressionEntity(t => t.Id == item.Id);
+                //        supTransfer.IsPosted = item.IsPosted;
+                //        supTransfer.PostedMsg = item.PostedMsg;
+                //        supTransfer.PostedTime = DateTime.Now;
+                //        supTransfer.PostedUser = "SAP";
+                //        supTransfer.SAP_MBLNR = item.MBLNR;
+                //        supTransfer.SAP_MJAHR = item.MJAHR;
+                //        db.Update(supTransfer);
+                //    }
+                //}
+                #endregion
+
+                DataTable dt = Tools.ToDataTable(sapResult);
+                //调用存储过程
+                SqlParameter[] parameters = {
+                    new SqlParameter("@BusinessType",SqlDbType.VarChar, 50),
+                    new SqlParameter("@ResultTable", dt)
+                };
+                parameters[0].Value = businessType;
+
+                //执行存贮过程
+                Data.Dapper.SqlDatabase db = new Data.Dapper.SqlDatabase();
+                db.ExecuteProcedure("Pro_PPInterfaceBack", parameters);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+            }
+        }
+        #endregion
+
+        #region 流转卡报工-SAP IF152
+        public void TransferCardBG()
+        {
+            IF152 sapRequest = new IF152();
+            sapRequest.HEAD = new SapHeadDto();
+            sapRequest.HEAD.INIF_ID = SAPInterface.IF152.ToString();
+            sapRequest.RSQ_DATA = new IF152_RSQ_DATA();
+
+            IF152_HEAD IF152_HEAD = new IF152_HEAD();
+            IF152_HEAD.ZBTYPE = SAPBusinessType.流转卡报工.GetHashCode().ToString();
+            IF152_HEAD.ZTYPE = SAPBusinessType.流转卡报工.ToString();
+            sapRequest.RSQ_DATA.IS_HEAD = IF152_HEAD;
+
+            // 获取明细数据
+            string sql = string.Format(@"SELECT TOP 900 a.Id,
+                                       a.CreateTime,
+                                       a.FactoryCode,
+                                       b.SAP_AUFNR,
+                                       b.Process,
+                                       a.ProcessCode,
+                                       a.Creator,
+                                       a.Qty,
+                                       a.BadQty,
+	                                   a.VGW01,
+									   a.VGW02,
+									   a.VGW03,
+									   a.VGW04,
+									   a.VGW05,
+									   a.VGW06
+                                FROM dbo.PM_TranferCardBGRecord a
+                                    INNER JOIN dbo.PL_WorkOrder b
+                                        ON a.WorkOrder = b.WorkOrder
+                                WHERE a.IsRework = '0'
+                                      AND ISNULL(a.IsPosted, '') = ''
+									  AND (a.Qty+a.BadQty)<>0
+									  ORDER BY a.CreateTime ");
+            var data = new RepositoryFactory().BaseRepository().FindTable(sql);
+            if (data.Rows.Count == 0)
+                return;
+
+            List<IF152_ITEM1> IT_ITEM1 = new List<IF152_ITEM1>();
+            foreach (DataRow item in data.Rows)
+            {
+                //报工数量超过10000，自动过滤掉，sap限制
+                var bgQty = Convert.ToDecimal(item["Qty"].ToString());
+                if (bgQty > 10000)
+                    continue;
+
+                IF152_ITEM1 IF152_ITEM1 = new IF152_ITEM1();
+                IF152_ITEM1.MESID = item["Id"].ToString() ?? "";
+                IF152_ITEM1.ZTIME = item["CreateTime"].ToDate().ToString("yyyyMMddHHmmssfff") ?? "";
+                IF152_ITEM1.WERKS = item["FactoryCode"].ToString() ?? "";
+                IF152_ITEM1.AUFNR = item["SAP_AUFNR"].ToString() ?? "";
+                IF152_ITEM1.PLNNR_ALT = item["Process"].ToString() ?? "";
+                IF152_ITEM1.KTSCH = item["ProcessCode"].ToString() ?? "";
+                IF152_ITEM1.BUDAT = item["CreateTime"].ToDate().ToString("yyyyMMdd") ?? "";
+                IF152_ITEM1.TXT1 = item["Creator"].ToString() ?? "";
+                IF152_ITEM1.NUM1 = item["Qty"].ToString() ?? "";
+                IF152_ITEM1.NUM2 = item["BadQty"].ToString() ?? "";
+                IF152_ITEM1.TXT2 = "";
+                IF152_ITEM1.VGW01 = item["VGW01"].ToString() ?? "";
+                IF152_ITEM1.VGW02 = item["VGW02"].ToString() ?? "";
+                IF152_ITEM1.VGW03 = item["VGW03"].ToString() ?? "";
+                IF152_ITEM1.VGW04 = item["VGW04"].ToString() ?? "";
+                IF152_ITEM1.VGW05 = item["VGW05"].ToString() ?? "";
+                IF152_ITEM1.VGW06 = item["VGW06"].ToString() ?? "";
+                IT_ITEM1.Add(IF152_ITEM1);
+            }
+            sapRequest.RSQ_DATA.IT_ITEM1 = IT_ITEM1;
+
+            var result = SAPHelper.Instance.PostToSAP(sapRequest.HEAD.INIF_ID, sapRequest);
+            var dataList = data.ToDataList<PM_TranferCardBGRecordEntity>();
+            foreach (var item in dataList)
+            {
+                item.IsPosted = result.Flag ? "0" : "";
+                item.PostedMsg = result.Msg;
+                item.PostedTime = DateTime.Now;
+                item.PostedUser = "SAP";
+
+                if (item.Qty > 10000)
+                {
+                    item.PostedMsg = "数量超过10000，SAP不允许";
+                }
+            }
+            string msg = "";
+            new PM_TranferCardBGRecord_Service().SaveEntity_List(true, "", dataList, out msg);
+        }
+        #endregion
+
+        #region 包装报工-SAP IF152
+        public void PackingBG()
+        {
+            IF152 sapRequest = new IF152();
+            sapRequest.HEAD = new SapHeadDto();
+            sapRequest.HEAD.INIF_ID = SAPInterface.IF152.ToString();
+            sapRequest.RSQ_DATA = new IF152_RSQ_DATA();
+
+            IF152_HEAD IF152_HEAD = new IF152_HEAD();
+            IF152_HEAD.ZBTYPE = SAPBusinessType.包装报工.GetHashCode().ToString();
+            IF152_HEAD.ZTYPE = SAPBusinessType.包装报工.ToString();
+            sapRequest.RSQ_DATA.IS_HEAD = IF152_HEAD;
+
+            // 获取明细数据
+            string sql = string.Format(@"SELECT TOP 900 a.Id,
+                                       a.CreateTime,
+                                       a.FactoryCode,
+                                       b.SAP_AUFNR,
+                                       b.Process,
+                                       a.ProcessCode,
+                                       a.Creator,
+                                       a.Qty,
+                                       a.BadQty,
+									   a.VGW01,
+									   a.VGW02,
+									   a.VGW03,
+									   a.VGW04,
+									   a.VGW05,
+									   a.VGW06
+                                FROM dbo.PM_PackingBGTransferCard a
+                                    INNER JOIN dbo.PL_WorkOrder b
+                                        ON a.WorkOrder = b.WorkOrder
+                                WHERE ISNULL(a.IsPosted, '') = ''
+								AND (a.Qty+a.BadQty)<>0
+								ORDER BY a.CreateTime ");
+            var data = new RepositoryFactory().BaseRepository().FindTable(sql);
+            if (data.Rows.Count == 0)
+                return;
+
+            List<IF152_ITEM1> IT_ITEM1 = new List<IF152_ITEM1>();
+            foreach (DataRow item in data.Rows)
+            {
+                //报工数量超过10000，自动过滤掉，sap限制
+                var bgQty = Convert.ToDecimal(item["Qty"].ToString());
+                if (bgQty > 10000)
+                    continue;
+
+                IF152_ITEM1 IF152_ITEM1 = new IF152_ITEM1();
+                IF152_ITEM1.MESID = item["Id"].ToString() ?? "";
+                IF152_ITEM1.ZTIME = item["CreateTime"].ToDate().ToString("yyyyMMddHHmmssfff") ?? "";
+                IF152_ITEM1.WERKS = item["FactoryCode"].ToString() ?? "";
+                IF152_ITEM1.AUFNR = item["SAP_AUFNR"].ToString() ?? "";
+                IF152_ITEM1.PLNNR_ALT = item["Process"].ToString() ?? "";
+                IF152_ITEM1.KTSCH = item["ProcessCode"].ToString() ?? "";
+                IF152_ITEM1.BUDAT = item["CreateTime"].ToDate().ToString("yyyyMMdd") ?? "";
+                IF152_ITEM1.TXT1 = item["Creator"].ToString() ?? "";
+                IF152_ITEM1.NUM1 = item["Qty"].ToString() ?? "";
+                IF152_ITEM1.NUM2 = item["BadQty"].ToString() ?? "";
+                IF152_ITEM1.TXT2 = "";
+                IF152_ITEM1.VGW01 = item["VGW01"].ToString() ?? "";
+                IF152_ITEM1.VGW02 = item["VGW02"].ToString() ?? "";
+                IF152_ITEM1.VGW03 = item["VGW03"].ToString() ?? "";
+                IF152_ITEM1.VGW04 = item["VGW04"].ToString() ?? "";
+                IF152_ITEM1.VGW05 = item["VGW05"].ToString() ?? "";
+                IF152_ITEM1.VGW06 = item["VGW06"].ToString() ?? "";
+                IT_ITEM1.Add(IF152_ITEM1);
+            }
+            sapRequest.RSQ_DATA.IT_ITEM1 = IT_ITEM1;
+
+            var result = SAPHelper.Instance.PostToSAP(sapRequest.HEAD.INIF_ID, sapRequest);
+            var dataList = data.ToDataList<PM_PackingBGTransferCardEntity>();
+            foreach (var item in dataList)
+            {
+                item.IsPosted = result.Flag ? "0" : "";
+                item.PostedMsg = result.Msg;
+                item.PostedTime = DateTime.Now;
+                item.PostedUser = "SAP";
+
+                if (item.Qty > 10000)
+                {
+                    item.PostedMsg = "数量超过10000，SAP不允许";
+                }
+            }
+            string msg = "";
+            new PM_PackingBGTransferCard_Service().SaveEntity_List(true, "", dataList, out msg);
+        }
+        #endregion
+
+        #region 自制半成品报工-SAP IF152
+        public void OwnProductBG()
+        {
+            IF152 sapRequest = new IF152();
+            sapRequest.HEAD = new SapHeadDto();
+            sapRequest.HEAD.INIF_ID = SAPInterface.IF152.ToString();
+            sapRequest.RSQ_DATA = new IF152_RSQ_DATA();
+
+            IF152_HEAD IF152_HEAD = new IF152_HEAD();
+            IF152_HEAD.ZBTYPE = SAPBusinessType.自制半成品报工.GetHashCode().ToString();
+            IF152_HEAD.ZTYPE = SAPBusinessType.自制半成品报工.ToString();
+            sapRequest.RSQ_DATA.IS_HEAD = IF152_HEAD;
+
+            // 获取明细数据
+            string sql = string.Format(@"SELECT TOP 900 a.Id,
+                                       a.CreateTime,
+                                       a.FactoryCode,
+                                       b.SAP_AUFNR,
+                                       b.ProcessRoute,
+                                       a.BGProcess,
+                                       a.Creator,
+                                       a.BGQty,
+                                       a.BadQty,
+									   a.VGW01,
+									   a.VGW02,
+									   a.VGW03,
+									   a.VGW04,
+									   a.VGW05,
+									   a.VGW06
+                                FROM dbo.PM_OwnProductBG a
+                                    INNER JOIN dbo.PM_OwnProductOrder b
+                                        ON a.WorkOrder = b.WorkOrder
+                                WHERE ISNULL(a.IsPosted, '') = ''
+								AND (a.BGQty+a.BadQty)<>0
+								ORDER BY a.CreateTime ");
+            var data = new RepositoryFactory().BaseRepository().FindTable(sql);
+            if (data.Rows.Count == 0)
+                return;
+
+            List<IF152_ITEM1> IT_ITEM1 = new List<IF152_ITEM1>();
+            foreach (DataRow item in data.Rows)
+            {
+                //报工数量超过10000，自动过滤掉，sap限制
+                var bgQty = Convert.ToDecimal(item["BGQty"].ToString());
+                if (bgQty > 10000)
+                    continue;
+
+                IF152_ITEM1 IF152_ITEM1 = new IF152_ITEM1();
+                IF152_ITEM1.MESID = item["Id"].ToString() ?? "";
+                IF152_ITEM1.ZTIME = item["CreateTime"].ToDate().ToString("yyyyMMddHHmmssfff") ?? "";
+                IF152_ITEM1.WERKS = item["FactoryCode"].ToString() ?? "";
+                IF152_ITEM1.AUFNR = item["SAP_AUFNR"].ToString() ?? "";
+                IF152_ITEM1.PLNNR_ALT = item["ProcessRoute"].ToString() ?? "";
+                IF152_ITEM1.KTSCH = item["BGProcess"].ToString() ?? "";
+                IF152_ITEM1.BUDAT = item["CreateTime"].ToDate().ToString("yyyyMMdd") ?? "";
+                IF152_ITEM1.TXT1 = item["Creator"].ToString() ?? "";
+                IF152_ITEM1.NUM1 = item["BGQty"].ToString() ?? "";
+                IF152_ITEM1.NUM2 = item["BadQty"].ToString() ?? "";
+                IF152_ITEM1.TXT2 = "";
+                IF152_ITEM1.VGW01 = item["VGW01"].ToString() ?? "";
+                IF152_ITEM1.VGW02 = item["VGW02"].ToString() ?? "";
+                IF152_ITEM1.VGW03 = item["VGW03"].ToString() ?? "";
+                IF152_ITEM1.VGW04 = item["VGW04"].ToString() ?? "";
+                IF152_ITEM1.VGW05 = item["VGW05"].ToString() ?? "";
+                IF152_ITEM1.VGW06 = item["VGW06"].ToString() ?? "";
+                IT_ITEM1.Add(IF152_ITEM1);
+            }
+            sapRequest.RSQ_DATA.IT_ITEM1 = IT_ITEM1;
+
+            var result = SAPHelper.Instance.PostToSAP(sapRequest.HEAD.INIF_ID, sapRequest);
+            var dataList = data.ToDataList<PM_OwnProductBGEntity>();
+            foreach (var item in dataList)
+            {
+                item.IsPosted = result.Flag ? "0" : "";
+                item.PostedMsg = result.Msg;
+                item.PostedTime = DateTime.Now;
+                item.PostedUser = "SAP";
+
+                if (item.BGQty > 10000)
+                {
+                    item.PostedMsg = "数量超过10000，SAP不允许";
+                }
+            }
+            string msg = "";
+            new PM_OwnProductBG_Service().SaveEntity_List(true, "", dataList, out msg);
+        }
+        #endregion
+
+        #region 流转卡报工 物料消耗-SAP IF152
+        public void TransferCardBG_MatConsume()
+        {
+            IF152 sapRequest = new IF152();
+            sapRequest.HEAD = new SapHeadDto();
+            sapRequest.HEAD.INIF_ID = SAPInterface.IF152.ToString();
+            sapRequest.RSQ_DATA = new IF152_RSQ_DATA();
+
+            IF152_HEAD IF152_HEAD = new IF152_HEAD();
+            IF152_HEAD.ZBTYPE = SAPBusinessType.领退料.GetHashCode().ToString();
+            IF152_HEAD.ZTYPE = SAPBusinessType.领退料.ToString();
+            sapRequest.RSQ_DATA.IS_HEAD = IF152_HEAD;
+
+            // 获取明细数据
+            string sql = string.Format(@"SELECT TOP 900 a.Id,
+                                       a.CreateTime,
+									   a.Creator,
+                                       a.FactoryCode,
+                                       b.SAP_AUFNR,
+                                       a.MaterialCode,
+                                       a.BatchNo,
+                                       a.Qty,
+                                       a.LocationCode,
+                                       a.MaterialType
+                                FROM dbo.MM_RawMaterialOut a
+                                    INNER JOIN dbo.PL_WorkOrder b
+                                        ON a.WorkOrder = b.WorkOrder
+                                WHERE a.BGType = '1'
+                                      AND a.OutType = '1'
+                                      AND ISNULL(a.IsPosted, '') = ''
+									  AND a.Qty<>0
+									  ORDER BY a.CreateTime ");
+            var data = new RepositoryFactory().BaseRepository().FindTable(sql);
+            if (data.Rows.Count == 0)
+                return;
+
+            var arrMaterialCode = data.AsEnumerable().Select(row => row.Field<string>("MaterialCode")).Distinct();
+            var materialList = new Base_Material_Service().Get_ExpressionList(t => arrMaterialCode.Contains(t.MaterialCode)).ToList();
+
+            List<IF152_ITEM2> IT_ITEM2 = new List<IF152_ITEM2>();
+            foreach (DataRow item in data.Rows)
+            {
+                IF152_ITEM2 IF152_ITEM2 = new IF152_ITEM2();
+                IF152_ITEM2.MESID = item["Id"].ToString() ?? "";
+                IF152_ITEM2.ZTIME = item["CreateTime"].ToDate().ToString("yyyyMMddHHmmssfff") ?? "";
+                IF152_ITEM2.WERKS = item["FactoryCode"].ToString() ?? "";
+                IF152_ITEM2.AUFNR = item["SAP_AUFNR"].ToString() ?? "";
+                IF152_ITEM2.BUDAT = item["CreateTime"].ToDate().ToString("yyyyMMdd") ?? "";
+                IF152_ITEM2.BKTXT = "";
+                IF152_ITEM2.MTSNR = "";
+                IF152_ITEM2.MATNR = materialList.Find(t => t.MaterialCode == item["MaterialCode"].ToString())?.SAPMaterialCode ?? "";
+                IF152_ITEM2.CHARG = item["BatchNo"].ToString() ?? "";
+                IF152_ITEM2.ERFMG = item["Qty"].ToString() ?? "";
+                IF152_ITEM2.ISHS = item["MaterialType"].ToString() ?? "";
+                IF152_ITEM2.LGORT = item["LocationCode"].ToString() ?? "";
+                IF152_ITEM2.SGTXT = item["Creator"].ToString() ?? "";
+                IT_ITEM2.Add(IF152_ITEM2);
+            }
+            sapRequest.RSQ_DATA.IT_ITEM2 = IT_ITEM2;
+
+            var result = SAPHelper.Instance.PostToSAP(sapRequest.HEAD.INIF_ID, sapRequest);
+            var dataList = data.ToDataList<MM_RawMaterialOutEntity>();
+            foreach (var item in dataList)
+            {
+                item.IsPosted = result.Flag ? "0" : "";
+                item.PostedMsg = result.Msg;
+                item.PostedTime = DateTime.Now;
+                item.PostedUser = "SAP";
+            }
+            string msg = "";
+            new MM_RawMaterialOut_Service().SaveEntity_List(true, "", dataList, out msg);
+        }
+        #endregion
+
+        #region 包装报工 物料消耗-SAP IF152
+        public void PackingBG_MatConsume()
+        {
+            IF152 sapRequest = new IF152();
+            sapRequest.HEAD = new SapHeadDto();
+            sapRequest.HEAD.INIF_ID = SAPInterface.IF152.ToString();
+            sapRequest.RSQ_DATA = new IF152_RSQ_DATA();
+
+            IF152_HEAD IF152_HEAD = new IF152_HEAD();
+            IF152_HEAD.ZBTYPE = SAPBusinessType.领退料.GetHashCode().ToString();
+            IF152_HEAD.ZTYPE = SAPBusinessType.领退料.ToString();
+            sapRequest.RSQ_DATA.IS_HEAD = IF152_HEAD;
+
+            // 获取明细数据
+            string sql = string.Format(@"SELECT TOP 900 a.Id,
+                                       a.CreateTime,
+									   a.Creator,
+                                       a.FactoryCode,
+                                       b.SAP_AUFNR,
+                                       a.MaterialCode,
+                                       a.BatchNo,
+                                       a.Qty,
+                                       a.LocationCode,
+                                       a.MaterialType
+                                FROM dbo.MM_RawMaterialOut a
+                                    INNER JOIN dbo.PL_WorkOrder b
+                                        ON a.WorkOrder = b.WorkOrder
+                                WHERE a.BGType = '3'
+                                      AND a.OutType = '1'
+                                      AND ISNULL(a.IsPosted, '') = ''
+									  AND a.Qty<>0
+									  ORDER BY a.CreateTime ");
+            var data = new RepositoryFactory().BaseRepository().FindTable(sql);
+            if (data.Rows.Count == 0)
+                return;
+
+            var arrMaterialCode = data.AsEnumerable().Select(row => row.Field<string>("MaterialCode")).Distinct().ToArray();
+            var materialList = new Base_Material_Service().Get_ExpressionList(t => arrMaterialCode.Contains(t.MaterialCode)).ToList();
+
+            List<IF152_ITEM2> IT_ITEM2 = new List<IF152_ITEM2>();
+            foreach (DataRow item in data.Rows)
+            {
+                IF152_ITEM2 IF152_ITEM2 = new IF152_ITEM2();
+                IF152_ITEM2.MESID = item["Id"].ToString() ?? "";
+                IF152_ITEM2.ZTIME = item["CreateTime"].ToDate().ToString("yyyyMMddHHmmssfff") ?? "";
+                IF152_ITEM2.WERKS = item["FactoryCode"].ToString() ?? "";
+                IF152_ITEM2.AUFNR = item["SAP_AUFNR"].ToString() ?? "";
+                IF152_ITEM2.BUDAT = item["CreateTime"].ToDate().ToString("yyyyMMdd") ?? "";
+                IF152_ITEM2.BKTXT = "";
+                IF152_ITEM2.MTSNR = "";
+                IF152_ITEM2.MATNR = materialList.Find(t => t.MaterialCode == item["MaterialCode"].ToString())?.SAPMaterialCode ?? "";
+                IF152_ITEM2.CHARG = item["BatchNo"].ToString() ?? "";
+                IF152_ITEM2.ERFMG = item["Qty"].ToString() ?? "";
+                IF152_ITEM2.ISHS = item["MaterialType"].ToString() ?? "";
+                IF152_ITEM2.LGORT = item["LocationCode"].ToString() ?? "";
+                IF152_ITEM2.SGTXT = item["Creator"].ToString() ?? "";
+                IT_ITEM2.Add(IF152_ITEM2);
+            }
+            sapRequest.RSQ_DATA.IT_ITEM2 = IT_ITEM2;
+
+            var result = SAPHelper.Instance.PostToSAP(sapRequest.HEAD.INIF_ID, sapRequest);
+            var dataList = data.ToDataList<MM_RawMaterialOutEntity>();
+            foreach (var item in dataList)
+            {
+                item.IsPosted = result.Flag ? "0" : "";
+                item.PostedMsg = result.Msg;
+                item.PostedTime = DateTime.Now;
+                item.PostedUser = "SAP";
+            }
+            string msg = "";
+            new MM_RawMaterialOut_Service().SaveEntity_List(true, "", dataList, out msg);
+        }
+        #endregion
+
+        #region 自制半成品报工  物料消耗-SAP IF152
+        public void OwnProductBG_MatConsume()
+        {
+            IF152 sapRequest = new IF152();
+            sapRequest.HEAD = new SapHeadDto();
+            sapRequest.HEAD.INIF_ID = SAPInterface.IF152.ToString();
+            sapRequest.RSQ_DATA = new IF152_RSQ_DATA();
+
+            IF152_HEAD IF152_HEAD = new IF152_HEAD();
+            IF152_HEAD.ZBTYPE = SAPBusinessType.领退料.GetHashCode().ToString();
+            IF152_HEAD.ZTYPE = SAPBusinessType.领退料.ToString();
+            sapRequest.RSQ_DATA.IS_HEAD = IF152_HEAD;
+
+            // 获取明细数据
+            string sql = string.Format(@"SELECT TOP 900 a.Id,
+                                       a.CreateTime,
+									   a.Creator,
+                                       a.FactoryCode,
+                                       b.SAP_AUFNR,
+                                       a.MaterialCode,
+                                       a.BatchNo,
+                                       a.Qty,
+                                       a.LocationCode,
+                                       a.MaterialType
+                                FROM dbo.MM_RawMaterialOut a
+                                    INNER JOIN dbo.PM_OwnProductOrder b
+                                        ON a.WorkOrder = b.WorkOrder
+                                WHERE a.BGType = '4'
+                                      AND a.OutType = '1'
+                                      AND ISNULL(a.IsPosted, '') = ''
+									  AND a.Qty<>0
+									  ORDER BY a.CreateTime ");
+            var data = new RepositoryFactory().BaseRepository().FindTable(sql);
+            if (data.Rows.Count == 0)
+                return;
+
+            var arrMaterialCode = data.AsEnumerable().Select(row => row.Field<string>("MaterialCode")).Distinct().ToArray();
+            var materialList = new Base_Material_Service().Get_ExpressionList(t => arrMaterialCode.Contains(t.MaterialCode)).ToList();
+
+            List<IF152_ITEM2> IT_ITEM2 = new List<IF152_ITEM2>();
+            foreach (DataRow item in data.Rows)
+            {
+                IF152_ITEM2 IF152_ITEM2 = new IF152_ITEM2();
+                IF152_ITEM2.MESID = item["Id"].ToString() ?? "";
+                IF152_ITEM2.ZTIME = item["CreateTime"].ToDate().ToString("yyyyMMddHHmmssfff") ?? "";
+                IF152_ITEM2.WERKS = item["FactoryCode"].ToString() ?? "";
+                IF152_ITEM2.AUFNR = item["SAP_AUFNR"].ToString() ?? "";
+                IF152_ITEM2.BUDAT = item["CreateTime"].ToDate().ToString("yyyyMMdd") ?? "";
+                IF152_ITEM2.BKTXT = "";
+                IF152_ITEM2.MTSNR = "";
+                IF152_ITEM2.MATNR = materialList.Find(t => t.MaterialCode == item["MaterialCode"].ToString())?.SAPMaterialCode ?? "";
+                IF152_ITEM2.CHARG = item["BatchNo"].ToString() ?? "";
+                IF152_ITEM2.ERFMG = item["Qty"].ToString() ?? "";
+                IF152_ITEM2.ISHS = item["MaterialType"].ToString() ?? "";
+                IF152_ITEM2.LGORT = item["LocationCode"].ToString() ?? "";
+                IF152_ITEM2.SGTXT = item["Creator"].ToString() ?? "";
+                IT_ITEM2.Add(IF152_ITEM2);
+            }
+            sapRequest.RSQ_DATA.IT_ITEM2 = IT_ITEM2;
+
+            var result = SAPHelper.Instance.PostToSAP(sapRequest.HEAD.INIF_ID, sapRequest);
+            var dataList = data.ToDataList<MM_RawMaterialOutEntity>();
+            foreach (var item in dataList)
+            {
+                item.IsPosted = result.Flag ? "0" : "";
+                item.PostedMsg = result.Msg;
+                item.PostedTime = DateTime.Now;
+                item.PostedUser = "SAP";
+            }
+            string msg = "";
+            new MM_RawMaterialOut_Service().SaveEntity_List(true, "", dataList, out msg);
+        }
+        #endregion
+
+        #region 包装报工入库-SAP >0 IF152
+        public void PackingBG_InWhs()
+        {
+            IF152 sapRequest = new IF152();
+            sapRequest.HEAD = new SapHeadDto();
+            sapRequest.HEAD.INIF_ID = SAPInterface.IF152.ToString();
+            sapRequest.RSQ_DATA = new IF152_RSQ_DATA();
+
+            IF152_HEAD IF152_HEAD = new IF152_HEAD();
+            IF152_HEAD.ZBTYPE = SAPBusinessType.包装入库.GetHashCode().ToString();
+            IF152_HEAD.ZTYPE = SAPBusinessType.包装入库.ToString();
+            sapRequest.RSQ_DATA.IS_HEAD = IF152_HEAD;
+
+            // 获取明细数据
+            string sql = string.Format(@"SELECT TOP 900 a.Id,
+                                       a.CreateTime,
+                                       a.Creator,
+                                       a.FactoryCode,
+                                       a.SAPInType,
+                                       b.SAP_AUFNR,
+                                       a.PieceQty,
+                                       a.LocationCode,
+                                       a.ProductOrder,
+                                       a.LineNum,
+									   CASE a.SAPInType WHEN '1' THEN b.SAP_AUFNR WHEN '2' THEN  c.SAP_AUFNR ELSE '' END S_WorkOrder,
+									   CASE a.SAPInType WHEN '1' THEN '' WHEN '2' THEN a.ProductOrder ELSE '' END T_ProductOrder,
+									   CASE a.SAPInType WHEN '1' THEN '' WHEN '2' THEN a.LineNum ELSE '' END T_LineNum
+                                FROM dbo.MM_ProductIn a
+                                    INNER JOIN dbo.PL_WorkOrder b
+                                        ON a.WorkOrder = b.WorkOrder
+									LEFT JOIN dbo.PL_WorkOrder c ON a.S_WorkOrder=c.WorkOrder
+                                WHERE a.InType = '1' AND a.PieceQty > 0
+                                      AND ISNULL(a.IsPosted, '') = ''
+									  ORDER BY a.CreateTime ");
+            var data = new RepositoryFactory().BaseRepository().FindTable(sql);
+            if (data.Rows.Count == 0)
+                return;
+
+            List<IF152_ITEM3> IT_ITEM3 = new List<IF152_ITEM3>();
+            foreach (DataRow item in data.Rows)
+            {
+                IF152_ITEM3 IF152_ITEM3 = new IF152_ITEM3();
+                IF152_ITEM3.MESID = item["Id"].ToString() ?? "";
+                IF152_ITEM3.ZTIME = item["CreateTime"].ToDate().ToString("yyyyMMddHHmmssfff") ?? "";
+                IF152_ITEM3.WERKS = item["FactoryCode"].ToString() ?? "";
+                IF152_ITEM3.ZTYPE = item["SAPInType"].ToString() ?? "";
+                IF152_ITEM3.BUDAT = item["CreateTime"].ToDate().ToString("yyyyMMdd") ?? "";
+                IF152_ITEM3.BKTXT = item["Creator"].ToString() ?? ""; ;
+                IF152_ITEM3.LFSNR = "";
+                IF152_ITEM3.AUFNR = item["S_WorkOrder"].ToString() ?? "";
+                IF152_ITEM3.ERFMG = item["PieceQty"].ToString() ?? "";
+                IF152_ITEM3.LGOBE = item["LocationCode"].ToString() ?? "";
+                IF152_ITEM3.CHARG = "";
+                IF152_ITEM3.UMMAT_KDAUF = item["T_ProductOrder"].ToString() ?? "";
+                IF152_ITEM3.UMMAT_KDPOS = item["T_LineNum"].ToString() ?? "";
+                IT_ITEM3.Add(IF152_ITEM3);
+            }
+            sapRequest.RSQ_DATA.IT_ITEM3 = IT_ITEM3;
+
+            var result = SAPHelper.Instance.PostToSAP(sapRequest.HEAD.INIF_ID, sapRequest);
+            var dataList = data.ToDataList<MM_ProductInEntity>();
+            foreach (var item in dataList)
+            {
+                item.IsPosted = result.Flag ? "0" : "";
+                item.PostedMsg = result.Msg;
+                item.PostedTime = DateTime.Now;
+                item.PostedUser = "SAP";
+            }
+            string msg = "";
+            new MM_ProductIn_Service().SaveEntity_List(true, "", dataList, out msg);
+        }
+        #endregion
+
+        #region 包装报工入库-SAP <0 IF122
+        public void PackingBG_InWhs2()
+        {
+            IF122 sapRequest = new IF122();
+            sapRequest.HEAD = new SapHeadDto();
+            sapRequest.HEAD.INIF_ID = SAPInterface.IF122.ToString();
+            sapRequest.RSQ_DATA = new IF122_RSQ_DATA();
+
+            // 获取明细数据
+            string sql = string.Format(@"SELECT TOP 900 a.Id,
+                                       a.CreateTime,
+                                       a.Creator,
+                                       a.FactoryCode,
+                                       a.SAPInType,
+                                       b.SAP_AUFNR,
+									   d.SAPMaterialCode,
+                                       ABS(a.PieceQty) PieceQty,
+                                       a.LocationCode,
+                                       a.ProductOrder,
+                                       a.LineNum,
+									   CASE a.SAPInType WHEN '1' THEN b.SAP_AUFNR WHEN '2' THEN  c.SAP_AUFNR ELSE '' END S_WorkOrder,
+									   CASE a.SAPInType WHEN '1' THEN '' WHEN '2' THEN a.ProductOrder ELSE '' END T_ProductOrder,
+									   CASE a.SAPInType WHEN '1' THEN '' WHEN '2' THEN a.LineNum ELSE '' END T_LineNum
+                                FROM dbo.MM_ProductIn a
+                                    INNER JOIN dbo.PL_WorkOrder b
+                                        ON a.WorkOrder = b.WorkOrder
+									LEFT JOIN dbo.PL_WorkOrder c ON a.S_WorkOrder=c.WorkOrder
+									LEFT JOIN dbo.Base_Material d ON a.MaterialCode=d.MaterialCode
+                                WHERE a.InType = '1' AND a.PieceQty < 0
+                                      AND ISNULL(a.IsPosted, '') = ''
+									  ORDER BY a.CreateTime ");
+            var data = new RepositoryFactory().BaseRepository().FindTable(sql);
+            if (data.Rows.Count == 0)
+                return;
+
+            foreach (DataRow item in data.Rows)
+            {
+                string id = item["Id"].ToString();
+                var entity = new MM_ProductIn_Service().Get_ExpressionEntity(t => t.Id == id);
+                if (entity == null)
+                {
+                    continue;
+                }
+
+                IF122_HEAD IF122_HEAD = new IF122_HEAD();
+                IF122_HEAD.BUDAT = item["CreateTime"].ToDate().ToString("yyyyMMdd") ?? "";
+                IF122_HEAD.BKTXT = item["Creator"].ToString() ?? "";
+                IF122_HEAD.LFSNR = "";
+                IF122_HEAD.AUFNR = item["SAP_AUFNR"].ToString() ?? "";
+                IF122_HEAD.MATNR = item["SAPMaterialCode"].ToString() ?? "";
+                IF122_HEAD.ERFMG = item["PieceQty"].ToString();
+                IF122_HEAD.LGOBE = item["LocationCode"].ToString() ?? "";
+                IF122_HEAD.CHARG = "";
+                IF122_HEAD.PWERK = item["FactoryCode"].ToString() ?? "";
+                sapRequest.RSQ_DATA.IS_HEAD = IF122_HEAD;
+
+                var sapResult = SAPHelper.Instance.PostToSAP(sapRequest.HEAD.INIF_ID, sapRequest);
+                entity.IsPosted = sapResult.Flag ? "1" : "";
+                entity.PostedMsg = sapResult.Msg;
+                entity.PostedTime = DateTime.Now;
+                entity.PostedUser = "SAP";
+                if (sapResult.Flag)
+                {
+                    entity.SAP_MBLNR = getValue(JObject.Parse(sapResult.Data), "EV_MBLNR");
+                    entity.SAP_MJAHR = getValue(JObject.Parse(sapResult.Data), "EV_MJAHR");
+                }
+
+                string msg = "";
+                new MM_ProductIn_Service().SaveEntity(entity.Id, entity, out msg);
+            }
+        }
+        #endregion
+
+        #region 自制半成品报工入库-SAP >0 IF152
+        public void OwnProductBG_InWhs()
+        {
+            IF152 sapRequest = new IF152();
+            sapRequest.HEAD = new SapHeadDto();
+            sapRequest.HEAD.INIF_ID = SAPInterface.IF152.ToString();
+            sapRequest.RSQ_DATA = new IF152_RSQ_DATA();
+
+            IF152_HEAD IF152_HEAD = new IF152_HEAD();
+            IF152_HEAD.ZBTYPE = SAPBusinessType.自制半成品入库.GetHashCode().ToString();
+            IF152_HEAD.ZTYPE = SAPBusinessType.自制半成品入库.ToString();
+            sapRequest.RSQ_DATA.IS_HEAD = IF152_HEAD;
+
+            // 获取明细数据
+            string sql = string.Format(@"SELECT TOP 900 a.Id,
+                                           a.CreateTime,
+                                           a.Creator,
+                                           a.FactoryCode,
+                                           a.SAPInType,
+                                           b.SAP_AUFNR,
+                                           a.Qty,
+                                           a.LocationCode,
+	                                       a.BatchNo
+                                    FROM dbo.MM_RawMaterialIn a
+                                        INNER JOIN dbo.PM_OwnProductOrder b
+                                            ON a.WorkOrder = b.WorkOrder
+                                    WHERE a.InType = '9'
+                                          AND ISNULL(a.IsPosted, '') = ''
+										  AND a.Qty>0
+										  ORDER BY a.CreateTime ");
+            var data = new RepositoryFactory().BaseRepository().FindTable(sql);
+            if (data.Rows.Count == 0)
+                return;
+
+            List<IF152_ITEM3> IT_ITEM3 = new List<IF152_ITEM3>();
+            foreach (DataRow item in data.Rows)
+            {
+                IF152_ITEM3 IF152_ITEM3 = new IF152_ITEM3();
+                IF152_ITEM3.MESID = item["Id"].ToString() ?? "";
+                IF152_ITEM3.ZTIME = item["CreateTime"].ToDate().ToString("yyyyMMddHHmmssfff") ?? "";
+                IF152_ITEM3.WERKS = item["FactoryCode"].ToString() ?? "";
+                IF152_ITEM3.ZTYPE = "1";
+                IF152_ITEM3.BUDAT = item["CreateTime"].ToDate().ToString("yyyyMMdd") ?? "";
+                IF152_ITEM3.BKTXT = item["Creator"].ToString() ?? ""; ;
+                IF152_ITEM3.LFSNR = "";
+                IF152_ITEM3.AUFNR = item["SAP_AUFNR"].ToString() ?? "";
+                IF152_ITEM3.ERFMG = item["Qty"].ToString() ?? "";
+                IF152_ITEM3.LGOBE = item["LocationCode"].ToString() ?? "";
+                IF152_ITEM3.CHARG = item["BatchNo"].ToString() ?? "";
+                IT_ITEM3.Add(IF152_ITEM3);
+            }
+            sapRequest.RSQ_DATA.IT_ITEM3 = IT_ITEM3;
+
+            var result = SAPHelper.Instance.PostToSAP(sapRequest.HEAD.INIF_ID, sapRequest);
+            var dataList = data.ToDataList<MM_RawMaterialInEntity>();
+            foreach (var item in dataList)
+            {
+                item.IsPosted = result.Flag ? "0" : "";
+                item.PostedMsg = result.Msg;
+                item.PostedTime = DateTime.Now;
+                item.PostedUser = "SAP";
+            }
+            string msg = "";
+            new MM_RawMaterialIn_Service().SaveEntity_List(true, "", dataList, out msg);
+        }
+        #endregion
+
+        #region 自制半成品报工入库-SAP <0 IF122
+        public void OwnProductBG_InWhs2()
+        {
+            IF122 sapRequest = new IF122();
+            sapRequest.HEAD = new SapHeadDto();
+            sapRequest.HEAD.INIF_ID = SAPInterface.IF122.ToString();
+            sapRequest.RSQ_DATA = new IF122_RSQ_DATA();
+
+            // 获取明细数据
+            string sql = string.Format(@"SELECT TOP 900 a.Id,
+                                           a.CreateTime,
+                                           a.Creator,
+                                           a.FactoryCode,
+                                           a.SAPInType,
+                                           b.SAP_AUFNR,
+                                           ABS(a.Qty) Qty,
+                                           a.LocationCode,
+	                                       a.BatchNo,
+										   c.SAPMaterialCode
+                                    FROM dbo.MM_RawMaterialIn a
+                                        INNER JOIN dbo.PM_OwnProductOrder b
+                                            ON a.WorkOrder = b.WorkOrder
+								        INNER JOIN dbo.Base_Material c ON a.MaterialCode=c.MaterialCode
+                                    WHERE a.InType = '9'
+                                          AND ISNULL(a.IsPosted, '') = ''
+										  AND a.Qty<0
+										  ORDER BY a.CreateTime ");
+            var data = new RepositoryFactory().BaseRepository().FindTable(sql);
+            if (data.Rows.Count == 0)
+                return;
+
+            foreach (DataRow item in data.Rows)
+            {
+                string id = item["Id"].ToString();
+                var entity = new MM_RawMaterialIn_Service().Get_ExpressionEntity(t => t.Id == id);
+                if (entity == null)
+                {
+                    continue;
+                }
+
+                IF122_HEAD IF122_HEAD = new IF122_HEAD();
+                IF122_HEAD.BUDAT = item["CreateTime"].ToDate().ToString("yyyyMMdd") ?? "";
+                IF122_HEAD.BKTXT = item["Creator"].ToString() ?? "";
+                IF122_HEAD.LFSNR = "";
+                IF122_HEAD.AUFNR = item["SAP_AUFNR"].ToString() ?? "";
+                IF122_HEAD.MATNR = item["SAPMaterialCode"].ToString() ?? "";
+                IF122_HEAD.ERFMG = item["Qty"].ToString().Replace("-", "") ?? "";
+                IF122_HEAD.LGOBE = item["LocationCode"].ToString() ?? "";
+                IF122_HEAD.CHARG = item["BatchNo"].ToString() ?? "";
+                IF122_HEAD.PWERK = item["FactoryCode"].ToString() ?? "";
+                sapRequest.RSQ_DATA.IS_HEAD = IF122_HEAD;
+
+                var sapResult = SAPHelper.Instance.PostToSAP(sapRequest.HEAD.INIF_ID, sapRequest);
+                entity.IsPosted = sapResult.Flag ? "1" : "";
+                entity.PostedMsg = sapResult.Msg;
+                entity.PostedTime = DateTime.Now;
+                entity.PostedUser = "SAP";
+                if (sapResult.Flag)
+                {
+                    entity.SAP_MBLNR = getValue(JObject.Parse(sapResult.Data), "EV_MBLNR");
+                    entity.SAP_MJAHR = getValue(JObject.Parse(sapResult.Data), "EV_MJAHR");
+                }
+
+                string msg = "";
+                new MM_RawMaterialIn_Service().SaveEntity(entity.Id, entity, out msg);
+            }
+        }
+        #endregion
+
+        #region 成品发货-SAP IF150、106
+        public void ProductDispatch()
+        {
+            var productDispatchItemList = new MM_ProductDispatchItem_Service().Get_ExpressionList(t => string.IsNullOrEmpty(t.IsPosted)
+                && t.Status == "3").OrderBy(t => t.CreateTime).Take(900).ToList();
+            if (productDispatchItemList.Count == 0)
+                return;
+
+            var arrId = productDispatchItemList.Select(t => t.Id).ToArray();
+            var productOutList = new MM_ProductOut_Service().Get_ExpressionList(t => arrId.Contains(t.BusinessId)).ToList();
+
+            foreach (var item in productDispatchItemList)
+            {
+                #region IF150 交货单修改
+                IF150 sapRequest1 = new IF150();
+                sapRequest1.HEAD = new SapHeadDto();
+                sapRequest1.HEAD.INIF_ID = SAPInterface.IF150.ToString();
+
+                sapRequest1.RSQ_DATA = new IF150_RSQ_DATA();
+                IF150_DATA IF150_DATA = new IF150_DATA();
+                IF150_DATA.ZGZ = item.PostMark;
+                IF150_DATA.VSTEL = item.FactoryCode ?? "";
+                IF150_DATA.VBELN = item.DocNum ?? "";
+                IF150_DATA.ZFPN = item.InvoiceNO ?? "";
+                IF150_DATA.ZTDN = item.LoadingBill ?? "";
+                IF150_DATA.ZJS = item.BoxNum == null ? "" : item.BoxNum.ToString() ?? "";
+                IF150_DATA.ZJZID = item.ContainerID ?? "";
+                IF150_DATA.ZFXN = item.SealingNo ?? "";
+                IF150_DATA.ZCID = item.CarNumber ?? "";
+                IF150_DATA.ZCCG = item.ForkliftWorker ?? "";
+                IF150_DATA.ZMG = item.WoodWorker ?? "";
+                IF150_DATA.ZFHR = item.Operator ?? "";
+                IF150_DATA.ZDAT3 = DateTime.Now.ToString("yyyyMMdd");
+                IF150_DATA.ZTIM3 = DateTime.Now.ToString("HHmmss");
+                IF150_DATA.ZNAM3 = item.Operator ?? "";
+                IF150_DATA.WADAT_IST = item.PostDate == null ? DateTime.Now.ToString("yyyyMMdd") : item.PostDate.Value.ToString("yyyyMMdd");
+                sapRequest1.RSQ_DATA.IS_DATA = IF150_DATA;
+
+                List<IF150_ITEM> IT_ITEM = new List<IF150_ITEM>();
+                var details = productOutList.FindAll(t => t.BusinessId == item.Id);
+                var arrMaterialCode = details.Select(t => t.MaterialCode).Distinct().ToArray();
+                var materialList = new Base_Material_Service().Get_ExpressionList(t => arrMaterialCode.Contains(t.MaterialCode)).ToList();
+                foreach (var groupItem in details.GroupBy(t => t.MaterialCode))
+                {
+                    int i = 1;
+                    foreach (var detail in groupItem)
+                    {
+                        IF150_ITEM IF150_ITEM = new IF150_ITEM();
+                        IF150_ITEM.POSNR = detail.LineNum ?? "";
+                        if (groupItem.Count() > 1)
+                        {
+                            IF150_ITEM.ZPOSNR = i.ToString() ?? "";
+                        }
+                        IF150_ITEM.VGBEL = detail.ProductOrder ?? "";
+                        IF150_ITEM.VGPOS = detail.OrderLine ?? "";
+                        IF150_ITEM.MATNR = materialList.Find(t => t.MaterialCode == detail.MaterialCode)?.SAPMaterialCode ?? "";
+                        IF150_ITEM.LFIMG = detail.PieceQty.ToString() ?? "";
+                        IF150_ITEM.LGORT = detail.LocationCode ?? "";
+                        IF150_ITEM.CHARG = "";
+                        IT_ITEM.Add(IF150_ITEM);
+
+                        i += 1;
+                    }
+                }
+                sapRequest1.RSQ_DATA.IT_ITEM = IT_ITEM;
+                var sapResult1 = SAPHelper.Instance.PostToSAP(sapRequest1.HEAD.INIF_ID, sapRequest1);
+
+                item.IsPosted = sapResult1.Flag ? "1" : "";
+                item.PostedMsg = sapResult1.Msg;
+                item.PostedTime = DateTime.Now;
+                item.PostedUser = "SAP";
+                if (sapResult1.Flag)
+                {
+                    item.SAP_MBLNR = getValue(JObject.Parse(sapResult1.Data), "EV_MBLNR");
+                    item.SAP_VBELN = getValue(JObject.Parse(sapResult1.Data), "EV_VBLEN");
+                }
+                #endregion
+
+                #region IF106 交货单过账
+                //IF106 sapRequest = new IF106();
+                //sapRequest.HEAD = new SapHeadDto();
+                //sapRequest.HEAD.INIF_ID = SAPInterface.IF106.ToString();
+
+                //sapRequest.RSQ_DATA = new IF106_RSQ_DATA();
+                //IF106_HEAD IF106_HEAD = new IF106_HEAD();
+                //IF106_HEAD.ZGZ = item.PostMark ?? "";
+                //IF106_HEAD.VSTEL = item.FactoryCode ?? "";
+                //IF106_HEAD.VBELN = item.DocNum ?? "";
+                //IF106_HEAD.WADAT_IST = DateTime.Now.ToString("yyyyMMdd");
+                //IF106_HEAD.ZMESDATE = DateTime.Now.ToString("yyyyMMdd");
+                //IF106_HEAD.ZMESTIME = DateTime.Now.ToString("HHmmss");
+                //sapRequest.RSQ_DATA.IS_HEAD = IF106_HEAD;
+
+                //var sapResult = SAPHelper.Instance.PostToSAP(sapRequest.HEAD.INIF_ID, sapRequest);
+
+                //item.IsPosted = sapResult.Flag ? "1" : "";
+                //item.PostedMsg = sapResult.Msg;
+                //item.PostedTime = DateTime.Now;
+                //item.PostedUser = "SAP";
+                //if (sapResult.Flag)
+                //{
+                //    item.SAP_MBLNR = getValue(JObject.Parse(sapResult.Data), "EV_MBLNR");
+                //    item.SAP_VBELN = getValue(JObject.Parse(sapResult.Data), "EV_VBLEN");
+                //}
+                #endregion
+            }
+
+            string msg = "";
+            new MM_ProductDispatchItem_Service().SaveEntity_List(true, "", productDispatchItemList, out msg);
+        }
+        #endregion
+
+        #region 库存查询 IF135
+        public void StockQuery()
+        {
+            IF135 sapRequest = new IF135();
+            sapRequest.HEAD = new SapHeadDto();
+            sapRequest.HEAD.INIF_ID = SAPInterface.IF135.ToString();
+            sapRequest.RSQ_DATA = new IF135_RSQ_DATA();
+
+            var keyEntity = new Base_KeyParameterItem_Service().Get_ExpressionEntity(t => t.EnCode == "String" && t.ItemCode == "StockSyncFactory");
+            var factoryCode = keyEntity?.ItemValue;
+            if (string.IsNullOrEmpty(factoryCode))
+                return;
+
+            List<IF135_DATA> IT_DATA = new List<IF135_DATA>();
+
+            IF135_DATA IF135_DATA = new IF135_DATA();
+            IF135_DATA.WERKS = factoryCode;
+            IT_DATA.Add(IF135_DATA);
+            sapRequest.RSQ_DATA.IT_DATA = IT_DATA;
+
+            var result = SAPHelper.Instance.PostToSAP(sapRequest.HEAD.INIF_ID, sapRequest);
+            if (result.Flag)
+            {
+                var data = JsonConvert.DeserializeObject<List<IF135_RETURN>>(getValue(result.Data.ToJObject(), "ET_RETURN"));
+
+                DataTable dt = Tools.ToDataTable(data);
+                //调用存储过程
+                SqlParameter[] parameters = {
+                    new SqlParameter("@FactoryCode",SqlDbType.VarChar, 50),
+                    new SqlParameter("@Stock", dt)
+                };
+                parameters[0].Value = factoryCode;
+
+                //执行存贮过程
+                Data.Dapper.SqlDatabase db = new Data.Dapper.SqlDatabase();
+                db.ExecuteProcedure("Pro_StockQuery", parameters);
+
+            }
+        }
+        #endregion
+    }
+}

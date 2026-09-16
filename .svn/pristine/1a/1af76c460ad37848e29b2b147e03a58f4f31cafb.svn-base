@@ -1,0 +1,681 @@
+{
+  // Common
+  "Common": {
+    "Error": "Process Failure, Server Error",
+    "ErrorWithOther": "Process Failure, {0}",
+    "Success": "Process Successful",
+    "SuccessWithOther": "Success, {0} Order No. {1} Material Code {2} Material Name",
+    "SelectAll": "Select All",
+    "DropDownAll": "-Select-",
+    "IsDelete": "Delete Confirm",
+    "DeleteTip": "Alarm: Delete",
+    "LoginLeftMsg": "Login: {0} Login Time: {1}",
+    "TipMsg": "Message",
+    "WarningMsg": "Alarm: Message",
+    "ErrorMsg": "Error Message",
+    "Confirm": "Confirm"
+  },
+  // Location
+  "Location": {
+    "CN": "Chinese Factory",
+    "VN": "Vietnam Factory",
+    "TH": "Thailand Factory"
+  },
+  // Main Form
+  "Frm_Main": {
+    "Title": "Estival's MES Client System",
+    "Menu": {
+      "tsm_BaseDataManage": "Master Data",
+      //"tsm_PTeam": "Work Team",
+      "tsm_ProductionManage": "Production System",
+      "tsm_SystemManage": "System Management"
+    }
+  },
+  // Login Page
+  "Frm_Login": {
+    "Title": "MES Client System",
+    "Button": {
+      "btn_exit": "Exit",
+      "btn_ok": "Login"
+    },
+    "Label": {
+      "label3": "Estival's MES Client System",
+      "label1": "Account:",
+      "label2": "Password:",
+      "lbl_Location": "Factory:"
+    }
+  },
+  // Pager Control
+  "PagerControl": {
+    "Title": "",
+    "FirstTip": "This is the first page",
+    "LastTip": "This is the last page",
+    "GoError": "Please input page number correctly",
+    "Button": {
+      "btnFirst": "First Page",
+      "btnPre": "Previous Page",
+      "btnNext": "Next Page",
+      "btnLast": "Last Page"
+    },
+    "Label": {
+      "label1": " items/page",
+      "lblInfo": "Total Items: {0} Total Pages: {1} Page: {2}"
+    }
+  },
+  // Change Password Page
+  "Frm_UpdatePassword": {
+    "Title": "Change Password",
+    "Button": {
+      "btnSave": "Save"
+    },
+    "Label": {
+      "label1": "Old Password",
+      "label2": "New Password",
+      "label3": "Confirm Password"
+    },
+    "Table": {},
+    "Other": {}
+  },
+  // Transfer Card Printing
+  "Frm_TransferCard": {
+    "Title": "Print Transfer Card",
+    "MessageTips_1": "Please select work order!",
+    "MessageTips_2": "Print Transfer Card¡¾{0}¡¿ unavailable",
+    "MessageTips_3": "Please select a Transfer Card!",
+    "MessageTips_4": "Please select the Transfer Card to print!",
+    "MessageTips_5": "The Transfer Card does not exist",
+    "MessageTips_6": "No transfer card available to print",
+    "MessageTips_7": "Select Factory",
+    "Button": {
+      "btnSearch": "Search",
+      "btnNew": "Create New Transfer Card",
+      "btnPrint": "Print Transfer Card"
+    },
+    "Label": {
+      "label1": "Factory",
+      "label6": "Order No.",
+      "label3": "PO",
+      "label4": "Work Order Type",
+      "label5": "Product Status",
+      "label2": "Film Code",
+      "label8": "Specification",
+      "label7": "Container No.",
+      "label10": "Work Order No.",
+      "label9": "Scanning Transfer Card"
+    },
+    "Table": {
+      "dgvm": {
+        "Id": "Id",
+        "FactoryCode": "Factory Code",
+        "FactoryName": "Factory",
+        "Column12": "Product Order",
+        "ExeWorkOrderType": "Execution Work Order Type Code",
+        "ExeWorkOrderTypeName": "Work Order Type",
+        "ExeWorkOrder": "Execution Work Order",
+        "ProductOrder": "Order No.",
+        "CustomerPO": "PO",
+        "Status": "Status Code",
+        "StatusName": "Product Status",
+        "MaterialName": "Film Code",
+        "MMCJ": "Film Factory",
+        "Spec": "Specification",
+        "BWXH": "Emboss",
+        "PiecesQty": "Total Plank Count",
+        "ContainerNO": "Container No.",
+        "UV": "UV",
+        "KCKX": "Profile Type",
+        "SmallClass": "Specification",
+        "PrintedPalletQty": "The Pallet Count Printed",
+        "PSheetsQty": "Production Count Slabs",
+        "CreateTime": "Order Date",
+        "FinishTime": "Finish Date"
+      },
+      "dgvd": {
+        "Column1": "Id",
+        "Column8": "Transfer Card Type Code",
+        "Column2": "Transfer Card Type",
+        "CardCode": "Transfer Card Code",
+        "Column4": "Transfer Card Name",
+        "SheetQty1": "The Standard Slabs Count Per Pallet",
+        "Column9": "Transfer Card Status Code",
+        "Column6": "Transfer Card Status",
+        "PrintStatus2": "Print Status Code",
+        "Column7": "Print Status",
+        "ProcessName1": "Processing Step",
+        "StockQty1": "Stock Qty",
+        "BusinessTypeName1": "Business Type",
+        "RePrint": "Reprint"
+      }
+    },
+    "Other": {
+      "groupBox3": "Execution Work Order",
+      "groupBox2": "Transfer Card Information"
+    }
+  },
+  // Create New Transfer Card Page
+  "Frm_TransferCardAdd": {
+    "Title": "Create New Transfer Card",
+    "MessageTips_1": "Create Successful",
+    "MessageTips_2": "Create Failure",
+    "MessageTips_3": "Select Transfer Card Type",
+    "MessageTips_4": "Select Create Type",
+    "MessageTips_5": "Input the Number of New Planks",
+    "MessageTips_6": "Quality Format Is Incorrect",
+    "MessageTips_7": "Please Select the Transfer Card to Inherit",
+    "MessageTips_8": "Please Enter the Number of Pieces Per Pallet",
+    "MessageTips_9": "The Number of Pieces Per Pallet Format Is Incorrect",
+    "Button": {
+      "btnSave": "Confirm Generation"
+    },
+    "Label": {
+      "label19": "Order No.",
+      "label20": "Work Order No.",
+      "label1": "Execution Work Order No.",
+      "label8": "Film Code",
+      "label3": "Container No.",
+      "label7": "Customer Model",
+      "label9": "Emboss",
+      "label5": "Specification",
+      "label14": "Extrusion Specification",
+      "label15": "Profile Type",
+      "label10": "UV",
+      "label16": "New Creation Type",
+      "label11": "Film Factory",
+      "label18": "New Creation Pieces",
+      "label12": "Transfer Card Type",
+      "lblPerPalletPieceQty": "Pieces Per Pallet",
+      "label2": "Inherit Transfer Card"
+    }
+  },
+  // Transfer Card Split Interface
+  "Frm_TransferCardSplit": {
+    "Title": "Create New Transfer Card",
+    "MessageTips_1": "Please enter the number of splits",
+    "MessageTips_2": "The split number format is incorrect",
+    "MessageTips_3": "The split number cannot be greater than 7",
+    "MessageTips_4": "No records to split, unable to save",
+    "MessageTips_5": "Split successful",
+    "MessageTips_6": "Split failed",
+    "Button": {
+      "btnSave": "Confirm Split",
+      "btnAdd": "Add",
+      "btnRemove": "Clear"
+    },
+    "Label": {
+      "label1": "Order No.",
+      "label3": "Transfer Card Container No.",
+      "label2": "Container No.",
+      "label4": "Number of Splits"
+    },
+    "Table": {
+      "dgvSplit": {
+        "CardCode": "Transfer Card Code",
+        "CardName": "Transfer Card Name"
+      }
+    },
+    "Other": {
+      "groupBox2": "Operation Area"
+    }
+  },
+  // Work Order Execution
+  "Frm_WorkOrderExcute": {
+    "Title": "Work Order Execution",
+    "Button": {
+      "btnSearch": "Search",
+      "btnUp": "Material Batch On Machine",
+      "btnStart": "Start Extrusion",
+      "btnCheck": "Process Inspection",
+      "btnBG": "Report Extrusion"
+    },
+    "Label": {
+      "label1": "Factory",
+      "label2": "Process",
+      "label3": "Machine",
+      "label4": "Product Status"
+    },
+    "Table": {
+      "dgv1": {
+        "Id": "Id",
+        "ProductOrder": "Product Order",
+        "FactoryCode": "Factory Code",
+        "FactoryName": "Factory",
+        "ProcessCode": "Process Code",
+        "ProcessName": "Process",
+        "EquipCode": "Machine Code",
+        "EquipName": "Machine",
+        "CreateTime": "Dispatch Time",
+        "PlanProductTime": "Planned Production Time",
+        "WorkOrderTypeName": "Work Order Type",
+        "ExeWorkOrder": "Execution Work Order",
+        "SWStatus": "Production Status Code",
+        "SWStatusName": "Product Status",
+        "MMXH": "Film Code",
+        "MMCJ": "Film Factory",
+        "Spec": "Specification",
+        "BWXH": "Emboss",
+        "PiecesQty": "Total Plank Count",
+        "ContainerNO": "Container No.",
+        "UV": "UV",
+        "KCKX": "Profile Type",
+        "SmallClass": "Specification",
+        "SheetsQty": "Production Sheets Count",
+        "PalletQty": "Pallet Count",
+        "BGQty": "Reported Quantity"
+      }
+    },
+    "Other": {
+      "groupBox1": "",
+      "groupBox2": ""
+    }
+  },
+  // Packing Report Management
+  "Frm_PackingBG": {
+    "Title": "Packing Report Management",
+    "MessageTips_1": "Select Factory",
+    "MessageTips_2": "Please select the mark code to print!",
+    "MessageTips_3": "Please select the mark information to print!",
+    "MessageTips_4": "Print template not found",
+    "Button": {
+      "btnSearch": "Search",
+      "btnMarkCodePrint": "Mark Code Print",
+      "btnPrint": "Print Label"
+    },
+    "Label": {
+      "label1": "Factory",
+      "label6": "Order No.",
+      "label3": "PO",
+      "label5": "Packing Status",
+      "label4": "Customer Model",
+      "label2": "Film Code",
+      "label10": "Report Time",
+      "label11": "To",
+      "label8": "Specification",
+      "label7": "Container No.",
+      "label9": "Paper Box Model",
+      "label12": "Reporting Machine",
+      "label13": "Print Status",
+      "label14": "Transfer Card"
+    },
+    "Table": {
+      "dgvm": {
+        "Id": "Id",
+        "ProductOrder": "Order No.",
+        "FactoryCode": "Factory Code",
+        "FactoryName": "Factory",
+        "WorkOrder": "Work Order No.",
+        "CustomerPO": "PO",
+        "ContainerNO": "Container No.",
+        "PackingStatus": "Packing Status",
+        "MaterialCode": "Customer Model",
+        "MaterialName": "Film Code",
+        "MMXH": "Raw Material Film Model",
+        "Spec": "Specification",
+        "PaperBox": "Paper Box Specification",
+        "DeliveryPieces": "Delivery Pieces Count",
+        "PerPalletPieceQty": "Pieces per Pallet",
+        "PerPalletBoxQty": "Boxes per Pallet",
+        "DeliveryPallet": "Delivery Pallets Count",
+        "DeliveryWholePallet": "Total Whole Pallets",
+        "DeliveryStartPallet": "Starting Pallet No.",
+        "LoadingDate": "Required Loading Date",
+        "WorkQty": "Reported Quantity",
+        "PrintNum": "The Pallet Count Printed",
+        "AvoidProduce": "Avoid Production Flag"
+      },
+      "dgvd1": {
+        "Id": "Id",
+        "PackingRecordId1": "Packing Record ID",
+        "ProductOrder1": "Order No.",
+        "ContainerNO1": "Container No.",
+        "CustomerPO1": "PO",
+        "CardCode1": "Transfer Card Code",
+        "CardType1": "Transfer Card Type Code",
+        "CardTypeName1": "Transfer Card Type",
+        "CardName1": "Transfer Card Name",
+        "MachineCode1": "Machine Code",
+        "Qty1": "Reported Quantity",
+        "CreateTime1": "Report Time",
+        "CreatorName1": "Reporter"
+      },
+      "dgvd2": {
+        "Id": "Id",
+        "PackingRecordId2": "Packing Record ID",
+        "ProductOrder2": "Order No.",
+        "WorkOrder2": "Work Order No.",
+        "CustomerPO2": "PO",
+        "Customer2": "Customer",
+        "MaterialCode2": "Customer Model",
+        "Spec2": "Specification",
+        "Quantity2": "Quantity",
+        "PackTransferCode2": "Mark Code",
+        "Mark2": "Mark Name",
+        "PrintStatus2": "Print Status Code",
+        "PrintStatusName2": "Print Status"
+      }
+    },
+    "Other": {
+      "groupBox3": "Work Order Information",
+      "tabPage1": "Packing Report Records",
+      "tabPage2": "Mark Information"
+    }
+  },
+  // Packaging Print Template Selection
+  "FormSelect": {
+    "Title": "Select Template",
+    "Button": {
+      "btnCancel": "Cancel",
+      "btnMarkPrint": "Print"
+    },
+    "Label": {
+      "label3": "Date",
+      "label2": "Adhesive Process",
+      "label1": "Print Template"
+    },
+    "Table": {},
+    "Other": {}
+  },
+  // Work Team Interface
+  "Frm_PTeam": {
+    "Title": "Work Team Printing",
+    "MessageTips_1": "Please select the data row to print!",
+    "MessageTips_2": "Select Factory",
+    "Button": {
+      "btnSearch": "Search",
+      "btnPrint": "Print"
+    },
+    "Label": {
+      "label3": "Factory",
+      "label1": "Team Code",
+      "label2": "Team Name"
+    },
+    "Table": {
+      "dgvm": {
+        "FactoryName": "Factory Name",
+        "ProcessCode": "Process Code",
+        "ProcessName": "Process Name",
+        "PTeamCode": "Work Team Code",
+        "PTeamName": "Work Team Name"
+      }
+    },
+    "Other": {
+      "groupBox1": "Search Criteria",
+      "groupBox2": "Team List"
+    }
+  },
+  // Semi-Finished Product Machine Reporting
+  "RawMaterialBatchUp": {
+    "Title": "Semi-Finished Product Machine Reporting",
+    "MessageTips_1": "Total Reporting Quantity",
+    "MessageTips_2": "Material [{0}] does not exist!",
+    "MessageTips_3": "Machine cannot be empty!",
+    "MessageTips_4": "Key part cannot be empty!",
+    "MessageTips_5": "Material Code",
+    "MessageTips_6": "Transfer Card Number",
+    "MessageTips_7": "Reported Quantity",
+    "MessageTips_8": "Process cannot be empty, please rescan the machine!",
+    "MessageTips_9": "Please select defect items",
+    "MessageTips_10": "Please enter defect quantity",
+    "MessageTips_11": "Defect quantity format is incorrect",
+    "MessageTips_12": "Already exists, duplicate entry is not allowed",
+    "MessageTips_13": "Transfer card cannot be empty",
+    "MessageTips_14": "Transfer card information does not match, please rescan",
+    "MessageTips_15": "Roll number cannot be empty",
+    "MessageTips_16": "Machine cannot be empty",
+    "MessageTips_17": "Work Team cannot be empty",
+    "MessageTips_18": "Work order or factory cannot be empty, please rescan the transfer card",
+    "MessageTips_19": "Please select a data row!",
+    "MessageTips_20": "No label template found",
+    "MessageTips_21": "Team members cannot be empty",
+    "MessageTips_22": "Scanned personnel code cannot be empty!",
+    "MessageTips_23": "Please select a position",
+    "MessageTips_24": "Please select personnel to delete",
+    "Button": {
+      "btnTeamAdd": "Add",
+      "btnTeamDelete": "Delete",
+      "btnSave": "Bind Key Part",
+      "btnCancelBind": "Cancel Binding",
+      "btnEdit": "Edit",
+      "btnPrintMark": "Label Printing",
+      "btnPrint2": "Print",
+      "button1": "Production Reporting + Print Single Roll Barcode",
+      "btnSCBG": "Production Reporting",
+      "btnSave2": "Production Reporting + Print Single Roll Barcode",
+      "btbDelete2": "Delete",
+      "btnSelectBadItem": "Select",
+      "btnAdd2": "Add"
+    },
+    "Label": {
+      "label21": "Position",
+      "label20": "Personnel",
+      "label19": "Team",
+      "label5": "Material Batch",
+      "label4": "Material Code",
+      "label3": "Material Name",
+      "label2": "Key Part",
+      "label1": "Production Machine",
+      "lblProcessCode": "Process Code",
+      "lblFactoryCode": "Factory Code",
+      "lblBadItemCode": "Defect Item Code",
+      "lblHasBGQty": "0",
+      "lblBatchNo": "Batch No",
+      "lblSmallClassName": "Small Class Name",
+      "lblSmallClass": "Small Class",
+      "lblMaterialName": "Material Name",
+      "lblMaterialCode": "Material Code",
+      "lblTransferName": "Transfer Name",
+      "lblTransferCode": "Transfer Code",
+      "lblWorkOrder": "Work Order",
+      "lblOwnProductId": "Own Product ID",
+      "lblTotalBGQty": "Total Reporting Quantity:",
+      "label15": "Single Roll Barcode Information List",
+      "label18": "Roll Number",
+      "label6": "Transfer Card",
+      "label16": "Inspector",
+      "label11": "Defect Quantity",
+      "label17": "Length",
+      "label7": "Reported Quantity",
+      "label14": "Defect Quantity",
+      "label13": "Defect Item",
+      "label12": "Personnel Information",
+      "label8": "Machine",
+      "label10": "Order Information",
+      "label9": "Work Team"
+    },
+    "Table": {
+      "dgv2": {
+        "dataGridViewTextBoxColumn17": "Id",
+        "dataGridViewTextBoxColumn18": "Position Name",
+        "dataGridViewTextBoxColumn19": "Personnel Code",
+        "UserName": "Personnel Name"
+      },
+      "dgv1": {
+        "Id": "Id",
+        "MaterialName": "Material Name",
+        "BatchNo": "Batch"
+      },
+      "dgv4": {
+        "Column4": "Single Roll Barcode",
+        "Column5": "Reported Quantity",
+        "Column6": "Unit",
+        "Column7": "Production Personnel",
+        "Column8": "Inspector",
+        "Column9": "Production Time",
+        "Column10": "Material Code"
+      },
+      "dgv3": {
+        "BadItemCode": "Defect Item Code",
+        "BadItemName": "Defect Item",
+        "BadQty": "Defect Quantity"
+      }
+    },
+    "Other": {
+      "splitContainer1": "",
+      "groupBox1": "Work Team Personnel Binding",
+      "panel1": ""
+    }
+  },
+  // Print Log
+  "Frm_PrintLog": {
+    "Title": "Print Log",
+    "MessageTips_1": "Transfer Card",
+    "MessageTips_2": "Label",
+    "MessageTips_3": "Select Factory",
+    "Button": { "btnSearch": "Search" },
+    "Label": {
+      "label5": "Factory",
+      "label4": "Operator",
+      "label2": "Code",
+      "label11": "To",
+      "label10": "Print Time",
+      "label1": "Log Type",
+      "label3": ""
+    },
+    "Table": {
+      "dgvm": {
+        "Id": "Id",
+        "Code": "Code Details",
+        "Creator": "Creator Code",
+        "CreateTime": "Print Time",
+        "Operator": "Operator"
+      }
+    },
+    "Other": {
+      "groupBox3": "Search Results",
+      "groupBox1": "Search Criteria",
+      "groupBox2": "Code Records"
+    }
+  },
+  // About MES Client
+  "Frm_Version": {
+    "Title": "About MES Client",
+    "Button": {},
+    "Label": {
+      "label2": "Update Log",
+      "lblVersion": "Version Number",
+      "label1": "Current Version:"
+    },
+    "Table": {},
+    "Other": {}
+  },
+  // Personnel Printing
+  "Frm_People": {
+    "Title": "Personnel Printing",
+    "MessageTips_1": "Please select the data row to print!",
+    "MessageTips_2": "Select Factory",
+    "Button": {
+      "btnPrint": "Print",
+      "btnSearch": "Search"
+    },
+    "Label": {
+      "label4": "Factory",
+      "label3": "Department Name",
+      "label2": "Personnel Name",
+      "label1": "Personnel Code"
+    },
+    "Table": {
+      "dgvm": {
+        "UserCode": "Personnel Code",
+        "UserName": "Personnel Name",
+        "Dept": "Department Name"
+      }
+    },
+    "Other": {
+      "groupBox2": "Team List",
+      "groupBox1": "Search Criteria"
+    }
+  },
+  // Material Batch
+  "Frm_MaterialBatch": {
+    "Title": "Material Batch",
+    "MessageTips_1": "Please select the data row to print!",
+    "MessageTips_2": "Select Factory",
+    "MessageTips_3": "Please select a row of data!",
+    "MessageTips_4": "Please enter the number of pallets!",
+    "MessageTips_5": "The format of the number of pallets is incorrect!",
+    "Button": {
+      "btnPrintPallet": "Print Multiple Pallets",
+      "btnPrint": "Print",
+      "btnSearch": "Search"
+    },
+    "Label": {
+      "label5": "Factory",
+      "label6": "Number of Pallets",
+      "label4": "Order No.",
+      "label3": "Warehouse Name",
+      "label2": "Material Name",
+      "label1": "Material Code"
+    },
+    "Table": {
+      "dgvm": {
+        "Id": "Id",
+        "ProductOrder": "Order No.",
+        "MaterialCode": "Material Code",
+        "MaterialName": "Material Name",
+        "BatchNo": "Batch No",
+        "WhsCode": "Warehouse Code",
+        "WhsName": "Warehouse Name",
+        "LocationCode": "Location Code",
+        "LocationName": "Location Name",
+        "Qty": "Quantity",
+        "Unit": "Unit"
+      }
+    },
+    "Other": {
+      "groupBox2": "Team List",
+      "groupBox1": "Search Criteria"
+    }
+  },
+  // Machine Printing
+  "Frm_Machine": {
+    "Title": "Machine Printing",
+    "MessageTips_1": "Please select the data row to print!",
+    "Button": {
+      "btnPrint": "Print",
+      "btnSearch": "Search"
+    },
+    "Label": {
+      "label2": "Machine",
+      "label1": "Process",
+      "label3": "Factory"
+    },
+    "Table": {
+      "dgvm": {
+        "MachineCode": "Machine Code",
+        "MachineName": "Machine Name",
+        "OperationCode": "Process Code",
+        "OperationName": "Process Name"
+      }
+    },
+    "Other": {
+      "groupBox2": "List",
+      "groupBox1": "Search Criteria"
+    }
+  },
+  // Location Printing
+  "Frm_Location": {
+    "Title": "Location Printing",
+    "MessageTips_1": "Please select the data row to print!",
+    "MessageTips_2": "Select Factory",
+    "Button": {
+      "btnPrint": "Print",
+      "btnSearch": "Search"
+    },
+    "Label": {
+      "label2": "Location",
+      "label1": "Warehouse",
+      "label3": "Factory"
+    },
+    "Table": {
+      "dgvm": {
+        "LocationCode": "Location Code",
+        "MachineName": "Location Name",
+        "WhsCode": "Warehouse Code",
+        "WhsName": "Warehouse Name"
+      }
+    },
+    "Other": {
+      "groupBox2": "List",
+      "groupBox1": "Search Criteria"
+    }
+  }
+}

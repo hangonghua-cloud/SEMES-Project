@@ -1,0 +1,19 @@
+﻿{
+  "name": "Siemens.SimaticIT.BaseDataApp.UpdateLog",
+  "type": "standard",
+  "title": "Siemens.SimaticIT.BaseDataApp.UpdateLog.Title",
+  "header": "",
+  "icon": "fa-folder",
+  "functionalBlock": "Siemens.SimaticIT.BaseDataApp",
+  "dependencies": [],
+  "states": [
+    {
+      "id": "home.Siemens_SimaticIT_BaseDataApp_UpdateLog_UpdateLog",
+      "title": "Siemens.SimaticIT.BaseDataApp.UpdateLog.Title",
+      "header": "",
+      "securable": true,
+      "roles": []
+    }
+  ],
+  "manifestVersion": "01.01.00"
+}

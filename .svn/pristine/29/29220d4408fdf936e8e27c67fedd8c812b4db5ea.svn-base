@@ -1,0 +1,256 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6CE11FF9-1CB7-494E-89C7-5F06BEA94211}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ALP.Application.IService</RootNamespace>
+    <AssemblyName>ALP.Application.IService</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ALP.Util">
+      <HintPath>..\..\ALP.DLL\ALP.Util.dll</HintPath>
+    </Reference>
+    <Reference Include="ALP.Util.FlowWork">
+      <HintPath>..\..\ALP.DLL\ALP.Util.FlowWork.dll</HintPath>
+    </Reference>
+    <Reference Include="ALP.Util.WebControl">
+      <HintPath>..\..\ALP.DLL\ALP.Util.WebControl.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppManage\AppVersionIService.cs" />
+    <Compile Include="AuthorizeManage\IAuthorizeService.T.cs" />
+    <Compile Include="AuthorizeManage\IAuthorizeService.cs" />
+    <Compile Include="AuthorizeManage\IModuleButtonService.cs" />
+    <Compile Include="AuthorizeManage\IModuleColumnService.cs" />
+    <Compile Include="AuthorizeManage\IModuleFormInstanceService.cs" />
+    <Compile Include="AuthorizeManage\IModuleFormService.cs" />
+    <Compile Include="AuthorizeManage\IModuleService.cs" />
+    <Compile Include="AuthorizeManage\IPermissionService.cs" />
+    <Compile Include="BaseManage\Base_KeyParameterIService.cs" />
+    <Compile Include="BaseManage\Base_KeyParameterItemIService.cs" />
+    <Compile Include="BaseManage\Base_ReportGroupIService.cs" />
+    <Compile Include="BaseManage\IBaseAccountService.cs" />
+    <Compile Include="BaseManage\IBaseClipToolService.cs" />
+    <Compile Include="BaseManage\IBaseShiftService.cs" />
+    <Compile Include="BaseManage\IBaseVirtualSlotService.cs" />
+    <Compile Include="BaseManage\IBsModelLevelExtendFieldsService.cs" />
+    <Compile Include="BaseManage\IBsModelResourceExtendInfoService.cs" />
+    <Compile Include="BaseManage\IBsModelWithResourceService .cs" />
+    <Compile Include="BaseManage\IBsModelLevelService.cs" />
+    <Compile Include="BaseManage\ISerialNOService.cs" />
+    <Compile Include="BaseManage\IDepartmentService.cs" />
+    <Compile Include="BaseManage\IWebChatApplyConfigIService.cs" />
+    <Compile Include="BaseManage\IWebChatApplyUserService.cs" />
+    <Compile Include="BaseManage\IOrganizeService.cs" />
+    <Compile Include="BaseManage\IUserService.cs" />
+    <Compile Include="BaseManage\IRoleService.cs" />
+    <Compile Include="BaseManage\IPostService.cs" />
+    <Compile Include="BaseManage\IJobService.cs" />
+    <Compile Include="BaseManage\IUserGroupService.cs" />
+    <Compile Include="BaseManage\MainIService.cs" />
+    <Compile Include="BaseManage\Base_ReportRecordIService.cs" />
+    <Compile Include="BaseManage\Base_ReportRoleAuthorizeIService.cs" />
+    <Compile Include="BaseManage\Base_ReportRoleIService.cs" />
+    <Compile Include="BaseManage\UploadManageIService.cs" />
+    <Compile Include="IAccountService.cs" />
+    <Compile Include="MaterialManage\MM_ProductDispatchBill_IService.cs" />
+    <Compile Include="MaterialManage\MM_ProductDispatchDetail_IService.cs" />
+    <Compile Include="MaterialManage\MM_ProductDispatchItem_IService.cs" />
+    <Compile Include="MaterialManage\MM_ProductMoveRecord_IService.cs" />
+    <Compile Include="MaterialManage\MM_ProductIn_IService.cs" />
+    <Compile Include="MaterialManage\MM_SemiProductMoveRecord_IService.cs" />
+    <Compile Include="MaterialManage\MM_ProductStock_IService.cs" />
+    <Compile Include="MaterialManage\MM_RawMaterialCodeBar_IService.cs" />
+    <Compile Include="MaterialManage\MM_SupProductStockTransfer_IService.cs" />
+    <Compile Include="MaterialManage\MM_SuperProductStock_IService.cs" />
+    <Compile Include="MaterialManage\MM_RawMaterialOut_IService.cs" />
+    <Compile Include="MaterialManage\MM_ReceiptNoticeIService.cs" />
+    <Compile Include="MaterialManage\MM_RawMaterialInIService.cs" />
+    <Compile Include="Material\Base_MaterialBindTempFacetIService.cs" />
+    <Compile Include="Material\Base_MaterialBindTempIService.cs" />
+    <Compile Include="Material\Base_MaterialFacetIService.cs" />
+    <Compile Include="Material\Base_MaterialFactoryIService.cs" />
+    <Compile Include="Material\Base_MaterialGroupBindMaterialIService.cs" />
+    <Compile Include="Material\Base_MaterialGroupIService.cs" />
+    <Compile Include="Material\Base_MaterialIService.cs" />
+    <Compile Include="Material\Base_ProcessAttrIService.cs" />
+    <Compile Include="Material\BS_ProcessOfOperationsAttrIService.cs" />
+    <Compile Include="Material\Base_ProcessAttrItemIService.cs" />
+    <Compile Include="Material\Base_SupplierBindMaterialGroupIService.cs" />
+    <Compile Include="Material\Base_SupplierManageIService.cs" />
+    <Compile Include="Material\BS_BOMIService.cs" />
+    <Compile Include="Material\BS_BOMItemsIService.cs" />
+    <Compile Include="Material\BS_ProcessIService.cs" />
+    <Compile Include="Material\BS_ProcessOfOperationsIService.cs" />
+    <Compile Include="MaterialManage\MM_RawMaterialStockIService.cs" />
+    <Compile Include="PlanManage\PL_AvoidProduceIService.cs" />
+    <Compile Include="PlanManage\PL_ExeWorkOrderWearingLayerIService.cs" />
+    <Compile Include="PlanManage\PL_ProcessIService.cs" />
+    <Compile Include="PlanManage\PL_ProcessOfOperationsAttrIService.cs" />
+    <Compile Include="PlanManage\PL_ProcessOfOperationsIService.cs" />
+    <Compile Include="ProduceManage\PM_AbrasiveBGIService.cs" />
+    <Compile Include="ProduceManage\PM_AbrasiveOrderIService.cs" />
+    <Compile Include="ProduceManage\PM_MaterialBatchConsumeRecord_IService.cs" />
+    <Compile Include="ProduceManage\PM_FormulaRecordDetailIService.cs" />
+    <Compile Include="ProduceManage\PM_FormulaRecordIService.cs" />
+    <Compile Include="ProduceManage\PM_MaterialBatchUpRecordIService.cs" />
+    <Compile Include="ProduceManage\PM_OwnProductBGIService.cs" />
+    <Compile Include="ProduceManage\PM_OwnProductOrderIService.cs" />
+    <Compile Include="ProduceManage\PM_OwnProductTransferIService.cs" />
+    <Compile Include="ProduceManage\PM_PackingBGTransferCardIService.cs" />
+    <Compile Include="ProduceManage\PM_PackingPrintMarkIService.cs" />
+    <Compile Include="ProduceManage\PM_PackingRecordIService.cs" />
+    <Compile Include="ProduceManage\PM_PrinterOrderIService.cs" />
+    <Compile Include="ProduceManage\PM_PrinterWorkOrderBGIService.cs" />
+    <Compile Include="ProduceManage\PM_PrinterWorkOrderIService.cs" />
+    <Compile Include="ProduceManage\PM_ReworkRecord_Detail_IService.cs" />
+    <Compile Include="ProduceManage\PM_ReworkRecord_IService.cs" />
+    <Compile Include="ProduceManage\PM_TeamPerson_Items_IService.cs" />
+    <Compile Include="ProduceManage\PM_TeamPerson_IService.cs" />
+    <Compile Include="ProduceManage\PM_ProductionFirstInspectionDetailIService.cs" />
+    <Compile Include="ProduceManage\PM_ProductionFirstInspectionIService.cs" />
+    <Compile Include="ProduceManage\PM_StartUpRecord_IService.cs" />
+    <Compile Include="ProduceManage\PM_TranferCardBGRecord_IService.cs" />
+    <Compile Include="ProduceManage\PM_TransferBGPersonRecord_IService.cs" />
+    <Compile Include="ProduceManage\PM_TransferCardIService.cs" />
+    <Compile Include="PlanManage\PL_BOMItemsIService.cs" />
+    <Compile Include="PlanManage\PL_BOMIService.cs" />
+    <Compile Include="PlanManage\PL_ExeWorkOrderIService.cs" />
+    <Compile Include="PlanManage\PL_FirstInspectionConfirmIService.cs" />
+    <Compile Include="PlanManage\PL_LoadingScheduleIService.cs" />
+    <Compile Include="PlanManage\PL_MaterialFacetIService.cs" />
+    <Compile Include="PlanManage\PL_MaterialIService.cs" />
+    <Compile Include="PlanManage\PL_PlanStoreIssueIService.cs" />
+    <Compile Include="PlanManage\PL_PrdOrderReqMaterialsIService.cs" />
+    <Compile Include="PlanManage\PL_ProductionOrderIService.cs" />
+    <Compile Include="PlanManage\PL_ProductRuleIService.cs" />
+    <Compile Include="PlanManage\PL_PurchaseOrderIService.cs" />
+    <Compile Include="PlanManage\PL_WorkOrderIService.cs" />
+    <Compile Include="PlanManage\PL_WorkOrderSortRuleIService.cs" />
+    <Compile Include="ProduceManage\PM_ProcessBadItem_IService.cs" />
+    <Compile Include="ProduceManage\PM_ProcessBad_IService.cs" />
+    <Compile Include="ProduceManage\PM_BGBadRecord_IService.cs" />
+    <Compile Include="ProduceManage\PM_TransferCardResumeIService.cs" />
+    <Compile Include="ProduceManage\PM_TransferCardScrapRecord_IService.cs" />
+    <Compile Include="PublicInfoManage\IEmailCategoryService.cs" />
+    <Compile Include="PublicInfoManage\IEmailContentService.cs" />
+    <Compile Include="PublicInfoManage\IFileFolderService.cs" />
+    <Compile Include="PublicInfoManage\IFileInfoService.cs" />
+    <Compile Include="PublicInfoManage\INewsService.cs" />
+    <Compile Include="PublicInfoManage\INoticeService.cs" />
+    <Compile Include="PublicInfoManage\IScheduleService.cs" />
+    <Compile Include="QualityManage\QC_IPQCDetailResult_IService.cs" />
+    <Compile Include="QualityManage\QC_IPQCDetail_IService.cs" />
+    <Compile Include="QualityManage\QC_IQCQualityCheck_IService.cs" />
+    <Compile Include="QualityManage\QC_MaterialInventoryCheckItemIService.cs" />
+    <Compile Include="QualityManage\QC_MaterialInventoryCheck_IService.cs" />
+    <Compile Include="QualityManage\QC_OQCCheckConfigIService.cs" />
+    <Compile Include="QualityManage\QC_OQCCheckConfigItemIService.cs" />
+    <Compile Include="QualityManage\QC_OQCQualityCheckIService.cs" />
+    <Compile Include="QualityManage\QC_OQCQualityCheckItemIService.cs" />
+    <Compile Include="QualityManage\QC_PollingDetailResult_IService.cs" />
+    <Compile Include="QualityManage\QC_PollingDetail_IService.cs" />
+    <Compile Include="QualityManage\QC_IQCQualityCheckItem_IService.cs" />
+    <Compile Include="QualityManage\QC_TestItemMaintenanceIService.cs" />
+    <Compile Include="QualityManage\QC_TestMaintenanceIService.cs" />
+    <Compile Include="QualityManage\QC_TestMethodItemMaintenance_IService.cs" />
+    <Compile Include="QualityManage\QC_TestMethodMaintenance_IService.cs" />
+    <Compile Include="QualityManage\QC_TestMethodMaterialIService.cs" />
+    <Compile Include="QualityManage\QC_TestProcessMaintenanceIService.cs" />
+    <Compile Include="SystemManage\DataSourceIService.cs" />
+    <Compile Include="SystemManage\ExcelExportIService.cs" />
+    <Compile Include="SystemManage\ExcelImportIService.cs" />
+    <Compile Include="BaseManage\IBaseUserLineService.cs" />
+    <Compile Include="SystemManage\IBSAppLogUserInfoService.cs" />
+    <Compile Include="SystemManage\IBSAppRoleService.cs" />
+    <Compile Include="SystemManage\ILogService.cs" />
+    <Compile Include="SystemManage\ICodeRuleService.cs" />
+    <Compile Include="SystemManage\IDataBaseBackupService.cs" />
+    <Compile Include="AuthorizeManage\IFilterIPService.cs" />
+    <Compile Include="AuthorizeManage\IFilterTimeService.cs" />
+    <Compile Include="SystemManage\IDataBaseLinkService.cs" />
+    <Compile Include="SystemManage\IDataBaseTableService.cs" />
+    <Compile Include="SystemManage\IAreaService.cs" />
+    <Compile Include="SystemManage\IDataItemDetailService.cs" />
+    <Compile Include="SystemManage\IDataItemService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SystemManage\ISys_DataSegregateGroupService.cs" />
+    <Compile Include="SystemManage\ISys_DataSegregateGroupToLabelService.cs" />
+    <Compile Include="SystemManage\ISys_DataSegregateGroupToPersonService.cs" />
+    <Compile Include="SystemManage\ISys_DepartmentService.cs" />
+    <Compile Include="SystemManage\ISys_PersonService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\ALP.Data\ALP.Data.Repository\ALP.Data.Repository.csproj">
+      <Project>{1751a2dd-0f00-4c76-b180-97e8f72fe078}</Project>
+      <Name>ALP.Data.Repository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ALP.Application.Code\ALP.Application.Code.csproj">
+      <Project>{9b10db87-130c-41d3-8687-1fac877db74a}</Project>
+      <Name>ALP.Application.Code</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ALP.Application.Entity\ALP.Application.Entity.csproj">
+      <Project>{c10920fe-8c74-4993-a7f4-1da189da842c}</Project>
+      <Name>ALP.Application.Entity</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="EquipmentManage\" />
+    <Folder Include="ProcessManage\" />
+    <Folder Include="ReportManage\" />
+    <Folder Include="Technology\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

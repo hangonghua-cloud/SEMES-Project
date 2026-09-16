@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Items>
+  <GroupRoleAssociation Id="a0c22666-f3b1-470d-9204-4d48a933673d">
+    <GroupId>1</GroupId>
+    <Role>0ea0aa59-885b-e511-827c-0050569f6b31</Role>
+    <IsSystemEntity>true</IsSystemEntity>
+  </GroupRoleAssociation>
+</Items>

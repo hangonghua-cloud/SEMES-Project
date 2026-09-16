@@ -1,0 +1,17 @@
+VERSION '01.13'
+
+PUBLISH COMMAND Siemens.SimaticIT.MasterData.BasicDataManageFBLib.MSModel.Commands.AddAppModelCmd AS AddAppModelCmd
+PUBLISH COMMAND Siemens.SimaticIT.MasterData.BasicDataManageFBLib.MSModel.Commands.DelAppModelCmd AS DelAppModelCmd
+PUBLISH COMMAND Siemens.SimaticIT.MasterData.BasicDataManageFBLib.MSModel.Commands.GetAppUserRolesCmd AS GetAppUserRolesCmd
+PUBLISH COMMAND Siemens.SimaticIT.MasterData.BasicDataManageFBLib.MSModel.Commands.ResetAppPwdCmd AS ResetAppPwdCmd
+PUBLISH COMMAND Siemens.SimaticIT.MasterData.BasicDataManageFBLib.MSModel.Commands.SaveAppRolesConfiCmd AS SaveAppRolesConfiCmd
+PUBLISH COMMAND Siemens.SimaticIT.MasterData.BasicDataManageFBLib.MSModel.Commands.UpdateAppModelCmd AS UpdateAppModelCmd
+PUBLISH COMMAND Siemens.SimaticIT.MasterData.BasicDataManageFBLib.MSModel.Commands.UpdateAppPasswordCmd AS UpdateAppPasswordCmd
+PUBLISH COMMAND Siemens.SimaticIT.MasterData.BasicDataManageFBLib.MSModel.Commands.UpdateAppUserCmd AS UpdateAppUserCmd
+PUBLISH COMMAND Siemens.SimaticIT.MasterData.BasicDataManageFBLib.MSModel.Commands.GetUAUsersCmd AS GetUAUsersCmd
+PUBLISH COMMAND Siemens.SimaticIT.MasterData.BasicDataManageFBLib.MSModel.Commands.DataItemAddCmd AS DataItemAddCmd
+PUBLISH COMMAND Siemens.SimaticIT.MasterData.BasicDataManageFBLib.MSModel.Commands.DataItemCategoryAddCmd AS DataItemCategoryAddCmd
+PUBLISH COMMAND Siemens.SimaticIT.MasterData.BasicDataManageFBLib.MSModel.Commands.DataItemCategoryDelCmd AS DataItemCategoryDelCmd
+PUBLISH COMMAND Siemens.SimaticIT.MasterData.BasicDataManageFBLib.MSModel.Commands.DataItemCategoryUpdateCmd AS DataItemCategoryUpdateCmd
+PUBLISH COMMAND Siemens.SimaticIT.MasterData.BasicDataManageFBLib.MSModel.Commands.DataItemDelCmd AS DataItemDelCmd
+PUBLISH COMMAND Siemens.SimaticIT.MasterData.BasicDataManageFBLib.MSModel.Commands.DataItemUpdateCmd AS DataItemUpdateCmd

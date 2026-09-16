@@ -1,0 +1,109 @@
+﻿<style>
+    .canvas .property-area-container div.command-bar-side-panel {
+        padding-bottom: 40px;
+    }
+
+    .canvas .property-area-container > div.content .side-panel-property-area-body {
+        overflow: visible;
+        flex: none;
+    }
+</style>
+<div class="command-bar-side-panel">
+    <button ng-click="vm.cancel()" class="btn side-panel-button">
+        {{'Siemens.SimaticIT.MaterialApp.RawMaterialStock.RawMaterialStockManageout.Tips_1'|translate}}
+    </button>
+    <button ng-click="vm.save()" class="btn side-panel-button">
+        {{'Siemens.SimaticIT.MaterialApp.RawMaterialStock.RawMaterialStockManageout.Tips_2'|translate}}
+    </button>
+    <!--<button ng-click="vm.search()" class="btn side-panel-button">{{'Siemens.SimaticIT.MaterialApp.RawMaterialStock.RawMaterialStockManageout.Tips_3'|translate}}</button>-->
+</div>
+<div class="side-panel-property-area-body" style="height: calc(8% - 0px) !important;">
+    <sit-property-grid sit-id="add_form" sit-layout="Horizontal" sit-type="Fixed" sit-mode="edit" sit-columns="5">
+        <sit-property sit-widget="sit-select" sit-value="vm.typeFactory.value" sit-validation="{required: false}"
+                      sit-options="vm.typeFactory.options" sit-to-display="'ResourceName'" sit-to-keep="'ResourceCode'"
+                      sit-read-only="false">
+            {{'Siemens.SimaticIT.MaterialApp.RawMaterialStock.RawMaterialStockManageout.Tips_4'|translate}}
+        </sit-property>
+        <sit-property sit-widget="sit-text" sit-value="vm.searchParams.WhsName" sit-validation="{required: false}"
+                      sit-read-only="false">
+            {{'Siemens.SimaticIT.MaterialApp.RawMaterialStock.RawMaterialStockManageout.Tips_5'|translate}}
+        </sit-property>
+        <sit-property sit-widget="sit-text" sit-value="vm.searchParams.BatchNo" sit-validation="{required: false}"
+                      sit-read-only="false">
+            {{'Siemens.SimaticIT.MaterialApp.RawMaterialStock.RawMaterialStockManageout.Tips_6'|translate}}
+        </sit-property>
+        <sit-property sit-widget="sit-text" sit-value="vm.searchParams.Material" sit-validation="{required: false}"
+                      sit-read-only="false">
+            {{'Siemens.SimaticIT.MaterialApp.RawMaterialStock.RawMaterialStockManageout.Tips_7'|translate}}
+        </sit-property>
+        <!--
+        <sit-property sit-widget="sit-text" sit-value="vm.searchParams.SupplierName" sit-validation="{required: false}"
+                      sit-read-only="false">
+            {{'Siemens.SimaticIT.MaterialApp.RawMaterialStock.RawMaterialStockManageout.Tips_8'|translate}}
+        </sit-property> -->
+
+        <sit-command-bar sit-type="action">
+            <sit-command sit-icon="fa-search" sit-type="main" sit-name="com.siemens.customcommand.search"
+                         :sit-tooltip="{{'Siemens.SimaticIT.MaterialApp.RawMaterialStock.RawMaterialStockManageout.Tips_3'|translate}}"
+                         ng-click="vm.search"
+                         :sit-label="{{'Siemens.SimaticIT.MaterialApp.RawMaterialStock.RawMaterialStockManageout.Tips_3'|translate}}">
+            </sit-command>
+        </sit-command-bar>
+    </sit-property-grid>
+</div>
+<div id="itemlist1"
+     style="width:calc(100% - 2px); height: 30%;margin-top: 3px; padding:5px 16px 0 0px;clear: both; display: block;">
+    <div ui-grid="vm.gridOptionsItem1" ui-grid-selection ui-grid-resize-columns ui-grid-auto-resize
+         class="uigrid  gridItem"></div>
+</div>
+<div class="side-panel-property-area-body" style="height: calc(17% - 0px) !important">
+    <sit-property-grid sit-id="add_form" sit-layout="Horizontal" sit-type="Fixed" sit-mode="edit" sit-columns="5">
+        <sit-property sit-widget="sit-numeric" sit-value="vm.currentItem.Qty" sit-validation="{required: true,min:0}"
+                      sit-read-only="false">
+            {{'Siemens.SimaticIT.MaterialApp.RawMaterialStock.RawMaterialStockManageout.Tips_9'|translate}}
+        </sit-property>
+        <sit-property sit-widget="sit-select" sit-value="vm.typeOutMode.value" sit-validation="{required: true}"
+                      sit-options="vm.typeOutMode.options" sit-to-display="'ItemName'" sit-to-keep="'ItemValue'"
+                      sit-read-only="false">
+            {{'Siemens.SimaticIT.MaterialApp.RawMaterialStock.RawMaterialStockManageout.Tips_10'|translate}}
+        </sit-property>
+
+        <!-- <sit-property sit-widget="sit-select" sit-value="vm.typeWorkShop.value" sit-validation="{required: false}"
+                      sit-options="vm.typeWorkShop.options" sit-to-display="'ResourceName'" sit-to-keep="'ResourceCode'"
+                      sit-read-only="false">
+            {{'Siemens.SimaticIT.MaterialApp.RawMaterialStock.RawMaterialStockManageout.Tips_14'|translate}}
+        </sit-property> -->
+        <sit-property sit-widget="sit-alp-text-picker" sit-value="vm.currentItem.WorkShopName"
+                      sit-validation="{required: true}" sit-read-only="false" ng-click="vm.selectWorkShopModal()">
+            {{'Siemens.SimaticIT.MaterialApp.RawMaterialStock.RawMaterialStockManageout.Tips_14'|translate}}
+        </sit-property>
+
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.Remark" sit-validation="{required: false}"
+                      sit-read-only="false">
+            {{'Siemens.SimaticIT.MaterialApp.RawMaterialStock.RawMaterialStockManageout.Tips_11'|translate}}
+        </sit-property>
+
+        <sit-property sit-widget="sit-datepicker" sit-value="vm.PostDate" sit-format="'yyyy-MM-dd'"
+                      sit-read-only="false">
+            {{'Siemens.SimaticIT.MaterialApp.RawMaterialStock.RawMaterialStockManageout.Tips_15'|translate}}
+        </sit-property>
+
+        <sit-command-bar sit-type="action">
+            <sit-command sit-icon="fa-plus" sit-type="main" sit-name="com.siemens.customcommand.add"
+                         :sit-tooltip="{{'Siemens.SimaticIT.MaterialApp.RawMaterialStock.RawMaterialStockManageout.Tips_12'|translate}}"
+                         ng-click="vm.addForm"
+                         :sit-label="{{'Siemens.SimaticIT.MaterialApp.RawMaterialStock.RawMaterialStockManageout.Tips_12'|translate}}">
+            </sit-command>
+            <sit-command sit-icon="fa-trash" sit-type="main" sit-name="com.siemens.customcommand.delete"
+                         :sit-tooltip="{{'Siemens.SimaticIT.MaterialApp.RawMaterialStock.RawMaterialStockManageout.Tips_13'|translate}}"
+                         ng-click="vm.deleteForm"
+                         :sit-label="{{'Siemens.SimaticIT.MaterialApp.RawMaterialStock.RawMaterialStockManageout.Tips_13'|translate}}">
+            </sit-command>
+        </sit-command-bar>
+    </sit-property-grid>
+</div>
+<div id="itemlist2"
+     style="width:calc(100% - 2px); height: 32%;margin-top: 6px; padding:5px 16px 0 0px;clear: both; display: block;">
+    <div ui-grid="vm.gridOptionsItem2" ui-grid-selection ui-grid-resize-columns ui-grid-auto-resize
+         class="uigrid  gridItem"></div>
+</div>

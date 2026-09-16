@@ -1,0 +1,35 @@
+﻿<div class="command-bar-side-panel">
+    <button ng-click="vm.cancel()" class="btn side-panel-button">{{'Siemens.SimaticIT.PlanApp.Plan.import.Tips_1'|translate}}</button>
+    <button ng-click="vm.save()" class="btn side-panel-button" ng-show="vm.validInputs">{{'Siemens.SimaticIT.PlanApp.Plan.import.Tips_2'|translate}}</button>
+</div>
+<div class="side-panel-property-area-body">
+    <sit-property-grid sit-id="add_form"
+                       sit-layout="Vertical"
+                       sit-type="Fluid"
+                       sit-mode="edit"
+                       sit-columns="1">
+        <sit-property sit-id="File" sit-widget="sit-file-uploader"
+                      sit-value="vm.file"
+                      sit-validation="{ required: true }"
+                      sit-change="vm.changeFile"
+                      sit-widget-attributes="{'accept':'.xls,.xlsx','sit-min-size': '1KB', 'sit-max-size': '10MB'}">
+            (<a href="http://172.168.11.122/sit-planapi/Upload/WorkOrderTemp.xlsx">{{'Siemens.SimaticIT.PlanApp.Plan.import.Tips_11'|translate}}</a>):
+        </sit-property>
+        <sit-property sit-widget="sit-select"
+                      sit-value="vm.typeIsAdd.value" sit-validation="{required: true}"
+                      sit-options="vm.typeIsAdd.options"
+                      sit-to-display="'ItemName'" sit-to-keep="'ItemValue'"
+                      style="max-width:100px;" sit-change="vm.sortChange">{{'Siemens.SimaticIT.PlanApp.Plan.import.Tips_9'|translate}}</sit-property>
+    </sit-property-grid>
+    <div>
+        <sit-tabset>
+
+            <sit-tab heading="{{'Siemens.SimaticIT.PlanApp.Plan.import.Tips_5'|translate}}"><div id=sittab1 style="overflow: hidden;overflow:auto;white-space: nowrap;height: 300px;"></div></sit-tab>
+        </sit-tabset>
+    </div>
+    <div>
+        <span id="warning"></span>
+    </div>
+
+
+</div>

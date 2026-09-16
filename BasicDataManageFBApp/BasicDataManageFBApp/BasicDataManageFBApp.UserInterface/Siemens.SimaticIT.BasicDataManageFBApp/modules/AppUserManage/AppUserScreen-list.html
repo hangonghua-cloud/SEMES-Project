@@ -1,0 +1,27 @@
+﻿<div id="itemlist" class="content-area content-area-relative" style="height: calc(100% - 30px) !important">
+    <sit-command-bar sit-vertical-autofixed="true" sit-type="Tool" sit-label-align="right" sit-layout="vertical">
+        <sit-command sit-icon="fa-cog" sit-name="com.siemens.customcommand.cog" ng-click="vm.getUsers" sit-tooltip="同步用户" sit-label="同步用户"
+                     ng-show="vm.getUserBtn" sit-type="main"></sit-command>
+        <sit-command sit-icon="fa-refresh " sit-name="com.siemens.customcommand.reset" ng-click="vm.resetPwd" sit-tooltip="重置密码"
+                     sit-label="重置密码" ng-show="vm.isButtonVisible" sit-type="main"></sit-command>
+        <sit-command sit-icon="fa-play" sit-name="com.siemens.customcommand.play" sit-tooltip="启用" ng-click="vm.playBtn" sit-label="启用"
+                     ng-show="vm.isButtonVisible && !vm.selectedItem.IsEnabled"></sit-command>
+        <sit-command sit-icon="fa-stop" sit-name="com.siemens.customcommand.stop" sit-tooltip="停用" ng-click="vm.stopBtn" sit-label="停用"
+                     ng-show="vm.isButtonVisible && vm.selectedItem.IsEnabled"></sit-command>
+        <!--<sit-command sit-icon="fa-trash"
+                     sit-name="com.siemens.customcommand.delete"
+                     sit-tooltip="Delete"
+                     ng-click="vm.deleteButtonHandler"
+                     sit-label="Delete"
+                     ng-show="vm.isButtonVisible"></sit-command>
+        <sit-command sit-icon="fa-plus"
+                     sit-name="com.siemens.customcommand.add"
+                     ng-click="vm.addButtonHandler"
+                     sit-tooltip="Add"
+                     sit-label="Add"
+                     sit-type="main"></sit-command>-->
+    </sit-command-bar>
+    <div class="sit-uagrid">
+        <sit-item-collection-viewer sit-data="vm.viewerData" sit-options="vm.viewerOptions"></sit-item-collection-viewer>
+    </div>
+</div>

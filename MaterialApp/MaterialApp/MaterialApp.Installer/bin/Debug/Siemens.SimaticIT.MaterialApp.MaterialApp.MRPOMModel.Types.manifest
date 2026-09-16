@@ -1,0 +1,14 @@
+<projectmanifest>
+  <datamodels>
+    <datamodel>
+      <assembly>Siemens.SimaticIT.MaterialApp.MaterialApp.MRPOMModel.Types, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+      <mode>WR</mode>
+      <domain>MaterialApp</domain>
+    </datamodel>
+    <datamodel>
+      <assembly>Siemens.SimaticIT.MaterialApp.MaterialApp.MRPOMModel.Types.ReadingModel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</assembly>
+      <mode>RD</mode>
+      <domain>MaterialApp</domain>
+    </datamodel>
+  </datamodels>
+</projectmanifest>

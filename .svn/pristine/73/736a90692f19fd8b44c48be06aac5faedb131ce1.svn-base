@@ -1,0 +1,36 @@
+﻿<!--
+    0.代码生成: UA单表一键生成前后端html、JS、API接口代码生成器 Ver 2.14 更新日期：2021-07-21  设计者：刘万军
+    1.功能描述: 仓库安全库存
+    2.创建人员: jpf
+    3.创建日期: 2023-02-28
+    4.修改人员:
+    5.修改日期:
+-->
+<style>
+    .row {
+        padding: 5px;
+        margin-top: 10px;
+    }
+</style>
+<div class="command-bar-side-panel">
+    <button ng-click="vm.cancel()" class="btn side-panel-button">{{'Siemens.SimaticIT.MaterialApp.Base_DataFileCon.Base_DataFileConadd.Tips_1'|translate}}</button>
+    <button ng-click="vm.save()" class="btn side-panel-button">{{'Siemens.SimaticIT.MaterialApp.Base_DataFileCon.Base_DataFileConadd.Tips_2'|translate}}</button>
+</div>
+<div class="side-panel-property-area-body">
+    <sit-property-grid sit-id="add_form"
+                       sit-layout="Vertical"
+                       sit-type="Fluid"
+                       sit-mode="edit"
+                       sit-columns="1">
+        <sit-property-grid sit-id="view_form" sit-layout="Horizontal" sit-type="Fixed" sit-mode="edit" sit-columns="1" style="margin-left: 4px;">
+            <sit-property sit-widget="sit-text" sit-value="vm.currentItem.module" sit-validation="{required: true}"
+                          sit-read-only="false">{{'Siemens.SimaticIT.MaterialApp.Base_DataFileCon.Base_DataFileConadd.Tips_3'|translate}}</sit-property>
+            <sit-property sit-widget="sit-text" sit-value="vm.currentItem.tableName" sit-validation="{required: true}"
+                          sit-read-only="false">{{'Siemens.SimaticIT.MaterialApp.Base_DataFileCon.Base_DataFileConadd.Tips_4'|translate}}</sit-property>
+            <sit-property sit-widget="sit-text" sit-value="vm.currentItem.TableEntity" sit-validation="{required: true}"
+                          sit-read-only="false">{{'Siemens.SimaticIT.MaterialApp.Base_DataFileCon.Base_DataFileConadd.Tips_5'|translate}}</sit-property>
+            <sit-property sit-widget="sit-radio" sit-value="vm.isFile.value" sit-options="vm.isFile.options"
+                          sit-change="" sit-read-only="false">{{'Siemens.SimaticIT.MaterialApp.Base_DataFileCon.Base_DataFileConadd.Tips_6'|translate}}</sit-property>
+        </sit-property-grid>
+    </sit-property-grid>
+</div>

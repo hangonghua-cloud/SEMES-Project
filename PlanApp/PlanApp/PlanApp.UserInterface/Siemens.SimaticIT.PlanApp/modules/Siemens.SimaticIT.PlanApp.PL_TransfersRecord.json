@@ -1,0 +1,19 @@
+﻿{
+  "name": "Siemens.SimaticIT.PlanApp.PL_TransfersRecord",
+  "type": "standard",
+  "title": "Siemens.SimaticIT.PlanApp.PL_TransfersRecord.Title",
+  "header": "",
+  "icon": "svg typeActionLongTerm48",
+  "functionalBlock": "Siemens.SimaticIT.PlanApp",
+  "dependencies": [],
+  "states": [
+    {
+      "id": "home.Siemens_SimaticIT_PlanApp_PL_TransfersRecord_PL_TransfersRecord",
+      "title": "Siemens.SimaticIT.PlanApp.PL_TransfersRecord.Title",
+      "header": "",
+      "securable": true,
+      "roles": []
+    }
+  ],
+  "manifestVersion": "01.01.00"
+}

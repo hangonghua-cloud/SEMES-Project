@@ -1,0 +1,16 @@
+物料主数据SaveSAPBase_Material接口调用时间: 2024/12/11 16:42:14,参数{
+  "Entity": [
+    {
+      "MaterialCode": "53000517",
+      "SAPMaterialCode": "53000517",
+      "MaterialName": "热轧钢板10*1.5*7.065",
+      "Spec": "10*1.5*7.065",
+      "MaterialClass": "Z005",
+      "SmallClass": "WJPJ",
+      "Unit": "TO",
+      "UnitName": "吨",
+      "IsDeleted": false,
+      "IsEnabled": true
+    }
+  ]
+};

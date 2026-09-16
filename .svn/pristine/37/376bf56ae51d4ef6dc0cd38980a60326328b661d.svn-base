@@ -1,0 +1,19 @@
+﻿{
+   "name": "Siemens.SimaticIT.EquipmentApp.EP_EquipmentSpareParts",
+   "type": "standard",
+   "title": "Siemens.SimaticIT.EquipmentApp.EP_EquipmentSpareParts.Title",
+   "header": "",
+   "icon": "svg typeActionLongTerm48",
+   "functionalBlock": "Siemens.SimaticIT.EquipmentApp",
+   "dependencies": [],
+   "states": [
+     {
+       "id": "home.Siemens_SimaticIT_EquipmentApp_EP_EquipmentSpareParts_EP_EquipmentSpareParts",
+       "title": "Siemens.SimaticIT.EquipmentApp.EP_EquipmentSpareParts.Title",
+       "header": "",
+       "securable": true,
+       "roles": []
+     }
+   ],
+   "manifestVersion": "01.01.00"
+}

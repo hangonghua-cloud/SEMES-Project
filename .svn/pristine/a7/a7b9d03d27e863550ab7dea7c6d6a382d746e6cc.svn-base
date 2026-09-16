@@ -1,0 +1,84 @@
+﻿<style>
+    .row {
+        padding: 5px;
+        margin-top: 10px;
+    }
+
+    .canvas .property-area-container div.command-bar-side-panel {
+        padding-bottom: 40px;
+    }
+
+    .canvas .property-area-container > div.content .side-panel-property-area-body {
+        overflow: visible;
+        flex: none;
+    }
+
+    /* .uigrid-edit .ui-grid-viewport {
+          overflow: auto !important;
+      }
+    */
+</style>
+
+<div class="command-bar-side-panel">
+    <button ng-click="vm.cancel()" class="btn side-panel-button">{{'Siemens.SimaticIT.PlanApp.WorkOrderWearingLayer.add.Tips_1'|translate}}</button>
+    <button ng-click="vm.save()" class="btn side-panel-button" ng-show="vm.validInputs1">{{'Siemens.SimaticIT.PlanApp.WorkOrderWearingLayer.add.Tips_2'|translate}}</button>
+    <button ng-click="vm.edit()" class="btn side-panel-button">{{'Siemens.SimaticIT.PlanApp.WorkOrderWearingLayer.add.Tips_3'|translate}}</button>
+</div>
+<div class="side-panel-property-area-body">
+    <sit-property-grid sit-id="add_form1" sit-layout="Horizontal" sit-type="Fixed" sit-mode="edit" sit-columns="4">
+        <sit-property sit-widget="sit-numeric" sit-value="vm.currentItem.TotalNum" sit-read-only="true">
+            {{'Siemens.SimaticIT.PlanApp.WorkOrderWearingLayer.add.Tips_4'|translate}}
+        </sit-property>
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.Remark" sit-validation="{required: false}"
+                      sit-read-only="false">{{'Siemens.SimaticIT.PlanApp.WorkOrderWearingLayer.add.Tips_5'|translate}}</sit-property>
+        <sit-property sit-widget="sit-select" sit-value="vm.typeWarehouse.value" sit-validation="{required: true}"
+                      sit-options="vm.typeWarehouse.options" sit-to-display="'ResourceName'" sit-to-keep="'ResourceCode'"
+                      sit-read-only="false" sit-change="vm.WarehouseChange">{{'Siemens.SimaticIT.PlanApp.WorkOrderWearingLayer.add.Tips_6'|translate}}</sit-property>
+        <sit-property sit-widget="sit-select" sit-value="vm.typeLocation.value" sit-validation="{required: true}"
+                      sit-options="vm.typeLocation.options" sit-to-display="'ResourceName'" sit-to-keep="'ResourceCode'"
+                      sit-read-only="false">{{'Siemens.SimaticIT.PlanApp.WorkOrderWearingLayer.add.Tips_7'|translate}}</sit-property>
+    </sit-property-grid>
+</div>
+<div style="clear: both;"></div>
+<div id="itemlist1"
+     style="width:calc(100% - 2px); height: 29%;margin-top: 6px; padding:5px 16px 0px 0px;clear: both; display: block;">
+    <div ui-grid="vm.gridOptionsItem1" ui-grid-selection ui-grid-resize-columns ui-grid-auto-resize
+         class="uigrid  gridItem"></div>
+</div>
+<div class="row"><span style="color:  #006487;font-size: 24px;">{{'Siemens.SimaticIT.PlanApp.WorkOrderWearingLayer.add.Tips_8'|translate}}</span></div>
+<div class="side-panel-property-area-body">
+    <sit-property-grid sit-id="add_form" sit-layout="Horizontal" sit-type="Fixed" sit-mode="edit" sit-columns="5">
+
+        <sit-property sit-widget="sit-alp-select-picker" sit-value="vm.WhsName.value" sit-options="vm.WhsName.options"
+                      sit-to-display="'ResourceName'" sit-to-keep="'ResourceCode'" sit-change="vm.WhsNameChange">
+            {{'Siemens.SimaticIT.PlanApp.WorkOrderWearingLayer.add.Tips_9'|translate}}
+        </sit-property>
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.LocationName" sit-read-only="false">
+            {{'Siemens.SimaticIT.PlanApp.WorkOrderWearingLayer.add.Tips_10'|translate}}
+        </sit-property>
+
+        <sit-property sit-widget="sit-numeric" sit-value="vm.currentItem.DeductionNum"
+                      sit-validation="{required: true,min:0}" sit-read-only="vm.isReadOnly">{{'Siemens.SimaticIT.PlanApp.WorkOrderWearingLayer.add.Tips_11'|translate}}</sit-property>
+
+        <button ng-click="vm.resetSuper()" class="btn side-panel-button" ng-show="vm.validInputs"
+                style="margin-bottom:-10px">
+            {{'Siemens.SimaticIT.PlanApp.WorkOrderWearingLayer.add.Tips_12'|translate}}
+        </button>
+        <button ng-click="vm.saveSuper()" class="btn side-panel-button" ng-show="vm.validInputs"
+                style="margin-bottom:-10px">
+            {{'Siemens.SimaticIT.PlanApp.WorkOrderWearingLayer.add.Tips_2'|translate}}
+        </button>
+        <button ng-click="vm.editSuper()" class="btn side-panel-button" ng-show="vm.validInputs"
+                style="margin-bottom:-10px">
+            {{'Siemens.SimaticIT.PlanApp.WorkOrderWearingLayer.add.Tips_13'|translate}}
+        </button>
+        <button ng-click="vm.search()" class="btn side-panel-button" ng-show="true" style="margin-bottom:-10px">
+            {{'Siemens.SimaticIT.PlanApp.WorkOrderWearingLayer.add.Tips_14'|translate}}
+        </button>
+    </sit-property-grid>
+</div>
+<div id="itemlist2"
+     style="width:calc(100% - 2px); height: 30%;margin-top: 6px; padding:5px 16px 0 0px;clear: both; display: block;overflow: auto;">
+    <div ui-grid="vm.gridOptionsItem2" ui-grid-selection ui-grid-resize-columns ui-grid-auto-resize
+         class="uigrid  gridItem" style="width: 1100px;"></div>
+</div>

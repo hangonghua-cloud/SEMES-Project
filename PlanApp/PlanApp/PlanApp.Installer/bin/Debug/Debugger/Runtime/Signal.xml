@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Items>
+  <Signal Id="0d8650b5-6b52-ec11-9663-c14b9740f55b">
+    <Name>Siemens.SimaticIT.System.System.SAPOMModel.Events.Signals#TimerEvent#TimerEvent</Name>
+    <ShortName>TimerEvent</ShortName>
+    <Diagram>Siemens.SimaticIT.System.System.SAPOMModel.Events.Signals.TimerEvent.sdjson</Diagram>
+    <Descriptor>Siemens.SimaticIT.System.System.SAPOMModel.Events.Signals.TimerEvent.json</Descriptor>
+    <PublicSignal>8cdb722d-15fd-4593-b3e8-99568a99735c</PublicSignal>
+    <SerializationKind>JSon</SerializationKind>
+    <FunctionalBlock>1d471d14-a07b-4ca9-b169-1b854e67ebf5</FunctionalBlock>
+    <PublishedInRole>cd4848af-dc59-45e3-ba95-ba86185451db</PublishedInRole>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Signal>
+  <Signal Id="138650b5-6b52-ec11-9663-c14b9740f55b">
+    <Name>Siemens.SimaticIT.System.System.SAPOMModel.Events.Signals#ExportCompleted#ExportCompleted</Name>
+    <ShortName>ExportCompleted</ShortName>
+    <Diagram>Siemens.SimaticIT.System.System.SAPOMModel.Events.Signals.ExportCompleted.sdjson</Diagram>
+    <Descriptor>Siemens.SimaticIT.System.System.SAPOMModel.Events.Signals.ExportCompleted.json</Descriptor>
+    <PublicSignal>c45240f6-3ba1-4f56-bd9d-5800dbb4f6cd</PublicSignal>
+    <SerializationKind>JSon</SerializationKind>
+    <FunctionalBlock>1d471d14-a07b-4ca9-b169-1b854e67ebf5</FunctionalBlock>
+    <PublishedInRole>cd4848af-dc59-45e3-ba95-ba86185451db</PublishedInRole>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Signal>
+  <Signal Id="198650b5-6b52-ec11-9663-c14b9740f55b">
+    <Name>Siemens.SimaticIT.System.System.SAPOMModel.Events.Signals#ImportCompleted#ImportCompleted</Name>
+    <ShortName>ImportCompleted</ShortName>
+    <Diagram>Siemens.SimaticIT.System.System.SAPOMModel.Events.Signals.ImportCompleted.sdjson</Diagram>
+    <Descriptor>Siemens.SimaticIT.System.System.SAPOMModel.Events.Signals.ImportCompleted.json</Descriptor>
+    <PublicSignal>dd56b46e-c5bb-4816-a052-3d45355166e9</PublicSignal>
+    <SerializationKind>JSon</SerializationKind>
+    <FunctionalBlock>1d471d14-a07b-4ca9-b169-1b854e67ebf5</FunctionalBlock>
+    <PublishedInRole>cd4848af-dc59-45e3-ba95-ba86185451db</PublishedInRole>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Signal>
+  <Signal Id="72795fdf-6b52-ec11-9663-c14b9740f55b">
+    <Name>Siemens.SimaticIT.Personnel.Personnel.PRPOMModel.Events.Signals#UserImportCompleted#UserImportCompleted</Name>
+    <ShortName>UserImportCompleted</ShortName>
+    <Diagram>Siemens.SimaticIT.Personnel.Personnel.PRPOMModel.Events.Signals.UserImportCompleted.sdjson</Diagram>
+    <Descriptor>Siemens.SimaticIT.Personnel.Personnel.PRPOMModel.Events.Signals.UserImportCompleted.json</Descriptor>
+    <PublicSignal>74854db3-6259-4c79-9d6d-4b951be11394</PublicSignal>
+    <SerializationKind>JSon</SerializationKind>
+    <FunctionalBlock>671f2dd9-dad3-4964-941c-e64ef0b99ba2</FunctionalBlock>
+    <PublishedInRole>cd4848af-dc59-45e3-ba95-ba86185451db</PublishedInRole>
+    <IsSystemEntity>false</IsSystemEntity>
+  </Signal>
+</Items>

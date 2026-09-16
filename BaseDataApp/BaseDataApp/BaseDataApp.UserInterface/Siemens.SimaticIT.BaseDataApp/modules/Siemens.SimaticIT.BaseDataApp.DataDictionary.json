@@ -1,0 +1,26 @@
+﻿{
+  "name": "Siemens.SimaticIT.BaseDataApp.DataDictionary",
+  "type": "standard",
+  "title": "Siemens.SimaticIT.BaseDataApp.DataDictionary.Title",
+  "header": "",
+  "icon": "fa-folder",
+  "functionalBlock": "Siemens.SimaticIT.BaseDataApp",
+  "dependencies": [],
+  "states": [
+    {
+      "id": "home.Siemens_SimaticIT_BaseDataApp_DataDictionary_DataDictionary",
+      "title": "Siemens.SimaticIT.BaseDataApp.DataDictionary.Title",
+      "header": "",
+      "securable": true,
+      "roles": []
+    },
+    {
+      "id": "home.Siemens_SimaticIT_BaseDataApp_DataDictionary_DataItemDetail",
+      "title": "Siemens.SimaticIT.BaseDataApp.DataItemDetail.Title",
+      "header": "",
+      "securable": true,
+      "roles": []
+    }
+  ],
+  "manifestVersion": "01.01.00"
+}

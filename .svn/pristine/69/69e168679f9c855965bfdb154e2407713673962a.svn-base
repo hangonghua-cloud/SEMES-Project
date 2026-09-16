@@ -1,0 +1,19 @@
+﻿{
+  "name": "Siemens.SimaticIT.EquipmentApp.EP_EquipmentMalfunctionRepair",
+  "type": "standard",
+  "title": "Siemens.SimaticIT.EquipmentApp.EP_EquipmentMalfunctionRepair.Title",
+  "header": "",
+  "icon": "svg typeActionLongTerm48",
+  "functionalBlock": "Siemens.SimaticIT.EquipmentApp",
+  "dependencies": [],
+  "states": [
+    {
+      "id": "home.Siemens_SimaticIT_EquipmentApp_EP_EquipmentMalfunctionRepair_EP_EquipmentMalfunctionRepair",
+      "title": "Siemens.SimaticIT.EquipmentApp.EP_EquipmentMalfunctionRepair.Title",
+      "header": "",
+      "securable": true,
+      "roles": []
+    }
+  ],
+  "manifestVersion": "01.01.00"
+}

@@ -1,0 +1,24 @@
+VERSION '01.13'
+
+///获取移动端角色功能权限
+[@Guid(7f00d95a-96f0-4d5b-a81c-8c11e10fe358)]
+READING FUNCTION GetAppRolesRF
+INPUT
+    [Length = 255]
+    RoleCode AS string
+OUTPUT
+    [Optional]
+    [Length = 255]
+    ModelCode AS string
+    [Optional]
+    [Length = 255]
+    ModelName AS string
+    [Optional]
+    [Length = 255]
+    ModelType AS string
+    [Optional]
+    [Length = 255]
+    OwnedPage AS string
+    [Optional]
+    IsEnabled AS bool
+

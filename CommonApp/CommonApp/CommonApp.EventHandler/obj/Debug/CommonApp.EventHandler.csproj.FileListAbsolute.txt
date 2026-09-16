@@ -1,0 +1,6 @@
+D:\New folder\CommonApp\CommonApp\CommonApp.EventHandler\bin\Debug\CCS.CommonApp.EventHandler.dll
+D:\New folder\CommonApp\CommonApp\CommonApp.EventHandler\bin\Debug\CCS.CommonApp.EventHandler.pdb
+D:\New folder\CommonApp\CommonApp\CommonApp.EventHandler\obj\Debug\CommonApp.EventHandler.csprojAssemblyReference.cache
+D:\New folder\CommonApp\CommonApp\CommonApp.EventHandler\obj\Debug\CommonApp.EventHandler.csproj.CoreCompileInputs.cache
+D:\New folder\CommonApp\CommonApp\CommonApp.EventHandler\obj\Debug\CCS.CommonApp.EventHandler.dll
+D:\New folder\CommonApp\CommonApp\CommonApp.EventHandler\obj\Debug\CCS.CommonApp.EventHandler.pdb

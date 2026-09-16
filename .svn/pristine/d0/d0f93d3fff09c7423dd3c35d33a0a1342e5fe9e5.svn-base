@@ -1,0 +1,19 @@
+﻿{
+   "name": "Siemens.SimaticIT.QualityApp.QC_MaterialInventoryCheckList",
+   "type": "standard",
+   "title": "Siemens.SimaticIT.QualityApp.QC_MaterialInventoryCheckList.Title",
+   "header": "",
+   "icon": "svg typeActionLongTerm48",
+   "functionalBlock": "Siemens.SimaticIT.QualityApp",
+   "dependencies": [],
+   "states": [
+     {
+       "id": "home.Siemens_SimaticIT_QualityApp_QC_MaterialInventoryCheckList_QC_MaterialInventoryCheckList",
+       "title": "Siemens.SimaticIT.QualityApp.QC_MaterialInventoryCheckList.Title",
+       "header": "",
+       "securable": true,
+       "roles": []
+     }
+   ],
+   "manifestVersion": "01.01.00"
+}

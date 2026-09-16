@@ -1,0 +1,23 @@
+﻿
+
+<div class="command-bar-side-panel">
+    <button ng-click="vm.cancel()" class="btn side-panel-button">{{'Siemens.SimaticIT.PlanApp.WorkOrderManage.vcbom.Tips_1'|translate}}</button>
+    <button ng-click="vm.save()" class="btn side-panel-button">{{'Siemens.SimaticIT.PlanApp.WorkOrderManage.vcbom.Tips_2'|translate}}</button>
+    <button ng-click="vm.deleteItemButtonHandler()" class="btn side-panel-button" ng-show="vm.isDetailButtonVisible">{{'Siemens.SimaticIT.PlanApp.WorkOrderManage.vcbom.Tips_3'|translate}}</button>
+    <button ng-click="vm.editItemButtonHandler()" class="btn side-panel-button" ng-show="vm.isDetailButtonVisible">{{'Siemens.SimaticIT.PlanApp.WorkOrderManage.vcbom.Tips_4'|translate}}</button>
+    <button ng-click="vm.addItemButtonHandler()" class="btn side-panel-button">{{'Siemens.SimaticIT.PlanApp.WorkOrderManage.vcbom.Tips_5'|translate}}</button>
+    <button ng-click="vm.selectItemButtonHandler()" class="btn side-panel-button">{{'Siemens.SimaticIT.PlanApp.WorkOrderManage.vcbom.Tips_6'|translate}}</button>
+    <button ng-click="vm.UpdateProcess()" class="btn side-panel-button">{{'Siemens.SimaticIT.PlanApp.WorkOrderManage.vcbom.Tips_7'|translate}}</button>
+</div>
+
+<div id="itemlist1"
+     style="width:calc(100% - 2px); height: 40%;margin-top: 3px; padding:5px 16px 0 0px;clear: both; display: block;">
+    <div ui-grid="vm.gridOptions" ui-grid-selection ui-grid-resize-columns ui-grid-auto-resize ui-grid-pagination
+         class="uigrid  gridItem"></div>
+</div>
+<div id="itemlist2"
+     style="width:calc(100% - 2px); height: 38%;margin-top: 6px; padding:5px 16px 0 0px;clear: both; display: block;">
+    <div ui-grid="vm.gridOptionsDetail" ui-grid-selection ui-grid-resize-columns ui-grid-auto-resize
+         class="uigrid  gridItem"></div>
+</div>
+

@@ -1,0 +1,87 @@
+﻿<style>
+    .header-filtered {
+        color: blue;
+    }
+
+    .modal-content {
+        width: 1200px;
+        margin-left: -200px;
+    }
+</style>
+<div class="modal-header">
+    <h3 class="modal-title">{{'Siemens.SimaticIT.PlanApp.WorkOrderDismantle.MaskSend.Tips_1'|translate}}</h3>
+    <div class="command-bar-side-panel">
+        <button ng-click="vm.cancel()"
+                class="btn side-panel-button">
+            {{'Siemens.SimaticIT.PlanApp.WorkOrderDismantle.MaskSend.Tips_2'|translate}}
+        </button>
+        <button ng-click="vm.save()" class="btn side-panel-button"
+                ng-show="vm.validInputs">
+            {{'Siemens.SimaticIT.PlanApp.WorkOrderDismantle.MaskSend.Tips_3'|translate}}
+        </button>
+        <button ng-click="vm.edit()"
+                class="btn side-panel-button">
+            {{'Siemens.SimaticIT.PlanApp.WorkOrderDismantle.MaskSend.Tips_4'|translate}}
+        </button>
+    </div>
+</div>
+
+<div class="modal-body" ui-i18n="{{vm.lang}}">
+    <div class="col-xs-40 col-sm-40 col-md-40 col-lg-40" style="margin-bottom: 10px;padding: 0px;">
+        <sit-property-grid sit-id="add_form" sit-layout="Horizontal" sit-type="Fixed" sit-mode="edit" sit-columns="6">
+            <sit-property sit-widget="sit-text" sit-value="vm.currentItem.FactoryName" sit-read-only="true">
+                {{'Siemens.SimaticIT.PlanApp.WorkOrderDismantle.MaskSend.Tips_5'|translate}}
+            </sit-property>
+            <sit-property sit-widget="sit-text" sit-value="vm.currentItem.MMXH" sit-read-only="true">
+                {{'Siemens.SimaticIT.PlanApp.WorkOrderDismantle.MaskSend.Tips_6'|translate}}
+            </sit-property>
+            <sit-property sit-widget="sit-numeric" sit-value="vm.currentItem.TotalNum" sit-read-only="true">
+                {{'Siemens.SimaticIT.PlanApp.WorkOrderDismantle.MaskSend.Tips_7'|translate}}
+            </sit-property>
+            <sit-property sit-widget="sit-numeric" sit-value="vm.currentItem.UseNum"
+                          sit-validation="{required: false,min:0}" sit-read-only="true">
+                {{'Siemens.SimaticIT.PlanApp.WorkOrderDismantle.MaskSend.Tips_8'|translate}}
+            </sit-property>
+            <sit-property sit-widget="sit-numeric" sit-value="vm.currentItem.ActNum" sit-read-only="false">
+                {{'Siemens.SimaticIT.PlanApp.WorkOrderDismantle.MaskSend.Tips_9'|translate}}
+            </sit-property>
+            <sit-property sit-widget="sit-select" sit-value="vm.typeWarehouse.value" sit-validation="{required: true}"
+                          sit-options="vm.typeWarehouse.options" sit-to-display="'ResourceName'" sit-to-keep="'ResourceCode'"
+                          sit-change="vm.WarehouseChange">
+                {{'Siemens.SimaticIT.PlanApp.WorkOrderDismantle.MaskSend.Tips_10'|translate}}
+            </sit-property>
+            <sit-property sit-widget="sit-select" sit-value="vm.typeLocation.value" sit-validation="{required: true}"
+                          sit-options="vm.typeLocation.options" sit-to-display="'ResourceName'" sit-to-keep="'ResourceCode'">
+                {{'Siemens.SimaticIT.PlanApp.WorkOrderDismantle.MaskSend.Tips_11'|translate}}
+            </sit-property>
+            <sit-property sit-widget="sit-numeric" sit-value="vm.currentItem.ShouldCoefficient" sit-read-only="false"
+                          sit-change="vm.ShouldChange">
+                {{'Siemens.SimaticIT.PlanApp.WorkOrderDismantle.MaskSend.Tips_12'|translate}}
+            </sit-property>
+            <sit-property sit-widget="sit-numeric" sit-value="vm.currentItem.ForecastNum" sit-read-only="true">
+                {{'Siemens.SimaticIT.PlanApp.WorkOrderDismantle.MaskSend.Tips_13'|translate}}
+            </sit-property>
+            <sit-property sit-widget="sit-text" sit-value="vm.searchParam.BatchNo" sit-read-only="false">
+                {{'Siemens.SimaticIT.PlanApp.WorkOrderDismantle.MaskSend.Tips_14'|translate}}
+            </sit-property>
+            <sit-property sit-widget="sit-alp-select-picker" sit-value="vm.WhsName.value"
+                          sit-options="vm.WhsName.options" sit-to-display="'ResourceName'" sit-to-keep="'ResourceCode'"
+                          sit-change="vm.WhsNameChange">
+                {{'Siemens.SimaticIT.PlanApp.WorkOrderDismantle.MaskSend.Tips_15'|translate}}
+            </sit-property>
+            <sit-property sit-widget="sit-text" sit-value="vm.currentItem.LocationName" sit-read-only="false">
+                {{'Siemens.SimaticIT.PlanApp.WorkOrderDismantle.MaskSend.Tips_16'|translate}}
+            </sit-property>
+            <sit-command-bar sit-type="action">
+                <sit-command sit-icon="fa-search" sit-type="main" sit-name="com.siemens.customcommand.search"
+                             sit-tooltip="{{'Siemens.SimaticIT.PlanApp.WorkOrderDismantle.MaskSend.Tips_17'|translate}}"
+                             ng-click="vm.loadData"
+                             sit-label="{{'Siemens.SimaticIT.PlanApp.WorkOrderDismantle.MaskSend.Tips_17'|translate}}">
+                </sit-command>
+        </sit-property-grid>
+    </div>
+    <div style="display: block;clear: both;margin-top:10px;">
+        <div ui-grid="vm.gridOptions" ui-grid-pagination ui-grid-selection ui-grid-resize-columns ui-grid-auto-resize>
+        </div>
+    </div>
+</div>

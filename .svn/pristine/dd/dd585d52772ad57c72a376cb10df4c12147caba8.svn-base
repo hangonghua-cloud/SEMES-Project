@@ -1,0 +1,313 @@
+VERSION '01.13'
+
+///数据字典-新增父项
+[Protected]
+[NotSecurable]
+[@Guid(46938d66-7ff2-45a7-87d0-19fac63441e4)]
+COMMAND DataItemCategoryAddCmd
+WITH
+    [Length = 255]
+    CategoryCode AS string
+    [Optional]
+    [Length = 255]
+    CategoryName AS string
+    ParentId AS Guid
+    [Optional]
+    SortNum AS decimal
+    IsValid AS bool
+RESPONSE
+    [Optional]
+    [Length = 2000]
+    ReturnVal AS string
+
+///数据字典-修改父项
+[Protected]
+[NotSecurable]
+[@Guid(f4f0fcb4-88f3-4e50-8bb9-b456d2c9a0d7)]
+COMMAND DataItemCategoryUpdateCmd
+WITH
+    Id AS Guid
+    [Optional]
+    [Length = 255]
+    CategoryName AS string
+    [Optional]
+    SortNum AS decimal
+    IsValid AS bool
+RESPONSE
+    [Optional]
+    [Length = 2000]
+    ReturnVal AS string
+
+///数据字典-删除父项
+[Protected]
+[NotSecurable]
+[@Guid(f8de62f8-703a-4c3b-b542-34e421210c89)]
+COMMAND DataItemCategoryDelCmd
+WITH
+    Id AS Guid
+RESPONSE
+    [Optional]
+    [Length = 2000]
+    ReturnVal AS string
+
+///数据字典-新增子项
+[Protected]
+[NotSecurable]
+[@Guid(b54404be-a5e2-4b04-aa92-b61d20c50d35)]
+COMMAND DataItemAddCmd
+WITH
+    [Optional]
+    [Length = 255]
+    ItemCode AS string
+    [Optional]
+    [Length = 255]
+    ItemName AS string
+    [Optional]
+    SortNum AS decimal
+    IsValid AS bool
+    [Optional]
+    [Length = 255]
+    ItemValue AS string
+    [Length = 255]
+    CategoryCode AS string
+RESPONSE
+    [Optional]
+    [Length = 2000]
+    ReturnVal AS string
+
+///数据字典-修改子项
+[Protected]
+[NotSecurable]
+[@Guid(057665e5-89c4-472e-9b7a-18b43a36690d)]
+COMMAND DataItemUpdateCmd
+WITH
+    Id AS Guid
+    [Optional]
+    [Length = 255]
+    ItemName AS string
+    [Optional]
+    SortNum AS decimal
+    IsValid AS bool
+    [Optional]
+    [Length = 255]
+    ItemValue AS string
+RESPONSE
+    [Optional]
+    [Length = 2000]
+    ReturnVal AS string
+
+///数据字典-删除子项
+[Protected]
+[NotSecurable]
+[@Guid(d9a17c9c-7806-48fa-ba83-a3ca819c57c1)]
+COMMAND DataItemDelCmd
+WITH
+    Id AS Guid
+RESPONSE
+    [Optional]
+    [Length = 2000]
+    ReturnVal AS string
+
+///获取数据字典树形结构数据
+[Protected]
+[NotSecurable]
+[@Guid(f49e930b-3652-4ef8-8b26-cc1cfbceef1b)]
+COMMAND GetTreeDataCmd
+RESPONSE
+    [Optional]
+    [@GuidRef(f61397bf-4db1-4767-accf-c29a4bf0ddd7, e3cd17fb-04c8-49d0-8b22-ca5e953ead07)]
+    TreeData AS list of Siemens.SimaticIT.MasterData.BasicDataManageFBLib.MSModel.Types.GetTreeList
+
+///获取工厂建模数据
+[Protected]
+[NotSecurable]
+[@Guid(fe3e8c13-f125-4e5f-aa54-dbe16b231415)]
+COMMAND GetFactoryModelCmd
+RESPONSE
+    [Optional]
+    [@GuidRef(f61397bf-4db1-4767-accf-c29a4bf0ddd7, c818d479-adb3-4fd5-92a0-bf2b1f853162)]
+    ReturnVal AS list of Siemens.SimaticIT.MasterData.BasicDataManageFBLib.MSModel.Types.FactoryModelType
+
+///PDA功能管理-新增
+[Protected]
+[@Guid(914ac19e-174c-400b-8829-1d3ccf0d2f3e)]
+COMMAND AddAppModelCmd
+WITH
+    [Length = 255]
+    ModelCode AS string
+    [Optional]
+    [Length = 255]
+    ModelName AS string
+    [Optional]
+    [Length = 255]
+    ModelType AS string
+    [Optional]
+    [Length = 255]
+    OwnedPage AS string
+    [Optional]
+    [Length = 255]
+    CreatedByCode AS string
+    [Optional]
+    [Length = 255]
+    CreatedByName AS string
+    [Optional]
+    [Length = 255]
+    ModelIco AS string
+    [Optional]
+    [Length = 255]
+    ModelColor AS string
+    [Optional]
+    OrderByNum AS decimal
+    [Optional]
+    [Length = 255]
+    ModelIcoName AS string
+    [Optional]
+    [Length = 255]
+    ModelIcoClass AS string
+    [Optional]
+    [Length = 255]
+    OwnedPageName AS string
+RESPONSE
+    [Optional]
+    [Length = 2000]
+    Result AS string
+
+///PDA功能管理-删除
+[Protected]
+[@Guid(7ebc21c4-33a1-4b76-802a-95dce948d2f3)]
+COMMAND DelAppModelCmd
+WITH
+    Id AS Guid
+RESPONSE
+    [Optional]
+    [Length = 2000]
+    Result AS string
+
+///PDA功能管理-修改
+[Protected]
+[@Guid(758b31b5-0445-48d2-9653-8f05812c71ac)]
+COMMAND UpdateAppModelCmd
+WITH
+    Id AS Guid
+    [Length = 255]
+    ModelName AS string
+    [Length = 255]
+    ModelType AS string
+    [Length = 255]
+    OwnedPage AS string
+    [Optional]
+    [Length = 255]
+    ModelIco AS string
+    [Optional]
+    [Length = 255]
+    ModelColor AS string
+    [Optional]
+    [Length = 255]
+    UpdateByCode AS string
+    [Optional]
+    [Length = 255]
+    UpdateByName AS string
+    [Optional]
+    OrderByNum AS decimal
+    [Optional]
+    [Length = 255]
+    ModelIcoName AS string
+    [Optional]
+    [Length = 255]
+    ModelIcoClass AS string
+    [Optional]
+    [Length = 255]
+    OwnedPageName AS string
+RESPONSE
+    [Optional]
+    [Length = 2000]
+    Result AS string
+
+///PDA角色权限管理-配置
+[Protected]
+[@Guid(b864771b-de4f-48e7-a617-499f22d3123d)]
+COMMAND SaveAppRolesConfiCmd
+WITH
+    [Length = 255]
+    RoleCode AS string
+    [Optional]
+    [@GuidRef(f61397bf-4db1-4767-accf-c29a4bf0ddd7, b3404bd1-5b7c-4b9a-b1c3-78b241532641)]
+    ModelList AS list of Siemens.SimaticIT.MasterData.BasicDataManageFBLib.MSModel.Types.RoleModelType
+    [Optional]
+    [Length = 255]
+    UserCode AS string
+    [Optional]
+    [Length = 255]
+    UserName AS string
+RESPONSE
+    [Optional]
+    [Length = 2000]
+    Result AS string
+
+///修改移动端密码
+[Protected]
+[@Guid(ca8ad15f-f259-4c78-b4f1-8bfbf223acb7)]
+COMMAND UpdateAppPasswordCmd
+WITH
+    Id AS Guid
+    [Length = 255]
+    OldPassword AS string
+    [Length = 255]
+    NewPassword AS string
+RESPONSE
+    [Optional]
+    [Length = 2000]
+    Result AS string
+
+///PDA用户管理-重置密码
+[Protected]
+[@Guid(d846f5cc-b4ed-42c1-8d5a-d9dfaa30942d)]
+COMMAND ResetAppPwdCmd
+WITH
+    Id AS Guid
+    [Length = 255]
+    Pwd AS string
+RESPONSE
+    [Optional]
+    [Length = 2000]
+    Result AS string
+
+///通过用户获取移动端功能页面和按钮权限
+[Protected]
+[@Guid(4c36dc90-febf-43e7-88bd-114f0000edd6)]
+COMMAND GetAppUserRolesCmd
+WITH
+    [Length = 255]
+    UserCode AS string
+RESPONSE
+    [Optional]
+    [Length = 2000]
+    Result AS string
+    [Optional]
+    [@GuidRef(f61397bf-4db1-4767-accf-c29a4bf0ddd7, ea0a0af1-958b-4daf-a381-e7ab70d5ba2d)]
+    UserPageList AS list of Siemens.SimaticIT.MasterData.BasicDataManageFBLib.MSModel.Types.UserPageListType
+    [Optional]
+    [@GuidRef(f61397bf-4db1-4767-accf-c29a4bf0ddd7, 2857e3dd-0179-47db-8222-a8563ad7c726)]
+    UserBtnList AS list of Siemens.SimaticIT.MasterData.BasicDataManageFBLib.MSModel.Types.UserBtnListType
+
+///移动端同步UA用户
+[Protected]
+[@Guid(07c8e21d-cf58-4cfb-953c-4d677ac03693)]
+COMMAND GetUAUsersCmd
+RESPONSE
+    [Optional]
+    [Length = 2000]
+    Result AS string
+
+///PDA用户管理-修改
+[Protected]
+[@Guid(d5e061cf-2e38-4457-9782-89fd7cc380f9)]
+COMMAND UpdateAppUserCmd
+WITH
+    Id AS Guid
+    IsEnabled AS bool
+RESPONSE
+    [Optional]
+    [Length = 2000]
+    Result AS string
+

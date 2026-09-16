@@ -1,0 +1,45 @@
+﻿<!--
+   1.创建日期: 2021-4-14 13:49:29
+   2.创    建: 刘万军
+   3.功能描述: 公共通用多选择弹窗(精工UI-GRID列表)
+   4.修改日期: 2021-4-15 17:6:38
+-->
+<style>
+    .header-filtered {
+        color: blue;
+    }
+
+    .modal-content {
+        border: 0;
+        border-radius: 5px 5px 0 0;
+    }
+
+    .side-panel-header {
+        display: flex;
+        align-items: center;
+        height: 48px;
+        line-height: 48px;
+        background-color: #005f87;
+        color: #FFF;
+        padding: 8px;
+        border-radius: 5px 5px 0 0;
+    }
+</style>
+<div id="itemlist" class="content-area content-area-relative" style="height: calc(100% - 30px) !important">
+    <div class="side-panel-header">
+        {{'customCommon.SelectModal.Tips_1'|translate}}{{vm.data.title}}
+    </div>
+    <div class="modal-body" ui-i18n="{{vm.lang}}">
+        <div sit-bind-dynamic-html="vm.html_template" class="col-xs-40 col-sm-40 col-md-40 col-lg-40" style="margin-bottom: 10px;padding: 0px;">
+
+        </div>
+        <div style="display: block;clear: both;margin-top:10px;">
+            <div ui-grid="vm.gridOptions" ui-grid-pagination ui-grid-selection ui-grid-resize-columns ui-grid-auto-resize></div>
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <button class="btn btn-primary" type="button" ng-click="vm.save()">{{'customCommon.SelectModal.Tips_1'|translate}}</button>
+        <button class="btn btn-default" type="button" ng-click="vm.cancel()">{{'customCommon.SelectModal.Tips_5'|translate}}</button>
+    </div>
+</div>

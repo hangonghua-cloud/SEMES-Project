@@ -1,0 +1,87 @@
+﻿<!--
+    0.代码生成: UA单表一键生成前后端html、JS、API接口代码生成器 Ver 2.13 更新日期：2021-07-12  设计者：刘万军
+    1.功能描述: 巡检检验记录表
+    2.创建人员: 丁零
+    3.创建日期: 2021-08-23
+    4.修改人员: 
+    5.修改日期: 
+-->
+<style>
+    .row {
+        padding: 5px;
+        margin-top: 10px;
+    }
+</style>
+<div class="command-bar-side-panel">
+    <button ng-click="vm.cancel()" class="btn side-panel-button">{{'Siemens.SimaticIT.QualityApp.QC_IPQCDetail.QC_IPQCDetailadd.Tips_1'|translate}}</button>
+    <button ng-click="vm.save()" class="btn side-panel-button" ng-show="vm.validInputs">{{'Siemens.SimaticIT.QualityApp.QC_IPQCDetail.QC_IPQCDetailadd.Tips_2'|translate}}</button>
+</div>
+<div class="side-panel-property-area-body">
+    <sit-property-grid sit-id="add_form"
+                       sit-layout="Vertical"
+                       sit-type="Fluid"
+                       sit-mode="edit"
+                       sit-columns="1">
+        <sit-property-grid sit-id="view_form" sit-layout="Horizontal" sit-type="Fixed" sit-mode="edit" sit-columns="1" style="margin-left: 4px;">
+            <sit-property sit-widget="sit-text" sit-value="vm.currentItem.FlowCardId" sit-validation="{required: true}"
+                          sit-read-only="false">{{'Siemens.SimaticIT.QualityApp.QC_IPQCDetail.QC_IPQCDetailadd.Tips_3'|translate}}</sit-property>
+            <!--<sit-property sit-widget="sit-alp-text-picker"
+                          sit-read-only="true"
+                          sit-validation="{required: true}"
+                          sit-value="vm.currentItem.CalibrationMethodName"
+                          ng-click="vm.SelectMethodModal()">
+                          {{'Siemens.SimaticIT.QualityApp.QC_IPQCDetail.QC_IPQCDetailadd.Tips_4'|translate}}
+            </sit-property>-->
+            <sit-property sit-widget="sit-select"
+                    sit-read-only="false"
+                    sit-options="vm.ProcessConfig.options"
+                    sit-to-keep="'ResourceCode'" sit-validation="{required: true}"
+                    sit-value="vm.ProcessConfig.selectedOption"
+                    sit-change="vm.GetMachine"
+                    sit-to-display="'ResourceName'">
+                    {{'Siemens.SimaticIT.QualityApp.QC_IPQCDetail.QC_IPQCDetailadd.Tips_5'|translate}}
+            </sit-property>
+            <sit-property sit-widget="sit-select"
+                    sit-read-only="false"
+                    sit-options="vm.MethodConfig.options"
+                    sit-to-keep="'TestMethodCoading'" sit-validation="{required: true}"
+                    sit-value="vm.MethodConfig.selectedOption"
+                    sit-to-display="'TestMethodName'">
+                    {{'Siemens.SimaticIT.QualityApp.QC_IPQCDetail.QC_IPQCDetailadd.Tips_4'|translate}}
+            </sit-property>
+            <sit-property sit-widget="sit-select"
+                    sit-read-only="false"
+                    sit-options="vm.TestMachineConfig.options"
+                    sit-to-keep="'LineCode'" sit-validation="{required: true}"
+                    sit-value="vm.TestMachineConfig.selectedOption"
+                    sit-change="vm.selectProcess"
+                    sit-to-display="'LineName'">
+                    {{'Siemens.SimaticIT.QualityApp.QC_IPQCDetail.QC_IPQCDetailadd.Tips_6'|translate}}
+            </sit-property>
+            <!--<sit-property sit-widget="sit-alp-text-picker"
+                          sit-read-only="true"
+                          sit-validation="{required: true}"
+                          sit-value="vm.currentItem.InspectorName"
+                          ng-click="vm.SelectPeopleModal()">
+                {{'Siemens.SimaticIT.QualityApp.QC_IPQCDetail.QC_IPQCDetailadd.Tips_7'|translate}}
+            </sit-property>
+            <sit-property sit-widget="sit-date-time-picker"
+                          sit-format="'yyyy-MM-dd hh:mm:ss a'"
+                          sit-validation="{required: true}"
+                          sit-value="vm.currentItem.InspectionTimeStr"
+                          sit-read-only="false">
+                          {{'Siemens.SimaticIT.QualityApp.QC_IPQCDetail.QC_IPQCDetailadd.Tips_8'|translate}}
+            </sit-property>-->
+            <sit-property sit-widget="sit-textarea" sit-value="vm.currentItem.Remark" sit-validation="{required: false}"
+                          sit-read-only="false">{{'Siemens.SimaticIT.QualityApp.QC_IPQCDetail.QC_IPQCDetailadd.Tips_9'|translate}}</sit-property>
+            <sit-property sit-widget="sit-text" sit-value="vm.currentItem.Attachment" sit-validation="{required: false}"
+                          sit-read-only="false">{{'Siemens.SimaticIT.QualityApp.QC_IPQCDetail.QC_IPQCDetailadd.Tips_10'|translate}}</sit-property>
+            <!--<sit-property sit-widget="sit-text" sit-value="vm.currentItem.EnabledMark" sit-validation="{required: true}"
+                          sit-read-only="false">{{'Siemens.SimaticIT.QualityApp.QC_IPQCDetail.QC_IPQCDetailadd.Tips_11'|translate}}</sit-property>
+            <sit-property sit-widget="sit-text" sit-value="vm.currentItem.ModifyBy" sit-validation="{required: true}"
+                          sit-read-only="false">{{'Siemens.SimaticIT.QualityApp.QC_IPQCDetail.QC_IPQCDetailadd.Tips_12'|translate}}</sit-property>
+            <sit-property sit-widget="sit-datepicker" sit-value="vm.currentItem.ModifyTime" sit-validation="{required: true}"
+                          sit-widget-attributes="{'sit-format':'yyyy-MM-dd','sit-show-meridian':'false'}" sit-read-only="false">{{'Siemens.SimaticIT.QualityApp.QC_IPQCDetail.QC_IPQCDetailadd.Tips_13'|translate}}</sit-property>-->
+        </sit-property-grid>
+    </sit-property-grid>
+</div>

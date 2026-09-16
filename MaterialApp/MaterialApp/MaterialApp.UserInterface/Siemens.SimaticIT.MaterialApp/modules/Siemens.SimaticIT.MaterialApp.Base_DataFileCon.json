@@ -1,0 +1,19 @@
+﻿{
+   "name": "Siemens.SimaticIT.MaterialApp.Base_DataFileCon",
+   "type": "standard",
+   "title": "Siemens.SimaticIT.MaterialApp.Base_DataFileCon.Title",
+   "header": "",
+   "icon": "svg typeActionLongTerm48",
+   "functionalBlock": "Siemens.SimaticIT.MaterialApp",
+   "dependencies": [],
+   "states": [
+    {
+      "id": "home.Siemens_SimaticIT_MaterialApp_Base_DataFileCon_Base_DataFileCon",
+      "title": "Siemens.SimaticIT.MaterialApp.Base_DataFileCon.Title",
+      "header": "",
+      "securable": true,
+      "roles": []
+    }
+   ],
+   "manifestVersion": "01.01.00"
+}

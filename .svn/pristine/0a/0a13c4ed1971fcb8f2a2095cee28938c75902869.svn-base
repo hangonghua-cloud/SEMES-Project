@@ -1,0 +1,19 @@
+﻿{
+  "name": "Siemens.SimaticIT.PlanApp.WorkOrderSort",
+  "type": "standard",
+  "title": "Siemens.SimaticIT.PlanApp.WorkOrderSort.Title",
+  "header": "",
+  "icon": "fa-folder",
+  "functionalBlock": "Siemens.SimaticIT.PlanApp",
+  "dependencies": [],
+  "states": [
+    {
+      "id": "home.Siemens_SimaticIT_PlanApp_WorkOrderSort_WorkOrderSort",
+      "title": "Siemens.SimaticIT.PlanApp.WorkOrderSort.Title",
+      "header": "",
+      "securable": true,
+      "roles": []
+    }
+  ],
+  "manifestVersion": "01.01.00"
+}

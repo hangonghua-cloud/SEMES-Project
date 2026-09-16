@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Items>
+  <ReadingFunctionHandler Id="cd47516d-5ac0-463d-b63b-cbbe2c77de78">
+    <AssemblyName>SimaticIT.Engineering.ReadingFunctionHandlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Engineering.ReadingFunctions.GetDatabaseResourceInfoHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </ReadingFunctionHandler>
+  <ReadingFunctionHandler Id="5dd67c48-4a8e-4cf5-91b3-ae44bfae87b0">
+    <AssemblyName>SimaticIT.Engineering.ReadingFunctionHandlers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>x64</TargetCPU>
+    <Name>Siemens.SimaticIT.Engineering.ReadingFunctions.GetRolesSecurableObjectHandlerShell</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </ReadingFunctionHandler>
+  <ReadingFunctionHandler Id="0b1885a5-e048-ef11-967b-a395b9e4373f">
+    <AssemblyName>Siemens.SimaticIT.BasicDataManageFBApp.ReadingFunctionHandler1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.BasicDataManageFBApp.BasicDataManageFBApp.BAPOMModel.ReadingFunctions.GetAppRolesRFHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </ReadingFunctionHandler>
+  <ReadingFunctionHandler Id="228650b5-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.System.ReadingFunctionHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.System.System.SAPOMModel.ReadingFunctions.GetUserPreferencesHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </ReadingFunctionHandler>
+  <ReadingFunctionHandler Id="2c8650b5-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.System.ReadingFunctionHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.System.System.SAPOMModel.ReadingFunctions.GetExportImportOperationsHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </ReadingFunctionHandler>
+  <ReadingFunctionHandler Id="368650b5-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.System.ReadingFunctionHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.System.System.SAPOMModel.ReadingFunctions.GetExportImportOperationsDetailsHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </ReadingFunctionHandler>
+  <ReadingFunctionHandler Id="7b795fdf-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.Personnel.ReadingFunctionHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.Personnel.Personnel.PRPOMModel.ReadingFunctions.GetPersonImageHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </ReadingFunctionHandler>
+  <ReadingFunctionHandler Id="85795fdf-6b52-ec11-9663-c14b9740f55b">
+    <AssemblyName>Siemens.SimaticIT.Personnel.ReadingFunctionHandler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</AssemblyName>
+    <TargetCPU>AnyCPU</TargetCPU>
+    <Name>Siemens.SimaticIT.Personnel.Personnel.PRPOMModel.ReadingFunctions.GetPersonSegregationTagsHandlerShell</Name>
+    <IsSystemEntity>false</IsSystemEntity>
+  </ReadingFunctionHandler>
+</Items>

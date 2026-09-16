@@ -1,0 +1,24 @@
+<div ng-if="alpTextPickerCtrl.readOnly || alpTextPickerCtrl.ngReadonly|| alpTextPickerCtrl.ngDisabled" class="label-property-grid-control-readonly property-value-ellipsis" title="{{alpTextPickerCtrl.value}}"> {{alpTextPickerCtrl.value}} </div>
+
+<ng-form name='alpTextPickerForm' ng-if="!(alpTextPickerCtrl.readOnly || alpTextPickerCtrl.ngReadonly|| alpTextPickerCtrl.ngDisabled)" ng-class="{'isrequired' :(alpTextPickerCtrl.validation.required) && alpTextPickerCtrl.value!==undefined}">
+    <div class='property-grid-input-group'>
+        <input type='text'
+               ng-class="{'validator-control-invalid':((alpTextPickerForm.$invalid && alpTextPickerForm.$dirty) || (alpTextPickerForm.$invalid && alpTextPickerForm.$visited)),
+               'validator-control':!((alpTextPickerForm.$invalid && alpTextPickerForm.$dirty) || (alpTextPickerForm.$invalid && alpTextPickerForm.$visited)),
+               'ng-dirty':alpTextPickerForm.$dirty}"
+               ng-model='alpTextPickerCtrl.value'
+               ng-required='alpTextPickerCtrl.validation.required'
+               ng-minlength='alpTextPickerCtrl.validation.minlength'
+               ng-maxlength='alpTextPickerCtrl.validation.maxlength'
+               ng-pattern='alpTextPickerCtrl.validation.pattern'
+               ng-blur="alpTextPickerCtrl.ngBlur()"
+               sit-change="alpTextPickerCtrl.sitChange"
+               ng-disabled="alpTextPickerCtrl.ngDisabled"
+               ng-focus="alpTextPickerCtrl.ngFocus()"
+               placeholder={{alpTextPickerCtrl.placeholder}}
+               sit-form-input-validator />
+        <div class="btn property-grid-addon-icon" ng-disabled="alpTextPickerCtrl.ngDisabled">
+            <em sit-mom-icon="{path: 'common/icons/cmdListBox16.svg',size : '16px'}"></em>
+        </div>
+    </div>
+</ng-form>

@@ -1,0 +1,187 @@
+<style>
+    .MainCommandActionButton {
+        margin-top: 20px !important;
+    }
+
+    .row {
+        padding: 5px;
+        margin-top: 10px;
+    }
+
+    .canvas .property-area-container div.command-bar-side-panel {
+        padding-bottom: 40px;
+    }
+
+    .canvas .property-area-container > div.content .side-panel-property-area-body {
+        overflow: visible;
+        flex: none;
+    }
+</style>
+<div id="itemlist" class="content-area content-area-relative" style="height: calc(93% - 30px) !important">
+    <!--查询条件与功能按钮-->
+    <div class="col-md-40" style="margin-left: 15px;height: calc(23% - 10px) !important">
+        <div class="side-panel-property-area-body">
+            <sit-property-grid sit-id="add_form" sit-layout="Horizontal" sit-type="Fixed" sit-mode="edit"
+                               sit-columns="8">
+
+                <sit-property sit-widget="sit-select" sit-value="vm.typeFactory.value"
+                              sit-validation="{required: false}" sit-options="vm.typeFactory.options"
+                              sit-to-display="'ResourceName'" sit-to-keep="'ResourceCode'" sit-read-only="false">
+                    {{'Siemens.SimaticIT.PlanApp.PurchaseManage.Tips_1'|translate}}
+                </sit-property>
+
+                <sit-property sit-widget="sit-text" sit-value="vm.searchParams.PurchaseOrder" sit-read-only="false"
+                              style="max-width:300px;">
+                    {{'Siemens.SimaticIT.PlanApp.PurchaseManage.Tips_2'|translate}}
+                </sit-property>
+
+                <sit-property sit-widget="sit-text" sit-value="vm.searchParams.ProductOrder" sit-read-only="false"
+                              style="max-width:300px;">
+                    {{'Siemens.SimaticIT.PlanApp.PurchaseManage.Tips_3'|translate}}
+                </sit-property>
+
+                <sit-property sit-widget="sit-select" sit-value="vm.typeOrderType.value"
+                              sit-validation="{required: true}" sit-options="vm.typeOrderType.options" sit-to-display="'ItemName'"
+                              sit-to-keep="'ItemValue'" sit-read-only="false">
+                    {{'Siemens.SimaticIT.PlanApp.PurchaseManage.Tips_4'|translate}}
+                </sit-property>
+
+                <sit-property sit-widget="sit-text" sit-value="vm.searchParams.Material"
+                              sit-validation="{required: false}" sit-read-only="false">
+                    {{'Siemens.SimaticIT.PlanApp.PurchaseManage.Tips_5'|translate}}
+                </sit-property>
+
+                <sit-property sit-widget="sit-alp-text-picker" sit-value="vm.searchParams.Abbr"
+                              sit-validation="{required: false}" sit-read-only="false" ng-click="vm.selectSupplier()"
+                              sit-change="vm.supplierChange">
+                    {{'Siemens.SimaticIT.PlanApp.PurchaseManage.Tips_6'|translate}}
+                </sit-property>
+
+                <sit-property sit-widget="sit-select" sit-value="vm.typeArrivalStatus.value"
+                              sit-validation="{required: true}" sit-options="vm.typeArrivalStatus.options"
+                              sit-to-display="'ItemName'" sit-to-keep="'ItemValue'" sit-read-only="false">
+                    {{'Siemens.SimaticIT.PlanApp.PurchaseManage.Tips_7'|translate}}
+                </sit-property>
+                <!-- <sit-property sit-widget="sit-datepicker" sit-value="vm.StartPurchase" sit-format="'yyyy-MM-dd'"
+                              sit-read-only="false">{{'Siemens.SimaticIT.PlanApp.PurchaseManage.Tips_8'|translate}}</sit-property>
+                <sit-property sit-widget="sit-datepicker" sit-value="vm.EndPurchase" sit-format="'yyyy-MM-dd'"
+                              sit-read-only="false">{{'Siemens.SimaticIT.PlanApp.PurchaseManage.Tips_9'|translate}}</sit-property>
+                <sit-property sit-widget="sit-datepicker" sit-value="vm.StartProduct" sit-format="'yyyy-MM-dd'"
+                              sit-read-only="false">{{'Siemens.SimaticIT.PlanApp.PurchaseManage.Tips_10'|translate}}</sit-property>
+                <sit-property sit-widget="sit-datepicker" sit-value="vm.EndProduct" sit-format="'yyyy-MM-dd'"
+                              sit-read-only="false">{{'Siemens.SimaticIT.PlanApp.PurchaseManage.Tips_9'|translate}}</sit-property> -->
+                <sit-property sit-widget="sit-select" sit-value="vm.typeSmallClass.value"
+                              sit-validation="{required: true}" sit-options="vm.typeSmallClass.options"
+                              sit-to-display="'ItemName'" sit-to-keep="'ItemValue'" sit-read-only="false">
+                    {{'Siemens.SimaticIT.PlanApp.PurchaseManage.Tips_11'|translate}}
+                </sit-property>
+
+                <sit-property sit-widget="sit-datepicker" sit-value="vm.StartTime" sit-format="'yyyy-MM-dd'"
+                              sit-read-only="false">
+                    {{'Siemens.SimaticIT.PlanApp.PurchaseManage.Tips_12'|translate}}
+                </sit-property>
+
+                <sit-property sit-widget="sit-datepicker" sit-value="vm.EndTime" sit-format="'yyyy-MM-dd'"
+                              sit-read-only="false">{{'Siemens.SimaticIT.PlanApp.PurchaseManage.Tips_9'|translate}}</sit-property>
+                <sit-property sit-widget="sit-text" sit-value="vm.searchParams.Creator" sit-read-only="false"
+                              style="max-width:300px;">
+                    {{'Siemens.SimaticIT.PlanApp.PurchaseManage.Tips_13'|translate}}
+                </sit-property>
+
+
+                <sit-property sit-widget="sit-text" sit-value="vm.searchParams.ContractNo" sit-read-only="false"
+                              style="max-width:300px;">
+                    {{'Siemens.SimaticIT.PlanApp.PurchaseManage.Tips_14'|translate}}
+                </sit-property>
+
+
+                <sit-property sit-widget="sit-text" sit-value="vm.searchParams.InvoiceNo" sit-read-only="false"
+                              style="max-width:300px;">
+                    {{'Siemens.SimaticIT.PlanApp.PurchaseManage.Tips_15'|translate}}
+                </sit-property>
+
+                <sit-command-bar sit-type="action">
+                    <sit-command sit-icon="fa-search" sit-type="main" sit-name="com.siemens.customcommand.search"
+                                 :sit-tooltip="{{'Siemens.SimaticIT.PlanApp.PurchaseManage.Tips_16'|translate}}"
+                                 ng-click="vm.searchButtonHandler"
+                                 :sit-label="{{'Siemens.SimaticIT.PlanApp.PurchaseManage.Tips_16'|translate}}">
+                    </sit-command>
+                </sit-command-bar>
+
+            </sit-property-grid>
+        </div>
+    </div>
+    <!--右侧功能按钮-->
+    <sit-command-bar sit-vertical-autofixed="true" sit-type="Tool" :sit-label-align="right" sit-layout="vertical">
+
+        <sit-command sit-icon="fa-trash-o" sit-name="com.siemens.customcommand.delete2"
+                     :sit-tooltip="{{'Siemens.SimaticIT.MaterialApp.MMReceiptNotice.ReceiptNoticelist.Tips_14'|translate}}"
+                     ng-click="vm.delete2ButtonHandler"
+                     :sit-label="{{'Siemens.SimaticIT.MaterialApp.MMReceiptNotice.ReceiptNoticelist.Tips_14'|translate}}"
+                     ng-show="vm.isPurchaseManageDeleteDetail" sit-type="main">
+        </sit-command>
+
+        <sit-command sit-icon="fa-sign-in" sit-name="com.siemens.customcommand.in"
+                     :sit-tooltip="{{'Siemens.SimaticIT.PlanApp.PurchaseManage.Tips_20'|translate}}"
+                     ng-click="vm.inButtonHandler" :sit-label="{{'Siemens.SimaticIT.PlanApp.PurchaseManage.Tips_20'|translate}}"
+                     ng-show="vm.isButtonVisible"></sit-command>
+
+        <sit-command sit-icon="fa-eye" sit-name="com.siemens.customcommand.eye"
+                     :sit-tooltip="{{'Siemens.SimaticIT.PlanApp.PurchaseManage.Tips_17'|translate}}" ng-click="vm.fileManage"
+                     :sit-label="{{'Siemens.SimaticIT.PlanApp.PurchaseManage.Tips_17'|translate}}" ng-show="vm.isButtonVisible"
+                     sit-type="main">
+        </sit-command>
+
+        <sit-command sit-icon="fa-file-excel-o" sit-type="main" sit-name="com.siemens.customcommand.export"
+                     :sit-tooltip="{{'Siemens.SimaticIT.PlanApp.PurchaseManage.Tips_18'|translate}}"
+                     ng-click="vm.exportButtonHandler"
+                     :sit-label="{{'Siemens.SimaticIT.PlanApp.PurchaseManage.Tips_18'|translate}}">
+        </sit-command>
+
+        <sit-command sit-icon="fa-check-circle" sit-name="com.siemens.customcommand.edit"
+                     :sit-tooltip="{{'Siemens.SimaticIT.PlanApp.PurchaseManage.Tips_19'|translate}}"
+                     ng-click="vm.finishButtonHandler"
+                     :sit-label="{{'Siemens.SimaticIT.PlanApp.PurchaseManage.Tips_19'|translate}}" ng-show="vm.isButtonVisible">
+        </sit-command>
+
+        <sit-command sit-icon="fa-trash" sit-name="com.siemens.customcommand.delete"
+                     :sit-tooltip="{{'Siemens.SimaticIT.PlanApp.PurchaseManage.Tips_21'|translate}}"
+                     ng-click="vm.deleteButtonHandler"
+                     :sit-label="{{'Siemens.SimaticIT.PlanApp.PurchaseManage.Tips_21'|translate}}"
+                     ng-show="vm.isPurchaseManageDelete">
+        </sit-command>
+
+        <sit-command sit-icon="fa-edit" sit-name="com.siemens.customcommand.edit"
+                     :sit-tooltip="{{'Siemens.SimaticIT.PlanApp.PurchaseManage.Tips_22'|translate}}"
+                     ng-click="vm.editButtonHandler"
+                     :sit-label="{{'Siemens.SimaticIT.PlanApp.PurchaseManage.Tips_22'|translate}}"
+                     ng-show="vm.isPurchaseManageEdit">
+        </sit-command>
+
+        <sit-command sit-icon="fa-plus-square-o" sit-name="com.siemens.customcommand.add" ng-click="vm.addButtonHandler"
+                     :sit-tooltip="{{'Siemens.SimaticIT.PlanApp.PurchaseManage.Tips_23'|translate}}"
+                     :sit-label="{{'Siemens.SimaticIT.PlanApp.PurchaseManage.Tips_23'|translate}}" sit-type="main"
+                     ng-show="vm.isPurchaseManageAdd"></sit-command>
+
+        <sit-command sit-icon="fa-plus-square" sit-name="com.siemens.customcommand.add"
+                     ng-click="vm.addInventoryButtonHandler"
+                     :sit-tooltip="{{'Siemens.SimaticIT.PlanApp.PurchaseManage.Tips_24'|translate}}"
+                     :sit-label="{{'Siemens.SimaticIT.PlanApp.PurchaseManage.Tips_24'|translate}}" sit-type="main"
+                     ng-show="vm.isPurchaseManageAdd">
+        </sit-command>
+
+        <sit-command sit-icon="fa-plus" sit-name="com.siemens.customcommand.add" ng-click="vm.addOrderButtonHandler"
+                     :sit-tooltip="{{'Siemens.SimaticIT.PlanApp.PurchaseManage.Tips_25'|translate}}"
+                     :sit-label="{{'Siemens.SimaticIT.PlanApp.PurchaseManage.Tips_25'|translate}}" sit-type="main"
+                     ng-show="vm.isPurchaseManageAdd"></sit-command>
+    </sit-command-bar>
+    <!-- grid列表 -->
+    <div id="listClass" style="width:100%; height: 46%; padding:0px 16px 0 16px; margin-top: 3px;">
+        <div ui-grid="vm.gridOptions" ui-grid-pinning ui-grid-auto-resize ui-grid-resize-columns ui-grid-selection
+             ui-grid-pagination class="uigrid"></div>
+    </div>
+    <div id="listClass2" class="col-md-40" style="width:100%; height: 44%; padding:0px 16px 0 16px; margin-top: 3px;">
+        <div ui-grid="vm.gridOptionsDetail" ui-grid-pinning ui-grid-auto-resize ui-grid-resize-columns ui-grid-selection
+             ui-grid-pagination class="uigrid"></div>
+    </div>
+</div>

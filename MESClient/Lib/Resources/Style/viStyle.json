@@ -1,0 +1,336 @@
+{ //主窗体
+  "Frm_Main": {
+  },
+  //登录页面
+  "Frm_Login": {
+    "label1.Left": "txtUserCode.Left - label1.Width - 2",
+    "label2.Left": "txtPassword.Left - label2.Width - 2",
+    "lbl_Location.Left": "comboBox2.Left - lbl_Location.Width - 2"
+  },
+  //分页用户组建
+  "PagerControl": {
+    "lbl_PageSize.Left": "cmbPerRow.Left - lbl_PageSize.Width"
+  },
+  //生产小组打印
+  "Frm_PTeam": {
+    "label3.Left": "cmbFactory.Left - label3.Width - 2",
+    "label1.Left": "txtPTeamCode.Left - label1.Width - 2",
+    "label2.Left": "txtPTeamName.Left - label2.Width - 2"
+  },
+  //人员打印
+  "Frm_People": {
+    "label4.Left": "cmbFactory.Left - label4.Width - 2",
+    "label1.Left": "txtUserCode.Left - label1.Width+2",
+    "txtUserCode.Left": "txtUserCode.Left+4",
+    "label2.Left": "txtUserName.Left - label2.Width+25",
+    "txtUserName.Left": "txtUserName.Left+27",
+    "label3.Left": "txtDept.Left - label3.Width+10",
+    "txtDept.Left": "txtDept.Left +12"
+  },
+  //物料批次
+  "Frm_MaterialBatch": {
+    "label5.Left": "cmbFactory.Left - label5.Width - 2",
+    "label1.Left": "txtMaterialCode.Left - label1.Width + 20",
+    "txtMaterialCode.Left": "txtMaterialCode.Left + 22",
+    "label2.Left": "txtMaterialName.Left - label2.Width+ 35",
+    "txtMaterialName.Left": "txtMaterialName.Left + 37",
+    "label3.Left": "txtWhsName.Left - label3.Width +20",
+    "txtWhsName.Left": "txtWhsName.Left+22",
+    "label4.Left": "txtProductOrder.Left - label4.Width+40",
+    "txtProductOrder.Left": "txtProductOrder.Left+42",
+    "label6.Left": "txtPalletCount.Left - label6.Width + 60",
+    "txtPalletCount.Left": "txtPalletCount.Left+62",
+    "btnSearch.Left": "btnSearch.Left+60",
+    "btnPrint.Left": "btnPrint.Left+60",
+    "btnPrintPallet.Left": "btnPrintPallet.Left+60",
+    "btnPrintPallet.Width": "150"
+  },
+  //机台打印
+  "Frm_Machine": {
+    "label3.Left": "cmbFactory.Left - label3.Width - 2",
+    "cmbFactory.Left": "cmbFactory.Left+2",
+    "label1.Left": "cmbOperation.Left - label1.Width +18",
+    "cmbOperation.Left": "cmbOperation.Left +20",
+    "label2.Left": "cmbMachine.Left - label2.Width +18",
+    "cmbMachine.Left": "cmbMachine.Left+20",
+    "btnSearch.Left": "btnSearch.Left+40",
+    "btnPrint.Left": "btnPrint.Left+40"
+  },
+  //库位打印
+  "Frm_Location": {
+    "label3.Left": "cmbFactory.Left - label3.Width - 2",
+    "cmbFactory.Left": "cmbFactory.Left+2",
+    "label1.Left": "cmbWarehouse.Left - label1.Width -5",
+    "cmbWarehouse.Left": "cmbWarehouse.Left -3",
+    "label2.Left": "cmbLocation.Left - label2.Width +12",
+    "cmbLocation.Left": "cmbLocation.Left+14",
+    "btnSearch.Left": "btnSearch.Left+40",
+    "btnPrint.Left": "btnPrint.Left+40"
+  },
+  //流转卡打印
+  "Frm_TransferCard": {
+    "label1.Left": "cmbFactory.Left - label1.Width + 50",
+    "cmbFactory.Left": "cmbFactory.Left+52",
+    "label6.Left": "txtProductOrder.Left - label6.Width +75",
+    "txtProductOrder.Left": "txtProductOrder.Left+77",
+    "label3.Left": "txtCustomerPO.Left - label3.Width+80",
+    "txtCustomerPO.Left": "txtCustomerPO.Left+82",
+    "label4.Left": "cmbExeWorkOrderType.Left - label4.Width+100",
+    "cmbExeWorkOrderType.Left": "cmbExeWorkOrderType.Left+102",
+    "label5.Left": "cmbExeWorkOrderStatus.Left - label5.Width+145",
+    "cmbExeWorkOrderStatus.Left": "cmbExeWorkOrderStatus.Left+147",
+    "label2.Left": "txtMaterialName.Left - label2.Width+190",
+    "txtMaterialName.Left": "txtMaterialName.Left+192",
+
+
+    "label8.Left": "txtSpec.Left - label8.Width+50",
+    "txtSpec.Left": "txtSpec.Left+52",
+    "label7.Left": "txtContainerNO.Left - label7.Width +75",
+    "txtContainerNO.Left": "txtContainerNO.Left+77",
+    "label10.Left": "txtWorkOrder.Left - label10.Width+80",
+    "txtWorkOrder.Left": "txtWorkOrder.Left+82",
+    "btnSearch.Left": "btnSearch.Left-50",
+    "btnNew.Left": "btnNew.Left-50",
+    "btnPrint.Left": "btnPrint.Left-50",
+    "label9.Left": "txtCodeBar.Left - label9.Width-10",
+    "txtCodeBar.Left": "txtCodeBar.Left"
+  },
+  //新建流转卡
+  "Frm_TransferCardAdd": {
+    "Frm_TransferCardAdd.Width": "Frm_TransferCardAdd.Width+100",
+
+
+    "label19.Left": "txtProductOrder.Left - label19.Width+80",
+    "txtProductOrder.Left": "txtProductOrder.Left+82",
+
+    "label1.Left": "txtExeWorkOrder.Left - label1.Width + 80",
+    "txtExeWorkOrder.Left": "txtExeWorkOrder.Left+82",
+
+    "label3.Left": "txtContainerNO.Left - label3.Width + 80",
+    "txtContainerNO.Left": "txtContainerNO.Left+82",
+
+    "label5.Left": "txtSpec.Left - label5.Width + 80",
+    "txtSpec.Left": "txtSpec.Left+82",
+
+    "label7.Left": "txtMaterialCode.Left - label7.Width + 80",
+    "txtMaterialCode.Left": "txtMaterialCode.Left+82",
+
+    "label10.Left": "txtUV.Left - label10.Width + 80",
+    "txtUV.Left": "txtUV.Left+82",
+
+    "label11.Left": "txtMMCH.Left - label11.Width + 80",
+    "txtMMCH.Left": "txtMMCH.Left+82",
+
+    "label2.Left": "cmbCard.Left - label2.Width + 80",
+    "cmbCard.Left": "cmbCard.Left+82",
+
+    "label12.Left": "cmbCardType.Left - label12.Width + 80",
+    "cmbCardType.Left": "cmbCardType.Left+82",
+
+
+
+    "label20.Left": "txtWorkOrder.Left - label20.Width + 50",
+    "txtWorkOrder.Left": "txtWorkOrder.Left + 52",
+    "label8.Left": "txtMMXH.Left - label8.Width + 50",
+    "txtMMXH.Left": "txtMMXH.Left + 52",
+    "label9.Left": "txtBWXH.Left - label9.Width + 50",
+    "txtBWXH.Left": "txtBWXH.Left + 52",
+    "label14.Left": "txtJCGG.Left - label14.Width + 50",
+    "txtJCGG.Left": "txtJCGG.Left + 52",
+    "label15.Left": "txtKCKX.Left - label15.Width + 50",
+    "txtKCKX.Left": "txtKCKX.Left + 52",
+    "label16.Left": "cmbNewType.Left - label16.Width + 50",
+    "cmbNewType.Left": "cmbNewType.Left + 52",
+    "label18.Left": "txtPieceQty.Left - label18.Width + 50",
+    "txtPieceQty.Left": "txtPieceQty.Left + 52",
+    "lblPerPalletPieceQty.Left": "txtPerPalletPieceQty.Left - lblPerPalletPieceQty.Width + 50",
+    "txtPerPalletPieceQty.Left": "txtPerPalletPieceQty.Left + 52",
+    "btnSave.Width": "150",
+    "btnSave.Left": "(Frm_TransferCardAdd.Width-btnSave.Width)/2"
+
+  },
+  //流转卡拆分
+  "Frm_TransferCardSplit": {
+    "label1.Left": "txtProcutOrder.Left - label1.Width -2",
+    "txtProcutOrder.Left": "txtProcutOrder.Left ",
+    "label2.Left": "txtContainerNO.Left - label2.Width -2",
+    "txtContainerNO.Left": "txtContainerNO.Left ",
+    "label3.Left": "txtCardName.Left - label3.Width -2",
+    "txtCardName.Left": "txtCardName.Left ",
+    "label4.Left": "txtSplitQty.Left - label4.Width -2",
+    "txtSplitQty.Left": "txtSplitQty.Left"
+  },
+  //包装报工打印
+  "Frm_PackingBG": {
+    "label9.LabelChangeLine": "10",
+    "label5.LabelChangeLine": "10",
+    "label10.LabelChangeLine": "10",
+
+
+    "label1.Left": "cmbFactory.Left - label1.Width+50",
+    "cmbFactory.Left": "cmbFactory.Left+52",
+
+    "label6.Left": "txtProductOrder.Left - label6.Width+80",
+    "txtProductOrder.Left": "txtProductOrder.Left+82",
+
+    "label3.Left": "txtCustomerPO.Left - label3.Width+100",
+    "txtCustomerPO.Left": "txtCustomerPO.Left+102",
+
+    "label5.Left": "cmbPackingStatus.Left - label5.Width+120",
+    "cmbPackingStatus.Left": "cmbPackingStatus.Left+122",
+
+    "label4.Left": "txtMaterialCode.Left - label4.Width+170",
+    "txtMaterialCode.Left": "txtMaterialCode.Left+172",
+
+    "label2.Left": "txtMaterialName.Left - label2.Width+205",
+    "txtMaterialName.Left": "txtMaterialName.Left+207",
+
+    "label10.Left": "dtStart.Left - label10.Width+220",
+    "dtStart.Left": "dtStart.Left+222",
+
+    "label11.Left": "dtEnd.Left - label11.Width+200",
+    "dtEnd.Left": "dtEnd.Left+202",
+
+
+
+
+    "label8.Left": "txtSpec.Left - label8.Width+50",
+    "txtSpec.Left": "txtSpec.Left+52",
+
+    "label7.Left": "txtContainerNO.Left - label7.Width+80",
+    "txtContainerNO.Left": "txtContainerNO.Left+82",
+
+    "label9.Top": "label9.Top-10",
+    "label9.Left": "txtPaperBoxModel.Left - label9.Width+100",
+    "txtPaperBoxModel.Left": "txtPaperBoxModel.Left+102",
+
+    "label12.Left": "txtMachine.Left - label12.Width+120",
+    "txtMachine.Left": "txtMachine.Left+122",
+
+    "label13.Left": "cmbPrintStatus.Left - label13.Width+170",
+    "cmbPrintStatus.Left": "cmbPrintStatus.Left+172",
+
+    "label14.Left": "txtCardCode.Left - label14.Width+205",
+    "txtCardCode.Left": "txtCardCode.Left+207"
+  },
+  //半成品上机报工
+  "RawMaterialBatchUp": {
+    "label16.LabelChangeLine": "-5",
+    "lblTotalBGQty.LabelChangeLine": "50",
+    "label16.Top": "label16.Top-2",
+    "groupBox1.Width": "groupBox1.Width+100",
+    "dgv2.Width": "dgv2.Width+100",
+    "btnTeamAdd.Left": "btnTeamAdd.Left+100",
+    "btnTeamDelete.Left": "btnTeamDelete.Left+100",
+
+
+    "label1.Left": "txtMachine1.Left - label1.Width-2",
+    "txtMachine1.Left": "txtMachine1.Left",
+
+    "label2.Left": "txtCodeBar.Left - label2.Width-2",
+    "txtCodeBar.Left": "txtCodeBar.Left",
+
+    "label3.Left": "txtMaterialName1.Left - label3.Width-2",
+    "txtMaterialName1.Left": "txtMaterialName1.Left",
+
+    "label4.Left": "txtMaterialCode1.Left - label4.Width-2",
+    "txtMaterialCode1.Left": "txtMaterialCode1.Left",
+
+    "label5.Left": "txtBatchNo1.Left - label5.Width-2",
+    "txtBatchNo1.Left": "txtBatchNo1.Left",
+
+    "label19.Left": "txtTeam1.Left - label19.Width-2",
+    "txtTeam1.Left": "txtTeam1.Left",
+
+    "label20.Left": "txtPerson1.Left - label20.Width+40",
+    "txtPerson1.Left": "txtPerson1.Left+42",
+
+    "label21.Left": "cmbPost1.Left - label21.Width+55",
+    "cmbPost1.Left": "cmbPost1.Left+57",
+
+    "label6.Left": "txtCardCode2.Left - label6.Width-2",
+    "txtCardCode2.Left": "txtCardCode2.Left",
+
+    "label7.Left": "txtQty2.Left - label7.Width-2",
+    "txtQty2.Left": "txtQty2.Left",
+
+    "label11.Left": "txtBadQty1.Left - label11.Width-2",
+    "txtBadQty1.Left": "txtBadQty1.Left",
+
+    "label17.Left": "txtMeters.Left - label17.Width-2",
+    "txtMeters.Left": "txtMeters.Left",
+
+    "label16.Left": "txtInspector.Left - label16.Width-2",
+    "txtInspector.Left": "txtInspector.Left",
+
+    "label8.Left": "txtMachine2.Left - label8.Width-2",
+    "txtMachine2.Left": "txtMachine2.Left",
+
+    "label9.Left": "txtTeam2.Left - label9.Width-2",
+    "txtTeam2.Left": "txtTeam2.Left",
+
+    "label10.Left": "txtProductInfo2.Left - label10.Width-2",
+    "txtProductInfo2.Left": "txtProductInfo2.Left",
+
+    "label12.Left": "txtUsers2.Left - label12.Width-2",
+    "txtUsers2.Left": "txtUsers2.Left",
+
+    "label13.Left": "txtBadItemCode2.Left - label13.Width-2",
+    "txtBadItemCode2.Left": "txtBadItemCode2.Left",
+
+    "label14.Left": "txtBadQty2.Left - label14.Width-2",
+    "txtBadQty2.Left": "txtBadQty2.Left",
+
+    "label18.Left": "txtRollCode.Left - label18.Width-2",
+    "txtRollCode.Left": "txtRollCode.Left",
+
+    "label15.Left": "lblTotalBGQty.Left - label15.Width-2",
+    "lblTotalBGQty.Left": "lblTotalBGQty.Left+100",
+    "panel1.Width": "panel1.Width+100",
+    "dgv4.Width": "dgv4.Width+100",
+    "btnEdit.Left": "btnEdit.Left+100",
+    "btnPrint2.Left": "btnPrint2.Left+100"
+  },
+  //打印日志
+  "Frm_PrintLog": {
+
+    "label5.Left": "cmbFactory.Left - label5.Width-2",
+    "cmbFactory.Left": "cmbFactory.Left",
+
+    "label1.Left": "cmbBusinessType.Left - label1.Width+50",
+    "cmbBusinessType.Left": "cmbBusinessType.Left+52",
+
+    "label10.Left": "dtStart.Left - label10.Width+100",
+    "dtStart.Left": "dtStart.Left+102",
+
+    "label11.Left": "dtEnd.Left - label11.Width+100",
+    "dtEnd.Left": "dtEnd.Left+102",
+
+    "label2.Left": "txtCode.Left - label2.Width+102",
+    "txtCode.Left": "txtCode.Left+102",
+
+    "label4.Left": "txtOperator.Left - label4.Width+160",
+    "txtOperator.Left": "txtOperator.Left+162",
+
+    "btnSearch.Left": "btnSearch.Left+162",
+    "btnSearch.Width": "btnSearch.Width*2"
+  },
+  //修改密码
+  "Frm_UpdatePassword": {
+    "label1.Left": "txtOld.Left - label1.Width-2",
+    "txtOld.Left": "txtOld.Left",
+
+    "label2.Left": "txtNew.Left - label2.Width-2",
+    "txtNew.Left": "txtNew.Left",
+
+    "label3.Left": "txtConfirm.Left - label3.Width-2",
+    "txtConfirm.Left": "txtConfirm.Left",
+
+
+    "btnSave.Left": "(Frm_UpdatePassword.Width-btnSave.Width)/2"
+  },
+  //关于MES客户端
+  "Frm_Version": {
+    "lblVersion.Left": "label1.Left +label1.Width+2"
+  }
+}

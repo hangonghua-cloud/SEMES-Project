@@ -1,0 +1,386 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E7F764B2-CF93-453E-BD2B-C496A0A968E7}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MESClient</RootNamespace>
+    <AssemblyName>MESClient</AssemblyName>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+    <PublishUrl>E:\迅雷下载\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>3</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>MESClient.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>07C7C4C6E7D6234CF58C715E66E43F7EEE1ABE8C</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>MESClient_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>false</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup />
+  <ItemGroup>
+    <Reference Include="FastReport, Version=2021.1.16.0, Culture=neutral, PublicKeyToken=db7e5ce63278458c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packages\FastReport.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="ReportLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packages\ReportLib.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <HintPath>..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.0\System.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\WINDOWS\assembly\GAC_MSIL\System.Web.Services\2.0.0.0__b03f5f7f11d50a3a\System.Web.Services.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaseData\Frm_Location.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BaseData\Frm_Location.Designer.cs">
+      <DependentUpon>Frm_Location.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BaseData\Frm_Machine.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BaseData\Frm_Machine.Designer.cs">
+      <DependentUpon>Frm_Machine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BaseData\Frm_MaterialBatch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BaseData\Frm_MaterialBatch.Designer.cs">
+      <DependentUpon>Frm_MaterialBatch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BaseData\Frm_People.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BaseData\Frm_People.Designer.cs">
+      <DependentUpon>Frm_People.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BaseData\Frm_PTeam.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BaseData\Frm_PTeam.Designer.cs">
+      <DependentUpon>Frm_PTeam.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Class1.cs" />
+    <Compile Include="Frm_GenerateJson.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_GenerateJson.Designer.cs">
+      <DependentUpon>Frm_GenerateJson.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackingBG\FormSelect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackingBG\FormSelect.Designer.cs">
+      <DependentUpon>FormSelect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackingBG\Frm_PrintLog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackingBG\Frm_PrintLog.Designer.cs">
+      <DependentUpon>Frm_PrintLog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProduceManage\Frm_OwnProductBGEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProduceManage\Frm_OwnProductBGEdit.Designer.cs">
+      <DependentUpon>Frm_OwnProductBGEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProduceManage\Frm_SelectBadItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProduceManage\Frm_SelectBadItem.Designer.cs">
+      <DependentUpon>Frm_SelectBadItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProduceManage\RawMaterialBatchUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProduceManage\RawMaterialBatchUp.Designer.cs">
+      <DependentUpon>RawMaterialBatchUp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="SystemManage\Frm_UpdatePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SystemManage\Frm_UpdatePassword.Designer.cs">
+      <DependentUpon>Frm_UpdatePassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SystemManage\Frm_Version.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SystemManage\Frm_Version.Designer.cs">
+      <DependentUpon>Frm_Version.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Util\DataGridViewCheckBoxHeaderCellEventArgs.cs" />
+    <Compile Include="Util\Common.cs" />
+    <Compile Include="databaseoperate.cs" />
+    <Compile Include="Frm_Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Login.Designer.cs">
+      <DependentUpon>Frm_Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Frm_Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Main.Designer.cs">
+      <DependentUpon>Frm_Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PackingBG\Frm_PackingBG.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PackingBG\Frm_PackingBG.Designer.cs">
+      <DependentUpon>Frm_PackingBG.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TransferCard\Frm_TransferCard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TransferCard\Frm_TransferCard.Designer.cs">
+      <DependentUpon>Frm_TransferCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TransferCard\Frm_TransferCardAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TransferCard\Frm_TransferCardAdd.Designer.cs">
+      <DependentUpon>Frm_TransferCardAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TransferCard\Frm_TransferCardSplit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TransferCard\Frm_TransferCardSplit.Designer.cs">
+      <DependentUpon>Frm_TransferCardSplit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Util\DbConstSettings.cs" />
+    <Compile Include="Util\Enum.cs" />
+    <Compile Include="Util\FormEnumHelper.cs" />
+    <Compile Include="Util\FormLanguage.cs" />
+    <Compile Include="Util\FormLayout.cs" />
+    <Compile Include="Util\MessageUtil.cs" />
+    <Compile Include="Util\SerialHelper.cs" />
+    <Compile Include="WorkOrderExcute\Frm_WorkOrderExcute.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WorkOrderExcute\Frm_WorkOrderExcute.Designer.cs">
+      <DependentUpon>Frm_WorkOrderExcute.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PagerControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PagerControl.designer.cs">
+      <DependentUpon>PagerControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WorkOrderExcute\Frm_WorkOrderExcuteJCBG.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WorkOrderExcute\Frm_WorkOrderExcuteJCBG.Designer.cs">
+      <DependentUpon>Frm_WorkOrderExcuteJCBG.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="BaseData\Frm_Location.resx">
+      <DependentUpon>Frm_Location.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BaseData\Frm_Machine.resx">
+      <DependentUpon>Frm_Machine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BaseData\Frm_MaterialBatch.resx">
+      <DependentUpon>Frm_MaterialBatch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BaseData\Frm_People.resx">
+      <DependentUpon>Frm_People.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BaseData\Frm_PTeam.resx">
+      <DependentUpon>Frm_PTeam.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_GenerateJson.resx">
+      <DependentUpon>Frm_GenerateJson.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Login.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Frm_Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Main.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Frm_Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackingBG\FormSelect.resx">
+      <DependentUpon>FormSelect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackingBG\Frm_PackingBG.resx">
+      <DependentUpon>Frm_PackingBG.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PackingBG\Frm_PrintLog.resx">
+      <DependentUpon>Frm_PrintLog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProduceManage\Frm_OwnProductBGEdit.resx">
+      <DependentUpon>Frm_OwnProductBGEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProduceManage\Frm_SelectBadItem.resx">
+      <DependentUpon>Frm_SelectBadItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProduceManage\RawMaterialBatchUp.resx">
+      <DependentUpon>RawMaterialBatchUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SystemManage\Frm_UpdatePassword.resx">
+      <DependentUpon>Frm_UpdatePassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SystemManage\Frm_Version.resx">
+      <DependentUpon>Frm_Version.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TransferCard\Frm_TransferCard.resx">
+      <DependentUpon>Frm_TransferCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TransferCard\Frm_TransferCardAdd.resx">
+      <DependentUpon>Frm_TransferCardAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TransferCard\Frm_TransferCardSplit.resx">
+      <DependentUpon>Frm_TransferCardSplit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WorkOrderExcute\Frm_WorkOrderExcute.resx">
+      <DependentUpon>Frm_WorkOrderExcute.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PagerControl.resx">
+      <DependentUpon>PagerControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WorkOrderExcute\Frm_WorkOrderExcuteJCBG.resx">
+      <DependentUpon>Frm_WorkOrderExcuteJCBG.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{967B4E0D-AD0C-4609-AB67-0FA40C0206D8}" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="image\background.jpg" />
+    <Content Include="MESClient.ico" />
+    <None Include="image\2.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Lib\Lib.csproj">
+      <Project>{7558ef4d-0416-46d4-8f70-cc22f8c87091}</Project>
+      <Name>Lib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

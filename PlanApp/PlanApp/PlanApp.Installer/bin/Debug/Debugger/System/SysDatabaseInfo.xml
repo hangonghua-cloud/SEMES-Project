@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Items>
+  <SysDatabaseInfo Id="dd45c716-cfd2-4a44-8325-c914e4287ce1">
+    <DataSource>UATEST-SERVER</DataSource>
+    <DatabaseType>MSSQLServer</DatabaseType>
+    <InitialCatalog>SIT_UA_tmp</InitialCatalog>
+    <Schema></Schema>
+    <ConnectionTimeout>15000</ConnectionTimeout>
+    <CommandTimeout>30000</CommandTimeout>
+    <NumberOfRetries>50</NumberOfRetries>
+    <RetriesDelay>500</RetriesDelay>
+    <Name>TemporaryFileStore</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SysDatabaseInfo>
+  <SysDatabaseInfo Id="ac156f4a-d080-418d-b55d-fdf3e0d6fbae">
+    <DataSource>UATEST-SERVER</DataSource>
+    <DatabaseType>MSSQLServer</DatabaseType>
+    <InitialCatalog>SIT_UA_sys</InitialCatalog>
+    <Schema></Schema>
+    <ConnectionTimeout>15000</ConnectionTimeout>
+    <CommandTimeout>30000</CommandTimeout>
+    <NumberOfRetries>50</NumberOfRetries>
+    <RetriesDelay>500</RetriesDelay>
+    <Name>SystemFileStore</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SysDatabaseInfo>
+  <SysDatabaseInfo Id="cca29b3e-04b8-460d-a3e6-08bde19fc130">
+    <DataSource>UATEST-SERVER</DataSource>
+    <DatabaseType>MSSQLServer</DatabaseType>
+    <InitialCatalog>SIT_UA_Eng</InitialCatalog>
+    <Schema></Schema>
+    <ConnectionTimeout>15000</ConnectionTimeout>
+    <CommandTimeout>90000</CommandTimeout>
+    <NumberOfRetries>50</NumberOfRetries>
+    <RetriesDelay>500</RetriesDelay>
+    <Name>EngineeringRepository</Name>
+    <IsSystemEntity>true</IsSystemEntity>
+  </SysDatabaseInfo>
+</Items>

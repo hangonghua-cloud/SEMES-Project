@@ -1,0 +1,25 @@
+﻿<div class="command-bar-side-panel">
+    <button ng-click="vm.cancel()" class="btn side-panel-button">{{'Siemens.SimaticIT.QualityApp.OQCManage.OQCCheckConfigadd.Tips_1'|translate}}</button>
+    <button ng-click="vm.save()" class="btn side-panel-button" ng-show="vm.validInputs">{{'Siemens.SimaticIT.QualityApp.OQCManage.OQCCheckConfigadd.Tips_2'|translate}}</button>
+</div>
+<div class="side-panel-property-area-body">
+    <sit-property-grid sit-id="add_form" sit-layout="Vertical" sit-type="Fluid" sit-mode="edit" sit-columns="1">
+        <!-- TODO: Put here the properties of the entity managed by the service -->
+        <sit-property sit-widget="sit-select" sit-value="vm.typeFactory.value" sit-options="vm.typeFactory.options"
+                      sit-to-display="'ResourceName'" sit-to-keep="'ResourceCode'">
+            {{'Siemens.SimaticIT.QualityApp.OQCManage.OQCCheckConfigadd.Tips_3'|translate}}
+        </sit-property>
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.TestMethodCoading"
+                      sit-validation="{required: true}" sit-read-only="false">{{'Siemens.SimaticIT.QualityApp.OQCManage.OQCCheckConfigadd.Tips_4'|translate}}</sit-property>
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.TestMethodName" sit-validation="{required: true}"
+                      sit-read-only="false">{{'Siemens.SimaticIT.QualityApp.OQCManage.OQCCheckConfigadd.Tips_5'|translate}}</sit-property>
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.TestMethodDescription"
+                      sit-validation="{required: true}" sit-read-only="false">{{'Siemens.SimaticIT.QualityApp.OQCManage.OQCCheckConfigadd.Tips_6'|translate}}</sit-property>
+        <!-- <sit-property sit-widget="sit-select" sit-read-only="false" sit-options="vm.typeSmallClass.options"
+                      sit-validation="{required: true}" sit-to-keep="'ItemValue'"
+                      sit-value="vm.typeSmallClass.value" sit-to-display="'ItemName'">{{'Siemens.SimaticIT.QualityApp.OQCManage.OQCCheckConfigadd.Tips_7'|translate}}</sit-property> -->
+        <sit-property sit-widget="sit-select" sit-read-only="false" sit-options="vm.typeEnabled.options"
+                      sit-validation="{required: true}" sit-to-keep="'ItemValue'" sit-value="vm.typeEnabled.value"
+                      sit-to-display="'ItemName'">{{'Siemens.SimaticIT.QualityApp.OQCManage.OQCCheckConfigadd.Tips_8'|translate}}</sit-property>
+    </sit-property-grid>
+</div>

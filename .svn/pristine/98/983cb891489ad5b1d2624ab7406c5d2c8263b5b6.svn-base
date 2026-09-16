@@ -1,0 +1,60 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1525
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlanApp.CommandHandler", "PlanApp\PlanApp.CommandHandler\PlanApp.CommandHandler.csproj", "{DD0D4FC4-C51E-44ED-A44D-8F03A8636AC6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlanApp.EventHandler", "PlanApp\PlanApp.EventHandler\PlanApp.EventHandler.csproj", "{B11E5226-F463-46B4-BCAF-7EE61FB32BB1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlanApp.ReadingFunctionHandler", "PlanApp\PlanApp.ReadingFunctionHandler\PlanApp.ReadingFunctionHandler.csproj", "{A5EBC134-4EF9-42BD-99ED-F8B28D0E9B6C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlanApp.UserInterface", "PlanApp\PlanApp.UserInterface\PlanApp.UserInterface.csproj", "{E91C9259-BE93-4C00-AE60-84DC64FD6823}"
+EndProject
+Project("{DA7C07C8-D9F3-4A79-840F-611D1C5950A5}") = "PlanApp.Installer", "PlanApp\PlanApp.Installer\PlanApp.Installer.iproj", "{620E794A-11BC-45FC-A1E1-3EB01CD0162E}"
+EndProject
+Project("{CA2279AF-CA6F-4B4B-98B3-8D49B8D38547}") = "PlanApp.PLPOMModel", "PlanApp\PlanApp.PLPOMModel\PlanApp.PLPOMModel.pmproj", "{5EB92BA1-3F52-459D-9C3C-E2AEBDC19347}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{EE689D1A-92E7-4E01-94BF-28A18C982B5F}"
+	ProjectSection(SolutionItems) = preProject
+		packages.reference = packages.reference
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DD0D4FC4-C51E-44ED-A44D-8F03A8636AC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD0D4FC4-C51E-44ED-A44D-8F03A8636AC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD0D4FC4-C51E-44ED-A44D-8F03A8636AC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD0D4FC4-C51E-44ED-A44D-8F03A8636AC6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B11E5226-F463-46B4-BCAF-7EE61FB32BB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B11E5226-F463-46B4-BCAF-7EE61FB32BB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B11E5226-F463-46B4-BCAF-7EE61FB32BB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B11E5226-F463-46B4-BCAF-7EE61FB32BB1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A5EBC134-4EF9-42BD-99ED-F8B28D0E9B6C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5EBC134-4EF9-42BD-99ED-F8B28D0E9B6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5EBC134-4EF9-42BD-99ED-F8B28D0E9B6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5EBC134-4EF9-42BD-99ED-F8B28D0E9B6C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E91C9259-BE93-4C00-AE60-84DC64FD6823}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E91C9259-BE93-4C00-AE60-84DC64FD6823}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E91C9259-BE93-4C00-AE60-84DC64FD6823}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E91C9259-BE93-4C00-AE60-84DC64FD6823}.Release|Any CPU.Build.0 = Release|Any CPU
+		{620E794A-11BC-45FC-A1E1-3EB01CD0162E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{620E794A-11BC-45FC-A1E1-3EB01CD0162E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{620E794A-11BC-45FC-A1E1-3EB01CD0162E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{620E794A-11BC-45FC-A1E1-3EB01CD0162E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5EB92BA1-3F52-459D-9C3C-E2AEBDC19347}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5EB92BA1-3F52-459D-9C3C-E2AEBDC19347}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5EB92BA1-3F52-459D-9C3C-E2AEBDC19347}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5EB92BA1-3F52-459D-9C3C-E2AEBDC19347}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F9D9FF07-3FEC-4F15-BBCB-9DDF602F4C39}
+	EndGlobalSection
+EndGlobal

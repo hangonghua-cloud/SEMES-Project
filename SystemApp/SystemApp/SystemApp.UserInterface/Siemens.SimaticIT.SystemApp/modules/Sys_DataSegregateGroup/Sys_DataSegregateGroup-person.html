@@ -1,0 +1,47 @@
+﻿<div class="command-bar-side-panel">
+    <button ng-click="vm.cancel()" class="btn side-panel-button">{{'Siemens.SimaticIT.SystemApp.Sys_DataSegregateGroup.Sys_DataSegregateGroupperson.Tips_1'|translate}}</button>
+
+</div>
+<div class="side-panel-property-area-body">
+    <sit-property-grid sit-id="add_form" sit-layout="Horizontal" sit-type="Fluid" sit-mode="edit" sit-columns="10">
+        <sit-property sit-widget="sit-select"
+                      sit-value="vm.DeptCtrl.value"
+                      sit-validation="{required: false}"
+                      sit-options="vm.DeptCtrl"
+                      sit-to-display="'ItemName'"
+                      sit-change="vm.DeptChangeHandler" ,
+                      sit-to-keep="'ID'">
+            {{'Siemens.SimaticIT.SystemApp.Sys_DataSegregateGroup.Sys_DataSegregateGroupperson.Tips_2'|translate}}
+        </sit-property>
+        <sit-property sit-widget="sit-text" sit-value="vm.QueryPersonCode" style="width:200px" sit-read-only="false">{{'Siemens.SimaticIT.SystemApp.Sys_DataSegregateGroup.Sys_DataSegregateGroupperson.Tips_3'|translate}}</sit-property>
+        <div style="margin-top:5px">
+            <sit-command-bar sit-type="action">
+                <sit-command sit-icon="fa-search" sit-type="main" sit-name="com.siemens.customcommand.search" :sit-tooltip="{{'Siemens.SimaticIT.SystemApp.Sys_DataSegregateGroup.Sys_DataSegregateGroupperson.Tips_4'|translate}}"
+                             ng-click="vm.searchButtonHandler" :sit-label="{{'Siemens.SimaticIT.SystemApp.Sys_DataSegregateGroup.Sys_DataSegregateGroupperson.Tips_4'|translate}}"></sit-command>
+            </sit-command-bar>
+        </div>
+
+    </sit-property-grid>
+    <div class="row">
+        <div class="col-md-19">
+
+            <div ui-grid="vm.gridOptionsAll"  ui-grid-selection ui-grid-pagination class="grid" ui-grid-selection style="height:480px"></div>
+        </div>
+        <div class="col-md-2" style="padding-top: 100px;">
+            <button ng-click="vm.save()" class="btn" style="width: 40px; margin-bottom: 15px; font-weight: bold; font-size: 17px;"> >> </button>
+            <button ng-click="vm.disSave()" class="btn" style="width: 40px; margin-bottom: 15px; font-weight: bold; font-size: 17px;"> << </button>
+        </div>
+        <div class="col-md-19">
+
+            <div ui-grid="vm.gridOptionsDistribution" ui-grid-selection style="height:480px"></div>
+        </div>
+    </div>
+</div>
+<style>
+    .canvas .property-are-parent .side-panel-wide-layout {
+        width: 60% !important;
+    }
+    .property-grid-input-group input {
+        width: 120px;
+    }
+</style>

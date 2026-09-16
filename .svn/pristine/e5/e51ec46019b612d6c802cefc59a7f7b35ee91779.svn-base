@@ -1,0 +1,320 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{21566527-8F54-4A8D-AA68-7662C2C31FB9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ALP.Application.Busines</RootNamespace>
+    <AssemblyName>ALP.Application.Busines</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ALP.Cache">
+      <HintPath>..\..\ALP.DLL\ALP.Cache.dll</HintPath>
+    </Reference>
+    <Reference Include="ALP.Cache.Factory">
+      <HintPath>..\..\ALP.DLL\ALP.Cache.Factory.dll</HintPath>
+    </Reference>
+    <Reference Include="ALP.Util">
+      <HintPath>..\..\ALP.DLL\ALP.Util.dll</HintPath>
+    </Reference>
+    <Reference Include="ALP.Util.Extension">
+      <HintPath>..\..\ALP.DLL\ALP.Util.Extension.dll</HintPath>
+    </Reference>
+    <Reference Include="ALP.Util.Offices">
+      <HintPath>..\..\ALP.DLL\ALP.Util.Offices.dll</HintPath>
+    </Reference>
+    <Reference Include="ALP.Util.SignalR">
+      <HintPath>..\..\ALP.DLL\ALP.Util.SignalR.dll</HintPath>
+    </Reference>
+    <Reference Include="ALP.Util.WebControl">
+      <HintPath>..\..\ALP.DLL\ALP.Util.WebControl.dll</HintPath>
+    </Reference>
+    <Reference Include="ALP.Util.WeChat">
+      <HintPath>..\..\ALP.DLL\ALP.Util.WeChat.dll</HintPath>
+    </Reference>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.6.0, Culture=neutral, PublicKeyToken=0e99375e54769942, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Portable.BouncyCastle.1.8.6\lib\net40\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=1.2.0.246, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SharpZipLib.1.2.0\lib\net45\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI, Version=2.5.3.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\NPOI.2.5.3\lib\net45\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OOXML, Version=2.5.3.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\NPOI.2.5.3\lib\net45\NPOI.OOXML.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXml4Net, Version=2.5.3.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\NPOI.2.5.3\lib\net45\NPOI.OpenXml4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXmlFormats, Version=2.5.3.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\NPOI.2.5.3\lib\net45\NPOI.OpenXmlFormats.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.ValueTuple.4.5.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AccountBLL.cs" />
+    <Compile Include="AppManage\AppVersionBLL.cs" />
+    <Compile Include="AuthorizeManage\AuthorizeBLL.cs" />
+    <Compile Include="AuthorizeManage\ModuleFormBLL.cs" />
+    <Compile Include="AuthorizeManage\ModuleFormInstanceBLL.cs" />
+    <Compile Include="BaseManage\BaseClipToolBLL.cs" />
+    <Compile Include="BaseManage\BaseShiftBLL.cs" />
+    <Compile Include="BaseManage\BaseVirtualSlotBLL.cs" />
+    <Compile Include="BaseManage\BaseUserLineBLL.cs" />
+    <Compile Include="BaseManage\Base_KeyParameterBLL.cs" />
+    <Compile Include="BaseManage\Base_KeyParameterItemBLL.cs" />
+    <Compile Include="BaseManage\Base_ReportGroupBLL.cs" />
+    <Compile Include="BaseManage\BsModelLevelBLL.cs" />
+    <Compile Include="BaseManage\BsModelLevelExtendFieldsBLL.cs" />
+    <Compile Include="BaseManage\BsModelResourceExtendInfoBLL.cs" />
+    <Compile Include="BaseManage\BsModelWithResourceBLL.cs" />
+    <Compile Include="BaseManage\F_FilesBLL.cs" />
+    <Compile Include="BaseManage\MainBLL.cs" />
+    <Compile Include="BaseManage\Base_ReportRecordBLL.cs" />
+    <Compile Include="BaseManage\Base_ReportRoleAuthorizeBLL.cs" />
+    <Compile Include="BaseManage\Base_ReportRoleBLL.cs" />
+    <Compile Include="BaseManage\WebChatApplyConfigBLL.cs" />
+    <Compile Include="BaseManage\WebChatApplyUserBLL.cs" />
+    <Compile Include="BaseManage\OrganizeBLL.cs" />
+    <Compile Include="BaseManage\UploadManageBLL.cs" />
+    <Compile Include="EquipmentManage\EP_EquipmentManage_BLL.cs" />
+    <Compile Include="MaterialManage\MM_ProductDispatchBillBLL.cs" />
+    <Compile Include="MaterialManage\MM_ProductDispatchDetailBLL.cs" />
+    <Compile Include="MaterialManage\MM_ProductDispatchItemBLL.cs" />
+    <Compile Include="MaterialManage\MM_ProductMoveRecordBLL.cs" />
+    <Compile Include="MaterialManage\MM_ProductInBLL.cs" />
+    <Compile Include="MaterialManage\MM_SemiProductMoveRecordBLL.cs" />
+    <Compile Include="MaterialManage\MM_ProductStockBLL.cs" />
+    <Compile Include="MaterialManage\MM_RawMaterialCodeBarBLL.cs" />
+    <Compile Include="MaterialManage\MM_RawMaterialOutBLL.cs" />
+    <Compile Include="MaterialManage\MM_SuperProductStockBLL.cs" />
+    <Compile Include="MaterialManage\MM_SupProductStockTransferBLL.cs" />
+    <Compile Include="MaterialManage\MM_ReceiptNoticeBLL.cs" />
+    <Compile Include="MaterialManage\MM_RawMaterialInBLL.cs" />
+    <Compile Include="Material\Base_MaterialBindTempBLL.cs" />
+    <Compile Include="Material\Base_MaterialBindTempFacetBLL.cs" />
+    <Compile Include="Material\Base_MaterialBLL.cs" />
+    <Compile Include="Material\Base_MaterialFacetBLL.cs" />
+    <Compile Include="Material\Base_MaterialFactoryBLL.cs" />
+    <Compile Include="Material\Base_MaterialGroupBindMaterialBLL.cs" />
+    <Compile Include="Material\Base_MaterialGroupBLL.cs" />
+    <Compile Include="Material\Base_ProcessAttrBLL.cs" />
+    <Compile Include="Material\BS_ProcessOfOperationsAttrBLL.cs" />
+    <Compile Include="Material\Base_ProcessAttrItemBLL.cs" />
+    <Compile Include="Material\Base_SupplierBindMaterialGroupBLL.cs" />
+    <Compile Include="Material\Base_SupplierManageBLL.cs" />
+    <Compile Include="Material\BS_BOMBLL.cs" />
+    <Compile Include="Material\BS_BOMItemsBLL.cs" />
+    <Compile Include="Material\BS_ProcessBLL.cs" />
+    <Compile Include="Material\BS_ProcessOfOperationsBLL.cs" />
+    <Compile Include="MaterialManage\MM_RawMaterialStockBLL.cs" />
+    <Compile Include="PlanManage\PL_AvoidProduceBLL.cs" />
+    <Compile Include="PlanManage\PL_BOMItemsBLL.cs" />
+    <Compile Include="PlanManage\PL_BOMBLL.cs" />
+    <Compile Include="PlanManage\PL_ExeWorkOrderBLL.cs" />
+    <Compile Include="PlanManage\PL_ExeWorkOrderWearingLayerBLL.cs" />
+    <Compile Include="PlanManage\PL_FirstInspectionConfirmBLL.cs" />
+    <Compile Include="PlanManage\PL_LoadingScheduleBLL.cs" />
+    <Compile Include="PlanManage\PL_MaterialFacetBLL.cs" />
+    <Compile Include="PlanManage\PL_MaterialBLL.cs" />
+    <Compile Include="PlanManage\PL_PlanStoreIssueBLL.cs" />
+    <Compile Include="PlanManage\PL_PrdOrderReqMaterialsBLL.cs" />
+    <Compile Include="PlanManage\PL_ProcessBLL.cs" />
+    <Compile Include="PlanManage\PL_ProcessOfOperationsAttrBLL.cs" />
+    <Compile Include="PlanManage\PL_ProcessOfOperationsBLL.cs" />
+    <Compile Include="PlanManage\PL_ProductionOrderBLL.cs" />
+    <Compile Include="PlanManage\PL_ProductRuleBLL.cs" />
+    <Compile Include="PlanManage\PL_PurchaseOrderBLL.cs" />
+    <Compile Include="PlanManage\PL_WorkOrderBLL.cs" />
+    <Compile Include="PlanManage\PL_WorkOrderSortRuleBLL.cs" />
+    <Compile Include="ProduceManage\PM_AbrasiveBGBLL.cs" />
+    <Compile Include="ProduceManage\PM_AbrasiveOrderBLL.cs" />
+    <Compile Include="ProduceManage\PM_MaterialBatchConsumeRecordBLL.cs" />
+    <Compile Include="ProduceManage\PM_ReworkRecord_DetailBLL.cs" />
+    <Compile Include="ProduceManage\PM_ReworkRecordBLL.cs" />
+    <Compile Include="ProduceManage\PM_TransferCardScrapRecordBLL.cs" />
+    <Compile Include="ProduceManage\PM_TransferBGPersonRecordBLL.cs" />
+    <Compile Include="ProduceManage\PM_FormulaRecordBLL.cs" />
+    <Compile Include="ProduceManage\PM_FormulaRecordDetailBLL.cs" />
+    <Compile Include="ProduceManage\PM_MaterialBatchUpRecordBLL.cs" />
+    <Compile Include="ProduceManage\PM_OwnProductBGBLL.cs" />
+    <Compile Include="ProduceManage\PM_OwnProductOrderBLL.cs" />
+    <Compile Include="ProduceManage\PM_OwnProductTransferBLL.cs" />
+    <Compile Include="ProduceManage\PM_PackingBGTransferCardBLL.cs" />
+    <Compile Include="ProduceManage\PM_PackingPrintMarkBLL.cs" />
+    <Compile Include="ProduceManage\PM_PackingRecordBLL.cs" />
+    <Compile Include="ProduceManage\PM_PrinterOrderBLL.cs" />
+    <Compile Include="ProduceManage\PM_PrinterWorkOrderBGBLL.cs" />
+    <Compile Include="ProduceManage\PM_PrinterWorkOrderBLL.cs" />
+    <Compile Include="ProduceManage\PM_ProcessBadItemBLL.cs" />
+    <Compile Include="ProduceManage\PM_ProductionFirstInspectionBLL.cs" />
+    <Compile Include="ProduceManage\PM_ProductionFirstInspectionDetailBLL.cs" />
+    <Compile Include="ProduceManage\PM_ProcessBadBLL.cs" />
+    <Compile Include="ProduceManage\PM_TeamPerson_ItemsBLL.cs" />
+    <Compile Include="ProduceManage\PM_TeamPersonBLL.cs" />
+    <Compile Include="ProduceManage\PM_StartUpRecordBLL.cs" />
+    <Compile Include="ProduceManage\PM_TranferCardBGRecordBLL.cs" />
+    <Compile Include="ProduceManage\PM_TransferCardBLL.cs" />
+    <Compile Include="ProduceManage\PM_BGBadRecordBLL.cs" />
+    <Compile Include="ProduceManage\PM_TransferCardResumeBLL.cs" />
+    <Compile Include="QualityManage\QC_IPQCDetailResult_BLL.cs" />
+    <Compile Include="QualityManage\QC_IPQCDetail_BLL.cs" />
+    <Compile Include="QualityManage\QC_IQCQualityCheck_BLL.cs" />
+    <Compile Include="QualityManage\QC_MaterialInventoryCheckItemBLL.cs" />
+    <Compile Include="QualityManage\QC_MaterialInventoryCheck_BLL.cs" />
+    <Compile Include="QualityManage\QC_OQCCheckConfigBLL.cs" />
+    <Compile Include="QualityManage\QC_OQCCheckConfigItemBLL.cs" />
+    <Compile Include="QualityManage\QC_OQCQualityCheckBLL.cs" />
+    <Compile Include="QualityManage\QC_OQCQualityCheckItemBLL.cs" />
+    <Compile Include="QualityManage\QC_PollingDetailResult_BLL.cs" />
+    <Compile Include="QualityManage\QC_PollingDetail_BLL.cs" />
+    <Compile Include="QualityManage\QC_IQCQualityCheckItem_BLL.cs" />
+    <Compile Include="QualityManage\QC_TestItemMaintenanceBLL.cs" />
+    <Compile Include="QualityManage\QC_TestMaintenanceBLL.cs" />
+    <Compile Include="QualityManage\QC_TestMethodItemMaintenance_BLL.cs" />
+    <Compile Include="QualityManage\QC_TestMethodMaintenance_BLL.cs" />
+    <Compile Include="QualityManage\QC_TestMethodMaterialBLL.cs" />
+    <Compile Include="QualityManage\QC_TestProcessMaintenanceBLL.cs" />
+    <Compile Include="SystemManage\BsPeopleByPrintServerBLL.cs" />
+    <Compile Include="Calendar\BS_BreakTimeManage_BLL.cs" />
+    <Compile Include="Calendar\BS_CalendarManage_BLL.cs" />
+    <Compile Include="Calendar\BS_HolidayManage_BLL.cs" />
+    <Compile Include="Calendar\BS_ShiftManage_BLL.cs" />
+    <Compile Include="Calendar\BS_ShiftOfCalendar_BLL.cs" />
+    <Compile Include="Common\CommonBLL.cs" />
+    <Compile Include="ModelLevel\Level_BLL.cs" />
+    <Compile Include="PublicInfoManage\EmailCategoryBLL.cs" />
+    <Compile Include="PublicInfoManage\EmailContentBLL.cs" />
+    <Compile Include="PublicInfoManage\FileFolderBLL.cs" />
+    <Compile Include="PublicInfoManage\FileInfoBLL.cs" />
+    <Compile Include="PublicInfoManage\NewsBLL.cs" />
+    <Compile Include="PublicInfoManage\NoticeBLL.cs" />
+    <Compile Include="PublicInfoManage\ScheduleBLL.cs" />
+    <Compile Include="SystemManage\BSAppLogUserInfoBLL.cs" />
+    <Compile Include="SystemManage\BSAppRoleBLL.cs" />
+    <Compile Include="SystemManage\BsPrintServerBLL.cs" />
+    <Compile Include="SystemManage\DataSourceBLL.cs" />
+    <Compile Include="SystemManage\ExcelExportBLL.cs" />
+    <Compile Include="SystemManage\ExcelImportBLL.cs" />
+    <Compile Include="SystemManage\LogBLL.cs" />
+    <Compile Include="SystemManage\CodeRuleBLL.cs" />
+    <Compile Include="SystemManage\DataBaseBackupBLL.cs" />
+    <Compile Include="AuthorizeManage\FilterIPBLL.cs" />
+    <Compile Include="AuthorizeManage\FilterTimeBLL.cs" />
+    <Compile Include="SystemManage\DataBaseTableBLL.cs" />
+    <Compile Include="SystemManage\DataBaseLinkBLL.cs" />
+    <Compile Include="SystemManage\AreaBLL.cs" />
+    <Compile Include="AuthorizeManage\ModuleBLL.cs" />
+    <Compile Include="AuthorizeManage\ModuleButtonBLL.cs" />
+    <Compile Include="AuthorizeManage\ModuleColumnBLL.cs" />
+    <Compile Include="AuthorizeManage\PermissionBLL.cs" />
+    <Compile Include="BaseManage\DepartmentBLL.cs" />
+    <Compile Include="BaseManage\UserBLL.cs" />
+    <Compile Include="BaseManage\PostBLL.cs" />
+    <Compile Include="BaseManage\JobBLL.cs" />
+    <Compile Include="BaseManage\UserGroupBLL.cs" />
+    <Compile Include="SystemManage\DataItemBLL.cs" />
+    <Compile Include="SystemManage\DataItemDetailBLL.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="BaseManage\RoleBLL.cs" />
+    <Compile Include="SystemManage\SystemBLL.cs" />
+    <Compile Include="SystemManage\Sys_DataSegregateGroupBLL.cs" />
+    <Compile Include="SystemManage\Sys_DataSegregateGroupToLabelBLL.cs" />
+    <Compile Include="SystemManage\Sys_DataSegregateGroupToPersonBLL.cs" />
+    <Compile Include="SystemManage\Sys_DataSegregateLabel_BLL.cs" />
+    <Compile Include="SystemManage\Sys_DepartmentBLL.cs" />
+    <Compile Include="SystemManage\Sys_PersonsBLL.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\ALP.Application.UtilExtend\ALP.Application.UtilExtend.csproj">
+      <Project>{71adbdbb-7d73-4766-8fe1-f8482a7bffe3}</Project>
+      <Name>ALP.Application.UtilExtend</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ALP.Data\ALP.Data.Repository\ALP.Data.Repository.csproj">
+      <Project>{1751a2dd-0f00-4c76-b180-97e8f72fe078}</Project>
+      <Name>ALP.Data.Repository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ALP.Application.Code\ALP.Application.Code.csproj">
+      <Project>{9b10db87-130c-41d3-8687-1fac877db74a}</Project>
+      <Name>ALP.Application.Code</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ALP.Application.Entity\ALP.Application.Entity.csproj">
+      <Project>{c10920fe-8c74-4993-a7f4-1da189da842c}</Project>
+      <Name>ALP.Application.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ALP.Application.IService\ALP.Application.IService.csproj">
+      <Project>{6ce11ff9-1cb7-494e-89c7-5f06bea94211}</Project>
+      <Name>ALP.Application.IService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ALP.Application.Service\ALP.Application.Service.csproj">
+      <Project>{d6b8abea-c923-4605-99a9-b7aca5de4d8a}</Project>
+      <Name>ALP.Application.Service</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ProcessManage\" />
+    <Folder Include="ReportManage\" />
+    <Folder Include="Technology\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

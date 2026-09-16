@@ -1,0 +1,26 @@
+﻿<style>
+    .row {
+        padding: 5px;
+        margin-top: 10px;
+    }
+</style>
+<div class="command-bar-side-panel">
+    <button ng-click="vm.cancel()" class="btn side-panel-button">{{'Siemens.SimaticIT.SystemApp.Sys_DataSegregateGroup.Sys_DataSegregateGroupadd.Tips_1'|translate}}</button>
+    <button ng-click="vm.save()" class="btn side-panel-button" ng-show="vm.validInputs">{{'Siemens.SimaticIT.SystemApp.Sys_DataSegregateGroup.Sys_DataSegregateGroupadd.Tips_2'|translate}}</button>
+</div>
+<div class="side-panel-property-area-body">
+    <sit-property-grid sit-id="view_form" sit-layout="Horizontal" sit-type="Fixed" sit-mode="edit" sit-columns="1">
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.GroupCode" sit-validation="{required: true}"
+                      sit-read-only="false">{{'Siemens.SimaticIT.SystemApp.Sys_DataSegregateGroup.Sys_DataSegregateGroupadd.Tips_3'|translate}}</sit-property>
+        <sit-property sit-widget="sit-text" sit-value="vm.currentItem.GroupName" sit-validation="{required: true}"
+                      sit-read-only="false">{{'Siemens.SimaticIT.SystemApp.Sys_DataSegregateGroup.Sys_DataSegregateGroupadd.Tips_4'|translate}}</sit-property>
+        <!--<sit-property sit-widget="sit-numeric" sit-value="vm.currentItem.GroupLabelValue" sit-validation="{required: true}"
+                      sit-read-only="false">{{'Siemens.SimaticIT.SystemApp.Sys_DataSegregateGroup.Sys_DataSegregateGroupadd.Tips_5'|translate}}</sit-property>-->
+    </sit-property-grid>
+    <sit-property-grid sit-id="view_form" sit-layout="Horizontal" sit-type="Fixed" sit-mode="edit" sit-columns="1">
+        <sit-property sit-widget="sit-textarea" sit-value="vm.currentItem.Remarks" sit-validation="{maxlength: 80}"  sit-read-only="false">
+            {{'Siemens.SimaticIT.SystemApp.Sys_DataSegregateGroup.Sys_DataSegregateGroupadd.Tips_6'|translate}}
+        </sit-property>
+    </sit-property-grid>
+</div>
+
